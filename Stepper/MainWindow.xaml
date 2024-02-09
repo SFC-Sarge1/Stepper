@@ -7,23 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Stepper Speed" HorizontalAlignment="Left" Margin="85,49,0,0" VerticalAlignment="Top"/>
-        <Label Content="Stepper Move" HorizontalAlignment="Left" Margin="87,122,0,0" VerticalAlignment="Top"/>
-        <Label Content="Controller Pin" HorizontalAlignment="Left" Margin="89,161,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtStepperSpeed" HorizontalAlignment="Left" Margin="203,53,0,0" Text="30" VerticalAlignment="Top" Width="120" TextAlignment="Right"/>
-        <TextBox x:Name="txtStepperMove" HorizontalAlignment="Left" Margin="203,124,0,0" Text="200" VerticalAlignment="Top" Width="120" TextAlignment="Right"/>
-        <TextBox x:Name="txtControllerPin" HorizontalAlignment="Left" Margin="203,169,0,0" Text="136" VerticalAlignment="Top" Width="120" TextAlignment="Right"/>
+        <Label Content="StepperX Move" HorizontalAlignment="Left" Margin="87,122,0,0" VerticalAlignment="Top"/>
+        <Label Content="StepperY Move" HorizontalAlignment="Left" Margin="87,153,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtStepperYMove" HorizontalAlignment="Left" Margin="203,155,0,0" Text="4.00" VerticalAlignment="Top" Width="120" TextAlignment="Right"/>
+        <TextBox x:Name="txtStepperXMove" HorizontalAlignment="Left" Margin="203,124,0,0" Text="4.00" VerticalAlignment="Top" Width="120" TextAlignment="Right"/>
         <Button x:Name="btnRun" Content="Run" HorizontalAlignment="Left" Height="28" Margin="102,237,0,0" VerticalAlignment="Top" Width="104" Click="btnRun_Click"/>
         <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Height="28" Margin="300,237,0,0" VerticalAlignment="Top" Width="104" Click="btnStop_Click"/>
-        <Label Content="Direction" HorizontalAlignment="Left" Margin="86,83,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cmbDirection" HorizontalAlignment="Left" Margin="203,87,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" IsSynchronizedWithCurrentItem="False">
-            <ComboBoxItem Content="Clockwise"/>
-            <ComboBoxItem Content="Counter Clockwise"/>
-        </ComboBox>
-        <Label x:Name="lblXaxis" Content="X Axis DRO Value" HorizontalAlignment="Center" Margin="0,122,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.055,-1.064"/>
-        <TextBox x:Name="txtXaxisDroValue" HorizontalAlignment="Left" Margin="488,124,0,0" TextWrapping="Wrap" Text="0.000" VerticalAlignment="Top" Width="120" TextAlignment="Right"/>
-        <Label x:Name="lblbaudRate" Content="BaudRate" HorizontalAlignment="Left" Margin="352,85,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtBaudRate" HorizontalAlignment="Left" Margin="488,87,0,0" TextWrapping="Wrap" Text="9600" VerticalAlignment="Top" Width="120" TextAlignment="Right"/>
-
+        <Label x:Name="lblbaudRate" Content="BaudRate" HorizontalAlignment="Left" Margin="92,85,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBaudRate" HorizontalAlignment="Left" Margin="203,85,0,0" TextWrapping="Wrap" Text="9600" VerticalAlignment="Top" Width="120" TextAlignment="Right"/>
     </Grid>
 </Window>
