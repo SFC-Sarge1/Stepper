@@ -1,11 +1,12 @@
-﻿<Window x:Name="xyTableStepperMotorControl" x:Class="Stepper.MainWindow"
+﻿<mah:MetroWindow x:Class="Stepper.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Stepper"
         mc:Ignorable="d"
-        Title="X,Y Table Stepper Motor Control" Height="284" Width="714">
+        Title="X,Y Table Stepper Motor Control" Height="284" Width="714" WindowStartupLocation="CenterScreen">
     <Grid x:Name="StepperMotorControl" Margin="0,0,0,-6">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -31,4 +32,4 @@
             <ComboBoxItem Content="COM3"/>
         </ComboBox>
     </Grid>
-</Window>
+</mah:MetroWindow>
