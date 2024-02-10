@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Stepper"
         mc:Ignorable="d"
-        Title="X,Y Table Stepper Motor Control" Height="284" Width="714" WindowStartupLocation="CenterScreen">
+        Title="X,Y Table Stepper Motor Control" Height="284" Width="714" BorderBrush="{DynamicResource MahApps.Brushes.Border.NonActive}" WindowStartupLocation="CenterScreen" WindowTitleBrush="#FF060404">
     <Grid x:Name="StepperMotorControl" Margin="0,0,0,-6">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

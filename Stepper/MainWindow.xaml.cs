@@ -10,11 +10,12 @@ namespace Stepper
     using System.Globalization;
     using System.Windows.Controls;
     using System.Windows.Input;
+    using MahApps.Metro.Controls;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public SerialPort sp = new SerialPort();
         public string myPortName = "COM5"; // Serial Port Name
@@ -36,7 +37,7 @@ namespace Stepper
         public MainWindow()
         {
             InitializeComponent();
-            myPortName = (string)cmbComPort.SelectedItem;
+            myPortName = cmbComPort.Text;
             int baudRate = Convert.ToInt32(txtBaudRate.Text);
             sp = new(myPortName, baudRate);
             sp.Open();

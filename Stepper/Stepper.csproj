@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="System.IO.Ports" Version="8.0.0" />
     <PackageReference Include="UtilityDelta.Gpio" Version="4.3.0" />
     <PackageReference Include="UtilityDelta.Stepper" Version="2.2.0" />
