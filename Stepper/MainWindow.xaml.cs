@@ -38,29 +38,14 @@ namespace Stepper
         public MainWindow()
         {
             InitializeComponent();
-            try
-            {
                 txtBaudRate.Text = "9600";
                 baudRate = Convert.ToInt32(txtBaudRate.Text);
-                cmbComPort.SelectedValue = "COM3";
-                myPortName = "COM3";
+            String selectedItem = cmbComPort.Items.CurrentItem.ToString();
+            cmbComPort.SelectedItem = selectedItem;
+            myPortName = selectedItem;
                 sp = new(myPortName, baudRate);
                 if (sp.IsOpen == false) { sp.Open(); }
             }
-            catch (System.IO.IOException ex)
-            {
-                string error = ex.Message;
-                if (error.Contains("COM3"))
-                {
-                txtBaudRate.Text = "9600";
-            baudRate = Convert.ToInt32(txtBaudRate.Text);
-                    cmbComPort.SelectedValue = "COM5";
-                    myPortName = "COM5";
-            sp = new(myPortName, baudRate);
-            if (sp.IsOpen == false) { sp.Open(); }
-        }
-            }
-        }
         private void btnRun_Click(object sender, RoutedEventArgs e)
         {
             if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == true)
@@ -77,6 +62,7 @@ namespace Stepper
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
+                btnGoHome.IsEnabled = false;
             }
             else if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == false)
             {
@@ -90,6 +76,7 @@ namespace Stepper
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
+                btnGoHome.IsEnabled = true;
             }
             else if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == true)
             {
@@ -103,30 +90,32 @@ namespace Stepper
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
+                btnGoHome.IsEnabled = true;
             }
             if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == false)
             {
                 stringValue = txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
+                btnGoHome.IsEnabled = true;
             }
         }
-        private void btnStop_Click(object sender, RoutedEventArgs e)
-        {
-            txtXaxisStepperMove.Text = "0.00";
-            txtYaxisStepperMove.Text = "0.00";
-            if (ckbXaxisResetToZero.IsChecked == true)
-            {
-                ckbXaxisResetToZero.IsChecked = false;
-                zeroXaxis = 0;
-            }
-            if (ckbYaxisResetToZero.IsChecked == true)
-            {
-                ckbYaxisResetToZero.IsChecked = false;
-                zeroYaxis = 0;
-            }
-            stringValue = txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + zeroYaxis.ToString() + ",";
-            sp.Write(stringValue);
-        }
+        //private void btnStop_Click(object sender, RoutedEventArgs e)
+        //{
+        //    txtXaxisStepperMove.Text = "0.00";
+        //    txtYaxisStepperMove.Text = "0.00";
+        //    if (ckbXaxisResetToZero.IsChecked == true)
+        //    {
+        //        ckbXaxisResetToZero.IsChecked = false;
+        //        zeroXaxis = 0;
+        //    }
+        //    if (ckbYaxisResetToZero.IsChecked == true)
+        //    {
+        //        ckbYaxisResetToZero.IsChecked = false;
+        //        zeroYaxis = 0;
+        //    }
+        //    stringValue = txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + zeroYaxis.ToString() + ",";
+        //    sp.Write(stringValue);
+        //}
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
             if (sp.IsOpen == true) { sp.Close(); }
@@ -141,18 +130,34 @@ namespace Stepper
             txtYaxisStepperMove.Text = "0.00";
             ckbYaxisResetToZero.IsChecked = false;
             zeroYaxis = 0;
-            stringValue = txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + zeroYaxis.ToString() + ",";
+            stringValue = txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
             sp.Write(stringValue);
         }
         private void CheckBoxChanged(object sender, RoutedEventArgs e)
         {
-            if (ckbXaxisResetToZero.IsChecked == true)
+            if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == true)
+            {
+                zeroXaxis = 1;
+                zeroYaxis = 1;
+                btnGoHome.IsEnabled = false;
+           }
+            else if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == false)
+            {
+                zeroXaxis = 1;
+                zeroYaxis = 0;
+                btnGoHome.IsEnabled = true;
+            }
+            else if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == true)
             {
                 zeroXaxis = 0;
+                zeroYaxis = 1;
+                btnGoHome.IsEnabled = true;
             }
-            if (ckbYaxisResetToZero.IsChecked == true)
+            if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == false)
             {
+                zeroXaxis = 0;
                 zeroYaxis = 0;
+                btnGoHome.IsEnabled = true;
             }
         }
     }
