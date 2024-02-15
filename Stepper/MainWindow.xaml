@@ -7,29 +7,31 @@
         xmlns:local="clr-namespace:Stepper"
         mc:Ignorable="d"
         Title="X,Y Table Stepper Motor Control" Height="284" Width="714" BorderBrush="{DynamicResource MahApps.Brushes.Border.NonActive}" WindowStartupLocation="CenterScreen" WindowTitleBrush="#FF060404">
-    <Grid x:Name="StepperMotorControl" Margin="0,0,0,-6">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Label Content="StepperX Move" HorizontalAlignment="Left" Margin="87,87,0,0" VerticalAlignment="Top"/>
-        <Label Content="StepperY Move" HorizontalAlignment="Left" Margin="87,118,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtStepperYMove" HorizontalAlignment="Left" Margin="203,120,0,0" Text="4.00" VerticalAlignment="Top" Width="120" TextAlignment="Right"/>
-        <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="323,116,0,0"/>
-        <TextBox x:Name="txtStepperXMove" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="203,89,0,0" Text="4.00" VerticalAlignment="Top" Width="120" TextAlignment="Right"/>
-        <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="323,85,0,0"/>
-        <Button x:Name="btnRun" Content="Run" HorizontalAlignment="Left" Height="28" Margin="102,185,0,0" VerticalAlignment="Top" Width="104" Click="btnRun_Click"/>
-        <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Height="28" Margin="427,185,0,0" VerticalAlignment="Top" Width="104" Click="btnStop_Click"/>
-        <Label x:Name="lblbaudRate" Content="BaudRate" HorizontalAlignment="Left" Margin="92,30,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtBaudRate" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="203,34,0,0" TextWrapping="Wrap" Text="9600" VerticalAlignment="Top" Width="120" TextAlignment="Right"/>
-        <TextBox x:Name="txtMotorSpeed" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="515,88,0,0" Text="500.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" />
-        <Label x:Name="MotorSpeed" Content="Motor Speed" HorizontalAlignment="Left" Margin="374,80,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtMotorAcceleration" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="515,120,0,0" Text="10.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" />
-        <Label x:Name="MotorAcceleration" Content="Motor Acceleration" HorizontalAlignment="Left" Margin="374,114,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnGoHome" Content="Go Home" HorizontalAlignment="Left" Height="28" Margin="263,185,0,0" VerticalAlignment="Top" Width="104" Click="btnGoHome_Click"/>
-        <Label x:Name="lblComPort" Content="ComPort" HorizontalAlignment="Left" Margin="374,30,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cmbComPort" HorizontalAlignment="Left" Margin="515,34,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="COM5" IsSelected="True"/>
-            <ComboBoxItem Content="COM3"/>
-        </ComboBox>
+    <Window.Resources>
+        <ObjectDataProvider ObjectType="{x:Type ports:SerialPort}" MethodName="GetPortNames" x:Key="portNames"/>
+    </Window.Resources>
+    <Grid x:Name="StepperMotorControl" Margin="0,0,0,-84" Background="{DynamicResource MahApps.Brushes.ThemeBackground}" RenderTransformOrigin="0.497,1">
+        <Label x:Name="lblXaxisMove" Content="X axis Move:" HorizontalAlignment="Left" Margin="32,89,0,0" VerticalAlignment="Top" Height="26" Width="76"/>
+        <Label x:Name="lblYaxisMove" Content="Y axis Move:" HorizontalAlignment="Left" Margin="32,119,0,0" VerticalAlignment="Top" Height="26" Width="76"/>
+        <TextBox x:Name="txtYaxisStepperMove" HorizontalAlignment="Center" Margin="0,120,0,0" Text="4.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26" Grid.Column="1"/>
+        <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,120,0,0" Height="26" Width="32" Grid.Column="2"/>
+        <TextBox x:Name="txtXaxisStepperMove" HorizontalAlignment="Center" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="0,89,0,0" Text="4.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26" Grid.Column="1"/>
+        <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,89,0,0" Height="26" Width="32" Grid.Column="2"/>
+        <Label x:Name="lblbaudRate" Content="BaudRate:" HorizontalAlignment="Left" Margin="46,32,0,0" VerticalAlignment="Top" Height="26" Width="62"/>
+        <TextBox x:Name="txtBaudRate" HorizontalAlignment="Center" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="0,34,0,0" TextWrapping="Wrap" Text="9600" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26" Grid.Column="1"/>
+        <TextBox x:Name="txtXaxisMotorSpeed" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="121,88,0,0" Text="1000.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Grid.Column="3" Height="26" Grid.ColumnSpan="2" />
+        <Label x:Name="lblComPort" Content="ComPort:" HorizontalAlignment="Left" Margin="57,36,0,0" VerticalAlignment="Top" Grid.Column="3" Height="26" Width="59" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtYaxisMotorSpeed" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="121,121,0,0" Text="1000.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Grid.Column="3" Height="26" Grid.ColumnSpan="2" />
+        <Label x:Name="lblXaxisMotorSpeed" Content="X axis Motor Speed:" HorizontalAlignment="Left" Margin="3,90,0,0" VerticalAlignment="Top" Grid.Column="3" Height="26" Width="115" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblYaxisMotorSpeed" Content="Y axis Motor Speed:" HorizontalAlignment="Left" Margin="3,122,0,0" VerticalAlignment="Top" Grid.Column="3" Height="26" Width="115" Grid.ColumnSpan="2"/>
+        <CheckBox x:Name="ckbXaxisResetToZero" Content="X axis Zero" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged" HorizontalAlignment="Left" Margin="44,93,0,0" VerticalAlignment="Top" Grid.Column="2" Height="18" Width="82"/>
+        <CheckBox x:Name="ckbYaxisResetToZero" Content="Y axis Zero" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged" HorizontalAlignment="Left" Margin="45,122,0,0" VerticalAlignment="Top" Grid.Column="2" Height="18" Width="81"/>
+        <ComboBox x:Name="cmbComPort" HorizontalAlignment="Left" Margin="121,34,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Source={StaticResource portNames}}" Grid.Column="3" Height="26" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnRunXAxis" Content="Run X Axis" HorizontalAlignment="Center" Height="28" Margin="0,185,0,0" VerticalAlignment="Top" Width="119" Click="XAxisRun_Click" Grid.Column="1"/>
+        <Button x:Name="btnRunYAxis" Content="Run Y Axis" HorizontalAlignment="Center" Height="28" Margin="0,223,0,0" VerticalAlignment="Top" Width="119" Click="YAxisRun_Click" Grid.Column="1"/>
+        <Button x:Name="btnRunXYAxis" Content="Run X,Y Axis" HorizontalAlignment="Center" Height="28" Margin="0,262,0,0" VerticalAlignment="Top" Width="118" Click="XYAxisRun_Click" Grid.Column="1"/>
+        <Button x:Name="btnXAxisGoHome" Content="X Axis Go Home" HorizontalAlignment="Left" Height="28" Margin="34,185,0,0" VerticalAlignment="Top" Width="104" Click="XAxisGoHome_Click" Grid.Column="2"/>
+        <Button x:Name="btnYAxisGoHome" Content="Y Axis Go Home" HorizontalAlignment="Left" Height="28" Margin="34,224,0,0" VerticalAlignment="Top" Width="104" Click="YAxisGoHome_Click" Grid.Column="2"/>
+        <Button x:Name="btnXYAxisGoHome" Content="X,Y Axis Go Home" HorizontalAlignment="Left" Height="28" Margin="34,263,0,0" VerticalAlignment="Top" Width="104" Click="XYAxisGoHome_Click" Grid.Column="2"/>
     </Grid>
 </mah:MetroWindow>
