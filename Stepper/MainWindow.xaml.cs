@@ -21,7 +21,12 @@ namespace Stepper
         public int baudRate = 9600;
         public int milliseconds = 4000;
         public string axis = "X";
-
+        public string currentXAxis = "0.00";
+        public string currentYAxis = "0.00";
+        public string previousXAxis = "0.00";
+        public string previousYAxis = "0.00";
+        bool XaxisChanged = false;
+        bool YaxisChanged = false;
         private void TextBox_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             var textBox = sender as TextBox;
@@ -50,6 +55,7 @@ namespace Stepper
         private void XAxisRun_Click(object sender, RoutedEventArgs e)
         {
             axis = "X";
+            previousXAxis = txtXaxisStepperMove.Text;
             if (ckbXaxisResetToZero.IsChecked == true)
             {
                 zeroXaxis = 1;
@@ -60,18 +66,26 @@ namespace Stepper
                 stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 zeroXaxis = 0;
+                txtXaxisStepperCurrent.Text = "0.00";
                 btnXAxisGoHome.IsEnabled = false;
             }
             if (ckbXaxisResetToZero.IsChecked == false)
             {
                 stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
+                if (XaxisChanged == true)
+                {
+                currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
+                txtXaxisStepperCurrent.Text = currentXAxis;
+                    XaxisChanged = false;
+                }
                 btnXAxisGoHome.IsEnabled = true;
             }
         }
         private void YAxisRun_Click(object sender, RoutedEventArgs e)
         {
             axis = "Y";
+            currentYAxis = txtYaxisStepperCurrent.Text;
             if (ckbYaxisResetToZero.IsChecked == true)
             {
                 zeroYaxis = 1;
@@ -82,12 +96,19 @@ namespace Stepper
                 stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 zeroYaxis = 0;
+                txtYaxisStepperCurrent.Text = "0.00";
                 btnYAxisGoHome.IsEnabled = false;
             }
             if (ckbYaxisResetToZero.IsChecked == false)
             {
                 stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
+                if (YaxisChanged == true)
+                {
+                currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
+                txtYaxisStepperCurrent.Text = currentYAxis;
+                    YaxisChanged = false;
+                }
                 btnYAxisGoHome.IsEnabled = true;
             }
         }
@@ -108,6 +129,8 @@ namespace Stepper
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
+                txtXaxisStepperCurrent.Text = "0.00";
+                txtYaxisStepperCurrent.Text = "0.00";
                 btnXAxisGoHome.IsEnabled = false;
                 btnYAxisGoHome.IsEnabled = false;
                 btnXYAxisGoHome.IsEnabled = false;
@@ -124,6 +147,14 @@ namespace Stepper
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
+                txtXaxisStepperCurrent.Text = "0.00";
+                if (YaxisChanged == true)
+                {
+                currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
+                txtYaxisStepperCurrent.Text = currentYAxis;
+                    YaxisChanged = false;
+                }
+                txtYaxisStepperCurrent.Text = currentYAxis;
                 btnXAxisGoHome.IsEnabled = true;
                 btnYAxisGoHome.IsEnabled = false;
                 btnXYAxisGoHome.IsEnabled = false;
@@ -140,6 +171,13 @@ namespace Stepper
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
+                if (XaxisChanged == true)
+                {
+                    currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
+                    txtXaxisStepperCurrent.Text = currentXAxis;
+                    XaxisChanged = false;
+                }
+                txtYaxisStepperCurrent.Text = "0.00";
                 btnXAxisGoHome.IsEnabled = true;
                 btnYAxisGoHome.IsEnabled = false;
                 btnXYAxisGoHome.IsEnabled = false;
@@ -148,6 +186,18 @@ namespace Stepper
             {
                 stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
+                if (XaxisChanged == true)
+                {
+                    currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
+                    txtXaxisStepperCurrent.Text = currentXAxis;
+                    XaxisChanged = false;
+                }
+                if (YaxisChanged == true)
+                {
+                    currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
+                    txtYaxisStepperCurrent.Text = currentYAxis;
+                    YaxisChanged = false;
+                }
                 btnXAxisGoHome.IsEnabled = true;
                 btnYAxisGoHome.IsEnabled = true;
                 btnXYAxisGoHome.IsEnabled = true;
@@ -167,6 +217,7 @@ namespace Stepper
             zeroXaxis = 0;
             stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
             sp.Write(stringValue);
+            txtXaxisStepperCurrent.Text = "0.00";
         }
         private void YAxisGoHome_Click(object sender, RoutedEventArgs e)
         {
@@ -176,6 +227,7 @@ namespace Stepper
             zeroYaxis = 0;
             stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
             sp.Write(stringValue);
+            txtYaxisStepperCurrent.Text = "0.00";
         }
         private void XYAxisGoHome_Click(object sender, RoutedEventArgs e)
         {
@@ -188,6 +240,8 @@ namespace Stepper
             zeroYaxis = 0;
             stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
             sp.Write(stringValue);
+            txtXaxisStepperCurrent.Text = "0.00";
+            txtYaxisStepperCurrent.Text = "0.00";
         }
         private void CheckBoxChanged(object sender, RoutedEventArgs e)
         {
@@ -223,6 +277,15 @@ namespace Stepper
                 btnYAxisGoHome.IsEnabled = true;
                 btnXYAxisGoHome.IsEnabled = true;
             }
+        }
+        private void XaxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            XaxisChanged = true;
+        }
+        private void YaxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            YaxisChanged = true;
+
         }
     }
 }
