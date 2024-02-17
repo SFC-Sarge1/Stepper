@@ -31,9 +31,6 @@
         <Button x:Name="btnRunXAxis" Content="Run X Axis" HorizontalAlignment="Left" Height="28" Margin="101,188,0,0" VerticalAlignment="Top" Width="120" Click="XAxisRun_Click"/>
         <Button x:Name="btnRunYAxis" Content="Run Y Axis" HorizontalAlignment="Left" Height="28" Margin="101,226,0,0" VerticalAlignment="Top" Width="120" Click="YAxisRun_Click"/>
         <Button x:Name="btnRunXYAxis" Content="Run X,Y Axis" HorizontalAlignment="Left" Height="28" Margin="102,265,0,0" VerticalAlignment="Top" Width="118" Click="XYAxisRun_Click" Grid.RowSpan="2"/>
-        <Button x:Name="btnXAxisGoHome" Content="X Axis Go Home" HorizontalAlignment="Left" Height="28" Margin="280,187,0,0" VerticalAlignment="Top" Width="104" Click="XAxisGoHome_Click"/>
-        <Button x:Name="btnYAxisGoHome" Content="Y Axis Go Home" HorizontalAlignment="Left" Height="28" Margin="280,226,0,0" VerticalAlignment="Top" Width="104" Click="YAxisGoHome_Click"/>
-        <Button x:Name="btnXYAxisGoHome" Content="X,Y Axis Go Home" HorizontalAlignment="Left" Height="28" Margin="280,265,0,0" VerticalAlignment="Top" Width="104" Click="XYAxisGoHome_Click" Grid.RowSpan="2"/>
         <Label x:Name="lblXaxisCurrent" Content="X axis Current:" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="26" Width="87"/>
         <Label x:Name="lblYaxisCurrent" Content="Y axis current:" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Height="26" Width="87"/>
         <TextBox x:Name="txtYaxisStepperCurrent" HorizontalAlignment="Left" Margin="101,55,0,0" Text="0.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
