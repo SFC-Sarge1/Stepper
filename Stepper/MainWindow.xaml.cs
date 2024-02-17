@@ -21,12 +21,17 @@ namespace Stepper
         public int baudRate = 9600;
         public int milliseconds = 4000;
         public string axis = "X";
+        public string home = " ";
         public string currentXAxis = "0.00";
         public string currentYAxis = "0.00";
         public string previousXAxis = "0.00";
         public string previousYAxis = "0.00";
         bool XaxisChanged = false;
         bool YaxisChanged = false;
+        public string XaxisStepperMoveTemp = "0.00";
+        public string YaxisStepperMoveTemp = "0.00";
+        public string XaxisTempHomeValue = "0.00";
+        public string YaxisTempHomeValue = "0.00";
         private void TextBox_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             var textBox = sender as TextBox;
@@ -44,6 +49,8 @@ namespace Stepper
         public MainWindow()
         {
             InitializeComponent();
+            txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+            txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                 txtBaudRate.Text = "9600";
                 baudRate = Convert.ToInt32(txtBaudRate.Text);
             String selectedItem = cmbComPort.Items.CurrentItem.ToString();
@@ -55,15 +62,16 @@ namespace Stepper
         private void XAxisRun_Click(object sender, RoutedEventArgs e)
         {
             axis = "X";
+            home = "S";
             previousXAxis = txtXaxisStepperMove.Text;
             if (ckbXaxisResetToZero.IsChecked == true)
             {
                 zeroXaxis = 1;
-                stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+                stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 ckbXaxisResetToZero.IsChecked = false;
                 txtXaxisStepperMove.Text = "0.00";
-                stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+                stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 txtXaxisStepperCurrent.Text = "0.00";
@@ -71,13 +79,14 @@ namespace Stepper
             }
             if (ckbXaxisResetToZero.IsChecked == false)
             {
-                stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+                stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 if (XaxisChanged == true)
                 {
-                currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
+                        currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                 txtXaxisStepperCurrent.Text = currentXAxis;
                     XaxisChanged = false;
+                    txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                 }
                 btnXAxisGoHome.IsEnabled = true;
             }
@@ -85,15 +94,16 @@ namespace Stepper
         private void YAxisRun_Click(object sender, RoutedEventArgs e)
         {
             axis = "Y";
+            home = "S";
             currentYAxis = txtYaxisStepperCurrent.Text;
             if (ckbYaxisResetToZero.IsChecked == true)
             {
                 zeroYaxis = 1;
-                stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+                stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 ckbYaxisResetToZero.IsChecked = false;
                 txtYaxisStepperMove.Text = "0.00";
-                stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+                stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 zeroYaxis = 0;
                 txtYaxisStepperCurrent.Text = "0.00";
@@ -101,13 +111,14 @@ namespace Stepper
             }
             if (ckbYaxisResetToZero.IsChecked == false)
             {
-                stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+                stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 if (YaxisChanged == true)
                 {
                 currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
                 txtYaxisStepperCurrent.Text = currentYAxis;
                     YaxisChanged = false;
+                    txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                 }
                 btnYAxisGoHome.IsEnabled = true;
             }
@@ -115,17 +126,18 @@ namespace Stepper
         private void XYAxisRun_Click(object sender, RoutedEventArgs e)
         {
             axis = "XY";
+            home = "S";
             if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == true)
             {
                 zeroXaxis = 1;
                 zeroYaxis = 1;
-                stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+                stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 ckbXaxisResetToZero.IsChecked = false;
                 txtXaxisStepperMove.Text = "0.00";
                 ckbYaxisResetToZero.IsChecked = false;
                 txtYaxisStepperMove.Text = "0.00";
-                stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+                stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
@@ -139,11 +151,11 @@ namespace Stepper
             {
                 zeroXaxis = 1;
                 zeroYaxis = 0;
-                stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+                stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
             sp.Write(stringValue);
                 ckbXaxisResetToZero.IsChecked = false;
                 txtXaxisStepperMove.Text = "0.00";
-                stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+                stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
@@ -153,6 +165,7 @@ namespace Stepper
                 currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
                 txtYaxisStepperCurrent.Text = currentYAxis;
                     YaxisChanged = false;
+                    txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                 }
                 txtYaxisStepperCurrent.Text = currentYAxis;
                 btnXAxisGoHome.IsEnabled = true;
@@ -163,11 +176,11 @@ namespace Stepper
             {
                 zeroXaxis = 0;
                 zeroYaxis = 1;
-                stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+                stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 ckbYaxisResetToZero.IsChecked = false;
                 txtYaxisStepperMove.Text = "0.00";
-                stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+                stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
@@ -176,6 +189,7 @@ namespace Stepper
                     currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                     txtXaxisStepperCurrent.Text = currentXAxis;
                     XaxisChanged = false;
+                    txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                 }
                 txtYaxisStepperCurrent.Text = "0.00";
                 btnXAxisGoHome.IsEnabled = true;
@@ -184,19 +198,22 @@ namespace Stepper
             }
             if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == false)
             {
-                stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+                stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 if (XaxisChanged == true)
                 {
                     currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                     txtXaxisStepperCurrent.Text = currentXAxis;
                     XaxisChanged = false;
+                    txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+
                 }
                 if (YaxisChanged == true)
                 {
-                    currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
+                        currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
                     txtYaxisStepperCurrent.Text = currentYAxis;
                     YaxisChanged = false;
+                    txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                 }
                 btnXAxisGoHome.IsEnabled = true;
                 btnYAxisGoHome.IsEnabled = true;
@@ -212,36 +229,75 @@ namespace Stepper
         private void XAxisGoHome_Click(object sender, RoutedEventArgs e)
         {
             axis = "X";
-            txtXaxisStepperMove.Text = "0.00";
+            home = "H";
+            if (txtXaxisStepperCurrent.Text.Contains('-'))
+            {
+                XaxisTempHomeValue = txtXaxisStepperCurrent.Text.Replace("-", "");
+            }
+            else
+            {
+                XaxisTempHomeValue = "-" + txtXaxisStepperCurrent.Text;
+            }
             ckbXaxisResetToZero.IsChecked = false;
             zeroXaxis = 0;
-            stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+            stringValue = axis + "," + home + "," + XaxisTempHomeValue.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
             sp.Write(stringValue);
+            txtXaxisStepperMove.Text = "0.00";
             txtXaxisStepperCurrent.Text = "0.00";
+            home = "S";
+
         }
         private void YAxisGoHome_Click(object sender, RoutedEventArgs e)
         {
             axis = "Y";
-            txtYaxisStepperMove.Text = "0.00";
+            home = "H";
+            if (txtYaxisStepperCurrent.Text.Contains('-'))
+            {
+                YaxisTempHomeValue = txtYaxisStepperCurrent.Text.Replace("-", "");
+            }
+            else
+            {
+                YaxisTempHomeValue = "-" + txtYaxisStepperCurrent.Text;
+            }
             ckbYaxisResetToZero.IsChecked = false;
             zeroYaxis = 0;
-            stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+            stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + YaxisTempHomeValue.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
             sp.Write(stringValue);
+            txtYaxisStepperMove.Text = "0.00";
             txtYaxisStepperCurrent.Text = "0.00";
+            home = "S";
         }
         private void XYAxisGoHome_Click(object sender, RoutedEventArgs e)
         {
             axis = "XY";
-            txtXaxisStepperMove.Text = "0.00";
+            home = "H";
+            if (txtXaxisStepperCurrent.Text.Contains('-'))
+            {
+                XaxisTempHomeValue = txtXaxisStepperCurrent.Text.Replace("-", "");
+            }
+            else
+            {
+                XaxisTempHomeValue = "-" + txtXaxisStepperCurrent.Text;
+            }
             ckbXaxisResetToZero.IsChecked = false;
             zeroXaxis = 0;
-            txtYaxisStepperMove.Text = "0.00";
+            if (txtYaxisStepperCurrent.Text.Contains('-'))
+            {
+                YaxisTempHomeValue = txtYaxisStepperCurrent.Text.Replace("-", "");
+            }
+            else
+            {
+                YaxisTempHomeValue = "-" + txtYaxisStepperCurrent.Text;
+            }
             ckbYaxisResetToZero.IsChecked = false;
             zeroYaxis = 0;
-            stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
+            stringValue = axis + "," + home + "," + XaxisTempHomeValue.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + YaxisTempHomeValue.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
             sp.Write(stringValue);
+            txtXaxisStepperMove.Text = "0.00";
+            txtYaxisStepperMove.Text = "0.00";
             txtXaxisStepperCurrent.Text = "0.00";
             txtYaxisStepperCurrent.Text = "0.00";
+            home = "S";
         }
         private void CheckBoxChanged(object sender, RoutedEventArgs e)
         {
@@ -278,14 +334,23 @@ namespace Stepper
                 btnXYAxisGoHome.IsEnabled = true;
             }
         }
+        private void XaxisStepperMove_GotFocus(object sender, EventArgs e)
+        {
+            XaxisStepperMoveTemp = txtXaxisStepperMove.Text;
+        }
+        private void YaxisStepperMove_GotFocus(object sender, EventArgs e)
+        {
+            YaxisStepperMoveTemp = txtYaxisStepperMove.Text;
+        }
         private void XaxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
         {
             XaxisChanged = true;
+            txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
         }
         private void YaxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
         {
             YaxisChanged = true;
-
+            txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
         }
     }
 }

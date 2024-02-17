@@ -13,10 +13,10 @@
     </Window.Resources>
     <Grid x:Name="StepperMotorControl" Margin="0,0,0,-132" Background="{DynamicResource MahApps.Brushes.ThemeBackground}" RenderTransformOrigin="0.497,1">
         <Label x:Name="lblXaxisMove" Content="X axis Move:" HorizontalAlignment="Left" Margin="21,94,0,0" VerticalAlignment="Top" Height="26" Width="76"/>
-        <TextBox x:Name="txtXaxisStepperMove" TextChanged="XaxisStepperMove_TextChanged" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="101,92,0,0" Text="0.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
+        <TextBox x:Name="txtXaxisStepperMove" TextChanged="XaxisStepperMove_TextChanged" GotFocus="XaxisStepperMove_GotFocus" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="101,92,0,0" Text="0.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
         <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,94,0,0" Height="26" Width="32"/>
         <Label x:Name="lblYaxisMove" Content="Y axis Move:" HorizontalAlignment="Left" Margin="21,124,0,0" VerticalAlignment="Top" Height="26" Width="76"/>
-        <TextBox x:Name="txtYaxisStepperMove" TextChanged="YaxisStepperMove_TextChanged" HorizontalAlignment="Left" Margin="101,123,0,0" Text="0.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
+        <TextBox x:Name="txtYaxisStepperMove" TextChanged="YaxisStepperMove_TextChanged" GotFocus="YaxisStepperMove_GotFocus" HorizontalAlignment="Left" Margin="101,123,0,0" Text="0.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
         <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,125,0,0" Height="26" Width="32"/>
         <Label x:Name="lblbaudRate" Content="BaudRate:" HorizontalAlignment="Left" Margin="420,193,0,0" VerticalAlignment="Top" Height="26" Width="62"/>
         <TextBox x:Name="txtBaudRate" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="488,193,0,0" TextWrapping="Wrap" Text="9600" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
