@@ -15,13 +15,13 @@ namespace Stepper
     {
         public SerialPort sp = new SerialPort();
         public string myPortName; // Serial Port Name
+        public int baudRate = 9600;
         public string stringValue = "";
         public int zeroXaxis = 0;
         public int zeroYaxis = 0;
-        public int baudRate = 9600;
         public int milliseconds = 10;
         public string axis = "X";
-        public string home = " ";
+        public string home = "S";
         public string currentXAxis = "0.00";
         public string currentYAxis = "0.00";
         public string previousXAxis = "0.00";
