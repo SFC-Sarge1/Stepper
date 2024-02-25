@@ -51,14 +51,14 @@ namespace Stepper
             InitializeComponent();
             txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
-                txtBaudRate.Text = "9600";
-                baudRate = Convert.ToInt32(txtBaudRate.Text);
+            txtBaudRate.Text = "9600";
+            baudRate = Convert.ToInt32(txtBaudRate.Text);
             String selectedItem = cmbComPort.Items.CurrentItem.ToString();
             cmbComPort.SelectedItem = selectedItem;
             myPortName = selectedItem;
-                sp = new(myPortName, baudRate);
-                if (sp.IsOpen == false) { sp.Open(); }
-            }
+            sp = new(myPortName, baudRate);
+            if (sp.IsOpen == false) { sp.Open(); }
+        }
         private void XAxisRun_Click(object sender, RoutedEventArgs e)
         {
             axis = "X";
@@ -78,12 +78,12 @@ namespace Stepper
             {
                 stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
-                        currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
+                currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                 txtXaxisStepperCurrent.Text = currentXAxis;
-                    XaxisChanged = false;
-                    txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                XaxisChanged = false;
+                txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
-            }
+        }
         private void YAxisRun_Click(object sender, RoutedEventArgs e)
         {
             axis = "Y";
@@ -105,10 +105,10 @@ namespace Stepper
                 sp.Write(stringValue);
                 currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
                 txtYaxisStepperCurrent.Text = currentYAxis;
-                    YaxisChanged = false;
-                    txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                YaxisChanged = false;
+                txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
-            }
+        }
         private void XYAxisRun_Click(object sender, RoutedEventArgs e)
         {
             axis = "XY";
@@ -130,15 +130,15 @@ namespace Stepper
                 zeroXaxis = 1;
                 zeroYaxis = 0;
                 stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
-            sp.Write(stringValue);
+                sp.Write(stringValue);
                 stringValue = axis + "," + home + "," + "0.00" + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
                 currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
                 txtYaxisStepperCurrent.Text = currentYAxis;
-                    YaxisChanged = false;
-                    txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                YaxisChanged = false;
+                txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                 txtYaxisStepperCurrent.Text = currentYAxis;
                 XZero(milliseconds);
             }
@@ -152,26 +152,26 @@ namespace Stepper
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
-                    currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
-                    txtXaxisStepperCurrent.Text = currentXAxis;
-                    XaxisChanged = false;
-                    txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
+                txtXaxisStepperCurrent.Text = currentXAxis;
+                XaxisChanged = false;
+                txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                 YZero(milliseconds);
-                }
+            }
             if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == false)
             {
                 zeroXaxis = 0;
                 zeroYaxis = 0;
                 stringValue = axis + "," + home + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + ",";
                 sp.Write(stringValue);
-                    currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
-                    XaxisChanged = false;
-                    txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
-                        currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
+                currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
+                XaxisChanged = false;
+                txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
                 txtXaxisStepperCurrent.Text = currentXAxis;
-                    txtYaxisStepperCurrent.Text = currentYAxis;
-                    YaxisChanged = false;
-                    txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                txtYaxisStepperCurrent.Text = currentYAxis;
+                YaxisChanged = false;
+                txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
         }
         public async void XZero(int delay)
@@ -183,13 +183,13 @@ namespace Stepper
             home = "S";
         }
         public async void YZero(int delay)
-                {
+        {
             await Task.Delay(delay);
             ckbYaxisResetToZero.IsChecked = false;
             txtYaxisStepperMove.Text = "0.00";
             txtYaxisStepperCurrent.Text = "0.00";
             home = "S";
-            }
+        }
         public async void XYZero(int delay)
         {
             await Task.Delay(delay);
@@ -213,7 +213,7 @@ namespace Stepper
             {
                 zeroXaxis = 1;
                 zeroYaxis = 1;
-           }
+            }
             else if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == false)
             {
                 zeroXaxis = 1;
@@ -248,5 +248,48 @@ namespace Stepper
             YaxisChanged = true;
             txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
         }
+        private void XaxisStepperMove_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Keypad mainWindow = new Keypad(this);
+            if (mainWindow.ShowDialog() == true)
+                txtXaxisStepperMove.Text = mainWindow.Result;
+        }
+        private void YaxisStepperMove_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Keypad mainWindow = new Keypad(this);
+            if (mainWindow.ShowDialog() == true)
+                txtYaxisStepperMove.Text = mainWindow.Result;
+        }
+        private void txtXaxisMotorSpeed_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Keypad mainWindow = new Keypad(this);
+            if (mainWindow.ShowDialog() == true)
+                txtXaxisMotorSpeed.Text = mainWindow.Result;
+        }
+        private void txtYaxisMotorSpeed_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Keypad mainWindow = new Keypad(this);
+            if (mainWindow.ShowDialog() == true)
+                txtYaxisMotorSpeed.Text = mainWindow.Result;
+        }
+        private void txtXaxisStepperCurrent_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Keypad mainWindow = new Keypad(this);
+            if (mainWindow.ShowDialog() == true)
+                txtXaxisStepperCurrent.Text = mainWindow.Result;
+        }
+        private void txtYaxisStepperCurrent_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Keypad mainWindow = new Keypad(this);
+            if (mainWindow.ShowDialog() == true)
+                txtYaxisStepperCurrent.Text = mainWindow.Result;
+        }
+        private void txtBaudRate_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Keypad mainWindow = new Keypad(this);
+            if (mainWindow.ShowDialog() == true)
+                txtBaudRate.Text = mainWindow.Result;
+        }
+
     }
 }
