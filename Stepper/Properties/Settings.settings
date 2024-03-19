@@ -29,7 +29,7 @@
     <Setting Name="BaudRate" Type="System.String" Scope="User">
       <Value Profile="(Default)">9600</Value>
     </Setting>
-    <Setting Name="DefaultValues" Type="System.String" Scope="User">
+    <Setting Name="Value_0_00" Type="System.String" Scope="User">
       <Value Profile="(Default)">0.00</Value>
     </Setting>
     <Setting Name="YaxisMotorSpeed" Type="System.String" Scope="User">
@@ -43,6 +43,36 @@
     </Setting>
     <Setting Name="ckbZaxisResetToZeroIsChecked" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="zeroXaxis" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="zeroYaxis" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="zeroZaxis" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Milliseconds" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="RootAxis" Type="System.String" Scope="User">
+      <Value Profile="(Default)">X</Value>
+    </Setting>
+    <Setting Name="COM1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM1</Value>
+    </Setting>
+    <Setting Name="COM5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM5</Value>
+    </Setting>
+    <Setting Name="COM4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM4</Value>
+    </Setting>
+    <Setting Name="Divider4_00" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">4.00</Value>
+    </Setting>
+    <Setting Name="mmPerRevolution" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">4</Value>
     </Setting>
   </Settings>
 </SettingsFile>
