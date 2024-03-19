@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Stepper.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="XaxisStepperCurrent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="YaxisStepperCurrent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="ZaxisStepperCurrent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="XaxisMotorSpeed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1000.00</Value>
+    </Setting>
+    <Setting Name="ZaxisMotorSpeed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1000.00</Value>
+    </Setting>
+    <Setting Name="XaxisStepperMove" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="YaxisStepperMove" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="ZaxisStepperMove" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="BaudRate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">9600</Value>
+    </Setting>
+    <Setting Name="DefaultValues" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="YaxisMotorSpeed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1000.00</Value>
+    </Setting>
+    <Setting Name="ckbXaxisResetToZeroIsChecked" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ckbYaxisResetToZeroIsChecked" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ckbZaxisResetToZeroIsChecked" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

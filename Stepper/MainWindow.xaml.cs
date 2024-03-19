@@ -2,13 +2,12 @@
 namespace Stepper
 {
     using System.Windows;
-    using System.Xml;
     using System.IO.Ports;
     using System.Globalization;
-    using System.Text;
     using System.Windows.Controls;
     using System.Windows.Input;
     using MahApps.Metro.Controls;
+    using System.Configuration;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -37,8 +36,6 @@ namespace Stepper
         public string ZaxisStepperMoveTemp = "0.00";
         public string selectedItem;
         public string DefaultValues = "0.00";
-        public string StepperConfigFullPath = "C:\\Users\\sfcsarge\\OneDrive\\Documents\\Arduino\\Stepper\\Stepper\\StepperConfig.xml";
-        public XmlDocument xmlDoc = new();
         private void TextBox_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             var textBox = sender as TextBox;
@@ -56,18 +53,23 @@ namespace Stepper
         public MainWindow()
         {
             InitializeComponent();
-            xmlDoc.Load(StepperConfigFullPath);
             txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
-            txtXaxisStepperCurrent.Text = xmlDoc.SelectSingleNode("StepperConfig/XaxisStepperCurrent").InnerText;
-            txtYaxisStepperCurrent.Text = xmlDoc.SelectSingleNode("StepperConfig/YaxisStepperCurrent").InnerText;
-            txtZaxisStepperCurrent.Text = xmlDoc.SelectSingleNode("StepperConfig/ZaxisStepperCurrent").InnerText;
-            txtXaxisMotorSpeed.Text = xmlDoc.SelectSingleNode("StepperConfig/XaxisMotorSpeed").InnerText;
-            txtYaxisMotorSpeed.Text = xmlDoc.SelectSingleNode("StepperConfig/YaxisMotorSpeed").InnerText;
-            txtZaxisMotorSpeed.Text = xmlDoc.SelectSingleNode("StepperConfig/ZaxisMotorSpeed").InnerText;
-            txtBaudRate.Text = xmlDoc.SelectSingleNode("StepperConfig/BaudRate").InnerText;
-            DefaultValues = xmlDoc.SelectSingleNode("StepperConfig/DefaultValues").InnerText;
+            txtXaxisStepperCurrent.Text = Properties.Settings.Default.XaxisStepperCurrent;
+            txtYaxisStepperCurrent.Text = Properties.Settings.Default.YaxisStepperCurrent;
+            txtZaxisStepperCurrent.Text = Properties.Settings.Default.ZaxisStepperCurrent;
+            txtXaxisMotorSpeed.Text = Properties.Settings.Default.XaxisMotorSpeed;
+            txtYaxisMotorSpeed.Text = Properties.Settings.Default.YaxisMotorSpeed;
+            txtZaxisMotorSpeed.Text = Properties.Settings.Default.ZaxisMotorSpeed;
+            txtXaxisStepperMove.Text = Properties.Settings.Default.XaxisStepperMove;
+            txtYaxisStepperMove.Text = Properties.Settings.Default.YaxisStepperMove;
+            txtZaxisStepperMove.Text = Properties.Settings.Default.ZaxisStepperMove;
+            ckbXaxisResetToZero.IsChecked = Properties.Settings.Default.ckbXaxisResetToZeroIsChecked;
+            ckbYaxisResetToZero.IsChecked = Properties.Settings.Default.ckbYaxisResetToZeroIsChecked;
+            ckbZaxisResetToZero.IsChecked = Properties.Settings.Default.ckbZaxisResetToZeroIsChecked;
+            txtBaudRate.Text = Properties.Settings.Default.BaudRate;
+            DefaultValues = Properties.Settings.Default.DefaultValues;
             selectedItem = cmbComPort.Items.CurrentItem.ToString();
             if (selectedItem == "COM1")
             {
@@ -75,6 +77,17 @@ namespace Stepper
                 selectedItem = cmbComPort.Items.CurrentItem.ToString();
                 cmbComPort.SelectedItem = selectedItem;
                 myPortName = selectedItem;
+                cmbComPort.Text = selectedItem;
+                sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
+                if (sp.IsOpen == false)
+                {
+                    sp.Open();
+                }
+            }
+            else if(selectedItem == "COM5")
+            {
+                myPortName = selectedItem;
+                cmbComPort.Text = selectedItem;
                 sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
                 if (sp.IsOpen == false)
                 {
@@ -101,11 +114,14 @@ namespace Stepper
                 stringValue = axis + "," + (Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text.Trim())).ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
                 currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
-                //Thread.Sleep(milliseconds * Convert.ToInt32(Convert.ToDecimal(txtXaxisStepperMove.Text)));
+                Thread.Sleep(milliseconds * 100);
                 txtXaxisStepperCurrent.Text = currentXAxis;
                 XaxisChanged = false;
                 txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
+            Properties.Settings.Default.XaxisStepperCurrent = txtXaxisStepperCurrent.Text;
+            Properties.Settings.Default.XaxisStepperMove = txtXaxisStepperMove.Text;
+            Properties.Settings.Default.Save();
         }
         private void YAxisRun_Click(object sender, RoutedEventArgs e)
         {
@@ -126,11 +142,14 @@ namespace Stepper
                 stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + (Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text.Trim())).ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
                 currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
-                //Thread.Sleep(milliseconds * Convert.ToInt32(Convert.ToDecimal(txtYaxisStepperMove.Text)));
+                Thread.Sleep(milliseconds * 100);
                 txtYaxisStepperCurrent.Text = currentYAxis;
                 YaxisChanged = false;
                 txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
+            Properties.Settings.Default.YaxisStepperCurrent = txtYaxisStepperCurrent.Text;
+            Properties.Settings.Default.YaxisStepperMove = txtYaxisStepperMove.Text;
+            Properties.Settings.Default.Save();
         }
         private void ZAxisRun_Click(object sender, RoutedEventArgs e)
         {
@@ -151,12 +170,14 @@ namespace Stepper
                 stringValue = axis + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + (Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text.Trim())).ToString() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
                 currentZAxis = Convert.ToString(Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text));
-                //Thread.Sleep(milliseconds * Convert.ToInt32(Convert.ToDecimal(txtZaxisStepperMove.Text)));
                 Thread.Sleep(milliseconds * 100);
                 txtZaxisStepperCurrent.Text = currentZAxis;
                 ZaxisChanged = false;
                 txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
+            Properties.Settings.Default.ZaxisStepperCurrent = txtZaxisStepperCurrent.Text;
+            Properties.Settings.Default.ZaxisStepperMove = txtZaxisStepperMove.Text;
+            Properties.Settings.Default.Save();
         }
         private void XYAxisRun_Click(object sender, RoutedEventArgs e)
         {
@@ -216,12 +237,17 @@ namespace Stepper
                 XaxisChanged = false;
                 txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                 currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
-                //Thread.Sleep(milliseconds * Convert.ToInt32(Convert.ToDecimal(txtYaxisStepperMove.Text)));
+                Thread.Sleep(milliseconds * 100);
                 txtXaxisStepperCurrent.Text = currentXAxis;
                 txtYaxisStepperCurrent.Text = currentYAxis;
                 YaxisChanged = false;
                 txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
+            Properties.Settings.Default.XaxisStepperCurrent = txtXaxisStepperCurrent.Text;
+            Properties.Settings.Default.XaxisStepperMove = txtXaxisStepperMove.Text;
+            Properties.Settings.Default.YaxisStepperCurrent = txtYaxisStepperCurrent.Text;
+            Properties.Settings.Default.YaxisStepperMove = txtYaxisStepperMove.Text;
+            Properties.Settings.Default.Save();
         }
         public async void XZero(int delay)
         {
@@ -229,6 +255,9 @@ namespace Stepper
             txtXaxisStepperCurrent.Text = DefaultValues;
             ckbXaxisResetToZero.IsChecked = false;
             txtXaxisStepperMove.Text = DefaultValues;
+            Properties.Settings.Default.XaxisStepperCurrent = txtXaxisStepperCurrent.Text;
+            Properties.Settings.Default.XaxisStepperMove = txtXaxisStepperMove.Text;
+            Properties.Settings.Default.Save();
         }
         public async void YZero(int delay)
         {
@@ -236,6 +265,9 @@ namespace Stepper
             ckbYaxisResetToZero.IsChecked = false;
             txtYaxisStepperMove.Text = DefaultValues;
             txtYaxisStepperCurrent.Text = DefaultValues;
+            Properties.Settings.Default.YaxisStepperCurrent = txtYaxisStepperCurrent.Text;
+            Properties.Settings.Default.YaxisStepperMove = txtYaxisStepperMove.Text;
+            Properties.Settings.Default.Save();
         }
         public async void ZZero(int delay)
         {
@@ -243,6 +275,9 @@ namespace Stepper
             ckbZaxisResetToZero.IsChecked = false;
             txtZaxisStepperMove.Text = DefaultValues;
             txtZaxisStepperCurrent.Text = DefaultValues;
+            Properties.Settings.Default.ZaxisStepperCurrent = txtYaxisStepperCurrent.Text;
+            Properties.Settings.Default.ZaxisStepperMove = txtYaxisStepperMove.Text;
+            Properties.Settings.Default.Save();
         }
         public async void XYZero(int delay)
         {
@@ -253,10 +288,15 @@ namespace Stepper
             ckbYaxisResetToZero.IsChecked = false;
             txtYaxisStepperMove.Text = DefaultValues;
             txtYaxisStepperCurrent.Text = DefaultValues;
+            Properties.Settings.Default.XaxisStepperCurrent = txtXaxisStepperCurrent.Text;
+            Properties.Settings.Default.XaxisStepperMove = txtXaxisStepperMove.Text;
+            Properties.Settings.Default.YaxisStepperCurrent = txtYaxisStepperCurrent.Text;
+            Properties.Settings.Default.YaxisStepperMove = txtYaxisStepperMove.Text;
+            Properties.Settings.Default.Save();
         }
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            xmlDoc.Save(StepperConfigFullPath);
+            Properties.Settings.Default.Save();
             if (sp.IsOpen == true)
             {
                 sp.Close();
@@ -313,46 +353,28 @@ namespace Stepper
         {
             XaxisChanged = true;
             txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
-            //try
-            //{
-            //    xmlDoc.SelectSingleNode("StepperConfig/XaxisStepperMove").InnerText = txtXaxisStepperMove.Text;
-            //    xmlDoc.Save(StepperConfigFullPath);
-            //}
-            //catch (System.NullReferenceException)
-            //{
-            //    //// Code to handle the exception
-            //    //Console.WriteLine("Caught an exception: " + ex.Message);
-            //}
+            if (txtXaxisStepperMove.Text == Properties.Settings.Default.XaxisStepperMove)
+            {
+                txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+            }
         }
         private void YaxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
         {
             YaxisChanged = true;
             txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
-            //try
-            //{
-            //    xmlDoc.SelectSingleNode("StepperConfig/YaxisStepperMove").InnerText = txtYaxisStepperMove.Text;
-            //    xmlDoc.Save(StepperConfigFullPath);
-            //}
-            //catch (Exception)
-            //{
-            //    //// Code to handle the exception
-            //    //Console.WriteLine("Caught an exception: " + ex.Message);
-            //}
+            if (txtYaxisStepperMove.Text == Properties.Settings.Default.YaxisStepperMove)
+            {
+                txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+            }
         }
         private void ZaxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
         {
             ZaxisChanged = true;
             txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
-            //try
-            //{
-            //    xmlDoc.SelectSingleNode("StepperConfig/ZaxisStepperMove").InnerText = txtZaxisStepperMove.Text;
-            //    xmlDoc.Save(StepperConfigFullPath);
-            //}
-            //catch (Exception)
-            //{
-            //    //// Code to handle the exception
-            //    //Console.WriteLine("Caught an exception: " + ex.Message);
-            //}
+            if (txtZaxisStepperMove.Text == Properties.Settings.Default.ZaxisStepperMove)
+            {
+                txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+            }
         }
         private void XaxisStepperMove_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -428,6 +450,7 @@ namespace Stepper
                 selectedItem = cmbComPort.Items.CurrentItem.ToString();
                 cmbComPort.SelectedItem = selectedItem;
                 myPortName = selectedItem;
+                cmbComPort.Text = selectedItem;
                 sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
                 if (sp.IsOpen == false)
                 {
@@ -438,44 +461,17 @@ namespace Stepper
 
         private void txtZaxisStepperCurrent_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //try
-            //{
-            //    xmlDoc.SelectSingleNode("StepperConfig/ZaxisStepperCurrent").InnerText = txtZaxisStepperCurrent.Text;
-            //    xmlDoc.Save(StepperConfigFullPath);
-            //}
-            //catch (Exception)
-            //{
-            //    //// Code to handle the exception
-            //    //Console.WriteLine("Caught an exception: " + ex.Message);
-            //}
+
         }
 
         private void txtYaxisStepperCurrent_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //try
-            //{
-            //    xmlDoc.SelectSingleNode("StepperConfig/YaxisStepperCurrent").InnerText = txtYaxisStepperCurrent.Text;
-            //    xmlDoc.Save(StepperConfigFullPath);
-            //}
-            //catch (Exception)
-            //{
-            //    //// Code to handle the exception
-            //    //Console.WriteLine("Caught an exception: " + ex.Message);
-            //}
+
         }
 
         private void txtXaxisStepperCurrent_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //try
-            //{
-            //    xmlDoc.SelectSingleNode("StepperConfig/XaxisStepperCurrent").InnerText = txtXaxisStepperCurrent.Text;
-            //    xmlDoc.Save(StepperConfigFullPath);
-            //}
-            //catch (Exception)
-            //{
-            //    //// Code to handle the exception
-            //    //Console.WriteLine("Caught an exception: " + ex.Message);
-            //}
+
         }
     }
 }
