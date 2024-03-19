@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<StepperConfig>
+  <XaxisStepperCurrent>0.00</XaxisStepperCurrent>
+  <YaxisStepperCurrent>0.00</YaxisStepperCurrent>
+  <ZaxisStepperCurrent>0.00</ZaxisStepperCurrent>
+  <XaxisStepperMove>0.00</XaxisStepperMove>
+  <YaxisStepperMove>0.00</YaxisStepperMove>
+  <ZaxisStepperMove>0.00</ZaxisStepperMove>
+  <XaxisMotorSpeed>1000.00</XaxisMotorSpeed>
+  <YaxisMotorSpeed>1000.00</YaxisMotorSpeed>
+  <ZaxisMotorSpeed>1000.00</ZaxisMotorSpeed>
+  <DefaultValues>0.00</DefaultValues>
+  <BaudRate>9600</BaudRate>
+  <StepperPort>COM4</StepperPort>
+</StepperConfig>

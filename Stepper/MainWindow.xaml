@@ -33,9 +33,9 @@
         <Button x:Name="btnRunXYAxis" Content="Run X,Y Axis" HorizontalAlignment="Left" Height="28" Margin="102,328,0,0" VerticalAlignment="Top" Width="118" Click="XYAxisRun_Click"/>
         <Label x:Name="lblXaxisCurrent" Content="X axis Current:" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="26" Width="87"/>
         <Label x:Name="lblYaxisCurrent" Content="Y axis current:" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Height="26" Width="87"/>
-        <TextBox x:Name="txtYaxisStepperCurrent" PreviewMouseUp="txtYaxisStepperCurrent_PreviewMouseUp" HorizontalAlignment="Left" Margin="101,55,0,0" Text="0.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
+        <TextBox x:Name="txtYaxisStepperCurrent" TextChanged="txtYaxisStepperCurrent_TextChanged" PreviewMouseUp="txtYaxisStepperCurrent_PreviewMouseUp" HorizontalAlignment="Left" Margin="101,55,0,0" Text="0.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
         <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,57,0,0" Height="26" Width="32"/>
-        <TextBox x:Name="txtXaxisStepperCurrent" PreviewMouseUp="txtXaxisStepperCurrent_PreviewMouseUp" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="101,24,0,0" Text="0.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
+        <TextBox x:Name="txtXaxisStepperCurrent"  TextChanged="txtXaxisStepperCurrent_TextChanged" PreviewMouseUp="txtXaxisStepperCurrent_PreviewMouseUp" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="101,24,0,0" Text="0.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
         <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,26,0,0" Height="26" Width="32"/>
         <Label x:Name="lblZaxisMove" Content="Z axis Move:" HorizontalAlignment="Left" Margin="21,194,0,0" VerticalAlignment="Top" Height="26" Width="76"/>
         <TextBox x:Name="txtZaxisStepperMove" PreviewMouseUp="ZaxisStepperMove_PreviewMouseUp" TextChanged="ZaxisStepperMove_TextChanged" GotFocus="ZaxisStepperMove_GotFocus" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="101,192,0,0" Text="0.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
@@ -45,7 +45,7 @@
         <CheckBox x:Name="ckbZaxisResetToZero" Content="Z axis Zero" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged" HorizontalAlignment="Left" Margin="269,198,0,0" VerticalAlignment="Top" Height="18" Width="82" mah:CheckBoxHelper.CheckGlyphForegroundChecked="White"/>
         <Button x:Name="btnRunZAxis" Content="Run Z Axis" HorizontalAlignment="Left" Height="28" Margin="101,293,0,0" VerticalAlignment="Top" Width="120" Click="ZAxisRun_Click"/>
         <Label x:Name="lblZaxisCurrent" Content="Z axis current:" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Height="26" Width="87"/>
-        <TextBox x:Name="txtZaxisStepperCurrent" PreviewMouseUp="txtZaxisStepperCurrent_PreviewMouseUp" HorizontalAlignment="Left" Margin="101,88,0,0" Text="0.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
+        <TextBox x:Name="txtZaxisStepperCurrent"  TextChanged="txtZaxisStepperCurrent_TextChanged" PreviewMouseUp="txtZaxisStepperCurrent_PreviewMouseUp" HorizontalAlignment="Left" Margin="101,88,0,0" Text="0.00" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
         <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,90,0,0" Height="26" Width="32"/>
     </Grid>
 </mah:MetroWindow>
