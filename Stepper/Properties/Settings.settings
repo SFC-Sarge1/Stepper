@@ -56,7 +56,7 @@
     <Setting Name="Milliseconds" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1000</Value>
     </Setting>
-    <Setting Name="RootAxis" Type="System.String" Scope="User">
+    <Setting Name="RootAxisX" Type="System.String" Scope="User">
       <Value Profile="(Default)">X</Value>
     </Setting>
     <Setting Name="COM1" Type="System.String" Scope="User">
@@ -73,6 +73,15 @@
     </Setting>
     <Setting Name="mmPerRevolution" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="RootAxisY" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Y</Value>
+    </Setting>
+    <Setting Name="RootAxisZ" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Z</Value>
+    </Setting>
+    <Setting Name="RootAxisXY" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XY</Value>
     </Setting>
   </Settings>
 </SettingsFile>

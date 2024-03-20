@@ -47,5 +47,6 @@
         <Label x:Name="lblZaxisCurrent" Content="Z axis current:" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Height="26" Width="87"/>
         <TextBox x:Name="txtZaxisStepperCurrent"  TextChanged="txtZaxisStepperCurrent_TextChanged" PreviewMouseUp="txtZaxisStepperCurrent_PreviewMouseUp" HorizontalAlignment="Left" Margin="101,88,0,0" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
         <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,90,0,0" Height="26" Width="32"/>
+        <Button x:Name="App_Settings" HorizontalAlignment="Left" Margin="508,37,0,0" VerticalAlignment="Top" Click="AppSettings_Click" Content="App Settings"/>
     </Grid>
 </mah:MetroWindow>

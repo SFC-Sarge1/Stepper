@@ -242,12 +242,12 @@ namespace Stepper.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("X")]
-        public string RootAxis {
+        public string RootAxisX {
             get {
-                return ((string)(this["RootAxis"]));
+                return ((string)(this["RootAxisX"]));
             }
             set {
-                this["RootAxis"] = value;
+                this["RootAxisX"] = value;
             }
         }
         
@@ -308,6 +308,42 @@ namespace Stepper.Properties {
             }
             set {
                 this["mmPerRevolution"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Y")]
+        public string RootAxisY {
+            get {
+                return ((string)(this["RootAxisY"]));
+            }
+            set {
+                this["RootAxisY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Z")]
+        public string RootAxisZ {
+            get {
+                return ((string)(this["RootAxisZ"]));
+            }
+            set {
+                this["RootAxisZ"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("XY")]
+        public string RootAxisXY {
+            get {
+                return ((string)(this["RootAxisXY"]));
+            }
+            set {
+                this["RootAxisXY"] = value;
             }
         }
     }
