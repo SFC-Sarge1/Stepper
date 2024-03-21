@@ -59,7 +59,7 @@ namespace Stepper
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
-            VersionTxt.Text = displayableVersion;
+            VersionTxt.Text = "Version: " + displayableVersion;
             txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;

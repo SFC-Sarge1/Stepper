@@ -28,7 +28,7 @@ namespace Stepper
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
-            VersionTxt.Text = displayableVersion;
+            VersionTxt.Text = "Version: " + displayableVersion;
 
             // Iterate over each setting
             foreach (SettingsProperty currentProperty in Properties.Settings.Default.Properties)
