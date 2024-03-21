@@ -15,19 +15,20 @@
             <RowDefinition x:Name="Row2"/>
         </Grid.RowDefinitions>
         <Border x:Name="TitleBar" Background="Black" Height="50" Grid.Row="0">
-           <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <Label Content="X,Y, Z Table Stepper Motor Control Settings" HorizontalAlignment="Left" Foreground="White" Background="#FF0B0909"/>
-                <Button VerticalAlignment="Top" Width="20" Height="20" Click="SaveSettings_Click">
-                    <Button.Template>
+                <Label HorizontalAlignment="Left" Width="356" Background="#FF0B0909"/>
+                <Button VerticalAlignment="Top" Width="30" Height="30" Click="SaveSettings_Click" AutomationProperties.HelpText="Save Settings and Close" Foreground="#FFEB1414">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/ExitX.png" TileMode="Tile"/>
+                    </Button.Background>
+                    <!--<Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
-                    </Button.Template>
-                    <Button.Background>
-                        <ImageBrush ImageSource="/ExitX.png"/>
-                    </Button.Background>
+                    </Button.Template>-->
                 </Button>
             </WrapPanel>
         </Border>

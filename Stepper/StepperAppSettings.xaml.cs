@@ -23,6 +23,7 @@ namespace Stepper
         public StepperAppSettings()
         {
             InitializeComponent();
+            ResizeMode = ResizeMode.NoResize;
             // Iterate over each setting
             foreach (SettingsProperty currentProperty in Properties.Settings.Default.Properties)
             {

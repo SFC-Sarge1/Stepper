@@ -53,8 +53,7 @@ namespace Stepper
         public MainWindow()
         {
             InitializeComponent();
-            //Application.Current.Resources["StepperAppSettings"] = Properties.Settings.Default;
-
+            ResizeMode = ResizeMode.NoResize;
             txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;

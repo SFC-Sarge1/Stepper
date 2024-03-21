@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
         <Border>
             <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-                <Button VerticalAlignment="Top" Width="20" Height="20" Click="AppSettings_Click">
+                <Button VerticalAlignment="Top" Width="30" Height="30" Click="AppSettings_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}">
@@ -27,7 +27,7 @@
                         </ControlTemplate>
                     </Button.Template>
                     <Button.Background>
-                        <ImageBrush ImageSource="/Stepper.png"/>
+                        <ImageBrush ImageSource="/Stepper.png" TileMode="Tile"/>
                     </Button.Background>
                 </Button>
             </WrapPanel>
