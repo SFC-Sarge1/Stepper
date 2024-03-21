@@ -15,20 +15,13 @@
             <RowDefinition x:Name="Row2"/>
         </Grid.RowDefinitions>
         <Border x:Name="TitleBar" Background="Black" Height="50" Grid.Row="0">
-            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-                <Label Content="X,Y, Z Table Stepper Motor Control Settings" HorizontalAlignment="Left" Foreground="White" Background="#FF0B0909"/>
-                <Label HorizontalAlignment="Left" Width="356" Background="#FF0B0909"/>
-                <Button VerticalAlignment="Top" Width="30" Height="30" Click="SaveSettings_Click" AutomationProperties.HelpText="Save Settings and Close" Foreground="#FFEB1414">
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Label Content="X,Y, Z Table Stepper Motor Control Settings" Margin="00,05,05,20" HorizontalAlignment="Left" Foreground="White" Background="#FF0B0909"/>
+                <TextBlock VerticalAlignment="Top" Width="300" Margin="20,10,20,20" HorizontalAlignment="Left" Foreground="White" Background="#FF0B0909" Name="VersionTxt"></TextBlock>
+                <Button VerticalAlignment="Top" Width="30" Height="30" Click="SaveSettings_Click" AutomationProperties.HelpText="Save Settings and Close" Foreground="Black" HorizontalAlignment="Center">
                     <Button.Background>
-                        <ImageBrush ImageSource="/ExitX.png" TileMode="Tile"/>
+                        <ImageBrush ImageSource="/Stepper.png" TileMode="Tile"/>
                     </Button.Background>
-                    <!--<Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>-->
                 </Button>
             </WrapPanel>
         </Border>

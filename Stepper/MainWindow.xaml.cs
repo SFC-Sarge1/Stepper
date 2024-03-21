@@ -8,6 +8,8 @@ namespace Stepper
     using System.Windows.Input;
     using MahApps.Metro.Controls;
     using System.Configuration;
+    using System.Reflection;
+
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -54,6 +56,10 @@ namespace Stepper
         {
             InitializeComponent();
             ResizeMode = ResizeMode.NoResize;
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            DateTime buildDate = DateTime.Now;
+            string displayableVersion = $"{version} ({buildDate})";
+            VersionTxt.Text = displayableVersion;
             txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
@@ -104,15 +110,7 @@ namespace Stepper
                     sp.Open();
                 }
             }
-            // Create a ScrollViewer
-            ScrollViewer scrollViewer = new ScrollViewer();
-            scrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
-            scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
-            // Add the Grid to the ScrollViewer
-            scrollViewer.Content = StepperMotorControl;
-
-            // Add the ScrollViewer to the window
-            this.Content = scrollViewer;
+            Content = StepperMotorControl;
 
         }
         private void XAxisRun_Click(object sender, RoutedEventArgs e)

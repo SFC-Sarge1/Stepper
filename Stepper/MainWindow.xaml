@@ -18,6 +18,7 @@
         </Grid.RowDefinitions>
         <Border>
             <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <TextBlock VerticalAlignment="Top" Margin="0,0,20,20"  HorizontalAlignment="Left" Name="VersionTxt"></TextBlock>
                 <Button VerticalAlignment="Top" Width="30" Height="30" Click="AppSettings_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">

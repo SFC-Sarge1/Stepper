@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,6 +25,11 @@ namespace Stepper
         {
             InitializeComponent();
             ResizeMode = ResizeMode.NoResize;
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            DateTime buildDate = DateTime.Now;
+            string displayableVersion = $"{version} ({buildDate})";
+            VersionTxt.Text = displayableVersion;
+
             // Iterate over each setting
             foreach (SettingsProperty currentProperty in Properties.Settings.Default.Properties)
             {
@@ -84,11 +90,6 @@ namespace Stepper
         private void SaveSettings_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Save();
-            this.Close();
-        }
-
-        private void CancelSettings_Click(object sender, RoutedEventArgs e)
-        {
             this.Close();
         }
     }
