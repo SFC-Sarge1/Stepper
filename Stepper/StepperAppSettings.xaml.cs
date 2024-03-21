@@ -21,6 +21,9 @@ namespace Stepper
     /// </summary>
     public partial class StepperAppSettings : Window
     {
+        public TextBox UserIntAppSettings;
+        public TextBox UserDecimalAppSettings;
+
         public StepperAppSettings()
         {
             InitializeComponent();
@@ -33,57 +36,234 @@ namespace Stepper
             // Iterate over each setting
             foreach (SettingsProperty currentProperty in Properties.Settings.Default.Properties)
             {
-                // Create a label and a textbox for the setting
-                Border labelUserAppSettingsWithBorder = new()
+                if (int.TryParse(Properties.Settings.Default[currentProperty.Name].ToString(), out int newIntValue))
                 {
-                    BorderBrush = Brushes.White,  // Color of the border
-                    BorderThickness = new Thickness(1),  // Thickness of the border
-                    Child = new Label()
+                    // Create a label and a textbox for the setting
+                    Border labelIntUserAppSettingsWithBorder = new()
+                    {
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(1),  // Thickness of the border
+                        Child = new Label()
+                        {
+                            Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                            HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                            Width = 200,  // Width of the TextBox
+                            Height = 25,   // Height of the TextBox
+                            Content = currentProperty.Name,
+                        }
+                    };
+                    UserIntAppSettings = new()
                     {
                         Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
                         Width = 200,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
-                        Content = currentProperty.Name,
-                    }
-                };
-                TextBox UserAppSettings = new()
+                        Text = Properties.Settings.Default[currentProperty.Name].ToString()
+                    };
+                    UserIntAppSettings.TouchDown += (sender, args) =>
+                    {
+                        Keypad mainWindow = new(this);
+                        if (mainWindow.ShowDialog() == true)
+                        {
+                            UserIntAppSettings.Text = mainWindow.Result.ToString();
+                        }
+                    };
+                    UserIntAppSettings.MouseUp += (sender, args) =>
+                    {
+                        Keypad mainWindow = new(this);
+                        if (mainWindow.ShowDialog() == true)
+                        {
+                            UserIntAppSettings.Text = mainWindow.Result.ToString();
+                        }
+                    };
+                    UserIntAppSettings.LostFocus += (sender, args) =>
+                    {
+                        Properties.Settings.Default[currentProperty.Name] = Convert.ToInt32(UserIntAppSettings.Text);
+                        Properties.Settings.Default.Save();
+                    };
+                    // Add the label and textbox to the WrapPanel
+                    MySettings.Children.Add(labelIntUserAppSettingsWithBorder);
+                    MySettings.Children.Add(UserIntAppSettings);
+                }
+                else if (bool.TryParse(Properties.Settings.Default[currentProperty.Name].ToString(), out bool newBoolValue))
                 {
-                    Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
-                    BorderBrush = Brushes.White,  // Color of the border
-                    BorderThickness = new Thickness(2),  // Thickness of the border
-                    HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                    Width = 200,  // Width of the TextBox
-                    Height = 25,   // Height of the TextBox
-                    Text = Properties.Settings.Default[currentProperty.Name].ToString()
-                };
-                // When the textbox loses focus, update the setting
-                UserAppSettings.LostFocus += (sender, args) =>
+                    // Create a label and a textbox for the setting
+                    Border labelBoolUserAppSettingsWithBorder = new()
+                    {
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(1),  // Thickness of the border
+                        Child = new Label()
+                        {
+                            Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                            HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                            Width = 200,  // Width of the TextBox
+                            Height = 25,   // Height of the TextBox
+                            Content = currentProperty.Name,
+                        }
+                    };
+                    ComboBox UserBoolAppSettings = new()
+                    {
+                        Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(2),  // Thickness of the border
+                        HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                        Width = 200,  // Width of the TextBox
+                        Height = 25,   // Height of the TextBox
+                        Text = Properties.Settings.Default[currentProperty.Name].ToString(),
+                        SelectedItem = Convert.ToBoolean(Properties.Settings.Default[currentProperty.Name].ToString())
+                    };
+                    // Add items to the ComboBox
+                    UserBoolAppSettings.Items.Add(false);
+                    UserBoolAppSettings.Items.Add(true);
+                    // When the textbox loses focus, update the setting
+                    UserBoolAppSettings.LostFocus += (sender, args) =>
+                    {
+                        if (bool.TryParse(UserBoolAppSettings.Text, out bool newBoolValue))
+                        {
+                            Properties.Settings.Default[currentProperty.Name] = Convert.ToBoolean(UserBoolAppSettings.SelectedItem); 
+                            Properties.Settings.Default.Save();
+                        }
+                    };
+                    // Add the label and textbox to the WrapPanel
+                    MySettings.Children.Add(labelBoolUserAppSettingsWithBorder);
+                    MySettings.Children.Add(UserBoolAppSettings);
+                }
+                else if (decimal.TryParse(Properties.Settings.Default[currentProperty.Name].ToString(), out decimal newDecimalValue))
                 {
-                    if (int.TryParse(UserAppSettings.Text, out int newIntValue))
+                    // Create a label and a textbox for the setting
+                    Border labelDecimalUserAppSettingsWithBorder = new()
                     {
-                        Properties.Settings.Default[currentProperty.Name] = newIntValue;
-                        Properties.Settings.Default.Save();
-                    }
-                    else if (bool.TryParse(UserAppSettings.Text, out bool newBoolValue))
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(1),  // Thickness of the border
+                        Child = new Label()
+                        {
+                            Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                            HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                            Width = 200,  // Width of the TextBox
+                            Height = 25,   // Height of the TextBox
+                            Content = currentProperty.Name,
+                        }
+                    };
+                    TextBox UserDecimalAppSettings = new()
                     {
-                        Properties.Settings.Default[currentProperty.Name] = newBoolValue;
-                        Properties.Settings.Default.Save();
-                    }
-                    else if (decimal.TryParse(UserAppSettings.Text, out decimal newDecimalValue))
+                        Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(2),  // Thickness of the border
+                        HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                        Width = 200,  // Width of the TextBox
+                        Height = 25,   // Height of the TextBox
+                        Text = Properties.Settings.Default[currentProperty.Name].ToString(),
+                    };
+                    UserDecimalAppSettings.TouchDown += (sender, args) =>
                     {
-                        Properties.Settings.Default[currentProperty.Name] = newDecimalValue;
+                        Keypad mainWindow = new(this);
+                        if (mainWindow.ShowDialog() == true)
+                        {
+                            UserDecimalAppSettings.Text = mainWindow.Result.ToString();
+                        }
+                    };
+                    UserDecimalAppSettings.MouseUp += (sender, args) =>
+                    {
+                        Keypad mainWindow = new(this);
+                        if (mainWindow.ShowDialog() == true)
+                        {
+                            UserDecimalAppSettings.Text = mainWindow.Result.ToString();
+                        }
+                    };
+                    UserDecimalAppSettings.LostFocus += (sender, args) =>
+                    {
+                        Properties.Settings.Default[currentProperty.Name] = Convert.ToDecimal(UserDecimalAppSettings.Text);
                         Properties.Settings.Default.Save();
-                    }
-                    else
+                    };
+                    // Add the label and textbox to the WrapPanel
+                    MySettings.Children.Add(labelDecimalUserAppSettingsWithBorder);
+                    MySettings.Children.Add(UserDecimalAppSettings);
+                }
+                else if (Properties.Settings.Default[currentProperty.Name].ToString().Contains("COM"))
+                {
+                    // Create a label and a textbox for the setting
+                    Border labelComUserAppSettingsWithBorder = new()
+                    {
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(1),  // Thickness of the border
+                        Child = new Label()
+                        {
+                            Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                            HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                            Width = 200,  // Width of the TextBox
+                            Height = 25,   // Height of the TextBox
+                            Content = currentProperty.Name,
+                        }
+                    };
+                    ComboBox UserComAppSettings = new()
+                    {
+                        Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(2),  // Thickness of the border
+                        HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                        Width = 200,  // Width of the TextBox
+                        Height = 25,   // Height of the TextBox
+                        Text = Properties.Settings.Default[currentProperty.Name].ToString(),
+                        SelectedItem = Properties.Settings.Default[currentProperty.Name].ToString()
+                    };
+                    // Add items to the ComboBox
+                    UserComAppSettings.Items.Add("COM1");
+                    UserComAppSettings.Items.Add("COM2");
+                    UserComAppSettings.Items.Add("COM3");
+                    UserComAppSettings.Items.Add("COM4");
+                    UserComAppSettings.Items.Add("COM5");
+                    UserComAppSettings.Items.Add("COM6");
+                    UserComAppSettings.Items.Add("COM7");
+                    UserComAppSettings.Items.Add("COM8");
+                    UserComAppSettings.Items.Add("COM9");
+                    // When the textbox loses focus, update the setting
+                    UserComAppSettings.LostFocus += (sender, args) =>
+                    {
+                        Properties.Settings.Default[currentProperty.Name] = UserComAppSettings.SelectedItem.ToString();
+                        Properties.Settings.Default.Save();
+                    };
+                    // Add the label and textbox to the WrapPanel
+                    MySettings.Children.Add(labelComUserAppSettingsWithBorder);
+                    MySettings.Children.Add(UserComAppSettings);
+                }
+                else
+                {
+                    // Create a label and a textbox for the setting
+                    Border labelUserAppSettingsWithBorder = new()
+                    {
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(1),  // Thickness of the border
+                        Child = new Label()
+                        {
+                            Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                            HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                            Width = 200,  // Width of the TextBox
+                            Height = 25,   // Height of the TextBox
+                            Content = currentProperty.Name,
+                        }
+                    };
+                    TextBox UserAppSettings = new()
+                    {
+                        Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(2),  // Thickness of the border
+                        HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                        Width = 200,  // Width of the TextBox
+                        Height = 25,   // Height of the TextBox
+                        Text = Properties.Settings.Default[currentProperty.Name].ToString()
+                    };
+                    // When the textbox loses focus, update the setting
+                    UserAppSettings.LostFocus += (sender, args) =>
                     {
                         Properties.Settings.Default[currentProperty.Name] = UserAppSettings.Text;
                         Properties.Settings.Default.Save();
-                    }
-                };
-                // Add the label and textbox to the WrapPanel
-                MySettings.Children.Add(labelUserAppSettingsWithBorder);
-                MySettings.Children.Add(UserAppSettings);
+                    };
+                    // Add the label and textbox to the WrapPanel
+                    MySettings.Children.Add(labelUserAppSettingsWithBorder);
+                    MySettings.Children.Add(UserAppSettings);
+                }
             }
         }
 

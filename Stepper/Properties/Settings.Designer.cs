@@ -22,157 +22,103 @@ namespace Stepper.Properties {
                 return defaultInstance;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("9600")]
-        public string BaudRate
-        {
-            get
-            {
-                return ((string)(this["BaudRate"]));
+        public int BaudRate {
+            get {
+                return ((int)(this["BaudRate"]));
             }
-            set
-            {
+            set {
                 this["BaudRate"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ckbXaxisResetToZeroIsChecked
-        {
-            get
-            {
+        public bool ckbXaxisResetToZeroIsChecked {
+            get {
                 return ((bool)(this["ckbXaxisResetToZeroIsChecked"]));
             }
-            set
-            {
+            set {
                 this["ckbXaxisResetToZeroIsChecked"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ckbYaxisResetToZeroIsChecked
-        {
-            get
-            {
+        public bool ckbYaxisResetToZeroIsChecked {
+            get {
                 return ((bool)(this["ckbYaxisResetToZeroIsChecked"]));
             }
-            set
-            {
+            set {
                 this["ckbYaxisResetToZeroIsChecked"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ckbZaxisResetToZeroIsChecked
-        {
-            get
-            {
+        public bool ckbZaxisResetToZeroIsChecked {
+            get {
                 return ((bool)(this["ckbZaxisResetToZeroIsChecked"]));
             }
-            set
-            {
+            set {
                 this["ckbZaxisResetToZeroIsChecked"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("COM1")]
-        public string COM1
-        {
-            get
-            {
+        public string COM1 {
+            get {
                 return ((string)(this["COM1"]));
             }
-            set
-            {
+            set {
                 this["COM1"] = value;
             }
         }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM5")]
-        public string COM5
-        {
-            get
-            {
-                return ((string)(this["COM5"]));
-            }
-            set
-            {
-                this["COM5"] = value;
-            }
-        }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("COM4")]
-        public string COM4
-        {
-            get
-            {
+        public string COM4 {
+            get {
                 return ((string)(this["COM4"]));
             }
-            set
-            {
+            set {
                 this["COM4"] = value;
             }
         }
-
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM5")]
+        public string COM5 {
+            get {
+                return ((string)(this["COM5"]));
+            }
+            set {
+                this["COM5"] = value;
+            }
+        }
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("4.00")]
-        public decimal Divider4_00
-        {
-            get
-            {
+        public decimal Divider4_00 {
+            get {
                 return ((decimal)(this["Divider4_00"]));
             }
-            set
-            {
+            set {
                 this["Divider4_00"] = value;
             }
         }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
-        public int mmPerRevolution
-        {
-            get
-            {
-                return ((int)(this["mmPerRevolution"]));
-            }
-            set
-            {
-                this["mmPerRevolution"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
-        public string Value_0_00
-        {
-            get
-            {
-                return ((string)(this["Value_0_00"]));
-            }
-            set
-            {
-                this["Value_0_00"] = value;
-            }
-        }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1000")]
@@ -182,6 +128,18 @@ namespace Stepper.Properties {
             }
             set {
                 this["Milliseconds"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public int mmPerRevolution {
+            get {
+                return ((int)(this["mmPerRevolution"]));
+            }
+            set {
+                this["mmPerRevolution"] = value;
             }
         }
         
@@ -208,22 +166,7 @@ namespace Stepper.Properties {
                 this["RootAxisY"] = value;
             }
         }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("XY")]
-        public string RootAxisXY
-        {
-            get
-            {
-                return ((string)(this["RootAxisXY"]));
-            }
-            set
-            {
-                this["RootAxisXY"] = value;
-            }
-        }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Z")]
@@ -235,188 +178,31 @@ namespace Stepper.Properties {
                 this["RootAxisZ"] = value;
             }
         }
-
-
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("XY")]
+        public string RootAxisXY {
+            get {
+                return ((string)(this["RootAxisXY"]));
+            }
+            set {
+                this["RootAxisXY"] = value;
+            }
+        }
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
-        public string XaxisStepperCurrent
-        {
-            get
-            {
-                return ((string)(this["XaxisStepperCurrent"]));
+        public decimal Value_0_00 {
+            get {
+                return ((decimal)(this["Value_0_00"]));
             }
-            set
-            {
-                this["XaxisStepperCurrent"] = value;
+            set {
+                this["Value_0_00"] = value;
             }
         }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
-        public string YaxisStepperCurrent
-        {
-            get
-            {
-                return ((string)(this["YaxisStepperCurrent"]));
-            }
-            set
-            {
-                this["YaxisStepperCurrent"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
-        public string ZaxisStepperCurrent
-        {
-            get
-            {
-                return ((string)(this["ZaxisStepperCurrent"]));
-            }
-            set
-            {
-                this["ZaxisStepperCurrent"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000.00")]
-        public string XaxisMotorSpeed
-        {
-            get
-            {
-                return ((string)(this["XaxisMotorSpeed"]));
-            }
-            set
-            {
-                this["XaxisMotorSpeed"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000.00")]
-        public string ZaxisMotorSpeed
-        {
-            get
-            {
-                return ((string)(this["ZaxisMotorSpeed"]));
-            }
-            set
-            {
-                this["ZaxisMotorSpeed"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
-        public string XaxisStepperMove
-        {
-            get
-            {
-                return ((string)(this["XaxisStepperMove"]));
-            }
-            set
-            {
-                this["XaxisStepperMove"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
-        public string YaxisStepperMove
-        {
-            get
-            {
-                return ((string)(this["YaxisStepperMove"]));
-            }
-            set
-            {
-                this["YaxisStepperMove"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
-        public string ZaxisStepperMove
-        {
-            get
-            {
-                return ((string)(this["ZaxisStepperMove"]));
-            }
-            set
-            {
-                this["ZaxisStepperMove"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000.00")]
-        public string YaxisMotorSpeed
-        {
-            get
-            {
-                return ((string)(this["YaxisMotorSpeed"]));
-            }
-            set
-            {
-                this["YaxisMotorSpeed"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int zeroXaxis
-        {
-            get
-            {
-                return ((int)(this["zeroXaxis"]));
-            }
-            set
-            {
-                this["zeroXaxis"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int zeroYaxis
-        {
-            get
-            {
-                return ((int)(this["zeroYaxis"]));
-            }
-            set
-            {
-                this["zeroYaxis"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int zeroZaxis
-        {
-            get
-            {
-                return ((int)(this["zeroZaxis"]));
-            }
-            set
-            {
-                this["zeroZaxis"] = value;
-            }
-        }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -426,6 +212,42 @@ namespace Stepper.Properties {
             }
             set {
                 this["XaxisChanged"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
+        public decimal XaxisStepperCurrent {
+            get {
+                return ((decimal)(this["XaxisStepperCurrent"]));
+            }
+            set {
+                this["XaxisStepperCurrent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
+        public decimal XaxisStepperMove {
+            get {
+                return ((decimal)(this["XaxisStepperMove"]));
+            }
+            set {
+                this["XaxisStepperMove"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000.00")]
+        public decimal XaxisMotorSpeed {
+            get {
+                return ((decimal)(this["XaxisMotorSpeed"]));
+            }
+            set {
+                this["XaxisMotorSpeed"] = value;
             }
         }
         
@@ -443,6 +265,42 @@ namespace Stepper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
+        public decimal YaxisStepperCurrent {
+            get {
+                return ((decimal)(this["YaxisStepperCurrent"]));
+            }
+            set {
+                this["YaxisStepperCurrent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
+        public decimal YaxisStepperMove {
+            get {
+                return ((decimal)(this["YaxisStepperMove"]));
+            }
+            set {
+                this["YaxisStepperMove"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000.00")]
+        public decimal YaxisMotorSpeed {
+            get {
+                return ((decimal)(this["YaxisMotorSpeed"]));
+            }
+            set {
+                this["YaxisMotorSpeed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool ZaxisChanged {
             get {
@@ -450,6 +308,78 @@ namespace Stepper.Properties {
             }
             set {
                 this["ZaxisChanged"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
+        public decimal ZaxisStepperCurrent {
+            get {
+                return ((decimal)(this["ZaxisStepperCurrent"]));
+            }
+            set {
+                this["ZaxisStepperCurrent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
+        public decimal ZaxisStepperMove {
+            get {
+                return ((decimal)(this["ZaxisStepperMove"]));
+            }
+            set {
+                this["ZaxisStepperMove"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000.00")]
+        public decimal ZaxisMotorSpeed {
+            get {
+                return ((decimal)(this["ZaxisMotorSpeed"]));
+            }
+            set {
+                this["ZaxisMotorSpeed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int zeroXaxis {
+            get {
+                return ((int)(this["zeroXaxis"]));
+            }
+            set {
+                this["zeroXaxis"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int zeroYaxis {
+            get {
+                return ((int)(this["zeroYaxis"]));
+            }
+            set {
+                this["zeroYaxis"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int zeroZaxis {
+            get {
+                return ((int)(this["zeroZaxis"]));
+            }
+            set {
+                this["zeroZaxis"] = value;
             }
         }
     }

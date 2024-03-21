@@ -23,19 +23,19 @@ namespace Stepper
         public int zeroYaxis = Properties.Settings.Default.zeroYaxis;
         public int zeroZaxis = Properties.Settings.Default.zeroZaxis;
         public int milliseconds = Properties.Settings.Default.Milliseconds;
-        public string axis = Properties.Settings.Default.RootAxisX;
-        public string currentXAxis = Properties.Settings.Default.Value_0_00;
-        public string currentYAxis = Properties.Settings.Default.Value_0_00;
-        public string currentZAxis = Properties.Settings.Default.Value_0_00;
-        public string previousXAxis = Properties.Settings.Default.Value_0_00;
-        public string previousYAxis = Properties.Settings.Default.Value_0_00;
-        public string previousZAxis = Properties.Settings.Default.Value_0_00;
+        public string axis = Properties.Settings.Default.RootAxisX.ToString();
+        public string currentXAxis = Properties.Settings.Default.Value_0_00.ToString();
+        public string currentYAxis = Properties.Settings.Default.Value_0_00.ToString();
+        public string currentZAxis = Properties.Settings.Default.Value_0_00.ToString();
+        public string previousXAxis = Properties.Settings.Default.Value_0_00.ToString();
+        public string previousYAxis = Properties.Settings.Default.Value_0_00.ToString();
+        public string previousZAxis = Properties.Settings.Default.Value_0_00.ToString();
         public bool XaxisChanged = Properties.Settings.Default.XaxisChanged;
         public bool YaxisChanged = Properties.Settings.Default.YaxisChanged;
         public bool ZaxisChanged = Properties.Settings.Default.ZaxisChanged;
-        public string XaxisStepperMoveTemp = Properties.Settings.Default.Value_0_00;
-        public string YaxisStepperMoveTemp = Properties.Settings.Default.Value_0_00;
-        public string ZaxisStepperMoveTemp = Properties.Settings.Default.Value_0_00;
+        public string XaxisStepperMoveTemp = Properties.Settings.Default.Value_0_00.ToString();
+        public string YaxisStepperMoveTemp = Properties.Settings.Default.Value_0_00.ToString();
+        public string ZaxisStepperMoveTemp = Properties.Settings.Default.Value_0_00.ToString();
         public string selectedItem;
         public decimal stepperMove;
         private void TextBox_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -63,21 +63,21 @@ namespace Stepper
             txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
-            txtXaxisStepperCurrent.Text = Properties.Settings.Default.XaxisStepperCurrent;
-            txtYaxisStepperCurrent.Text = Properties.Settings.Default.YaxisStepperCurrent;
-            txtZaxisStepperCurrent.Text = Properties.Settings.Default.ZaxisStepperCurrent;
-            txtXaxisMotorSpeed.Text = Properties.Settings.Default.XaxisMotorSpeed;
-            txtYaxisMotorSpeed.Text = Properties.Settings.Default.YaxisMotorSpeed;
-            txtZaxisMotorSpeed.Text = Properties.Settings.Default.ZaxisMotorSpeed;
-            txtXaxisStepperMove.Text = Properties.Settings.Default.XaxisStepperMove;
-            txtYaxisStepperMove.Text = Properties.Settings.Default.YaxisStepperMove;
-            txtZaxisStepperMove.Text = Properties.Settings.Default.ZaxisStepperMove;
+            txtXaxisStepperCurrent.Text = Properties.Settings.Default.XaxisStepperCurrent.ToString();
+            txtYaxisStepperCurrent.Text = Properties.Settings.Default.YaxisStepperCurrent.ToString();
+            txtZaxisStepperCurrent.Text = Properties.Settings.Default.ZaxisStepperCurrent.ToString();
+            txtXaxisMotorSpeed.Text = Properties.Settings.Default.XaxisMotorSpeed.ToString();
+            txtYaxisMotorSpeed.Text = Properties.Settings.Default.YaxisMotorSpeed.ToString();
+            txtZaxisMotorSpeed.Text = Properties.Settings.Default.ZaxisMotorSpeed.ToString();
+            txtXaxisStepperMove.Text = Properties.Settings.Default.XaxisStepperMove.ToString();
+            txtYaxisStepperMove.Text = Properties.Settings.Default.YaxisStepperMove.ToString();
+            txtZaxisStepperMove.Text = Properties.Settings.Default.ZaxisStepperMove.ToString();
             ckbXaxisResetToZero.IsChecked = Properties.Settings.Default.ckbXaxisResetToZeroIsChecked;
             ckbYaxisResetToZero.IsChecked = Properties.Settings.Default.ckbYaxisResetToZeroIsChecked;
             ckbZaxisResetToZero.IsChecked = Properties.Settings.Default.ckbZaxisResetToZeroIsChecked;
-            txtBaudRate.Text = Properties.Settings.Default.BaudRate;
+            txtBaudRate.Text = Properties.Settings.Default.BaudRate.ToString();
             selectedItem = cmbComPort.Items.CurrentItem.ToString();
-            if (selectedItem == Properties.Settings.Default.COM1)
+            if (selectedItem == Properties.Settings.Default.COM1.ToString())
             {
                 cmbComPort.Items.MoveCurrentToLast();
                 selectedItem = cmbComPort.Items.CurrentItem.ToString();
@@ -90,7 +90,7 @@ namespace Stepper
                     sp.Open();
                 }
             }
-            else if (selectedItem == Properties.Settings.Default.COM4)
+            else if (selectedItem == Properties.Settings.Default.COM4.ToString())
             {
                 myPortName = selectedItem;
                 cmbComPort.Text = selectedItem;
@@ -100,7 +100,7 @@ namespace Stepper
                     sp.Open();
                 }
             }
-            else if (selectedItem == Properties.Settings.Default.COM5)
+            else if (selectedItem == Properties.Settings.Default.COM5.ToString())
             {
                 myPortName = selectedItem;
                 cmbComPort.Text = selectedItem;
@@ -115,14 +115,14 @@ namespace Stepper
         }
         private void XAxisRun_Click(object sender, RoutedEventArgs e)
         {
-            axis = Properties.Settings.Default.RootAxisX;
-            previousXAxis = txtXaxisStepperMove.Text;
+            axis = Properties.Settings.Default.RootAxisX.ToString();
+            previousXAxis = txtXaxisStepperMove.Text.ToString();
             if (ckbXaxisResetToZero.IsChecked == true)
             {
                 zeroXaxis = 1;
                 stringValue = axis + "," + (Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text.Trim())).ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
-                stringValue = axis + "," + Properties.Settings.Default.Value_0_00 + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
+                stringValue = axis + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 XZero(milliseconds);
@@ -145,19 +145,19 @@ namespace Stepper
                 XaxisChanged = false;
                 txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
-            Properties.Settings.Default.XaxisStepperCurrent = txtXaxisStepperCurrent.Text;
-            Properties.Settings.Default.XaxisStepperMove = txtXaxisStepperMove.Text;
+            Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
+            Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
             Properties.Settings.Default.Save();
         }
         private void YAxisRun_Click(object sender, RoutedEventArgs e)
         {
-            previousYAxis = txtYaxisStepperMove.Text;
+            previousYAxis = txtYaxisStepperMove.Text.ToString();
             if (ckbYaxisResetToZero.IsChecked == true)
             {
                 zeroYaxis = 1;
                 stringValue = Properties.Settings.Default.RootAxisY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + (Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text.Trim())).ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
-                stringValue = Properties.Settings.Default.RootAxisY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00 + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
+                stringValue = Properties.Settings.Default.RootAxisY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
                 zeroYaxis = 0;
                 YZero(milliseconds);
@@ -180,19 +180,19 @@ namespace Stepper
                 YaxisChanged = false;
                 txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
-            Properties.Settings.Default.YaxisStepperCurrent = txtYaxisStepperCurrent.Text;
-            Properties.Settings.Default.YaxisStepperMove = txtYaxisStepperMove.Text;
+            Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
+            Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
         }
         private void ZAxisRun_Click(object sender, RoutedEventArgs e)
         {
-            previousZAxis = txtZaxisStepperMove.Text;
+            previousZAxis = txtZaxisStepperMove.Text.ToString();
             if (ckbZaxisResetToZero.IsChecked == true)
             {
                 zeroZaxis = 1;
                 stringValue = Properties.Settings.Default.RootAxisZ + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + (Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text.Trim())).ToString() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
-                stringValue = Properties.Settings.Default.RootAxisZ + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + Properties.Settings.Default.Value_0_00 + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
+                stringValue = Properties.Settings.Default.RootAxisZ + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
                 zeroZaxis = 0;
                 ZZero(milliseconds);
@@ -215,8 +215,8 @@ namespace Stepper
                 ZaxisChanged = false;
                 txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
-            Properties.Settings.Default.ZaxisStepperCurrent = txtZaxisStepperCurrent.Text;
-            Properties.Settings.Default.ZaxisStepperMove = txtZaxisStepperMove.Text;
+            Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtZaxisStepperCurrent.Text);
+            Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
             Properties.Settings.Default.Save();
         }
         private void XYAxisRun_Click(object sender, RoutedEventArgs e)
@@ -227,7 +227,7 @@ namespace Stepper
                 zeroYaxis = 1;
                 stringValue = Properties.Settings.Default.RootAxisXY + "," + (Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text.Trim())).ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + (Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text.Trim())).ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
-                stringValue = Properties.Settings.Default.RootAxisXY + "," + Properties.Settings.Default.Value_0_00 + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00 + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
+                stringValue = Properties.Settings.Default.RootAxisXY + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
@@ -239,7 +239,7 @@ namespace Stepper
                 zeroYaxis = 0;
                 stringValue = Properties.Settings.Default.RootAxisXY + "," + (Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text.Trim())).ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
-                stringValue = Properties.Settings.Default.RootAxisXY + "," + Properties.Settings.Default.Value_0_00 + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
+                stringValue = Properties.Settings.Default.RootAxisXY + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
@@ -265,7 +265,7 @@ namespace Stepper
                 zeroYaxis = 1;
                 stringValue = Properties.Settings.Default.RootAxisXY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + (Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text.Trim())).ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
-                stringValue = Properties.Settings.Default.RootAxisXY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00 + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
+                stringValue = Properties.Settings.Default.RootAxisXY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                 sp.Write(stringValue);
                 zeroXaxis = 0;
                 zeroYaxis = 0;
@@ -308,55 +308,55 @@ namespace Stepper
                 YaxisChanged = false;
                 txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
-            Properties.Settings.Default.XaxisStepperCurrent = txtXaxisStepperCurrent.Text;
-            Properties.Settings.Default.XaxisStepperMove = txtXaxisStepperMove.Text;
-            Properties.Settings.Default.YaxisStepperCurrent = txtYaxisStepperCurrent.Text;
-            Properties.Settings.Default.YaxisStepperMove = txtYaxisStepperMove.Text;
+            Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
+            Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
+            Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
+            Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
         }
         public async void XZero(int delay)
         {
             await Task.Delay(delay);
-            txtXaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00;
+            txtXaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
             ckbXaxisResetToZero.IsChecked = false;
-            txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00;
-            Properties.Settings.Default.XaxisStepperCurrent = txtXaxisStepperCurrent.Text;
-            Properties.Settings.Default.XaxisStepperMove = txtXaxisStepperMove.Text;
+            txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
+            Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
+            Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
             Properties.Settings.Default.Save();
         }
         public async void YZero(int delay)
         {
             await Task.Delay(delay);
             ckbYaxisResetToZero.IsChecked = false;
-            txtYaxisStepperMove.Text = Properties.Settings.Default.Value_0_00;
-            txtYaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00;
-            Properties.Settings.Default.YaxisStepperCurrent = txtYaxisStepperCurrent.Text;
-            Properties.Settings.Default.YaxisStepperMove = txtYaxisStepperMove.Text;
+            txtYaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
+            txtYaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
+            Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
+            Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
         }
         public async void ZZero(int delay)
         {
             await Task.Delay(delay);
             ckbZaxisResetToZero.IsChecked = false;
-            txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00;
-            txtZaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00;
-            Properties.Settings.Default.ZaxisStepperCurrent = txtYaxisStepperCurrent.Text;
-            Properties.Settings.Default.ZaxisStepperMove = txtYaxisStepperMove.Text;
+            txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
+            txtZaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
+            Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
+            Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
         }
         public async void XYZero(int delay)
         {
             await Task.Delay(delay);
             ckbXaxisResetToZero.IsChecked = false;
-            txtXaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00;
-            txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00;
+            txtXaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
+            txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
             ckbYaxisResetToZero.IsChecked = false;
-            txtYaxisStepperMove.Text = Properties.Settings.Default.Value_0_00;
-            txtYaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00;
-            Properties.Settings.Default.XaxisStepperCurrent = txtXaxisStepperCurrent.Text;
-            Properties.Settings.Default.XaxisStepperMove = txtXaxisStepperMove.Text;
-            Properties.Settings.Default.YaxisStepperCurrent = txtYaxisStepperCurrent.Text;
-            Properties.Settings.Default.YaxisStepperMove = txtYaxisStepperMove.Text;
+            txtYaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
+            txtYaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
+            Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
+            Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
+            Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
+            Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
         }
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
@@ -404,21 +404,21 @@ namespace Stepper
         }
         private void XaxisStepperMove_GotFocus(object sender, EventArgs e)
         {
-            XaxisStepperMoveTemp = txtXaxisStepperMove.Text;
+            XaxisStepperMoveTemp = txtXaxisStepperMove.Text.ToString();
         }
         private void YaxisStepperMove_GotFocus(object sender, EventArgs e)
         {
-            YaxisStepperMoveTemp = txtYaxisStepperMove.Text;
+            YaxisStepperMoveTemp = txtYaxisStepperMove.Text.ToString();
         }
         private void ZaxisStepperMove_GotFocus(object sender, EventArgs e)
         {
-            ZaxisStepperMoveTemp = txtZaxisStepperMove.Text;
+            ZaxisStepperMoveTemp = txtZaxisStepperMove.Text.ToString();
         }
         private void XaxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
         {
             XaxisChanged = true;
             txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
-            if (txtXaxisStepperMove.Text == Properties.Settings.Default.XaxisStepperMove)
+            if (txtXaxisStepperMove.Text == Properties.Settings.Default.XaxisStepperMove.ToString())
             {
                 txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
@@ -427,7 +427,7 @@ namespace Stepper
         {
             YaxisChanged = true;
             txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
-            if (txtYaxisStepperMove.Text == Properties.Settings.Default.YaxisStepperMove)
+            if (txtYaxisStepperMove.Text == Properties.Settings.Default.YaxisStepperMove.ToString())
             {
                 txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
@@ -436,80 +436,80 @@ namespace Stepper
         {
             ZaxisChanged = true;
             txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
-            if (txtZaxisStepperMove.Text == Properties.Settings.Default.ZaxisStepperMove)
+            if (txtZaxisStepperMove.Text == Properties.Settings.Default.ZaxisStepperMove.ToString())
             {
                 txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
         }
         private void XaxisStepperMove_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Keypad mainWindow = new Keypad(this);
+            Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
-                txtXaxisStepperMove.Text = mainWindow.Result;
+                txtXaxisStepperMove.Text = mainWindow.Result.ToString();
         }
         private void YaxisStepperMove_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Keypad mainWindow = new Keypad(this);
+            Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
-                txtYaxisStepperMove.Text = mainWindow.Result;
+                txtYaxisStepperMove.Text = mainWindow.Result.ToString();
         }
         private void ZaxisStepperMove_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Keypad mainWindow = new Keypad(this);
+            Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
-                txtZaxisStepperMove.Text = mainWindow.Result;
+                txtZaxisStepperMove.Text = mainWindow.Result.ToString();
         }
         private void txtXaxisMotorSpeed_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Keypad mainWindow = new Keypad(this);
+            Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
-                txtXaxisMotorSpeed.Text = mainWindow.Result;
+                txtXaxisMotorSpeed.Text = mainWindow.Result.ToString();
         }
         private void txtYaxisMotorSpeed_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Keypad mainWindow = new Keypad(this);
+            Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
-                txtYaxisMotorSpeed.Text = mainWindow.Result;
+                txtYaxisMotorSpeed.Text = mainWindow.Result.ToString();
         }
         private void txtZaxisMotorSpeed_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Keypad mainWindow = new Keypad(this);
+            Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
-                txtZaxisMotorSpeed.Text = mainWindow.Result;
+                txtZaxisMotorSpeed.Text = mainWindow.Result.ToString();
         }
         private void txtXaxisStepperCurrent_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Keypad mainWindow = new Keypad(this);
+            Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
-                txtXaxisStepperCurrent.Text = mainWindow.Result;
+                txtXaxisStepperCurrent.Text = mainWindow.Result.ToString();
         }
         private void txtYaxisStepperCurrent_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Keypad mainWindow = new Keypad(this);
+            Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
-                txtYaxisStepperCurrent.Text = mainWindow.Result;
+                txtYaxisStepperCurrent.Text = mainWindow.Result.ToString();
         }
         private void txtZaxisStepperCurrent_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Keypad mainWindow = new Keypad(this);
+            Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
-                txtZaxisStepperCurrent.Text = mainWindow.Result;
+                txtZaxisStepperCurrent.Text = mainWindow.Result.ToString();
         }
         private void txtBaudRate_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Keypad mainWindow = new Keypad(this);
+            Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
-                txtBaudRate.Text = mainWindow.Result;
+                txtBaudRate.Text = mainWindow.Result.ToString();
         }
 
         private void cmbComPort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedItem = cmbComPort.Items.CurrentItem.ToString();
-            if (sp.IsOpen == true && selectedItem == Properties.Settings.Default.COM1)
+            if (sp.IsOpen == true && selectedItem == Properties.Settings.Default.COM1.ToString())
             {
                 sp.Close();
             }
-            if (selectedItem == Properties.Settings.Default.COM1)
+            if (selectedItem == Properties.Settings.Default.COM1.ToString())
             {
                 cmbComPort.Items.MoveCurrentToLast();
                 selectedItem = cmbComPort.Items.CurrentItem.ToString();
