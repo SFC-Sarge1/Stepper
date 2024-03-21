@@ -7,7 +7,7 @@
         xmlns:ports="clr-namespace:System.IO.Ports;assembly=System"
         xmlns:local="clr-namespace:Stepper"
         mc:Ignorable="d"
-        Title="X,Y, Z Table Stepper Motor Control Settings" Height="411" Width="650"  WindowStyle="None">
+        Title="X,Y, Z Table Stepper Motor Control Settings" Height="411" Width="650" WindowStartupLocation="CenterScreen" WindowStyle="None">
 
     <Grid Background="Black" >
         <Grid.RowDefinitions>
@@ -33,13 +33,6 @@
         </Border>
         <ScrollViewer  Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <WrapPanel Name="MySettings" Width="500" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10">
-                <!--<Label Content="Divider4_00:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <TextBox Name="Divider4_00TextBox" HorizontalAlignment="Left" Height="23" Margin="76,12,0,0" TextWrapping="Wrap" Text="{Binding Source={x:Static p:Settings.Default.Properties}, Path=Divider4_00, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
-                <ComboBox Name="BaudRateComboBox" HorizontalAlignment="Left" Margin="76,41,0,0" VerticalAlignment="Top" Width="120">
-                    <ComboBoxItem IsSelected="True">Option 1</ComboBoxItem>
-                    <ComboBoxItem>Option 2</ComboBoxItem>
-                </ComboBox>
-                <Button Content="Save" HorizontalAlignment="Left" Margin="76,70,0,0" VerticalAlignment="Top" Width="75" Click="SaveSettings_Click"/>-->
             </WrapPanel>
         </ScrollViewer>
     </Grid>
