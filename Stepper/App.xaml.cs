@@ -11,7 +11,7 @@ namespace Stepper
     {
         protected override void OnExit(ExitEventArgs e)
         {
-            //Properties.Settings.Default.Save();
+            Stepper.Properties.Settings.Default.Save();
             base.OnExit(e);
         }
     }

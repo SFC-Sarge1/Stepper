@@ -524,21 +524,6 @@ namespace Stepper
             }
         }
 
-        private void txtZaxisStepperCurrent_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtYaxisStepperCurrent_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtXaxisStepperCurrent_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void AppSettings_Click(object sender, RoutedEventArgs e)
         {
             StepperAppSettings newSettingsWindow = new StepperAppSettings();
