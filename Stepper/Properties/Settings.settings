@@ -2,38 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Stepper.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="XaxisStepperCurrent" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0.00</Value>
-    </Setting>
-    <Setting Name="YaxisStepperCurrent" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0.00</Value>
-    </Setting>
-    <Setting Name="ZaxisStepperCurrent" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0.00</Value>
-    </Setting>
-    <Setting Name="XaxisMotorSpeed" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1000.00</Value>
-    </Setting>
-    <Setting Name="ZaxisMotorSpeed" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1000.00</Value>
-    </Setting>
-    <Setting Name="XaxisStepperMove" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0.00</Value>
-    </Setting>
-    <Setting Name="YaxisStepperMove" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0.00</Value>
-    </Setting>
-    <Setting Name="ZaxisStepperMove" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0.00</Value>
-    </Setting>
     <Setting Name="BaudRate" Type="System.String" Scope="User">
       <Value Profile="(Default)">9600</Value>
-    </Setting>
-    <Setting Name="Value_0_00" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0.00</Value>
-    </Setting>
-    <Setting Name="YaxisMotorSpeed" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1000.00</Value>
     </Setting>
     <Setting Name="ckbXaxisResetToZeroIsChecked" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -44,35 +14,26 @@
     <Setting Name="ckbZaxisResetToZeroIsChecked" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="zeroXaxis" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="zeroYaxis" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="zeroZaxis" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="Milliseconds" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1000</Value>
-    </Setting>
-    <Setting Name="RootAxisX" Type="System.String" Scope="User">
-      <Value Profile="(Default)">X</Value>
-    </Setting>
     <Setting Name="COM1" Type="System.String" Scope="User">
       <Value Profile="(Default)">COM1</Value>
-    </Setting>
-    <Setting Name="COM5" Type="System.String" Scope="User">
-      <Value Profile="(Default)">COM5</Value>
     </Setting>
     <Setting Name="COM4" Type="System.String" Scope="User">
       <Value Profile="(Default)">COM4</Value>
     </Setting>
+    <Setting Name="COM5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM5</Value>
+    </Setting>
     <Setting Name="Divider4_00" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">4.00</Value>
     </Setting>
+    <Setting Name="Milliseconds" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
     <Setting Name="mmPerRevolution" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">4</Value>
+    </Setting>
+     <Setting Name="RootAxisX" Type="System.String" Scope="User">
+      <Value Profile="(Default)">X</Value>
     </Setting>
     <Setting Name="RootAxisY" Type="System.String" Scope="User">
       <Value Profile="(Default)">Y</Value>
@@ -82,6 +43,54 @@
     </Setting>
     <Setting Name="RootAxisXY" Type="System.String" Scope="User">
       <Value Profile="(Default)">XY</Value>
+    </Setting>
+    <Setting Name="Value_0_00" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="XaxisChanged" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+   <Setting Name="XaxisStepperCurrent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="XaxisStepperMove" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="XaxisMotorSpeed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1000.00</Value>
+    </Setting>
+    <Setting Name="YaxisChanged" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="YaxisStepperCurrent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="YaxisStepperMove" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="YaxisMotorSpeed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1000.00</Value>
+    </Setting>
+    <Setting Name="ZaxisChanged" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ZaxisStepperCurrent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="ZaxisStepperMove" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="ZaxisMotorSpeed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1000.00</Value>
+    </Setting>
+    <Setting Name="zeroXaxis" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="zeroYaxis" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="zeroZaxis" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -12,66 +12,72 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MahApps.Metro.Controls;
 
 namespace Stepper
 {
     /// <summary>
     /// Interaction logic for StepperAppSettings.xaml
     /// </summary>
-    public partial class StepperAppSettings : MetroWindow
+    public partial class StepperAppSettings : Window
     {
         public StepperAppSettings()
         {
             InitializeComponent();
-            // Create a StackPanel to hold the settings controls
-            StackPanel panel = new StackPanel();
-
             // Iterate over each setting
             foreach (SettingsProperty currentProperty in Properties.Settings.Default.Properties)
             {
                 // Create a label and a textbox for the setting
-                Label label = new Label() { Content = currentProperty.Name };
-                TextBox textBox = new TextBox() { Text = Properties.Settings.Default[currentProperty.Name].ToString() };
-                // When the textbox loses focus, update the setting
-                textBox.LostFocus += (sender, args) =>
+                Border labelUserAppSettingsWithBorder = new()
                 {
-                    if (int.TryParse(textBox.Text, out int newIntValue))
+                    BorderBrush = Brushes.White,  // Color of the border
+                    BorderThickness = new Thickness(1),  // Thickness of the border
+                    Child = new Label()
+                    {
+                        Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                        HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                        Width = 200,  // Width of the TextBox
+                        Height = 25,   // Height of the TextBox
+                        Content = currentProperty.Name,
+                    }
+                };
+                TextBox UserAppSettings = new()
+                {
+                    Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                    BorderBrush = Brushes.White,  // Color of the border
+                    BorderThickness = new Thickness(2),  // Thickness of the border
+                    HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                    Width = 200,  // Width of the TextBox
+                    Height = 25,   // Height of the TextBox
+                    Text = Properties.Settings.Default[currentProperty.Name].ToString()
+                };
+                // When the textbox loses focus, update the setting
+                UserAppSettings.LostFocus += (sender, args) =>
+                {
+                    if (int.TryParse(UserAppSettings.Text, out int newIntValue))
                     {
                         Properties.Settings.Default[currentProperty.Name] = newIntValue;
                         Properties.Settings.Default.Save();
                     }
-                    else if (bool.TryParse(textBox.Text, out bool newBoolValue))
+                    else if (bool.TryParse(UserAppSettings.Text, out bool newBoolValue))
                     {
                         Properties.Settings.Default[currentProperty.Name] = newBoolValue;
                         Properties.Settings.Default.Save();
                     }
-                    else if (decimal.TryParse(textBox.Text, out decimal newDecimalValue))
+                    else if (decimal.TryParse(UserAppSettings.Text, out decimal newDecimalValue))
                     {
                         Properties.Settings.Default[currentProperty.Name] = newDecimalValue;
                         Properties.Settings.Default.Save();
                     }
                     else
                     {
-                        Properties.Settings.Default[currentProperty.Name] = textBox.Text;
+                        Properties.Settings.Default[currentProperty.Name] = UserAppSettings.Text;
                         Properties.Settings.Default.Save();
                     }
                 };
-
-                // Add the label and textbox to the panel
-                panel.Children.Add(label);
-                panel.Children.Add(textBox);
+                // Add the label and textbox to the WrapPanel
+                MySettings.Children.Add(labelUserAppSettingsWithBorder);
+                MySettings.Children.Add(UserAppSettings);
             }
-
-            // Create a ScrollViewer
-            ScrollViewer scrollViewer = new ScrollViewer();
-            scrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
-            scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
-            // Add the StackPanel to the ScrollViewer
-            scrollViewer.Content = panel;
-
-            // Add the ScrollViewer to the window
-            this.Content = scrollViewer; 
         }
 
         private void SaveSettings_Click(object sender, RoutedEventArgs e)

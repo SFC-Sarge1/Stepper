@@ -28,9 +28,9 @@ namespace Stepper
         public string previousXAxis = Properties.Settings.Default.Value_0_00;
         public string previousYAxis = Properties.Settings.Default.Value_0_00;
         public string previousZAxis = Properties.Settings.Default.Value_0_00;
-        public bool XaxisChanged = false;
-        public bool YaxisChanged = false;
-        public bool ZaxisChanged = false;
+        public bool XaxisChanged = Properties.Settings.Default.XaxisChanged;
+        public bool YaxisChanged = Properties.Settings.Default.YaxisChanged;
+        public bool ZaxisChanged = Properties.Settings.Default.ZaxisChanged;
         public string XaxisStepperMoveTemp = Properties.Settings.Default.Value_0_00;
         public string YaxisStepperMoveTemp = Properties.Settings.Default.Value_0_00;
         public string ZaxisStepperMoveTemp = Properties.Settings.Default.Value_0_00;
@@ -53,6 +53,8 @@ namespace Stepper
         public MainWindow()
         {
             InitializeComponent();
+            //Application.Current.Resources["StepperAppSettings"] = Properties.Settings.Default;
+
             txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
@@ -546,6 +548,11 @@ namespace Stepper
 
             // Show the new window
             newSettingsWindow.Show();
+        }
+        private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

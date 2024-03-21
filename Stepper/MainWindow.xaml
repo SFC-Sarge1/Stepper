@@ -12,6 +12,26 @@
         <ObjectDataProvider ObjectType="{x:Type ports:SerialPort}" MethodName="GetPortNames" x:Key="portNames"/>
     </Window.Resources>
     <Grid x:Name="StepperMotorControl" Margin="0,3,0,3" Background="{DynamicResource MahApps.Brushes.ThemeBackground}" RenderTransformOrigin="0.497,1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border>
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Button VerticalAlignment="Top" Width="20" Height="20" Click="AppSettings_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Stepper.png"/>
+                    </Button.Background>
+                </Button>
+            </WrapPanel>
+        </Border>
         <Label x:Name="lblXaxisMove" Content="X axis Move:" HorizontalAlignment="Left" Margin="21,129,0,0" VerticalAlignment="Top" Height="26" Width="76"/>
         <TextBox x:Name="txtXaxisStepperMove" PreviewMouseUp="XaxisStepperMove_PreviewMouseUp" TextChanged="XaxisStepperMove_TextChanged" GotFocus="XaxisStepperMove_GotFocus" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="101,127,0,0" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
         <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,129,0,0" Height="26" Width="32"/>
@@ -47,6 +67,5 @@
         <Label x:Name="lblZaxisCurrent" Content="Z axis current:" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Height="26" Width="87"/>
         <TextBox x:Name="txtZaxisStepperCurrent"  TextChanged="txtZaxisStepperCurrent_TextChanged" PreviewMouseUp="txtZaxisStepperCurrent_PreviewMouseUp" HorizontalAlignment="Left" Margin="101,88,0,0" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
         <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,90,0,0" Height="26" Width="32"/>
-        <Button x:Name="App_Settings" HorizontalAlignment="Left" Margin="508,37,0,0" VerticalAlignment="Top" Click="AppSettings_Click" Content="App Settings"/>
     </Grid>
 </mah:MetroWindow>
