@@ -1,29 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Stepper
+{
 using System.Configuration;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
-namespace Stepper
-{
     /// <summary>
     /// Interaction logic for StepperAppSettings.xaml
     /// </summary>
     public partial class StepperAppSettings : Window
     {
-        public TextBox UserIntAppSettings;
-        public TextBox UserDecimalAppSettings;
-
         public StepperAppSettings()
         {
             InitializeComponent();
@@ -33,7 +20,7 @@ namespace Stepper
             string displayableVersion = $"{version} ({buildDate})";
             VersionTxt.Text = "Version: " + displayableVersion;
 
-            // Iterate over each setting
+            // Iterate over each setting to fill the WrapPanel with the settings
             foreach (SettingsProperty currentProperty in Properties.Settings.Default.Properties)
             {
                 if (int.TryParse(Properties.Settings.Default[currentProperty.Name].ToString(), out int newIntValue))
@@ -52,7 +39,7 @@ namespace Stepper
                             Content = currentProperty.Name,
                         }
                     };
-                    UserIntAppSettings = new()
+                    TextBox UserIntAppSettings = new()
                     {
                         Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
                         BorderBrush = Brushes.White,  // Color of the border
@@ -244,7 +231,21 @@ namespace Stepper
                             Content = currentProperty.Name,
                         }
                     };
-                    TextBox UserAppSettings = new()
+                    // Create a label and a ComboBox for the setting
+                    Border labelComUserAppSettingsWithBorder = new()
+                    {
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(1),  // Thickness of the border
+                        Child = new Label()
+                        {
+                            Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                            HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                            Width = 200,  // Width of the TextBox
+                            Height = 25,   // Height of the TextBox
+                            Content = currentProperty.Name,
+                        }
+                    };
+                    ComboBox UserAppSettings = new()
                     {
                         Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
                         BorderBrush = Brushes.White,  // Color of the border
@@ -252,16 +253,22 @@ namespace Stepper
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
                         Width = 200,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
-                        Text = Properties.Settings.Default[currentProperty.Name].ToString()
+                        Text = Properties.Settings.Default[currentProperty.Name].ToString(),
+                        SelectedItem = Properties.Settings.Default[currentProperty.Name].ToString()
                     };
+                    // Add items to the ComboBox
+                    UserAppSettings.Items.Add("X");
+                    UserAppSettings.Items.Add("Y");
+                    UserAppSettings.Items.Add("Z");
+                    UserAppSettings.Items.Add("XY");
                     // When the textbox loses focus, update the setting
                     UserAppSettings.LostFocus += (sender, args) =>
                     {
-                        Properties.Settings.Default[currentProperty.Name] = UserAppSettings.Text;
+                        Properties.Settings.Default[currentProperty.Name] = UserAppSettings.SelectedItem.ToString();
                         Properties.Settings.Default.Save();
                     };
                     // Add the label and textbox to the WrapPanel
-                    MySettings.Children.Add(labelUserAppSettingsWithBorder);
+                    MySettings.Children.Add(labelComUserAppSettingsWithBorder);
                     MySettings.Children.Add(UserAppSettings);
                 }
             }
