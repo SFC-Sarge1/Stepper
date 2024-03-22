@@ -9,6 +9,9 @@ namespace Stepper
     using MahApps.Metro.Controls;
     using System.Configuration;
     using System.Reflection;
+    using ControlzEx.Theming;
+    using System.IO;
+    using System.Runtime.Intrinsics.Arm;
 
 
     /// <summary>
@@ -52,6 +55,19 @@ namespace Stepper
                                          CultureInfo.InvariantCulture,
                                          out val);
         }
+        //1 RPM move the screw 4mm. Each revolution move the screw 4mm. How far will the screw move in 20 RPM, and how many seconds will it take?
+        //4mm / 1 revolution = 1 revolution / 20 RPM = 0.05 revolutions
+        //0.05 revolutions * 4mm = 0.2mm
+        //0.2mm / 20 RPM = 0.01mm per second
+        //0.01mm per second * 1000 = 10 milliseconds
+        //The distance the screw moves is directly proportional to the RPM.If 1 RPM moves the screw 4mm, then at 20 RPM(which is 20 times faster), the screw would move 20 times the distance.
+        //So, the distance the screw would move at 20 RPM is 20×4 = 80mm.
+        //Therefore, at 20 RPM, the screw would move 80mm.
+        //As for the time, if we consider that each revolution(1 RPM) takes 60 seconds(as there are 60 seconds in a minute), then at 20 RPM, each revolution would take
+        //<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mn>60</mn><mn>20</mn></mfrac><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">\frac{60}{20} = 3</annotation></semantics></math>
+        // seconds.Therefore, to move 80mm at 20 RPM, it would take
+        //<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mn>80</mn><mn>4</mn></mfrac><mo>×</mo><mn>3</mn><mo>=</mo><mn>60</mn></mrow><annotation encoding="application/x-tex">\frac{80}{4} \times 3 = 60</annotation></semantics></math>
+        // seconds.So, it would take 60 seconds to move the screw 80mm at 20 RPM.
         public MainWindow()
         {
             InitializeComponent();
@@ -113,7 +129,7 @@ namespace Stepper
             Content = StepperMotorControl;
 
         }
-        private void XAxisRun_Click(object sender, RoutedEventArgs e)
+        public async void XAxisRun_Click(object sender, RoutedEventArgs e)
         {
             axis = Properties.Settings.Default.RootAxisX.ToString();
             previousXAxis = txtXaxisStepperMove.Text.ToString();
@@ -130,8 +146,6 @@ namespace Stepper
             if (ckbXaxisResetToZero.IsChecked == false)
             {
                 stringValue = axis + "," + (Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text.Trim())).ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
-                sp.Write(stringValue);
-                currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                 if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) < 0)
                 {
                     stepperMove = Math.Abs(Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()));
@@ -140,7 +154,13 @@ namespace Stepper
                 {
                     stepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
                 }
-                Thread.Sleep(milliseconds * Convert.ToInt32(((stepperMove / Properties.Settings.Default.Divider4_00)) / Properties.Settings.Default.mmPerRevolution));
+                decimal part1 = stepperMove / 4;
+                decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                decimal myDelay = part1 * part2;
+                int delay = milliseconds * Convert.ToInt32(myDelay);
+                sp.Write(stringValue);
+                await Task.Delay(delay);
+                currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                 txtXaxisStepperCurrent.Text = currentXAxis;
                 XaxisChanged = false;
                 txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
@@ -149,7 +169,7 @@ namespace Stepper
             Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
             Properties.Settings.Default.Save();
         }
-        private void YAxisRun_Click(object sender, RoutedEventArgs e)
+        public async void YAxisRun_Click(object sender, RoutedEventArgs e)
         {
             previousYAxis = txtYaxisStepperMove.Text.ToString();
             if (ckbYaxisResetToZero.IsChecked == true)
@@ -165,8 +185,6 @@ namespace Stepper
             if (ckbYaxisResetToZero.IsChecked == false)
             {
                 stringValue = Properties.Settings.Default.RootAxisY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + (Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text.Trim())).ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
-                sp.Write(stringValue);
-                currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
                 if (Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()) < 0)
                 {
                     stepperMove = Math.Abs(Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()));
@@ -175,7 +193,13 @@ namespace Stepper
                 {
                     stepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text.Trim());
                 }
-                Thread.Sleep(milliseconds * Convert.ToInt32(((stepperMove / Properties.Settings.Default.Divider4_00)) / Properties.Settings.Default.mmPerRevolution));
+                decimal part1 = stepperMove / 4;
+                decimal part2 = 60 / Convert.ToDecimal(txtYaxisMotorSpeed.Text);
+                decimal myDelay = part1 * part2;
+                int delay = milliseconds * Convert.ToInt32(myDelay);
+                sp.Write(stringValue);
+                await Task.Delay(delay);
+                currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
                 txtYaxisStepperCurrent.Text = currentYAxis;
                 YaxisChanged = false;
                 txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
@@ -184,7 +208,7 @@ namespace Stepper
             Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
         }
-        private void ZAxisRun_Click(object sender, RoutedEventArgs e)
+        public async void ZAxisRun_Click(object sender, RoutedEventArgs e)
         {
             previousZAxis = txtZaxisStepperMove.Text.ToString();
             if (ckbZaxisResetToZero.IsChecked == true)
@@ -200,8 +224,6 @@ namespace Stepper
             if (ckbZaxisResetToZero.IsChecked == false)
             {
                 stringValue = Properties.Settings.Default.RootAxisZ + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + (Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text.Trim())).ToString() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
-                sp.Write(stringValue);
-                currentZAxis = Convert.ToString(Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text));
                 if (Convert.ToDecimal(txtZaxisStepperMove.Text.Trim()) < 0)
                 {
                     stepperMove = Math.Abs(Convert.ToDecimal(txtZaxisStepperMove.Text.Trim()));
@@ -210,7 +232,13 @@ namespace Stepper
                 {
                     stepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text.Trim());
                 }
-                Thread.Sleep(milliseconds * Convert.ToInt32(((stepperMove / Properties.Settings.Default.Divider4_00)) / Properties.Settings.Default.mmPerRevolution));
+                decimal part1 = stepperMove / 4;
+                decimal part2 = 60 / Convert.ToDecimal(txtZaxisMotorSpeed.Text);
+                decimal myDelay = part1 * part2;
+                int delay = milliseconds * Convert.ToInt32(myDelay);
+                sp.Write(stringValue);
+                currentZAxis = Convert.ToString(Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text));
+                await Task.Delay(delay);
                 txtZaxisStepperCurrent.Text = currentZAxis;
                 ZaxisChanged = false;
                 txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
@@ -219,7 +247,7 @@ namespace Stepper
             Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
             Properties.Settings.Default.Save();
         }
-        private void XYAxisRun_Click(object sender, RoutedEventArgs e)
+        public async void XYAxisRun_Click(object sender, RoutedEventArgs e)
         {
             if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == true)
             {
@@ -244,15 +272,19 @@ namespace Stepper
                 zeroXaxis = 0;
                 zeroYaxis = 0;
                 currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
-                if (Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()) < 0)
+                if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) < 0)
                 {
-                    stepperMove = Math.Abs(Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()));
+                    stepperMove = Math.Abs(Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()));
                 }
                 else
                 {
-                    stepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text.Trim());
+                    stepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
                 }
-                Thread.Sleep(milliseconds * Convert.ToInt32(((stepperMove / Properties.Settings.Default.Divider4_00)) / Properties.Settings.Default.mmPerRevolution));
+                decimal part1 = stepperMove / 4;
+                decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                decimal myDelay = part1 * part2;
+                int delay = milliseconds * Convert.ToInt32(myDelay);
+                await Task.Delay(delay);
                 txtYaxisStepperCurrent.Text = currentYAxis;
                 YaxisChanged = false;
                 txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
@@ -278,7 +310,11 @@ namespace Stepper
                 {
                     stepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
                 }
-                Thread.Sleep(milliseconds * Convert.ToInt32(((stepperMove / Properties.Settings.Default.Divider4_00)) / Properties.Settings.Default.mmPerRevolution));
+                decimal part1 = stepperMove / 4;
+                decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                decimal myDelay = part1 * part2;
+                int delay = milliseconds * Convert.ToInt32(myDelay);
+                await Task.Delay(delay);
                 txtXaxisStepperCurrent.Text = currentXAxis;
                 XaxisChanged = false;
                 txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
@@ -294,15 +330,35 @@ namespace Stepper
                 XaxisChanged = false;
                 txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                 currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
-                if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) < 0)
-                {
-                    stepperMove = Math.Abs(Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()));
+                decimal part2 = Convert.ToDecimal("0.00");
+                if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) >= Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()))
+                { 
+                    if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) < 0)
+                    {
+                        stepperMove = Math.Abs(Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()));
+                    }
+                    else
+                    {
+                        stepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
+                    }
+                    part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
                 }
                 else
                 {
-                    stepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
+                    if (Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()) < 0)
+                    {
+                        stepperMove = Math.Abs(Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()));
+                    }
+                    else
+                    {
+                        stepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text.Trim());
+                    }
+                    part2 = 60 / Convert.ToDecimal(txtYaxisMotorSpeed.Text);
                 }
-                Thread.Sleep(milliseconds * Convert.ToInt32(((stepperMove / Properties.Settings.Default.Divider4_00)) / Properties.Settings.Default.mmPerRevolution));
+                decimal part1 = stepperMove / 4;
+                decimal myDelay = part1 * part2;
+                int delay = milliseconds * Convert.ToInt32(myDelay);
+                await Task.Delay(delay);
                 txtXaxisStepperCurrent.Text = currentXAxis;
                 txtYaxisStepperCurrent.Text = currentYAxis;
                 YaxisChanged = false;

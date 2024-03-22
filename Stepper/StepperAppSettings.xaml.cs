@@ -49,12 +49,20 @@ using System.Windows.Media;
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[currentProperty.Name].ToString()
                     };
+                    string backupValue = Properties.Settings.Default[currentProperty.Name].ToString();
                     UserIntAppSettings.TouchDown += (sender, args) =>
                     {
                         Keypad mainWindow = new(this);
                         if (mainWindow.ShowDialog() == true)
                         {
-                            UserIntAppSettings.Text = mainWindow.Result.ToString();
+                            if (mainWindow.Result == null)
+                            {
+                                UserIntAppSettings.Text = backupValue;
+                            }
+                            else
+                            {
+                                UserIntAppSettings.Text = mainWindow.Result.ToString();
+                            }
                         }
                     };
                     UserIntAppSettings.MouseUp += (sender, args) =>
@@ -62,7 +70,14 @@ using System.Windows.Media;
                         Keypad mainWindow = new(this);
                         if (mainWindow.ShowDialog() == true)
                         {
-                            UserIntAppSettings.Text = mainWindow.Result.ToString();
+                            if (mainWindow.Result == null)
+                            {
+                                UserIntAppSettings.Text = backupValue;
+                            }
+                            else
+                            {
+                                UserIntAppSettings.Text = mainWindow.Result.ToString();
+                            }
                         }
                     };
                     UserIntAppSettings.LostFocus += (sender, args) =>
@@ -101,13 +116,20 @@ using System.Windows.Media;
                         Text = Properties.Settings.Default[currentProperty.Name].ToString(),
                         SelectedItem = Convert.ToBoolean(Properties.Settings.Default[currentProperty.Name].ToString())
                     };
+                    bool backupValue = Convert.ToBoolean(Properties.Settings.Default[currentProperty.Name].ToString());
                     // Add items to the ComboBox
                     UserBoolAppSettings.Items.Add(false);
                     UserBoolAppSettings.Items.Add(true);
                     // When the textbox loses focus, update the setting
                     UserBoolAppSettings.LostFocus += (sender, args) =>
                     {
-                        if (bool.TryParse(UserBoolAppSettings.Text, out bool newBoolValue))
+                        if (UserBoolAppSettings.SelectedItem.ToString() == null)
+                        {
+                            UserBoolAppSettings.SelectedItem = backupValue;
+                            Properties.Settings.Default[currentProperty.Name] = backupValue;
+                            Properties.Settings.Default.Save();
+                        }
+                        else
                         {
                             Properties.Settings.Default[currentProperty.Name] = Convert.ToBoolean(UserBoolAppSettings.SelectedItem); 
                             Properties.Settings.Default.Save();
@@ -143,12 +165,20 @@ using System.Windows.Media;
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[currentProperty.Name].ToString(),
                     };
+                    string backupValue = Properties.Settings.Default[currentProperty.Name].ToString();
                     UserDecimalAppSettings.TouchDown += (sender, args) =>
                     {
                         Keypad mainWindow = new(this);
                         if (mainWindow.ShowDialog() == true)
                         {
-                            UserDecimalAppSettings.Text = mainWindow.Result.ToString();
+                            if (mainWindow.Result == null)
+                            {
+                                UserDecimalAppSettings.Text = backupValue;
+                            }
+                            else
+                            {
+                                UserDecimalAppSettings.Text = mainWindow.Result.ToString();
+                            }
                         }
                     };
                     UserDecimalAppSettings.MouseUp += (sender, args) =>
@@ -156,7 +186,14 @@ using System.Windows.Media;
                         Keypad mainWindow = new(this);
                         if (mainWindow.ShowDialog() == true)
                         {
-                            UserDecimalAppSettings.Text = mainWindow.Result.ToString();
+                            if (mainWindow.Result == null)
+                            {
+                                UserDecimalAppSettings.Text = backupValue;
+                            }
+                            else
+                            {
+                                UserDecimalAppSettings.Text = mainWindow.Result.ToString();
+                            }
                         }
                     };
                     UserDecimalAppSettings.LostFocus += (sender, args) =>
