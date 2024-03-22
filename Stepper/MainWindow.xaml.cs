@@ -12,6 +12,7 @@ namespace Stepper
     using ControlzEx.Theming;
     using System.IO;
     using System.Runtime.Intrinsics.Arm;
+    using System.Windows.Threading;
 
 
     /// <summary>
@@ -19,6 +20,8 @@ namespace Stepper
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        public static DispatcherTimer timer;
+        public int timeLeft;
         public SerialPort sp = new();
         public string myPortName; // Serial Port Name (COM1, COM2, COM3, etc.)
         public string stringValue = "";
@@ -76,6 +79,10 @@ namespace Stepper
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
             VersionTxt.Text = "Version: " + displayableVersion;
+            timeLeft = 10; // Set the countdown time
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)); // Set the timer to tick every 1 millisecond
+            timer.Tick += Timer_Tick; // Specify what happens when the timer ticks
             txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
@@ -158,8 +165,18 @@ namespace Stepper
                 decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
                 decimal myDelay = part1 * part2;
                 int delay = milliseconds * Convert.ToInt32(myDelay);
+                txtXaxisStepperMove.IsEnabled = false;
+                btnRunXAxis.IsEnabled = false;
+                btnRunXYAxis.IsEnabled = false;
                 sp.Write(stringValue);
+                timeLeft = delay; // Reset the countdown
+                timer.Start(); // Start the timer
                 await Task.Delay(delay);
+                timer.Stop(); // Stop the timer
+                CountdownLabel.Content = "";
+                txtXaxisStepperMove.IsEnabled = true;
+                btnRunXAxis.IsEnabled = true;
+                btnRunXYAxis.IsEnabled = true;
                 currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                 txtXaxisStepperCurrent.Text = currentXAxis;
                 XaxisChanged = false;
@@ -197,8 +214,18 @@ namespace Stepper
                 decimal part2 = 60 / Convert.ToDecimal(txtYaxisMotorSpeed.Text);
                 decimal myDelay = part1 * part2;
                 int delay = milliseconds * Convert.ToInt32(myDelay);
+                txtYaxisStepperMove.IsEnabled = false;
+                btnRunYAxis.IsEnabled = false;
+                btnRunXYAxis.IsEnabled = false;
                 sp.Write(stringValue);
+                timeLeft = delay; // Reset the countdown
+                timer.Start(); // Start the timer
                 await Task.Delay(delay);
+                timer.Stop(); // Stop the timer
+                CountdownLabel.Content = "";
+                txtYaxisStepperMove.IsEnabled = true;
+                btnRunYAxis.IsEnabled = true;
+                btnRunXYAxis.IsEnabled = true;
                 currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
                 txtYaxisStepperCurrent.Text = currentYAxis;
                 YaxisChanged = false;
@@ -236,9 +263,17 @@ namespace Stepper
                 decimal part2 = 60 / Convert.ToDecimal(txtZaxisMotorSpeed.Text);
                 decimal myDelay = part1 * part2;
                 int delay = milliseconds * Convert.ToInt32(myDelay);
+                txtZaxisStepperMove.IsEnabled = false;
+                btnRunZAxis.IsEnabled = false;
                 sp.Write(stringValue);
-                currentZAxis = Convert.ToString(Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text));
+                timeLeft = delay; // Reset the countdown
+                timer.Start(); // Start the timer
                 await Task.Delay(delay);
+                timer.Stop(); // Stop the timer
+                CountdownLabel.Content = "";
+                txtZaxisStepperMove.IsEnabled = true;
+                btnRunZAxis.IsEnabled = true;
+                currentZAxis = Convert.ToString(Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text));
                 txtZaxisStepperCurrent.Text = currentZAxis;
                 ZaxisChanged = false;
                 txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
@@ -284,7 +319,21 @@ namespace Stepper
                 decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
                 decimal myDelay = part1 * part2;
                 int delay = milliseconds * Convert.ToInt32(myDelay);
+                txtXaxisStepperMove.IsEnabled = false;
+                txtYaxisStepperMove.IsEnabled = false;
+                btnRunXAxis.IsEnabled = false;
+                btnRunYAxis.IsEnabled = false;
+                btnRunXYAxis.IsEnabled = false;
+                timeLeft = delay; // Reset the countdown
+                timer.Start(); // Start the timer
                 await Task.Delay(delay);
+                timer.Stop(); // Stop the timer
+                CountdownLabel.Content = "";
+                txtXaxisStepperMove.IsEnabled = true;
+                txtYaxisStepperMove.IsEnabled = true;
+                btnRunXAxis.IsEnabled = true;
+                btnRunYAxis.IsEnabled = true;
+                btnRunXYAxis.IsEnabled = true;
                 txtYaxisStepperCurrent.Text = currentYAxis;
                 YaxisChanged = false;
                 txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
@@ -314,7 +363,21 @@ namespace Stepper
                 decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
                 decimal myDelay = part1 * part2;
                 int delay = milliseconds * Convert.ToInt32(myDelay);
+                txtXaxisStepperMove.IsEnabled = false;
+                txtYaxisStepperMove.IsEnabled = false;
+                btnRunXAxis.IsEnabled = false;
+                btnRunYAxis.IsEnabled = false;
+                btnRunXYAxis.IsEnabled = false;
+                timeLeft = delay; // Reset the countdown
+                timer.Start(); // Start the timer
                 await Task.Delay(delay);
+                timer.Stop(); // Stop the timer
+                CountdownLabel.Content = "";
+                txtXaxisStepperMove.IsEnabled = true;
+                txtYaxisStepperMove.IsEnabled = true;
+                btnRunXAxis.IsEnabled = true;
+                btnRunYAxis.IsEnabled = true;
+                btnRunXYAxis.IsEnabled = true;
                 txtXaxisStepperCurrent.Text = currentXAxis;
                 XaxisChanged = false;
                 txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
@@ -358,7 +421,21 @@ namespace Stepper
                 decimal part1 = stepperMove / 4;
                 decimal myDelay = part1 * part2;
                 int delay = milliseconds * Convert.ToInt32(myDelay);
+                txtXaxisStepperMove.IsEnabled = false;
+                txtYaxisStepperMove.IsEnabled = false;
+                btnRunXAxis.IsEnabled = false;
+                btnRunYAxis.IsEnabled = false;
+                btnRunXYAxis.IsEnabled = false;
+                timeLeft = delay; // Reset the countdown
+                timer.Start(); // Start the timer
                 await Task.Delay(delay);
+                timer.Stop(); // Stop the timer
+                CountdownLabel.Content = "";
+                txtXaxisStepperMove.IsEnabled = true;
+                txtYaxisStepperMove.IsEnabled = true;
+                btnRunXAxis.IsEnabled = true;
+                btnRunYAxis.IsEnabled = true;
+                btnRunXYAxis.IsEnabled = true;
                 txtXaxisStepperCurrent.Text = currentXAxis;
                 txtYaxisStepperCurrent.Text = currentYAxis;
                 YaxisChanged = false;
@@ -587,10 +664,18 @@ namespace Stepper
             // Show the new window
             newSettingsWindow.Show();
         }
-        private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
+            if (timeLeft > 0)
+            {
+                timeLeft--; // Decrement the time left
+                CountdownLabel.Content = "Milliseconds: " + timeLeft.ToString(); // Update the label with the new time left
+            }
+            else
+            {
+                timer.Stop(); // Stop the timer when the countdown reaches 0
+                CountdownLabel.Content = "";
+            }
         }
     }
 }

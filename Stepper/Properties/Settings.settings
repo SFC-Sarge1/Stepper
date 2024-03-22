@@ -92,5 +92,8 @@
     <Setting Name="zeroZaxis" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="MilisecondTimerInterval" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.99</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -382,5 +382,17 @@ namespace Stepper.Properties {
                 this["zeroZaxis"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.99")]
+        public decimal MilisecondTimerInterval {
+            get {
+                return ((decimal)(this["MilisecondTimerInterval"]));
+            }
+            set {
+                this["MilisecondTimerInterval"] = value;
+            }
+        }
     }
 }
