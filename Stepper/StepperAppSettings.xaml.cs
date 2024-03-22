@@ -1,4 +1,17 @@
-﻿namespace Stepper
+﻿// ***********************************************************************
+// Assembly         : 
+// Author           : sfcsarge
+// Created          : 03-20-2024
+//
+// Last Modified By : sfcsarge
+// Last Modified On : 03-22-2024
+// ***********************************************************************
+// <copyright file="StepperAppSettings.xaml.cs" company="">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace Stepper
 {
 using System.Configuration;
 using System.Reflection;
@@ -11,6 +24,9 @@ using System.Windows.Media;
     /// </summary>
     public partial class StepperAppSettings : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StepperAppSettings"/> class.
+        /// </summary>
         public StepperAppSettings()
         {
             InitializeComponent();
@@ -311,6 +327,11 @@ using System.Windows.Media;
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the SaveSettings control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void SaveSettings_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Save();

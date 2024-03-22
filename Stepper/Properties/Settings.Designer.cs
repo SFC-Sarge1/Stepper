@@ -241,7 +241,7 @@ namespace Stepper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000.00")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100.00")]
         public decimal XaxisMotorSpeed {
             get {
                 return ((decimal)(this["XaxisMotorSpeed"]));
@@ -289,7 +289,7 @@ namespace Stepper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000.00")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100.00")]
         public decimal YaxisMotorSpeed {
             get {
                 return ((decimal)(this["YaxisMotorSpeed"]));
@@ -337,7 +337,7 @@ namespace Stepper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000.00")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100.00")]
         public decimal ZaxisMotorSpeed {
             get {
                 return ((decimal)(this["ZaxisMotorSpeed"]));
@@ -385,7 +385,7 @@ namespace Stepper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.99")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.00")]
         public decimal MilisecondTimerInterval {
             get {
                 return ((decimal)(this["MilisecondTimerInterval"]));

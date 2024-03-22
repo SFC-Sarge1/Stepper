@@ -1,3 +1,16 @@
+// ***********************************************************************
+// Assembly         : 
+// Author           : sfcsarge
+// Created          : 12-19-2023
+//
+// Last Modified By : sfcsarge
+// Last Modified On : 03-21-2024
+// ***********************************************************************
+// <copyright file="AssemblyInfo.cs" company="">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 using System.Reflection;
 using System.Windows;
 
