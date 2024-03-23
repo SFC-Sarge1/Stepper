@@ -9,3 +9,8 @@
 /.vs/Stepper/FileContentIndex/1aaf3d7a-a48a-441d-be9c-909eed2e4209.vsidx
 /.vs/Stepper/v17
 /.vs/Stepper/FileContentIndex
+*.dll
+/Stepper/bin/Release/net8.0-windows
+*.cs
+/Stepper/obj/Release/net8.0-windows
+/Stepper/Properties/PublishProfiles/FolderProfile.pubxml.user
