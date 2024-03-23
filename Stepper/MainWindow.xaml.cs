@@ -255,6 +255,7 @@ namespace Stepper
                 btnRunXAxis.IsEnabled = false;
                 btnRunXYAxis.IsEnabled = false;
                 sp.Write(stringValue);
+                await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                 timeLeft = delay; // Reset the countdown
                 timer.Start(); // Start the timer
                 await Task.Delay(delay);
@@ -310,6 +311,7 @@ namespace Stepper
                 btnRunYAxis.IsEnabled = false;
                 btnRunXYAxis.IsEnabled = false;
                 sp.Write(stringValue);
+                await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                 timeLeft = delay; // Reset the countdown
                 timer.Start(); // Start the timer
                 await Task.Delay(delay);
@@ -364,6 +366,7 @@ namespace Stepper
                 txtZaxisStepperMove.IsEnabled = false;
                 btnRunZAxis.IsEnabled = false;
                 sp.Write(stringValue);
+                await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                 timeLeft = delay; // Reset the countdown
                 timer.Start(); // Start the timer
                 await Task.Delay(delay);
@@ -428,6 +431,7 @@ namespace Stepper
                 btnRunXAxis.IsEnabled = false;
                 btnRunYAxis.IsEnabled = false;
                 btnRunXYAxis.IsEnabled = false;
+                await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                 timeLeft = delay; // Reset the countdown
                 timer.Start(); // Start the timer
                 await Task.Delay(delay);
@@ -473,6 +477,7 @@ namespace Stepper
                 btnRunXAxis.IsEnabled = false;
                 btnRunYAxis.IsEnabled = false;
                 btnRunXYAxis.IsEnabled = false;
+                await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                 timeLeft = delay; // Reset the countdown
                 timer.Start(); // Start the timer
                 await Task.Delay(delay);
@@ -532,6 +537,7 @@ namespace Stepper
                 btnRunXAxis.IsEnabled = false;
                 btnRunYAxis.IsEnabled = false;
                 btnRunXYAxis.IsEnabled = false;
+                await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                 timeLeft = delay; // Reset the countdown
                 timer.Start(); // Start the timer
                 await Task.Delay(delay);

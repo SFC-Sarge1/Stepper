@@ -629,6 +629,12 @@
             </summary>
             <value>The milisecond timer interval.</value>
         </member>
+        <member name="P:Stepper.Properties.Settings.MillisecondDelay">
+            <summary>
+            Gets or sets the millisecond delay.
+            </summary>
+            <value>The millisecond delay.</value>
+        </member>
         <member name="T:Stepper.StepperAppSettings">
             <summary>
             Interaction logic for StepperAppSettings.xaml

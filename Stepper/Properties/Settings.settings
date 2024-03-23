@@ -95,5 +95,8 @@
     <Setting Name="MilisecondTimerInterval" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">1.00</Value>
     </Setting>
+    <Setting Name="MillisecondDelay" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">2000.00</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
