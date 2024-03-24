@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Stepper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2.0.0.*")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08ba34b0d49992133d5e82c63b98f1273ec8bfd5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2cedf901b05ad81c10377a00833a4094dd56541d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Stepper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Stepper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2.0.0.*")]

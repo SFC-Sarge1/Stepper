@@ -27,7 +27,7 @@
       <Value Profile="(Default)">4.00</Value>
     </Setting>
     <Setting Name="Milliseconds" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1000</Value>
+      <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="mmPerRevolution" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">4</Value>
@@ -97,6 +97,9 @@
     </Setting>
     <Setting Name="MillisecondDelay" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">2000.00</Value>
+    </Setting>
+    <Setting Name="MathPart2Initlz" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
     </Setting>
   </Settings>
 </SettingsFile>

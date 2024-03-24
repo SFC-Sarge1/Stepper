@@ -9,36 +9,20 @@
 //------------------------------------------------------------------------------
 
 namespace Stepper.Properties {
-
-
-    /// <summary>
-    /// Class Settings. This class cannot be inherited.
-    /// Implements the <see cref="System.Configuration.ApplicationSettingsBase" />
-    /// </summary>
-    /// <seealso cref="System.Configuration.ApplicationSettingsBase" />
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.10.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-
-        /// <summary>
-        /// The default instance
-        /// </summary>
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        /// <summary>
-        /// Gets the default.
-        /// </summary>
-        /// <value>The default.</value>
+        
         public static Settings Default {
             get {
                 return defaultInstance;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the baud rate.
-        /// </summary>
-        /// <value>The baud rate.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("9600")]
@@ -50,11 +34,7 @@ namespace Stepper.Properties {
                 this["BaudRate"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether [CKB xaxis reset to zero is checked].
-        /// </summary>
-        /// <value><c>true</c> if [CKB xaxis reset to zero is checked]; otherwise, <c>false</c>.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -66,11 +46,7 @@ namespace Stepper.Properties {
                 this["ckbXaxisResetToZeroIsChecked"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether [CKB yaxis reset to zero is checked].
-        /// </summary>
-        /// <value><c>true</c> if [CKB yaxis reset to zero is checked]; otherwise, <c>false</c>.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -82,11 +58,7 @@ namespace Stepper.Properties {
                 this["ckbYaxisResetToZeroIsChecked"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether [CKB zaxis reset to zero is checked].
-        /// </summary>
-        /// <value><c>true</c> if [CKB zaxis reset to zero is checked]; otherwise, <c>false</c>.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -98,11 +70,7 @@ namespace Stepper.Properties {
                 this["ckbZaxisResetToZeroIsChecked"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the co m1.
-        /// </summary>
-        /// <value>The co m1.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("COM1")]
@@ -114,11 +82,7 @@ namespace Stepper.Properties {
                 this["COM1"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the co m4.
-        /// </summary>
-        /// <value>The co m4.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("COM4")]
@@ -130,11 +94,7 @@ namespace Stepper.Properties {
                 this["COM4"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the co m5.
-        /// </summary>
-        /// <value>The co m5.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("COM5")]
@@ -146,11 +106,7 @@ namespace Stepper.Properties {
                 this["COM5"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the divider4 00.
-        /// </summary>
-        /// <value>The divider4 00.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("4.00")]
@@ -162,14 +118,10 @@ namespace Stepper.Properties {
                 this["Divider4_00"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the milliseconds.
-        /// </summary>
-        /// <value>The milliseconds.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public int Milliseconds {
             get {
                 return ((int)(this["Milliseconds"]));
@@ -178,11 +130,7 @@ namespace Stepper.Properties {
                 this["Milliseconds"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the mm per revolution.
-        /// </summary>
-        /// <value>The mm per revolution.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("4")]
@@ -194,11 +142,7 @@ namespace Stepper.Properties {
                 this["mmPerRevolution"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the root axis x.
-        /// </summary>
-        /// <value>The root axis x.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("X")]
@@ -210,11 +154,7 @@ namespace Stepper.Properties {
                 this["RootAxisX"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the root axis y.
-        /// </summary>
-        /// <value>The root axis y.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Y")]
@@ -226,11 +166,7 @@ namespace Stepper.Properties {
                 this["RootAxisY"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the root axis z.
-        /// </summary>
-        /// <value>The root axis z.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Z")]
@@ -242,11 +178,7 @@ namespace Stepper.Properties {
                 this["RootAxisZ"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the root axis xy.
-        /// </summary>
-        /// <value>The root axis xy.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("XY")]
@@ -258,11 +190,7 @@ namespace Stepper.Properties {
                 this["RootAxisXY"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the value 0 00.
-        /// </summary>
-        /// <value>The value 0 00.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
@@ -274,11 +202,7 @@ namespace Stepper.Properties {
                 this["Value_0_00"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether [xaxis changed].
-        /// </summary>
-        /// <value><c>true</c> if [xaxis changed]; otherwise, <c>false</c>.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -290,11 +214,7 @@ namespace Stepper.Properties {
                 this["XaxisChanged"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the xaxis stepper current.
-        /// </summary>
-        /// <value>The xaxis stepper current.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
@@ -306,11 +226,7 @@ namespace Stepper.Properties {
                 this["XaxisStepperCurrent"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the xaxis stepper move.
-        /// </summary>
-        /// <value>The xaxis stepper move.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
@@ -322,11 +238,7 @@ namespace Stepper.Properties {
                 this["XaxisStepperMove"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the xaxis motor speed.
-        /// </summary>
-        /// <value>The xaxis motor speed.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100.00")]
@@ -338,11 +250,7 @@ namespace Stepper.Properties {
                 this["XaxisMotorSpeed"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether [yaxis changed].
-        /// </summary>
-        /// <value><c>true</c> if [yaxis changed]; otherwise, <c>false</c>.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -354,11 +262,7 @@ namespace Stepper.Properties {
                 this["YaxisChanged"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the yaxis stepper current.
-        /// </summary>
-        /// <value>The yaxis stepper current.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
@@ -370,11 +274,7 @@ namespace Stepper.Properties {
                 this["YaxisStepperCurrent"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the yaxis stepper move.
-        /// </summary>
-        /// <value>The yaxis stepper move.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
@@ -386,11 +286,7 @@ namespace Stepper.Properties {
                 this["YaxisStepperMove"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the yaxis motor speed.
-        /// </summary>
-        /// <value>The yaxis motor speed.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100.00")]
@@ -402,11 +298,7 @@ namespace Stepper.Properties {
                 this["YaxisMotorSpeed"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether [zaxis changed].
-        /// </summary>
-        /// <value><c>true</c> if [zaxis changed]; otherwise, <c>false</c>.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -418,11 +310,7 @@ namespace Stepper.Properties {
                 this["ZaxisChanged"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the zaxis stepper current.
-        /// </summary>
-        /// <value>The zaxis stepper current.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
@@ -434,11 +322,7 @@ namespace Stepper.Properties {
                 this["ZaxisStepperCurrent"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the zaxis stepper move.
-        /// </summary>
-        /// <value>The zaxis stepper move.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
@@ -450,11 +334,7 @@ namespace Stepper.Properties {
                 this["ZaxisStepperMove"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the zaxis motor speed.
-        /// </summary>
-        /// <value>The zaxis motor speed.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100.00")]
@@ -466,11 +346,7 @@ namespace Stepper.Properties {
                 this["ZaxisMotorSpeed"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the zero xaxis.
-        /// </summary>
-        /// <value>The zero xaxis.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
@@ -482,11 +358,7 @@ namespace Stepper.Properties {
                 this["zeroXaxis"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the zero yaxis.
-        /// </summary>
-        /// <value>The zero yaxis.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
@@ -498,11 +370,7 @@ namespace Stepper.Properties {
                 this["zeroYaxis"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the zero zaxis.
-        /// </summary>
-        /// <value>The zero zaxis.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
@@ -514,11 +382,7 @@ namespace Stepper.Properties {
                 this["zeroZaxis"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the milisecond timer interval.
-        /// </summary>
-        /// <value>The milisecond timer interval.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1.00")]
@@ -530,11 +394,7 @@ namespace Stepper.Properties {
                 this["MilisecondTimerInterval"] = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the millisecond delay.
-        /// </summary>
-        /// <value>The millisecond delay.</value>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2000.00")]
@@ -544,6 +404,18 @@ namespace Stepper.Properties {
             }
             set {
                 this["MillisecondDelay"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.00")]
+        public decimal MathPart2Initlz {
+            get {
+                return ((decimal)(this["MathPart2Initlz"]));
+            }
+            set {
+                this["MathPart2Initlz"] = value;
             }
         }
     }

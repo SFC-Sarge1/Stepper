@@ -306,7 +306,7 @@ namespace Stepper
                 decimal part1 = stepperMove / 4;
                 decimal part2 = 60 / Convert.ToDecimal(txtYaxisMotorSpeed.Text);
                 decimal myDelay = part1 * part2;
-                int delay = milliseconds * Convert.ToInt32(myDelay);
+                int delay = Properties.Settings.Default.Milliseconds * Convert.ToInt32(myDelay);
                 txtYaxisStepperMove.IsEnabled = false;
                 btnRunYAxis.IsEnabled = false;
                 btnRunXYAxis.IsEnabled = false;
@@ -360,9 +360,9 @@ namespace Stepper
                     stepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text.Trim());
                 }
                 decimal part1 = stepperMove / 4;
-                decimal part2 = 60 / Convert.ToDecimal(txtZaxisMotorSpeed.Text);
+                decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
                 decimal myDelay = part1 * part2;
-                int delay = milliseconds * Convert.ToInt32(myDelay);
+                int delay = Properties.Settings.Default.Milliseconds * Convert.ToInt32(myDelay);
                 txtZaxisStepperMove.IsEnabled = false;
                 btnRunZAxis.IsEnabled = false;
                 sp.Write(stringValue);
@@ -425,7 +425,7 @@ namespace Stepper
                 decimal part1 = stepperMove / 4;
                 decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
                 decimal myDelay = part1 * part2;
-                int delay = milliseconds * Convert.ToInt32(myDelay);
+                int delay = Properties.Settings.Default.Milliseconds * Convert.ToInt32(myDelay);
                 txtXaxisStepperMove.IsEnabled = false;
                 txtYaxisStepperMove.IsEnabled = false;
                 btnRunXAxis.IsEnabled = false;
@@ -471,7 +471,7 @@ namespace Stepper
                 decimal part1 = stepperMove / 4;
                 decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
                 decimal myDelay = part1 * part2;
-                int delay = milliseconds * Convert.ToInt32(myDelay);
+                int delay = Properties.Settings.Default.Milliseconds * Convert.ToInt32(myDelay);
                 txtXaxisStepperMove.IsEnabled = false;
                 txtYaxisStepperMove.IsEnabled = false;
                 btnRunXAxis.IsEnabled = false;
@@ -504,7 +504,7 @@ namespace Stepper
                 XaxisChanged = false;
                 txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                 currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
-                decimal part2 = Convert.ToDecimal("0.00");
+                decimal part2 = Properties.Settings.Default.MathPart2Initlz;
                 if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) >= Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()))
                 { 
                     if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) < 0)
@@ -531,7 +531,7 @@ namespace Stepper
                 }
                 decimal part1 = stepperMove / 4;
                 decimal myDelay = part1 * part2;
-                int delay = milliseconds * Convert.ToInt32(myDelay);
+                int delay = Properties.Settings.Default.Milliseconds * Convert.ToInt32(myDelay);
                 txtXaxisStepperMove.IsEnabled = false;
                 txtYaxisStepperMove.IsEnabled = false;
                 btnRunXAxis.IsEnabled = false;
