@@ -160,13 +160,11 @@ namespace Stepper
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
             VersionTxt.Text = "Version: " + displayableVersion;
+            Properties.Settings.Default.BuildVersion = "Version: " + displayableVersion;
             timeLeft = 0; // Set the countdown time
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)); // Set the timer to tick every 1 millisecond
             timer.Tick += Timer_Tick; // Specify what happens when the timer ticks
-            txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
-            txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
-            txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtXaxisStepperCurrent.Text = Properties.Settings.Default.XaxisStepperCurrent.ToString();
             txtYaxisStepperCurrent.Text = Properties.Settings.Default.YaxisStepperCurrent.ToString();
             txtZaxisStepperCurrent.Text = Properties.Settings.Default.ZaxisStepperCurrent.ToString();
@@ -181,6 +179,7 @@ namespace Stepper
             ckbZaxisResetToZero.IsChecked = Properties.Settings.Default.ckbZaxisResetToZeroIsChecked;
             txtBaudRate.Text = Properties.Settings.Default.BaudRate.ToString();
             selectedItem = cmbComPort.Items.CurrentItem.ToString();
+            Loaded += MainWindow_Loaded;
             if (selectedItem == Properties.Settings.Default.COM1.ToString())
             {
                 cmbComPort.Items.MoveCurrentToLast();
@@ -270,6 +269,9 @@ namespace Stepper
                 XaxisChanged = false;
                 txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
+            txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+            txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
+            Properties.Settings.Default.XaxisMotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
             Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
             Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
             Properties.Settings.Default.Save();
@@ -326,6 +328,9 @@ namespace Stepper
                 YaxisChanged = false;
                 txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
+            txtYaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+            txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
+            Properties.Settings.Default.YaxisMotorSpeed = Convert.ToDecimal(txtYaxisMotorSpeed.Text);
             Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
             Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
@@ -380,6 +385,9 @@ namespace Stepper
                 ZaxisChanged = false;
                 txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
+            txtZaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+            txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
+            Properties.Settings.Default.ZaxisMotorSpeed = Convert.ToDecimal(txtZaxisMotorSpeed.Text);
             Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtZaxisStepperCurrent.Text);
             Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
             Properties.Settings.Default.Save();
@@ -554,8 +562,13 @@ namespace Stepper
                 YaxisChanged = false;
                 txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             }
+            txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+            txtYaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+            txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
+            Properties.Settings.Default.XaxisMotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
             Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
             Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
+            Properties.Settings.Default.YaxisMotorSpeed = Convert.ToDecimal(txtYaxisMotorSpeed.Text);
             Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
             Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
@@ -708,10 +721,28 @@ namespace Stepper
         private void XaxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
         {
             XaxisChanged = true;
-            txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
             if (txtXaxisStepperMove.Text == Properties.Settings.Default.XaxisStepperMove.ToString())
             {
                 txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+            }
+            else
+            {
+                txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
+                Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
+                Properties.Settings.Default.Save();
+            }
+        }
+        private void XaxisMotorSpeed_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtXaxisMotorSpeed.Text == Properties.Settings.Default.XaxisMotorSpeed.ToString())
+            {
+                txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+            }
+            else
+            {
+                txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.Red;
+                Properties.Settings.Default.XaxisMotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                Properties.Settings.Default.Save();
             }
         }
         /// <summary>
@@ -722,10 +753,28 @@ namespace Stepper
         private void YaxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
         {
             YaxisChanged = true;
-            txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
             if (txtYaxisStepperMove.Text == Properties.Settings.Default.YaxisStepperMove.ToString())
             {
                 txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+            }
+            else
+            {
+                txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
+                Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
+                Properties.Settings.Default.Save();
+            }
+        }
+        private void YaxisMotorSpeed_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtYaxisMotorSpeed.Text == Properties.Settings.Default.YaxisMotorSpeed.ToString())
+            {
+                txtYaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+            }
+            else
+            {
+                txtYaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.Red;
+                Properties.Settings.Default.YaxisMotorSpeed = Convert.ToDecimal(txtYaxisMotorSpeed.Text);
+                Properties.Settings.Default.Save();
             }
         }
         /// <summary>
@@ -736,10 +785,28 @@ namespace Stepper
         private void ZaxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
         {
             ZaxisChanged = true;
-            txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
             if (txtZaxisStepperMove.Text == Properties.Settings.Default.ZaxisStepperMove.ToString())
             {
                 txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+            }
+            else
+            {
+                txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
+                Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
+                Properties.Settings.Default.Save();
+            }
+        }
+        private void ZaxisMotorSpeed_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtZaxisMotorSpeed.Text == Properties.Settings.Default.ZaxisMotorSpeed.ToString())
+            {
+                txtZaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+            }
+            else
+            {
+                txtZaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.Red;
+                Properties.Settings.Default.ZaxisMotorSpeed = Convert.ToDecimal(txtZaxisMotorSpeed.Text);
+                Properties.Settings.Default.Save();
             }
         }
         /// <summary>
@@ -853,6 +920,19 @@ namespace Stepper
                 txtBaudRate.Text = mainWindow.Result.ToString();
         }
 
+        private void txtBaudRate_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtZaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.Red;
+            if (txtBaudRate.Text == Properties.Settings.Default.BaudRate.ToString())
+            {
+                txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
+            }
+            else
+            {
+                Properties.Settings.Default.BaudRate = Convert.ToInt32(txtBaudRate.Text);
+                Properties.Settings.Default.Save();
+            }
+        }
         /// <summary>
         /// Handles the SelectionChanged event of the cmbComPort control.
         /// </summary>
@@ -910,5 +990,19 @@ namespace Stepper
                 CountdownLabel.Content = "";
             }
         }
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+            txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+            txtXaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
+            txtYaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+            txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+            txtYaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
+            txtZaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+            txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+            txtZaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
+            txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
+        }
+
     }
 }

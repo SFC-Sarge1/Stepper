@@ -418,5 +418,17 @@ namespace Stepper.Properties {
                 this["MathPart2Initlz"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.00")]
+        public string BuildVersion {
+            get {
+                return ((string)(this["BuildVersion"]));
+            }
+            set {
+                this["BuildVersion"] = value;
+            }
+        }
     }
 }

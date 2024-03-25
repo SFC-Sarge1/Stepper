@@ -101,5 +101,8 @@
     <Setting Name="MathPart2Initlz" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0.00</Value>
     </Setting>
+    <Setting Name="BuildVersion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1.00</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

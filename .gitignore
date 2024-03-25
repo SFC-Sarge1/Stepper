@@ -14,3 +14,5 @@
 *.cs
 /Stepper/obj/Release/net8.0-windows
 /Stepper/Properties/PublishProfiles/FolderProfile.pubxml.user
+/.vs/ProjectEvaluation/stepper.metadata.v7.bin
+/.vs/ProjectEvaluation/stepper.projects.v7.bin

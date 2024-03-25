@@ -61,7 +61,7 @@ using System.Windows.Media;
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 200,  // Width of the TextBox
+                        Width = 250,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[currentProperty.Name].ToString()
                     };
@@ -127,7 +127,7 @@ using System.Windows.Media;
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 200,  // Width of the TextBox
+                        Width = 250,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[currentProperty.Name].ToString(),
                         SelectedItem = Convert.ToBoolean(Properties.Settings.Default[currentProperty.Name].ToString())
@@ -177,7 +177,7 @@ using System.Windows.Media;
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 200,  // Width of the TextBox
+                        Width = 250,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[currentProperty.Name].ToString(),
                     };
@@ -243,7 +243,7 @@ using System.Windows.Media;
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 200,  // Width of the TextBox
+                        Width = 250,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[currentProperty.Name].ToString(),
                         SelectedItem = Properties.Settings.Default[currentProperty.Name].ToString()
@@ -268,10 +268,10 @@ using System.Windows.Media;
                     MySettings.Children.Add(labelComUserAppSettingsWithBorder);
                     MySettings.Children.Add(UserComAppSettings);
                 }
-                else
+                else if (Properties.Settings.Default[currentProperty.Name].ToString().Contains("Version"))
                 {
                     // Create a label and a textbox for the setting
-                    Border labelUserAppSettingsWithBorder = new()
+                    Border labelStringUserAppSettingsWithBorder = new()
                     {
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(1),  // Thickness of the border
@@ -284,45 +284,66 @@ using System.Windows.Media;
                             Content = currentProperty.Name,
                         }
                     };
-                    // Create a label and a ComboBox for the setting
-                    Border labelComUserAppSettingsWithBorder = new()
-                    {
-                        BorderBrush = Brushes.White,  // Color of the border
-                        BorderThickness = new Thickness(1),  // Thickness of the border
-                        Child = new Label()
-                        {
-                            Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
-                            HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                            Width = 200,  // Width of the TextBox
-                            Height = 25,   // Height of the TextBox
-                            Content = currentProperty.Name,
-                        }
-                    };
-                    ComboBox UserAppSettings = new()
+                    TextBox UserStringAppSettings = new()
                     {
                         Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 200,  // Width of the TextBox
+                        Width = 250,  // Width of the TextBox
+                        Height = 25,   // Height of the TextBox
+                        Text = Properties.Settings.Default[currentProperty.Name].ToString(),
+                    };
+                    UserStringAppSettings.LostFocus += (sender, args) =>
+                    {
+                        Properties.Settings.Default[currentProperty.Name] = UserStringAppSettings.Text;
+                        Properties.Settings.Default.Save();
+                    };
+                    // Add the label and textbox to the WrapPanel
+                    MySettings.Children.Add(labelStringUserAppSettingsWithBorder);
+                    MySettings.Children.Add(UserStringAppSettings);
+                }
+                else
+                {
+                    // Create a label and a textbox for the setting
+                    Border labelRootComUserApp = new()
+                    {
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(1),  // Thickness of the border
+                        Child = new Label()
+                        {
+                            Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                            HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                            Width = 200,  // Width of the TextBox
+                            Height = 25,   // Height of the TextBox
+                            Content = currentProperty.Name,
+                        }
+                    };
+                    ComboBox UserRootComAppSettings = new()
+                    {
+                        Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(2),  // Thickness of the border
+                        HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                        Width = 250,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[currentProperty.Name].ToString(),
                         SelectedItem = Properties.Settings.Default[currentProperty.Name].ToString()
                     };
                     // Add items to the ComboBox
-                    UserAppSettings.Items.Add("X");
-                    UserAppSettings.Items.Add("Y");
-                    UserAppSettings.Items.Add("Z");
-                    UserAppSettings.Items.Add("XY");
+                    UserRootComAppSettings.Items.Add("X");
+                    UserRootComAppSettings.Items.Add("Y");
+                    UserRootComAppSettings.Items.Add("Z");
+                    UserRootComAppSettings.Items.Add("XY");
                     // When the textbox loses focus, update the setting
-                    UserAppSettings.LostFocus += (sender, args) =>
+                    UserRootComAppSettings.LostFocus += (sender, args) =>
                     {
-                        Properties.Settings.Default[currentProperty.Name] = UserAppSettings.SelectedItem.ToString();
+                        Properties.Settings.Default[currentProperty.Name] = UserRootComAppSettings.SelectedItem.ToString();
                         Properties.Settings.Default.Save();
                     };
                     // Add the label and textbox to the WrapPanel
-                    MySettings.Children.Add(labelComUserAppSettingsWithBorder);
-                    MySettings.Children.Add(UserAppSettings);
+                    MySettings.Children.Add(labelRootComUserApp);
+                    MySettings.Children.Add(UserRootComAppSettings);
                 }
             }
         }
