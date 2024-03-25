@@ -4,7 +4,7 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 03-21-2024
+// Last Modified On : 03-24-2024
 // ***********************************************************************
 // <copyright file="App.xaml.cs" company="">
 //     Copyright (c) . All rights reserved.
@@ -22,6 +22,23 @@ namespace Stepper
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="App"/> class.
+        /// </summary>
+        public App()
+        {
+            this.DispatcherUnhandledException += App_DispatcherUnhandledException;
+        }
+        /// <summary>
+        /// Handles the DispatcherUnhandledException event of the App control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.Windows.Threading.DispatcherUnhandledExceptionEventArgs"/> instance containing the event data.</param>
+        private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show("An unhandled exception just occurred: " + e.Exception.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+            e.Handled = true;
+        }
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Application.Exit" /> event.
         /// </summary>
