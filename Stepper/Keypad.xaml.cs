@@ -15,6 +15,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using MahApps.Metro.Controls;
+using System.Reflection;
 
 namespace Stepper
 {
@@ -62,26 +63,7 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            switch (button.CommandParameter.ToString()) 
-            {
-                case "ESC":
-                    DialogResult = false;
-                    break;
-
-                case "RETURN":
-                    DialogResult = true;
-                    break;
-
-                case "BACK":
-                    if (Result.Length > 0)
-                        Result = Result.Remove(Result.Length - 1);
-                    break;
-
-                default:
-                    Result += button.Content.ToString();
-                    break;
-            }   
+            HandleButtonTouchClick(sender);
         }
 
         /// <summary>
@@ -104,8 +86,16 @@ namespace Stepper
         /// Handles the TouchUp event of the button control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.Windows.Input.TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
         private void button_TouchUp(object sender, System.Windows.Input.TouchEventArgs e)
+        {
+            HandleButtonTouchClick(sender);
+        }
+        /// <summary>
+        /// Handles the button touch click.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void HandleButtonTouchClick(object sender)
         {
             Button button = sender as Button;
             switch (button.CommandParameter.ToString())
@@ -127,6 +117,7 @@ namespace Stepper
                     Result += button.Content.ToString();
                     break;
             }
+
         }
     }
 }

@@ -653,36 +653,7 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void CheckBoxChanged(object sender, RoutedEventArgs e)
         {
-            if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == true && ckbZaxisResetToZero.IsChecked == true)
-            {
-                zeroXaxis = 1;
-                zeroYaxis = 1;
-                zeroZaxis = 1;
-            }
-            else if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == false && ckbZaxisResetToZero.IsChecked == false)
-            {
-                zeroXaxis = 1;
-                zeroYaxis = 0;
-                zeroZaxis = 0;
-            }
-            else if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == true && ckbZaxisResetToZero.IsChecked == false)
-            {
-                zeroXaxis = 0;
-                zeroYaxis = 1;
-                zeroZaxis = 0;
-            }
-            if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == false && ckbZaxisResetToZero.IsChecked == true)
-            {
-                zeroXaxis = 0;
-                zeroYaxis = 0;
-                zeroZaxis = 1;
-            }
-            if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == false && ckbZaxisResetToZero.IsChecked == false)
-            {
-                zeroXaxis = 0;
-                zeroYaxis = 0;
-                zeroZaxis = 0;
-            }
+            UpdateZeroStatus();
         }
         /// <summary>
         /// Handles the GotFocus event of the XaxisStepperMove control.
@@ -1170,7 +1141,7 @@ namespace Stepper
         /// Handles the TouchUp event of the txtBaudRate control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void txtBaudRate_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1179,12 +1150,29 @@ namespace Stepper
 
         }
 
+        /// <summary>
+        /// Handles the TouchUp event of the cmbComPort control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
         private void cmbComPort_TouchUp(object sender, TouchEventArgs e)
         {
             cmbComPort.Text = cmbComPort.SelectedItem.ToString();
         }
 
+        /// <summary>
+        /// Handles the TouchUp event of the ResetToZero control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
         private void ResetToZero_TouchUp(object sender, TouchEventArgs e)
+        {
+            UpdateZeroStatus();
+        }
+        /// <summary>
+        /// Updates the zero status.
+        /// </summary>
+        private void UpdateZeroStatus()
         {
             if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == true && ckbZaxisResetToZero.IsChecked == true)
             {
