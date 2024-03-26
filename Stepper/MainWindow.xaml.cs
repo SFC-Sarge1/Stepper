@@ -4,7 +4,7 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 03-24-2024
+// Last Modified On : 03-25-2024
 // ***********************************************************************
 // <copyright file="MainWindow.xaml.cs" company="">
 //     Copyright (c) . All rights reserved.
@@ -22,9 +22,6 @@ namespace Stepper
     using MahApps.Metro.Controls;
     using System.Configuration;
     using System.Reflection;
-    using ControlzEx.Theming;
-    using System.IO;
-    using System.Runtime.Intrinsics.Arm;
     using System.Windows.Threading;
 
 
@@ -129,25 +126,6 @@ namespace Stepper
         /// The stepper move
         /// </summary>
         public decimal stepperMove;
-        /// <summary>
-        /// Handles the OnPreviewTextInput event of the TextBox control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextCompositionEventArgs" /> instance containing the event data.</param>
-        private void TextBox_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            var textBox = sender as TextBox;
-            // Use SelectionStart property to find the caret position.
-            // Insert the previewed text into the existing text in the textbox.
-            var fullText = textBox.Text.Insert(textBox.SelectionStart, e.Text);
-
-            double val;
-            // If parsing is successful, set Handled to false
-            e.Handled = !double.TryParse(fullText,
-                                         NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign,
-                                         CultureInfo.InvariantCulture,
-                                         out val);
-        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow" /> class.
@@ -180,6 +158,7 @@ namespace Stepper
             txtBaudRate.Text = Properties.Settings.Default.BaudRate.ToString();
             selectedItem = cmbComPort.Items.CurrentItem.ToString();
             Loaded += MainWindow_Loaded;
+            Closing += MainWindow_Closing;
             if (selectedItem == Properties.Settings.Default.COM1.ToString())
             {
                 cmbComPort.Items.MoveCurrentToLast();
@@ -666,19 +645,6 @@ namespace Stepper
             Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
         }
-        /// <summary>
-        /// Handles the <see cref="E:Closing" /> event.
-        /// </summary>
-        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs" /> instance containing the event data.</param>
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
-        {
-            Properties.Settings.Default.Save();
-            if (sp.IsOpen == true)
-            {
-                sp.Close();
-            }
-            base.OnClosing(e);
-        }
 
         /// <summary>
         /// CheckBoxes the changed.
@@ -768,7 +734,7 @@ namespace Stepper
         /// Handles the TextChanged event of the XaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void XaxisMotorSpeed_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtXaxisMotorSpeed.Text == Properties.Settings.Default.XaxisMotorSpeed.ToString())
@@ -805,7 +771,7 @@ namespace Stepper
         /// Handles the TextChanged event of the YaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void YaxisMotorSpeed_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtYaxisMotorSpeed.Text == Properties.Settings.Default.YaxisMotorSpeed.ToString())
@@ -842,7 +808,7 @@ namespace Stepper
         /// Handles the TextChanged event of the ZaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void ZaxisMotorSpeed_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtZaxisMotorSpeed.Text == Properties.Settings.Default.ZaxisMotorSpeed.ToString())
@@ -868,6 +834,17 @@ namespace Stepper
                 txtXaxisStepperMove.Text = mainWindow.Result.ToString();
         }
         /// <summary>
+        /// Handles the TouchUp event of the XaxisStepperMove control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        private void XaxisStepperMove_TouchUp(object sender, TouchEventArgs e)
+        {
+            Keypad mainWindow = new(this);
+            if (mainWindow.ShowDialog() == true)
+                txtXaxisStepperMove.Text = mainWindow.Result.ToString();
+        }
+        /// <summary>
         /// Handles the PreviewMouseUp event of the YaxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
@@ -877,6 +854,17 @@ namespace Stepper
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
                 txtYaxisStepperMove.Text = mainWindow.Result.ToString();
+        }
+        /// <summary>
+        /// Handles the TouchUp event of the YaxisStepperMove control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        private void YaxisStepperMove_TouchUp(object sender, TouchEventArgs e)
+        {
+            Keypad mainWindow = new(this);
+            if (mainWindow.ShowDialog() == true)
+                txtXaxisStepperMove.Text = mainWindow.Result.ToString();
         }
         /// <summary>
         /// Handles the PreviewMouseUp event of the ZaxisStepperMove control.
@@ -890,11 +878,33 @@ namespace Stepper
                 txtZaxisStepperMove.Text = mainWindow.Result.ToString();
         }
         /// <summary>
+        /// Handles the TouchUp event of the ZaxisStepperMove control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        private void ZaxisStepperMove_TouchUp(object sender, TouchEventArgs e)
+        {
+            Keypad mainWindow = new(this);
+            if (mainWindow.ShowDialog() == true)
+                txtXaxisStepperMove.Text = mainWindow.Result.ToString();
+        }
+        /// <summary>
         /// Handles the PreviewMouseUp event of the txtXaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void txtXaxisMotorSpeed_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Keypad mainWindow = new(this);
+            if (mainWindow.ShowDialog() == true)
+                txtXaxisMotorSpeed.Text = mainWindow.Result.ToString();
+        }
+        /// <summary>
+        /// Handles the TouchUp event of the txtXaxisMotorSpeed control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        private void txtXaxisMotorSpeed_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
@@ -912,6 +922,17 @@ namespace Stepper
                 txtYaxisMotorSpeed.Text = mainWindow.Result.ToString();
         }
         /// <summary>
+        /// Handles the TouchUp event of the txtYaxisMotorSpeed control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        private void txtYaxisMotorSpeed_TouchUp(object sender, TouchEventArgs e)
+        {
+            Keypad mainWindow = new(this);
+            if (mainWindow.ShowDialog() == true)
+                txtXaxisMotorSpeed.Text = mainWindow.Result.ToString();
+        }
+        /// <summary>
         /// Handles the PreviewMouseUp event of the txtZaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
@@ -923,11 +944,33 @@ namespace Stepper
                 txtZaxisMotorSpeed.Text = mainWindow.Result.ToString();
         }
         /// <summary>
+        /// Handles the TouchUp event of the txtZaxisMotorSpeed control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        private void txtZaxisMotorSpeed_TouchUp(object sender, TouchEventArgs e)
+        {
+            Keypad mainWindow = new(this);
+            if (mainWindow.ShowDialog() == true)
+                txtXaxisMotorSpeed.Text = mainWindow.Result.ToString();
+        }
+        /// <summary>
         /// Handles the PreviewMouseUp event of the txtXaxisStepperCurrent control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void txtXaxisStepperCurrent_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Keypad mainWindow = new(this);
+            if (mainWindow.ShowDialog() == true)
+                txtXaxisStepperCurrent.Text = mainWindow.Result.ToString();
+        }
+        /// <summary>
+        /// Handles the TouchUp event of the txtXaxisStepperCurrent control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        private void txtXaxisStepperCurrent_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
@@ -945,6 +988,17 @@ namespace Stepper
                 txtYaxisStepperCurrent.Text = mainWindow.Result.ToString();
         }
         /// <summary>
+        /// Handles the TouchUp event of the txtYaxisStepperCurrent control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        private void txtYaxisStepperCurrent_TouchUp(object sender, TouchEventArgs e)
+        {
+            Keypad mainWindow = new(this);
+            if (mainWindow.ShowDialog() == true)
+                txtXaxisStepperCurrent.Text = mainWindow.Result.ToString();
+        }
+        /// <summary>
         /// Handles the PreviewMouseUp event of the txtZaxisStepperCurrent control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
@@ -954,6 +1008,17 @@ namespace Stepper
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
                 txtZaxisStepperCurrent.Text = mainWindow.Result.ToString();
+        }
+        /// <summary>
+        /// Handles the TouchUp event of the txtZaxisStepperCurrent control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        private void txtZaxisStepperCurrent_TouchUp(object sender, TouchEventArgs e)
+        {
+            Keypad mainWindow = new(this);
+            if (mainWindow.ShowDialog() == true)
+                txtXaxisStepperCurrent.Text = mainWindow.Result.ToString();
         }
         /// <summary>
         /// Handles the PreviewMouseUp event of the txtBaudRate control.
@@ -971,7 +1036,7 @@ namespace Stepper
         /// Handles the TextChanged event of the txtBaudRate control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void txtBaudRate_TextChanged(object sender, TextChangedEventArgs e)
         {
             txtZaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.Red;
@@ -1020,6 +1085,26 @@ namespace Stepper
             }
         }
         /// <summary>
+        /// Handles the OnPreviewTextInput event of the TextBox control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TextCompositionEventArgs" /> instance containing the event data.</param>
+        private void TextBox_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            // Use SelectionStart property to find the caret position.
+            // Insert the previewed text into the existing text in the textbox.
+            var fullText = textBox.Text.Insert(textBox.SelectionStart, e.Text);
+
+            double val;
+            // If parsing is successful, set Handled to false
+            e.Handled = !double.TryParse(fullText,
+                                         NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign,
+                                         CultureInfo.InvariantCulture,
+                                         out val);
+        }
+
+        /// <summary>
         /// Handles the Click event of the AppSettings control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
@@ -1053,7 +1138,7 @@ namespace Stepper
         /// Handles the Loaded event of the MainWindow control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
@@ -1067,6 +1152,18 @@ namespace Stepper
             txtZaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
             txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
         }
-
+        /// <summary>
+        /// Handles the Closing event of the MainWindow control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+            if (sp.IsOpen == true)
+            {
+                sp.Close();
+            }
+        }
     }
 }

@@ -4,7 +4,7 @@
 // Created          : 03-20-2024
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 03-22-2024
+// Last Modified On : 03-25-2024
 // ***********************************************************************
 // <copyright file="StepperAppSettings.xaml.cs" company="">
 //     Copyright (c) . All rights reserved.
@@ -25,7 +25,7 @@ using System.Windows.Media;
     public partial class StepperAppSettings : Window
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StepperAppSettings"/> class.
+        /// Initializes a new instance of the <see cref="StepperAppSettings" /> class.
         /// </summary>
         public StepperAppSettings()
         {
@@ -35,6 +35,7 @@ using System.Windows.Media;
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
             VersionTxt.Text = "Version: " + displayableVersion;
+            Closing += StepperAppSettings_Closing;
 
             // Iterate over each setting to fill the WrapPanel with the settings
             foreach (SettingsProperty currentProperty in Properties.Settings.Default.Properties)
@@ -347,12 +348,22 @@ using System.Windows.Media;
                 }
             }
         }
+        /// <summary>
+        /// Handles the Closing event of the StepperAppSettings control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
+        private void StepperAppSettings_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+        }
+
 
         /// <summary>
         /// Handles the Click event of the SaveSettings control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void SaveSettings_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Save();
