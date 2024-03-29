@@ -189,7 +189,8 @@ namespace Stepper
                 }
             }
             Content = StepperMotorControl;
-
+            // Subscribe to the DataReceived event.
+            sp.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
         }
         /// <summary>
         /// Handles the Click event of the XAxisRun control.
@@ -1305,5 +1306,19 @@ namespace Stepper
                 zeroZaxis = 0;
             }
         }
+        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            try
+            {
+                sp = (SerialPort)sender;
+                InSerialPortData.Text = sp.ReadExisting().ToString();
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
     }
 }
