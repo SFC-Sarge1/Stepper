@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Stepper
-build_property.ProjectDir = C:\Users\sfcsarge\OneDrive\Documents\Arduino\Stepper\Stepper\
+build_property.ProjectDir = C:\Users\sfcsarge\source\repos\SFC-Sarge1\Stepper\Stepper\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

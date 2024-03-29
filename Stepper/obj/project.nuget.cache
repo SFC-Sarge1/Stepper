@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YCtAoynK6490FqTPn9mTDesQ7dAZx7A0TBjPJiZgehB7+k8AWRPAEDbBr5G2ZeKlccVLHHAYdQ4qhSYBaXYZ0Q==",
+  "dgSpecHash": "vR63w4rD/NCVDtbexEfPv7WCkfe7X2YoQBEsAoIGbCqIGTElnpXr68u9piHcdf+eWG93y32rix6v2bpmrxyC2A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sfcsarge\\OneDrive\\Documents\\Arduino\\Stepper\\Stepper\\Stepper.csproj",
+  "projectFilePath": "C:\\Users\\sfcsarge\\source\\repos\\SFC-Sarge1\\Stepper\\Stepper\\Stepper.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sfcsarge\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
     "C:\\Users\\sfcsarge\\.nuget\\packages\\mahapps.metro\\2.4.10\\mahapps.metro.2.4.10.nupkg.sha512",

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\sfcsarge\OneDrive\Documents\Arduino\Stepper\Stepper\obj\Debug\net8.0-windows\
+C:\Users\sfcsarge\source\repos\SFC-Sarge1\Stepper\Stepper\obj\Debug\net8.0-windows\
 Stepper
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\sfcsarge\OneDrive\Documents\Arduino\Stepper\Stepper\App.xaml
+C:\Users\sfcsarge\source\repos\SFC-Sarge1\Stepper\Stepper\App.xaml
 3-1901966609
 1400583924
 9-1598815122
 204760121148
 Keypad.xaml;MainWindow.xaml;StepperAppSettings.xaml;
 
-False
+True
 
