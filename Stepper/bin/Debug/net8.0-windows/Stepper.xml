@@ -94,7 +94,13 @@
             Handles the TouchUp event of the button control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.Keypad.HandleButtonTouchClick(System.Object)">
+            <summary>
+            Handles the button touch click.
+            </summary>
+            <param name="sender">The sender.</param>
         </member>
         <member name="M:Stepper.Keypad.InitializeComponent">
             <summary>
@@ -127,11 +133,6 @@
         <member name="F:Stepper.MainWindow.myPortName">
             <summary>
             My port name
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.stringValue">
-            <summary>
-            The string value
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.zeroXaxis">
@@ -543,7 +544,26 @@
             Handles the TouchUp event of the txtBaudRate control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.cmbComPort_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the cmbComPort control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ResetToZero_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the ResetToZero control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.UpdateZeroStatus">
+            <summary>
+            Updates the zero status.
+            </summary>
         </member>
         <member name="M:Stepper.MainWindow.InitializeComponent">
             <summary>

@@ -32,7 +32,6 @@
                 </Button>
             </WrapPanel>
         </Border>
-        <TextBlock x:Name="InSerialPortData" TextWrapping="Wrap" Text="TextBlock" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="323" Margin="285,47,0,0"/>
         <Label x:Name="lblXaxisMove" Content="X axis Move:" HorizontalAlignment="Left" Margin="21,129,0,0" VerticalAlignment="Top" Height="26" Width="76"/>
         <TextBox x:Name="txtXaxisStepperMove" TouchUp="XaxisStepperMove_TouchUp" PreviewMouseUp="XaxisStepperMove_PreviewMouseUp" TextChanged="XaxisStepperMove_TextChanged" GotFocus="XaxisStepperMove_GotFocus" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" Margin="101,127,0,0" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
         <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,129,0,0" Height="26" Width="32"/>
