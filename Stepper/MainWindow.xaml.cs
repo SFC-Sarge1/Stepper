@@ -6,7 +6,7 @@
 // Last Modified By : sfcsarge
 // Last Modified On : 03-25-2024
 // ***********************************************************************
-// <copyright file="MainWindow.xaml.cs" company="">
+// <copyright file="MainWindow.xaml.cs" company="Computer Question">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>
