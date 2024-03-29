@@ -9,7 +9,7 @@
 // <copyright file="MainWindow.xaml.cs" company="Computer Question">
 //     Copyright (c) . All rights reserved.
 // </copyright>
-// <summary></summary>
+// <summary>This allows you to control the X,Y and Z axis </summary>
 // ***********************************************************************
 
 namespace Stepper
@@ -20,7 +20,6 @@ namespace Stepper
     using System.Windows.Controls;
     using System.Windows.Input;
     using MahApps.Metro.Controls;
-    using System.Configuration;
     using System.Reflection;
     using System.Windows.Threading;
     using System.IO;
@@ -34,7 +33,7 @@ namespace Stepper
         /// <summary>
         /// The timer
         /// </summary>
-        public static DispatcherTimer timer;
+        public static DispatcherTimer? timer;
         /// <summary>
         /// The time left
         /// </summary>
@@ -159,36 +158,59 @@ namespace Stepper
 
             if (selectedItem == Properties.Settings.Default.COM1.ToString())
             {
-                cmbComPort.Items.MoveCurrentToLast();
-                selectedItem = cmbComPort.Items.CurrentItem.ToString();
-                cmbComPort.SelectedItem = selectedItem;
-                myPortName = selectedItem;
-                cmbComPort.Text = selectedItem;
-                sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-                if (sp.IsOpen == false)
+                try
                 {
-                    sp.Open();
+                    cmbComPort.Items.MoveCurrentToLast();
+                    selectedItem = cmbComPort.Items.CurrentItem.ToString();
+                    cmbComPort.SelectedItem = selectedItem;
+                    myPortName = selectedItem;
+                    cmbComPort.Text = selectedItem;
+                    sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
+                    if (sp.IsOpen == false)
+                    {
+                        sp.Open();
+                    }
+                }
+                catch (IOException ioex)
+                {
+                    // Handle the exception
+                    MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else if (selectedItem == Properties.Settings.Default.COM4.ToString())
             {
-                myPortName = selectedItem;
-                cmbComPort.Text = selectedItem;
-                sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-
-                if (sp.IsOpen == false)
+                try
                 {
-                    sp.Open();
+                    cmbComPort.Text = selectedItem;
+                    sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
+                    if (sp.IsOpen == false)
+                    {
+                        sp.Open();
+                    }
                 }
+                catch (IOException ioex)
+                {
+                    // Handle the exception
+                    MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                myPortName = selectedItem;
             }
             else if (selectedItem == Properties.Settings.Default.COM5.ToString())
             {
-                myPortName = selectedItem;
-                cmbComPort.Text = selectedItem;
-                sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-                if (sp.IsOpen == false)
+                try
                 {
-                    sp.Open();
+                    myPortName = selectedItem;
+                    cmbComPort.Text = selectedItem;
+                    sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
+                    if (sp.IsOpen == false)
+                    {
+                        sp.Open();
+                    }
+                }
+                catch (IOException ioex)
+                {
+                    // Handle the exception
+                    MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             Content = StepperMotorControl;
@@ -608,18 +630,18 @@ namespace Stepper
                     sp.Close();
                 }
                 selectedItem = cmbComPort.Items.CurrentItem.ToString();
-                    myPortName = selectedItem;
-                    cmbComPort.Text = selectedItem;
-                    sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-                    if (sp.IsOpen == false)
-                    {
-                        sp.Open();
-                    }
+                myPortName = selectedItem;
+                cmbComPort.Text = selectedItem;
+                sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
+                if (sp.IsOpen == false)
+                {
+                    sp.Open();
+                }
             }
-            catch (Exception ex)
+            catch (IOException ioex)
             {
                 // Handle the exception
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -650,10 +672,10 @@ namespace Stepper
                     sp.Open();
                 }
             }
-            catch (Exception ex)
+            catch (IOException ioex)
             {
                 // Handle the exception
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -684,10 +706,10 @@ namespace Stepper
                     sp.Open();
                 }
             }
-            catch (Exception ex)
+            catch (IOException ioex)
             {
                 // Handle the exception
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -723,10 +745,10 @@ namespace Stepper
                     sp.Open();
                 }
             }
-            catch (Exception ex)
+            catch (IOException ioex)
             {
                 // Handle the exception
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -1133,10 +1155,10 @@ namespace Stepper
                     }
                 }
             }
-            catch (Exception ex)
+            catch (IOException ioex)
             {
                 // Handle the exception
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -1214,10 +1236,18 @@ namespace Stepper
         /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs" /> instance containing the event data.</param>
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Properties.Settings.Default.Save();
-            if (sp.IsOpen == true)
+            try
             {
-                sp.Close();
+                Properties.Settings.Default.Save();
+                if (sp.IsOpen == true)
+                {
+                    sp.Close();
+                }
+            }
+            catch (IOException ioex)
+            {
+                // Handle the exception
+                MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
