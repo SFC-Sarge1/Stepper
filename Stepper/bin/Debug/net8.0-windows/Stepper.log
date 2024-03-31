@@ -1,0 +1,9 @@
+3/30/2024 19:09:25 [Information] Stepper Motor Controller Application Started.
+3/30/2024 19:09:25 [Information] Version:2.0.0.34479 (3/30/2024 19:09:25)
+3/30/2024 19:09:25 [Information] Opened Serial Port at: COM4,9600
+3/30/2024 19:09:26 [Information] MainWindow loaded
+3/30/2024 19:09:30 [Information] Stepper Motor Controller Application Settings Window Started.
+3/30/2024 19:09:33 [Information] Stepper Motor Controller Application Settings Saved.
+3/30/2024 19:09:33 [Information] Stepper Motor Controller Application Settings Window Closing.
+3/30/2024 19:09:35 [Information] MainWindow Closing
+3/30/2024 19:09:35 [Information] Closed Serial Port at: COM4,9600

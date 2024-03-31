@@ -230,6 +230,16 @@
             The stepper move
             </summary>
         </member>
+        <member name="F:Stepper.MainWindow._logger">
+            <summary>
+            The logger
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.loggerFactory">
+            <summary>
+            The logger factory
+            </summary>
+        </member>
         <member name="M:Stepper.MainWindow.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Stepper.MainWindow" /> class.
@@ -588,7 +598,7 @@
             Handles the Closing event of the StepperAppSettings control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.StepperAppSettings.SaveSettings_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>

@@ -4,12 +4,12 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 03-28-2024
+// Last Modified On : 03-30-2024
 // ***********************************************************************
 // <copyright file="MainWindow.xaml.cs" company="Computer Question">
 //     Copyright (c) . All rights reserved.
 // </copyright>
-// <summary>This allows you to control the X,Y and Z axis </summary>
+// <summary>This allows you to control the X,Y and Z axis</summary>
 // ***********************************************************************
 
 namespace Stepper
@@ -23,7 +23,8 @@ namespace Stepper
     using System.Reflection;
     using System.Windows.Threading;
     using System.IO;
-
+    using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Logging.Console;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -122,17 +123,48 @@ namespace Stepper
         /// The stepper move
         /// </summary>
         public decimal stepperMove;
+        /// <summary>
+        /// The logger
+        /// </summary>
+        public static ILogger _logger;
 
+        public static DateTime now = DateTime.Now;
+
+        public static string date;
+        /// <summary>
+        /// The logger factory
+        /// </summary>
+        public static ILoggerFactory loggerFactory;
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow" /> class.
         /// </summary>
         public MainWindow()
         {
             InitializeComponent();
+            if (File.Exists("Stepper.log"))
+            {
+                File.Delete("Stepper.log");
+            }
+            // Create an instance of ILoggerFactory (usually done during application startup)
+            loggerFactory = LoggerFactory.Create(builder =>
+            {
+                builder.AddConsole();
+                builder.AddProvider(new FileLoggerProvider("Stepper.log")); // Log to a file named "Stepper.log"
+            });
+
+            // Create a logger for the MainWindow class
+            _logger = loggerFactory.CreateLogger<MainWindow>();
+
+            // Log an informational message
+            now = DateTime.Now;
+            date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+            _logger.LogInformation(date + " Stepper Motor Controller Application Started.");
+
             ResizeMode = ResizeMode.NoResize;
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
+            _logger.LogInformation("Version:" + displayableVersion);
             VersionTxt.Text = "Version: " + displayableVersion;
             Properties.Settings.Default.BuildVersion = "Version: " + displayableVersion;
             timeLeft = 0; // Set the countdown time
@@ -169,10 +201,17 @@ namespace Stepper
                     if (sp.IsOpen == false)
                     {
                         sp.Open();
+                        now = DateTime.Now;
+                        date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                        _logger.LogInformation(date + " Opened Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                     }
                 }
                 catch (IOException ioex)
                 {
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " An error occurred: " + ioex.Message);
+
                     // Handle the exception
                     MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
@@ -182,14 +221,21 @@ namespace Stepper
                 try
                 {
                     cmbComPort.Text = selectedItem;
+                    myPortName = selectedItem;
                     sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
                     if (sp.IsOpen == false)
                     {
                         sp.Open();
+                        now = DateTime.Now;
+                        date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                        _logger.LogInformation(date + " Opened Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                     }
                 }
                 catch (IOException ioex)
                 {
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " An error occurred: " + ioex.Message);
                     // Handle the exception
                     MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
@@ -205,10 +251,16 @@ namespace Stepper
                     if (sp.IsOpen == false)
                     {
                         sp.Open();
+                        now = DateTime.Now;
+                        date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                        _logger.LogInformation(date + " Opened Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                     }
                 }
                 catch (IOException ioex)
                 {
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " An error occurred: " + ioex.Message);
                     // Handle the exception
                     MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
@@ -233,6 +285,9 @@ namespace Stepper
                     zeroXaxis = 1;
                     stringValue1 = axis + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " X Axis Run Event: " + stringValue1);
                     stringValue1 = "";
                     zeroXaxis = 0;
                     XZero(milliseconds);
@@ -256,6 +311,9 @@ namespace Stepper
                     btnRunXAxis.IsEnabled = false;
                     btnRunXYAxis.IsEnabled = false;
                     sp.Write(stringValue);
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " X Axis Run Event: " + stringValue);
                     stringValue = "";
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     timeLeft = delay; // Reset the countdown
@@ -281,6 +339,9 @@ namespace Stepper
             }
             catch (Exception ex)
             {
+                now = DateTime.Now;
+                date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                _logger.LogInformation(date + " An error occurred: " + ex.Message);
                 // Handle the exception
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -293,7 +354,7 @@ namespace Stepper
         public async void YAxisRun_Click(object sender, RoutedEventArgs e)
         {
             try
-            { 
+            {
                 previousYAxis = txtYaxisStepperMove.Text.ToString();
                 string stringValue;
                 string stringValue1;
@@ -302,6 +363,9 @@ namespace Stepper
                     zeroYaxis = 1;
                     stringValue1 = Properties.Settings.Default.RootAxisY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Y Axis Run Event: " + stringValue1);
                     stringValue1 = "";
                     zeroYaxis = 0;
                     YZero(milliseconds);
@@ -325,6 +389,9 @@ namespace Stepper
                     btnRunYAxis.IsEnabled = false;
                     btnRunXYAxis.IsEnabled = false;
                     sp.Write(stringValue);
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Y Axis Run Event: " + stringValue);
                     stringValue = "";
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     timeLeft = delay; // Reset the countdown
@@ -350,10 +417,13 @@ namespace Stepper
             }
             catch (Exception ex)
             {
+                now = DateTime.Now;
+                date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                _logger.LogInformation(date + " An error occurred: " + ex.Message);
                 // Handle the exception
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-}
+        }
         /// <summary>
         /// Handles the Click event of the ZAxisRun control.
         /// </summary>
@@ -362,7 +432,7 @@ namespace Stepper
         public async void ZAxisRun_Click(object sender, RoutedEventArgs e)
         {
             try
-            { 
+            {
                 previousZAxis = txtZaxisStepperMove.Text.ToString();
                 string stringValue;
                 string stringValue1;
@@ -371,7 +441,10 @@ namespace Stepper
                     zeroZaxis = 1;
                     stringValue1 = Properties.Settings.Default.RootAxisZ + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
-                    stringValue1 = ""; 
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Z Axis Run Event: " + stringValue1);
+                    stringValue1 = "";
                     zeroZaxis = 0;
                     ZZero(milliseconds);
                 }
@@ -393,6 +466,9 @@ namespace Stepper
                     txtZaxisStepperMove.IsEnabled = false;
                     btnRunZAxis.IsEnabled = false;
                     sp.Write(stringValue);
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Z Axis Run Event: " + stringValue);
                     stringValue = "";
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     timeLeft = delay; // Reset the countdown
@@ -417,6 +493,9 @@ namespace Stepper
             }
             catch (Exception ex)
             {
+                now = DateTime.Now;
+                date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                _logger.LogInformation(date + " An error occurred: " + ex.Message);
                 // Handle the exception
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -438,6 +517,9 @@ namespace Stepper
                     zeroYaxis = 1;
                     stringValue1 = Properties.Settings.Default.RootAxisXY + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " XY Axis Run Event: " + stringValue1);
                     stringValue1 = "";
                     zeroXaxis = 0;
                     zeroYaxis = 0;
@@ -449,6 +531,9 @@ namespace Stepper
                     zeroYaxis = 0;
                     stringValue1 = Properties.Settings.Default.RootAxisXY + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " XY Axis Run Event: " + stringValue1);
                     stringValue1 = "";
                     zeroXaxis = 0;
                     zeroYaxis = 0;
@@ -494,6 +579,9 @@ namespace Stepper
                     zeroYaxis = 1;
                     stringValue1 = Properties.Settings.Default.RootAxisXY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " XY Axis Run Event: " + stringValue1);
                     stringValue1 = "";
                     zeroXaxis = 0;
                     zeroYaxis = 0;
@@ -538,6 +626,9 @@ namespace Stepper
                     zeroYaxis = 0;
                     stringValue = Properties.Settings.Default.RootAxisXY + "," + (Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text.Trim())).ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + (Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text.Trim())).ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue);
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " XY Axis Run Event: " + stringValue);
                     stringValue = "";
                     currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                     XaxisChanged = false;
@@ -545,7 +636,7 @@ namespace Stepper
                     currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
                     decimal part2 = Properties.Settings.Default.MathPart2Initlz;
                     if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) >= Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()))
-                    { 
+                    {
                         if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) < 0)
                         {
                             stepperMove = Math.Abs(Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()));
@@ -606,6 +697,9 @@ namespace Stepper
             }
             catch (Exception ex)
             {
+                now = DateTime.Now;
+                date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                _logger.LogInformation(date + " An error occurred: " + ex.Message);
                 // Handle the exception
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -623,11 +717,18 @@ namespace Stepper
             Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
             Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
             Properties.Settings.Default.Save();
+            now = DateTime.Now;
+            date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+            _logger.LogInformation(date + " X Axis Current Location Set to Zero");
+
             try
             {
                 if (sp.IsOpen == true)
                 {
                     sp.Close();
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Closed Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                 }
                 selectedItem = cmbComPort.Items.CurrentItem.ToString();
                 myPortName = selectedItem;
@@ -636,10 +737,16 @@ namespace Stepper
                 if (sp.IsOpen == false)
                 {
                     sp.Open();
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Opened Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                 }
             }
             catch (IOException ioex)
             {
+                now = DateTime.Now;
+                date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                _logger.LogInformation(date + " An error occurred: " + ioex.Message);
                 // Handle the exception
                 MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -657,11 +764,17 @@ namespace Stepper
             Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
             Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
+            now = DateTime.Now;
+            date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+            _logger.LogInformation(date + " Y Axis Current Location Set to Zero");
             try
             {
                 if (sp.IsOpen == true)
                 {
                     sp.Close();
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Closed Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                 }
                 selectedItem = cmbComPort.Items.CurrentItem.ToString();
                 myPortName = selectedItem;
@@ -670,10 +783,16 @@ namespace Stepper
                 if (sp.IsOpen == false)
                 {
                     sp.Open();
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Opened Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                 }
             }
             catch (IOException ioex)
             {
+                now = DateTime.Now;
+                date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                _logger.LogInformation(date + " An error occurred: " + ioex.Message);
                 // Handle the exception
                 MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -691,11 +810,17 @@ namespace Stepper
             Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
             Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
+            now = DateTime.Now;
+            date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+            _logger.LogInformation(date + " Z Axis Current Location Set to Zero");
             try
             {
                 if (sp.IsOpen == true)
                 {
                     sp.Close();
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Closed Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                 }
                 selectedItem = cmbComPort.Items.CurrentItem.ToString();
                 myPortName = selectedItem;
@@ -704,10 +829,16 @@ namespace Stepper
                 if (sp.IsOpen == false)
                 {
                     sp.Open();
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Opened Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                 }
             }
             catch (IOException ioex)
             {
+                now = DateTime.Now;
+                date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                _logger.LogInformation(date + " An error occurred: " + ioex.Message);
                 // Handle the exception
                 MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -730,11 +861,17 @@ namespace Stepper
             Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
             Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
+            now = DateTime.Now;
+            date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+            _logger.LogInformation(date + " XY Axis Current Location Set to Zero");
             try
             {
                 if (sp.IsOpen == true)
                 {
                     sp.Close();
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Closed Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                 }
                 selectedItem = cmbComPort.Items.CurrentItem.ToString();
                 myPortName = selectedItem;
@@ -743,10 +880,16 @@ namespace Stepper
                 if (sp.IsOpen == false)
                 {
                     sp.Open();
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Opened Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                 }
             }
             catch (IOException ioex)
             {
+                now = DateTime.Now;
+                date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                _logger.LogInformation(date + " An error occurred: " + ioex.Message);
                 // Handle the exception
                 MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -1140,6 +1283,9 @@ namespace Stepper
                 if (sp.IsOpen == true && selectedItem == Properties.Settings.Default.COM1.ToString())
                 {
                     sp.Close();
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Closed Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                 }
                 if (selectedItem == Properties.Settings.Default.COM1.ToString())
                 {
@@ -1152,11 +1298,17 @@ namespace Stepper
                     if (sp.IsOpen == false)
                     {
                         sp.Open();
+                        now = DateTime.Now;
+                        date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                        _logger.LogInformation(date + " Opened Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                     }
                 }
             }
             catch (IOException ioex)
             {
+                now = DateTime.Now;
+                date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                _logger.LogInformation(date + " An error occurred: " + ioex.Message);
                 // Handle the exception
                 MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -1204,11 +1356,17 @@ namespace Stepper
             {
                 timeLeft--; // Decrement the time left
                 CountdownLabel.Content = "Milliseconds: " + timeLeft.ToString() + " left!"; // Update the label with the new time left
+                now = DateTime.Now;
+                date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                _logger.LogInformation(date + " Milliseconds: " + timeLeft.ToString() + " left!");
             }
             else
             {
                 timer.Stop(); // Stop the timer when the countdown reaches 0
                 CountdownLabel.Content = "";
+                now = DateTime.Now;
+                date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                _logger.LogInformation(date + " Timer Stopped.");
             }
         }
         /// <summary>
@@ -1218,6 +1376,9 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            now = DateTime.Now;
+            date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+            _logger.LogInformation(date + " MainWindow loaded");
             txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
             txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtXaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
@@ -1238,14 +1399,23 @@ namespace Stepper
         {
             try
             {
+                now = DateTime.Now;
+                date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                _logger.LogInformation(date + " MainWindow Closing");
                 Properties.Settings.Default.Save();
                 if (sp.IsOpen == true)
                 {
                     sp.Close();
+                    now = DateTime.Now;
+                    date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                    _logger.LogInformation(date + " Closed Serial Port at: " + myPortName + "," + txtBaudRate.Text);
                 }
             }
             catch (IOException ioex)
             {
+                now = DateTime.Now;
+                date = now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+                _logger.LogInformation(date + " An error occurred: " + ioex.Message);
                 // Handle the exception
                 MessageBox.Show("An error occurred: " + ioex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
