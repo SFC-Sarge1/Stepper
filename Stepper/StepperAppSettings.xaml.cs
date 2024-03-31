@@ -6,7 +6,7 @@
 // Last Modified By : sfcsarge
 // Last Modified On : 03-30-2024
 // ***********************************************************************
-// <copyright file="StepperAppSettings.xaml.cs" company="Computer Question">
+// <copyright file="StepperAppSettings.xaml.cs"company="Computer Question">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary>Stepper Motor Controller Application Settings.</summary>
@@ -14,14 +14,11 @@
 namespace Stepper
 {
     using System.Configuration;
-    using System.Globalization;
     using System.Reflection;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media;
     using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Logging.Console;
-    using static System.Runtime.InteropServices.JavaScript.JSType;
 
     /// <summary>
     /// Interaction logic for StepperAppSettings.xaml
@@ -29,19 +26,17 @@ namespace Stepper
     public partial class StepperAppSettings : Window
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StepperAppSettings" /> class.
+        /// Initializes a new instance of the <see cref="StepperAppSettings"/> class.
         /// </summary>
         public StepperAppSettings()
         {
             InitializeComponent();
-            MainWindow.now = DateTime.Now;
-            MainWindow.date = MainWindow.now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
-            MainWindow._logger.LogInformation(MainWindow.date + " Stepper Motor Controller Application Settings Window Opened.");
+            MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Window Opened.");
             ResizeMode = ResizeMode.NoResize;
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
-            VersionTxt.Text = "Version: " + displayableVersion;
+            VersionTxt.Text = $"Version: {displayableVersion}";
             Closing += StepperAppSettings_Closing;
 
             // Iterate over each setting to fill the WrapPanel with the settings
@@ -73,6 +68,7 @@ namespace Stepper
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString()
                     };
+                    MainWindow._logger.LogInformation($"int {newIntValue} {currentProperty.Name} added to the Settings Form.");
                     string backupValue = Properties.Settings.Default[propertyName: currentProperty.Name].ToString();
                     UserIntAppSettings.TouchDown += (sender, args) =>
                     {
@@ -108,9 +104,8 @@ namespace Stepper
                     {
                         Properties.Settings.Default[propertyName: currentProperty.Name] = Convert.ToInt32(UserIntAppSettings.Text);
                         Properties.Settings.Default.Save();
-                        MainWindow.now = DateTime.Now;
-                        MainWindow.date = MainWindow.now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
-                        MainWindow._logger.LogInformation(MainWindow.date + " Stepper Motor Controller Application Settings Saved after control lost focus.");
+                        MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
+                        MainWindow._logger.LogInformation($"int {UserIntAppSettings.Text} {currentProperty.Name} Saved to the Settings.");
                     };
                     // Add the label and textbox to the WrapPanel
                     MySettings.Children.Add(labelIntUserAppSettingsWithBorder);
@@ -143,6 +138,7 @@ namespace Stepper
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString(),
                         SelectedItem = Convert.ToBoolean(Properties.Settings.Default[propertyName: currentProperty.Name].ToString())
                     };
+                    MainWindow._logger.LogInformation($"bool {newBoolValue} {currentProperty.Name} added to the Settings Form.");
                     bool backupValue = Convert.ToBoolean(Properties.Settings.Default[propertyName: currentProperty.Name].ToString());
                     // Add items to the ComboBox
                     UserBoolAppSettings.Items.Add(false);
@@ -155,17 +151,14 @@ namespace Stepper
                             UserBoolAppSettings.SelectedItem = backupValue;
                             Properties.Settings.Default[propertyName: currentProperty.Name] = backupValue;
                             Properties.Settings.Default.Save();
-                            MainWindow.now = DateTime.Now;
-                            MainWindow.date = MainWindow.now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
-                            MainWindow._logger.LogInformation(MainWindow.date + " Stepper Motor Controller Application Settings Saved after control lost focus.");
+                            MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
                         }
                         else
                         {
-                            Properties.Settings.Default[propertyName: currentProperty.Name] = Convert.ToBoolean(UserBoolAppSettings.SelectedItem); 
+                            Properties.Settings.Default[propertyName: currentProperty.Name] = Convert.ToBoolean(UserBoolAppSettings.SelectedItem);
                             Properties.Settings.Default.Save();
-                            MainWindow.now = DateTime.Now;
-                            MainWindow.date = MainWindow.now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
-                            MainWindow._logger.LogInformation(MainWindow.date + " Stepper Motor Controller Application Settings Saved after control lost focus.");
+                            MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
+                            MainWindow._logger.LogInformation($"bool {UserBoolAppSettings.SelectedItem} {currentProperty.Name} Saved to the Settings.");
                         }
                     };
                     // Add the label and textbox to the WrapPanel
@@ -198,6 +191,7 @@ namespace Stepper
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString(),
                     };
+                    MainWindow._logger.LogInformation($"decimal {newDecimalValue} {currentProperty.Name} added to the Settings Form.");
                     string backupValue = Properties.Settings.Default[propertyName: currentProperty.Name].ToString();
                     UserDecimalAppSettings.TouchDown += (sender, args) =>
                     {
@@ -233,9 +227,8 @@ namespace Stepper
                     {
                         Properties.Settings.Default[propertyName: currentProperty.Name] = Convert.ToDecimal(UserDecimalAppSettings.Text);
                         Properties.Settings.Default.Save();
-                        MainWindow.now = DateTime.Now;
-                        MainWindow.date = MainWindow.now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
-                        MainWindow._logger.LogInformation(MainWindow.date + " Stepper Motor Controller Application Settings Saved after control lost focus.");
+                        MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
+                        MainWindow._logger.LogInformation($"decimal {UserDecimalAppSettings.Text} {currentProperty.Name} Saved to the Settings.");
                     };
                     // Add the label and textbox to the WrapPanel
                     MySettings.Children.Add(labelDecimalUserAppSettingsWithBorder);
@@ -270,22 +263,30 @@ namespace Stepper
                     };
                     // Add items to the ComboBox
                     UserComAppSettings.Items.Add("COM1");
+                    MainWindow._logger.LogInformation($"COM1 {currentProperty.Name} added to the Settings Form.");
                     UserComAppSettings.Items.Add("COM2");
+                    MainWindow._logger.LogInformation($"COM2 {currentProperty.Name} added to the Settings Form.");
                     UserComAppSettings.Items.Add("COM3");
+                    MainWindow._logger.LogInformation($"COM3 {currentProperty.Name} added to the Settings Form.");
                     UserComAppSettings.Items.Add("COM4");
+                    MainWindow._logger.LogInformation($"COM4 {currentProperty.Name} added to the Settings Form.");
                     UserComAppSettings.Items.Add("COM5");
+                    MainWindow._logger.LogInformation($"COM5 {currentProperty.Name} added to the Settings Form.");
                     UserComAppSettings.Items.Add("COM6");
+                    MainWindow._logger.LogInformation($"COM6 {currentProperty.Name} added to the Settings Form.");
                     UserComAppSettings.Items.Add("COM7");
+                    MainWindow._logger.LogInformation($"COM7 {currentProperty.Name} added to the Settings Form.");
                     UserComAppSettings.Items.Add("COM8");
+                    MainWindow._logger.LogInformation($"COM8 {currentProperty.Name} added to the Settings Form.");
                     UserComAppSettings.Items.Add("COM9");
+                    MainWindow._logger.LogInformation($"COM9 {currentProperty.Name} added to the Settings Form.");
                     // When the textbox loses focus, update the setting
                     UserComAppSettings.LostFocus += (sender, args) =>
                     {
                         Properties.Settings.Default[propertyName: currentProperty.Name] = UserComAppSettings.SelectedItem.ToString();
                         Properties.Settings.Default.Save();
-                        MainWindow.now = DateTime.Now;
-                        MainWindow.date = MainWindow.now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
-                        MainWindow._logger.LogInformation(MainWindow.date + " Stepper Motor Controller Application Settings Saved after control lost focus.");
+                        MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
+                        MainWindow._logger.LogInformation($"COM values for {currentProperty.Name} Saved to the Settings.");
                     };
                     // Add the label and textbox to the WrapPanel
                     MySettings.Children.Add(labelComUserAppSettingsWithBorder);
@@ -317,13 +318,13 @@ namespace Stepper
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString(),
                     };
+                    MainWindow._logger.LogInformation($"Version Number: {currentProperty.Name} added to the Settings Form.");
                     UserStringAppSettings.LostFocus += (sender, args) =>
                     {
                         Properties.Settings.Default[propertyName: currentProperty.Name] = UserStringAppSettings.Text;
                         Properties.Settings.Default.Save();
-                        MainWindow.now = DateTime.Now;
-                        MainWindow.date = MainWindow.now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
-                        MainWindow._logger.LogInformation(MainWindow.date + " Stepper Motor Controller Application Settings Saved after control lost focus.");
+                        MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
+                        MainWindow._logger.LogInformation($"Version {currentProperty.Name} Saved to the Settings.");
                     };
                     // Add the label and textbox to the WrapPanel
                     MySettings.Children.Add(labelStringUserAppSettingsWithBorder);
@@ -358,17 +359,20 @@ namespace Stepper
                     };
                     // Add items to the ComboBox
                     UserRootComAppSettings.Items.Add("X");
+                    MainWindow._logger.LogInformation($"X: {currentProperty.Name} added to the Settings Form.");
                     UserRootComAppSettings.Items.Add("Y");
+                    MainWindow._logger.LogInformation($"Y: {currentProperty.Name} added to the Settings Form.");
                     UserRootComAppSettings.Items.Add("Z");
+                    MainWindow._logger.LogInformation($"Z: {currentProperty.Name} added to the Settings Form.");
                     UserRootComAppSettings.Items.Add("XY");
+                    MainWindow._logger.LogInformation($"XY: {currentProperty.Name} added to the Settings Form.");
                     // When the textbox loses focus, update the setting
                     UserRootComAppSettings.LostFocus += (sender, args) =>
                     {
                         Properties.Settings.Default[propertyName: currentProperty.Name] = UserRootComAppSettings.SelectedItem.ToString();
                         Properties.Settings.Default.Save();
-                        MainWindow.now = DateTime.Now;
-                        MainWindow.date = MainWindow.now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
-                        MainWindow._logger.LogInformation(MainWindow.date + " Stepper Motor Controller Application Settings Saved after control lost focus.");
+                        MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
+                        MainWindow._logger.LogInformation($"Axis Values: {currentProperty.Name} Saved to the Settings.");
                     };
                     // Add the label and textbox to the WrapPanel
                     MySettings.Children.Add(labelRootComUserApp);
@@ -380,28 +384,22 @@ namespace Stepper
         /// Handles the Closing event of the StepperAppSettings control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs" /> instance containing the event data.</param>
+        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
         private void StepperAppSettings_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Properties.Settings.Default.Save();
-            MainWindow.now = DateTime.Now;
-            MainWindow.date = MainWindow.now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
-            MainWindow._logger.LogInformation(MainWindow.date + " Stepper Motor Controller Application Settings Saved and Window Closing.");
+            MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved and Window Closing.");
         }
-
-
         /// <summary>
         /// Handles the Click event of the SaveSettings control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void SaveSettings_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Save();
             MainWindow.timer.Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)); // Set the timer to tick every 1 millisecond
-            MainWindow.now = DateTime.Now;
-            MainWindow.date = MainWindow.now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
-            MainWindow._logger.LogInformation(MainWindow.date + " Stepper Motor Controller Application Settings Saved.");
+            MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved.");
             Close();
         }
     }
