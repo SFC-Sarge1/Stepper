@@ -500,6 +500,13 @@
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
         </member>
+        <member name="M:Stepper.MainWindow.txtBaudRate_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the txtBaudRate control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs"/> instance containing the event data.</param>
+        </member>
         <member name="M:Stepper.MainWindow.txtBaudRate_TextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
             <summary>
             Handles the TextChanged event of the txtBaudRate control.
@@ -548,13 +555,6 @@
             </summary>
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.txtBaudRate_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
-            <summary>
-            Handles the TouchUp event of the txtBaudRate control.
-            </summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.cmbComPort_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
             <summary>

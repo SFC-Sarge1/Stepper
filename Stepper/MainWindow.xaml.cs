@@ -252,6 +252,7 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         public async void XAxisRun_Click(object sender, RoutedEventArgs e)
         {
+            _logger.LogInformation(message: $"XAxisRun_Click button clicked:");
             try
             {
                 axis = Properties.Settings.Default.RootAxisX.ToString();
@@ -280,9 +281,13 @@ namespace Stepper
                         stepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
                     }
                     decimal part1 = stepperMove / 4;
+                    _logger.LogInformation(message: $"X Axis Part1 decimal: {stepperMove} / 4 = {part1}");
                     decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                    _logger.LogInformation(message: $"X Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     decimal myDelay = part1 * part2;
+                    _logger.LogInformation(message: $"X Axis myDelay decimal: {part1} * {part2} = {myDelay}");
                     int delay = milliseconds * Convert.ToInt32(myDelay);
+                    _logger.LogInformation(message: $"X Axis delay int: {Properties.Settings.Default.Milliseconds} * {myDelay} = {delay}");
                     txtXaxisStepperMove.IsEnabled = false;
                     btnRunXAxis.IsEnabled = false;
                     btnRunXYAxis.IsEnabled = false;
@@ -325,6 +330,7 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         public async void YAxisRun_Click(object sender, RoutedEventArgs e)
         {
+            _logger.LogInformation(message: $"YAxisRun_Click button clicked:");
             try
             {
                 previousYAxis = txtYaxisStepperMove.Text.ToString();
@@ -352,9 +358,13 @@ namespace Stepper
                         stepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text.Trim());
                     }
                     decimal part1 = stepperMove / 4;
-                    decimal part2 = 60 / Convert.ToDecimal(txtYaxisMotorSpeed.Text);
+                    _logger.LogInformation(message: $"Y Axis Part1 decimal: {stepperMove} / 4 = {part1}");
+                    decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                    _logger.LogInformation(message: $"Y Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     decimal myDelay = part1 * part2;
-                    int delay = Properties.Settings.Default.Milliseconds * Convert.ToInt32(myDelay);
+                    _logger.LogInformation(message: $"Y Axis myDelay decimal: {part1} * {part2} = {myDelay}");
+                    int delay = milliseconds * Convert.ToInt32(myDelay);
+                    _logger.LogInformation(message: $"Y Axis delay int: {Properties.Settings.Default.Milliseconds} * {myDelay} = {delay}");
                     txtYaxisStepperMove.IsEnabled = false;
                     btnRunYAxis.IsEnabled = false;
                     btnRunXYAxis.IsEnabled = false;
@@ -397,6 +407,7 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         public async void ZAxisRun_Click(object sender, RoutedEventArgs e)
         {
+            _logger.LogInformation(message: $"ZAxisRun_Click button clicked:");
             try
             {
                 previousZAxis = txtZaxisStepperMove.Text.ToString();
@@ -424,9 +435,13 @@ namespace Stepper
                         stepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text.Trim());
                     }
                     decimal part1 = stepperMove / 4;
+                    _logger.LogInformation(message: $"Z Axis Part1 decimal: {stepperMove} / 4 = {part1}");
                     decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                    _logger.LogInformation(message: $"Z Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     decimal myDelay = part1 * part2;
-                    int delay = Properties.Settings.Default.Milliseconds * Convert.ToInt32(myDelay);
+                    _logger.LogInformation(message: $"Z Axis myDelay decimal: {part1} * {part2} = {myDelay}");
+                    int delay = milliseconds * Convert.ToInt32(myDelay);
+                    _logger.LogInformation(message: $"Z Axis delay int: {Properties.Settings.Default.Milliseconds} * {myDelay} = {delay}");
                     txtZaxisStepperMove.IsEnabled = false;
                     btnRunZAxis.IsEnabled = false;
                     sp.Write(stringValue);
@@ -467,6 +482,7 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         public async void XYAxisRun_Click(object sender, RoutedEventArgs e)
         {
+            _logger.LogInformation(message: $"XYAxisRun_Click button clicked:");
             try
             {
                 string stringValue;
@@ -503,9 +519,13 @@ namespace Stepper
                         stepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
                     }
                     decimal part1 = stepperMove / 4;
+                    _logger.LogInformation(message: $"XY Axis Part1 decimal: {stepperMove} / 4 = {part1}");
                     decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                    _logger.LogInformation(message: $"XY Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     decimal myDelay = part1 * part2;
-                    int delay = Properties.Settings.Default.Milliseconds * Convert.ToInt32(myDelay);
+                    _logger.LogInformation(message: $"XY Axis myDelay decimal: {part1} * {part2} = {myDelay}");
+                    int delay = milliseconds * Convert.ToInt32(myDelay);
+                    _logger.LogInformation(message: $"XY Axis delay int: {Properties.Settings.Default.Milliseconds} * {myDelay} = {delay}");
                     txtXaxisStepperMove.IsEnabled = false;
                     txtYaxisStepperMove.IsEnabled = false;
                     btnRunXAxis.IsEnabled = false;
@@ -549,9 +569,13 @@ namespace Stepper
                         stepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
                     }
                     decimal part1 = stepperMove / 4;
+                    _logger.LogInformation(message: $"XY Axis Part1 decimal: {stepperMove} / 4 = {part1}");
                     decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                    _logger.LogInformation(message: $"XY Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     decimal myDelay = part1 * part2;
-                    int delay = Properties.Settings.Default.Milliseconds * Convert.ToInt32(myDelay);
+                    _logger.LogInformation(message: $"XY Axis myDelay decimal: {part1} * {part2} = {myDelay}");
+                    int delay = milliseconds * Convert.ToInt32(myDelay);
+                    _logger.LogInformation(message: $"XY Axis delay int: {Properties.Settings.Default.Milliseconds} * {myDelay} = {delay}");
                     txtXaxisStepperMove.IsEnabled = false;
                     txtYaxisStepperMove.IsEnabled = false;
                     btnRunXAxis.IsEnabled = false;
@@ -598,6 +622,7 @@ namespace Stepper
                             stepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
                         }
                         part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                        _logger.LogInformation(message: $"XY Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     }
                     else
                     {
@@ -610,10 +635,14 @@ namespace Stepper
                             stepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text.Trim());
                         }
                         part2 = 60 / Convert.ToDecimal(txtYaxisMotorSpeed.Text);
+                        _logger.LogInformation(message: $"XY Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     }
                     decimal part1 = stepperMove / 4;
+                    _logger.LogInformation(message: $"XY Axis Part1 decimal: {stepperMove} / 4 = {part1}");
                     decimal myDelay = part1 * part2;
-                    int delay = Properties.Settings.Default.Milliseconds * Convert.ToInt32(myDelay);
+                    _logger.LogInformation(message: $"XY Axis myDelay decimal: {part1} * {part2} = {myDelay}");
+                    int delay = milliseconds * Convert.ToInt32(myDelay);
+                    _logger.LogInformation(message: $"XY Axis delay int: {Properties.Settings.Default.Milliseconds} * {myDelay} = {delay}");
                     txtXaxisStepperMove.IsEnabled = false;
                     txtYaxisStepperMove.IsEnabled = false;
                     btnRunXAxis.IsEnabled = false;
@@ -660,6 +689,7 @@ namespace Stepper
         /// <param name="delay">The delay.</param>
         public async void XZero(int delay)
         {
+            _logger.LogInformation(message: "Setting X Axis Current Location Set to Zero on DRO");
             await Task.Delay(delay);
             txtXaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
             ckbXaxisResetToZero.IsChecked = false;
@@ -698,6 +728,7 @@ namespace Stepper
         /// <param name="delay">The delay.</param>
         public async void YZero(int delay)
         {
+            _logger.LogInformation(message: "Setting Y Axis Current Location Set to Zero on DRO");
             await Task.Delay(delay);
             ckbYaxisResetToZero.IsChecked = false;
             txtYaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
@@ -736,6 +767,7 @@ namespace Stepper
         /// <param name="delay">The delay.</param>
         public async void ZZero(int delay)
         {
+            _logger.LogInformation(message: "Setting Z Axis Current Location Set to Zero on DRO");
             await Task.Delay(delay);
             ckbZaxisResetToZero.IsChecked = false;
             txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
@@ -774,6 +806,7 @@ namespace Stepper
         /// <param name="delay">The delay.</param>
         public async void XYZero(int delay)
         {
+            _logger.LogInformation(message: "Setting XY Axis Current Location Set to Zero on DRO");
             await Task.Delay(delay);
             ckbXaxisResetToZero.IsChecked = false;
             txtXaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
@@ -968,7 +1001,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtXaxisStepperMove.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"X Axis mouse controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the TouchUp event of the XaxisStepperMove control.
@@ -979,7 +1015,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtXaxisStepperMove.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"X Axis touch controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the PreviewMouseUp event of the YaxisStepperMove control.
@@ -990,7 +1029,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtYaxisStepperMove.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"Y Axis mouse controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the TouchUp event of the YaxisStepperMove control.
@@ -1001,7 +1043,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtYaxisStepperMove.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"X Axis touch controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the PreviewMouseUp event of the ZaxisStepperMove control.
@@ -1012,7 +1057,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtZaxisStepperMove.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"Z Axis mouse controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the TouchUp event of the ZaxisStepperMove control.
@@ -1023,7 +1071,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtZaxisStepperMove.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"Z Axis touch controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the PreviewMouseUp event of the txtXaxisMotorSpeed control.
@@ -1034,7 +1085,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtXaxisMotorSpeed.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"X Axis mouse controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the TouchUp event of the txtXaxisMotorSpeed control.
@@ -1045,7 +1099,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtXaxisMotorSpeed.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"X Axis touch controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the PreviewMouseUp event of the txtYaxisMotorSpeed control.
@@ -1056,7 +1113,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtYaxisMotorSpeed.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"Y Axis mouse controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the TouchUp event of the txtYaxisMotorSpeed control.
@@ -1067,7 +1127,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtYaxisMotorSpeed.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"Y Axis touch controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the PreviewMouseUp event of the txtZaxisMotorSpeed control.
@@ -1078,7 +1141,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtZaxisMotorSpeed.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"Z Axis mouse controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the TouchUp event of the txtZaxisMotorSpeed control.
@@ -1089,7 +1155,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtZaxisMotorSpeed.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"Z Axis touch controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the PreviewMouseUp event of the txtXaxisStepperCurrent control.
@@ -1100,7 +1169,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtXaxisStepperCurrent.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"X Axis mouse controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the TouchUp event of the txtXaxisStepperCurrent control.
@@ -1111,7 +1183,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtXaxisStepperCurrent.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"X Axis touch controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the PreviewMouseUp event of the txtYaxisStepperCurrent control.
@@ -1122,7 +1197,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtYaxisStepperCurrent.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"Y Axis mouse controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the TouchUp event of the txtYaxisStepperCurrent control.
@@ -1133,7 +1211,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtYaxisStepperCurrent.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"Y Axis touch controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the PreviewMouseUp event of the txtZaxisStepperCurrent control.
@@ -1144,7 +1225,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtZaxisStepperCurrent.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"Z Axis mouse controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the TouchUp event of the txtZaxisStepperCurrent control.
@@ -1155,7 +1239,10 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtZaxisStepperCurrent.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"Z Axis touch controlled Keypad returned: {mainWindow.Result}");
+            }
         }
         /// <summary>
         /// Handles the PreviewMouseUp event of the txtBaudRate control.
@@ -1166,7 +1253,24 @@ namespace Stepper
         {
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
+            {
                 txtBaudRate.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"BaudRate mouse controlled Keypad returned: {mainWindow.Result}");
+            }
+        }
+        /// <summary>
+        /// Handles the TouchUp event of the txtBaudRate control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        private void txtBaudRate_TouchUp(object sender, TouchEventArgs e)
+        {
+            Keypad mainWindow = new(this);
+            if (mainWindow.ShowDialog() == true)
+            {
+                txtBaudRate.Text = mainWindow.Result.ToString();
+                _logger.LogInformation(message: $"BaudRate touch controlled Keypad returned: {mainWindow.Result}");
+            }
         }
 
         /// <summary>
@@ -1318,18 +1422,6 @@ namespace Stepper
                 // Handle the exception
                 MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-        /// <summary>
-        /// Handles the TouchUp event of the txtBaudRate control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
-        private void txtBaudRate_TouchUp(object sender, TouchEventArgs e)
-        {
-            Keypad mainWindow = new(this);
-            if (mainWindow.ShowDialog() == true)
-                txtBaudRate.Text = mainWindow.Result.ToString();
         }
 
         /// <summary>
