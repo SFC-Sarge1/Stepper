@@ -287,7 +287,7 @@ namespace Stepper
                     //_logger.LogInformation(message: $"X Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     //decimal motorMovementTimer = MotorMovementSeconds;
                     //_logger.LogInformation(message: $"X Axis motorMovementTimer decimal: {MotorMovementSeconds} * {part2} = {motorMovementTimer}");
-                    int myMovementTimer = milliseconds * Convert.ToInt32(MotorMovementSeconds);
+                    int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"X Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     txtXaxisStepperMove.IsEnabled = false;
                     btnRunXAxis.IsEnabled = false;
@@ -365,7 +365,7 @@ namespace Stepper
                     //_logger.LogInformation(message: $"Y Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     //decimal motorMovementTimer = MotorMovementSeconds;
                     //_logger.LogInformation(message: $"Y Axis motorMovementTimer decimal: {MotorMovementSeconds} * {part2} = {motorMovementTimer}");
-                    int myMovementTimer = milliseconds * Convert.ToInt32(MotorMovementSeconds);
+                    int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"Y Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     txtYaxisStepperMove.IsEnabled = false;
                     btnRunYAxis.IsEnabled = false;
@@ -443,7 +443,7 @@ namespace Stepper
                     //_logger.LogInformation(message: $"Z Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     //decimal motorMovementTimer = MotorMovementSeconds;
                     //_logger.LogInformation(message: $"Z Axis motorMovementTimer decimal: {MotorMovementSeconds} * {part2} = {motorMovementTimer}");
-                    int myMovementTimer = milliseconds * Convert.ToInt32(MotorMovementSeconds);
+                    int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"Z Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     txtZaxisStepperMove.IsEnabled = false;
                     btnRunZAxis.IsEnabled = false;
@@ -579,7 +579,7 @@ namespace Stepper
                     //_logger.LogInformation(message: $"XY Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     //decimal motorMovementTimer = MotorMovementSeconds;
                     //_logger.LogInformation(message: $"XY Axis motorMovementTimer decimal: {MotorMovementSeconds} * {part2} = {motorMovementTimer}");
-                    int myMovementTimer = milliseconds * Convert.ToInt32(MotorMovementSeconds);
+                    int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"XY Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     txtXaxisStepperMove.IsEnabled = false;
                     txtYaxisStepperMove.IsEnabled = false;
@@ -615,40 +615,40 @@ namespace Stepper
                     XaxisChanged = false;
                     txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                     currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
-                    decimal part2 = Properties.Settings.Default.MathPart2Initlz;
+                    //decimal part2 = Properties.Settings.Default.MathPart2Initlz;
                     if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) >= Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()))
                     {
                         if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) < 0)
                         {
                             stepperMove = Math.Abs(Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()));
-                            _logger.LogInformation(message: $"X Axis negitive value: {txtXaxisStepperMove.Text} converted to positive decimal: {stepperMove}");
+                            _logger.LogInformation(message: $"X Axis negative value: {txtXaxisStepperMove.Text} converted to positive decimal: {stepperMove}");
                         }
                         else
                         {
                             stepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
                         }
-                        part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                        _logger.LogInformation(message: $"XY Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
+                        //part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                        //_logger.LogInformation(message: $"XY Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     }
                     else
                     {
                         if (Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()) < 0)
                         {
                             stepperMove = Math.Abs(Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()));
-                            _logger.LogInformation(message: $"Y Axis negitive value: {txtYaxisStepperMove.Text} converted to positive decimal: {stepperMove}");
+                            _logger.LogInformation(message: $"Y Axis negative value: {txtYaxisStepperMove.Text} converted to positive decimal: {stepperMove}");
                         }
                         else
                         {
                             stepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text.Trim());
                         }
-                        part2 = 60 / Convert.ToDecimal(txtYaxisMotorSpeed.Text);
-                        _logger.LogInformation(message: $"XY Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
+                        //part2 = 60 / Convert.ToDecimal(txtYaxisMotorSpeed.Text);
+                        //_logger.LogInformation(message: $"XY Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     }
                     decimal MotorMovementSeconds = stepperMove / 4;
                     //_logger.LogInformation(message: $"XY Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
                     //decimal motorMovementTimer = MotorMovementSeconds;
                     //_logger.LogInformation(message: $"XY Axis motorMovementTimer decimal: {MotorMovementSeconds} * {part2} = {motorMovementTimer}");
-                    int myMovementTimer = milliseconds * Convert.ToInt32(MotorMovementSeconds);
+                    int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"XY Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     txtXaxisStepperMove.IsEnabled = false;
                     txtYaxisStepperMove.IsEnabled = false;
