@@ -1247,7 +1247,7 @@ namespace Stepper
                         break;
                 }
                 _logger.LogInformation(message: $"Disable {axis} Axis controls while moving to location.");
-                CountdownLabel.Content = $"Working Timer {elapsedTime.ToString(@"hh\:mm\:ss")}";
+                CountdownLabel.Content = $"Working Timer {elapsedTime.ToString(@"hh\:mm\:ss\.fff")}";
                 _logger.LogInformation(message: $"Time remaining: {elapsedTime.ToString(@"hh\:mm\:ss")} targetEndTime = {targetEndTime.ToString(@"hh\:mm\:ss")}");
             }
             if (DateTime.Now >= targetEndTime)
