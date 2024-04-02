@@ -2203,23 +2203,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sfcsa\\.nuget\\packages\\": {},
+    "C:\\Users\\sfcsarge\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sfcsa\\source\\repos\\Stepper\\Stepper\\Stepper.csproj",
+      "projectUniqueName": "C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj",
       "projectName": "Stepper",
-      "projectPath": "C:\\Users\\sfcsa\\source\\repos\\Stepper\\Stepper\\Stepper.csproj",
-      "packagesPath": "C:\\Users\\sfcsa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sfcsa\\source\\repos\\Stepper\\Stepper\\obj\\publish\\win-x64\\",
+      "projectPath": "C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj",
+      "packagesPath": "C:\\Users\\sfcsarge\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\obj\\publish\\win-x64\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\sfcsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sfcsarge\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

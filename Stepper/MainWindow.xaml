@@ -4,14 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ports="clr-namespace:System.IO.Ports;assembly=System"
         xmlns:local="clr-namespace:Stepper"
         mc:Ignorable="d"
         Title="X,Y, Z Table Stepper Motor Control" Height="411" Width="650" BorderBrush="{DynamicResource MahApps.Brushes.Border.NonActive}" WindowStartupLocation="CenterScreen" WindowTitleBrush="#FF060404">
-    <!--<Window.Resources>
-        <ObjectDataProvider ObjectType="{x:Type ports:SerialPort}" MethodName="GetPortNames" x:Key="portNames"/>
-     ItemsSource="{Binding Source={StaticResource portNames}}"
-    </Window.Resources>-->
     <Grid x:Name="StepperMotorControl" Margin="0,3,0,3" Background="{DynamicResource MahApps.Brushes.ThemeBackground}" RenderTransformOrigin="0.497,1">
         <Grid.RowDefinitions>
             <RowDefinition Height="455.96"/>

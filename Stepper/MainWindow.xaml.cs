@@ -4,7 +4,7 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 04-01-2024
+// Last Modified On : 04-02-2024
 // ***********************************************************************
 // <copyright file="MainWindow.xaml.cs" company="">
 //     Copyright (c) . All rights reserved.
@@ -312,7 +312,7 @@ namespace Stepper
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroXaxis = 0;
-                    XZero(Properties.Settings.Default.Milliseconds);
+                    XZero(Properties.Settings.Default.Milliseconds, axis);
                 }
                 if (ckbXaxisResetToZero.IsChecked == false)
                 {
@@ -328,56 +328,7 @@ namespace Stepper
                     }
                     decimal MotorMovementSeconds = Convert.ToDecimal(0.00);
                     decimal MotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                    if (MotorSpeed <= Convert.ToDecimal(100.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 2);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 2 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(200.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(300.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(1.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 1.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(400.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 2;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(500.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(2.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(600.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 3;
-                        _logger.LogInformation(message: $"Z Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(700.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(3.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(800.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 4;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(900.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(4.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(1000.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 5;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 5 = {MotorMovementSeconds}");
-                    }
+                    MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     sp.Write(stringValue);
@@ -419,7 +370,7 @@ namespace Stepper
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroYaxis = 0;
-                    YZero(Properties.Settings.Default.Milliseconds);
+                    YZero(Properties.Settings.Default.Milliseconds, axis);
                 }
                 if (ckbYaxisResetToZero.IsChecked == false)
                 {
@@ -435,56 +386,7 @@ namespace Stepper
                     }
                     decimal MotorMovementSeconds = Convert.ToDecimal(0.00);
                     decimal MotorSpeed = Convert.ToDecimal(txtYaxisMotorSpeed.Text);
-                    if (MotorSpeed <= Convert.ToDecimal(100.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 2);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 2 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(200.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(300.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(1.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 1.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(400.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 2;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(500.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(2.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(600.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 3;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(700.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(3.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(800.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 4;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(900.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(4.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(1000.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 5;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 5 = {MotorMovementSeconds}");
-                    }
+                    MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     sp.Write(stringValue);
@@ -526,7 +428,7 @@ namespace Stepper
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroZaxis = 0;
-                    ZZero(Properties.Settings.Default.Milliseconds);
+                    ZZero(Properties.Settings.Default.Milliseconds, axis);
                 }
                 if (ckbZaxisResetToZero.IsChecked == false)
                 {
@@ -542,56 +444,7 @@ namespace Stepper
                     }
                     decimal MotorMovementSeconds = Convert.ToDecimal(0.00);
                     decimal MotorSpeed = Convert.ToDecimal(txtZaxisMotorSpeed.Text);
-                    if (MotorSpeed <= Convert.ToDecimal(100.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 2);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 2 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(200.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(300.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(1.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 1.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(400.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 2;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(500.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(2.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(600.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 3;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(700.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(3.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(800.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 4;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(900.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(4.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(1000.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 5;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 5 = {MotorMovementSeconds}");
-                    }
+                    MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     sp.Write(stringValue);
@@ -659,56 +512,7 @@ namespace Stepper
                     }
                     decimal MotorMovementSeconds = Convert.ToDecimal(0.00);
                     decimal MotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                    if (MotorSpeed <= Convert.ToDecimal(100.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 2);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 2 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(200.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(300.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(1.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 1.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(400.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 2;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(500.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(2.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(600.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 3;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(700.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(3.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(800.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 4;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(900.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(4.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(1000.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 5;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 5 = {MotorMovementSeconds}");
-                    }
+                    MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
@@ -740,56 +544,7 @@ namespace Stepper
                     }
                     decimal MotorMovementSeconds = Convert.ToDecimal(0.00);
                     decimal MotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                    if (MotorSpeed <= Convert.ToDecimal(100.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 2);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 2 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(200.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(300.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(1.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 1.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(400.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 2;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(500.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(2.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(600.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 3;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(700.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(3.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(800.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 4;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(900.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(4.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(1000.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 5;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 5 = {MotorMovementSeconds}");
-                    }
+                    MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
@@ -837,56 +592,7 @@ namespace Stepper
                     }
                     decimal MotorMovementSeconds = Convert.ToDecimal(0.00);
                     decimal MotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                    if (MotorSpeed <= Convert.ToDecimal(100.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 2);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 2 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(200.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(300.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(1.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 1.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(400.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 2;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(500.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(2.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(600.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 3;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(700.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(3.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(800.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 4;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(900.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(4.5);
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4.5 = {MotorMovementSeconds}");
-                    }
-                    else if (MotorSpeed <= Convert.ToDecimal(1000.00))
-                    {
-                        MotorMovementSeconds = (stepperMove / 4) / 5;
-                        _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 5 = {MotorMovementSeconds}");
-                    }
+                    MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
@@ -906,9 +612,9 @@ namespace Stepper
         /// xes the zero.
         /// </summary>
         /// <param name="myDelay">The myDelay.</param>
-        public async void XZero(int myDelay)
+        public async void XZero(int myDelay, string axis)
         {
-            _logger.LogInformation(message: "Setting X Axis Current Location Set to Zero on DRO");
+            _logger.LogInformation(message: $"Setting {axis} Axis Current Location Set to Zero on DRO");
             await Task.Delay(myDelay);
             txtXaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
             ckbXaxisResetToZero.IsChecked = false;
@@ -916,37 +622,16 @@ namespace Stepper
             Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
             Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
             Properties.Settings.Default.Save();
-            _logger.LogInformation(message: "X Axis Current Location Set to Zero");
-            try
-            {
-                if (sp.IsOpen == true)
-                {
-                    sp.Close();
-                    _logger.LogInformation(message: $"Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                }
-                selectedItem = cmbComPort.SelectedItem.ToString();
-                myPortName = selectedItem;
-                cmbComPort.Text = selectedItem;
-                sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-                if (sp.IsOpen == false)
-                {
-                    sp.Open();
-                    _logger.LogInformation(message: $"Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                }
-            }
-            catch (IOException ioex)
-            {
-                _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            _logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
+            ResetSerialPort();        
         }
         /// <summary>
         /// ies the zero.
         /// </summary>
         /// <param name="myDelay">The myDelay.</param>
-        public async void YZero(int myDelay)
+        public async void YZero(int myDelay, string axis)
         {
-            _logger.LogInformation(message: "Setting Y Axis Current Location Set to Zero on DRO");
+            _logger.LogInformation(message: $"Setting {axis} Axis Current Location Set to Zero on DRO");
             await Task.Delay(myDelay);
             ckbYaxisResetToZero.IsChecked = false;
             txtYaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
@@ -954,37 +639,16 @@ namespace Stepper
             Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
             Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
-            _logger.LogInformation(message: "Y Axis Current Location Set to Zero");
-            try
-            {
-                if (sp.IsOpen == true)
-                {
-                    sp.Close();
-                    _logger.LogInformation(message: $"Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                }
-                selectedItem = cmbComPort.SelectedItem.ToString();
-                myPortName = selectedItem;
-                cmbComPort.Text = selectedItem;
-                sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-                if (sp.IsOpen == false)
-                {
-                    sp.Open();
-                    _logger.LogInformation(message: $"Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                }
-            }
-            catch (IOException ioex)
-            {
-                _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            _logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
+            ResetSerialPort();
         }
         /// <summary>
         /// zs the zero.
         /// </summary>
         /// <param name="myDelay">The myDelay.</param>
-        public async void ZZero(int myDelay)
+        public async void ZZero(int myDelay, string axis)
         {
-            _logger.LogInformation(message: "Setting Z Axis Current Location Set to Zero on DRO");
+            _logger.LogInformation(message: $"Setting {axis} Axis Current Location Set to Zero on DRO");
             await Task.Delay(myDelay);
             ckbZaxisResetToZero.IsChecked = false;
             txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
@@ -992,29 +656,8 @@ namespace Stepper
             Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
             Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
-            _logger.LogInformation(message: "Z Axis Current Location Set to Zero");
-            try
-            {
-                if (sp.IsOpen == true)
-                {
-                    sp.Close();
-                    _logger.LogInformation(message: $"Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                }
-                selectedItem = cmbComPort.SelectedItem.ToString();
-                myPortName = selectedItem;
-                cmbComPort.Text = selectedItem;
-                sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-                if (sp.IsOpen == false)
-                {
-                    sp.Open();
-                    _logger.LogInformation(message: $"Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                }
-            }
-            catch (IOException ioex)
-            {
-                _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            _logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
+            ResetSerialPort();
         }
         /// <summary>
         /// Xies the zero.
@@ -1036,28 +679,7 @@ namespace Stepper
             Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
             _logger.LogInformation(message: "XY Axis Current Location Set to Zero");
-            try
-            {
-                if (sp.IsOpen == true)
-                {
-                    sp.Close();
-                    _logger.LogInformation(message: $"Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                }
-                selectedItem = cmbComPort.SelectedItem.ToString();
-                myPortName = selectedItem;
-                cmbComPort.Text = selectedItem;
-                sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-                if (sp.IsOpen == false)
-                {
-                    sp.Open();
-                    _logger.LogInformation(message: $"Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                }
-            }
-            catch (IOException ioex)
-            {
-                _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            ResetSerialPort();
         }
 
         /// <summary>
@@ -1065,7 +687,6 @@ namespace Stepper
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
-        /// '=
         private void CheckBoxChanged(object sender, RoutedEventArgs e)
         {
             UpdateZeroStatus();
@@ -1574,7 +1195,6 @@ namespace Stepper
         {
             StepperAppSettings newSettingsWindow = new StepperAppSettings();
             _logger.LogInformation(message: $"AppSettings_Click to Load Application Settings form.");
-
             // Show the new window
             newSettingsWindow.Show();
         }
@@ -1596,20 +1216,17 @@ namespace Stepper
                         btnRunXAxis.IsEnabled = false;
                         btnRunXYAxis.IsEnabled = false;
                         XaxisChanged = true;
-                        _logger.LogInformation(message: $"Disable X Axis controls while moving to location.");
                         break;
                     case "Y":
                         txtYaxisStepperMove.IsEnabled = false;
                         btnRunYAxis.IsEnabled = false;
                         btnRunXYAxis.IsEnabled = false;
                         YaxisChanged = true;
-                        _logger.LogInformation(message: $"Disable Y Axis controls while moving to location.");
                         break;
                     case "Z":
                         txtZaxisStepperMove.IsEnabled = false;
                         btnRunZAxis.IsEnabled = false;
                         ZaxisChanged = true;
-                        _logger.LogInformation(message: $"Disable Z Axis controls while moving to location.");
                         break;
                     case "XY":
                         txtXaxisStepperMove.IsEnabled = false;
@@ -1619,10 +1236,10 @@ namespace Stepper
                         btnRunXYAxis.IsEnabled = false;
                         XaxisChanged = true;
                         YaxisChanged = true;
-                        _logger.LogInformation(message: $"Disable XY Axis controls while moving to location.");
                         break;
                 }
-                CountdownLabel.Content = $"Working Timer {elapsedTime.ToString(@"\:mm\:ss")}";
+                _logger.LogInformation(message: $"Disable {axis} Axis controls while moving to location.");
+                CountdownLabel.Content = $"Working Timer {elapsedTime.ToString(@"hh\:mm\:ss")}";
                 _logger.LogInformation(message: $"Time remaining: {elapsedTime.ToString(@"hh\:mm\:ss")} targetEndTime = {targetEndTime.ToString(@"hh\:mm\:ss")}");
             }
             if (DateTime.Now >= targetEndTime)
@@ -1644,7 +1261,6 @@ namespace Stepper
                         Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
                         Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
                         Properties.Settings.Default.Save();
-                        _logger.LogInformation(message: $"Enable X Axis controls after moving to location.");
                         break;
                     case "Y":
                         txtYaxisStepperMove.IsEnabled = true;
@@ -1660,7 +1276,6 @@ namespace Stepper
                         Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
                         Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
                         Properties.Settings.Default.Save();
-                        _logger.LogInformation(message: $"Enable Y Axis controls after moving to location.");
                         break;
                     case "Z":
                         txtZaxisStepperMove.IsEnabled = true;
@@ -1675,7 +1290,6 @@ namespace Stepper
                         Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtZaxisStepperCurrent.Text);
                         Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
                         Properties.Settings.Default.Save();
-                        _logger.LogInformation(message: $"Enable Z Axis controls after moving to location.");
                         break;
                     case "XY":
                         txtXaxisStepperMove.IsEnabled = true;
@@ -1701,10 +1315,9 @@ namespace Stepper
                         Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
                         Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
                         Properties.Settings.Default.Save();
-                        _logger.LogInformation(message: $"Enable XY Axis controls after moving to location.");
-
                         break;
                 }
+                _logger.LogInformation(message: $"Enable {axis} Axis controls after moving to location.");
                 stopwatch.Stop(); // Stop the timer when the countdown reaches
                 _logger.LogInformation(message: "Stopwatch Stopped.");
                 timer.Stop();
@@ -1815,6 +1428,93 @@ namespace Stepper
                 zeroYaxis = 0;
                 zeroZaxis = 0;
                 _logger.LogInformation(message: "Updated X,Y,Z Zero.IsChecked status to 0.");
+            }
+        }
+        /// <summary>
+        /// Updates the motor timer.
+        /// </summary>
+        /// <param name="axis">The axis.</param>
+        /// <param name="MotorSpeed">The motor speed.</param>
+        /// <param name="stepperMove">The stepper move.</param>
+        /// <returns>System.Decimal.</returns>
+        private decimal UpdateMotorTimer(string axis, decimal MotorSpeed, decimal stepperMove)
+        {
+            decimal MotorMovementSeconds = Convert.ToDecimal(0.00);
+            if (MotorSpeed <= Convert.ToDecimal(100.00))
+            {
+                MotorMovementSeconds = (stepperMove / 2);
+                _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 2 = {MotorMovementSeconds}");
+            }
+            else if (MotorSpeed <= Convert.ToDecimal(200.00))
+            {
+                MotorMovementSeconds = (stepperMove / 4);
+                _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
+            }
+            else if (MotorSpeed <= Convert.ToDecimal(300.00))
+            {
+                MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(1.5);
+                _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 1.5 = {MotorMovementSeconds}");
+            }
+            else if (MotorSpeed <= Convert.ToDecimal(400.00))
+            {
+                MotorMovementSeconds = (stepperMove / 4) / 2;
+                _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2 = {MotorMovementSeconds}");
+            }
+            else if (MotorSpeed <= Convert.ToDecimal(500.00))
+            {
+                MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(2.5);
+                _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2.5 = {MotorMovementSeconds}");
+            }
+            else if (MotorSpeed <= Convert.ToDecimal(600.00))
+            {
+                MotorMovementSeconds = (stepperMove / 4) / 3;
+                _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3 = {MotorMovementSeconds}");
+            }
+            else if (MotorSpeed <= Convert.ToDecimal(700.00))
+            {
+                MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(3.5);
+                _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3.5 = {MotorMovementSeconds}");
+            }
+            else if (MotorSpeed <= Convert.ToDecimal(800.00))
+            {
+                MotorMovementSeconds = (stepperMove / 4) / 4;
+                _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4 = {MotorMovementSeconds}");
+            }
+            else if (MotorSpeed <= Convert.ToDecimal(900.00))
+            {
+                MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(4.5);
+                _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4.5 = {MotorMovementSeconds}");
+            }
+            else if (MotorSpeed <= Convert.ToDecimal(1000.00))
+            {
+                MotorMovementSeconds = (stepperMove / 4) / 5;
+                _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 5 = {MotorMovementSeconds}");
+            }
+            return MotorMovementSeconds;
+        }
+        private void ResetSerialPort()
+        {
+            try
+            {
+                if (sp.IsOpen == true)
+                {
+                    sp.Close();
+                    _logger.LogInformation(message: $"Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
+                }
+                selectedItem = cmbComPort.SelectedItem.ToString();
+                myPortName = selectedItem;
+                cmbComPort.Text = selectedItem;
+                sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
+                if (sp.IsOpen == false)
+                {
+                    sp.Open();
+                    _logger.LogInformation(message: $"Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
+                }
+            }
+            catch (IOException ioex)
+            {
+                _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
+                MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

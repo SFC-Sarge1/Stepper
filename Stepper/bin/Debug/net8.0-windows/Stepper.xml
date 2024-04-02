@@ -318,7 +318,6 @@
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
-            '=
         </member>
         <member name="M:Stepper.MainWindow.XaxisStepperMove_GotFocus(System.Object,System.EventArgs)">
             <summary>
@@ -590,6 +589,15 @@
             <summary>
             Updates the zero status.
             </summary>
+        </member>
+        <member name="M:Stepper.MainWindow.UpdateMotorTimer(System.String,System.Decimal,System.Decimal)">
+            <summary>
+            Updates the motor timer.
+            </summary>
+            <param name="axis">The axis.</param>
+            <param name="MotorSpeed">The motor speed.</param>
+            <param name="stepperMove">The stepper move.</param>
+            <returns>System.Decimal.</returns>
         </member>
         <member name="M:Stepper.MainWindow.InitializeComponent">
             <summary>
