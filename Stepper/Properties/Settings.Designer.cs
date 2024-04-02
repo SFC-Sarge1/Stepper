@@ -442,5 +442,17 @@ namespace Stepper.Properties {
                 this["COM6"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Stepper Motor Controller")]
+        public string AppName {
+            get {
+                return ((string)(this["AppName"]));
+            }
+            set {
+                this["AppName"] = value;
+            }
+        }
     }
 }

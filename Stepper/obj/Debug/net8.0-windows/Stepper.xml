@@ -309,7 +309,7 @@
             <param name="myDelay">The myDelay.</param>
             <param name="axis">The axis.</param>
         </member>
-        <member name="M:Stepper.MainWindow.XYZero(System.Int32)">
+        <member name="M:Stepper.MainWindow.XYZero(System.Int32,System.String)">
             <summary>
             Xies the zero.
             </summary>
