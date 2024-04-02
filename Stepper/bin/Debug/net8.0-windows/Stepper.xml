@@ -120,6 +120,31 @@
             The timer
             </summary>
         </member>
+        <member name="F:Stepper.MainWindow.countdownTime">
+            <summary>
+            The time left
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.targetEndTime">
+            <summary>
+            The time left
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.stopwatch">
+            <summary>
+            The time left
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.elapsedTime">
+            <summary>
+            The time left
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.remainingTime">
+            <summary>
+            The time left
+            </summary>
+        </member>
         <member name="F:Stepper.MainWindow.timeLeft">
             <summary>
             The time left
@@ -277,25 +302,25 @@
             <summary>
             xes the zero.
             </summary>
-            <param name="delay">The delay.</param>
+            <param name="myDelay">The myMovementTimer.</param>
         </member>
         <member name="M:Stepper.MainWindow.YZero(System.Int32)">
             <summary>
             ies the zero.
             </summary>
-            <param name="delay">The delay.</param>
+            <param name="myDelay">The myMovementTimer.</param>
         </member>
         <member name="M:Stepper.MainWindow.ZZero(System.Int32)">
             <summary>
             zs the zero.
             </summary>
-            <param name="delay">The delay.</param>
+            <param name="myMovementTimer">The myMovementTimer.</param>
         </member>
         <member name="M:Stepper.MainWindow.XYZero(System.Int32)">
             <summary>
             Xies the zero.
             </summary>
-            <param name="delay">The delay.</param>
+            <param name="myDelay">The myMovementTimer.</param>
         </member>
         <member name="M:Stepper.MainWindow.CheckBoxChanged(System.Object,System.Windows.RoutedEventArgs)">
             <summary>

@@ -25,6 +25,7 @@ namespace Stepper
     using System.IO;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Primitives;
+    using System.Diagnostics;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -35,6 +36,28 @@ namespace Stepper
         /// The timer
         /// </summary>
         public static DispatcherTimer? timer;
+
+         /// <summary>
+         /// The time left
+         /// </summary>
+       public TimeSpan countdownTime = new();
+        /// <summary>
+        /// The time left
+        /// </summary>
+
+        public DateTime targetEndTime = new();
+        /// <summary>
+        /// The time left
+        /// </summary>
+        public Stopwatch stopwatch = new();
+        /// <summary>
+        /// The time left
+        /// </summary>
+        TimeSpan elapsedTime = new();
+        /// <summary>
+        /// The time left
+        /// </summary>
+        public TimeSpan remainingTime = new();
         /// <summary>
         /// The time left
         /// </summary>
@@ -153,9 +176,9 @@ namespace Stepper
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
-            VersionTxt.Text = "Version: "+ displayableVersion;
-            Properties.Settings.Default.BuildVersion = "Version: "+ displayableVersion;
-            _logger.LogInformation(message: "Version:"+ displayableVersion);
+            VersionTxt.Text = "Version: " + displayableVersion;
+            Properties.Settings.Default.BuildVersion = "Version: " + displayableVersion;
+            _logger.LogInformation(message: "Version:" + displayableVersion);
             timeLeft = 0; // Set the countdown time
             timer = new DispatcherTimer
             {
@@ -262,20 +285,20 @@ namespace Stepper
                 if (ckbXaxisResetToZero.IsChecked == true)
                 {
                     zeroXaxis = 1;
-                    stringValue1 = axis + ","+ Properties.Settings.Default.Value_0_00.ToString() + ","+ txtXaxisMotorSpeed.Text.Trim() + ","+ zeroXaxis.ToString() + ","+ txtYaxisStepperMove.Text.Trim() + ","+ txtYaxisMotorSpeed.Text.Trim() + ","+ zeroYaxis.ToString() + ","+ txtZaxisStepperMove.Text.Trim() + ","+ txtZaxisMotorSpeed.Text.Trim() + ","+ zeroZaxis.ToString();
+                    stringValue1 = axis + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
                     _logger.LogInformation(message: $"X Axis Run Event: {stringValue1}");
                     stringValue1 = "";
                     zeroXaxis = 0;
-                    XZero(milliseconds);
+                    XZero(Properties.Settings.Default.Milliseconds);
                 }
                 if (ckbXaxisResetToZero.IsChecked == false)
                 {
-                    stringValue = axis + ","+ (Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text.Trim())).ToString() + ","+ txtXaxisMotorSpeed.Text.Trim() + ","+ zeroXaxis.ToString() + ","+ txtYaxisStepperMove.Text.Trim() + ","+ txtYaxisMotorSpeed.Text.Trim() + ","+ zeroYaxis.ToString() + ","+ txtZaxisStepperMove.Text.Trim() + ","+ txtZaxisMotorSpeed.Text.Trim() + ","+ zeroZaxis.ToString();
+                    stringValue = axis + "," + (Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text.Trim())).ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) < 0)
                     {
                         stepperMove = Math.Abs(Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()));
-                        _logger.LogInformation(message: $"X Axis negitive value: {txtXaxisStepperMove.Text} converted to positive decimal: {stepperMove}");
+                        _logger.LogInformation(message: $"X Axis negative value: {txtXaxisStepperMove.Text} converted to positive decimal: {stepperMove}");
                     }
                     else
                     {
@@ -283,39 +306,22 @@ namespace Stepper
                     }
                     decimal MotorMovementSeconds = stepperMove / 4;
                     _logger.LogInformation(message: $"X Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
-                    //decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                    //_logger.LogInformation(message: $"X Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
-                    //decimal motorMovementTimer = MotorMovementSeconds;
-                    //_logger.LogInformation(message: $"X Axis motorMovementTimer decimal: {MotorMovementSeconds} * {part2} = {motorMovementTimer}");
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"X Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     txtXaxisStepperMove.IsEnabled = false;
                     btnRunXAxis.IsEnabled = false;
                     btnRunXYAxis.IsEnabled = false;
                     sp.Write(stringValue);
+                    //await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"X Axis Run Event: {stringValue}");
                     stringValue = "";
-                    await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
-                    timeLeft = myMovementTimer; // Reset the countdown
-                    timer.Start(); // Start the timer
-                    await Task.Delay(myMovementTimer);
-                    timer.Stop(); // Stop the timer
-                    CountdownLabel.Content = "";
-                    timeLeft = 0; // Reset the countdown
-                    txtXaxisStepperMove.IsEnabled = true;
-                    btnRunXAxis.IsEnabled = true;
-                    btnRunXYAxis.IsEnabled = true;
-                    currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
-                    txtXaxisStepperCurrent.Text = currentXAxis;
-                    XaxisChanged = false;
-                    txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                    countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
+                    targetEndTime = DateTime.Now.Add(countdownTime);
+                    timer.Start();
+                    axis = "X";
+                    stopwatch.Start();
+                    _logger.LogInformation(message: $"Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = targetEndTime: {targetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
-                txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
-                txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
-                Properties.Settings.Default.XaxisMotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
-                Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
-                Properties.Settings.Default.Save();
             }
             catch (Exception ex)
             {
@@ -340,16 +346,16 @@ namespace Stepper
                 if (ckbYaxisResetToZero.IsChecked == true)
                 {
                     zeroYaxis = 1;
-                    stringValue1 = Properties.Settings.Default.RootAxisY + ","+ txtXaxisStepperMove.Text.Trim() + ","+ txtXaxisMotorSpeed.Text.Trim() + ","+ zeroXaxis.ToString() + ","+ Properties.Settings.Default.Value_0_00.ToString() + ","+ txtYaxisMotorSpeed.Text.Trim() + ","+ zeroYaxis.ToString() + ","+ txtZaxisStepperMove.Text.Trim() + ","+ txtZaxisMotorSpeed.Text.Trim() + ","+ zeroZaxis.ToString();
+                    stringValue1 = Properties.Settings.Default.RootAxisY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
                     _logger.LogInformation(message: $"Y Axis Run Event: {stringValue1}");
                     stringValue1 = "";
                     zeroYaxis = 0;
-                    YZero(milliseconds);
+                    YZero(Properties.Settings.Default.Milliseconds);
                 }
                 if (ckbYaxisResetToZero.IsChecked == false)
                 {
-                    stringValue = Properties.Settings.Default.RootAxisY + ","+ txtXaxisStepperMove.Text.Trim() + ","+ txtXaxisMotorSpeed.Text.Trim() + ","+ zeroXaxis.ToString() + ","+ (Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text.Trim())).ToString() + ","+ txtYaxisMotorSpeed.Text.Trim() + ","+ zeroYaxis.ToString() + ","+ txtZaxisStepperMove.Text.Trim() + ","+ txtZaxisMotorSpeed.Text.Trim() + ","+ zeroZaxis.ToString();
+                    stringValue = Properties.Settings.Default.RootAxisY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + (Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text.Trim())).ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     if (Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()) < 0)
                     {
                         stepperMove = Math.Abs(Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()));
@@ -361,39 +367,23 @@ namespace Stepper
                     }
                     decimal MotorMovementSeconds = stepperMove / 4;
                     _logger.LogInformation(message: $"Y Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
-                    //decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                    //_logger.LogInformation(message: $"Y Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
-                    //decimal motorMovementTimer = MotorMovementSeconds;
-                    //_logger.LogInformation(message: $"Y Axis motorMovementTimer decimal: {MotorMovementSeconds} * {part2} = {motorMovementTimer}");
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"Y Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     txtYaxisStepperMove.IsEnabled = false;
                     btnRunYAxis.IsEnabled = false;
                     btnRunXYAxis.IsEnabled = false;
+                    YaxisChanged = true;
                     sp.Write(stringValue);
+                    //await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"Y Axis Run Event: {stringValue}");
                     stringValue = "";
-                    await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
-                    timeLeft = myMovementTimer; // Reset the countdown
-                    timer.Start(); // Start the timer
-                    await Task.Delay(myMovementTimer);
-                    timer.Stop(); // Stop the timer
-                    CountdownLabel.Content = "";
-                    timeLeft = 0; // Reset the countdown
-                    txtYaxisStepperMove.IsEnabled = true;
-                    btnRunYAxis.IsEnabled = true;
-                    btnRunXYAxis.IsEnabled = true;
-                    currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
-                    txtYaxisStepperCurrent.Text = currentYAxis;
-                    YaxisChanged = false;
-                    txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                    countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
+                    targetEndTime = DateTime.Now.Add(countdownTime);
+                    timer.Start();
+                    axis = "Y";
+                    stopwatch.Start();
+                    _logger.LogInformation(message: $"Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = targetEndTime: {targetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
-                txtYaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
-                txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
-                Properties.Settings.Default.YaxisMotorSpeed = Convert.ToDecimal(txtYaxisMotorSpeed.Text);
-                Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
-                Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
-                Properties.Settings.Default.Save();
             }
             catch (Exception ex)
             {
@@ -418,16 +408,16 @@ namespace Stepper
                 if (ckbZaxisResetToZero.IsChecked == true)
                 {
                     zeroZaxis = 1;
-                    stringValue1 = Properties.Settings.Default.RootAxisZ + ","+ txtXaxisStepperMove.Text.Trim() + ","+ txtXaxisMotorSpeed.Text.Trim() + ","+ zeroXaxis.ToString() + ","+ txtYaxisStepperMove.Text.Trim() + ","+ txtYaxisMotorSpeed.Text.Trim() + ","+ zeroYaxis.ToString() + ","+ Properties.Settings.Default.Value_0_00.ToString() + ","+ txtZaxisMotorSpeed.Text.Trim() + ","+ zeroZaxis.ToString();
+                    stringValue1 = Properties.Settings.Default.RootAxisZ + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
                     _logger.LogInformation(message: $"Z Axis Run Event: {stringValue1}");
                     stringValue1 = "";
                     zeroZaxis = 0;
-                    ZZero(milliseconds);
+                    ZZero(Properties.Settings.Default.Milliseconds);
                 }
                 if (ckbZaxisResetToZero.IsChecked == false)
                 {
-                    stringValue = Properties.Settings.Default.RootAxisZ + ","+ txtXaxisStepperMove.Text.Trim() + ","+ txtXaxisMotorSpeed.Text.Trim() + ","+ zeroXaxis.ToString() + ","+ txtYaxisStepperMove.Text.Trim() + ","+ txtYaxisMotorSpeed.Text.Trim() + ","+ zeroYaxis.ToString() + ","+ (Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text.Trim())).ToString() + ","+ txtZaxisMotorSpeed.Text.Trim() + ","+ zeroZaxis.ToString();
+                    stringValue = Properties.Settings.Default.RootAxisZ + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + (Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text.Trim())).ToString() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     if (Convert.ToDecimal(txtZaxisStepperMove.Text.Trim()) < 0)
                     {
                         stepperMove = Math.Abs(Convert.ToDecimal(txtZaxisStepperMove.Text.Trim()));
@@ -439,37 +429,22 @@ namespace Stepper
                     }
                     decimal MotorMovementSeconds = stepperMove / 4;
                     _logger.LogInformation(message: $"Z Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
-                    //decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                    //_logger.LogInformation(message: $"Z Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
-                    //decimal motorMovementTimer = MotorMovementSeconds;
-                    //_logger.LogInformation(message: $"Z Axis motorMovementTimer decimal: {MotorMovementSeconds} * {part2} = {motorMovementTimer}");
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"Z Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     txtZaxisStepperMove.IsEnabled = false;
                     btnRunZAxis.IsEnabled = false;
+                    ZaxisChanged = true;
                     sp.Write(stringValue);
+                    //await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"Z Axis Run Event: {stringValue}");
                     stringValue = "";
-                    await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
-                    timeLeft = myMovementTimer; // Reset the countdown
-                    timer.Start(); // Start the timer
-                    await Task.Delay(myMovementTimer);
-                    timer.Stop(); // Stop the timer
-                    CountdownLabel.Content = "";
-                    timeLeft = 0; // Reset the countdown
-                    txtZaxisStepperMove.IsEnabled = true;
-                    btnRunZAxis.IsEnabled = true;
-                    currentZAxis = Convert.ToString(Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text));
-                    txtZaxisStepperCurrent.Text = currentZAxis;
-                    ZaxisChanged = false;
-                    txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                    countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
+                    targetEndTime = DateTime.Now.Add(countdownTime);
+                    timer.Start();
+                    axis = "Z";
+                    stopwatch.Start();
+                    _logger.LogInformation(message: $"Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = targetEndTime: {targetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
-                txtZaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
-                txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
-                Properties.Settings.Default.ZaxisMotorSpeed = Convert.ToDecimal(txtZaxisMotorSpeed.Text);
-                Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtZaxisStepperCurrent.Text);
-                Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
-                Properties.Settings.Default.Save();
             }
             catch (Exception ex)
             {
@@ -494,19 +469,26 @@ namespace Stepper
                 {
                     zeroXaxis = 1;
                     zeroYaxis = 1;
-                    stringValue1 = Properties.Settings.Default.RootAxisXY + ","+ Properties.Settings.Default.Value_0_00.ToString() + ","+ txtXaxisMotorSpeed.Text.Trim() + ","+ zeroXaxis.ToString() + ","+ Properties.Settings.Default.Value_0_00.ToString() + ","+ txtYaxisMotorSpeed.Text.Trim() + ","+ zeroYaxis.ToString() + ","+ txtZaxisStepperMove.Text.Trim() + ","+ txtZaxisMotorSpeed.Text.Trim() + ","+ zeroZaxis.ToString();
+                    stringValue1 = Properties.Settings.Default.RootAxisXY + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
                     _logger.LogInformation(message: $"XY Axis Run Event: {stringValue1}");
                     stringValue1 = "";
                     zeroXaxis = 0;
                     zeroYaxis = 0;
-                    XYZero(milliseconds);
+                    XYZero(Properties.Settings.Default.Milliseconds);
                 }
                 else if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == false)
                 {
                     zeroXaxis = 1;
                     zeroYaxis = 0;
-                    stringValue1 = Properties.Settings.Default.RootAxisXY + ","+ Properties.Settings.Default.Value_0_00.ToString() + ","+ txtXaxisMotorSpeed.Text.Trim() + ","+ zeroXaxis.ToString() + ","+ txtYaxisStepperMove.Text.Trim() + ","+ txtYaxisMotorSpeed.Text.Trim() + ","+ zeroYaxis.ToString() + ","+ txtZaxisStepperMove.Text.Trim() + ","+ txtZaxisMotorSpeed.Text.Trim() + ","+ zeroZaxis.ToString();
+                    stringValue1 = Properties.Settings.Default.RootAxisXY + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
+                    txtXaxisStepperMove.IsEnabled = false;
+                    btnRunXAxis.IsEnabled = false;
+                    txtYaxisStepperMove.IsEnabled = false;
+                    btnRunYAxis.IsEnabled = false;
+                    btnRunXYAxis.IsEnabled = false;
+                    XaxisChanged = true;
+                    YaxisChanged = true;
                     sp.Write(stringValue1);
                     _logger.LogInformation(message: $"XY Axis Run Event: {stringValue1}");
                     stringValue1 = "";
@@ -524,40 +506,28 @@ namespace Stepper
                     }
                     decimal MotorMovementSeconds = stepperMove / 4;
                     _logger.LogInformation(message: $"XY Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
-                    //decimal part2 = 60 / Convert.ToDecimal(txtYaxisMotorSpeed.Text);
-                    //_logger.LogInformation(message: $"XY Axis Part2 decimal: 60 / {txtYaxisMotorSpeed.Text} = {part2}");
-                    //decimal motorMovementTimer = MotorMovementSeconds;
-                    //_logger.LogInformation(message: $"XY Axis motorMovementTimer decimal: {MotorMovementSeconds} * {part2} = {motorMovementTimer}");
-                    int myMovementTimer = milliseconds * Convert.ToInt32(MotorMovementSeconds);
+                    int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"XY Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    txtXaxisStepperMove.IsEnabled = false;
-                    txtYaxisStepperMove.IsEnabled = false;
-                    btnRunXAxis.IsEnabled = false;
-                    btnRunYAxis.IsEnabled = false;
-                    btnRunXYAxis.IsEnabled = false;
-                    await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
-                    timeLeft = myMovementTimer; // Reset the countdown
-                    timer.Start(); // Start the timer
-                    await Task.Delay(myMovementTimer);
-                    timer.Stop(); // Stop the timer
-                    CountdownLabel.Content = "";
-                    timeLeft = 0; // Reset the countdown
-                    txtXaxisStepperMove.IsEnabled = true;
-                    txtYaxisStepperMove.IsEnabled = true;
-                    btnRunXAxis.IsEnabled = true;
-                    btnRunYAxis.IsEnabled = true;
-                    btnRunXYAxis.IsEnabled = true;
-                    txtYaxisStepperCurrent.Text = currentYAxis;
-                    YaxisChanged = false;
-                    txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
-                    txtYaxisStepperCurrent.Text = currentYAxis;
-                    XZero(milliseconds);
+                    //await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
+                    countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
+                    targetEndTime = DateTime.Now.Add(countdownTime);
+                    timer.Start();
+                    axis = "XY";
+                    stopwatch.Start();
+                    _logger.LogInformation(message: $"Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = targetEndTime: {targetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
                 else if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == true)
                 {
                     zeroXaxis = 0;
                     zeroYaxis = 1;
-                    stringValue1 = Properties.Settings.Default.RootAxisXY + ","+ txtXaxisStepperMove.Text.Trim() + ","+ txtXaxisMotorSpeed.Text.Trim() + ","+ zeroXaxis.ToString() + ","+ Properties.Settings.Default.Value_0_00.ToString() + ","+ txtYaxisMotorSpeed.Text.Trim() + ","+ zeroYaxis.ToString() + ","+ txtZaxisStepperMove.Text.Trim() + ","+ txtZaxisMotorSpeed.Text.Trim() + ","+ zeroZaxis.ToString();
+                    stringValue1 = Properties.Settings.Default.RootAxisXY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
+                    txtXaxisStepperMove.IsEnabled = false;
+                    btnRunXAxis.IsEnabled = false;
+                    txtYaxisStepperMove.IsEnabled = false;
+                    btnRunYAxis.IsEnabled = false;
+                    btnRunXYAxis.IsEnabled = false;
+                    XaxisChanged = true;
+                    YaxisChanged = true;
                     sp.Write(stringValue1);
                     _logger.LogInformation(message: $"XY Axis Run Event: {stringValue1}");
                     stringValue1 = "";
@@ -575,39 +545,28 @@ namespace Stepper
                     }
                     decimal MotorMovementSeconds = stepperMove / 4;
                     _logger.LogInformation(message: $"XY Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
-                    //decimal part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                    //_logger.LogInformation(message: $"XY Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
-                    //decimal motorMovementTimer = MotorMovementSeconds;
-                    //_logger.LogInformation(message: $"XY Axis motorMovementTimer decimal: {MotorMovementSeconds} * {part2} = {motorMovementTimer}");
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"XY Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    txtXaxisStepperMove.IsEnabled = false;
-                    txtYaxisStepperMove.IsEnabled = false;
-                    btnRunXAxis.IsEnabled = false;
-                    btnRunYAxis.IsEnabled = false;
-                    btnRunXYAxis.IsEnabled = false;
-                    await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
-                    timeLeft = myMovementTimer; // Reset the countdown
-                    timer.Start(); // Start the timer
-                    await Task.Delay(myMovementTimer);
-                    timer.Stop(); // Stop the timer
-                    CountdownLabel.Content = "";
-                    timeLeft = 0; // Reset the countdown
-                    txtXaxisStepperMove.IsEnabled = true;
-                    txtYaxisStepperMove.IsEnabled = true;
-                    btnRunXAxis.IsEnabled = true;
-                    btnRunYAxis.IsEnabled = true;
-                    btnRunXYAxis.IsEnabled = true;
-                    txtXaxisStepperCurrent.Text = currentXAxis;
-                    XaxisChanged = false;
-                    txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
-                    YZero(milliseconds);
+                    //await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
+                    countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
+                    targetEndTime = DateTime.Now.Add(countdownTime);
+                    timer.Start();
+                    axis = "XY";
+                    stopwatch.Start();
+                    _logger.LogInformation(message: $"Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = targetEndTime: {targetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
                 if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == false)
                 {
                     zeroXaxis = 0;
                     zeroYaxis = 0;
-                    stringValue = Properties.Settings.Default.RootAxisXY + ","+ (Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text.Trim())).ToString() + ","+ txtXaxisMotorSpeed.Text.Trim() + ","+ zeroXaxis.ToString() + ","+ (Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text.Trim())).ToString() + ","+ txtYaxisMotorSpeed.Text.Trim() + ","+ zeroYaxis.ToString() + ","+ txtZaxisStepperMove.Text.Trim() + ","+ txtZaxisMotorSpeed.Text.Trim() + ","+ zeroZaxis.ToString();
+                    stringValue = Properties.Settings.Default.RootAxisXY + "," + (Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text.Trim())).ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + (Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text.Trim())).ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
+                    txtXaxisStepperMove.IsEnabled = false;
+                    btnRunXAxis.IsEnabled = false;
+                    txtYaxisStepperMove.IsEnabled = false;
+                    btnRunYAxis.IsEnabled = false;
+                    btnRunXYAxis.IsEnabled = false;
+                    XaxisChanged = true;
+                    YaxisChanged = true;
                     sp.Write(stringValue);
                     _logger.LogInformation(message: $"XY Axis Run Event: {stringValue}");
                     stringValue = "";
@@ -615,7 +574,6 @@ namespace Stepper
                     XaxisChanged = false;
                     txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                     currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
-                    //decimal part2 = Properties.Settings.Default.MathPart2Initlz;
                     if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) >= Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()))
                     {
                         if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) < 0)
@@ -627,8 +585,6 @@ namespace Stepper
                         {
                             stepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
                         }
-                        //part2 = 60 / Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                        //_logger.LogInformation(message: $"XY Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     }
                     else
                     {
@@ -641,47 +597,18 @@ namespace Stepper
                         {
                             stepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text.Trim());
                         }
-                        //part2 = 60 / Convert.ToDecimal(txtYaxisMotorSpeed.Text);
-                        //_logger.LogInformation(message: $"XY Axis Part2 decimal: 60 / {txtXaxisMotorSpeed.Text} = {part2}");
                     }
                     decimal MotorMovementSeconds = stepperMove / 4;
-                    //_logger.LogInformation(message: $"XY Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
-                    //decimal motorMovementTimer = MotorMovementSeconds;
-                    //_logger.LogInformation(message: $"XY Axis motorMovementTimer decimal: {MotorMovementSeconds} * {part2} = {motorMovementTimer}");
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"XY Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    txtXaxisStepperMove.IsEnabled = false;
-                    txtYaxisStepperMove.IsEnabled = false;
-                    btnRunXAxis.IsEnabled = false;
-                    btnRunYAxis.IsEnabled = false;
-                    btnRunXYAxis.IsEnabled = false;
-                    await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
-                    timeLeft = myMovementTimer; // Reset the countdown
-                    timer.Start(); // Start the timer
-                    await Task.Delay(myMovementTimer);
-                    timer.Stop(); // Stop the timer
-                    CountdownLabel.Content = "";
-                    timeLeft = 0; // Reset the countdown
-                    txtXaxisStepperMove.IsEnabled = true;
-                    txtYaxisStepperMove.IsEnabled = true;
-                    btnRunXAxis.IsEnabled = true;
-                    btnRunYAxis.IsEnabled = true;
-                    btnRunXYAxis.IsEnabled = true;
-                    txtXaxisStepperCurrent.Text = currentXAxis;
-                    txtYaxisStepperCurrent.Text = currentYAxis;
-                    YaxisChanged = false;
-                    txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                    countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
+                    //await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
+                    targetEndTime = DateTime.Now.Add(countdownTime);
+                    timer.Start();
+                    axis = "XY";
+                    stopwatch.Start();
+                    _logger.LogInformation(message: $"Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = targetEndTime: {targetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
-                txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
-                txtYaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
-                txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
-                Properties.Settings.Default.XaxisMotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
-                Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
-                Properties.Settings.Default.YaxisMotorSpeed = Convert.ToDecimal(txtYaxisMotorSpeed.Text);
-                Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
-                Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
-                Properties.Settings.Default.Save();
             }
             catch (Exception ex)
             {
@@ -693,11 +620,11 @@ namespace Stepper
         /// <summary>
         /// xes the zero.
         /// </summary>
-        /// <param name="myMovementTimer">The myMovementTimer.</param>
-        public async void XZero(int myMovementTimer)
+        /// <param name="myDelay">The myMovementTimer.</param>
+        public async void XZero(int myDelay)
         {
             _logger.LogInformation(message: "Setting X Axis Current Location Set to Zero on DRO");
-            await Task.Delay(myMovementTimer);
+            await Task.Delay(myDelay);
             txtXaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
             ckbXaxisResetToZero.IsChecked = false;
             txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
@@ -732,11 +659,11 @@ namespace Stepper
         /// <summary>
         /// ies the zero.
         /// </summary>
-        /// <param name="myMovementTimer">The myMovementTimer.</param>
-        public async void YZero(int myMovementTimer)
+        /// <param name="myDelay">The myMovementTimer.</param>
+        public async void YZero(int myDelay)
         {
             _logger.LogInformation(message: "Setting Y Axis Current Location Set to Zero on DRO");
-            await Task.Delay(myMovementTimer);
+            await Task.Delay(myDelay);
             ckbYaxisResetToZero.IsChecked = false;
             txtYaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
             txtYaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
@@ -810,11 +737,11 @@ namespace Stepper
         /// <summary>
         /// Xies the zero.
         /// </summary>
-        /// <param name="myMovementTimer">The myMovementTimer.</param>
-        public async void XYZero(int myMovementTimer)
+        /// <param name="myDelay">The myMovementTimer.</param>
+        public async void XYZero(int myDelay)
         {
             _logger.LogInformation(message: "Setting XY Axis Current Location Set to Zero on DRO");
-            await Task.Delay(myMovementTimer);
+            await Task.Delay(myDelay);
             ckbXaxisResetToZero.IsChecked = false;
             txtXaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
             txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
@@ -1374,17 +1301,121 @@ namespace Stepper
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (timeLeft > 0)
+            elapsedTime = stopwatch.Elapsed;
+            remainingTime = targetEndTime - DateTime.Now;
+            if (DateTime.Now < targetEndTime)
             {
-                timeLeft--; // Decrement the time left
-                CountdownLabel.Content = $"Milliseconds: {timeLeft} left!"; // Update the label with the new time left
-                _logger.LogInformation(message: $"Milliseconds: {timeLeft} left!");
+                switch (axis)
+                {
+                    case "X":
+                        txtXaxisStepperMove.IsEnabled = false;
+                        btnRunXAxis.IsEnabled = false;
+                        btnRunXYAxis.IsEnabled = false;
+                        XaxisChanged = true;
+                        break;
+                    case "Y":
+                        txtYaxisStepperMove.IsEnabled = false;
+                        btnRunYAxis.IsEnabled = false;
+                        btnRunXYAxis.IsEnabled = false;
+                        YaxisChanged = true;
+                        break;
+                    case "Z":
+                        txtZaxisStepperMove.IsEnabled = false;
+                        btnRunZAxis.IsEnabled = false;
+                        ZaxisChanged = true;
+                        break;
+                    case "XY":
+                        txtXaxisStepperMove.IsEnabled = false;
+                        btnRunXAxis.IsEnabled = false;
+                        txtYaxisStepperMove.IsEnabled = false;
+                        btnRunYAxis.IsEnabled = false;
+                        btnRunXYAxis.IsEnabled = false;
+                        XaxisChanged = true;
+                        YaxisChanged = true;
+                        break;
+                }
+                CountdownLabel.Content = $"Working: {elapsedTime.ToString(@"\:ss")}"; 
+                _logger.LogInformation(message: $"Time remaining: {elapsedTime.ToString(@"hh\:mm\:ss")} targetEndTime = {targetEndTime.ToString(@"hh\:mm\:ss")}");
             }
-            else
+            if (DateTime.Now >= targetEndTime)
             {
-                timer.Stop(); // Stop the timer when the countdown reaches 0
                 CountdownLabel.Content = "";
-                _logger.LogInformation(message: "Timer Stopped.");
+                switch (axis)
+                {
+                    case "X":
+                        txtXaxisStepperMove.IsEnabled = true;
+                        btnRunXAxis.IsEnabled = true;
+                        btnRunXYAxis.IsEnabled = true;
+                        currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
+                        txtXaxisStepperCurrent.Text = currentXAxis;
+                        XaxisChanged = false;
+                        txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                        txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+                        txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
+                        Properties.Settings.Default.XaxisMotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                        Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
+                        Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
+                        Properties.Settings.Default.Save();
+                        break;
+                    case "Y":
+                        txtYaxisStepperMove.IsEnabled = true;
+                        btnRunYAxis.IsEnabled = true;
+                        btnRunXYAxis.IsEnabled = true;
+                        currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
+                        txtYaxisStepperCurrent.Text = currentYAxis;
+                        YaxisChanged = false;
+                        txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                        txtYaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+                        txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
+                        Properties.Settings.Default.YaxisMotorSpeed = Convert.ToDecimal(txtYaxisMotorSpeed.Text);
+                        Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
+                        Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
+                        Properties.Settings.Default.Save();
+                        break;
+                    case "Z":
+                        txtZaxisStepperMove.IsEnabled = true;
+                        btnRunZAxis.IsEnabled = true;
+                        currentZAxis = Convert.ToString(Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text));
+                        txtZaxisStepperCurrent.Text = currentZAxis;
+                        ZaxisChanged = false;
+                        txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                        txtZaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+                        txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
+                        Properties.Settings.Default.ZaxisMotorSpeed = Convert.ToDecimal(txtZaxisMotorSpeed.Text);
+                        Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtZaxisStepperCurrent.Text);
+                        Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
+                        Properties.Settings.Default.Save();
+                        break;
+                    case "XY":
+                        txtXaxisStepperMove.IsEnabled = true;
+                        btnRunXAxis.IsEnabled = true;
+                        txtYaxisStepperMove.IsEnabled = true;
+                        btnRunYAxis.IsEnabled = true;
+                        btnRunXYAxis.IsEnabled = true;
+                        currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
+                        txtXaxisStepperCurrent.Text = currentXAxis;
+                        XaxisChanged = false;
+                        txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                        currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
+                        txtYaxisStepperCurrent.Text = currentYAxis;
+                        YaxisChanged = false;
+                        txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                        txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+                        txtYaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
+                        txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
+                        Properties.Settings.Default.XaxisMotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                        Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
+                        Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
+                        Properties.Settings.Default.YaxisMotorSpeed = Convert.ToDecimal(txtYaxisMotorSpeed.Text);
+                        Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
+                        Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
+                        Properties.Settings.Default.Save();
+                        break;
+                }
+                stopwatch.Stop(); // Stop the timer when the countdown reaches
+                timer.Stop();
+                stopwatch.Reset();
+                _logger.LogInformation(message: "Stopwatch Stopped.");
             }
         }
         /// <summary>

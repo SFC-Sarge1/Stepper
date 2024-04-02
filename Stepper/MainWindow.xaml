@@ -67,6 +67,6 @@
         <Label x:Name="lblZaxisCurrent" Content="Z axis current:" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Height="26" Width="87"/>
         <TextBox x:Name="txtZaxisStepperCurrent" TouchUp="txtZaxisStepperCurrent_TouchUp" PreviewMouseUp="txtZaxisStepperCurrent_PreviewMouseUp" HorizontalAlignment="Left" Margin="101,88,0,0" VerticalAlignment="Top" Width="120" TextAlignment="Right" Height="26"/>
         <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,90,0,0" Height="26" Width="32"/>
-        <Label Name="CountdownLabel" Width="167" Content="" HorizontalAlignment="Left" Margin="252,278,0,0" VerticalAlignment="Top"/>
+        <Label Name="CountdownLabel" Width="322" FontSize="22" Content="" HorizontalAlignment="Left" Margin="242,316,0,0" VerticalAlignment="Top"/>
     </Grid>
 </mah:MetroWindow>
