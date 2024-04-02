@@ -397,7 +397,7 @@ namespace Stepper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2000.00")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000.00")]
         public decimal MillisecondDelay {
             get {
                 return ((decimal)(this["MillisecondDelay"]));

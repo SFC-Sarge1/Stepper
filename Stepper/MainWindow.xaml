@@ -8,9 +8,10 @@
         xmlns:local="clr-namespace:Stepper"
         mc:Ignorable="d"
         Title="X,Y, Z Table Stepper Motor Control" Height="411" Width="650" BorderBrush="{DynamicResource MahApps.Brushes.Border.NonActive}" WindowStartupLocation="CenterScreen" WindowTitleBrush="#FF060404">
-    <Window.Resources>
+    <!--<Window.Resources>
         <ObjectDataProvider ObjectType="{x:Type ports:SerialPort}" MethodName="GetPortNames" x:Key="portNames"/>
-    </Window.Resources>
+     ItemsSource="{Binding Source={StaticResource portNames}}"
+    </Window.Resources>-->
     <Grid x:Name="StepperMotorControl" Margin="0,3,0,3" Background="{DynamicResource MahApps.Brushes.ThemeBackground}" RenderTransformOrigin="0.497,1">
         <Grid.RowDefinitions>
             <RowDefinition Height="455.96"/>
@@ -47,7 +48,7 @@
         <Label x:Name="lblYaxisMotorSpeed" Content="Y axis Motor Speed:" HorizontalAlignment="Left" Margin="371,159,0,0" VerticalAlignment="Top" Height="26" Width="115"/>
         <CheckBox x:Name="ckbXaxisResetToZero" TouchUp="ResetToZero_TouchUp" Content="X axis Zero" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged" HorizontalAlignment="Left" Margin="269,133,0,0" VerticalAlignment="Top" Height="18" Width="82" mah:CheckBoxHelper.CheckGlyphForegroundChecked="White"/>
         <CheckBox x:Name="ckbYaxisResetToZero" TouchUp="ResetToZero_TouchUp" Content="Y axis Zero" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged" HorizontalAlignment="Left" Margin="269,162,0,0" VerticalAlignment="Top" Height="18" Width="81" mah:CheckBoxHelper.CheckGlyphForegroundChecked="White"/>
-        <ComboBox x:Name="cmbComPort" TouchUp="cmbComPort_TouchUp" HorizontalAlignment="Left" Margin="488,259,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbComPort_SelectionChanged" ItemsSource="{Binding Source={StaticResource portNames}}" Height="26"/>
+        <ComboBox x:Name="cmbComPort" TouchUp="cmbComPort_TouchUp" HorizontalAlignment="Left" Margin="488,259,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbComPort_SelectionChanged" Height="26"/>
         <Button x:Name="btnRunXAxis" Content="Run X Axis" HorizontalAlignment="Left" Margin="101,224,0,0" Width="120" Click="XAxisRun_Click" Height="28" VerticalAlignment="Top"/>
         <Button x:Name="btnRunYAxis" Content="Run Y Axis" HorizontalAlignment="Left" Height="28" Margin="101,259,0,0" VerticalAlignment="Top" Width="120" Click="YAxisRun_Click"/>
         <Button x:Name="btnRunXYAxis" Content="Run X,Y Axis" HorizontalAlignment="Left" Height="28" Margin="102,328,0,0" VerticalAlignment="Top" Width="118" Click="XYAxisRun_Click"/>

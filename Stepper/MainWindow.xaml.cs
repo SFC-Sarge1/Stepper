@@ -4,9 +4,9 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 03-30-2024
+// Last Modified On : 04-01-2024
 // ***********************************************************************
-// <copyright file="MainWindow.xaml.cs"company="Computer Question">
+// <copyright file="MainWindow.xaml.cs" company="">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary>This allows you to control the X,Y and Z axis</summary>
@@ -36,32 +36,26 @@ namespace Stepper
         /// The timer
         /// </summary>
         public static DispatcherTimer? timer;
-
-         /// <summary>
-         /// The time left
-         /// </summary>
-       public TimeSpan countdownTime = new();
         /// <summary>
-        /// The time left
+        /// The countdown time
         /// </summary>
-
+        public TimeSpan countdownTime = new();
+        /// <summary>
+        /// The target end time
+        /// </summary>
         public DateTime targetEndTime = new();
         /// <summary>
-        /// The time left
+        /// The stopwatch
         /// </summary>
         public Stopwatch stopwatch = new();
         /// <summary>
-        /// The time left
+        /// The elapsed time
         /// </summary>
         TimeSpan elapsedTime = new();
         /// <summary>
-        /// The time left
+        /// The remaining time
         /// </summary>
         public TimeSpan remainingTime = new();
-        /// <summary>
-        /// The time left
-        /// </summary>
-        public int timeLeft;
         /// <summary>
         /// The sp
         /// </summary>
@@ -82,10 +76,6 @@ namespace Stepper
         /// The zero zaxis
         /// </summary>
         public int zeroZaxis = Properties.Settings.Default.zeroZaxis;
-        /// <summary>
-        /// The milliseconds
-        /// </summary>
-        public int milliseconds = Properties.Settings.Default.Milliseconds;
         /// <summary>
         /// The axis
         /// </summary>
@@ -155,7 +145,7 @@ namespace Stepper
         /// </summary>
         public static ILoggerFactory loggerFactory;
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// Initializes a new instance of the <see cref="MainWindow" /> class.
         /// </summary>
         public MainWindow()
         {
@@ -179,7 +169,6 @@ namespace Stepper
             VersionTxt.Text = "Version: " + displayableVersion;
             Properties.Settings.Default.BuildVersion = "Version: " + displayableVersion;
             _logger.LogInformation(message: "Version:" + displayableVersion);
-            timeLeft = 0; // Set the countdown time
             timer = new DispatcherTimer
             {
                 Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)) // Set the timer to tick every 1 millisecond
@@ -197,11 +186,30 @@ namespace Stepper
             ckbXaxisResetToZero.IsChecked = Properties.Settings.Default.ckbXaxisResetToZeroIsChecked;
             ckbYaxisResetToZero.IsChecked = Properties.Settings.Default.ckbYaxisResetToZeroIsChecked;
             ckbZaxisResetToZero.IsChecked = Properties.Settings.Default.ckbZaxisResetToZeroIsChecked;
-            txtBaudRate.Text = Properties.Settings.Default.BaudRate.ToString();
-            selectedItem = cmbComPort.Items.CurrentItem.ToString();
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
-
+            txtBaudRate.Text = Properties.Settings.Default.BaudRate.ToString();
+            try
+            {
+                string[] ports = SerialPort.GetPortNames();
+                foreach (string portName in ports)
+                {
+                    cmbComPort.Items.Add(portName);
+                    _logger.LogInformation(message: $"Available COM ports: {portName}");
+               }
+               cmbComPort.SelectedIndex = 0;
+            }
+            catch (IOException ioex)
+            {
+                _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
+                MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation(message: $"An error occurred: {ex.Message}");
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            selectedItem = cmbComPort.SelectedItem.ToString();
             if (selectedItem == Properties.Settings.Default.COM1.ToString())
             {
                 try
@@ -221,7 +229,6 @@ namespace Stepper
                 catch (IOException ioex)
                 {
                     _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                    // Handle the exception
                     MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
@@ -241,7 +248,6 @@ namespace Stepper
                 catch (IOException ioex)
                 {
                     _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                    // Handle the exception
                     MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 myPortName = selectedItem;
@@ -262,7 +268,6 @@ namespace Stepper
                 catch (IOException ioex)
                 {
                     _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                    // Handle the exception
                     MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
@@ -272,7 +277,7 @@ namespace Stepper
         /// Handles the Click event of the XAxisRun control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         public async void XAxisRun_Click(object sender, RoutedEventArgs e)
         {
             _logger.LogInformation(message: $"XAxisRun_Click button clicked:");
@@ -287,7 +292,7 @@ namespace Stepper
                     zeroXaxis = 1;
                     stringValue1 = axis + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
-                    _logger.LogInformation(message: $"X Axis Run Event: {stringValue1}");
+                    _logger.LogInformation(message: $"X Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroXaxis = 0;
                     XZero(Properties.Settings.Default.Milliseconds);
@@ -323,7 +328,6 @@ namespace Stepper
             catch (Exception ex)
             {
                 _logger.LogInformation(message: $"An error occurred: {ex.Message}");
-                // Handle the exception
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -331,7 +335,7 @@ namespace Stepper
         /// Handles the Click event of the YAxisRun control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         public async void YAxisRun_Click(object sender, RoutedEventArgs e)
         {
             _logger.LogInformation(message: $"YAxisRun_Click button clicked:");
@@ -345,7 +349,7 @@ namespace Stepper
                     zeroYaxis = 1;
                     stringValue1 = Properties.Settings.Default.RootAxisY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
-                    _logger.LogInformation(message: $"Y Axis Run Event: {stringValue1}");
+                    _logger.LogInformation(message: $"Y Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroYaxis = 0;
                     YZero(Properties.Settings.Default.Milliseconds);
@@ -381,7 +385,6 @@ namespace Stepper
             catch (Exception ex)
             {
                 _logger.LogInformation(message: $"An error occurred: {ex.Message}");
-                // Handle the exception
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -389,7 +392,7 @@ namespace Stepper
         /// Handles the Click event of the ZAxisRun control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         public async void ZAxisRun_Click(object sender, RoutedEventArgs e)
         {
             _logger.LogInformation(message: $"ZAxisRun_Click button clicked:");
@@ -403,7 +406,7 @@ namespace Stepper
                     zeroZaxis = 1;
                     stringValue1 = Properties.Settings.Default.RootAxisZ + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
-                    _logger.LogInformation(message: $"Z Axis Run Event: {stringValue1}");
+                    _logger.LogInformation(message: $"Z Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroZaxis = 0;
                     ZZero(Properties.Settings.Default.Milliseconds);
@@ -439,7 +442,6 @@ namespace Stepper
             catch (Exception ex)
             {
                 _logger.LogInformation(message: $"An error occurred: {ex.Message}");
-                // Handle the exception
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -447,7 +449,7 @@ namespace Stepper
         /// Handles the Click event of the XYAxisRun control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         public async void XYAxisRun_Click(object sender, RoutedEventArgs e)
         {
             _logger.LogInformation(message: $"XYAxisRun_Click button clicked:");
@@ -461,7 +463,7 @@ namespace Stepper
                     zeroYaxis = 1;
                     stringValue1 = Properties.Settings.Default.RootAxisXY + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
-                    _logger.LogInformation(message: $"XY Axis Run Event: {stringValue1}");
+                    _logger.LogInformation(message: $"XY Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroXaxis = 0;
                     zeroYaxis = 0;
@@ -474,7 +476,7 @@ namespace Stepper
                     stringValue1 = Properties.Settings.Default.RootAxisXY + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + txtYaxisStepperMove.Text.Trim() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
-                    _logger.LogInformation(message: $"XY Axis Run Event: {stringValue1}");
+                    _logger.LogInformation(message: $"XY Axis Run Event to reset X Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroXaxis = 0;
                     zeroYaxis = 0;
@@ -506,7 +508,7 @@ namespace Stepper
                     stringValue1 = Properties.Settings.Default.RootAxisXY + "," + txtXaxisStepperMove.Text.Trim() + "," + txtXaxisMotorSpeed.Text.Trim() + "," + zeroXaxis.ToString() + "," + Properties.Settings.Default.Value_0_00.ToString() + "," + txtYaxisMotorSpeed.Text.Trim() + "," + zeroYaxis.ToString() + "," + txtZaxisStepperMove.Text.Trim() + "," + txtZaxisMotorSpeed.Text.Trim() + "," + zeroZaxis.ToString();
                     sp.Write(stringValue1);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
-                    _logger.LogInformation(message: $"XY Axis Run Event: {stringValue1}");
+                    _logger.LogInformation(message: $"XY Axis Run Event to reset Y Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroXaxis = 0;
                     zeroYaxis = 0;
@@ -582,14 +584,13 @@ namespace Stepper
             catch (Exception ex)
             {
                 _logger.LogInformation(message: $"An error occurred: {ex.Message}");
-                // Handle the exception
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
         /// xes the zero.
         /// </summary>
-        /// <param name="myDelay">The myMovementTimer.</param>
+        /// <param name="myDelay">The myDelay.</param>
         public async void XZero(int myDelay)
         {
             _logger.LogInformation(message: "Setting X Axis Current Location Set to Zero on DRO");
@@ -621,14 +622,13 @@ namespace Stepper
             catch (IOException ioex)
             {
                 _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                // Handle the exception
                 MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
         /// ies the zero.
         /// </summary>
-        /// <param name="myDelay">The myMovementTimer.</param>
+        /// <param name="myDelay">The myDelay.</param>
         public async void YZero(int myDelay)
         {
             _logger.LogInformation(message: "Setting Y Axis Current Location Set to Zero on DRO");
@@ -660,18 +660,17 @@ namespace Stepper
             catch (IOException ioex)
             {
                 _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                // Handle the exception
                 MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
         /// zs the zero.
         /// </summary>
-        /// <param name="myMovementTimer">The myMovementTimer.</param>
-        public async void ZZero(int myMovementTimer)
+        /// <param name="myDelay">The myDelay.</param>
+        public async void ZZero(int myDelay)
         {
             _logger.LogInformation(message: "Setting Z Axis Current Location Set to Zero on DRO");
-            await Task.Delay(myMovementTimer);
+            await Task.Delay(myDelay);
             ckbZaxisResetToZero.IsChecked = false;
             txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
             txtZaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
@@ -699,14 +698,13 @@ namespace Stepper
             catch (IOException ioex)
             {
                 _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                // Handle the exception
                 MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
         /// Xies the zero.
         /// </summary>
-        /// <param name="myDelay">The myMovementTimer.</param>
+        /// <param name="myDelay">The myDelay.</param>
         public async void XYZero(int myDelay)
         {
             _logger.LogInformation(message: "Setting XY Axis Current Location Set to Zero on DRO");
@@ -743,7 +741,6 @@ namespace Stepper
             catch (IOException ioex)
             {
                 _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                // Handle the exception
                 MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -751,8 +748,9 @@ namespace Stepper
         /// <summary>
         /// CheckBoxes the changed.
         /// </summary>
-        /// <param name="sender">The sender.</param>'=
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
+        /// '=
         private void CheckBoxChanged(object sender, RoutedEventArgs e)
         {
             UpdateZeroStatus();
@@ -761,7 +759,7 @@ namespace Stepper
         /// Handles the GotFocus event of the XaxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void XaxisStepperMove_GotFocus(object sender, EventArgs e)
         {
             XaxisStepperMoveTemp = txtXaxisStepperMove.Text.ToString();
@@ -770,7 +768,7 @@ namespace Stepper
         /// Handles the GotFocus event of the YaxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void YaxisStepperMove_GotFocus(object sender, EventArgs e)
         {
             YaxisStepperMoveTemp = txtYaxisStepperMove.Text.ToString();
@@ -779,7 +777,7 @@ namespace Stepper
         /// Handles the GotFocus event of the ZaxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void ZaxisStepperMove_GotFocus(object sender, EventArgs e)
         {
             ZaxisStepperMoveTemp = txtZaxisStepperMove.Text.ToString();
@@ -788,7 +786,7 @@ namespace Stepper
         /// Handles the TextChanged event of the XaxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void XaxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
         {
             XaxisChanged = true;
@@ -807,7 +805,7 @@ namespace Stepper
         /// Handles the TextChanged event of the XaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void XaxisMotorSpeed_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtXaxisMotorSpeed.Text == Properties.Settings.Default.XaxisMotorSpeed.ToString())
@@ -825,7 +823,7 @@ namespace Stepper
         /// Handles the TextChanged event of the YaxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void YaxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
         {
             YaxisChanged = true;
@@ -844,7 +842,7 @@ namespace Stepper
         /// Handles the TextChanged event of the YaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void YaxisMotorSpeed_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtYaxisMotorSpeed.Text == Properties.Settings.Default.YaxisMotorSpeed.ToString())
@@ -862,7 +860,7 @@ namespace Stepper
         /// Handles the TextChanged event of the ZaxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void ZaxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
         {
             ZaxisChanged = true;
@@ -881,7 +879,7 @@ namespace Stepper
         /// Handles the TextChanged event of the ZaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void ZaxisMotorSpeed_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtZaxisMotorSpeed.Text == Properties.Settings.Default.ZaxisMotorSpeed.ToString())
@@ -899,7 +897,7 @@ namespace Stepper
         /// Handles the PreviewMouseUp event of the XaxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void XaxisStepperMove_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -913,7 +911,7 @@ namespace Stepper
         /// Handles the TouchUp event of the XaxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void XaxisStepperMove_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -927,7 +925,7 @@ namespace Stepper
         /// Handles the PreviewMouseUp event of the YaxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void YaxisStepperMove_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -941,7 +939,7 @@ namespace Stepper
         /// Handles the TouchUp event of the YaxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void YaxisStepperMove_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -955,7 +953,7 @@ namespace Stepper
         /// Handles the PreviewMouseUp event of the ZaxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void ZaxisStepperMove_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -969,7 +967,7 @@ namespace Stepper
         /// Handles the TouchUp event of the ZaxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void ZaxisStepperMove_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -983,7 +981,7 @@ namespace Stepper
         /// Handles the PreviewMouseUp event of the txtXaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void txtXaxisMotorSpeed_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -997,7 +995,7 @@ namespace Stepper
         /// Handles the TouchUp event of the txtXaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void txtXaxisMotorSpeed_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1011,7 +1009,7 @@ namespace Stepper
         /// Handles the PreviewMouseUp event of the txtYaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void txtYaxisMotorSpeed_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1025,7 +1023,7 @@ namespace Stepper
         /// Handles the TouchUp event of the txtYaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void txtYaxisMotorSpeed_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1039,7 +1037,7 @@ namespace Stepper
         /// Handles the PreviewMouseUp event of the txtZaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void txtZaxisMotorSpeed_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1053,7 +1051,7 @@ namespace Stepper
         /// Handles the TouchUp event of the txtZaxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void txtZaxisMotorSpeed_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1067,7 +1065,7 @@ namespace Stepper
         /// Handles the PreviewMouseUp event of the txtXaxisStepperCurrent control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void txtXaxisStepperCurrent_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1081,7 +1079,7 @@ namespace Stepper
         /// Handles the TouchUp event of the txtXaxisStepperCurrent control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void txtXaxisStepperCurrent_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1095,7 +1093,7 @@ namespace Stepper
         /// Handles the PreviewMouseUp event of the txtYaxisStepperCurrent control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void txtYaxisStepperCurrent_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1109,7 +1107,7 @@ namespace Stepper
         /// Handles the TouchUp event of the txtYaxisStepperCurrent control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void txtYaxisStepperCurrent_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1123,7 +1121,7 @@ namespace Stepper
         /// Handles the PreviewMouseUp event of the txtZaxisStepperCurrent control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void txtZaxisStepperCurrent_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1137,7 +1135,7 @@ namespace Stepper
         /// Handles the TouchUp event of the txtZaxisStepperCurrent control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void txtZaxisStepperCurrent_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1151,7 +1149,7 @@ namespace Stepper
         /// Handles the PreviewMouseUp event of the txtBaudRate control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void txtBaudRate_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1165,7 +1163,7 @@ namespace Stepper
         /// Handles the TouchUp event of the txtBaudRate control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void txtBaudRate_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1180,7 +1178,7 @@ namespace Stepper
         /// Handles the TextChanged event of the txtBaudRate control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void txtBaudRate_TextChanged(object sender, TextChangedEventArgs e)
         {
             txtZaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.Red;
@@ -1198,12 +1196,13 @@ namespace Stepper
         /// Handles the SelectionChanged event of the cmbComPort control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="SelectionChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="SelectionChangedEventArgs" /> instance containing the event data.</param>
         private void cmbComPort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                selectedItem = cmbComPort.Items.CurrentItem.ToString();
+                cmbComPort.SelectedIndex = 0;
+                selectedItem = cmbComPort.SelectedItem.ToString();
                 if (sp.IsOpen == true && selectedItem == Properties.Settings.Default.COM1.ToString())
                 {
                     sp.Close();
@@ -1212,7 +1211,7 @@ namespace Stepper
                 if (selectedItem == Properties.Settings.Default.COM1.ToString())
                 {
                     cmbComPort.Items.MoveCurrentToLast();
-                    selectedItem = cmbComPort.Items.CurrentItem.ToString();
+                    selectedItem = cmbComPort.SelectedItem.ToString();
                     cmbComPort.SelectedItem = selectedItem;
                     myPortName = selectedItem;
                     cmbComPort.Text = selectedItem;
@@ -1235,7 +1234,7 @@ namespace Stepper
         /// Handles the OnPreviewTextInput event of the TextBox control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextCompositionEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextCompositionEventArgs" /> instance containing the event data.</param>
         private void TextBox_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             var textBox = sender as TextBox;
@@ -1255,10 +1254,11 @@ namespace Stepper
         /// Handles the Click event of the AppSettings control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void AppSettings_Click(object sender, RoutedEventArgs e)
         {
             StepperAppSettings newSettingsWindow = new StepperAppSettings();
+            _logger.LogInformation(message: $"AppSettings_Click to Load Application Settings form.");
 
             // Show the new window
             newSettingsWindow.Show();
@@ -1267,7 +1267,7 @@ namespace Stepper
         /// Handles the Tick event of the Timer control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void Timer_Tick(object sender, EventArgs e)
         {
             elapsedTime = stopwatch.Elapsed;
@@ -1281,17 +1281,20 @@ namespace Stepper
                         btnRunXAxis.IsEnabled = false;
                         btnRunXYAxis.IsEnabled = false;
                         XaxisChanged = true;
+                        _logger.LogInformation(message: $"Disable X Axis controls while moving to location.");
                         break;
                     case "Y":
                         txtYaxisStepperMove.IsEnabled = false;
                         btnRunYAxis.IsEnabled = false;
                         btnRunXYAxis.IsEnabled = false;
                         YaxisChanged = true;
+                        _logger.LogInformation(message: $"Disable Y Axis controls while moving to location.");
                         break;
                     case "Z":
                         txtZaxisStepperMove.IsEnabled = false;
                         btnRunZAxis.IsEnabled = false;
                         ZaxisChanged = true;
+                        _logger.LogInformation(message: $"Disable Z Axis controls while moving to location.");
                         break;
                     case "XY":
                         txtXaxisStepperMove.IsEnabled = false;
@@ -1301,9 +1304,10 @@ namespace Stepper
                         btnRunXYAxis.IsEnabled = false;
                         XaxisChanged = true;
                         YaxisChanged = true;
+                        _logger.LogInformation(message: $"Disable XY Axis controls while moving to location.");
                         break;
                 }
-                CountdownLabel.Content = $"Working: {elapsedTime.ToString(@"\:ss")}"; 
+                CountdownLabel.Content = $"Working Timer {elapsedTime.ToString(@"\:mm\:ss")}"; 
                 _logger.LogInformation(message: $"Time remaining: {elapsedTime.ToString(@"hh\:mm\:ss")} targetEndTime = {targetEndTime.ToString(@"hh\:mm\:ss")}");
             }
             if (DateTime.Now >= targetEndTime)
@@ -1325,6 +1329,7 @@ namespace Stepper
                         Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
                         Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
                         Properties.Settings.Default.Save();
+                        _logger.LogInformation(message: $"Enable X Axis controls after moving to location.");
                         break;
                     case "Y":
                         txtYaxisStepperMove.IsEnabled = true;
@@ -1340,6 +1345,7 @@ namespace Stepper
                         Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
                         Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
                         Properties.Settings.Default.Save();
+                        _logger.LogInformation(message: $"Enable Y Axis controls after moving to location.");
                         break;
                     case "Z":
                         txtZaxisStepperMove.IsEnabled = true;
@@ -1354,6 +1360,7 @@ namespace Stepper
                         Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtZaxisStepperCurrent.Text);
                         Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
                         Properties.Settings.Default.Save();
+                        _logger.LogInformation(message: $"Enable Z Axis controls after moving to location.");
                         break;
                     case "XY":
                         txtXaxisStepperMove.IsEnabled = true;
@@ -1379,19 +1386,23 @@ namespace Stepper
                         Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
                         Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
                         Properties.Settings.Default.Save();
+                        _logger.LogInformation(message: $"Enable XY Axis controls after moving to location.");
+
                         break;
                 }
                 stopwatch.Stop(); // Stop the timer when the countdown reaches
-                timer.Stop();
-                stopwatch.Reset();
                 _logger.LogInformation(message: "Stopwatch Stopped.");
+                timer.Stop();
+                _logger.LogInformation(message: "Timer Stopped.");
+                stopwatch.Reset();
+                _logger.LogInformation(message: "Stopwatch Reset.");
             }
         }
         /// <summary>
         /// Handles the Loaded event of the MainWindow control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             _logger.LogInformation(message: "MainWindow loaded");
@@ -1405,12 +1416,13 @@ namespace Stepper
             txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtZaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
             txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
+            _logger.LogInformation(message: "Set MainWindow Media Brushes to White.");
         }
         /// <summary>
         /// Handles the Closing event of the MainWindow control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs" /> instance containing the event data.</param>
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             try
@@ -1426,7 +1438,6 @@ namespace Stepper
             catch (IOException ioex)
             {
                 _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                // Handle the exception
                 MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -1435,7 +1446,7 @@ namespace Stepper
         /// Handles the TouchUp event of the cmbComPort control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void cmbComPort_TouchUp(object sender, TouchEventArgs e)
         {
             cmbComPort.Text = cmbComPort.SelectedItem.ToString();
@@ -1445,7 +1456,7 @@ namespace Stepper
         /// Handles the TouchUp event of the ResetToZero control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void ResetToZero_TouchUp(object sender, TouchEventArgs e)
         {
             UpdateZeroStatus();
@@ -1460,30 +1471,35 @@ namespace Stepper
                 zeroXaxis = 1;
                 zeroYaxis = 1;
                 zeroZaxis = 1;
+                _logger.LogInformation(message: "Updated X,Y,Z Zero.IsChecked status to 1.");
             }
             else if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == false && ckbZaxisResetToZero.IsChecked == false)
             {
                 zeroXaxis = 1;
                 zeroYaxis = 0;
                 zeroZaxis = 0;
+                _logger.LogInformation(message: "Updated X Zero.IsChecked status to 1 and Y,Z Zero.IsChecked status to 0.");
             }
             else if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == true && ckbZaxisResetToZero.IsChecked == false)
             {
                 zeroXaxis = 0;
                 zeroYaxis = 1;
                 zeroZaxis = 0;
+                _logger.LogInformation(message: "Updated X,Z Zero.IsChecked status to 0 and Y Zero.IsChecked status to 1.");
             }
             if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == false && ckbZaxisResetToZero.IsChecked == true)
             {
                 zeroXaxis = 0;
                 zeroYaxis = 0;
                 zeroZaxis = 1;
+                _logger.LogInformation(message: "Updated X,Y Zero.IsChecked status to 0 and Z Zero.IsChecked status to 1.");
             }
             if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == false && ckbZaxisResetToZero.IsChecked == false)
             {
                 zeroXaxis = 0;
                 zeroYaxis = 0;
                 zeroZaxis = 0;
+                _logger.LogInformation(message: "Updated X,Y,Z Zero.IsChecked status to 0.");
             }
         }
     }
