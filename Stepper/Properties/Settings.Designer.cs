@@ -430,5 +430,17 @@ namespace Stepper.Properties {
                 this["BuildVersion"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM6")]
+        public string COM6 {
+            get {
+                return ((string)(this["COM6"]));
+            }
+            set {
+                this["COM6"] = value;
+            }
+        }
     }
 }

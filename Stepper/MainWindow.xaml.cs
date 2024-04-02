@@ -194,20 +194,27 @@ namespace Stepper
                 string[] ports = SerialPort.GetPortNames();
                 foreach (string portName in ports)
                 {
-                    try
+                    if (portName == "COM1")
                     {
-                        cmbComPort.Items.Add(portName);
-                        _logger.LogInformation(message: $"Available COM ports: {portName}");
+                        continue;
                     }
-                    catch (IOException ioex)
+                    else
                     {
-                        _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                        //MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.LogInformation(message: $"An error occurred: {ex.Message}");
-                        //MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        try
+                        {
+                            cmbComPort.Items.Add(portName);
+                            _logger.LogInformation(message: $"Available COM ports: {portName}");
+                        }
+                        catch (IOException ioex)
+                        {
+                            _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
+                            //MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.LogInformation(message: $"An error occurred: {ex.Message}");
+                            //MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                 }
                 cmbComPort.SelectedIndex = 0;
@@ -223,29 +230,7 @@ namespace Stepper
                 //MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             selectedItem = cmbComPort.SelectedItem.ToString();
-            if (selectedItem == Properties.Settings.Default.COM1.ToString())
-            {
-                try
-                {
-                    cmbComPort.Items.MoveCurrentToLast();
-                    selectedItem = cmbComPort.Items.CurrentItem.ToString();
-                    cmbComPort.SelectedItem = selectedItem;
-                    myPortName = selectedItem;
-                    cmbComPort.Text = selectedItem;
-                    sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-                    if (sp.IsOpen == false)
-                    {
-                        sp.Open();
-                        _logger.LogInformation(message: $"Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                    }
-                }
-                catch (IOException ioex)
-                {
-                    _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                    MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            else if (selectedItem == Properties.Settings.Default.COM4.ToString())
+            if (selectedItem == Properties.Settings.Default.COM4.ToString())
             {
                 try
                 {
@@ -266,6 +251,25 @@ namespace Stepper
                 myPortName = selectedItem;
             }
             else if (selectedItem == Properties.Settings.Default.COM5.ToString())
+            {
+                try
+                {
+                    myPortName = selectedItem;
+                    cmbComPort.Text = selectedItem;
+                    sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
+                    if (sp.IsOpen == false)
+                    {
+                        sp.Open();
+                        _logger.LogInformation(message: $"Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
+                    }
+                }
+                catch (IOException ioex)
+                {
+                    _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
+                    MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (selectedItem == Properties.Settings.Default.COM6.ToString())
             {
                 try
                 {
@@ -322,7 +326,7 @@ namespace Stepper
                     {
                         stepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
                     }
-                    decimal MotorMovementSeconds = stepperMove / 4;
+                    decimal MotorMovementSeconds = (stepperMove / 4) / 2;
                     _logger.LogInformation(message: $"X Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"X Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
@@ -379,7 +383,7 @@ namespace Stepper
                     {
                         stepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text.Trim());
                     }
-                    decimal MotorMovementSeconds = stepperMove / 4;
+                    decimal MotorMovementSeconds = (stepperMove / 4) / 2;
                     _logger.LogInformation(message: $"Y Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"Y Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
@@ -436,8 +440,8 @@ namespace Stepper
                     {
                         stepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text.Trim());
                     }
-                    decimal MotorMovementSeconds = stepperMove / 4;
-                    _logger.LogInformation(message: $"Z Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
+                    decimal MotorMovementSeconds = (stepperMove / 4) / 2;
+                    _logger.LogInformation(message: $"Z Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2 = {MotorMovementSeconds}");
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"Z Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     sp.Write(stringValue);
@@ -503,7 +507,7 @@ namespace Stepper
                     {
                         stepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text.Trim());
                     }
-                    decimal MotorMovementSeconds = stepperMove / 4;
+                    decimal MotorMovementSeconds = (stepperMove / 4) / 2;
                     _logger.LogInformation(message: $"XY Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"XY Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
@@ -535,7 +539,7 @@ namespace Stepper
                     {
                         stepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
                     }
-                    decimal MotorMovementSeconds = stepperMove / 4;
+                    decimal MotorMovementSeconds = (stepperMove / 4) / 2;
                     _logger.LogInformation(message: $"XY Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"XY Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
@@ -583,7 +587,7 @@ namespace Stepper
                             stepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text.Trim());
                         }
                     }
-                    decimal MotorMovementSeconds = stepperMove / 4;
+                    decimal MotorMovementSeconds = (stepperMove / 4) / 2;
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"XY Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
@@ -622,7 +626,7 @@ namespace Stepper
                     sp.Close();
                     _logger.LogInformation(message: $"Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
                 }
-                selectedItem = cmbComPort.Items.CurrentItem.ToString();
+                selectedItem = cmbComPort.SelectedItem.ToString();
                 myPortName = selectedItem;
                 cmbComPort.Text = selectedItem;
                 sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
@@ -660,7 +664,7 @@ namespace Stepper
                     sp.Close();
                     _logger.LogInformation(message: $"Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
                 }
-                selectedItem = cmbComPort.Items.CurrentItem.ToString();
+                selectedItem = cmbComPort.SelectedItem.ToString();
                 myPortName = selectedItem;
                 cmbComPort.Text = selectedItem;
                 sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
@@ -698,7 +702,7 @@ namespace Stepper
                     sp.Close();
                     _logger.LogInformation(message: $"Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
                 }
-                selectedItem = cmbComPort.Items.CurrentItem.ToString();
+                selectedItem = cmbComPort.SelectedItem.ToString();
                 myPortName = selectedItem;
                 cmbComPort.Text = selectedItem;
                 sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
@@ -741,7 +745,7 @@ namespace Stepper
                     sp.Close();
                     _logger.LogInformation(message: $"Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
                 }
-                selectedItem = cmbComPort.Items.CurrentItem.ToString();
+                selectedItem = cmbComPort.SelectedItem.ToString(); 
                 myPortName = selectedItem;
                 cmbComPort.Text = selectedItem;
                 sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
