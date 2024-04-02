@@ -1,8 +1,8 @@
-4/2/2024 08:38:57 [Information] Stepper Motor Controller Application Started.
-4/2/2024 08:38:57 [Information] Version:2.0.0.15566 (4/2/2024 08:38:57)
-4/2/2024 08:38:57 [Information] Available COM ports: COM4
-4/2/2024 08:38:57 [Information] Opened Serial Port at: COM4, 9600
-4/2/2024 08:38:57 [Information] MainWindow loaded
-4/2/2024 08:38:57 [Information] Set MainWindow Media Brushes to White.
-4/2/2024 08:39:03 [Information] MainWindow Closing
-4/2/2024 08:39:03 [Information] Closed Serial Port at: COM4, 9600
+4/2/2024 08:55:14 [Information] Stepper Motor Controller Application Started.
+4/2/2024 08:55:14 [Information] Version:2.0.0.15566 (4/2/2024 08:55:14)
+4/2/2024 08:55:14 [Information] Available COM ports: COM4
+4/2/2024 08:55:14 [Information] Opened Serial Port at: COM4, 9600
+4/2/2024 08:55:15 [Information] MainWindow loaded
+4/2/2024 08:55:15 [Information] Set MainWindow Media Brushes to White.
+4/2/2024 08:55:18 [Information] MainWindow Closing
+4/2/2024 08:55:18 [Information] Closed Serial Port at: COM4, 9600

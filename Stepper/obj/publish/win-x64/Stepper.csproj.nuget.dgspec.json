@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sfcsarge\\source\\repos\\SFC-Sarge1\\Stepper\\Stepper\\Stepper.csproj": {}
+    "C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sfcsarge\\source\\repos\\SFC-Sarge1\\Stepper\\Stepper\\Stepper.csproj": {
+    "C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sfcsarge\\source\\repos\\SFC-Sarge1\\Stepper\\Stepper\\Stepper.csproj",
+        "projectUniqueName": "C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj",
         "projectName": "Stepper",
-        "projectPath": "C:\\Users\\sfcsarge\\source\\repos\\SFC-Sarge1\\Stepper\\Stepper\\Stepper.csproj",
+        "projectPath": "C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj",
         "packagesPath": "C:\\Users\\sfcsarge\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sfcsarge\\source\\repos\\SFC-Sarge1\\Stepper\\Stepper\\obj\\publish\\win-x64\\",
+        "outputPath": "C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\obj\\publish\\win-x64\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -74,12 +74,6 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.3, )",
-              "autoReferenced": true
-            },
             "System.IO.Ports": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -104,24 +98,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[8.0.3, 8.0.3]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
-              "version": "[8.0.3, 8.0.3]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[8.0.3, 8.0.3]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[8.0.3, 8.0.3]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
