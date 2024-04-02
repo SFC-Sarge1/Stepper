@@ -229,6 +229,11 @@ namespace Stepper
                 _logger.LogInformation(message: $"An error occurred: {ex.Message}");
                 //MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            if (cmbComPort.SelectedItem == null)
+            {
+                MessageBox.Show("No COM ports available!\nPlease connect Arduino Uno Device using USB cable and try again!", "Stepper Motor Control Board Missing on COM Port!", MessageBoxButton.OK, MessageBoxImage.Error);
+                Environment.Exit(0);
+            }
             selectedItem = cmbComPort.SelectedItem.ToString();
             if (selectedItem == Properties.Settings.Default.COM4.ToString())
             {

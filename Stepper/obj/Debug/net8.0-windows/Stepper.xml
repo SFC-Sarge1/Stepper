@@ -288,23 +288,26 @@
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.XZero(System.Int32)">
+        <member name="M:Stepper.MainWindow.XZero(System.Int32,System.String)">
             <summary>
             xes the zero.
             </summary>
             <param name="myDelay">The myDelay.</param>
+            <param name="axis">The axis.</param>
         </member>
-        <member name="M:Stepper.MainWindow.YZero(System.Int32)">
+        <member name="M:Stepper.MainWindow.YZero(System.Int32,System.String)">
             <summary>
             ies the zero.
             </summary>
             <param name="myDelay">The myDelay.</param>
+            <param name="axis">The axis.</param>
         </member>
-        <member name="M:Stepper.MainWindow.ZZero(System.Int32)">
+        <member name="M:Stepper.MainWindow.ZZero(System.Int32,System.String)">
             <summary>
             zs the zero.
             </summary>
             <param name="myDelay">The myDelay.</param>
+            <param name="axis">The axis.</param>
         </member>
         <member name="M:Stepper.MainWindow.XYZero(System.Int32)">
             <summary>
@@ -598,6 +601,11 @@
             <param name="MotorSpeed">The motor speed.</param>
             <param name="stepperMove">The stepper move.</param>
             <returns>System.Decimal.</returns>
+        </member>
+        <member name="M:Stepper.MainWindow.ResetSerialPort">
+            <summary>
+            Resets the serial port.
+            </summary>
         </member>
         <member name="M:Stepper.MainWindow.InitializeComponent">
             <summary>
