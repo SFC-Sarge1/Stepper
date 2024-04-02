@@ -1043,7 +1043,7 @@ namespace Stepper
                     sp.Close();
                     _logger.LogInformation(message: $"Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
                 }
-                selectedItem = cmbComPort.SelectedItem.ToString(); 
+                selectedItem = cmbComPort.SelectedItem.ToString();
                 myPortName = selectedItem;
                 cmbComPort.Text = selectedItem;
                 sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
@@ -1622,7 +1622,7 @@ namespace Stepper
                         _logger.LogInformation(message: $"Disable XY Axis controls while moving to location.");
                         break;
                 }
-                CountdownLabel.Content = $"Working Timer {elapsedTime.ToString(@"\:mm\:ss")}"; 
+                CountdownLabel.Content = $"Working Timer {elapsedTime.ToString(@"\:mm\:ss")}";
                 _logger.LogInformation(message: $"Time remaining: {elapsedTime.ToString(@"hh\:mm\:ss")} targetEndTime = {targetEndTime.ToString(@"hh\:mm\:ss")}");
             }
             if (DateTime.Now >= targetEndTime)
