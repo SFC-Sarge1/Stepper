@@ -24,11 +24,13 @@ This repository contains the code for a simple Stepper Motor Controller. The app
 1. Open the solution in Visual Studio 2022 Community Edition or higher.
 2. The application is written in C# using WPF.
 3. The application support touch screens and keyboard input.
+4. Main Window:
 !MainWindow Image
+5. Setting Windows:
 !Settings Image
-4. The Application has a Setting file to maintain settings used by the application.
-5. The Application creates new and replaces the Application log file each time it runs.
-6. Build and run the application.
+6. The Application has a Setting file to maintain settings used by the application.
+7. The Application creates new and replaces the Application log file each time it runs.
+8. Build and run the application.
 
 ## Usage
 Enter the the distance in milimeters you want each of the X,Y, and Z axis to move. Click the X, Y, or Z axis button to move to the requested milimeters.
