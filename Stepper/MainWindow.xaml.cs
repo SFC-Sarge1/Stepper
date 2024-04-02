@@ -612,6 +612,7 @@ namespace Stepper
         /// xes the zero.
         /// </summary>
         /// <param name="myDelay">The myDelay.</param>
+        /// <param name="axis">The axis.</param>
         public async void XZero(int myDelay, string axis)
         {
             _logger.LogInformation(message: $"Setting {axis} Axis Current Location Set to Zero on DRO");
@@ -629,6 +630,7 @@ namespace Stepper
         /// ies the zero.
         /// </summary>
         /// <param name="myDelay">The myDelay.</param>
+        /// <param name="axis">The axis.</param>
         public async void YZero(int myDelay, string axis)
         {
             _logger.LogInformation(message: $"Setting {axis} Axis Current Location Set to Zero on DRO");
@@ -646,6 +648,7 @@ namespace Stepper
         /// zs the zero.
         /// </summary>
         /// <param name="myDelay">The myDelay.</param>
+        /// <param name="axis">The axis.</param>
         public async void ZZero(int myDelay, string axis)
         {
             _logger.LogInformation(message: $"Setting {axis} Axis Current Location Set to Zero on DRO");
@@ -1492,6 +1495,9 @@ namespace Stepper
             }
             return MotorMovementSeconds;
         }
+        /// <summary>
+        /// Resets the serial port.
+        /// </summary>
         private void ResetSerialPort()
         {
             try
