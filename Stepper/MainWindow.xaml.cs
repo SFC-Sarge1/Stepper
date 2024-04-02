@@ -194,20 +194,33 @@ namespace Stepper
                 string[] ports = SerialPort.GetPortNames();
                 foreach (string portName in ports)
                 {
-                    cmbComPort.Items.Add(portName);
-                    _logger.LogInformation(message: $"Available COM ports: {portName}");
-               }
-               cmbComPort.SelectedIndex = 0;
+                    try
+                    {
+                        cmbComPort.Items.Add(portName);
+                        _logger.LogInformation(message: $"Available COM ports: {portName}");
+                    }
+                    catch (IOException ioex)
+                    {
+                        _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
+                        //MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogInformation(message: $"An error occurred: {ex.Message}");
+                        //MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                cmbComPort.SelectedIndex = 0;
             }
             catch (IOException ioex)
             {
                 _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                //MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (Exception ex)
             {
                 _logger.LogInformation(message: $"An error occurred: {ex.Message}");
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                //MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             selectedItem = cmbComPort.SelectedItem.ToString();
             if (selectedItem == Properties.Settings.Default.COM1.ToString())
