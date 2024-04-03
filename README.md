@@ -25,7 +25,7 @@ This repository contains the code for a simple Stepper Motor Controller. The app
 2. The application is written in C# using WPF.
 3. The application support touch screens and keyboard input.
 4. Main Window:
-!MainWindow Stepper
+![MainWindow](https://github.com/SFC-Sarge1/Stepper/blob/master/MainWndow.jpg)
 5. Setting Windows:
 !Settings Stepper
 6. The Application has a Setting file to maintain settings used by the application.
