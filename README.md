@@ -27,7 +27,7 @@ This repository contains the code for a simple Stepper Motor Controller. The app
 4. Main Window:
 ![MainWindow](https://github.com/SFC-Sarge1/Stepper/blob/master/MainWndow.jpg)
 5. Setting Windows:
-!Settings Stepper
+![Settings](https://github.com/SFC-Sarge1/Stepper/blob/master/Settings.jpg)
 6. The Application has a Setting file to maintain settings used by the application.
 7. The Application creates new and replaces the Application log file each time it runs.
 8. Build and run the application.
