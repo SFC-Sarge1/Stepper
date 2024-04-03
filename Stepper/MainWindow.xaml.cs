@@ -161,7 +161,7 @@ namespace Stepper
                 builder.AddProvider(new FileLoggerProvider("Stepper.log")); // Log to a file named "Stepper.log"
             });
             _logger = loggerFactory.CreateLogger<MainWindow>();
-            _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} Application Started.");
+            _logger.LogInformation(message: $"Stepper Motor Controller Application Started.");
             ResizeMode = ResizeMode.NoResize;
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             DateTime buildDate = DateTime.Now;
@@ -207,12 +207,12 @@ namespace Stepper
                         }
                         catch (IOException ioex)
                         {
-                            _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} An error occurred: {ioex.Message}");
+                            _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ioex.Message}");
                             //MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                         catch (Exception ex)
                         {
-                            _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} An error occurred: {ex.Message}");
+                            _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ex.Message}");
                         }
                     }
                 }
@@ -220,15 +220,15 @@ namespace Stepper
             }
             catch (IOException ioex)
             {
-                _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} An error occurred: {ioex.Message}");
+                _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ioex.Message}");
             }
             catch (Exception ex)
             {
-                _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} An error occurred: {ex.Message}");
+                _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ex.Message}");
             }
             if (cmbComPort.SelectedItem == null)
             {
-                MessageBox.Show("No COM ports available!\nPlease connect Arduino Uno Device using USB cable and try again!", $"{Properties.Settings.Default.AppName} Board Missing on COM Port!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No COM ports available!\nPlease connect Arduino Uno Device using USB cable and try again!", $"Stepper Motor Controller Board Missing on COM Port!", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(0);
             }
             selectedItem = cmbComPort.SelectedItem.ToString();
@@ -247,8 +247,8 @@ namespace Stepper
                 }
                 catch (IOException ioex)
                 {
-                    _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} An error occurred: {ioex.Message}");
-                    MessageBox.Show($"{Properties.Settings.Default.AppName} An error occurred: {ioex.Message}", $"{Properties.Settings.Default.AppName} Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ioex.Message}");
+                    MessageBox.Show($"Stepper Motor Controller An error occurred: {ioex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 myPortName = selectedItem;
             }
@@ -267,8 +267,8 @@ namespace Stepper
                 }
                 catch (IOException ioex)
                 {
-                    _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} An error occurred: {ioex.Message}");
-                    MessageBox.Show($"{Properties.Settings.Default.AppName} An error occurred: {ioex.Message}", $"{Properties.Settings.Default.AppName} Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ioex.Message}");
+                    MessageBox.Show($"Stepper Motor Controller An error occurred: {ioex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else if (selectedItem == Properties.Settings.Default.COM6.ToString())
@@ -287,7 +287,7 @@ namespace Stepper
                 catch (IOException ioex)
                 {
                     _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                    MessageBox.Show($"An error occurred: {ioex.Message}", $"{Properties.Settings.Default.AppName} Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"An error occurred: {ioex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             Content = StepperMotorControl;
@@ -347,7 +347,7 @@ namespace Stepper
             catch (Exception ex)
             {
                 _logger.LogInformation(message: $"{axis} Axis error occurred: {ex.Message}");
-                MessageBox.Show($"{axis} Axis error occurred: {ex.Message}", $"{Properties.Settings.Default.AppName} Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"{axis} Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -405,7 +405,7 @@ namespace Stepper
             catch (Exception ex)
             {
                 _logger.LogInformation(message: $"{axis} Axis error occurred: {ex.Message}");
-                MessageBox.Show($"{axis} Axis error occurred: {ex.Message}", $"{Properties.Settings.Default.AppName} Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"{axis} Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -463,7 +463,7 @@ namespace Stepper
             catch (Exception ex)
             {
                 _logger.LogInformation(message: $"{axis} Axis error occurred: {ex.Message}");
-                MessageBox.Show($"{axis} Axis error occurred: {ex.Message}", $"{Properties.Settings.Default.AppName} Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"{axis} Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -607,7 +607,7 @@ namespace Stepper
             catch (Exception ex)
             {
                 _logger.LogInformation(message: $"{axis} Axis error occurred: {ex.Message}");
-                MessageBox.Show($"{axis} Axis error occurred: {ex.Message}", $"{Properties.Settings.Default.AppName} Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"{axis} Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -1147,7 +1147,7 @@ namespace Stepper
                 if (sp.IsOpen == true && selectedItem == Properties.Settings.Default.COM1.ToString())
                 {
                     sp.Close();
-                    _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
+                    _logger.LogInformation(message: $"Stepper Motor Controller Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
                 }
                 if (selectedItem == Properties.Settings.Default.COM1.ToString())
                 {
@@ -1160,7 +1160,7 @@ namespace Stepper
                     if (sp.IsOpen == false)
                     {
                         sp.Open();
-                        _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
+                        _logger.LogInformation(message: $"Stepper Motor Controller Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
                     }
                 }
             }
@@ -1168,7 +1168,7 @@ namespace Stepper
             {
                 _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ioex.Message}");
                 // Handle the exception
-                MessageBox.Show($"{Properties.Settings.Default.AppName} An error occurred: {ioex.Message}", $"{Properties.Settings.Default.AppName} Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Stepper Motor Controller An error occurred: {ioex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -1199,7 +1199,7 @@ namespace Stepper
         private void AppSettings_Click(object sender, RoutedEventArgs e)
         {
             StepperAppSettings newSettingsWindow = new StepperAppSettings();
-            _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} Loading Application Settings form.");
+            _logger.LogInformation(message: $"Stepper Motor Controller Loading Application Settings form.");
             // Show the new window
             newSettingsWindow.Show();
         }
@@ -1243,7 +1243,7 @@ namespace Stepper
                         YaxisChanged = true;
                         break;
                 }
-                _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} Disable {axis} Axis controls while moving to location.");
+                _logger.LogInformation(message: $"Stepper Motor Controller Disable {axis} Axis controls while moving to location.");
                 CountdownLabel.Content = $"Working Timer {elapsedTime.ToString(@"hh\:mm\:ss\.fff")}";
                 _logger.LogInformation(message: $"Time remaining: {elapsedTime.ToString(@"hh\:mm\:ss")} targetEndTime = {targetEndTime.ToString(@"hh\:mm\:ss")}");
             }
@@ -1322,13 +1322,13 @@ namespace Stepper
                         Properties.Settings.Default.Save();
                         break;
                 }
-                _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} Enable {axis} Axis controls after moving to location.");
+                _logger.LogInformation(message: $"Stepper Motor Controller Enable {axis} Axis controls after moving to location.");
                 stopwatch.Stop(); // Stop the timer when the countdown reaches
-                _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} Stopwatch Stopped.");
+                _logger.LogInformation(message: $"Stepper Motor Controller Stopwatch Stopped.");
                 timer.Stop();
-                _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} Timer Stopped.");
+                _logger.LogInformation(message: $"Stepper Motor Controller Timer Stopped.");
                 stopwatch.Reset();
-                _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} Stopwatch Reset.");
+                _logger.LogInformation(message: $"Stepper Motor Controller Stopwatch Reset.");
             }
         }
         /// <summary>
@@ -1338,7 +1338,7 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} MainWindow loaded");
+            _logger.LogInformation(message: $"Stepper Motor Controller MainWindow loaded");
             txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
             txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtXaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
@@ -1360,18 +1360,18 @@ namespace Stepper
         {
             try
             {
-                _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} MainWindow Closing");
+                _logger.LogInformation(message: $"Stepper Motor Controller MainWindow Closing");
                 Properties.Settings.Default.Save();
                 if (sp.IsOpen == true)
                 {
                     sp.Close();
-                    _logger.LogInformation(message: $"{Properties.Settings.Default.AppName}: Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
+                    _logger.LogInformation(message: $"Stepper Motor Controller: Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
                 }
             }
             catch (IOException ioex)
             {
-                _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} error occurred: {ioex.Message}");
-                MessageBox.Show($"{Properties.Settings.Default.AppName} An error occurred: {ioex.Message}", $"{Properties.Settings.Default.AppName} Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                _logger.LogInformation(message: $"Stepper Motor Controller error occurred: {ioex.Message}");
+                MessageBox.Show($"Stepper Motor Controller An error occurred: {ioex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
          
@@ -1507,7 +1507,7 @@ namespace Stepper
                 if (sp.IsOpen == true)
                 {
                     sp.Close();
-                    _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
+                    _logger.LogInformation(message: $"Stepper Motor Controller Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
                 }
                 selectedItem = cmbComPort.SelectedItem.ToString();
                 myPortName = selectedItem;
@@ -1516,13 +1516,13 @@ namespace Stepper
                 if (sp.IsOpen == false)
                 {
                     sp.Open();
-                    _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
+                    _logger.LogInformation(message: $"Stepper Motor Controller Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
                 }
             }
             catch (IOException ioex)
             {
-                _logger.LogInformation(message: $"{Properties.Settings.Default.AppName} Reset Serial Port error occurred: {ioex.Message}");
-                MessageBox.Show($"An error occurred: {ioex.Message}", $"{Properties.Settings.Default.AppName} Reset Serial Port Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                _logger.LogInformation(message: $"Stepper Motor Controller Reset Serial Port error occurred: {ioex.Message}");
+                MessageBox.Show($"An error occurred: {ioex.Message}", $"Stepper Motor Controller Reset Serial Port Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

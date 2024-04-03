@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jZ8/2F6tQY4ua2OCeCIsOPNi+1dnHeCU05qA3/wW6Hp/Vwiti1VyVdi/pSKH1gyqw6rJX1gZ3V68ignSb66/FA==",
+  "dgSpecHash": "5Zo+bn8gj3eSCgbyJ+wNU1VIf+3wpnqQ5qsKReE10zdNV6UcmcnPkFw85PL6/u759Zt14/iUfecAscGGurhaMQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj",
   "expectedPackageFiles": [
@@ -25,6 +25,7 @@
     "C:\\Users\\sfcsarge\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
     "C:\\Users\\sfcsarge\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\8.0.0\\microsoft.extensions.options.configurationextensions.8.0.0.nupkg.sha512",
     "C:\\Users\\sfcsarge\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\sfcsarge\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.3\\microsoft.net.illink.tasks.8.0.3.nupkg.sha512",
     "C:\\Users\\sfcsarge\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
     "C:\\Users\\sfcsarge\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
     "C:\\Users\\sfcsarge\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
@@ -37,7 +38,11 @@
     "C:\\Users\\sfcsarge\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
     "C:\\Users\\sfcsarge\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
     "C:\\Users\\sfcsarge\\.nuget\\packages\\utilitydelta.gpio\\4.3.0\\utilitydelta.gpio.4.3.0.nupkg.sha512",
-    "C:\\Users\\sfcsarge\\.nuget\\packages\\utilitydelta.stepper\\2.2.0\\utilitydelta.stepper.2.2.0.nupkg.sha512"
+    "C:\\Users\\sfcsarge\\.nuget\\packages\\utilitydelta.stepper\\2.2.0\\utilitydelta.stepper.2.2.0.nupkg.sha512",
+    "C:\\Users\\sfcsarge\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.3\\microsoft.netcore.app.runtime.win-x64.8.0.3.nupkg.sha512",
+    "C:\\Users\\sfcsarge\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.3\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.3.nupkg.sha512",
+    "C:\\Users\\sfcsarge\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.3\\microsoft.aspnetcore.app.runtime.win-x64.8.0.3.nupkg.sha512",
+    "C:\\Users\\sfcsarge\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\8.0.3\\microsoft.netcore.app.crossgen2.win-x64.8.0.3.nupkg.sha512"
   ],
   "logs": []
 }

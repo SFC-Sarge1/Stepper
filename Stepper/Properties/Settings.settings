@@ -107,8 +107,5 @@
     <Setting Name="COM6" Type="System.String" Scope="User">
       <Value Profile="(Default)">COM6</Value>
     </Setting>
-    <Setting Name="AppName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Stepper Motor Controller</Value>
-    </Setting>
   </Settings>
 </SettingsFile>
