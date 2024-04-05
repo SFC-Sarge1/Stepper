@@ -26,6 +26,7 @@ namespace Stepper
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Primitives;
     using System.Diagnostics;
+    using System.Xml.Linq;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -163,10 +164,48 @@ namespace Stepper
             _logger = loggerFactory.CreateLogger<MainWindow>();
             _logger.LogInformation(message: $"Stepper Motor Controller Application Started.");
             ResizeMode = ResizeMode.NoResize;
-            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            int major = Assembly.GetExecutingAssembly().GetName().Version.Major;
+            int minor = Assembly.GetExecutingAssembly().GetName().Version.Minor;
+            int build = Assembly.GetExecutingAssembly().GetName().Version.Build;
+            int tempRevision = Assembly.GetExecutingAssembly().GetName().Version.Revision;
+            int revision = tempRevision;
+            if (revision > 10)
+            {
+                revision = 0;
+                build++;
+            }
+            if (build > 10)
+            {
+                build = 0;
+                minor++;
+            }
+            if (minor > 10)
+            {
+                minor = 0;
+                major++;
+            }
+            else
+            {
+                revision = tempRevision + 1;
+            }
+            Version version = new(major, minor, build, revision);
             DateTime buildDate = DateTime.Now;
-            string displayableVersion = $"{version} ({buildDate})";
+            string displayableVersion = $"{major}.{minor}.{build}.{revision} ({buildDate})";
             VersionTxt.Text = "Version: " + displayableVersion;
+            XDocument doc = XDocument.Load("C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj");
+            // Find the Version element and change its value
+            var versionElement = doc.Descendants("AssemblyVersion").FirstOrDefault();
+            if (versionElement != null)
+            {
+                versionElement.Value = $"{major}.{minor}.{build}.{revision}";
+            }
+            var versionElement1 = doc.Descendants("FileVersion").FirstOrDefault();
+            if (versionElement1 != null)
+            {
+                versionElement1.Value = $"{major}.{minor}.{build}.{revision}";
+            }
+            // Save the modified XML file
+            doc.Save("C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj");
             Properties.Settings.Default.BuildVersion = "Version: " + displayableVersion;
             _logger.LogInformation(message: "Version:" + displayableVersion);
             timer = new DispatcherTimer
