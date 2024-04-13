@@ -95,7 +95,7 @@ namespace Stepper {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Stepper;V2.0.7.18;component/stepperappsettings.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Stepper;V2.1.3.25;component/stepperappsettings.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\StepperAppSettings.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -151,15 +151,28 @@ namespace Stepper
         public MainWindow()
         {
             InitializeComponent();
-            if (File.Exists("Stepper.log"))
+            string LogFileName = "Stepper.log";
+            string FileLogPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), LogFileName);
+            string FileLogPathBackup = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), $"{LogFileName}.old");
+            if (File.Exists(FileLogPath))
             {
-                File.Delete("Stepper.log");
+                if (File.Exists(FileLogPathBackup))
+                {
+                    File.Delete(FileLogPathBackup);
+                    File.Move(FileLogPath, FileLogPathBackup);
+                    File.Delete(FileLogPath);
+                }
+                else
+                {
+                    File.Move(FileLogPath, FileLogPathBackup);
+                    File.Delete(FileLogPath);
+                }
             }
             // Create an instance of ILoggerFactory (usually done during application startup)
             loggerFactory = LoggerFactory.Create(builder =>
             {
                 builder.AddConsole();
-                builder.AddProvider(new FileLoggerProvider("Stepper.log")); // Log to a file named "Stepper.log"
+                builder.AddProvider(new FileLoggerProvider(FileLogPath)); // Log to a file named "Stepper.log"
             });
             _logger = loggerFactory.CreateLogger<MainWindow>();
             _logger.LogInformation(message: $"Stepper Motor Controller Application Started.");

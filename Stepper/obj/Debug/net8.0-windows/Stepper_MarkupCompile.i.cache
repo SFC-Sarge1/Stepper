@@ -1,5 +1,5 @@
 ﻿Stepper
-2.0.7.18
+2.1.3.25
 
 winexe
 C#
@@ -16,5 +16,5 @@ C:\Users\sfcsarge\source\repos\Stepper\Stepper\App.xaml
 223346713449
 Keypad.xaml;MainWindow.xaml;StepperAppSettings.xaml;
 
-False
+True
 

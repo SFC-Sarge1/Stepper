@@ -100,7 +100,7 @@
                 <ComboBox Padding="7,1" x:Name="cmbComPort" TouchUp="cmbComPort_TouchUp" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" SelectionChanged="cmbComPort_SelectionChanged" Height="26"/>
 
                 <TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="BaudRate: " Width="62"/>
-                <TextBox Padding="7,1" x:Name="txtBaudRate" TouchUp="txtBaudRate_TouchUp" TextChanged="txtBaudRate_TextChanged" PreviewMouseUp="txtBaudRate_PreviewMouseUp" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" TextAlignment="Right" Height="26"/>
+                <TextBox Padding="7,1" x:Name="txtBaudRate" TouchUp="txtBaudRate_TouchUp" TextChanged="txtBaudRate_TextChanged" PreviewMouseUp="txtBaudRate_PreviewMouseUp" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" TextWrapping="Wrap" VerticalAlignment="Center" Width="60" TextAlignment="Right" Height="26"/>
 
                 <Label Padding="7,1" Name="CountdownLabel" Width="367" FontSize="22" Content="Working Timer: " HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </StackPanel>
