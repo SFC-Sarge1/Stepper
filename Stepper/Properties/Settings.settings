@@ -107,5 +107,8 @@
     <Setting Name="COM6" Type="System.String" Scope="User">
       <Value Profile="(Default)">COM6</Value>
     </Setting>
+    <Setting Name="ProjectFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

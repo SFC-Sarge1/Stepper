@@ -442,5 +442,17 @@ namespace Stepper.Properties {
                 this["COM6"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Users\\\\sfcsarge\\\\source\\\\repos\\\\Stepper\\\\Stepper\\\\Stepper.csproj")]
+        public string ProjectFilePath {
+            get {
+                return ((string)(this["ProjectFilePath"]));
+            }
+            set {
+                this["ProjectFilePath"] = value;
+            }
+        }
     }
 }
