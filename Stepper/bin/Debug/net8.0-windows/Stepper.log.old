@@ -1,8 +1,9 @@
-4/13/2024 19:31:49 [Information] Stepper Motor Controller Application Started.
-4/13/2024 19:31:49 [Information] Version:2.1.2.24 (4/13/2024 19:31:49)
-4/13/2024 19:31:49 [Information] Available COM ports: COM5
-4/13/2024 19:31:49 [Information] Opened Serial Port at: COM5, 9600
-4/13/2024 19:31:49 [Information] Stepper Motor Controller MainWindow loaded
-4/13/2024 19:31:49 [Information] Set MainWindow Media Brushes to White.
-4/13/2024 19:32:35 [Information] Stepper Motor Controller MainWindow Closing
-4/13/2024 19:32:35 [Information] Stepper Motor Controller: Closed Serial Port at: COM5, 9600
+4/13/2024 20:20:14 [Information] Stepper Motor Controller Application Started.
+4/13/2024 20:20:14 [Information] Version:2.1.10.32 (4/13/2024 20:20:14)
+4/13/2024 20:20:14 [Information] Available COM ports: COM5
+4/13/2024 20:20:14 [Information] Opened Serial Port at: COM5, 9600
+4/13/2024 20:20:15 [Information] Stepper Motor Controller MainWindow loaded
+4/13/2024 20:20:15 [Information] Set MainWindow Media Brushes to White.
+4/13/2024 20:20:22 [Information] X Axis mouse controlled Keypad returned: 48.00
+4/13/2024 20:20:28 [Information] Y Axis mouse controlled Keypad returned: 48.00
+4/13/2024 20:20:29 [Information] XYAxisRun_Click button clicked:

@@ -59,7 +59,7 @@ namespace Stepper {
             
             #line default
             #line hidden
-            System.Uri resourceLocater = new System.Uri("/Stepper;V2.1.3.25;component/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Stepper;V2.2.0.33;component/app.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

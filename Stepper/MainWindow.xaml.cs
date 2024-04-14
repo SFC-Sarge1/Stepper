@@ -611,7 +611,7 @@ namespace Stepper
                 {
                     zeroXaxis = 0;
                     zeroYaxis = 0;
-                    stringValue = $"{axis},{(Convert.ToDecimal(txtXaxisStepperCurrent) + Convert.ToDecimal(txtXaxisStepperMove.Text))},{txtXaxisMotorSpeed.Text},{zeroXaxis},{(Convert.ToDecimal(txtYaxisStepperCurrent) + Convert.ToDecimal(txtYaxisStepperMove.Text))},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
+                    stringValue = $"{axis},{(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text))},{zeroXaxis},{(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text))},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
                     sp.Write(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
@@ -1270,26 +1270,76 @@ namespace Stepper
                 {
                     case "X":
                         txtXaxisStepperMove.IsEnabled = false;
+                        txtYaxisStepperMove.IsEnabled = false;
+                        txtZaxisStepperMove.IsEnabled = false;
+                        ckbXaxisResetToZero.IsEnabled = false;
+                        ckbYaxisResetToZero.IsEnabled = false;
+                        ckbZaxisResetToZero.IsEnabled = false;
+                        txtXaxisStepperCurrent.IsEnabled = false;
+                        txtYaxisStepperCurrent.IsEnabled = false;
+                        txtZaxisStepperCurrent.IsEnabled = false;
+                        txtXaxisMotorSpeed.IsEnabled = false; 
+                        txtYaxisMotorSpeed.IsEnabled = false;
+                        txtZaxisMotorSpeed.IsEnabled = false;
                         btnRunXAxis.IsEnabled = false;
+                        btnRunYAxis.IsEnabled = false;
+                        btnRunZAxis.IsEnabled = false;
                         btnRunXYAxis.IsEnabled = false;
                         XaxisChanged = true;
                         break;
                     case "Y":
+                        txtXaxisStepperMove.IsEnabled = false;
                         txtYaxisStepperMove.IsEnabled = false;
+                        txtZaxisStepperMove.IsEnabled = false;
+                        ckbXaxisResetToZero.IsEnabled = false;
+                        ckbYaxisResetToZero.IsEnabled = false;
+                        ckbZaxisResetToZero.IsEnabled = false;
+                        txtXaxisStepperCurrent.IsEnabled = false;
+                        txtYaxisStepperCurrent.IsEnabled = false;
+                        txtZaxisStepperCurrent.IsEnabled = false;
+                        txtXaxisMotorSpeed.IsEnabled = false;
+                        txtYaxisMotorSpeed.IsEnabled = false;
+                        txtZaxisMotorSpeed.IsEnabled = false;
+                        btnRunXAxis.IsEnabled = false;
                         btnRunYAxis.IsEnabled = false;
+                        btnRunZAxis.IsEnabled = false;
                         btnRunXYAxis.IsEnabled = false;
                         YaxisChanged = true;
                         break;
                     case "Z":
-                        txtZaxisStepperMove.IsEnabled = false;
+                        txtXaxisStepperMove.IsEnabled = false;
+                        txtYaxisStepperMove.IsEnabled = false;
+                        txtXaxisStepperCurrent.IsEnabled = false;
+                        txtYaxisStepperCurrent.IsEnabled = false;
+                        txtZaxisStepperCurrent.IsEnabled = false;
+                        txtXaxisMotorSpeed.IsEnabled = false;
+                        txtYaxisMotorSpeed.IsEnabled = false;
+                        txtZaxisMotorSpeed.IsEnabled = false;
+                        ckbXaxisResetToZero.IsEnabled = false;
+                        ckbYaxisResetToZero.IsEnabled = false;
+                        ckbZaxisResetToZero.IsEnabled = false;
+                        btnRunXAxis.IsEnabled = false;
+                        btnRunYAxis.IsEnabled = false;
                         btnRunZAxis.IsEnabled = false;
+                        btnRunXYAxis.IsEnabled = false;
                         ZaxisChanged = true;
                         break;
                     case "XY":
                         txtXaxisStepperMove.IsEnabled = false;
-                        btnRunXAxis.IsEnabled = false;
                         txtYaxisStepperMove.IsEnabled = false;
+                        txtZaxisStepperMove.IsEnabled = false;
+                        ckbXaxisResetToZero.IsEnabled = false;
+                        ckbYaxisResetToZero.IsEnabled = false;
+                        ckbZaxisResetToZero.IsEnabled = false;
+                        txtXaxisStepperCurrent.IsEnabled = false;
+                        txtYaxisStepperCurrent.IsEnabled = false;
+                        txtZaxisStepperCurrent.IsEnabled = false;
+                        txtXaxisMotorSpeed.IsEnabled = false;
+                        txtYaxisMotorSpeed.IsEnabled = false;
+                        txtZaxisMotorSpeed.IsEnabled = false;
+                        btnRunXAxis.IsEnabled = false;
                         btnRunYAxis.IsEnabled = false;
+                        btnRunZAxis.IsEnabled = false;
                         btnRunXYAxis.IsEnabled = false;
                         XaxisChanged = true;
                         YaxisChanged = true;
@@ -1306,7 +1356,20 @@ namespace Stepper
                 {
                     case "X":
                         txtXaxisStepperMove.IsEnabled = true;
+                        txtYaxisStepperMove.IsEnabled = true;
+                        txtZaxisStepperMove.IsEnabled = true;
+                        ckbXaxisResetToZero.IsEnabled = true;
+                        ckbYaxisResetToZero.IsEnabled = true;
+                        ckbZaxisResetToZero.IsEnabled = true;
+                        txtXaxisStepperCurrent.IsEnabled = true;
+                        txtYaxisStepperCurrent.IsEnabled = true;
+                        txtZaxisStepperCurrent.IsEnabled = true;
+                        txtXaxisMotorSpeed.IsEnabled = true;
+                        txtYaxisMotorSpeed.IsEnabled = true;
+                        txtZaxisMotorSpeed.IsEnabled = true;
                         btnRunXAxis.IsEnabled = true;
+                        btnRunYAxis.IsEnabled = true;
+                        btnRunZAxis.IsEnabled = true;
                         btnRunXYAxis.IsEnabled = true;
                         currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                         txtXaxisStepperCurrent.Text = currentXAxis;
@@ -1320,8 +1383,21 @@ namespace Stepper
                         Properties.Settings.Default.Save();
                         break;
                     case "Y":
+                        txtXaxisStepperMove.IsEnabled = true;
                         txtYaxisStepperMove.IsEnabled = true;
+                        txtZaxisStepperMove.IsEnabled = true;
+                        ckbXaxisResetToZero.IsEnabled = true;
+                        ckbYaxisResetToZero.IsEnabled = true;
+                        ckbZaxisResetToZero.IsEnabled = true;
+                        txtXaxisStepperCurrent.IsEnabled = true;
+                        txtYaxisStepperCurrent.IsEnabled = true;
+                        txtZaxisStepperCurrent.IsEnabled = true;
+                        txtXaxisMotorSpeed.IsEnabled = true;
+                        txtYaxisMotorSpeed.IsEnabled = true;
+                        txtZaxisMotorSpeed.IsEnabled = true;
+                        btnRunXAxis.IsEnabled = true;
                         btnRunYAxis.IsEnabled = true;
+                        btnRunZAxis.IsEnabled = true;
                         btnRunXYAxis.IsEnabled = true;
                         currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
                         txtYaxisStepperCurrent.Text = currentYAxis;
@@ -1335,8 +1411,22 @@ namespace Stepper
                         Properties.Settings.Default.Save();
                         break;
                     case "Z":
+                        txtXaxisStepperMove.IsEnabled = true;
+                        txtYaxisStepperMove.IsEnabled = true;
                         txtZaxisStepperMove.IsEnabled = true;
+                        ckbXaxisResetToZero.IsEnabled = true;
+                        ckbYaxisResetToZero.IsEnabled = true;
+                        ckbZaxisResetToZero.IsEnabled = true;
+                        txtXaxisStepperCurrent.IsEnabled = true;
+                        txtYaxisStepperCurrent.IsEnabled = true;
+                        txtZaxisStepperCurrent.IsEnabled = true;
+                        txtXaxisMotorSpeed.IsEnabled = true;
+                        txtYaxisMotorSpeed.IsEnabled = true;
+                        txtZaxisMotorSpeed.IsEnabled = true;
+                        btnRunXAxis.IsEnabled = true;
+                        btnRunYAxis.IsEnabled = true;
                         btnRunZAxis.IsEnabled = true;
+                        btnRunXYAxis.IsEnabled = true;
                         currentZAxis = Convert.ToString(Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text));
                         txtZaxisStepperCurrent.Text = currentZAxis;
                         ZaxisChanged = false;
@@ -1350,9 +1440,20 @@ namespace Stepper
                         break;
                     case "XY":
                         txtXaxisStepperMove.IsEnabled = true;
-                        btnRunXAxis.IsEnabled = true;
                         txtYaxisStepperMove.IsEnabled = true;
+                        txtZaxisStepperMove.IsEnabled = true;
+                        ckbXaxisResetToZero.IsEnabled = true;
+                        ckbYaxisResetToZero.IsEnabled = true;
+                        ckbZaxisResetToZero.IsEnabled = true;
+                        txtXaxisStepperCurrent.IsEnabled = true;
+                        txtYaxisStepperCurrent.IsEnabled = true;
+                        txtZaxisStepperCurrent.IsEnabled = true;
+                        txtXaxisMotorSpeed.IsEnabled = true;
+                        txtYaxisMotorSpeed.IsEnabled = true;
+                        txtZaxisMotorSpeed.IsEnabled = true;
+                        btnRunXAxis.IsEnabled = true;
                         btnRunYAxis.IsEnabled = true;
+                        btnRunZAxis.IsEnabled = true;
                         btnRunXYAxis.IsEnabled = true;
                         currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                         txtXaxisStepperCurrent.Text = currentXAxis;
