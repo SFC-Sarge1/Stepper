@@ -25,18 +25,6 @@ namespace Stepper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("9600")]
-        public int BaudRate {
-            get {
-                return ((int)(this["BaudRate"]));
-            }
-            set {
-                this["BaudRate"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool ckbXaxisResetToZeroIsChecked {
             get {
@@ -68,42 +56,6 @@ namespace Stepper.Properties {
             }
             set {
                 this["ckbZaxisResetToZeroIsChecked"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM1")]
-        public string COM1 {
-            get {
-                return ((string)(this["COM1"]));
-            }
-            set {
-                this["COM1"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM4")]
-        public string COM4 {
-            get {
-                return ((string)(this["COM4"]));
-            }
-            set {
-                this["COM4"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM5")]
-        public string COM5 {
-            get {
-                return ((string)(this["COM5"]));
-            }
-            set {
-                this["COM5"] = value;
             }
         }
         
@@ -433,18 +385,6 @@ namespace Stepper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM6")]
-        public string COM6 {
-            get {
-                return ((string)(this["COM6"]));
-            }
-            set {
-                this["COM6"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Users\\\\sfcsarge\\\\source\\\\repos\\\\Stepper\\\\Stepper\\\\Stepper.csproj")]
         public string ProjectFilePath {
             get {
@@ -452,6 +392,30 @@ namespace Stepper.Properties {
             }
             set {
                 this["ProjectFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Stepper Motor Timer:")]
+        public string CountDownText {
+            get {
+                return ((string)(this["CountDownText"]));
+            }
+            set {
+                this["CountDownText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.4.25")]
+        public string ServerIPAddress {
+            get {
+                return ((string)(this["ServerIPAddress"]));
+            }
+            set {
+                this["ServerIPAddress"] = value;
             }
         }
     }

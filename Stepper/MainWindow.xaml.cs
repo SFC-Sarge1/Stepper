@@ -15,7 +15,6 @@
 namespace Stepper
 {
     using System.Windows;
-    using System.IO.Ports;
     using System.Globalization;
     using System.Windows.Controls;
     using System.Windows.Input;
@@ -58,13 +57,9 @@ namespace Stepper
         /// </summary>
         public TimeSpan remainingTime = new();
         /// <summary>
-        /// The sp
-        /// </summary>
-        public SerialPort sp = new();
-        /// <summary>
         /// My port name
         /// </summary>
-        public string myPortName; // Serial Port Name (COM1, COM2, COM3, etc.)
+        //public string myPortName; // Serial Port Name (COM1, COM2, COM3, etc.)
         /// <summary>
         /// The zero xaxis
         /// </summary>
@@ -129,10 +124,10 @@ namespace Stepper
         /// The zaxis stepper move temporary
         /// </summary>
         public string ZaxisStepperMoveTemp = Properties.Settings.Default.Value_0_00.ToString();
-        /// <summary>
-        /// The selected item
-        /// </summary>
-        public string selectedItem;
+        ///// <summary>
+        ///// The selected item
+        ///// </summary>
+        //public string selectedItem;
         /// <summary>
         /// The stepper move
         /// </summary>
@@ -177,6 +172,7 @@ namespace Stepper
             _logger = loggerFactory.CreateLogger<MainWindow>();
             _logger.LogInformation(message: $"Stepper Motor Controller Application Started.");
             ResizeMode = ResizeMode.NoResize;
+#if DEBUG
             int major = Assembly.GetExecutingAssembly().GetName().Version.Major;
             int minor = Assembly.GetExecutingAssembly().GetName().Version.Minor;
             int build = Assembly.GetExecutingAssembly().GetName().Version.Build;
@@ -221,6 +217,7 @@ namespace Stepper
             doc.Save(Properties.Settings.Default.ProjectFilePath);
             Properties.Settings.Default.BuildVersion = "Version: " + displayableVersion;
             _logger.LogInformation(message: "Version:" + displayableVersion);
+#endif
             timer = new DispatcherTimer
             {
                 Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)) // Set the timer to tick every 1 millisecond
@@ -240,109 +237,6 @@ namespace Stepper
             ckbZaxisResetToZero.IsChecked = Properties.Settings.Default.ckbZaxisResetToZeroIsChecked;
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
-            txtBaudRate.Text = Properties.Settings.Default.BaudRate.ToString();
-            try
-            {
-                string[] ports = SerialPort.GetPortNames();
-                foreach (string portName in ports)
-                {
-                    if (portName == "COM1")
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        try
-                        {
-                            cmbComPort.Items.Add(portName);
-                            _logger.LogInformation(message: $"Available COM ports: {portName}");
-                        }
-                        catch (IOException ioex)
-                        {
-                            _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ioex.Message}");
-                            //MessageBox.Show($"An error occurred: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                        catch (Exception ex)
-                        {
-                            _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ex.Message}");
-                        }
-                    }
-                }
-                cmbComPort.SelectedIndex = 0;
-            }
-            catch (IOException ioex)
-            {
-                _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ioex.Message}");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ex.Message}");
-            }
-            if (cmbComPort.SelectedItem == null)
-            {
-                MessageBox.Show("No COM ports available!\nPlease connect Arduino Uno Device using USB cable and try again!", $"Stepper Motor Controller Board Missing on COM Port!", MessageBoxButton.OK, MessageBoxImage.Error);
-                Environment.Exit(0);
-            }
-            selectedItem = cmbComPort.SelectedItem.ToString();
-            if (selectedItem == Properties.Settings.Default.COM4.ToString())
-            {
-                try
-                {
-                    cmbComPort.Text = selectedItem;
-                    myPortName = selectedItem;
-                    sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-                    if (sp.IsOpen == false)
-                    {
-                        sp.Open();
-                        _logger.LogInformation(message: $"Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                    }
-                }
-                catch (IOException ioex)
-                {
-                    _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ioex.Message}");
-                    MessageBox.Show($"Stepper Motor Controller An error occurred: {ioex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                myPortName = selectedItem;
-            }
-            else if (selectedItem == Properties.Settings.Default.COM5.ToString())
-            {
-                try
-                {
-                    myPortName = selectedItem;
-                    cmbComPort.Text = selectedItem;
-                    sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-                    if (sp.IsOpen == false)
-                    {
-                        sp.Open();
-                        _logger.LogInformation(message: $"Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                    }
-                }
-                catch (IOException ioex)
-                {
-                    _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ioex.Message}");
-                    MessageBox.Show($"Stepper Motor Controller An error occurred: {ioex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            else if (selectedItem == Properties.Settings.Default.COM6.ToString())
-            {
-                try
-                {
-                    myPortName = selectedItem;
-                    cmbComPort.Text = selectedItem;
-                    sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-                    if (sp.IsOpen == false)
-                    {
-                        sp.Open();
-                        _logger.LogInformation(message: $"Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                    }
-                }
-                catch (IOException ioex)
-                {
-                    _logger.LogInformation(message: $"An error occurred: {ioex.Message}");
-                    MessageBox.Show($"An error occurred: {ioex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            //Content = StepperMotorControl;
         }
         /// <summary>
         /// Handles the Click event of the XAxisRun control.
@@ -362,7 +256,7 @@ namespace Stepper
                 {
                     zeroXaxis = 1;
                     stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{txtYaxisStepperMove.Text},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    sp.Write(stringValue1);
+                    SendDataToLattepanda.SendData(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroXaxis = 0;
@@ -385,7 +279,7 @@ namespace Stepper
                     MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    sp.Write(stringValue);
+                    SendDataToLattepanda.SendData(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
@@ -420,7 +314,7 @@ namespace Stepper
                 {
                     zeroYaxis = 1;
                     stringValue1 = $"{axis},{txtXaxisStepperMove.Text},{txtXaxisMotorSpeed.Text},{zeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    sp.Write(stringValue1);
+                    SendDataToLattepanda.SendData(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroYaxis = 0;
@@ -443,7 +337,7 @@ namespace Stepper
                     MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    sp.Write(stringValue);
+                    SendDataToLattepanda.SendData(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
@@ -478,7 +372,7 @@ namespace Stepper
                 {
                     zeroZaxis = 1;
                     stringValue1 = $"{axis},{txtXaxisStepperMove.Text},{txtXaxisMotorSpeed.Text},{zeroXaxis},{txtYaxisStepperMove.Text},{txtYaxisMotorSpeed.Text},{zeroYaxis},{Properties.Settings.Default.Value_0_00},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    sp.Write(stringValue1);
+                    SendDataToLattepanda.SendData(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroZaxis = 0;
@@ -501,7 +395,7 @@ namespace Stepper
                     MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    sp.Write(stringValue);
+                    SendDataToLattepanda.SendData(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
@@ -536,7 +430,7 @@ namespace Stepper
                     zeroXaxis = 1;
                     zeroYaxis = 1;
                     stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    sp.Write(stringValue1);
+                    SendDataToLattepanda.SendData(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroXaxis = 0;
@@ -548,7 +442,7 @@ namespace Stepper
                     zeroXaxis = 1;
                     zeroYaxis = 0;
                     stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{(Convert.ToDecimal(txtYaxisStepperCurrent) + Convert.ToDecimal(txtYaxisStepperMove.Text))},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    sp.Write(stringValue1);
+                    SendDataToLattepanda.SendData(stringValue1);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset X Axis to zero: {stringValue1}");
                     stringValue1 = "";
@@ -580,7 +474,7 @@ namespace Stepper
                     zeroXaxis = 0;
                     zeroYaxis = 1;
                     stringValue1 = $"{axis},{(Convert.ToDecimal(txtXaxisStepperCurrent) + Convert.ToDecimal(txtXaxisStepperMove.Text))},{txtXaxisMotorSpeed.Text},{zeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    sp.Write(stringValue1);
+                    SendDataToLattepanda.SendData(stringValue1);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Y Axis to zero: {stringValue1}");
                     stringValue1 = "";
@@ -612,7 +506,7 @@ namespace Stepper
                     zeroXaxis = 0;
                     zeroYaxis = 0;
                     stringValue = $"{axis},{(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text))},{zeroXaxis},{(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text))},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    sp.Write(stringValue);
+                    SendDataToLattepanda.SendData(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
@@ -678,7 +572,7 @@ namespace Stepper
             Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
             Properties.Settings.Default.Save();
             _logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
-            ResetSerialPort();        
+            //ResetSerialPort();        
         }
         /// <summary>
         /// ies the zero.
@@ -696,7 +590,6 @@ namespace Stepper
             Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
             _logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
-            ResetSerialPort();
         }
         /// <summary>
         /// zs the zero.
@@ -714,7 +607,6 @@ namespace Stepper
             Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
             _logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
-            ResetSerialPort();
         }
         /// <summary>
         /// Xies the zero.
@@ -736,7 +628,6 @@ namespace Stepper
             Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
             _logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
-            ResetSerialPort();
         }
 
         /// <summary>
@@ -1138,91 +1029,7 @@ namespace Stepper
                 _logger.LogInformation(message: $"Z Axis touch controlled Keypad returned: {mainWindow.Result}");
             }
         }
-        /// <summary>
-        /// Handles the PreviewMouseUp event of the txtBaudRate control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
-        private void txtBaudRate_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            Keypad mainWindow = new(this);
-            if (mainWindow.ShowDialog() == true)
-            {
-                txtBaudRate.Text = mainWindow.Result.ToString();
-                _logger.LogInformation(message: $"BaudRate mouse controlled Keypad returned: {mainWindow.Result}");
-            }
-        }
-        /// <summary>
-        /// Handles the TouchUp event of the txtBaudRate control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
-        private void txtBaudRate_TouchUp(object sender, TouchEventArgs e)
-        {
-            Keypad mainWindow = new(this);
-            if (mainWindow.ShowDialog() == true)
-            {
-                txtBaudRate.Text = mainWindow.Result.ToString();
-                _logger.LogInformation(message: $"BaudRate touch controlled Keypad returned: {mainWindow.Result}");
-            }
-        }
 
-        /// <summary>
-        /// Handles the TextChanged event of the txtBaudRate control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
-        private void txtBaudRate_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtZaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.Red;
-            if (txtBaudRate.Text == Properties.Settings.Default.BaudRate.ToString())
-            {
-                txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
-            }
-            else
-            {
-                Properties.Settings.Default.BaudRate = Convert.ToInt32(txtBaudRate.Text);
-                Properties.Settings.Default.Save();
-            }
-        }
-        /// <summary>
-        /// Handles the SelectionChanged event of the cmbComPort control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="SelectionChangedEventArgs" /> instance containing the event data.</param>
-        private void cmbComPort_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                cmbComPort.SelectedIndex = 0;
-                selectedItem = cmbComPort.SelectedItem.ToString();
-                if (sp.IsOpen == true && selectedItem == Properties.Settings.Default.COM1.ToString())
-                {
-                    sp.Close();
-                    _logger.LogInformation(message: $"Stepper Motor Controller Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                }
-                if (selectedItem == Properties.Settings.Default.COM1.ToString())
-                {
-                    cmbComPort.Items.MoveCurrentToLast();
-                    selectedItem = cmbComPort.SelectedItem.ToString();
-                    cmbComPort.SelectedItem = selectedItem;
-                    myPortName = selectedItem;
-                    cmbComPort.Text = selectedItem;
-                    sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-                    if (sp.IsOpen == false)
-                    {
-                        sp.Open();
-                        _logger.LogInformation(message: $"Stepper Motor Controller Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                    }
-                }
-            }
-            catch (IOException ioex)
-            {
-                _logger.LogInformation(message: $"Stepper Motor Controller An error occurred: {ioex.Message}");
-                // Handle the exception
-                MessageBox.Show($"Stepper Motor Controller An error occurred: {ioex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
         /// <summary>
         /// Handles the OnPreviewTextInput event of the TextBox control.
         /// </summary>
@@ -1309,6 +1116,7 @@ namespace Stepper
                     case "Z":
                         txtXaxisStepperMove.IsEnabled = false;
                         txtYaxisStepperMove.IsEnabled = false;
+                        txtZaxisStepperMove.IsEnabled = false;
                         txtXaxisStepperCurrent.IsEnabled = false;
                         txtYaxisStepperCurrent.IsEnabled = false;
                         txtZaxisStepperCurrent.IsEnabled = false;
@@ -1346,12 +1154,12 @@ namespace Stepper
                         break;
                 }
                 _logger.LogInformation(message: $"Stepper Motor Controller Disable {axis} Axis controls while moving to location.");
-                CountdownLabel.Content = $"Working Timer: {elapsedTime.ToString(@"hh\:mm\:ss\.fffff")}";
+                CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} {elapsedTime.ToString(@"hh\:mm\:ss\.fffff")}";
                 _logger.LogInformation(message: $"Time remaining: {elapsedTime.ToString(@"hh\:mm\:ss")} targetEndTime = {targetEndTime.ToString(@"hh\:mm\:ss")}");
             }
             if (DateTime.Now >= targetEndTime)
             {
-                CountdownLabel.Content = "";
+                CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                 switch (axis)
                 {
                     case "X":
@@ -1376,7 +1184,6 @@ namespace Stepper
                         XaxisChanged = false;
                         txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                         txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
-                        txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
                         Properties.Settings.Default.XaxisMotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
                         Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
                         Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
@@ -1404,7 +1211,6 @@ namespace Stepper
                         YaxisChanged = false;
                         txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                         txtYaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
-                        txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
                         Properties.Settings.Default.YaxisMotorSpeed = Convert.ToDecimal(txtYaxisMotorSpeed.Text);
                         Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
                         Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
@@ -1432,7 +1238,6 @@ namespace Stepper
                         ZaxisChanged = false;
                         txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                         txtZaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
-                        txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
                         Properties.Settings.Default.ZaxisMotorSpeed = Convert.ToDecimal(txtZaxisMotorSpeed.Text);
                         Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtZaxisStepperCurrent.Text);
                         Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
@@ -1465,7 +1270,6 @@ namespace Stepper
                         txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
                         txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
                         txtYaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
-                        txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
                         Properties.Settings.Default.XaxisMotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
                         Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
                         Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
@@ -1501,7 +1305,6 @@ namespace Stepper
             txtZaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.White;
             txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
             txtZaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
-            txtBaudRate.BorderBrush = System.Windows.Media.Brushes.White;
             _logger.LogInformation(message: "Set MainWindow Media Brushes to White.");
         }
         /// <summary>
@@ -1515,11 +1318,11 @@ namespace Stepper
             {
                 _logger.LogInformation(message: $"Stepper Motor Controller MainWindow Closing");
                 Properties.Settings.Default.Save();
-                if (sp.IsOpen == true)
-                {
-                    sp.Close();
-                    _logger.LogInformation(message: $"Stepper Motor Controller: Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                }
+                //if (sp.IsOpen == true)
+                //{
+                //    sp.Close();
+                //    _logger.LogInformation(message: $"Stepper Motor Controller: Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
+                //}
             }
             catch (IOException ioex)
             {
@@ -1528,16 +1331,6 @@ namespace Stepper
             }
         }
          
-        /// <summary>
-        /// Handles the TouchUp event of the cmbComPort control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
-        private void cmbComPort_TouchUp(object sender, TouchEventArgs e)
-        {
-            cmbComPort.Text = cmbComPort.SelectedItem.ToString();
-        }
-
         /// <summary>
         /// Handles the TouchUp event of the ResetToZero control.
         /// </summary>
@@ -1649,34 +1442,6 @@ namespace Stepper
                 _logger.LogInformation(message: $"{axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 5 = {MotorMovementSeconds}");
             }
             return MotorMovementSeconds;
-        }
-        /// <summary>
-        /// Resets the serial port.
-        /// </summary>
-        private void ResetSerialPort()
-        {
-            try
-            {
-                if (sp.IsOpen == true)
-                {
-                    sp.Close();
-                    _logger.LogInformation(message: $"Stepper Motor Controller Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                }
-                selectedItem = cmbComPort.SelectedItem.ToString();
-                myPortName = selectedItem;
-                cmbComPort.Text = selectedItem;
-                sp = new(myPortName, Convert.ToInt32(txtBaudRate.Text));
-                if (sp.IsOpen == false)
-                {
-                    sp.Open();
-                    _logger.LogInformation(message: $"Stepper Motor Controller Opened Serial Port at: {myPortName}, {txtBaudRate.Text}");
-                }
-            }
-            catch (IOException ioex)
-            {
-                _logger.LogInformation(message: $"Stepper Motor Controller Reset Serial Port error occurred: {ioex.Message}");
-                MessageBox.Show($"An error occurred: {ioex.Message}", $"Stepper Motor Controller Reset Serial Port Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
         }
     }
 }

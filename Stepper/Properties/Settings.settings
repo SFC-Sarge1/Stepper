@@ -2,9 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Stepper.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="BaudRate" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">9600</Value>
-    </Setting>
     <Setting Name="ckbXaxisResetToZeroIsChecked" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -13,15 +10,6 @@
     </Setting>
     <Setting Name="ckbZaxisResetToZeroIsChecked" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="COM1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">COM1</Value>
-    </Setting>
-    <Setting Name="COM4" Type="System.String" Scope="User">
-      <Value Profile="(Default)">COM4</Value>
-    </Setting>
-    <Setting Name="COM5" Type="System.String" Scope="User">
-      <Value Profile="(Default)">COM5</Value>
     </Setting>
     <Setting Name="Divider4_00" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">4.00</Value>
@@ -104,11 +92,14 @@
     <Setting Name="BuildVersion" Type="System.String" Scope="User">
       <Value Profile="(Default)">1.00</Value>
     </Setting>
-    <Setting Name="COM6" Type="System.String" Scope="User">
-      <Value Profile="(Default)">COM6</Value>
-    </Setting>
     <Setting Name="ProjectFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj</Value>
+    </Setting>
+    <Setting Name="CountDownText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Stepper Motor Timer:</Value>
+    </Setting>
+    <Setting Name="ServerIPAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.4.25</Value>
     </Setting>
   </Settings>
 </SettingsFile>
