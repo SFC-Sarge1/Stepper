@@ -1178,7 +1178,7 @@ namespace Stepper
                         btnRunXAxis.IsEnabled = true;
                         btnRunYAxis.IsEnabled = true;
                         btnRunZAxis.IsEnabled = true;
-                        btnRunXYAxis.IsEnabled = true;
+                        //btnRunXYAxis.IsEnabled = true;
                         currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                         txtXaxisStepperCurrent.Text = currentXAxis;
                         XaxisChanged = false;
@@ -1205,7 +1205,7 @@ namespace Stepper
                         btnRunXAxis.IsEnabled = true;
                         btnRunYAxis.IsEnabled = true;
                         btnRunZAxis.IsEnabled = true;
-                        btnRunXYAxis.IsEnabled = true;
+                        //btnRunXYAxis.IsEnabled = true;
                         currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
                         txtYaxisStepperCurrent.Text = currentYAxis;
                         YaxisChanged = false;
@@ -1232,7 +1232,7 @@ namespace Stepper
                         btnRunXAxis.IsEnabled = true;
                         btnRunYAxis.IsEnabled = true;
                         btnRunZAxis.IsEnabled = true;
-                        btnRunXYAxis.IsEnabled = true;
+                        //btnRunXYAxis.IsEnabled = true;
                         currentZAxis = Convert.ToString(Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text));
                         txtZaxisStepperCurrent.Text = currentZAxis;
                         ZaxisChanged = false;
@@ -1259,7 +1259,7 @@ namespace Stepper
                         btnRunXAxis.IsEnabled = true;
                         btnRunYAxis.IsEnabled = true;
                         btnRunZAxis.IsEnabled = true;
-                        btnRunXYAxis.IsEnabled = true;
+                        //btnRunXYAxis.IsEnabled = true;
                         currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                         txtXaxisStepperCurrent.Text = currentXAxis;
                         XaxisChanged = false;
