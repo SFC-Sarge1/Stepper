@@ -280,6 +280,8 @@ namespace Stepper
                     MainWindow._logger.LogInformation($"COM8: {currentProperty.Name} added to the Settings Form.");
                     UserComAppSettings.Items.Add("COM9");
                     MainWindow._logger.LogInformation($"COM9: {currentProperty.Name} added to the Settings Form.");
+                    UserComAppSettings.Items.Add("COM10");
+                    MainWindow._logger.LogInformation($"COM10: {currentProperty.Name} added to the Settings Form.");
                     // When the textbox loses focus, update the setting
                     UserComAppSettings.LostFocus += (sender, args) =>
                     {

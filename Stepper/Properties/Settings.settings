@@ -101,5 +101,11 @@
     <Setting Name="ServerIPAddress" Type="System.String" Scope="User">
       <Value Profile="(Default)">192.168.4.25</Value>
     </Setting>
+    <Setting Name="BaudRate" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">9600</Value>
+    </Setting>
+    <Setting Name="ComPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM10</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

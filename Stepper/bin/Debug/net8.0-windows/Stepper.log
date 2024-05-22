@@ -1,0 +1,11 @@
+5/22/2024 17:46:00 [Information] Stepper Motor Controller Application Started.
+5/22/2024 17:46:00 [Information] Version:2.6.4.81 (5/22/2024 17:46:00)
+5/22/2024 17:46:01 [Information] Stepper Motor Controller MainWindow loaded
+5/22/2024 17:46:01 [Information] Set MainWindow Media Brushes to White.
+5/22/2024 17:46:07 [Information] Updated X Zero.IsChecked status to 1 and Y,Z Zero.IsChecked status to 0.
+5/22/2024 17:46:09 [Information] XAxisRun_Click button clicked:
+5/22/2024 17:46:09 [Information] X Axis Run Event to reset Axis to zero: X,0.00,400.00,1,0.00,400.00,0,0.00,400.00,0
+5/22/2024 17:46:09 [Information] Setting X Axis Current Location Set to Zero on DRO
+5/22/2024 17:46:10 [Information] Updated X,Y,Z Zero.IsChecked status to 0.
+5/22/2024 17:46:10 [Information] X Axis Current Location Set to Zero
+5/22/2024 17:46:12 [Information] Stepper Motor Controller MainWindow Closing

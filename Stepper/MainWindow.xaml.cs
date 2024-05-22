@@ -4,7 +4,7 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 04-02-2024
+// Last Modified On : 05-18-2024
 // ***********************************************************************
 // <copyright file="MainWindow.xaml.cs" company="">
 //     Copyright (c) . All rights reserved.
@@ -22,6 +22,7 @@ namespace Stepper
     using System.Reflection;
     using System.Windows.Threading;
     using System.IO;
+    using System.IO.Ports;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Primitives;
     using System.Diagnostics;
@@ -32,6 +33,7 @@ namespace Stepper
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+
         /// <summary>
         /// The timer
         /// </summary>
@@ -58,10 +60,6 @@ namespace Stepper
         public TimeSpan remainingTime = new();
         /// <summary>
         /// My port name
-        /// </summary>
-        //public string myPortName; // Serial Port Name (COM1, COM2, COM3, etc.)
-        /// <summary>
-        /// The zero xaxis
         /// </summary>
         public int zeroXaxis = Properties.Settings.Default.zeroXaxis;
         /// <summary>
@@ -124,14 +122,15 @@ namespace Stepper
         /// The zaxis stepper move temporary
         /// </summary>
         public string ZaxisStepperMoveTemp = Properties.Settings.Default.Value_0_00.ToString();
-        ///// <summary>
-        ///// The selected item
-        ///// </summary>
-        //public string selectedItem;
         /// <summary>
         /// The stepper move
         /// </summary>
         public decimal stepperMove;
+        public decimal xStepperMove;
+        public decimal yStepperMove;
+        public decimal zStepperMove;
+        public decimal xyStepperMove;
+
         /// <summary>
         /// The logger
         /// </summary>
@@ -140,6 +139,7 @@ namespace Stepper
         /// The logger factory
         /// </summary>
         public static ILoggerFactory loggerFactory;
+        public SerialPort serialPort = new SerialPort();
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow" /> class.
         /// </summary>
@@ -171,6 +171,19 @@ namespace Stepper
             });
             _logger = loggerFactory.CreateLogger<MainWindow>();
             _logger.LogInformation(message: $"Stepper Motor Controller Application Started.");
+            serialPort = new(Properties.Settings.Default.ComPort, Properties.Settings.Default.BaudRate);
+            if (serialPort.IsOpen == false)
+            {
+                try
+                {
+                    serialPort.Open();
+                }
+                catch 
+                {
+                    _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
+                }
+            }
+
             ResizeMode = ResizeMode.NoResize;
 #if DEBUG
             int major = Assembly.GetExecutingAssembly().GetName().Version.Major;
@@ -239,6 +252,22 @@ namespace Stepper
             Closing += MainWindow_Closing;
         }
         /// <summary>
+        /// Determines whether the specified number is negative.
+        /// </summary>
+        /// <param name="number">The number.</param>
+        /// <returns><c>true</c> if the specified number is negative; otherwise, <c>false</c>.</returns>
+        public bool IsNegative(decimal number)
+        {
+            if (number < 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
         /// Handles the Click event of the XAxisRun control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
@@ -252,11 +281,15 @@ namespace Stepper
                 previousXAxis = txtXaxisStepperMove.Text.ToString();
                 string stringValue;
                 string stringValue1;
+                string[] xStepper;
                 if (ckbXaxisResetToZero.IsChecked == true)
                 {
                     zeroXaxis = 1;
                     stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{txtYaxisStepperMove.Text},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    SendDataToLattepanda.SendData(stringValue1);
+                    serialPort.Write(stringValue1);
+                    stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{txtYaxisStepperMove.Text},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
+                    serialPort.Write(stringValue1);
+                    //SendDataToLattepanda.SendData(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroXaxis = 0;
@@ -279,7 +312,9 @@ namespace Stepper
                     MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    SendDataToLattepanda.SendData(stringValue);
+                    //SendDataToLattepanda.SendData(stringValue);
+                    //stringValue = "X,12.00,500.00,0";
+                    serialPort.Write(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
@@ -310,11 +345,13 @@ namespace Stepper
                 previousYAxis = txtYaxisStepperMove.Text.ToString();
                 string stringValue;
                 string stringValue1;
+                string[] yStepper;
+
                 if (ckbYaxisResetToZero.IsChecked == true)
                 {
                     zeroYaxis = 1;
                     stringValue1 = $"{axis},{txtXaxisStepperMove.Text},{txtXaxisMotorSpeed.Text},{zeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    SendDataToLattepanda.SendData(stringValue1);
+                    //SendDataToLattepanda.SendData(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroYaxis = 0;
@@ -337,7 +374,7 @@ namespace Stepper
                     MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    SendDataToLattepanda.SendData(stringValue);
+                    //SendDataToLattepanda.SendData(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
@@ -368,11 +405,13 @@ namespace Stepper
                 previousZAxis = txtZaxisStepperMove.Text.ToString();
                 string stringValue;
                 string stringValue1;
+                string[] zStepper;
+
                 if (ckbZaxisResetToZero.IsChecked == true)
                 {
                     zeroZaxis = 1;
                     stringValue1 = $"{axis},{txtXaxisStepperMove.Text},{txtXaxisMotorSpeed.Text},{zeroXaxis},{txtYaxisStepperMove.Text},{txtYaxisMotorSpeed.Text},{zeroYaxis},{Properties.Settings.Default.Value_0_00},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    SendDataToLattepanda.SendData(stringValue1);
+                    //SendDataToLattepanda.SendData(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroZaxis = 0;
@@ -395,7 +434,8 @@ namespace Stepper
                     MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    SendDataToLattepanda.SendData(stringValue);
+                    //SendDataToLattepanda.SendData(stringValue);
+
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
@@ -425,12 +465,14 @@ namespace Stepper
                 _logger.LogInformation(message: $"{axis}AxisRun_Click button clicked:");
                 string stringValue;
                 string stringValue1;
+                string[] xyStepper;
+
                 if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == true)
                 {
                     zeroXaxis = 1;
                     zeroYaxis = 1;
                     stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    SendDataToLattepanda.SendData(stringValue1);
+                    //SendDataToLattepanda.SendData(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroXaxis = 0;
@@ -442,7 +484,7 @@ namespace Stepper
                     zeroXaxis = 1;
                     zeroYaxis = 0;
                     stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{(Convert.ToDecimal(txtYaxisStepperCurrent) + Convert.ToDecimal(txtYaxisStepperMove.Text))},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    SendDataToLattepanda.SendData(stringValue1);
+                    //SendDataToLattepanda.SendData(stringValue1);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset X Axis to zero: {stringValue1}");
                     stringValue1 = "";
@@ -474,7 +516,7 @@ namespace Stepper
                     zeroXaxis = 0;
                     zeroYaxis = 1;
                     stringValue1 = $"{axis},{(Convert.ToDecimal(txtXaxisStepperCurrent) + Convert.ToDecimal(txtXaxisStepperMove.Text))},{txtXaxisMotorSpeed.Text},{zeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    SendDataToLattepanda.SendData(stringValue1);
+                    //SendDataToLattepanda.SendData(stringValue1);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Y Axis to zero: {stringValue1}");
                     stringValue1 = "";
@@ -506,7 +548,7 @@ namespace Stepper
                     zeroXaxis = 0;
                     zeroYaxis = 0;
                     stringValue = $"{axis},{(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text))},{zeroXaxis},{(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text))},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    SendDataToLattepanda.SendData(stringValue);
+                    //SendDataToLattepanda.SendData(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
@@ -612,6 +654,7 @@ namespace Stepper
         /// Xies the zero.
         /// </summary>
         /// <param name="myDelay">The myDelay.</param>
+        /// <param name="axis">The axis.</param>
         public async void XYZero(int myDelay, string axis)
         {
             _logger.LogInformation(message: $"Setting {axis} Axis Current Location Set to Zero on DRO");
@@ -1085,7 +1128,7 @@ namespace Stepper
                         txtXaxisStepperCurrent.IsEnabled = false;
                         txtYaxisStepperCurrent.IsEnabled = false;
                         txtZaxisStepperCurrent.IsEnabled = false;
-                        txtXaxisMotorSpeed.IsEnabled = false; 
+                        txtXaxisMotorSpeed.IsEnabled = false;
                         txtYaxisMotorSpeed.IsEnabled = false;
                         txtZaxisMotorSpeed.IsEnabled = false;
                         btnRunXAxis.IsEnabled = false;
@@ -1178,7 +1221,7 @@ namespace Stepper
                         btnRunXAxis.IsEnabled = true;
                         btnRunYAxis.IsEnabled = true;
                         btnRunZAxis.IsEnabled = true;
-                        //btnRunXYAxis.IsEnabled = true;
+                        btnRunXYAxis.IsEnabled = true;
                         currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                         txtXaxisStepperCurrent.Text = currentXAxis;
                         XaxisChanged = false;
@@ -1205,7 +1248,7 @@ namespace Stepper
                         btnRunXAxis.IsEnabled = true;
                         btnRunYAxis.IsEnabled = true;
                         btnRunZAxis.IsEnabled = true;
-                        //btnRunXYAxis.IsEnabled = true;
+                        btnRunXYAxis.IsEnabled = true;
                         currentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
                         txtYaxisStepperCurrent.Text = currentYAxis;
                         YaxisChanged = false;
@@ -1232,7 +1275,7 @@ namespace Stepper
                         btnRunXAxis.IsEnabled = true;
                         btnRunYAxis.IsEnabled = true;
                         btnRunZAxis.IsEnabled = true;
-                        //btnRunXYAxis.IsEnabled = true;
+                        btnRunXYAxis.IsEnabled = true;
                         currentZAxis = Convert.ToString(Convert.ToDecimal(txtZaxisStepperCurrent.Text) + Convert.ToDecimal(txtZaxisStepperMove.Text));
                         txtZaxisStepperCurrent.Text = currentZAxis;
                         ZaxisChanged = false;
@@ -1259,7 +1302,7 @@ namespace Stepper
                         btnRunXAxis.IsEnabled = true;
                         btnRunYAxis.IsEnabled = true;
                         btnRunZAxis.IsEnabled = true;
-                        //btnRunXYAxis.IsEnabled = true;
+                        btnRunXYAxis.IsEnabled = true;
                         currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
                         txtXaxisStepperCurrent.Text = currentXAxis;
                         XaxisChanged = false;
@@ -1316,11 +1359,13 @@ namespace Stepper
         {
             try
             {
+                serialPort.Close();
+
                 _logger.LogInformation(message: $"Stepper Motor Controller MainWindow Closing");
                 Properties.Settings.Default.Save();
-                //if (sp.IsOpen == true)
+                //if (serialPort.IsOpen == true)
                 //{
-                //    sp.Close();
+                //    serialPort.Close();
                 //    _logger.LogInformation(message: $"Stepper Motor Controller: Closed Serial Port at: {myPortName}, {txtBaudRate.Text}");
                 //}
             }
@@ -1330,7 +1375,7 @@ namespace Stepper
                 MessageBox.Show($"Stepper Motor Controller An error occurred: {ioex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-         
+
         /// <summary>
         /// Handles the TouchUp event of the ResetToZero control.
         /// </summary>
