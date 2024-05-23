@@ -8,8 +8,8 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Stepper.ico</ApplicationIcon>
     <Deterministic>false</Deterministic>
-    <AssemblyVersion>2.6.4.81</AssemblyVersion>
-    <FileVersion>2.6.4.81</FileVersion>
+    <AssemblyVersion>2.6.5.82</AssemblyVersion>
+    <FileVersion>2.6.5.82</FileVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <StartupObject>Stepper.App</StartupObject>
   </PropertyGroup>
