@@ -1239,6 +1239,8 @@ namespace Stepper
                         btnRunZAxis.IsEnabled = true;
                         btnRunXYAxis.IsEnabled = true;
                         currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
+                        //string result = xSp.ReadExisting();
+                        //currentXAxis = result;
                         txtXaxisStepperCurrent.Text = currentXAxis;
                         XaxisChanged = false;
                         txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
