@@ -287,19 +287,6 @@ namespace Stepper
                     zeroXaxis = 1;
                     stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{txtYaxisStepperMove.Text},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
                     ckbXaxisResetToZero.IsChecked = false;
-                    serialPort.Close();
-                    //serialPort = new(Properties.Settings.Default.ComPort, Properties.Settings.Default.BaudRate);
-                    if (serialPort.IsOpen == false)
-                    {
-                        try
-                        {
-                            serialPort.Open();
-                        }
-                        catch
-                        {
-                            _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
-                        }
-                    }
                     serialPort.Write(stringValue1);
                     //SendDataToLattepanda.SendData(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
@@ -324,18 +311,6 @@ namespace Stepper
                     MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    //SendDataToLattepanda.SendData(stringValue);
-                    if (serialPort.IsOpen == false)
-                    {
-                        try
-                        {
-                            serialPort.Open();
-                        }
-                        catch
-                        {
-                            _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
-                        }
-                    }
                     serialPort.Write(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
@@ -375,18 +350,6 @@ namespace Stepper
                     stringValue1 = $"{axis},{txtXaxisStepperMove.Text},{txtXaxisMotorSpeed.Text},{zeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
                     //SendDataToLattepanda.SendData(stringValue1);
                     ckbYaxisResetToZero.IsChecked = false;
-                    serialPort.Close();
-                    if (serialPort.IsOpen == false)
-                    {
-                        try
-                        {
-                            serialPort.Open();
-                        }
-                        catch
-                        {
-                            _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
-                        }
-                    }
                     serialPort.Write(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
@@ -411,17 +374,6 @@ namespace Stepper
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     //SendDataToLattepanda.SendData(stringValue);
-                    if (serialPort.IsOpen == false)
-                    {
-                        try
-                        {
-                            serialPort.Open();
-                        }
-                        catch
-                        {
-                            _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
-                        }
-                    }
                     serialPort.Write(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
@@ -461,18 +413,6 @@ namespace Stepper
                     stringValue1 = $"{axis},{txtXaxisStepperMove.Text},{txtXaxisMotorSpeed.Text},{zeroXaxis},{txtYaxisStepperMove.Text},{txtYaxisMotorSpeed.Text},{zeroYaxis},{Properties.Settings.Default.Value_0_00},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
                     //SendDataToLattepanda.SendData(stringValue1);
                     ckbZaxisResetToZero.IsChecked = false;
-                    serialPort.Close();
-                    if (serialPort.IsOpen == false)
-                    {
-                        try
-                        {
-                            serialPort.Open();
-                        }
-                        catch
-                        {
-                            _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
-                        }
-                    }
                     serialPort.Write(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
@@ -497,17 +437,6 @@ namespace Stepper
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     //SendDataToLattepanda.SendData(stringValue);
-                    if (serialPort.IsOpen == false)
-                    {
-                        try
-                        {
-                            serialPort.Open();
-                        }
-                        catch
-                        {
-                            _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
-                        }
-                    }
                     serialPort.Write(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
@@ -548,18 +477,6 @@ namespace Stepper
                     //SendDataToLattepanda.SendData(stringValue1);
                     ckbXaxisResetToZero.IsChecked = false;
                     ckbYaxisResetToZero.IsChecked = false;
-                    serialPort.Close();
-                    if (serialPort.IsOpen == false)
-                    {
-                        try
-                        {
-                            serialPort.Open();
-                        }
-                        catch
-                        {
-                            _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
-                        }
-                    }
                     serialPort.Write(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
@@ -574,18 +491,6 @@ namespace Stepper
                     stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{(Convert.ToDecimal(txtYaxisStepperCurrent) + Convert.ToDecimal(txtYaxisStepperMove.Text))},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
                     //SendDataToLattepanda.SendData(stringValue1);
                     ckbXaxisResetToZero.IsChecked = false;
-                    serialPort.Close();
-                    if (serialPort.IsOpen == false)
-                    {
-                        try
-                        {
-                            serialPort.Open();
-                        }
-                        catch
-                        {
-                            _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
-                        }
-                    }
                     serialPort.Write(stringValue1);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset X Axis to zero: {stringValue1}");
@@ -620,18 +525,6 @@ namespace Stepper
                     stringValue1 = $"{axis},{(Convert.ToDecimal(txtXaxisStepperCurrent) + Convert.ToDecimal(txtXaxisStepperMove.Text))},{txtXaxisMotorSpeed.Text},{zeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
                     //SendDataToLattepanda.SendData(stringValue1);
                     ckbYaxisResetToZero.IsChecked = false;
-                    serialPort.Close();
-                    if (serialPort.IsOpen == false)
-                    {
-                        try
-                        {
-                            serialPort.Open();
-                        }
-                        catch
-                        {
-                            _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
-                        }
-                    }
                     serialPort.Write(stringValue1);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Y Axis to zero: {stringValue1}");
@@ -665,18 +558,6 @@ namespace Stepper
                     zeroYaxis = 0;
                     stringValue = $"{axis},{(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text))},{zeroXaxis},{(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text))},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
                     //SendDataToLattepanda.SendData(stringValue);
-                    serialPort.Close();
-                    if (serialPort.IsOpen == false)
-                    {
-                        try
-                        {
-                            serialPort.Open();
-                        }
-                        catch
-                        {
-                            _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
-                        }
-                    }
                     serialPort.Write(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
