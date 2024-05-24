@@ -140,7 +140,8 @@ namespace Stepper
         /// </summary>
         public static ILoggerFactory loggerFactory;
         public SerialPort serialPort = new SerialPort();
-        public SerialPort xSp;
+        //public SerialPort xSp;
+        //public string xSpResult;
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow" /> class.
         /// </summary>
@@ -184,7 +185,7 @@ namespace Stepper
                     _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
                 }
             }
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            //serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
 
             ResizeMode = ResizeMode.NoResize;
 #if DEBUG
@@ -684,10 +685,10 @@ namespace Stepper
             Properties.Settings.Default.Save();
             _logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
         }
-        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        {
-            xSp = (SerialPort)sender;
-        }
+        //private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        //{
+        //    xSp = (SerialPort)sender;
+        //}
 
         /// <summary>
         /// CheckBoxes the changed.
@@ -1239,8 +1240,7 @@ namespace Stepper
                         btnRunZAxis.IsEnabled = true;
                         btnRunXYAxis.IsEnabled = true;
                         currentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
-                        //string result = xSp.ReadExisting();
-                        //currentXAxis = result;
+                        //xSpResult = xSp.ReadExisting();
                         txtXaxisStepperCurrent.Text = currentXAxis;
                         XaxisChanged = false;
                         txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;

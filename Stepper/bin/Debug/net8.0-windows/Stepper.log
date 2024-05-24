@@ -1,19 +1,579 @@
-5/24/2024 09:18:16 [Information] Stepper Motor Controller Application Started.
-5/24/2024 09:18:16 [Information] Version:2.8.3.102 (5/24/2024 09:18:16)
-5/24/2024 09:18:17 [Information] Stepper Motor Controller MainWindow loaded
-5/24/2024 09:18:17 [Information] Set MainWindow Media Brushes to White.
-5/24/2024 09:18:20 [Information] Updated X Zero.IsChecked status to 1 and Y,Z Zero.IsChecked status to 0.
-5/24/2024 09:18:21 [Information] XAxisRun_Click button clicked:
-5/24/2024 09:18:21 [Information] Updated X,Y,Z Zero.IsChecked status to 0.
-5/24/2024 09:18:21 [Information] X Axis Run Event to reset Axis to zero: X,0.00,400.00,1,0.00,400.00,0,0.00,400.00,0
-5/24/2024 09:18:21 [Information] Setting X Axis Current Location Set to Zero on DRO
-5/24/2024 09:18:21 [Information] X Axis MotorMovementSeconds decimal: (0.00 / 4) / 2 = 0.00
-5/24/2024 09:18:21 [Information] X Axis myMovementTimer int: 1000 * 0.00 = 0
-5/24/2024 09:18:22 [Information] X Axis Current Location Set to Zero
-5/24/2024 09:18:22 [Information] X Axis Run Event: X,0.00,400.00,0,0.00,400.00,0,0.00,400.00,0
-5/24/2024 09:18:22 [Information] X Axis Current Time: 09:18:22 + 0 = targetEndTime: 09:18:22
-5/24/2024 09:18:22 [Information] Stepper Motor Controller Enable X Axis controls after moving to location.
-5/24/2024 09:18:22 [Information] Stepper Motor Controller Stopwatch Stopped.
-5/24/2024 09:18:22 [Information] Stepper Motor Controller Timer Stopped.
-5/24/2024 09:18:22 [Information] Stepper Motor Controller Stopwatch Reset.
-5/24/2024 09:18:28 [Information] Stepper Motor Controller MainWindow Closing
+5/24/2024 12:16:17 [Information] Stepper Motor Controller Application Started.
+5/24/2024 12:16:17 [Information] Version:2.8.6.105 (5/24/2024 12:16:17)
+5/24/2024 12:16:17 [Information] Stepper Motor Controller MainWindow loaded
+5/24/2024 12:16:17 [Information] Set MainWindow Media Brushes to White.
+5/24/2024 12:16:27 [Information] X Axis mouse controlled Keypad returned: 4.00
+5/24/2024 12:16:29 [Information] XAxisRun_Click button clicked:
+5/24/2024 12:16:29 [Information] X Axis MotorMovementSeconds decimal: (4.00 / 4) / 2 = 0.50
+5/24/2024 12:16:29 [Information] X Axis myMovementTimer int: 1000 * 0.50 = 0
+5/24/2024 12:16:30 [Information] X Axis Run Event: X,4.00,400.00,0,0.00,400.00,0,0.00,400.00,0
+5/24/2024 12:16:30 [Information] X Axis Current Time: 12:16:30 + 0 = targetEndTime: 12:16:30
+5/24/2024 12:16:49 [Information] Stepper Motor Controller Enable X Axis controls after moving to location.
+5/24/2024 12:16:49 [Information] Stepper Motor Controller Stopwatch Stopped.
+5/24/2024 12:16:49 [Information] Stepper Motor Controller Timer Stopped.
+5/24/2024 12:16:49 [Information] Stepper Motor Controller Stopwatch Reset.
+5/24/2024 12:16:52 [Information] XAxisRun_Click button clicked:
+5/24/2024 12:16:52 [Information] X Axis MotorMovementSeconds decimal: (4.00 / 4) / 2 = 0.50
+5/24/2024 12:16:52 [Information] X Axis myMovementTimer int: 1000 * 0.50 = 0
+5/24/2024 12:16:53 [Information] X Axis Run Event: X,8.00,400.00,0,0.00,400.00,0,0.00,400.00,0
+5/24/2024 12:16:53 [Information] X Axis Current Time: 12:16:53 + 0 = targetEndTime: 12:16:53
+5/24/2024 12:17:57 [Information] Stepper Motor Controller Enable X Axis controls after moving to location.
+5/24/2024 12:17:57 [Information] Stepper Motor Controller Stopwatch Stopped.
+5/24/2024 12:17:57 [Information] Stepper Motor Controller Timer Stopped.
+5/24/2024 12:17:57 [Information] Stepper Motor Controller Stopwatch Reset.
+5/24/2024 12:18:02 [Information] XAxisRun_Click button clicked:
+5/24/2024 12:18:02 [Information] X Axis MotorMovementSeconds decimal: (4.00 / 4) / 2 = 0.50
+5/24/2024 12:18:02 [Information] X Axis myMovementTimer int: 1000 * 0.50 = 0
+5/24/2024 12:18:03 [Information] X Axis Run Event: X,12.00,400.00,0,0.00,400.00,0,0.00,400.00,0
+5/24/2024 12:18:03 [Information] X Axis Current Time: 12:18:03 + 0 = targetEndTime: 12:18:03
+5/24/2024 12:18:26 [Information] Stepper Motor Controller Enable X Axis controls after moving to location.
+5/24/2024 12:18:26 [Information] Stepper Motor Controller Stopwatch Stopped.
+5/24/2024 12:18:26 [Information] Stepper Motor Controller Timer Stopped.
+5/24/2024 12:18:26 [Information] Stepper Motor Controller Stopwatch Reset.
+5/24/2024 12:18:29 [Information] Updated X Zero.IsChecked status to 1 and Y,Z Zero.IsChecked status to 0.
+5/24/2024 12:18:31 [Information] XAxisRun_Click button clicked:
+5/24/2024 12:18:31 [Information] Updated X,Y,Z Zero.IsChecked status to 0.
+5/24/2024 12:18:31 [Information] X Axis Run Event to reset Axis to zero: X,0.00,400.00,1,0.00,400.00,0,0.00,400.00,0
+5/24/2024 12:18:31 [Information] Setting X Axis Current Location Set to Zero on DRO
+5/24/2024 12:18:31 [Information] X Axis MotorMovementSeconds decimal: (4.00 / 4) / 2 = 0.50
+5/24/2024 12:18:31 [Information] X Axis myMovementTimer int: 1000 * 0.50 = 0
+5/24/2024 12:18:32 [Information] X Axis Current Location Set to Zero
+5/24/2024 12:18:32 [Information] X Axis Run Event: X,16.00,400.00,0,0.00,400.00,0,0.00,400.00,0
+5/24/2024 12:18:32 [Information] X Axis Current Time: 12:18:32 + 0 = targetEndTime: 12:18:32
+5/24/2024 12:20:07 [Information] Stepper Motor Controller Enable X Axis controls after moving to location.
+5/24/2024 12:20:07 [Information] Stepper Motor Controller Stopwatch Stopped.
+5/24/2024 12:20:07 [Information] Stepper Motor Controller Timer Stopped.
+5/24/2024 12:20:07 [Information] Stepper Motor Controller Stopwatch Reset.
+5/24/2024 12:20:39 [Information] X Axis mouse controlled Keypad returned: 4.00
+5/24/2024 12:20:41 [Information] XAxisRun_Click button clicked:
+5/24/2024 12:20:41 [Information] X Axis MotorMovementSeconds decimal: (4.00 / 4) / 2 = 0.50
+5/24/2024 12:20:41 [Information] X Axis myMovementTimer int: 1000 * 0.50 = 0
+5/24/2024 12:20:42 [Information] X Axis Run Event: X,4.00,400.00,0,0.00,400.00,0,0.00,400.00,0
+5/24/2024 12:20:42 [Information] X Axis Current Time: 12:20:42 + 0 = targetEndTime: 12:20:42
+5/24/2024 12:20:42 [Information] Stepper Motor Controller Enable X Axis controls after moving to location.
+5/24/2024 12:20:42 [Information] Stepper Motor Controller Stopwatch Stopped.
+5/24/2024 12:20:42 [Information] Stepper Motor Controller Timer Stopped.
+5/24/2024 12:20:42 [Information] Stepper Motor Controller Stopwatch Reset.
+5/24/2024 12:22:27 [Information] XAxisRun_Click button clicked:
+5/24/2024 12:22:27 [Information] X Axis MotorMovementSeconds decimal: (4.00 / 4) / 2 = 0.50
+5/24/2024 12:22:27 [Information] X Axis myMovementTimer int: 1000 * 0.50 = 0
+5/24/2024 12:22:28 [Information] X Axis Run Event: X,8.00,400.00,0,0.00,400.00,0,0.00,400.00,0
+5/24/2024 12:22:28 [Information] X Axis Current Time: 12:22:28 + 0 = targetEndTime: 12:22:28
+5/24/2024 12:22:28 [Information] Stepper Motor Controller Enable X Axis controls after moving to location.
+5/24/2024 12:22:28 [Information] Stepper Motor Controller Stopwatch Stopped.
+5/24/2024 12:22:28 [Information] Stepper Motor Controller Timer Stopped.
+5/24/2024 12:22:28 [Information] Stepper Motor Controller Stopwatch Reset.
+5/24/2024 12:23:11 [Information] XAxisRun_Click button clicked:
+5/24/2024 12:23:11 [Information] X Axis MotorMovementSeconds decimal: (4.00 / 4) / 2 = 0.50
+5/24/2024 12:23:11 [Information] X Axis myMovementTimer int: 1000 * 0.50 = 0
+5/24/2024 12:23:12 [Information] X Axis Run Event: X,12.00,400.00,0,0.00,400.00,0,0.00,400.00,0
+5/24/2024 12:23:12 [Information] X Axis Current Time: 12:23:12 + 0 = targetEndTime: 12:23:12
+5/24/2024 12:23:12 [Information] Stepper Motor Controller Enable X Axis controls after moving to location.
+5/24/2024 12:23:12 [Information] Stepper Motor Controller Stopwatch Stopped.
+5/24/2024 12:23:12 [Information] Stepper Motor Controller Timer Stopped.
+5/24/2024 12:23:12 [Information] Stepper Motor Controller Stopwatch Reset.
+5/24/2024 12:23:23 [Information] X Axis mouse controlled Keypad returned: -12.00
+5/24/2024 12:23:25 [Information] XAxisRun_Click button clicked:
+5/24/2024 12:23:25 [Information] X Axis negative value: -12.00 converted to positive decimal: 12.00
+5/24/2024 12:23:25 [Information] X Axis MotorMovementSeconds decimal: (12.00 / 4) / 2 = 1.50
+5/24/2024 12:23:25 [Information] X Axis myMovementTimer int: 1000 * 1.50 = 2000
+5/24/2024 12:23:26 [Information] X Axis Run Event: X,0.00,400.00,0,0.00,400.00,0,0.00,400.00,0
+5/24/2024 12:23:26 [Information] X Axis Current Time: 12:23:26 + 2000 = targetEndTime: 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:26 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:26 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:27 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:27 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:28 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:28
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Enable X Axis controls after moving to location.
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Stopwatch Stopped.
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Timer Stopped.
+5/24/2024 12:23:28 [Information] Stepper Motor Controller Stopwatch Reset.
+5/24/2024 12:23:47 [Information] Updated X Zero.IsChecked status to 1 and Y,Z Zero.IsChecked status to 0.
+5/24/2024 12:23:50 [Information] XAxisRun_Click button clicked:
+5/24/2024 12:23:50 [Information] Updated X,Y,Z Zero.IsChecked status to 0.
+5/24/2024 12:23:50 [Information] X Axis Run Event to reset Axis to zero: X,0.00,400.00,1,0.00,400.00,0,0.00,400.00,0
+5/24/2024 12:23:50 [Information] Setting X Axis Current Location Set to Zero on DRO
+5/24/2024 12:23:50 [Information] X Axis negative value: -12.00 converted to positive decimal: 12.00
+5/24/2024 12:23:50 [Information] X Axis MotorMovementSeconds decimal: (12.00 / 4) / 2 = 1.50
+5/24/2024 12:23:50 [Information] X Axis myMovementTimer int: 1000 * 1.50 = 2000
+5/24/2024 12:23:51 [Information] X Axis Current Location Set to Zero
+5/24/2024 12:23:51 [Information] X Axis Run Event: X,-12.00,400.00,0,0.00,400.00,0,0.00,400.00,0
+5/24/2024 12:23:51 [Information] X Axis Current Time: 12:23:51 + 2000 = targetEndTime: 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:51 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:51 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:00 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:52 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:52 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Disable X Axis controls while moving to location.
+5/24/2024 12:23:53 [Information] Time remaining: 00:00:01 targetEndTime = 12:23:53
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Enable X Axis controls after moving to location.
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Stopwatch Stopped.
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Timer Stopped.
+5/24/2024 12:23:53 [Information] Stepper Motor Controller Stopwatch Reset.
+5/24/2024 12:24:01 [Information] Stepper Motor Controller MainWindow Closing
