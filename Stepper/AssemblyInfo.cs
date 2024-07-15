@@ -1,20 +1,8 @@
-// ***********************************************************************
-// Assembly         : 
-// Author           : sfcsarge
-// Created          : 12-19-2023
-//
-// Last Modified By : sfcsarge
-// Last Modified On : 03-21-2024
-// ***********************************************************************
-// <copyright file="AssemblyInfo.cs" company="">
-//     Copyright (c) . All rights reserved.
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
 using System.Reflection;
 using System.Windows;
+using System.Runtime.Versioning;
 
-[assembly:  ThemeInfo(
+[assembly: ThemeInfo(
     ResourceDictionaryLocation.None,            //where theme specific resource dictionaries are located
                                                 //(used if a resource is not found in the page,
                                                 // or application resource dictionaries)
@@ -22,3 +10,11 @@ using System.Windows;
                                                 //(used if a resource is not found in the page,
                                                 // app, or any theme specific resource dictionaries)
 )]
+[assembly: AssemblyCompany("Stepper")]
+[assembly: AssemblyConfiguration("Release")]
+[assembly: AssemblyInformationalVersion("1.0.0+6e101285ccd8cb13e0055c0ce5edc7dfe2791d8f")]
+[assembly: AssemblyProduct("Stepper")]
+[assembly: AssemblyTitle("Stepper")]
+[assembly: AssemblyVersion("3.0.0.*")]
+[assembly: TargetPlatform("Windows10.0")]
+[assembly: SupportedOSPlatform("Windows10.0")]

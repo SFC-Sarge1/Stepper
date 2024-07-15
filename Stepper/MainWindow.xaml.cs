@@ -4,7 +4,7 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 05-18-2024
+// Last Modified On : 07-14-2024
 // ***********************************************************************
 // <copyright file="MainWindow.xaml.cs" company="">
 //     Copyright (c) . All rights reserved.
@@ -126,9 +126,21 @@ namespace Stepper
         /// The stepper move
         /// </summary>
         public decimal stepperMove;
+        /// <summary>
+        /// The x stepper move
+        /// </summary>
         public decimal xStepperMove;
+        /// <summary>
+        /// The y stepper move
+        /// </summary>
         public decimal yStepperMove;
+        /// <summary>
+        /// The z stepper move
+        /// </summary>
         public decimal zStepperMove;
+        /// <summary>
+        /// The xy stepper move
+        /// </summary>
         public decimal xyStepperMove;
 
         /// <summary>
@@ -139,8 +151,17 @@ namespace Stepper
         /// The logger factory
         /// </summary>
         public static ILoggerFactory loggerFactory;
+        /// <summary>
+        /// The xserial port
+        /// </summary>
         public SerialPort _XserialPort = new SerialPort();
+        /// <summary>
+        /// The yserial port
+        /// </summary>
         public SerialPort _YserialPort = new SerialPort();
+        /// <summary>
+        /// The zserial port
+        /// </summary>
         public SerialPort _ZserialPort = new SerialPort();
         //public SerialPort xSp;
         //public string xSpResult;
@@ -175,7 +196,11 @@ namespace Stepper
             });
             _logger = loggerFactory.CreateLogger<MainWindow>();
             _logger.LogInformation(message: $"Stepper Motor Controller Application Started.");
-            _XserialPort = new(Properties.Settings.Default.ComPort, Properties.Settings.Default.BaudRate);
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            DateTime buildDate = DateTime.Now;
+            string displayableVersion = $"{version} ({buildDate})";
+            _logger.LogInformation(message: $"Version: {displayableVersion}");
+            _XserialPort = new("COM6", Properties.Settings.Default.BaudRate);
             if (_XserialPort.IsOpen == false)
             {
                 try
@@ -187,6 +212,31 @@ namespace Stepper
                     _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
                 }
             }
+            _YserialPort = new("COM8", Properties.Settings.Default.BaudRate);
+            if (_YserialPort.IsOpen == false)
+            {
+                try
+                {
+                    _YserialPort.Open();
+                }
+                catch
+                {
+                    _logger.LogInformation(message: $"SerialPort {"COM8"} not connected.");
+                }
+            }
+            _ZserialPort = new("COM10", Properties.Settings.Default.BaudRate);
+            if (_ZserialPort.IsOpen == false)
+            {
+                try
+                {
+                    _ZserialPort.Open();
+                }
+                catch
+                {
+                    _logger.LogInformation(message: $"SerialPort {"COM10"} not connected.");
+                }
+            }
+
             //_XserialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
 
             ResizeMode = ResizeMode.NoResize;

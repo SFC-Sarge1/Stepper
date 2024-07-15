@@ -4,9 +4,9 @@
 // Created          : 03-20-2024
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 03-30-2024
+// Last Modified On : 05-22-2024
 // ***********************************************************************
-// <copyright file="StepperAppSettings.xaml.cs"company="Computer Question">
+// <copyright file="StepperAppSettings.xaml.cs" company="">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary>Stepper Motor Controller Application Settings.</summary>
@@ -26,7 +26,7 @@ namespace Stepper
     public partial class StepperAppSettings : Window
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StepperAppSettings"/> class.
+        /// Initializes a new instance of the <see cref="StepperAppSettings" /> class.
         /// </summary>
         public StepperAppSettings()
         {
@@ -416,7 +416,7 @@ namespace Stepper
         /// Handles the Closing event of the StepperAppSettings control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs" /> instance containing the event data.</param>
         private void StepperAppSettings_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Properties.Settings.Default.Save();
@@ -426,7 +426,7 @@ namespace Stepper
         /// Handles the Click event of the SaveSettings control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void SaveSettings_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Save();
