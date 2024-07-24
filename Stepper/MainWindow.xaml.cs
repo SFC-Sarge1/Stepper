@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : 
+// Assembly         : Stepper
 // Author           : sfcsarge
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 07-14-2024
+// Last Modified On : 07-24-2024
 // ***********************************************************************
-// <copyright file="MainWindow.xaml.cs" company="">
+// <copyright file="MainWindow.xaml.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary>This allows you to control the X,Y and Z axis</summary>
@@ -200,7 +200,7 @@ namespace Stepper
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
             _logger.LogInformation(message: $"Version: {displayableVersion}");
-            _XserialPort = new("COM6", Properties.Settings.Default.BaudRate);
+            _XserialPort = new("COM10", Properties.Settings.Default.BaudRate);
             if (_XserialPort.IsOpen == false)
             {
                 try
@@ -212,7 +212,7 @@ namespace Stepper
                     _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
                 }
             }
-            _YserialPort = new("COM8", Properties.Settings.Default.BaudRate);
+            _YserialPort = new("COM10", Properties.Settings.Default.BaudRate);
             if (_YserialPort.IsOpen == false)
             {
                 try
@@ -221,7 +221,7 @@ namespace Stepper
                 }
                 catch
                 {
-                    _logger.LogInformation(message: $"SerialPort {"COM8"} not connected.");
+                    _logger.LogInformation(message: $"SerialPort {"COM10"} not connected.");
                 }
             }
             _ZserialPort = new("COM10", Properties.Settings.Default.BaudRate);
@@ -265,9 +265,9 @@ namespace Stepper
             {
                 revision = tempRevision + 1;
             }
-            Version version = new(major, minor, build, revision);
-            DateTime buildDate = DateTime.Now;
-            string displayableVersion = $"{major}.{minor}.{build}.{revision} ({buildDate})";
+            version = new(major, minor, build, revision);
+            buildDate = DateTime.Now;
+            displayableVersion = $"{major}.{minor}.{build}.{revision} ({buildDate})";
             VersionTxt.Text = "Version: " + displayableVersion;
             XDocument doc = XDocument.Load(Properties.Settings.Default.ProjectFilePath);
             // Find the Version element and change its value

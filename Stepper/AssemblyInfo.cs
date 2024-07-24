@@ -1,3 +1,16 @@
+// ***********************************************************************
+// Assembly         : Stepper
+// Author           : sfcsarge
+// Created          : 04-01-2024
+//
+// Last Modified By : sfcsarge
+// Last Modified On : 07-15-2024
+// ***********************************************************************
+// <copyright file="AssemblyInfo.cs" company="Stepper">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 using System.Reflection;
 using System.Windows;
 using System.Runtime.Versioning;
@@ -15,6 +28,6 @@ using System.Runtime.Versioning;
 [assembly: AssemblyInformationalVersion("1.0.0+6e101285ccd8cb13e0055c0ce5edc7dfe2791d8f")]
 [assembly: AssemblyProduct("Stepper")]
 [assembly: AssemblyTitle("Stepper")]
-[assembly: AssemblyVersion("3.0.0.*")]
+[assembly: AssemblyVersion("3.0.*")]
 [assembly: TargetPlatform("Windows10.0")]
 [assembly: SupportedOSPlatform("Windows10.0")]

@@ -14,7 +14,7 @@
         </member>
         <member name="M:Stepper.App.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Stepper.App"/> class.
+            Initializes a new instance of the <see cref="T:Stepper.App" /> class.
             </summary>
         </member>
         <member name="M:Stepper.App.App_DispatcherUnhandledException(System.Object,System.Windows.Threading.DispatcherUnhandledExceptionEventArgs)">
@@ -22,7 +22,7 @@
             Handles the DispatcherUnhandledException event of the App control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Threading.DispatcherUnhandledExceptionEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Threading.DispatcherUnhandledExceptionEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.App.OnExit(System.Windows.ExitEventArgs)">
             <summary>
@@ -39,6 +39,80 @@
             <summary>
             Application Entry Point.
             </summary>
+        </member>
+        <member name="T:Stepper.FileLoggerProvider">
+            <summary>
+            Class FileLoggerProvider.
+            Implements the <see cref="T:Microsoft.Extensions.Logging.ILoggerProvider" />
+            </summary>
+            <seealso cref="T:Microsoft.Extensions.Logging.ILoggerProvider" />
+        </member>
+        <member name="F:Stepper.FileLoggerProvider._filePath">
+            <summary>
+            The file path
+            </summary>
+        </member>
+        <member name="M:Stepper.FileLoggerProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stepper.FileLoggerProvider" /> class.
+            </summary>
+            <param name="filePath">The file path.</param>
+        </member>
+        <member name="M:Stepper.FileLoggerProvider.CreateLogger(System.String)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Logging.ILogger" /> instance.
+            </summary>
+            <param name="categoryName">The category name for messages produced by the logger.</param>
+            <returns>The instance of <see cref="T:Microsoft.Extensions.Logging.ILogger" /> that was created.</returns>
+        </member>
+        <member name="M:Stepper.FileLoggerProvider.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="T:Stepper.FileLogger">
+            <summary>
+            Class FileLogger.
+            Implements the <see cref="T:Microsoft.Extensions.Logging.ILogger" />
+            </summary>
+            <seealso cref="T:Microsoft.Extensions.Logging.ILogger" />
+        </member>
+        <member name="F:Stepper.FileLogger._filePath">
+            <summary>
+            The file path
+            </summary>
+        </member>
+        <member name="M:Stepper.FileLogger.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stepper.FileLogger" /> class.
+            </summary>
+            <param name="filePath">The file path.</param>
+        </member>
+        <member name="M:Stepper.FileLogger.BeginScope``1(``0)">
+            <summary>
+            Begins a logical operation scope.
+            </summary>
+            <typeparam name="TState">The type of the state to begin scope for.</typeparam>
+            <param name="state">The identifier for the scope.</param>
+            <returns>A disposable object that ends the logical operation scope on dispose.</returns>
+        </member>
+        <member name="M:Stepper.FileLogger.IsEnabled(Microsoft.Extensions.Logging.LogLevel)">
+            <summary>
+            Checks if the given <paramref name="logLevel" /> is enabled.
+            </summary>
+            <param name="logLevel">level to be checked.</param>
+            <returns><see langword="true" /> if enabled; <see langword="false" /> otherwise.</returns>
+        </member>
+        <member name="M:Stepper.FileLogger.Log``1(Microsoft.Extensions.Logging.LogLevel,Microsoft.Extensions.Logging.EventId,``0,System.Exception,System.Func{``0,System.Exception,System.String})">
+            <summary>
+            Writes a log entry.
+            </summary>
+            <typeparam name="TState">The type of the object to be written.</typeparam>
+            <param name="logLevel">Entry will be written on this level.</param>
+            <param name="eventId">Id of the event.</param>
+            <param name="state">The entry to be written. Can also be an object.</param>
+            <param name="exception">The exception related to this entry.</param>
+            <param name="formatter">Function to create a <see cref="T:System.String" /> message of the <paramref name="state" /> and <paramref name="exception" />.</param>
         </member>
         <member name="T:Stepper.Keypad">
             <summary>
@@ -230,6 +304,26 @@
             The stepper move
             </summary>
         </member>
+        <member name="F:Stepper.MainWindow.xStepperMove">
+            <summary>
+            The x stepper move
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.yStepperMove">
+            <summary>
+            The y stepper move
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.zStepperMove">
+            <summary>
+            The z stepper move
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.xyStepperMove">
+            <summary>
+            The xy stepper move
+            </summary>
+        </member>
         <member name="F:Stepper.MainWindow._logger">
             <summary>
             The logger
@@ -238,6 +332,21 @@
         <member name="F:Stepper.MainWindow.loggerFactory">
             <summary>
             The logger factory
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._XserialPort">
+            <summary>
+            The xserial port
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._YserialPort">
+            <summary>
+            The yserial port
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._ZserialPort">
+            <summary>
+            The zserial port
             </summary>
         </member>
         <member name="M:Stepper.MainWindow.#ctor">
@@ -565,6 +674,245 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:Stepper.Properties.Settings">
+            <summary>
+            Class Settings. This class cannot be inherited.
+            Implements the <see cref="T:System.Configuration.ApplicationSettingsBase" />
+            </summary>
+            <seealso cref="T:System.Configuration.ApplicationSettingsBase" />
+        </member>
+        <member name="F:Stepper.Properties.Settings.defaultInstance">
+            <summary>
+            The default instance
+            </summary>
+        </member>
+        <member name="P:Stepper.Properties.Settings.Default">
+            <summary>
+            Gets the default.
+            </summary>
+            <value>The default.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ckbXaxisResetToZeroIsChecked">
+            <summary>
+            Gets or sets a value indicating whether [CKB xaxis reset to zero is checked].
+            </summary>
+            <value><c>true</c> if [CKB xaxis reset to zero is checked]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ckbYaxisResetToZeroIsChecked">
+            <summary>
+            Gets or sets a value indicating whether [CKB yaxis reset to zero is checked].
+            </summary>
+            <value><c>true</c> if [CKB yaxis reset to zero is checked]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ckbZaxisResetToZeroIsChecked">
+            <summary>
+            Gets or sets a value indicating whether [CKB zaxis reset to zero is checked].
+            </summary>
+            <value><c>true</c> if [CKB zaxis reset to zero is checked]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.Divider4_00">
+            <summary>
+            Gets or sets the divider4 00.
+            </summary>
+            <value>The divider4 00.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.Milliseconds">
+            <summary>
+            Gets or sets the milliseconds.
+            </summary>
+            <value>The milliseconds.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.mmPerRevolution">
+            <summary>
+            Gets or sets the mm per revolution.
+            </summary>
+            <value>The mm per revolution.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.RootAxisX">
+            <summary>
+            Gets or sets the root axis x.
+            </summary>
+            <value>The root axis x.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.RootAxisY">
+            <summary>
+            Gets or sets the root axis y.
+            </summary>
+            <value>The root axis y.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.RootAxisZ">
+            <summary>
+            Gets or sets the root axis z.
+            </summary>
+            <value>The root axis z.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.RootAxisXY">
+            <summary>
+            Gets or sets the root axis xy.
+            </summary>
+            <value>The root axis xy.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.Value_0_00">
+            <summary>
+            Gets or sets the value 0 00.
+            </summary>
+            <value>The value 0 00.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.XaxisChanged">
+            <summary>
+            Gets or sets a value indicating whether [xaxis changed].
+            </summary>
+            <value><c>true</c> if [xaxis changed]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.XaxisStepperCurrent">
+            <summary>
+            Gets or sets the xaxis stepper current.
+            </summary>
+            <value>The xaxis stepper current.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.XaxisStepperMove">
+            <summary>
+            Gets or sets the xaxis stepper move.
+            </summary>
+            <value>The xaxis stepper move.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.XaxisMotorSpeed">
+            <summary>
+            Gets or sets the xaxis motor speed.
+            </summary>
+            <value>The xaxis motor speed.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.YaxisChanged">
+            <summary>
+            Gets or sets a value indicating whether [yaxis changed].
+            </summary>
+            <value><c>true</c> if [yaxis changed]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.YaxisStepperCurrent">
+            <summary>
+            Gets or sets the yaxis stepper current.
+            </summary>
+            <value>The yaxis stepper current.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.YaxisStepperMove">
+            <summary>
+            Gets or sets the yaxis stepper move.
+            </summary>
+            <value>The yaxis stepper move.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.YaxisMotorSpeed">
+            <summary>
+            Gets or sets the yaxis motor speed.
+            </summary>
+            <value>The yaxis motor speed.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ZaxisChanged">
+            <summary>
+            Gets or sets a value indicating whether [zaxis changed].
+            </summary>
+            <value><c>true</c> if [zaxis changed]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ZaxisStepperCurrent">
+            <summary>
+            Gets or sets the zaxis stepper current.
+            </summary>
+            <value>The zaxis stepper current.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ZaxisStepperMove">
+            <summary>
+            Gets or sets the zaxis stepper move.
+            </summary>
+            <value>The zaxis stepper move.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ZaxisMotorSpeed">
+            <summary>
+            Gets or sets the zaxis motor speed.
+            </summary>
+            <value>The zaxis motor speed.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.zeroXaxis">
+            <summary>
+            Gets or sets the zero xaxis.
+            </summary>
+            <value>The zero xaxis.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.zeroYaxis">
+            <summary>
+            Gets or sets the zero yaxis.
+            </summary>
+            <value>The zero yaxis.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.zeroZaxis">
+            <summary>
+            Gets or sets the zero zaxis.
+            </summary>
+            <value>The zero zaxis.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.MilisecondTimerInterval">
+            <summary>
+            Gets or sets the milisecond timer interval.
+            </summary>
+            <value>The milisecond timer interval.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.MillisecondDelay">
+            <summary>
+            Gets or sets the millisecond delay.
+            </summary>
+            <value>The millisecond delay.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.MathPart2Initlz">
+            <summary>
+            Gets or sets the math part2 initlz.
+            </summary>
+            <value>The math part2 initlz.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.BuildVersion">
+            <summary>
+            Gets or sets the build version.
+            </summary>
+            <value>The build version.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ProjectFilePath">
+            <summary>
+            Gets or sets the project file path.
+            </summary>
+            <value>The project file path.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.CountDownText">
+            <summary>
+            Gets or sets the count down text.
+            </summary>
+            <value>The count down text.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ServerIPAddress">
+            <summary>
+            Gets or sets the server ip address.
+            </summary>
+            <value>The server ip address.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.BaudRate">
+            <summary>
+            Gets or sets the baud rate.
+            </summary>
+            <value>The baud rate.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ComPort">
+            <summary>
+            Gets or sets the COM port.
+            </summary>
+            <value>The COM port.</value>
+        </member>
+        <member name="T:Stepper.SendDataToLattepanda">
+            <summary>
+            Class SendDataToLattepanda.
+            </summary>
+        </member>
+        <member name="M:Stepper.SendDataToLattepanda.SendData(System.String)">
+            <summary>
+            Sends the data.
+            </summary>
+            <param name="StepperMotorData">The stepper motor data.</param>
+        </member>
         <member name="T:Stepper.StepperAppSettings">
             <summary>
             Interaction logic for StepperAppSettings.xaml
@@ -575,7 +923,7 @@
         </member>
         <member name="M:Stepper.StepperAppSettings.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Stepper.StepperAppSettings"/> class.
+            Initializes a new instance of the <see cref="T:Stepper.StepperAppSettings" /> class.
             </summary>
         </member>
         <member name="M:Stepper.StepperAppSettings.StepperAppSettings_Closing(System.Object,System.ComponentModel.CancelEventArgs)">
@@ -583,14 +931,14 @@
             Handles the Closing event of the StepperAppSettings control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.StepperAppSettings.SaveSettings_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
             Handles the Click event of the SaveSettings control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.StepperAppSettings.InitializeComponent">
             <summary>

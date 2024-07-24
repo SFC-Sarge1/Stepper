@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : 
+// Assembly         : Stepper
 // Author           : sfcsarge
 // Created          : 02-24-2024
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 03-27-2024
+// Last Modified On : 07-14-2024
 // ***********************************************************************
-// <copyright file="Keypad.xaml.cs" company="">
+// <copyright file="Keypad.xaml.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>

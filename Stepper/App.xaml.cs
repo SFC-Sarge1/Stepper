@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : 
+// Assembly         : Stepper
 // Author           : sfcsarge
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 03-30-2024
+// Last Modified On : 07-14-2024
 // ***********************************************************************
-// <copyright file="App.xaml.cs" company="">
+// <copyright file="App.xaml.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>

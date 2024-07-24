@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : 
+// Assembly         : Stepper
 // Author           : sfcsarge
 // Created          : 03-20-2024
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 05-22-2024
+// Last Modified On : 07-14-2024
 // ***********************************************************************
-// <copyright file="StepperAppSettings.xaml.cs" company="">
+// <copyright file="StepperAppSettings.xaml.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary>Stepper Motor Controller Application Settings.</summary>
