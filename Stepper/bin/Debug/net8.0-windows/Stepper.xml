@@ -356,7 +356,7 @@
         </member>
         <member name="M:Stepper.MainWindow.IsNegative(System.Decimal)">
             <summary>
-            Determines whether the specified number is negative.
+            Determines wheZther the specified number is negative.
             </summary>
             <param name="number">The number.</param>
             <returns><c>true</c> if the specified number is negative; otherwise, <c>false</c>.</returns>

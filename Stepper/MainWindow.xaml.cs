@@ -200,7 +200,7 @@ namespace Stepper
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
             _logger.LogInformation(message: $"Version: {displayableVersion}");
-            _XserialPort = new("COM10", Properties.Settings.Default.BaudRate);
+            _XserialPort = new("COM7", Properties.Settings.Default.BaudRate);
             if (_XserialPort.IsOpen == false)
             {
                 try
@@ -212,7 +212,7 @@ namespace Stepper
                     _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
                 }
             }
-            _YserialPort = new("COM10", Properties.Settings.Default.BaudRate);
+            _YserialPort = new("COM8", Properties.Settings.Default.BaudRate);
             if (_YserialPort.IsOpen == false)
             {
                 try
@@ -237,7 +237,9 @@ namespace Stepper
                 }
             }
 
-            //_XserialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            _XserialPort.DataReceived += new SerialDataReceivedEventHandler(XdataReceivedHandler);
+            _YserialPort.DataReceived += new SerialDataReceivedEventHandler(YdataReceivedHandler);
+            _ZserialPort.DataReceived += new SerialDataReceivedEventHandler(ZdataReceivedHandler);
 
             ResizeMode = ResizeMode.NoResize;
 #if DEBUG
@@ -306,8 +308,29 @@ namespace Stepper
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
         }
+        private static void XdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort Xsp = (SerialPort)sender;
+            string Xindata = Xsp.ReadExisting();
+            Console.WriteLine("X Axis Data Received:");
+            Console.Write(Xindata);
+        }
+        private static void YdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort Ysp = (SerialPort)sender;
+            string Yindata = Ysp.ReadExisting();
+            Console.WriteLine("Y Axis Data Received:");
+            Console.Write(Yindata);
+        }
+        private static void ZdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort Zsp = (SerialPort)sender;
+            string Zindata = Zsp.ReadExisting();
+            Console.WriteLine("Z Axis Data Received:");
+            Console.Write(Zindata);
+        }
         /// <summary>
-        /// Determines whether the specified number is negative.
+        /// Determines wheZther the specified number is negative.
         /// </summary>
         /// <param name="number">The number.</param>
         /// <returns><c>true</c> if the specified number is negative; otherwise, <c>false</c>.</returns>
@@ -740,7 +763,7 @@ namespace Stepper
             Properties.Settings.Default.Save();
             _logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
         }
-        //private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        //private void ZdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         //{
         //    xSp = (SerialPort)sender;
         //}
@@ -1432,8 +1455,11 @@ namespace Stepper
             try
             {
                 _XserialPort.Close();
+                _YserialPort.Close();
+                _ZserialPort.Close();
 
-                _logger.LogInformation(message: $"Stepper Motor Controller MainWindow Closing");
+                _logger.LogInformation(message: $"Stepper Motor Controller Serial Ports closed.");
+                _logger.LogInformation(message: $"Stepper Motor Controller MainWindow Closing.");
                 Properties.Settings.Default.Save();
             }
             catch (IOException ioex)

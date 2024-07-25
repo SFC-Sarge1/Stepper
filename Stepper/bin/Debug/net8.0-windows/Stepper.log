@@ -1,8 +1,18 @@
-7/24/2024 13:17:48 [Information] Stepper Motor Controller Application Started.
-7/24/2024 13:17:48 [Information] Version: 3.0.8971.23927 (7/24/2024 13:17:48)
-7/24/2024 13:17:48 [Information] SerialPort COM10 not connected.
-7/24/2024 13:17:48 [Information] SerialPort COM10 not connected.
-7/24/2024 13:17:48 [Information] Version:3.1.0.23928 (7/24/2024 13:17:48)
-7/24/2024 13:17:49 [Information] Stepper Motor Controller MainWindow loaded
-7/24/2024 13:17:49 [Information] Set MainWindow Media Brushes to White.
-7/24/2024 13:17:56 [Information] Stepper Motor Controller MainWindow Closing
+7/25/2024 13:48:25 [Information] Stepper Motor Controller Application Started.
+7/25/2024 13:48:25 [Information] Version: 3.0.8972.24848 (7/25/2024 13:48:25)
+7/25/2024 13:48:25 [Information] SerialPort COM10 not connected.
+7/25/2024 13:48:25 [Information] SerialPort COM10 not connected.
+7/25/2024 13:49:52 [Information] Version:3.1.0.24849 (7/25/2024 13:49:52)
+7/25/2024 13:49:53 [Information] Stepper Motor Controller MainWindow loaded
+7/25/2024 13:49:53 [Information] Set MainWindow Media Brushes to White.
+7/25/2024 13:50:04 [Information] X Axis mouse controlled Keypad returned: 8.00
+7/25/2024 13:50:09 [Information] ZAxisRun_Click button clicked:
+7/25/2024 13:50:09 [Information] Z Axis MotorMovementSeconds decimal: (0.00 / 4) / 2 = 0.00
+7/25/2024 13:50:09 [Information] Z Axis myMovementTimer int: 1000 * 0.00 = 0
+7/25/2024 13:50:10 [Information] Z Axis Run Event: Z,8.00,400.00,0,0.00,400.00,0,0.00,400.00,0
+7/25/2024 13:50:10 [Information] Z Axis Current Time: 01:50:10 + 0 = targetEndTime: 01:50:10
+7/25/2024 13:50:10 [Information] Stepper Motor Controller Enable Z Axis controls after moving to location.
+7/25/2024 13:50:10 [Information] Stepper Motor Controller Stopwatch Stopped.
+7/25/2024 13:50:10 [Information] Stepper Motor Controller Timer Stopped.
+7/25/2024 13:50:10 [Information] Stepper Motor Controller Stopwatch Reset.
+7/25/2024 13:50:21 [Information] Stepper Motor Controller MainWindow Closing
