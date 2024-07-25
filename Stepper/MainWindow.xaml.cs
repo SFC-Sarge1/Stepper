@@ -209,7 +209,7 @@ namespace Stepper
                 }
                 catch 
                 {
-                    _logger.LogInformation(message: $"SerialPort {Properties.Settings.Default.ComPort} not connected.");
+                    _logger.LogInformation(message: $"X Axis SerialPort COM7 not connected.");
                 }
             }
             _YserialPort = new("COM8", Properties.Settings.Default.BaudRate);
@@ -221,7 +221,7 @@ namespace Stepper
                 }
                 catch
                 {
-                    _logger.LogInformation(message: $"SerialPort {"COM10"} not connected.");
+                    _logger.LogInformation(message: $"Y Axis SerialPort COM8 not connected.");
                 }
             }
             _ZserialPort = new("COM10", Properties.Settings.Default.BaudRate);
@@ -233,7 +233,7 @@ namespace Stepper
                 }
                 catch
                 {
-                    _logger.LogInformation(message: $"SerialPort {"COM10"} not connected.");
+                    _logger.LogInformation(message: $"Z Axis SerialPort COM10 not connected.");
                 }
             }
 
