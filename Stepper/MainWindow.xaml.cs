@@ -207,7 +207,7 @@ namespace Stepper
                 {
                     _XserialPort.Open();
                 }
-                catch 
+                catch
                 {
                     _logger.LogInformation(message: $"X Axis SerialPort COM7 not connected.");
                 }
@@ -362,7 +362,7 @@ namespace Stepper
                 {
                     zeroXaxis = 1;
                     stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{txtYaxisStepperMove.Text},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    ckbXaxisResetToZero.IsChecked = false;
+                    //ckbXaxisResetToZero.IsChecked = false;
                     _XserialPort.Write(stringValue1);
                     //SendDataToLattepanda.SendData(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
@@ -425,7 +425,7 @@ namespace Stepper
                     zeroYaxis = 1;
                     stringValue1 = $"{axis},{txtXaxisStepperMove.Text},{txtXaxisMotorSpeed.Text},{zeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
                     //SendDataToLattepanda.SendData(stringValue1);
-                    ckbYaxisResetToZero.IsChecked = false;
+                    //ckbYaxisResetToZero.IsChecked = false;
                     _YserialPort.Write(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
@@ -488,7 +488,7 @@ namespace Stepper
                     zeroZaxis = 1;
                     stringValue1 = $"{axis},{txtXaxisStepperMove.Text},{txtXaxisMotorSpeed.Text},{zeroXaxis},{txtYaxisStepperMove.Text},{txtYaxisMotorSpeed.Text},{zeroYaxis},{Properties.Settings.Default.Value_0_00},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
                     //SendDataToLattepanda.SendData(stringValue1);
-                    ckbZaxisResetToZero.IsChecked = false;
+                    //ckbZaxisResetToZero.IsChecked = false;
                     _ZserialPort.Write(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
@@ -1289,9 +1289,19 @@ namespace Stepper
                         YaxisChanged = true;
                         break;
                 }
-                _logger.LogInformation(message: $"Stepper Motor Controller Disable {axis} Axis controls while moving to location.");
-                CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} {elapsedTime.ToString(@"hh\:mm\:ss\.fffff")}";
-                _logger.LogInformation(message: $"Time remaining: {elapsedTime.ToString(@"hh\:mm\:ss")} targetEndTime = {targetEndTime.ToString(@"hh\:mm\:ss")}");
+                if (ckbXaxisResetToZero.IsChecked == false || ckbYaxisResetToZero.IsChecked == false || ckbZaxisResetToZero.IsChecked == false)
+                {
+                    _logger.LogInformation(message: $"Stepper Motor Controller Disable {axis} Axis controls while moving to location.");
+                    CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} {elapsedTime.ToString(@"hh\:mm\:ss\.fffff")}";
+                    _logger.LogInformation(message: $"Time remaining: {elapsedTime.ToString(@"hh\:mm\:ss")} targetEndTime = {targetEndTime.ToString(@"hh\:mm\:ss")}");
+                }
+                if (ckbXaxisResetToZero.IsChecked == true || ckbYaxisResetToZero.IsChecked == true || ckbZaxisResetToZero.IsChecked == true)
+                {
+                    ckbXaxisResetToZero.IsChecked = false;
+                    ckbYaxisResetToZero.IsChecked = false;
+                    ckbZaxisResetToZero.IsChecked = false;
+                    CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
+                }
             }
             if (DateTime.Now >= targetEndTime)
             {
