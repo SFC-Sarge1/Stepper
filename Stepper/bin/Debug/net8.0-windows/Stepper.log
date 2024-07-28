@@ -1,9 +1,12 @@
-7/28/2024 18:15:50 [Information] Stepper Motor Controller Application Started.
-7/28/2024 18:15:50 [Information] Version: 3.0.8975.32870 (7/28/2024 18:15:50)
-7/28/2024 18:15:50 [Information] X Axis SerialPort COM7 not connected.
-7/28/2024 18:15:50 [Information] Y Axis SerialPort COM8 not connected.
-7/28/2024 18:15:50 [Information] Version:3.1.0.32871 (7/28/2024 18:15:50)
-7/28/2024 18:15:50 [Information] Stepper Motor Controller MainWindow loaded
-7/28/2024 18:15:50 [Information] Set MainWindow Media Brushes to White.
-7/28/2024 18:16:11 [Information] Stepper Motor Controller Serial Ports closed.
-7/28/2024 18:16:11 [Information] Stepper Motor Controller MainWindow Closing.
+7/28/2024 18:51:12 [Information] Stepper Motor Controller Application Started.
+7/28/2024 18:51:12 [Information] Version: 3.0.8975.33935 (7/28/2024 18:51:12)
+7/28/2024 18:51:12 [Information] X Axis SerialPort COM7 not connected.
+7/28/2024 18:51:12 [Information] Y Axis SerialPort COM8 not connected.
+7/28/2024 18:51:12 [Information] Version:3.1.0.33936 (7/28/2024 18:51:12)
+7/28/2024 18:51:13 [Information] Stepper Motor Controller MainWindow loaded
+7/28/2024 18:51:13 [Information] Set MainWindow Media Brushes to White.
+7/28/2024 18:54:32 [Information] X Axis SerialPort COM7 not connected.
+7/28/2024 18:54:33 [Information] Y Axis SerialPort COM8 not connected.
+7/28/2024 18:54:34 [Information] Z Axis SerialPort COM5 not connected.
+7/28/2024 18:54:52 [Information] Stepper Motor Controller Serial Ports closed.
+7/28/2024 18:54:52 [Information] Stepper Motor Controller MainWindow Closing.

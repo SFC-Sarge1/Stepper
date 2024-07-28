@@ -1592,17 +1592,56 @@ namespace Stepper
 
         private void XAxisPort_Click(object sender, RoutedEventArgs e)
         {
+            _XserialPort = new("COM7", Properties.Settings.Default.BaudRate);
+            if (_XserialPort.IsOpen == false)
+            {
+                try
+                {
+                    _XserialPort.Open();
+                }
+                catch
+                {
+                    _logger.LogInformation(message: $"X Axis SerialPort COM7 not connected.");
+                }
+            }
 
+            btnXAxisPort.Content = "X Axis Port 7";
         }
 
         private void YAxisPort_Click(object sender, RoutedEventArgs e)
         {
+            _YserialPort = new("COM8", Properties.Settings.Default.BaudRate);
+            if (_YserialPort.IsOpen == false)
+            {
+                try
+                {
+                    _YserialPort.Open();
+                }
+                catch
+                {
+                    _logger.LogInformation(message: $"Y Axis SerialPort COM8 not connected.");
+                }
+            }
 
+            btnYAxisPort.Content = "Y Axis Port 8";
         }
 
         private void ZAxisPort_Click(object sender, RoutedEventArgs e)
         {
+            _ZserialPort = new("COM5", Properties.Settings.Default.BaudRate);
+            if (_ZserialPort.IsOpen == false)
+            {
+                try
+                {
+                    _ZserialPort.Open();
+                }
+                catch
+                {
+                    _logger.LogInformation(message: $"Z Axis SerialPort COM5 not connected.");
+                }
+            }
 
+            btnZAxisPort.Content = "Z Axis Port 5";
         }
     }
 }
