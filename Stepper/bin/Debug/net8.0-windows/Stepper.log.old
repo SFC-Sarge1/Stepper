@@ -1,2 +1,13 @@
-7/24/2024 13:23:00 [Information] Stepper Motor Controller Application Started.
-7/24/2024 13:23:00 [Information] Version: 3.0.8971.23927 (7/24/2024 13:23:00)
+7/28/2024 12:26:07 [Information] Stepper Motor Controller Application Started.
+7/28/2024 12:26:07 [Information] Version: 3.0.8975.22379 (7/28/2024 12:26:07)
+7/28/2024 12:26:07 [Information] X Axis SerialPort COM7 not connected.
+7/28/2024 12:26:07 [Information] Y Axis SerialPort COM8 not connected.
+7/28/2024 12:26:11 [Information] Z Axis SerialPort COM5 not connected.
+7/28/2024 12:26:11 [Information] Version:3.1.0.22380 (7/28/2024 12:26:11)
+7/28/2024 12:26:12 [Information] Stepper Motor Controller MainWindow loaded
+7/28/2024 12:26:12 [Information] Set MainWindow Media Brushes to White.
+7/28/2024 12:26:22 [Information] Z Axis mouse controlled Keypad returned: -8.00
+7/28/2024 12:26:25 [Information] ZAxisRun_Click button clicked:
+7/28/2024 12:26:25 [Information] Z Axis negative value: -8.00 converted to positive decimal: 8.00
+7/28/2024 12:26:25 [Information] Z Axis MotorMovementSeconds decimal: (8.00 / 4) / 2 = 1.00
+7/28/2024 12:26:25 [Information] Z Axis myMovementTimer int: 1000 * 1.00 = 1000

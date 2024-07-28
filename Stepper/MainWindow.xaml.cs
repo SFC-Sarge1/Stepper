@@ -224,7 +224,7 @@ namespace Stepper
                     _logger.LogInformation(message: $"Y Axis SerialPort COM8 not connected.");
                 }
             }
-            _ZserialPort = new("COM10", Properties.Settings.Default.BaudRate);
+            _ZserialPort = new("COM5", Properties.Settings.Default.BaudRate);
             if (_ZserialPort.IsOpen == false)
             {
                 try
@@ -233,14 +233,12 @@ namespace Stepper
                 }
                 catch
                 {
-                    _logger.LogInformation(message: $"Z Axis SerialPort COM10 not connected.");
+                    _logger.LogInformation(message: $"Z Axis SerialPort COM5 not connected.");
                 }
             }
-
             _XserialPort.DataReceived += new SerialDataReceivedEventHandler(XdataReceivedHandler);
             _YserialPort.DataReceived += new SerialDataReceivedEventHandler(YdataReceivedHandler);
             _ZserialPort.DataReceived += new SerialDataReceivedEventHandler(ZdataReceivedHandler);
-
             ResizeMode = ResizeMode.NoResize;
 #if DEBUG
             int major = Assembly.GetExecutingAssembly().GetName().Version.Major;
