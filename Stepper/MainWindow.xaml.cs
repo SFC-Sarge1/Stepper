@@ -1589,5 +1589,20 @@ namespace Stepper
             }
             return MotorMovementSeconds;
         }
+
+        private void XAxisPort_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void YAxisPort_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ZAxisPort_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

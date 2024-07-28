@@ -16,7 +16,7 @@
         </Border>
 
         <Border Width="900" Height="50" HorizontalAlignment="Left" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Background="Black" Padding="7,1">
-            <StackPanel Width="900" Orientation="Horizontal">
+            <StackPanel Width="900" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="X axis Move To:" Width="102"/>
                 <TextBox Text="0.00" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtXaxisStepperMove" Padding="7,1" Width="100" TouchUp="XaxisStepperMove_TouchUp" PreviewMouseUp="XaxisStepperMove_PreviewMouseUp" TextChanged="XaxisStepperMove_TextChanged" GotFocus="XaxisStepperMove_GotFocus" PreviewTextInput="TextBox_OnPreviewTextInput" />
                 <Label Padding="7,1" Content="(mm)" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
@@ -34,7 +34,7 @@
         </Border>
 
         <Border Width="900" Height="50" HorizontalAlignment="Left" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Background="Black" Padding="7,1">
-            <StackPanel Width="900" Orientation="Horizontal">
+            <StackPanel Width="900" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="Y axis Move To:" Width="102"/>
                 <TextBox Text="0.00" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtYaxisStepperMove" Padding="7,1" Width="100" TouchUp="YaxisStepperMove_TouchUp" PreviewMouseUp="YaxisStepperMove_PreviewMouseUp" TextChanged="YaxisStepperMove_TextChanged" GotFocus="YaxisStepperMove_GotFocus" PreviewTextInput="TextBox_OnPreviewTextInput" />
                 <Label Padding="7,1" Content="(mm)" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
@@ -52,7 +52,7 @@
         </Border>
 
         <Border Width="900" Height="50" HorizontalAlignment="Left" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Background="Black" Padding="7,1">
-            <StackPanel Width="900" Orientation="Horizontal">
+            <StackPanel Width="900" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="Z axis Move To:" Width="102"/>
                 <TextBox Text="0.00" TextAlignment="Right"  HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtZaxisStepperMove" Padding="7,1" Width="100" TouchUp="ZaxisStepperMove_TouchUp" PreviewMouseUp="ZaxisStepperMove_PreviewMouseUp" TextChanged="ZaxisStepperMove_TextChanged" GotFocus="ZaxisStepperMove_GotFocus" PreviewTextInput="TextBox_OnPreviewTextInput" />
                 <Label Padding="7,1" Content="(mm)" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
@@ -69,32 +69,31 @@
             </StackPanel>
         </Border>
 
-        <Border Width="900" Height="50" HorizontalAlignment="Left" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Background="Black" Padding="7,1">
+        <Border Width="900" Height="92" HorizontalAlignment="Left" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Background="Black" Padding="7,1" VerticalAlignment="Top">
             <StackPanel Width="900" Orientation="Horizontal">
-                <Button Margin="10,0,10,0" Padding="7,1" x:Name="btnRunXAxis" Content="Run X Axis" VerticalAlignment="Center" Width="120" Height="35" Click="XAxisRun_Click" />
+                <StackPanel Width="150" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Margin="10,0,10,0" Padding="7,1" x:Name="btnRunXAxis" Content="Run X Axis" VerticalAlignment="Top" Width="120" Height="34" Click="XAxisRun_Click" VerticalContentAlignment="Center" />
+                    <Button Margin="10,0,10,0" Padding="7,1" x:Name="btnXAxisPort" Content="X Axis Port" VerticalAlignment="Top" Width="120" Height="34" Click="XAxisPort_Click" VerticalContentAlignment="Center" />
+                </StackPanel>
+                <StackPanel Width="150" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Margin="10,0,10,0"  Padding="7,1" x:Name="btnRunYAxis" Content="Run Y Axis" VerticalAlignment="Top" Width="120" Height="34" Click="YAxisRun_Click" VerticalContentAlignment="Center"/>
+                    <Button Margin="10,0,10,0"  Padding="7,1" x:Name="btnYAxisPort" Content="Y Axis Port" VerticalAlignment="Top" Width="120" Height="34" Click="YAxisPort_Click" VerticalContentAlignment="Center"/>
+                </StackPanel>
 
-                <Button Margin="10,0,10,0"  Padding="7,1" x:Name="btnRunYAxis" Content="Run Y Axis" VerticalAlignment="Center" Width="120" Height="35" Click="YAxisRun_Click"/>
+                <StackPanel Width="150" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Margin="10,0,10,0"  Padding="7,1" x:Name="btnRunZAxis" Content="Run Z Axis" VerticalAlignment="Top" Width="120" Height="34" Click="ZAxisRun_Click" VerticalContentAlignment="Center"/>
+                    <Button Margin="10,0,10,0"  Padding="7,1" x:Name="btnZAxisPort" Content="Z Axis Port" VerticalAlignment="Top" Width="120" Height="34" Click="ZAxisPort_Click" VerticalContentAlignment="Center"/>
+                </StackPanel>
 
-                <Button Margin="10,0,10,0"  Padding="7,1" x:Name="btnRunZAxis" Content="Run Z Axis" VerticalAlignment="Center" Width="120" Height="35" Click="ZAxisRun_Click"/>
+                <StackPanel Width="150" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Margin="10,0,10,0" Padding="7,1" x:Name="btnRunXYAxis" Content="Run X,Y Axis" VerticalAlignment="Top" Width="120" Height="34" Click="XYAxisRun_Click" VerticalContentAlignment="Center"/>
+                    <Button Margin="10,0,10,0" Padding="7,1" x:Name="btnAppSettings" Content="App Settings" VerticalAlignment="Top" Width="120" Height="34" Click="AppSettings_Click" VerticalContentAlignment="Center"/>
+                </StackPanel>
 
-                <Button Margin="10,0,10,0"  Padding="7,1" x:Name="btnRunXYAxis" Content="Run X,Y Axis" VerticalAlignment="Center" Width="120" Height="35" Click="XYAxisRun_Click"/>
-
-                <Button Margin="275,0,10,0" VerticalAlignment="Center" Width="35" Height="35" Click="AppSettings_Click">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                    <Button.Background>
-                        <ImageBrush ImageSource="/Stepper.png" TileMode="Tile"/>
-                    </Button.Background>
-                </Button>
             </StackPanel>
         </Border>
 
-        <Border Width="900" Height="50" HorizontalAlignment="Left" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Background="Black" Padding="7,1">
+        <Border Width="900" Height="54" HorizontalAlignment="Left" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Background="Black" Padding="7,1">
             <StackPanel Width="900" Orientation="Horizontal">
                 <!--<TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="ComPort: " Width="59"/>
                 <ComboBox Padding="7,1" x:Name="cmbComPort" TouchUp="cmbComPort_TouchUp" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" SelectionChanged="cmbComPort_SelectionChanged" Height="26"/>-->
