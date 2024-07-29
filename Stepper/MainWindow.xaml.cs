@@ -200,7 +200,7 @@ namespace Stepper
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
             _logger.LogInformation(message: $"Version: {displayableVersion}");
-            _XserialPort = new("COM7", Properties.Settings.Default.BaudRate);
+            _XserialPort = new(Properties.Settings.Default.XComPort, Properties.Settings.Default.BaudRate);
             if (_XserialPort.IsOpen == false)
             {
                 try
@@ -209,10 +209,10 @@ namespace Stepper
                 }
                 catch
                 {
-                    _logger.LogInformation(message: $"X Axis SerialPort COM7 not connected.");
+                    _logger.LogInformation(message: $"X Axis SerialPort {Properties.Settings.Default.XComPort} not connected.");
                 }
             }
-            _YserialPort = new("COM8", Properties.Settings.Default.BaudRate);
+            _YserialPort = new(Properties.Settings.Default.YComPort, Properties.Settings.Default.BaudRate);
             if (_YserialPort.IsOpen == false)
             {
                 try
@@ -221,10 +221,10 @@ namespace Stepper
                 }
                 catch
                 {
-                    _logger.LogInformation(message: $"Y Axis SerialPort COM8 not connected.");
+                    _logger.LogInformation(message: $"Y Axis SerialPort {Properties.Settings.Default.YComPort} not connected.");
                 }
             }
-            _ZserialPort = new("COM5", Properties.Settings.Default.BaudRate);
+            _ZserialPort = new(Properties.Settings.Default.ZComPort, Properties.Settings.Default.BaudRate);
             if (_ZserialPort.IsOpen == false)
             {
                 try
@@ -233,7 +233,7 @@ namespace Stepper
                 }
                 catch
                 {
-                    _logger.LogInformation(message: $"Z Axis SerialPort COM5 not connected.");
+                    _logger.LogInformation(message: $"Z Axis SerialPort {Properties.Settings.Default.ZComPort} not connected.");
                 }
             }
             _XserialPort.DataReceived += new SerialDataReceivedEventHandler(XdataReceivedHandler);

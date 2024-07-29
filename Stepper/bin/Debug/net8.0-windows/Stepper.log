@@ -1,18 +1,83 @@
-7/28/2024 21:23:51 [Information] Stepper Motor Controller Application Started.
-7/28/2024 21:23:51 [Information] Version: 3.0.8975.38514 (7/28/2024 21:23:51)
-7/28/2024 21:23:51 [Information] X Axis SerialPort COM7 not connected.
-7/28/2024 21:23:51 [Information] Y Axis SerialPort COM8 not connected.
-7/28/2024 21:23:51 [Information] Version:3.1.0.38515 (7/28/2024 21:23:51)
-7/28/2024 21:23:52 [Information] Stepper Motor Controller MainWindow loaded
-7/28/2024 21:23:52 [Information] Set MainWindow Media Brushes to White.
-7/28/2024 21:24:03 [Information] Stepper Motor Controller Application Settings Window Opened.
-7/28/2024 21:24:03 [Information] Stepper Motor Controller Application Settings form is rebuilt each and every time it is opened.
-7/28/2024 21:24:03 [Information] decimal: 1000.00 MillisecondDelay added to the Settings Form.
-7/28/2024 21:24:27 [Information] decimal: 400.00 XaxisMotorSpeed added to the Settings Form.
-7/28/2024 21:24:48 [Information] decimal: 0.00 XaxisStepperCurrent added to the Settings Form.
-7/28/2024 21:25:50 [Information] decimal: 4.00 Divider4_00 added to the Settings Form.
-7/28/2024 21:25:55 [Information] bool: False ZaxisChanged added to the Settings Form.
-7/28/2024 21:26:31 [Information] int: 1000 Milliseconds added to the Settings Form.
-7/28/2024 21:26:36 [Information] decimal: 0.00 ZaxisStepperMove added to the Settings Form.
-7/28/2024 21:27:02 [Information] decimal: 0.00 ZaxisStepperCurrent added to the Settings Form.
-7/28/2024 21:27:07 [Information] bool: False XaxisChanged added to the Settings Form.
+7/28/2024 21:50:56 [Information] Stepper Motor Controller Application Started.
+7/28/2024 21:50:56 [Information] Version: 3.0.8975.39326 (7/28/2024 21:50:56)
+7/28/2024 21:50:56 [Information] X Axis SerialPort COM7 not connected.
+7/28/2024 21:50:56 [Information] Y Axis SerialPort COM8 not connected.
+7/28/2024 21:50:56 [Information] Version:3.1.0.39327 (7/28/2024 21:50:56)
+7/28/2024 21:50:56 [Information] Stepper Motor Controller MainWindow loaded
+7/28/2024 21:50:56 [Information] Set MainWindow Media Brushes to White.
+7/28/2024 21:50:58 [Information] Stepper Motor Controller Application Settings Window Opened.
+7/28/2024 21:50:58 [Information] Stepper Motor Controller Application Settings form is rebuilt each and every time it is opened.
+7/28/2024 21:50:58 [Information] bool: False YaxisChanged added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 0.00 Value_0_00 added to the Settings Form.
+7/28/2024 21:50:58 [Information] bool: False ckbYaxisResetToZeroIsChecked added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 400.00 XaxisMotorSpeed added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 400.00 YaxisMotorSpeed added to the Settings Form.
+7/28/2024 21:50:58 [Information] bool: False ckbZaxisResetToZeroIsChecked added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 0.00 ZaxisStepperMove added to the Settings Form.
+7/28/2024 21:50:58 [Information] int: 0 zeroXaxis added to the Settings Form.
+7/28/2024 21:50:58 [Information] int: 9600 BaudRate added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM1: ComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM2: ComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM3: ComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM4: ComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM5: ComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM6: ComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM7: ComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM8: ComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM9: ComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM10: ComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 0.00 MathPart2Initlz added to the Settings Form.
+7/28/2024 21:50:58 [Information] bool: False XaxisChanged added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 0.00 ZaxisStepperCurrent added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM1: ZComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM2: ZComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM3: ZComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM4: ZComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM5: ZComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM6: ZComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM7: ZComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM8: ZComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM9: ZComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM10: ZComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 400.00 ZaxisMotorSpeed added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM1: YComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM2: YComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM3: YComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM4: YComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM5: YComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM6: YComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM7: YComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM8: YComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM9: YComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM10: YComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] bool: False ZaxisChanged added to the Settings Form.
+7/28/2024 21:50:58 [Information] int: 0 zeroYaxis added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 1.00 MilisecondTimerInterval added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 1000.00 MillisecondDelay added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 0.00 XaxisStepperMove added to the Settings Form.
+7/28/2024 21:50:58 [Information] int: 4 mmPerRevolution added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 4.00 Divider4_00 added to the Settings Form.
+7/28/2024 21:50:58 [Information] bool: False ckbXaxisResetToZeroIsChecked added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 0.00 YaxisStepperCurrent added to the Settings Form.
+7/28/2024 21:50:58 [Information] int: 1000 Milliseconds added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 0.00 XaxisStepperCurrent added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM1: XComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM2: XComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM3: XComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM4: XComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM5: XComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM6: XComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM7: XComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM8: XComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM9: XComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] COM10: XComPort added to the Settings Form.
+7/28/2024 21:50:58 [Information] decimal: 0.00 YaxisStepperMove added to the Settings Form.
+7/28/2024 21:50:58 [Information] int: 0 zeroZaxis added to the Settings Form.
+7/28/2024 21:50:58 [Information] Version Number: BuildVersion added to the Settings Form.
+7/28/2024 21:50:58 [Information] ServerIPAddress: ServerIPAddress added to the Settings Form.
+7/28/2024 21:50:58 [Information] CountDownText: CountDownText added to the Settings Form.
+7/28/2024 21:50:58 [Information] Stepper Motor Controller Loading Application Settings form.
+7/28/2024 21:51:42 [Information] Stepper Motor Controller Application Settings Saved.
+7/28/2024 21:51:42 [Information] Stepper Motor Controller Application Settings Saved and Window Closing.
+7/28/2024 21:51:44 [Information] Stepper Motor Controller Serial Ports closed.
+7/28/2024 21:51:44 [Information] Stepper Motor Controller MainWindow Closing.
