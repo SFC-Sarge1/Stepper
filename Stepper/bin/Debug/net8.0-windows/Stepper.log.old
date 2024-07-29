@@ -1,43 +1,43 @@
-7/28/2024 20:51:16 [Information] Stepper Motor Controller Application Started.
-7/28/2024 20:51:16 [Information] Version: 3.0.8975.37530 (7/28/2024 20:51:16)
-7/28/2024 20:51:16 [Information] X Axis SerialPort COM7 not connected.
-7/28/2024 20:51:16 [Information] Y Axis SerialPort COM8 not connected.
-7/28/2024 20:51:16 [Information] Version:3.1.0.37531 (7/28/2024 20:51:16)
-7/28/2024 20:51:16 [Information] Stepper Motor Controller MainWindow loaded
-7/28/2024 20:51:16 [Information] Set MainWindow Media Brushes to White.
-7/28/2024 20:51:19 [Information] Stepper Motor Controller Application Settings Window Opened.
-7/28/2024 20:51:19 [Information] Stepper Motor Controller Application Settings form is rebuilt each and every time it is opened.
-7/28/2024 20:51:19 [Information] decimal: 0.00 ZaxisStepperMove added to the Settings Form.
-7/28/2024 20:51:19 [Information] decimal: 0.00 ZaxisStepperCurrent added to the Settings Form.
-7/28/2024 20:51:19 [Information] bool: False XaxisChanged added to the Settings Form.
-7/28/2024 20:51:19 [Information] decimal: 0.00 YaxisStepperMove added to the Settings Form.
-7/28/2024 20:51:19 [Information] int: 0 zeroXaxis added to the Settings Form.
-7/28/2024 20:51:19 [Information] bool: False ckbZaxisResetToZeroIsChecked added to the Settings Form.
-7/28/2024 20:51:19 [Information] bool: False ckbYaxisResetToZeroIsChecked added to the Settings Form.
-7/28/2024 20:51:19 [Information] decimal: 1.00 MilisecondTimerInterval added to the Settings Form.
-7/28/2024 20:51:19 [Information] decimal: 1000.00 MillisecondDelay added to the Settings Form.
-7/28/2024 20:51:19 [Information] bool: False ZaxisChanged added to the Settings Form.
-7/28/2024 20:51:19 [Information] decimal: 0.00 MathPart2Initlz added to the Settings Form.
-7/28/2024 20:51:19 [Information] decimal: 400.00 YaxisMotorSpeed added to the Settings Form.
-7/28/2024 20:51:19 [Information] decimal: 0.00 YaxisStepperCurrent added to the Settings Form.
-7/28/2024 20:51:19 [Information] int: 9600 BaudRate added to the Settings Form.
-7/28/2024 20:51:19 [Information] bool: False ckbXaxisResetToZeroIsChecked added to the Settings Form.
-7/28/2024 20:51:19 [Information] decimal: 400.00 XaxisMotorSpeed added to the Settings Form.
-7/28/2024 20:51:19 [Information] decimal: 0.00 XaxisStepperMove added to the Settings Form.
-7/28/2024 20:51:19 [Information] decimal: 400.00 ZaxisMotorSpeed added to the Settings Form.
-7/28/2024 20:51:19 [Information] int: 4 mmPerRevolution added to the Settings Form.
-7/28/2024 20:51:19 [Information] decimal: 4.00 Divider4_00 added to the Settings Form.
-7/28/2024 20:51:19 [Information] bool: False YaxisChanged added to the Settings Form.
-7/28/2024 20:51:19 [Information] decimal: 0.00 XaxisStepperCurrent added to the Settings Form.
-7/28/2024 20:51:19 [Information] int: 0 zeroYaxis added to the Settings Form.
-7/28/2024 20:51:19 [Information] decimal: 0.00 Value_0_00 added to the Settings Form.
-7/28/2024 20:51:19 [Information] int: 0 zeroZaxis added to the Settings Form.
-7/28/2024 20:51:19 [Information] int: 1000 Milliseconds added to the Settings Form.
-7/28/2024 20:51:19 [Information] Version Number: BuildVersion added to the Settings Form.
-7/28/2024 20:51:19 [Information] ServerIPAddress: ServerIPAddress added to the Settings Form.
-7/28/2024 20:51:19 [Information] CountDownText: CountDownText added to the Settings Form.
-7/28/2024 20:51:19 [Information] Stepper Motor Controller Loading Application Settings form.
-7/28/2024 20:51:45 [Information] Stepper Motor Controller Application Settings Saved.
-7/28/2024 20:51:45 [Information] Stepper Motor Controller Application Settings Saved and Window Closing.
-7/28/2024 20:51:46 [Information] Stepper Motor Controller Serial Ports closed.
-7/28/2024 20:51:46 [Information] Stepper Motor Controller MainWindow Closing.
+7/28/2024 21:21:11 [Information] Stepper Motor Controller Application Started.
+7/28/2024 21:21:11 [Information] Version: 3.0.8975.38434 (7/28/2024 21:21:11)
+7/28/2024 21:21:11 [Information] X Axis SerialPort COM7 not connected.
+7/28/2024 21:21:11 [Information] Y Axis SerialPort COM8 not connected.
+7/28/2024 21:21:11 [Information] Version:3.1.0.38435 (7/28/2024 21:21:11)
+7/28/2024 21:21:11 [Information] Stepper Motor Controller MainWindow loaded
+7/28/2024 21:21:11 [Information] Set MainWindow Media Brushes to White.
+7/28/2024 21:21:14 [Information] Stepper Motor Controller Application Settings Window Opened.
+7/28/2024 21:21:14 [Information] Stepper Motor Controller Application Settings form is rebuilt each and every time it is opened.
+7/28/2024 21:21:14 [Information] bool: False ckbXaxisResetToZeroIsChecked added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 0.00 ZaxisStepperCurrent added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 1.00 MilisecondTimerInterval added to the Settings Form.
+7/28/2024 21:21:14 [Information] int: 1000 Milliseconds added to the Settings Form.
+7/28/2024 21:21:14 [Information] bool: False YaxisChanged added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 0.00 ZaxisStepperMove added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 0.00 MathPart2Initlz added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 0.00 XaxisStepperMove added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 0.00 YaxisStepperCurrent added to the Settings Form.
+7/28/2024 21:21:14 [Information] bool: False ZaxisChanged added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 4.00 Divider4_00 added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 1000.00 MillisecondDelay added to the Settings Form.
+7/28/2024 21:21:14 [Information] bool: False XaxisChanged added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 400.00 ZaxisMotorSpeed added to the Settings Form.
+7/28/2024 21:21:14 [Information] bool: False ckbYaxisResetToZeroIsChecked added to the Settings Form.
+7/28/2024 21:21:14 [Information] int: 0 zeroZaxis added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 0.00 XaxisStepperCurrent added to the Settings Form.
+7/28/2024 21:21:14 [Information] bool: False ckbZaxisResetToZeroIsChecked added to the Settings Form.
+7/28/2024 21:21:14 [Information] int: 4 mmPerRevolution added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 0.00 YaxisStepperMove added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 400.00 YaxisMotorSpeed added to the Settings Form.
+7/28/2024 21:21:14 [Information] int: 9600 BaudRate added to the Settings Form.
+7/28/2024 21:21:14 [Information] int: 0 zeroXaxis added to the Settings Form.
+7/28/2024 21:21:14 [Information] int: 0 zeroYaxis added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 400.00 XaxisMotorSpeed added to the Settings Form.
+7/28/2024 21:21:14 [Information] decimal: 0.00 Value_0_00 added to the Settings Form.
+7/28/2024 21:21:14 [Information] Version Number: BuildVersion added to the Settings Form.
+7/28/2024 21:21:14 [Information] ServerIPAddress: ServerIPAddress added to the Settings Form.
+7/28/2024 21:21:14 [Information] CountDownText: CountDownText added to the Settings Form.
+7/28/2024 21:21:14 [Information] Stepper Motor Controller Loading Application Settings form.
+7/28/2024 21:21:34 [Information] Stepper Motor Controller Application Settings Saved.
+7/28/2024 21:21:34 [Information] Stepper Motor Controller Application Settings Saved and Window Closing.
+7/28/2024 21:21:35 [Information] Stepper Motor Controller Serial Ports closed.
+7/28/2024 21:21:35 [Information] Stepper Motor Controller MainWindow Closing.

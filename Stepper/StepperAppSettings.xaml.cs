@@ -234,7 +234,7 @@ namespace Stepper
                     MySettings.Children.Add(labelDecimalUserAppSettingsWithBorder);
                     MySettings.Children.Add(UserDecimalAppSettings);
                 }
-                else if (Properties.Settings.Default[propertyName: currentProperty.Name].ToString().Contains("XCom"))
+                if (Properties.Settings.Default[propertyName: currentProperty.Name].ToString() == "XComPort")
                 {
                     // Create a label and a textbox for the setting
                     Border labelXComUserAppSettingsWithBorder = new()
@@ -294,7 +294,7 @@ namespace Stepper
                     MySettings.Children.Add(labelXComUserAppSettingsWithBorder);
                     MySettings.Children.Add(UserXComAppSettings);
                 }
-                else if (Properties.Settings.Default[propertyName: currentProperty.Name].ToString().Contains("YCom"))
+                if (Properties.Settings.Default[propertyName: currentProperty.Name].ToString() == "YComPort")
                 {
                     // Create a label and a textbox for the setting
                     Border labelYComUserAppSettingsWithBorder = new()
@@ -348,13 +348,13 @@ namespace Stepper
                         Properties.Settings.Default[propertyName: currentProperty.Name] = UserYComAppSettings.SelectedItem.ToString();
                         Properties.Settings.Default.Save();
                         MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
-                        MainWindow._logger.LogInformation($"COMY: values for {currentProperty.Name} Saved to the Settings.");
+                        MainWindow._logger.LogInformation($"YComPort: values for {currentProperty.Name} Saved to the Settings.");
                     };
                     // Add the label and textbox to the WrapPanel
                     MySettings.Children.Add(labelYComUserAppSettingsWithBorder);
                     MySettings.Children.Add(UserYComAppSettings);
                 }
-                else if (Properties.Settings.Default[propertyName: currentProperty.Name].ToString().Contains("ZCom"))
+                if (Properties.Settings.Default[propertyName: currentProperty.Name].ToString() == "ZComPort")
                 {
                     // Create a label and a textbox for the setting
                     Border labelZComUserAppSettingsWithBorder = new()
