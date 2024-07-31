@@ -200,7 +200,8 @@ namespace Stepper
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
             _logger.LogInformation(message: $"Version: {displayableVersion}");
-            _XserialPort = new(Properties.Settings.Default.XComPort, Properties.Settings.Default.BaudRate);
+            _XserialPort = new(Properties.Settings.Default.XComPort, Properties.Settings.Default.BaudRate); 
+            _XserialPort.Close();
             if (_XserialPort.IsOpen == false)
             {
                 try
@@ -212,7 +213,9 @@ namespace Stepper
                     _logger.LogInformation(message: $"X Axis SerialPort {Properties.Settings.Default.XComPort} not connected.");
                 }
             }
+            btnXAxisPort.Content = $"X Axis Port {Properties.Settings.Default.XComPort}";
             _YserialPort = new(Properties.Settings.Default.YComPort, Properties.Settings.Default.BaudRate);
+            _YserialPort.Close();
             if (_YserialPort.IsOpen == false)
             {
                 try
@@ -224,7 +227,9 @@ namespace Stepper
                     _logger.LogInformation(message: $"Y Axis SerialPort {Properties.Settings.Default.YComPort} not connected.");
                 }
             }
+            btnYAxisPort.Content = $"Y Axis Port {Properties.Settings.Default.YComPort}";
             _ZserialPort = new(Properties.Settings.Default.ZComPort, Properties.Settings.Default.BaudRate);
+            _ZserialPort.Close();
             if (_ZserialPort.IsOpen == false)
             {
                 try
@@ -236,6 +241,7 @@ namespace Stepper
                     _logger.LogInformation(message: $"Z Axis SerialPort {Properties.Settings.Default.ZComPort} not connected.");
                 }
             }
+            btnZAxisPort.Content = $"Z Axis Port {Properties.Settings.Default.ZComPort}";
             _XserialPort.DataReceived += new SerialDataReceivedEventHandler(XdataReceivedHandler);
             _YserialPort.DataReceived += new SerialDataReceivedEventHandler(YdataReceivedHandler);
             _ZserialPort.DataReceived += new SerialDataReceivedEventHandler(ZdataReceivedHandler);
@@ -1592,7 +1598,7 @@ namespace Stepper
 
         private void XAxisPort_Click(object sender, RoutedEventArgs e)
         {
-            _XserialPort = new("COM7", Properties.Settings.Default.BaudRate);
+            _XserialPort = new(Properties.Settings.Default.XComPort, Properties.Settings.Default.BaudRate);
             if (_XserialPort.IsOpen == false)
             {
                 try
@@ -1601,16 +1607,16 @@ namespace Stepper
                 }
                 catch
                 {
-                    _logger.LogInformation(message: $"X Axis SerialPort COM7 not connected.");
+                    _logger.LogInformation(message: $"X Axis SerialPort {Properties.Settings.Default.XComPort} not connected.");
                 }
             }
 
-            btnXAxisPort.Content = "X Axis Port 7";
+            btnXAxisPort.Content = $"X Axis Port {Properties.Settings.Default.XComPort}";
         }
 
         private void YAxisPort_Click(object sender, RoutedEventArgs e)
         {
-            _YserialPort = new("COM8", Properties.Settings.Default.BaudRate);
+            _YserialPort = new(Properties.Settings.Default.YComPort, Properties.Settings.Default.BaudRate);
             if (_YserialPort.IsOpen == false)
             {
                 try
@@ -1619,16 +1625,17 @@ namespace Stepper
                 }
                 catch
                 {
-                    _logger.LogInformation(message: $"Y Axis SerialPort COM8 not connected.");
+                    _logger.LogInformation(message: $"Y Axis SerialPort {Properties.Settings.Default.YComPort} not connected.");
                 }
             }
 
-            btnYAxisPort.Content = "Y Axis Port 8";
+            btnYAxisPort.Content = $"Y Axis Port {Properties.Settings.Default.YComPort}";
         }
 
         private void ZAxisPort_Click(object sender, RoutedEventArgs e)
         {
-            _ZserialPort = new("COM5", Properties.Settings.Default.BaudRate);
+            //_ZserialPort = new(Properties.Settings.Default.ZComPort, Properties.Settings.Default.BaudRate);
+            _ZserialPort.Close();
             if (_ZserialPort.IsOpen == false)
             {
                 try
@@ -1637,11 +1644,11 @@ namespace Stepper
                 }
                 catch
                 {
-                    _logger.LogInformation(message: $"Z Axis SerialPort COM5 not connected.");
+                    _logger.LogInformation(message: $"Z Axis SerialPort {Properties.Settings.Default.ZComPort} not connected.");
                 }
             }
 
-            btnZAxisPort.Content = "Z Axis Port 5";
+            btnZAxisPort.Content = $"Z Axis Port {Properties.Settings.Default.ZComPort}";
         }
     }
 }
