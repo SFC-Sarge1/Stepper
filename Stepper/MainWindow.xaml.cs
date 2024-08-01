@@ -27,6 +27,7 @@ namespace Stepper
     using Microsoft.Extensions.Primitives;
     using System.Diagnostics;
     using System.Xml.Linq;
+    using UtilityDelta.Stepper;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -163,6 +164,7 @@ namespace Stepper
         /// The zserial port
         /// </summary>
         public SerialPort _ZserialPort = new SerialPort();
+        private SerialPort _serialPort;
         //public SerialPort xSp;
         //public string xSpResult;
         /// <summary>
@@ -1598,7 +1600,7 @@ namespace Stepper
 
         private void XAxisPort_Click(object sender, RoutedEventArgs e)
         {
-            _XserialPort = new(Properties.Settings.Default.XComPort, Properties.Settings.Default.BaudRate);
+            _XserialPort.Close();
             if (_XserialPort.IsOpen == false)
             {
                 try
@@ -1616,7 +1618,7 @@ namespace Stepper
 
         private void YAxisPort_Click(object sender, RoutedEventArgs e)
         {
-            _YserialPort = new(Properties.Settings.Default.YComPort, Properties.Settings.Default.BaudRate);
+            _YserialPort.Close();
             if (_YserialPort.IsOpen == false)
             {
                 try
@@ -1634,7 +1636,6 @@ namespace Stepper
 
         private void ZAxisPort_Click(object sender, RoutedEventArgs e)
         {
-            //_ZserialPort = new(Properties.Settings.Default.ZComPort, Properties.Settings.Default.BaudRate);
             _ZserialPort.Close();
             if (_ZserialPort.IsOpen == false)
             {
