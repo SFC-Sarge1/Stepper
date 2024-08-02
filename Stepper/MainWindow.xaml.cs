@@ -28,6 +28,7 @@ namespace Stepper
     using System.Diagnostics;
     using System.Xml.Linq;
     using UtilityDelta.Stepper;
+    using System.Windows.Markup;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -196,7 +197,7 @@ namespace Stepper
                 builder.AddProvider(new FileLoggerProvider(FileLogPath)); // Log to a file named "Stepper.log"
             });
             _logger = loggerFactory.CreateLogger<MainWindow>();
-            _logger.LogInformation(message: $"Stepper Motor Controller Application Started.");
+            _logger.LogInformation(message: $"{axis} Stepper Motor Controller Application Started.");
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
@@ -275,7 +276,8 @@ namespace Stepper
             version = new(major, minor, build, revision);
             buildDate = DateTime.Now;
             displayableVersion = $"{major}.{minor}.{build}.{revision} ({buildDate})";
-            VersionTxt.Text = "Version: " + displayableVersion;
+            _logger.LogInformation(message: $"Version: {displayableVersion}");
+            VersionTxt.Text = $"Version: {displayableVersion}";
             XDocument doc = XDocument.Load(Properties.Settings.Default.ProjectFilePath);
             // Find the Version element and change its value
             var versionElement = doc.Descendants("AssemblyVersion").FirstOrDefault();
@@ -290,8 +292,8 @@ namespace Stepper
             }
             // Save the modified XML file
             doc.Save(Properties.Settings.Default.ProjectFilePath);
-            Properties.Settings.Default.BuildVersion = "Version: " + displayableVersion;
-            _logger.LogInformation(message: "Version:" + displayableVersion);
+            Properties.Settings.Default.BuildVersion = $"Version: {displayableVersion}";
+            _logger.LogInformation(message: $"Version: {displayableVersion}");
 #endif
             timer = new DispatcherTimer
             {
@@ -317,22 +319,19 @@ namespace Stepper
         {
             SerialPort Xsp = (SerialPort)sender;
             string Xindata = Xsp.ReadExisting();
-            Console.WriteLine("X Axis Data Received:");
-            Console.Write(Xindata);
+            _logger.LogInformation(message: $"X Axis Data Received: {Xindata}");
         }
         private static void YdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort Ysp = (SerialPort)sender;
             string Yindata = Ysp.ReadExisting();
-            Console.WriteLine("Y Axis Data Received:");
-            Console.Write(Yindata);
+            _logger.LogInformation(message: $"Y Axis Data Received: {Yindata}");
         }
         private static void ZdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort Zsp = (SerialPort)sender;
             string Zindata = Zsp.ReadExisting();
-            Console.WriteLine("Z Axis Data Received:");
-            Console.Write(Zindata);
+            _logger.LogInformation(message: $"Z Axis Data Received: {Zindata}");
         }
         /// <summary>
         /// Determines whether the specified number is negative.
@@ -364,7 +363,7 @@ namespace Stepper
                 previousXAxis = txtXaxisStepperMove.Text.ToString();
                 string stringValue;
                 string stringValue1;
-                string[] xStepper;
+
                 if (ckbXaxisResetToZero.IsChecked == true)
                 {
                     zeroXaxis = 1;
@@ -424,7 +423,6 @@ namespace Stepper
                 previousYAxis = txtYaxisStepperMove.Text.ToString();
                 string stringValue;
                 string stringValue1;
-                string[] yStepper;
 
                 if (ckbYaxisResetToZero.IsChecked == true)
                 {
@@ -443,7 +441,7 @@ namespace Stepper
                     if (Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()) < 0)
                     {
                         stepperMove = Math.Abs(Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()));
-                        _logger.LogInformation(message: $"{axis} Axis negitive value: {txtYaxisStepperMove.Text} converted to positive decimal: {stepperMove}");
+                        _logger.LogInformation(message: $"{axis} Axis negative value: {txtYaxisStepperMove.Text} converted to positive decimal: {stepperMove}");
                     }
                     else
                     {
@@ -486,7 +484,6 @@ namespace Stepper
                 previousZAxis = txtZaxisStepperMove.Text.ToString();
                 string stringValue;
                 string stringValue1;
-                string[] zStepper;
 
                 if (ckbZaxisResetToZero.IsChecked == true)
                 {
@@ -547,7 +544,6 @@ namespace Stepper
                 _logger.LogInformation(message: $"{axis}AxisRun_Click button clicked:");
                 string stringValue;
                 string stringValue1;
-                string[] xyStepper;
 
                 if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == true)
                 {
@@ -583,7 +579,7 @@ namespace Stepper
                     if (Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()) < 0)
                     {
                         stepperMove = Math.Abs(Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()));
-                        _logger.LogInformation(message: $"{axis} Axis negitive value: {txtYaxisStepperMove.Text} converted to positive decimal: {stepperMove}");
+                        _logger.LogInformation(message: $"{axis} Axis negative value: {txtYaxisStepperMove.Text} converted to positive decimal: {stepperMove}");
                     }
                     else
                     {
@@ -707,7 +703,6 @@ namespace Stepper
             Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
             Properties.Settings.Default.Save();
             _logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
-            //ResetSerialPort();        
         }
         /// <summary>
         /// Sets the stepper motor Y axis to zero.
@@ -765,10 +760,6 @@ namespace Stepper
             Properties.Settings.Default.Save();
             _logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
         }
-        //private void ZdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        //{
-        //    xSp = (SerialPort)sender;
-        //}
 
         /// <summary>
         /// CheckBoxes the changed.

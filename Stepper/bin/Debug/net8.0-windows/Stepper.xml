@@ -226,12 +226,12 @@
         </member>
         <member name="F:Stepper.MainWindow.zeroYaxis">
             <summary>
-            The zero yaxis
+            The zero Y axis
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.zeroZaxis">
             <summary>
-            The zero zaxis
+            The zero Z axis
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.axis">
@@ -241,62 +241,62 @@
         </member>
         <member name="F:Stepper.MainWindow.currentXAxis">
             <summary>
-            The current x axis
+            The current X axis
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.currentYAxis">
             <summary>
-            The current y axis
+            The current Y axis
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.currentZAxis">
             <summary>
-            The current z axis
+            The current Z axis
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.previousXAxis">
             <summary>
-            The previous x axis
+            The previous X axis
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.previousYAxis">
             <summary>
-            The previous y axis
+            The previous Y axis
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.previousZAxis">
             <summary>
-            The previous z axis
+            The previous Z axis
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.XaxisChanged">
             <summary>
-            The xaxis changed
+            The Xaxis changed
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.YaxisChanged">
             <summary>
-            The yaxis changed
+            The Y axis changed
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.ZaxisChanged">
             <summary>
-            The zaxis changed
+            The Z axis changed
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.XaxisStepperMoveTemp">
             <summary>
-            The xaxis stepper move temporary
+            The X axis stepper move temporary
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.YaxisStepperMoveTemp">
             <summary>
-            The yaxis stepper move temporary
+            The Y axis stepper move temporary
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.ZaxisStepperMoveTemp">
             <summary>
-            The zaxis stepper move temporary
+            The Z axis stepper move temporary
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.stepperMove">
@@ -306,22 +306,22 @@
         </member>
         <member name="F:Stepper.MainWindow.xStepperMove">
             <summary>
-            The x stepper move
+            The X axis stepper move
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.yStepperMove">
             <summary>
-            The y stepper move
+            The Y axis stepper move
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.zStepperMove">
             <summary>
-            The z stepper move
+            The Z axis stepper move
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.xyStepperMove">
             <summary>
-            The xy stepper move
+            The X and Y axis stepper move
             </summary>
         </member>
         <member name="F:Stepper.MainWindow._logger">
@@ -336,17 +336,17 @@
         </member>
         <member name="F:Stepper.MainWindow._XserialPort">
             <summary>
-            The xserial port
+            The X serial port
             </summary>
         </member>
         <member name="F:Stepper.MainWindow._YserialPort">
             <summary>
-            The yserial port
+            The Y serial port
             </summary>
         </member>
         <member name="F:Stepper.MainWindow._ZserialPort">
             <summary>
-            The zserial port
+            The Z serial port
             </summary>
         </member>
         <member name="M:Stepper.MainWindow.#ctor">
@@ -356,63 +356,63 @@
         </member>
         <member name="M:Stepper.MainWindow.IsNegative(System.Decimal)">
             <summary>
-            Determines wheZther the specified number is negative.
+            Determines whether the specified number is negative.
             </summary>
             <param name="number">The number.</param>
             <returns><c>true</c> if the specified number is negative; otherwise, <c>false</c>.</returns>
         </member>
         <member name="M:Stepper.MainWindow.XAxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
-            Handles the Click event of the XAxisRun control.
+            Handles the Click event of the X Axis Run event.
             </summary>
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.YAxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
-            Handles the Click event of the YAxisRun control.
+            Handles the Click event of the Y Axis Run event.
             </summary>
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.ZAxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
-            Handles the Click event of the ZAxisRun control.
+            Handles the Click event of the Z Axis Run event.
             </summary>
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.XYAxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
-            Handles the Click event of the XYAxisRun control.
+            Handles the Click event of the X and Y Axis Run event.
             </summary>
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.XZero(System.Int32,System.String)">
             <summary>
-            xes the zero.
+            Sets the stepper motor X axis to zero.
             </summary>
             <param name="myDelay">The myDelay.</param>
             <param name="axis">The axis.</param>
         </member>
         <member name="M:Stepper.MainWindow.YZero(System.Int32,System.String)">
             <summary>
-            ies the zero.
+            Sets the stepper motor Y axis to zero.
             </summary>
             <param name="myDelay">The myDelay.</param>
             <param name="axis">The axis.</param>
         </member>
         <member name="M:Stepper.MainWindow.ZZero(System.Int32,System.String)">
             <summary>
-            zs the zero.
+            Sets the stepper motor Z axis to zero.
             </summary>
             <param name="myDelay">The myDelay.</param>
             <param name="axis">The axis.</param>
         </member>
         <member name="M:Stepper.MainWindow.XYZero(System.Int32,System.String)">
             <summary>
-            Xies the zero.
+            Sets the stepper motor X and Y axis to zero.
             </summary>
             <param name="myDelay">The myDelay.</param>
             <param name="axis">The axis.</param>
