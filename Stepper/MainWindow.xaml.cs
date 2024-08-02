@@ -825,8 +825,16 @@ namespace Stepper
             else
             {
                 txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
-                Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
-                Properties.Settings.Default.Save();
+                try
+                {
+                    Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
+                    Properties.Settings.Default.Save();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogInformation(message: $"X Axis error occurred: {ex.Message}");
+                    MessageBox.Show($"X Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
         /// <summary>
@@ -843,8 +851,16 @@ namespace Stepper
             else
             {
                 txtXaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.Red;
-                Properties.Settings.Default.XaxisMotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                Properties.Settings.Default.Save();
+                try
+                {
+                    Properties.Settings.Default.XaxisMotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
+                    Properties.Settings.Default.Save();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogInformation(message: $"X Axis error occurred: {ex.Message}");
+                    MessageBox.Show($"X Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
         /// <summary>
@@ -862,8 +878,16 @@ namespace Stepper
             else
             {
                 txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
-                Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
-                Properties.Settings.Default.Save();
+                try
+                {
+                    Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
+                    Properties.Settings.Default.Save();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogInformation(message: $"Y Axis error occurred: {ex.Message}");
+                    MessageBox.Show($"Y Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
         /// <summary>
@@ -880,8 +904,16 @@ namespace Stepper
             else
             {
                 txtYaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.Red;
-                Properties.Settings.Default.YaxisMotorSpeed = Convert.ToDecimal(txtYaxisMotorSpeed.Text);
-                Properties.Settings.Default.Save();
+                try
+                {
+                    Properties.Settings.Default.YaxisMotorSpeed = Convert.ToDecimal(txtYaxisMotorSpeed.Text);
+                    Properties.Settings.Default.Save();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogInformation(message: $"Y Axis error occurred: {ex.Message}");
+                    MessageBox.Show($"Y Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
         /// <summary>
@@ -899,8 +931,16 @@ namespace Stepper
             else
             {
                 txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.Red;
-                Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
-                Properties.Settings.Default.Save();
+                try
+                {
+                    Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
+                    Properties.Settings.Default.Save();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogInformation(message: $"Z Axis error occurred: {ex.Message}");
+                    MessageBox.Show($"Z Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
         /// <summary>
@@ -917,8 +957,16 @@ namespace Stepper
             else
             {
                 txtZaxisMotorSpeed.BorderBrush = System.Windows.Media.Brushes.Red;
-                Properties.Settings.Default.ZaxisMotorSpeed = Convert.ToDecimal(txtZaxisMotorSpeed.Text);
-                Properties.Settings.Default.Save();
+                try
+                {
+                    Properties.Settings.Default.ZaxisMotorSpeed = Convert.ToDecimal(txtZaxisMotorSpeed.Text);
+                    Properties.Settings.Default.Save();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogInformation(message: $"Z Axis error occurred: {ex.Message}");
+                    MessageBox.Show($"Z Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
         /// <summary>
