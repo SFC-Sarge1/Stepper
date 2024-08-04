@@ -4,7 +4,7 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 07-24-2024
+// Last Modified On : 08-04-2024
 // ***********************************************************************
 // <copyright file="MainWindow.xaml.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.
@@ -35,7 +35,9 @@ namespace Stepper
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        /// <summary>The new settings window</summary>
+        /// <summary>
+        /// The new settings window
+        /// </summary>
         StepperAppSettings newSettingsWindow;
         /// <summary>
         /// The timer
@@ -166,6 +168,9 @@ namespace Stepper
         /// The Z serial port
         /// </summary>
         public SerialPort _ZserialPort = new SerialPort();
+        /// <summary>
+        /// The serial port
+        /// </summary>
         private SerialPort _serialPort;
 
         /// <summary>
@@ -204,7 +209,7 @@ namespace Stepper
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
             _logger.LogInformation(message: $"Version: {displayableVersion}");
-            _XserialPort = new(Properties.Settings.Default.XComPort, Properties.Settings.Default.BaudRate); 
+            _XserialPort = new(Properties.Settings.Default.XComPort, Properties.Settings.Default.BaudRate);
             _XserialPort.Close();
             if (_XserialPort.IsOpen == false)
             {
@@ -319,18 +324,33 @@ namespace Stepper
             newSettingsWindow = new StepperAppSettings();
 
         }
+        /// <summary>
+        /// Xdatas the received handler.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="SerialDataReceivedEventArgs"/> instance containing the event data.</param>
         private static void XdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort Xsp = (SerialPort)sender;
             string Xindata = Xsp.ReadExisting();
             _logger.LogInformation(message: $"X Axis Data Received: {Xindata}");
         }
+        /// <summary>
+        /// Ydatas the received handler.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="SerialDataReceivedEventArgs"/> instance containing the event data.</param>
         private static void YdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort Ysp = (SerialPort)sender;
             string Yindata = Ysp.ReadExisting();
             _logger.LogInformation(message: $"Y Axis Data Received: {Yindata}");
         }
+        /// <summary>
+        /// Zdatas the received handler.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="SerialDataReceivedEventArgs"/> instance containing the event data.</param>
         private static void ZdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort Zsp = (SerialPort)sender;
@@ -1639,6 +1659,11 @@ namespace Stepper
             return MotorMovementSeconds;
         }
 
+        /// <summary>
+        /// Handles the Click event of the XAxisPort control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void XAxisPort_Click(object sender, RoutedEventArgs e)
         {
             _XserialPort.Close();
@@ -1657,6 +1682,11 @@ namespace Stepper
             btnXAxisPort.Content = $"X Axis Port {Properties.Settings.Default.XComPort}";
         }
 
+        /// <summary>
+        /// Handles the Click event of the YAxisPort control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void YAxisPort_Click(object sender, RoutedEventArgs e)
         {
             _YserialPort.Close();
@@ -1675,6 +1705,11 @@ namespace Stepper
             btnYAxisPort.Content = $"Y Axis Port {Properties.Settings.Default.YComPort}";
         }
 
+        /// <summary>
+        /// Handles the Click event of the ZAxisPort control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void ZAxisPort_Click(object sender, RoutedEventArgs e)
         {
             _ZserialPort.Close();
