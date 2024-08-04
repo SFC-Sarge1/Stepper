@@ -180,9 +180,16 @@ namespace Stepper
         {
             InitializeComponent();
 
-            string LogFileName = "Stepper.log";
-            string FileLogPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), LogFileName);
-            string FileLogPathBackup = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), $"{LogFileName}.old");
+            string LogFileName = "Stepper";
+            string FileLogPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), LogFileName + ".log");
+            // Get current date and time
+            DateTime now = DateTime.Now;
+
+            // Format the date and time in a suitable format for a filename
+            string dateTimeString = now.ToString("yyyyMMdd_HHmmss");
+
+            // Combine original file name, date time string and extension
+            string FileLogPathBackup = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), $"{LogFileName}_{dateTimeString}.log");
             if (File.Exists(FileLogPath))
             {
                 if (File.Exists(FileLogPathBackup))

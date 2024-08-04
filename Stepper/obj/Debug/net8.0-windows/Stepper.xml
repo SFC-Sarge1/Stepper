@@ -190,7 +190,9 @@
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.newSettingsWindow">
-            <summary>The new settings window</summary>
+            <summary>
+            The new settings window
+            </summary>
         </member>
         <member name="F:Stepper.MainWindow.timer">
             <summary>
@@ -352,10 +354,36 @@
             The Z serial port
             </summary>
         </member>
+        <member name="F:Stepper.MainWindow._serialPort">
+            <summary>
+            The serial port
+            </summary>
+        </member>
         <member name="M:Stepper.MainWindow.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Stepper.MainWindow" /> class.
             </summary>
+        </member>
+        <member name="M:Stepper.MainWindow.XdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            Xdatas the received handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.YdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            Ydatas the received handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ZdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            Zdatas the received handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.IsNegative(System.Decimal)">
             <summary>
@@ -671,6 +699,27 @@
             <param name="MotorSpeed">The motor speed.</param>
             <param name="stepperMove">The stepper move.</param>
             <returns>System.Decimal.</returns>
+        </member>
+        <member name="M:Stepper.MainWindow.XAxisPort_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the XAxisPort control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.YAxisPort_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the YAxisPort control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ZAxisPort_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the ZAxisPort control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.InitializeComponent">
             <summary>
