@@ -38,10 +38,83 @@ namespace Stepper
             string displayableVersion = $"{version} ({buildDate})";
             VersionTxt.Text = $"Version: {displayableVersion}";
             Closing += StepperAppSettings_Closing;
+            // Get the children as a list and sort by Name
             MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings form is rebuilt each and every time it is opened.");
-            // Iterate over each setting to fill the WrapPanel with the settings
-            foreach (SettingsProperty currentProperty in Properties.Settings.Default.Properties)
+            // Create a label and a textbox for the setting
+            Border labelHeaderWithBorder = new()
             {
+                BorderBrush = Brushes.White,  // Color of the border
+                BorderThickness = new Thickness(1),  // Thickness of the border
+                Child = new Label()
+                {
+                    Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                    HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                    Width = 200,  // Width of the TextBox
+                    Height = 25,   // Height of the TextBox
+                    Content = "Name",
+
+                }
+            };
+            TextBox UserValue = new()
+            {
+                Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                BorderBrush = Brushes.White,  // Color of the border
+                BorderThickness = new Thickness(2),  // Thickness of the border
+                HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                Width = 250,  // Width of the TextBox
+                Height = 25,   // Height of the TextBox
+                Text = "Value",
+                IsReadOnly = true
+            };
+            //MainWindow._logger.LogInformation($"int: {newIntValue} {currentProperty.Name} added to the Settings Form.");
+            string backupValue = "Value";
+            UserValue.TouchDown += (sender, args) =>
+            {
+                Keypad mainWindow = new(this);
+                if (mainWindow.ShowDialog() == true)
+                {
+                    if (mainWindow.Result == null)
+                    {
+                        UserValue.Text = backupValue;
+                    }
+                    else
+                    {
+                        UserValue.Text = mainWindow.Result.ToString();
+                    }
+                }
+            };
+            UserValue.MouseUp += (sender, args) =>
+            {
+                Keypad mainWindow = new(this);
+                if (mainWindow.ShowDialog() == true)
+                {
+                    if (mainWindow.Result == null)
+                    {
+                        UserValue.Text = backupValue;
+                    }
+                    else
+                    {
+                        UserValue.Text = mainWindow.Result.ToString();
+                    }
+                }
+            };
+            UserValue.LostFocus += (sender, args) =>
+            {
+                //Properties.Settings.Default[propertyName: currentProperty.Name] = Convert.ToInt32(UserIntAppSettings.Text);
+                Properties.Settings.Default.Save();
+                MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
+                //MainWindow._logger.LogInformation($"int: {UserIntAppSettings.Text} {currentProperty.Name} Saved to the Settings.");
+            };
+            // Add the label and textbox to the WrapPanel
+            MySettings.Children.Add(labelHeaderWithBorder);
+            MySettings.Children.Add(UserValue);
+            var sortedSettings = Properties.Settings.Default.Properties.Cast<SettingsProperty>().OrderBy(p => p.Name);
+
+            // Iterate over each setting to fill the WrapPanel with the settings
+            //foreach (SettingsProperty currentProperty in Properties.Settings.Default.Properties)
+            foreach (SettingsProperty currentProperty in sortedSettings)
+            {
+                //if (int.TryParse(Properties.Settings.Default[propertyName: currentProperty.Name].ToString(), out int newIntValue))
                 if (int.TryParse(Properties.Settings.Default[propertyName: currentProperty.Name].ToString(), out int newIntValue))
                 {
                     // Create a label and a textbox for the setting
@@ -69,7 +142,7 @@ namespace Stepper
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString()
                     };
                     MainWindow._logger.LogInformation($"int: {newIntValue} {currentProperty.Name} added to the Settings Form.");
-                    string backupValue = Properties.Settings.Default[propertyName: currentProperty.Name].ToString();
+                    string backupValue1 = Properties.Settings.Default[propertyName: currentProperty.Name].ToString();
                     UserIntAppSettings.TouchDown += (sender, args) =>
                     {
                         Keypad mainWindow = new(this);
@@ -77,7 +150,7 @@ namespace Stepper
                         {
                             if (mainWindow.Result == null)
                             {
-                                UserIntAppSettings.Text = backupValue;
+                                UserIntAppSettings.Text = backupValue1;
                             }
                             else
                             {
@@ -107,9 +180,6 @@ namespace Stepper
                         MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
                         MainWindow._logger.LogInformation($"int: {UserIntAppSettings.Text} {currentProperty.Name} Saved to the Settings.");
                     };
-                    // Add the label and textbox to the WrapPanel
-                    MySettings.Children.Add(labelIntUserAppSettingsWithBorder);
-                    MySettings.Children.Add(UserIntAppSettings);
                 }
                 else if (bool.TryParse(Properties.Settings.Default[propertyName: currentProperty.Name].ToString(), out bool newBoolValue))
                 {
@@ -139,7 +209,7 @@ namespace Stepper
                         SelectedItem = Convert.ToBoolean(Properties.Settings.Default[propertyName: currentProperty.Name].ToString())
                     };
                     MainWindow._logger.LogInformation($"bool: {newBoolValue} {currentProperty.Name} added to the Settings Form.");
-                    bool backupValue = Convert.ToBoolean(Properties.Settings.Default[propertyName: currentProperty.Name].ToString());
+                    bool backupValue2 = Convert.ToBoolean(Properties.Settings.Default[propertyName: currentProperty.Name].ToString());
                     // Add items to the ComboBox
                     UserBoolAppSettings.Items.Add(false);
                     UserBoolAppSettings.Items.Add(true);
@@ -148,8 +218,8 @@ namespace Stepper
                     {
                         if (UserBoolAppSettings.SelectedItem.ToString() == null)
                         {
-                            UserBoolAppSettings.SelectedItem = backupValue;
-                            Properties.Settings.Default[propertyName: currentProperty.Name] = backupValue;
+                            UserBoolAppSettings.SelectedItem = backupValue2;
+                            Properties.Settings.Default[propertyName: currentProperty.Name] = backupValue2;
                             Properties.Settings.Default.Save();
                             MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
                         }
@@ -192,7 +262,7 @@ namespace Stepper
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString(),
                     };
                     MainWindow._logger.LogInformation($"decimal: {newDecimalValue} {currentProperty.Name} added to the Settings Form.");
-                    string backupValue = Properties.Settings.Default[propertyName: currentProperty.Name].ToString();
+                    string backupValue3 = Properties.Settings.Default[propertyName: currentProperty.Name].ToString();
                     UserDecimalAppSettings.TouchDown += (sender, args) =>
                     {
                         Keypad mainWindow = new(this);
@@ -200,7 +270,7 @@ namespace Stepper
                         {
                             if (mainWindow.Result == null)
                             {
-                                UserDecimalAppSettings.Text = backupValue;
+                                UserDecimalAppSettings.Text = backupValue3;
                             }
                             else
                             {
@@ -234,7 +304,7 @@ namespace Stepper
                     MySettings.Children.Add(labelDecimalUserAppSettingsWithBorder);
                     MySettings.Children.Add(UserDecimalAppSettings);
                 }
-                else if (Properties.Settings.Default[propertyName: currentProperty.Name].ToString() == "XComPort")
+                else if (currentProperty.Name.ToString() == "XComPort")
                 {
                     // Create a label and a textbox for the setting
                     Border labelXComUserAppSettingsWithBorder = new()
@@ -262,26 +332,12 @@ namespace Stepper
                         SelectedItem = Properties.Settings.Default[propertyName: currentProperty.Name].ToString()
                     };
                     // Add items to the ComboBox
-                    UserXComAppSettings.Items.Add("COM1");
-                    MainWindow._logger.LogInformation($"COM1: {currentProperty.Name} added to the Settings Form.");
-                    UserXComAppSettings.Items.Add("COM2");
-                    MainWindow._logger.LogInformation($"COM2: {currentProperty.Name} added to the Settings Form.");
-                    UserXComAppSettings.Items.Add("COM3");
-                    MainWindow._logger.LogInformation($"COM3: {currentProperty.Name} added to the Settings Form.");
-                    UserXComAppSettings.Items.Add("COM4");
-                    MainWindow._logger.LogInformation($"COM4: {currentProperty.Name} added to the Settings Form.");
-                    UserXComAppSettings.Items.Add("COM5");
-                    MainWindow._logger.LogInformation($"COM5: {currentProperty.Name} added to the Settings Form.");
-                    UserXComAppSettings.Items.Add("COM6");
-                    MainWindow._logger.LogInformation($"COM6: {currentProperty.Name} added to the Settings Form.");
-                    UserXComAppSettings.Items.Add("COM7");
-                    MainWindow._logger.LogInformation($"COM7: {currentProperty.Name} added to the Settings Form.");
-                    UserXComAppSettings.Items.Add("COM8");
-                    MainWindow._logger.LogInformation($"COM8: {currentProperty.Name} added to the Settings Form.");
-                    UserXComAppSettings.Items.Add("COM9");
-                    MainWindow._logger.LogInformation($"COM9: {currentProperty.Name} added to the Settings Form.");
-                    UserXComAppSettings.Items.Add("COM10");
-                    MainWindow._logger.LogInformation($"COM10: {currentProperty.Name} added to the Settings Form.");
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        string comPort = $"COM{i}";
+                        UserXComAppSettings.Items.Add(comPort);
+                        MainWindow._logger.LogInformation($"{comPort}: {currentProperty.Name} added to the Settings Form.");
+                    }
                     // When the textbox loses focus, update the setting
                     UserXComAppSettings.LostFocus += (sender, args) =>
                     {
@@ -294,7 +350,7 @@ namespace Stepper
                     MySettings.Children.Add(labelXComUserAppSettingsWithBorder);
                     MySettings.Children.Add(UserXComAppSettings);
                 }
-                else if (Properties.Settings.Default[propertyName: currentProperty.Name].ToString() == "YComPort")
+                else if (currentProperty.Name.ToString() == "YComPort")
                 {
                     // Create a label and a textbox for the setting
                     Border labelYComUserAppSettingsWithBorder = new()
@@ -322,26 +378,12 @@ namespace Stepper
                         SelectedItem = Properties.Settings.Default[propertyName: currentProperty.Name].ToString()
                     };
                     // Add items to the ComboBox
-                    UserYComAppSettings.Items.Add("COM1");
-                    MainWindow._logger.LogInformation($"COM1: {currentProperty.Name} added to the Settings Form.");
-                    UserYComAppSettings.Items.Add("COM2");
-                    MainWindow._logger.LogInformation($"COM2: {currentProperty.Name} added to the Settings Form.");
-                    UserYComAppSettings.Items.Add("COM3");
-                    MainWindow._logger.LogInformation($"COM3: {currentProperty.Name} added to the Settings Form.");
-                    UserYComAppSettings.Items.Add("COM4");
-                    MainWindow._logger.LogInformation($"COM4: {currentProperty.Name} added to the Settings Form.");
-                    UserYComAppSettings.Items.Add("COM5");
-                    MainWindow._logger.LogInformation($"COM5: {currentProperty.Name} added to the Settings Form.");
-                    UserYComAppSettings.Items.Add("COM6");
-                    MainWindow._logger.LogInformation($"COM6: {currentProperty.Name} added to the Settings Form.");
-                    UserYComAppSettings.Items.Add("COM7");
-                    MainWindow._logger.LogInformation($"COM7: {currentProperty.Name} added to the Settings Form.");
-                    UserYComAppSettings.Items.Add("COM8");
-                    MainWindow._logger.LogInformation($"COM8: {currentProperty.Name} added to the Settings Form.");
-                    UserYComAppSettings.Items.Add("COM9");
-                    MainWindow._logger.LogInformation($"COM9: {currentProperty.Name} added to the Settings Form.");
-                    UserYComAppSettings.Items.Add("COM10");
-                    MainWindow._logger.LogInformation($"COM10: {currentProperty.Name} added to the Settings Form.");
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        string comPort = $"COM{i}";
+                        UserYComAppSettings.Items.Add(comPort);
+                        MainWindow._logger.LogInformation($"{comPort}: {currentProperty.Name} added to the Settings Form.");
+                    }
                     // When the textbox loses focus, update the setting
                     UserYComAppSettings.LostFocus += (sender, args) =>
                     {
@@ -354,7 +396,7 @@ namespace Stepper
                     MySettings.Children.Add(labelYComUserAppSettingsWithBorder);
                     MySettings.Children.Add(UserYComAppSettings);
                 }
-                else if (Properties.Settings.Default[propertyName: currentProperty.Name].ToString() == "ZComPort")
+                else if (currentProperty.Name.ToString() == "ZComPort")
                 {
                     // Create a label and a textbox for the setting
                     Border labelZComUserAppSettingsWithBorder = new()
@@ -382,26 +424,12 @@ namespace Stepper
                         SelectedItem = Properties.Settings.Default[propertyName: currentProperty.Name].ToString()
                     };
                     // Add items to the ComboBox
-                    UserZComAppSettings.Items.Add("COM1");
-                    MainWindow._logger.LogInformation($"COM1: {currentProperty.Name} added to the Settings Form.");
-                    UserZComAppSettings.Items.Add("COM2");
-                    MainWindow._logger.LogInformation($"COM2: {currentProperty.Name} added to the Settings Form.");
-                    UserZComAppSettings.Items.Add("COM3");
-                    MainWindow._logger.LogInformation($"COM3: {currentProperty.Name} added to the Settings Form.");
-                    UserZComAppSettings.Items.Add("COM4");
-                    MainWindow._logger.LogInformation($"COM4: {currentProperty.Name} added to the Settings Form.");
-                    UserZComAppSettings.Items.Add("COM5");
-                    MainWindow._logger.LogInformation($"COM5: {currentProperty.Name} added to the Settings Form.");
-                    UserZComAppSettings.Items.Add("COM6");
-                    MainWindow._logger.LogInformation($"COM6: {currentProperty.Name} added to the Settings Form.");
-                    UserZComAppSettings.Items.Add("COM7");
-                    MainWindow._logger.LogInformation($"COM7: {currentProperty.Name} added to the Settings Form.");
-                    UserZComAppSettings.Items.Add("COM8");
-                    MainWindow._logger.LogInformation($"COM8: {currentProperty.Name} added to the Settings Form.");
-                    UserZComAppSettings.Items.Add("COM9");
-                    MainWindow._logger.LogInformation($"COM9: {currentProperty.Name} added to the Settings Form.");
-                    UserZComAppSettings.Items.Add("COM10");
-                    MainWindow._logger.LogInformation($"COM10: {currentProperty.Name} added to the Settings Form.");
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        string comPort = $"COM{i}";
+                        UserZComAppSettings.Items.Add(comPort);
+                        MainWindow._logger.LogInformation($"{comPort}: {currentProperty.Name} added to the Settings Form.");
+                    }
                     // When the textbox loses focus, update the setting
                     UserZComAppSettings.LostFocus += (sender, args) =>
                     {
@@ -414,7 +442,7 @@ namespace Stepper
                     MySettings.Children.Add(labelZComUserAppSettingsWithBorder);
                     MySettings.Children.Add(UserZComAppSettings);
                 }
-                else if (Properties.Settings.Default[propertyName: currentProperty.Name].ToString().ToUpper().Contains("COM"))
+                else if (currentProperty.Name.ToString().ToUpper().Contains("COM"))
                 {
                     // Create a label and a textbox for the setting
                     Border labelComUserAppSettingsWithBorder = new()
@@ -442,26 +470,12 @@ namespace Stepper
                         SelectedItem = Properties.Settings.Default[propertyName: currentProperty.Name].ToString()
                     };
                     // Add items to the ComboBox
-                    UserComAppSettings.Items.Add("COM1");
-                    MainWindow._logger.LogInformation($"COM1: {currentProperty.Name} added to the Settings Form.");
-                    UserComAppSettings.Items.Add("COM2");
-                    MainWindow._logger.LogInformation($"COM2: {currentProperty.Name} added to the Settings Form.");
-                    UserComAppSettings.Items.Add("COM3");
-                    MainWindow._logger.LogInformation($"COM3: {currentProperty.Name} added to the Settings Form.");
-                    UserComAppSettings.Items.Add("COM4");
-                    MainWindow._logger.LogInformation($"COM4: {currentProperty.Name} added to the Settings Form.");
-                    UserComAppSettings.Items.Add("COM5");
-                    MainWindow._logger.LogInformation($"COM5: {currentProperty.Name} added to the Settings Form.");
-                    UserComAppSettings.Items.Add("COM6");
-                    MainWindow._logger.LogInformation($"COM6: {currentProperty.Name} added to the Settings Form.");
-                    UserComAppSettings.Items.Add("COM7");
-                    MainWindow._logger.LogInformation($"COM7: {currentProperty.Name} added to the Settings Form.");
-                    UserComAppSettings.Items.Add("COM8");
-                    MainWindow._logger.LogInformation($"COM8: {currentProperty.Name} added to the Settings Form.");
-                    UserComAppSettings.Items.Add("COM9");
-                    MainWindow._logger.LogInformation($"COM9: {currentProperty.Name} added to the Settings Form.");
-                    UserComAppSettings.Items.Add("COM10");
-                    MainWindow._logger.LogInformation($"COM10: {currentProperty.Name} added to the Settings Form.");
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        string comPort = $"COM{i}";
+                        UserComAppSettings.Items.Add(comPort);
+                        MainWindow._logger.LogInformation($"{comPort}: {currentProperty.Name} added to the Settings Form.");
+                    }
                     // When the textbox loses focus, update the setting
                     UserComAppSettings.LostFocus += (sender, args) =>
                     {
@@ -474,121 +488,74 @@ namespace Stepper
                     MySettings.Children.Add(labelComUserAppSettingsWithBorder);
                     MySettings.Children.Add(UserComAppSettings);
                 }
-            }
-
-            string propertyName = nameof(Properties.Settings.Default.BuildVersion);
-            // Create a label and a textbox for the setting
-            Border BuildVersionStringUserAppSettingsWithBorder = new()
+                else if (currentProperty.Name.GetType() == typeof(string))
                 {
-                    BorderBrush = Brushes.White,  // Color of the border
-                    BorderThickness = new Thickness(1),  // Thickness of the border
-                    Child = new Label()
+                    Border labelStringWithBorder = new()
+                    {
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(1),  // Thickness of the border
+                        Child = new Label()
+                        {
+                            Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                            HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
+                            Width = 200,  // Width of the TextBox
+                            Height = 25,   // Height of the TextBox
+                            Content = currentProperty.Name,
+                        }
+                    };
+                    TextBox UserStringValue = new()
                     {
                         Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
+                        BorderBrush = Brushes.White,  // Color of the border
+                        BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 200,  // Width of the TextBox
+                        Width = 250,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
-                        Content = propertyName,
-                    }
-                };
-                TextBox BuildVersionUserStringAppSettings = new()
-                {
-                    Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
-                    BorderBrush = Brushes.White,  // Color of the border
-                    BorderThickness = new Thickness(2),  // Thickness of the border
-                    HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                    Width = 250,  // Width of the TextBox
-                    Height = 25,   // Height of the TextBox
-                    Text = Properties.Settings.Default.BuildVersion,
-                };
-                MainWindow._logger.LogInformation($"Version Number: {propertyName} added to the Settings Form.");
-                BuildVersionUserStringAppSettings.LostFocus += (sender, args) =>
-                {
-                    Properties.Settings.Default.BuildVersion = BuildVersionUserStringAppSettings.Text;
-                    Properties.Settings.Default.Save();
-                    MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
-                    MainWindow._logger.LogInformation($"Version: {propertyName} Saved to the Settings.");
-                };
-                // Add the label and textbox to the WrapPanel
-                MySettings.Children.Add(BuildVersionStringUserAppSettingsWithBorder);
-                MySettings.Children.Add(BuildVersionUserStringAppSettings);
-
-            propertyName = nameof(Properties.Settings.Default.ServerIPAddress);
-            // Create a label and a textbox for the setting
-            Border ServerIPAddressStringUserAppSettingsWithBorder = new()
-            {
-                BorderBrush = Brushes.White,  // Color of the border
-                BorderThickness = new Thickness(1),  // Thickness of the border
-                Child = new Label()
-                {
-                    Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
-                    HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                    Width = 200,  // Width of the TextBox
-                    Height = 25,   // Height of the TextBox
-                    Content = propertyName,
+                        Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString(),
+                    };
+                    string backupStringValue = "StringValue";
+                    UserValue.TouchDown += (sender, args) =>
+                    {
+                        Keypad mainWindow = new(this);
+                        if (mainWindow.ShowDialog() == true)
+                        {
+                            if (mainWindow.Result == null)
+                            {
+                                UserStringValue.Text = backupStringValue;
+                            }
+                            else
+                            {
+                                UserStringValue.Text = mainWindow.Result.ToString();
+                            }
+                        }
+                    };
+                    UserStringValue.MouseUp += (sender, args) =>
+                    {
+                        Keypad mainWindow = new(this);
+                        if (mainWindow.ShowDialog() == true)
+                        {
+                            if (mainWindow.Result == null)
+                            {
+                                UserStringValue.Text = backupStringValue;
+                            }
+                            else
+                            {
+                                UserStringValue.Text = mainWindow.Result.ToString();
+                            }
+                        }
+                    };
+                    UserStringValue.LostFocus += (sender, args) =>
+                    {
+                        //Properties.Settings.Default[propertyName: currentProperty.Name] = Convert.ToInt32(UserIntAppSettings.Text);
+                        Properties.Settings.Default.Save();
+                        MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
+                        MainWindow._logger.LogInformation($"int: {UserStringValue.Text} {currentProperty.Name} Saved to the Settings.");
+                    };
+                    // Add the label and textbox to the WrapPanel
+                    MySettings.Children.Add(labelStringWithBorder);
+                    MySettings.Children.Add(UserStringValue);
                 }
-            };
-            TextBox ServerIPAddressUserStringAppSettings = new()
-            {
-                Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
-                BorderBrush = Brushes.White,  // Color of the border
-                BorderThickness = new Thickness(2),  // Thickness of the border
-                HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                Width = 250,  // Width of the TextBox
-                Height = 25,   // Height of the TextBox
-                Text = Properties.Settings.Default.ServerIPAddress,
-            };
-            MainWindow._logger.LogInformation($"ServerIPAddress: {propertyName} added to the Settings Form.");
-            ServerIPAddressUserStringAppSettings.LostFocus += (sender, args) =>
-            {
-                Properties.Settings.Default.ServerIPAddress = ServerIPAddressUserStringAppSettings.Text;
-                Properties.Settings.Default.Save();
-                MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
-                MainWindow._logger.LogInformation($"ServerIPAddress: {propertyName} Saved to the Settings.");
-            };
-            // Add the label and textbox to the WrapPanel
-            MySettings.Children.Add(ServerIPAddressStringUserAppSettingsWithBorder);
-            MySettings.Children.Add(ServerIPAddressUserStringAppSettings);
-        ////}
-        //else if (Properties.Settings.Default[currentProperty.Name].ToString().ToLower().Contains("CountDownText".ToLower()))
-
-        propertyName = nameof(Properties.Settings.Default.CountDownText);
-
-            // Create a label and a textbox for the setting
-            Border CountDownTextStringUserAppSettingsWithBorder = new()
-            {
-                BorderBrush = Brushes.White,  // Color of the border
-                BorderThickness = new Thickness(1),  // Thickness of the border
-                Child = new Label()
-                {
-                    Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
-                    HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                    Width = 200,  // Width of the TextBox
-                    Height = 25,   // Height of the TextBox
-                    Content = propertyName,
-                }
-            };
-            TextBox CountDownTextUserStringAppSettings = new()
-            {
-                Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
-                BorderBrush = Brushes.White,  // Color of the border
-                BorderThickness = new Thickness(2),  // Thickness of the border
-                HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                Width = 250,  // Width of the TextBox
-                Height = 25,   // Height of the TextBox
-                Text = Properties.Settings.Default.CountDownText,
-            };
-            MainWindow._logger.LogInformation($"CountDownText: {propertyName} added to the Settings Form.");
-            CountDownTextUserStringAppSettings.LostFocus += (sender, args) =>
-            {
-                Properties.Settings.Default[propertyName: propertyName] = CountDownTextUserStringAppSettings.Text;
-                Properties.Settings.Default.Save();
-                MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
-                MainWindow._logger.LogInformation($"CountDownText: {propertyName} Saved to the Settings.");
-            };
-            // Add the label and textbox to the WrapPanel
-            MySettings.Children.Add(CountDownTextStringUserAppSettingsWithBorder);
-            MySettings.Children.Add(CountDownTextUserStringAppSettings);
+            }
 
         }
 
@@ -609,6 +576,9 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void SaveSettings_Click(object sender, RoutedEventArgs e)
         {
+            MySettings.Children.Cast<SettingsProperty>().OrderBy(Children => Children.Name);
+            //Properties.Settings.Default.Properties.Cast<SettingsProperty>().OrderBy(setting => setting.Name);
+            // Get the children as a list and sort by Name
             Properties.Settings.Default.Save();
             MainWindow.timer.Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)); // Set the timer to tick every 1 millisecond
             MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved.");
