@@ -1515,6 +1515,8 @@ namespace Stepper
                 _logger.LogInformation(message: $"Stepper Motor Controller Serial Ports closed.");
                 _logger.LogInformation(message: $"Stepper Motor Controller MainWindow Closing.");
                 Properties.Settings.Default.Save();
+                _logger.LogInformation(message: $"Properties Settings Saved.");
+                _logger.LogInformation(message: $"Properties Settings Form Closed.");
                 newSettingsWindow.Close();
             }
             catch (IOException ioex)
