@@ -35,7 +35,8 @@ namespace Stepper
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-
+        /// <summary>The new settings window</summary>
+        StepperAppSettings newSettingsWindow;
         /// <summary>
         /// The timer
         /// </summary>
@@ -173,6 +174,7 @@ namespace Stepper
         public MainWindow()
         {
             InitializeComponent();
+
             string LogFileName = "Stepper.log";
             string FileLogPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), LogFileName);
             string FileLogPathBackup = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), $"{LogFileName}.old");
@@ -314,6 +316,8 @@ namespace Stepper
             ckbZaxisResetToZero.IsChecked = Properties.Settings.Default.ckbZaxisResetToZeroIsChecked;
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
+            newSettingsWindow = new StepperAppSettings();
+
         }
         private static void XdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
@@ -1236,7 +1240,6 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void AppSettings_Click(object sender, RoutedEventArgs e)
         {
-            StepperAppSettings newSettingsWindow = new StepperAppSettings();
             _logger.LogInformation(message: $"Stepper Motor Controller Loading Application Settings form.");
             // Show the new window
             newSettingsWindow.Show();
@@ -1512,6 +1515,7 @@ namespace Stepper
                 _logger.LogInformation(message: $"Stepper Motor Controller Serial Ports closed.");
                 _logger.LogInformation(message: $"Stepper Motor Controller MainWindow Closing.");
                 Properties.Settings.Default.Save();
+                newSettingsWindow.Close();
             }
             catch (IOException ioex)
             {

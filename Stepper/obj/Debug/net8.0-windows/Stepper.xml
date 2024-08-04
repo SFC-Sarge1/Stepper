@@ -189,6 +189,9 @@
             MainWindow
             </summary>
         </member>
+        <member name="F:Stepper.MainWindow.newSettingsWindow">
+            <summary>The new settings window</summary>
+        </member>
         <member name="F:Stepper.MainWindow.timer">
             <summary>
             The timer
