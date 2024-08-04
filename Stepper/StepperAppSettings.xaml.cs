@@ -50,7 +50,10 @@ namespace Stepper
                     Margin = new Thickness(0, 0, 0, 0), // Margin of the Label
                     HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
                     Width = 200,  // Width of the TextBox
-                    Height = 25,   // Height of the TextBox
+                    Height = 30,   // Height of the TextBox
+                    FontWeight = FontWeights.Bold,
+                    Foreground = Brushes.Red,
+                    FontSize = 16,
                     Content = "Name",
 
                 }
@@ -61,12 +64,14 @@ namespace Stepper
                 BorderBrush = Brushes.White,  // Color of the border
                 BorderThickness = new Thickness(2),  // Thickness of the border
                 HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                Width = 250,  // Width of the TextBox
-                Height = 25,   // Height of the TextBox
+                Width = 400,  // Width of the TextBox
+                Height = 30,   // Height of the TextBox
                 Text = "Value",
+                FontWeight = FontWeights.Bold,
+                Foreground = Brushes.Red,
+                FontSize = 16,
                 IsReadOnly = true
             };
-            //MainWindow._logger.LogInformation($"int: {newIntValue} {currentProperty.Name} added to the Settings Form.");
             string backupValue = "Value";
             UserValue.TouchDown += (sender, args) =>
             {
@@ -100,10 +105,9 @@ namespace Stepper
             };
             UserValue.LostFocus += (sender, args) =>
             {
-                //Properties.Settings.Default[propertyName: currentProperty.Name] = Convert.ToInt32(UserIntAppSettings.Text);
+                MainWindow._logger.LogInformation($"Headers Name and Value added to the Settings Form.");
                 Properties.Settings.Default.Save();
                 MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
-                //MainWindow._logger.LogInformation($"int: {UserIntAppSettings.Text} {currentProperty.Name} Saved to the Settings.");
             };
             // Add the label and textbox to the WrapPanel
             MySettings.Children.Add(labelHeaderWithBorder);
@@ -111,10 +115,8 @@ namespace Stepper
             var sortedSettings = Properties.Settings.Default.Properties.Cast<SettingsProperty>().OrderBy(p => p.Name);
 
             // Iterate over each setting to fill the WrapPanel with the settings
-            //foreach (SettingsProperty currentProperty in Properties.Settings.Default.Properties)
             foreach (SettingsProperty currentProperty in sortedSettings)
             {
-                //if (int.TryParse(Properties.Settings.Default[propertyName: currentProperty.Name].ToString(), out int newIntValue))
                 if (int.TryParse(Properties.Settings.Default[propertyName: currentProperty.Name].ToString(), out int newIntValue))
                 {
                     // Create a label and a textbox for the setting
@@ -137,7 +139,7 @@ namespace Stepper
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 250,  // Width of the TextBox
+                        Width = 400,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString()
                     };
@@ -203,7 +205,7 @@ namespace Stepper
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 250,  // Width of the TextBox
+                        Width = 400,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString(),
                         SelectedItem = Convert.ToBoolean(Properties.Settings.Default[propertyName: currentProperty.Name].ToString())
@@ -257,7 +259,7 @@ namespace Stepper
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 250,  // Width of the TextBox
+                        Width = 400,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString(),
                     };
@@ -326,7 +328,7 @@ namespace Stepper
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 250,  // Width of the TextBox
+                        Width = 400,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString(),
                         SelectedItem = Properties.Settings.Default[propertyName: currentProperty.Name].ToString()
@@ -336,7 +338,7 @@ namespace Stepper
                     {
                         string comPort = $"COM{i}";
                         UserXComAppSettings.Items.Add(comPort);
-                        MainWindow._logger.LogInformation($"{comPort}: {currentProperty.Name} added to the Settings Form.");
+                        MainWindow._logger.LogInformation($"X{comPort}: {currentProperty.Name} added to the Settings Form.");
                     }
                     // When the textbox loses focus, update the setting
                     UserXComAppSettings.LostFocus += (sender, args) =>
@@ -372,7 +374,7 @@ namespace Stepper
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 250,  // Width of the TextBox
+                        Width = 400,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString(),
                         SelectedItem = Properties.Settings.Default[propertyName: currentProperty.Name].ToString()
@@ -382,7 +384,7 @@ namespace Stepper
                     {
                         string comPort = $"COM{i}";
                         UserYComAppSettings.Items.Add(comPort);
-                        MainWindow._logger.LogInformation($"{comPort}: {currentProperty.Name} added to the Settings Form.");
+                        MainWindow._logger.LogInformation($"Y{comPort}: {currentProperty.Name} added to the Settings Form.");
                     }
                     // When the textbox loses focus, update the setting
                     UserYComAppSettings.LostFocus += (sender, args) =>
@@ -418,7 +420,7 @@ namespace Stepper
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 250,  // Width of the TextBox
+                        Width = 400,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString(),
                         SelectedItem = Properties.Settings.Default[propertyName: currentProperty.Name].ToString()
@@ -428,7 +430,7 @@ namespace Stepper
                     {
                         string comPort = $"COM{i}";
                         UserZComAppSettings.Items.Add(comPort);
-                        MainWindow._logger.LogInformation($"{comPort}: {currentProperty.Name} added to the Settings Form.");
+                        MainWindow._logger.LogInformation($"Z{comPort}: {currentProperty.Name} added to the Settings Form.");
                     }
                     // When the textbox loses focus, update the setting
                     UserZComAppSettings.LostFocus += (sender, args) =>
@@ -464,7 +466,7 @@ namespace Stepper
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 250,  // Width of the TextBox
+                        Width = 400,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString(),
                         SelectedItem = Properties.Settings.Default[propertyName: currentProperty.Name].ToString()
@@ -509,7 +511,7 @@ namespace Stepper
                         BorderBrush = Brushes.White,  // Color of the border
                         BorderThickness = new Thickness(2),  // Thickness of the border
                         HorizontalAlignment = HorizontalAlignment.Left, // Align the label to the left
-                        Width = 250,  // Width of the TextBox
+                        Width = 400,  // Width of the TextBox
                         Height = 25,   // Height of the TextBox
                         Text = Properties.Settings.Default[propertyName: currentProperty.Name].ToString(),
                     };

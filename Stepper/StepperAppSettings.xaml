@@ -26,7 +26,7 @@
             </WrapPanel>
         </Border>
         <ScrollViewer  Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <WrapPanel Name="MySettings" Width="500" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10">
+            <WrapPanel Name="MySettings" Width="700" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10">
             </WrapPanel>
         </ScrollViewer>
     </Grid>
