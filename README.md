@@ -5,7 +5,7 @@ This repository contains the code for a simple Stepper Motor Controller. The app
 
 ## Prerequisites
 - .NET 8.0-windows or later
-- Arduino Uno R4 WIFI or Lattepanda 3 Delta
+- 3 each Arduino Uno R4 WIFI, one for each axis.
 - Visual Studio 2022 Community Edition
 - 3 each StepperOnline nema 23 stepper motors
 - 3 each StepperOnline DM556T Stepper Motor Driver
