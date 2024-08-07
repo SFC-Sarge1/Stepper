@@ -10,6 +10,7 @@ This repository contains the code for a simple Stepper Motor Controller. The app
 - 3 each StepperOnline nema 23 stepper motors
 - 3 each StepperOnline DM556T Stepper Motor Driver
 - Arduino for Visual Studio, Visual Micro - Release 2024.0223.00 - 5th March 2024 - VS 2017, 2019, 2022
+- 6 each Limit Switches, two for each axis.
 
 ## Setup
 1. Connect your stepper motor to the DM556T Stepper Motor Driver and your Arduino board.
