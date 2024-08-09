@@ -409,13 +409,13 @@ namespace Stepper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.4.25")]
-        public string ServerIPAddress {
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.254.37")]
+        public string ZServerIPAddress {
             get {
-                return ((string)(this["ServerIPAddress"]));
+                return ((string)(this["ZServerIPAddress"]));
             }
             set {
-                this["ServerIPAddress"] = value;
+                this["ZServerIPAddress"] = value;
             }
         }
         
@@ -476,6 +476,30 @@ namespace Stepper.Properties {
             }
             set {
                 this["ComPort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.254.38")]
+        public string YServerIPAddress {
+            get {
+                return ((string)(this["YServerIPAddress"]));
+            }
+            set {
+                this["YServerIPAddress"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.254.39")]
+        public string XServerIPAddress {
+            get {
+                return ((string)(this["XServerIPAddress"]));
+            }
+            set {
+                this["XServerIPAddress"] = value;
             }
         }
     }

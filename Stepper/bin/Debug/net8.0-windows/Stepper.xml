@@ -364,27 +364,6 @@
             Initializes a new instance of the <see cref="T:Stepper.MainWindow" /> class.
             </summary>
         </member>
-        <member name="M:Stepper.MainWindow.XdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
-            <summary>
-            Xdatas the received handler.
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.YdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
-            <summary>
-            Ydatas the received handler.
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.ZdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
-            <summary>
-            Zdatas the received handler.
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs"/> instance containing the event data.</param>
-        </member>
         <member name="M:Stepper.MainWindow.IsNegative(System.Decimal)">
             <summary>
             Determines whether the specified number is negative.
@@ -729,6 +708,16 @@
         <member name="T:Stepper.SendDataToLattepanda">
             <summary>
             Class SendDataToLattepanda.
+            </summary>
+        </member>
+        <member name="F:Stepper.SendDataToLattepanda._logger">
+            <summary>
+            The logger
+            </summary>
+        </member>
+        <member name="F:Stepper.SendDataToLattepanda.loggerFactory">
+            <summary>
+            The logger factory
             </summary>
         </member>
         <member name="M:Stepper.SendDataToLattepanda.SendData(System.String)">
