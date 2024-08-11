@@ -4,7 +4,7 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 07-14-2024
+// Last Modified On : 07-24-2024
 // ***********************************************************************
 // <copyright file="App.xaml.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.

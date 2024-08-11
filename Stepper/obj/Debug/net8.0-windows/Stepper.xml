@@ -359,10 +359,36 @@
             The serial port
             </summary>
         </member>
+        <member name="F:Stepper.MainWindow.message">
+            <summary>
+            The message
+            </summary>
+        </member>
         <member name="M:Stepper.MainWindow.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Stepper.MainWindow" /> class.
             </summary>
+        </member>
+        <member name="M:Stepper.MainWindow.XdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            Xdatas the received handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.YdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            Ydatas the received handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ZdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            Zdatas the received handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.IsNegative(System.Decimal)">
             <summary>
@@ -684,26 +710,284 @@
             Handles the Click event of the XAxisPort control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.YAxisPort_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
             Handles the Click event of the YAxisPort control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.ZAxisPort_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
             Handles the Click event of the ZAxisPort control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
+        </member>
+        <member name="T:Stepper.Properties.Settings">
+            <summary>
+            Class Settings. This class cannot be inherited.
+            Implements the <see cref="T:System.Configuration.ApplicationSettingsBase" />
+            </summary>
+            <seealso cref="T:System.Configuration.ApplicationSettingsBase" />
+        </member>
+        <member name="F:Stepper.Properties.Settings.defaultInstance">
+            <summary>
+            The default instance
+            </summary>
+        </member>
+        <member name="P:Stepper.Properties.Settings.Default">
+            <summary>
+            Gets the default.
+            </summary>
+            <value>The default.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ckbXaxisResetToZeroIsChecked">
+            <summary>
+            Gets or sets a value indicating whether [CKB xaxis reset to zero is checked].
+            </summary>
+            <value><c>true</c> if [CKB xaxis reset to zero is checked]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ckbYaxisResetToZeroIsChecked">
+            <summary>
+            Gets or sets a value indicating whether [CKB yaxis reset to zero is checked].
+            </summary>
+            <value><c>true</c> if [CKB yaxis reset to zero is checked]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ckbZaxisResetToZeroIsChecked">
+            <summary>
+            Gets or sets a value indicating whether [CKB zaxis reset to zero is checked].
+            </summary>
+            <value><c>true</c> if [CKB zaxis reset to zero is checked]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.Divider4_00">
+            <summary>
+            Gets or sets the divider4 00.
+            </summary>
+            <value>The divider4 00.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.Milliseconds">
+            <summary>
+            Gets or sets the milliseconds.
+            </summary>
+            <value>The milliseconds.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.mmPerRevolution">
+            <summary>
+            Gets or sets the mm per revolution.
+            </summary>
+            <value>The mm per revolution.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.RootAxisX">
+            <summary>
+            Gets or sets the root axis x.
+            </summary>
+            <value>The root axis x.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.RootAxisY">
+            <summary>
+            Gets or sets the root axis y.
+            </summary>
+            <value>The root axis y.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.RootAxisZ">
+            <summary>
+            Gets or sets the root axis z.
+            </summary>
+            <value>The root axis z.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.RootAxisXY">
+            <summary>
+            Gets or sets the root axis xy.
+            </summary>
+            <value>The root axis xy.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.Value_0_00">
+            <summary>
+            Gets or sets the value 0 00.
+            </summary>
+            <value>The value 0 00.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.XaxisChanged">
+            <summary>
+            Gets or sets a value indicating whether [xaxis changed].
+            </summary>
+            <value><c>true</c> if [xaxis changed]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.XaxisStepperCurrent">
+            <summary>
+            Gets or sets the xaxis stepper current.
+            </summary>
+            <value>The xaxis stepper current.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.XaxisStepperMove">
+            <summary>
+            Gets or sets the xaxis stepper move.
+            </summary>
+            <value>The xaxis stepper move.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.XaxisMotorSpeed">
+            <summary>
+            Gets or sets the xaxis motor speed.
+            </summary>
+            <value>The xaxis motor speed.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.YaxisChanged">
+            <summary>
+            Gets or sets a value indicating whether [yaxis changed].
+            </summary>
+            <value><c>true</c> if [yaxis changed]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.YaxisStepperCurrent">
+            <summary>
+            Gets or sets the yaxis stepper current.
+            </summary>
+            <value>The yaxis stepper current.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.YaxisStepperMove">
+            <summary>
+            Gets or sets the yaxis stepper move.
+            </summary>
+            <value>The yaxis stepper move.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.YaxisMotorSpeed">
+            <summary>
+            Gets or sets the yaxis motor speed.
+            </summary>
+            <value>The yaxis motor speed.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ZaxisChanged">
+            <summary>
+            Gets or sets a value indicating whether [zaxis changed].
+            </summary>
+            <value><c>true</c> if [zaxis changed]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ZaxisStepperCurrent">
+            <summary>
+            Gets or sets the zaxis stepper current.
+            </summary>
+            <value>The zaxis stepper current.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ZaxisStepperMove">
+            <summary>
+            Gets or sets the zaxis stepper move.
+            </summary>
+            <value>The zaxis stepper move.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ZaxisMotorSpeed">
+            <summary>
+            Gets or sets the zaxis motor speed.
+            </summary>
+            <value>The zaxis motor speed.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.zeroXaxis">
+            <summary>
+            Gets or sets the zero xaxis.
+            </summary>
+            <value>The zero xaxis.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.zeroYaxis">
+            <summary>
+            Gets or sets the zero yaxis.
+            </summary>
+            <value>The zero yaxis.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.zeroZaxis">
+            <summary>
+            Gets or sets the zero zaxis.
+            </summary>
+            <value>The zero zaxis.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.MilisecondTimerInterval">
+            <summary>
+            Gets or sets the milisecond timer interval.
+            </summary>
+            <value>The milisecond timer interval.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.MillisecondDelay">
+            <summary>
+            Gets or sets the millisecond delay.
+            </summary>
+            <value>The millisecond delay.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.MathPart2Initlz">
+            <summary>
+            Gets or sets the math part2 initlz.
+            </summary>
+            <value>The math part2 initlz.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.BuildVersion">
+            <summary>
+            Gets or sets the build version.
+            </summary>
+            <value>The build version.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ProjectFilePath">
+            <summary>
+            Gets or sets the project file path.
+            </summary>
+            <value>The project file path.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.CountDownText">
+            <summary>
+            Gets or sets the count down text.
+            </summary>
+            <value>The count down text.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ZServerIPAddress">
+            <summary>
+            Gets or sets the z server ip address.
+            </summary>
+            <value>The z server ip address.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.BaudRate">
+            <summary>
+            Gets or sets the baud rate.
+            </summary>
+            <value>The baud rate.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.XComPort">
+            <summary>
+            Gets or sets the x COM port.
+            </summary>
+            <value>The x COM port.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.YComPort">
+            <summary>
+            Gets or sets the y COM port.
+            </summary>
+            <value>The y COM port.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ZComPort">
+            <summary>
+            Gets or sets the z COM port.
+            </summary>
+            <value>The z COM port.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.ComPort">
+            <summary>
+            Gets or sets the COM port.
+            </summary>
+            <value>The COM port.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.YServerIPAddress">
+            <summary>
+            Gets or sets the y server ip address.
+            </summary>
+            <value>The y server ip address.</value>
+        </member>
+        <member name="P:Stepper.Properties.Settings.XServerIPAddress">
+            <summary>
+            Gets or sets the x server ip address.
+            </summary>
+            <value>The x server ip address.</value>
         </member>
         <member name="T:Stepper.SendDataToLattepanda">
             <summary>

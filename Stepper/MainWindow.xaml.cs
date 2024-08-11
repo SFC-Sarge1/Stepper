@@ -4,7 +4,7 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 08-04-2024
+// Last Modified On : 08-10-2024
 // ***********************************************************************
 // <copyright file="MainWindow.xaml.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.
@@ -156,22 +156,25 @@ namespace Stepper
         /// The logger factory
         /// </summary>
         public static ILoggerFactory loggerFactory;
-        ///// <summary>
-        ///// The X serial port
-        ///// </summary>
-        //public SerialPort _XserialPort = new SerialPort();
-        ///// <summary>
-        ///// The Y serial port
-        ///// </summary>
-        //public SerialPort _YserialPort = new SerialPort();
-        ///// <summary>
-        ///// The Z serial port
-        ///// </summary>
-        //public SerialPort _ZserialPort = new SerialPort();
-        ///// <summary>
-        ///// The serial port
-        ///// </summary>
-        //private SerialPort _serialPort;
+        /// <summary>
+        /// The X serial port
+        /// </summary>
+        public SerialPort _XserialPort = new SerialPort();
+        /// <summary>
+        /// The Y serial port
+        /// </summary>
+        public SerialPort _YserialPort = new SerialPort();
+        /// <summary>
+        /// The Z serial port
+        /// </summary>
+        public SerialPort _ZserialPort = new SerialPort();
+        /// <summary>
+        /// The serial port
+        /// </summary>
+        private SerialPort _serialPort;
+        /// <summary>
+        /// The message
+        /// </summary>
         static byte[] message = new byte[6000];
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow" /> class.
@@ -216,72 +219,72 @@ namespace Stepper
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
             _logger.LogInformation(message: $"Version: {displayableVersion}");
-            //_XserialPort = new(Properties.Settings.Default.XComPort, Properties.Settings.Default.BaudRate);
-            //_XserialPort.Close();
-            //if (_XserialPort.IsOpen == false)
-            //{
-            //    try
-            //    {
-            //        _XserialPort.PortName = Properties.Settings.Default.XComPort; // Set your port name
-            //        _XserialPort.BaudRate = Properties.Settings.Default.BaudRate; // Set your baud rate
-            //        // Enable RTS and DTR
-            //        _XserialPort.RtsEnable = true;
-            //        _XserialPort.DtrEnable = true;
-            //        _XserialPort.Open();
-            //        _XserialPort.DataReceived += new SerialDataReceivedEventHandler(XdataReceivedHandler);
-            //    }
-            //    catch
-            //    {
-            //        _logger.LogInformation(message: $"X Axis SerialPort {Properties.Settings.Default.XComPort} not connected.");
-            //    }
-            //}
-            //btnXAxisPort.Content = $"X Axis Port {Properties.Settings.Default.XComPort}";
-            //_YserialPort = new(Properties.Settings.Default.YComPort, Properties.Settings.Default.BaudRate);
-            //_YserialPort.Close();
-            //if (_YserialPort.IsOpen == false)
-            //{
-            //    try
-            //    {
-            //        _YserialPort.PortName = Properties.Settings.Default.YComPort; // Set your port name
-            //        _YserialPort.BaudRate = Properties.Settings.Default.BaudRate; // Set your baud rate
-            //        // Enable RTS and DTR
-            //        _YserialPort.RtsEnable = true;
-            //        _YserialPort.DtrEnable = true;
-            //        _YserialPort.Open();
-            //        _YserialPort.DataReceived += new SerialDataReceivedEventHandler(YdataReceivedHandler);
-            //    }
-            //    catch
-            //    {
-            //        _logger.LogInformation(message: $"Y Axis SerialPort {Properties.Settings.Default.YComPort} not connected.");
-            //    }
-            //}
-            //btnYAxisPort.Content = $"Y Axis Port {Properties.Settings.Default.YComPort}";
-            //_ZserialPort = new(Properties.Settings.Default.ZComPort, Properties.Settings.Default.BaudRate);
-            //_ZserialPort.Close();
-            //if (_ZserialPort.IsOpen == false)
-            //{
-            //    try
-            //    {
-            //        int i = 0;
-            //        _ZserialPort.PortName = Properties.Settings.Default.ZComPort; // Set your port name
-            //        _ZserialPort.BaudRate = Properties.Settings.Default.BaudRate; // Set your baud rate
-            //        // Enable RTS and DTR
-            //        _ZserialPort.RtsEnable = true;
-            //        _ZserialPort.DtrEnable = true;
-            //        _ZserialPort.DataReceived += new SerialDataReceivedEventHandler(ZdataReceivedHandler);
-            //        _ZserialPort.Open();
-            //        if ((i = _ZserialPort.BytesToRead) > 0)
-            //        {
-            //            _ZserialPort.Read(message, 0, i);
-            //            //Console.WriteLine("Read=" + i.ToString());
-            //            _logger.LogInformation(message: $"Z Axis SerialPort Read = " + i.ToString());
-            //        }
-            //    }
-            //    catch
-            //    {
-            //        _logger.LogInformation(message: $"Z Axis SerialPort {Properties.Settings.Default.ZComPort} not connected.");
-            //    }
-            //}
+            _XserialPort = new(Properties.Settings.Default.XComPort, Properties.Settings.Default.BaudRate);
+            _XserialPort.Close();
+            if (_XserialPort.IsOpen == false)
+            {
+                try
+                {
+                    _XserialPort.PortName = Properties.Settings.Default.XComPort; // Set your port name
+                    _XserialPort.BaudRate = Properties.Settings.Default.BaudRate; // Set your baud rate
+                    // Enable RTS and DTR
+                    _XserialPort.RtsEnable = true;
+                    _XserialPort.DtrEnable = true;
+                    _XserialPort.Open();
+                    _XserialPort.DataReceived += new SerialDataReceivedEventHandler(XdataReceivedHandler);
+                }
+                catch
+                {
+                    _logger.LogInformation(message: $"X Axis SerialPort {Properties.Settings.Default.XComPort} not connected.");
+                }
+            }
+            btnXAxisPort.Content = $"X Axis Port {Properties.Settings.Default.XComPort}";
+            _YserialPort = new(Properties.Settings.Default.YComPort, Properties.Settings.Default.BaudRate);
+            _YserialPort.Close();
+            if (_YserialPort.IsOpen == false)
+            {
+                try
+                {
+                    _YserialPort.PortName = Properties.Settings.Default.YComPort; // Set your port name
+                    _YserialPort.BaudRate = Properties.Settings.Default.BaudRate; // Set your baud rate
+                    // Enable RTS and DTR
+                    _YserialPort.RtsEnable = true;
+                    _YserialPort.DtrEnable = true;
+                    _YserialPort.Open();
+                    _YserialPort.DataReceived += new SerialDataReceivedEventHandler(YdataReceivedHandler);
+                }
+                catch
+                {
+                    _logger.LogInformation(message: $"Y Axis SerialPort {Properties.Settings.Default.YComPort} not connected.");
+                }
+            }
+            btnYAxisPort.Content = $"Y Axis Port {Properties.Settings.Default.YComPort}";
+            _ZserialPort = new(Properties.Settings.Default.ZComPort, Properties.Settings.Default.BaudRate);
+            _ZserialPort.Close();
+            if (_ZserialPort.IsOpen == false)
+            {
+                try
+                {
+                    int i = 0;
+                    _ZserialPort.PortName = Properties.Settings.Default.ZComPort; // Set your port name
+                    _ZserialPort.BaudRate = Properties.Settings.Default.BaudRate; // Set your baud rate
+                    // Enable RTS and DTR
+                    _ZserialPort.RtsEnable = true;
+                    _ZserialPort.DtrEnable = true;
+                    _ZserialPort.DataReceived += new SerialDataReceivedEventHandler(ZdataReceivedHandler);
+                    _ZserialPort.Open();
+                    if ((i = _ZserialPort.BytesToRead) > 0)
+                    {
+                        _ZserialPort.Read(message, 0, i);
+                        //Console.WriteLine("Read=" + i.ToString());
+                        _logger.LogInformation(message: $"Z Axis SerialPort Read = " + i.ToString());
+                    }
+                }
+                catch
+                {
+                    _logger.LogInformation(message: $"Z Axis SerialPort {Properties.Settings.Default.ZComPort} not connected.");
+                }
+            }
             btnZAxisPort.Content = $"Z Axis Port {Properties.Settings.Default.ZComPort}";
             
             
@@ -360,56 +363,56 @@ namespace Stepper
         /// Xdatas the received handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="SerialDataReceivedEventArgs"/> instance containing the event data.</param>
-        //private static void XdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        SerialPort Xsp = (SerialPort)sender;
-        //        string Xindata = Xsp.ReadExisting();
-        //        _logger.LogInformation(message: $"X Axis Data Received: {Xindata}");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError(ex, "Error in XdataReceivedHandler");
-        //    }
-        //}
+        /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+        private static void XdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            try
+            {
+                SerialPort Xsp = (SerialPort)sender;
+                string Xindata = Xsp.ReadExisting();
+                _logger.LogInformation(message: $"X Axis Data Received: {Xindata}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in XdataReceivedHandler");
+            }
+        }
         /// <summary>
         /// Ydatas the received handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="SerialDataReceivedEventArgs"/> instance containing the event data.</param>
-        //private static void YdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        SerialPort Ysp = (SerialPort)sender;
-        //        string Yindata = Ysp.ReadExisting();
-        //        _logger.LogInformation(message: $"Y Axis Data Received: {Yindata}");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError(ex, "Error in YdataReceivedHandler");
-        //    }
-        //}
+        /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+        private static void YdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            try
+            {
+                SerialPort Ysp = (SerialPort)sender;
+                string Yindata = Ysp.ReadExisting();
+                _logger.LogInformation(message: $"Y Axis Data Received: {Yindata}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in YdataReceivedHandler");
+            }
+        }
         /// <summary>
         /// Zdatas the received handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="SerialDataReceivedEventArgs"/> instance containing the event data.</param>
-        //private static void ZdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        SerialPort Zsp = (SerialPort)sender;
-        //        string Zindata = Zsp.ReadExisting();
-        //        _logger.LogInformation(message: $"Z Axis Data Received: {Zindata}");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError(ex, "Error in ZdataReceivedHandler");
-        //    }
-        //}
+        /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+        private static void ZdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            try
+            {
+                SerialPort Zsp = (SerialPort)sender;
+                string Zindata = Zsp.ReadExisting();
+                _logger.LogInformation(message: $"Z Axis Data Received: {Zindata}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in ZdataReceivedHandler");
+            }
+        }
         /// <summary>
         /// Determines whether the specified number is negative.
         /// </summary>
@@ -445,8 +448,8 @@ namespace Stepper
                 {
                     zeroXaxis = 1;
                     stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{txtYaxisStepperMove.Text},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    //_XserialPort.Write(stringValue1);
-                    SendDataToLattepanda.SendData(stringValue1);
+                    _XserialPort.Write(stringValue1);
+                    //SendDataToLattepanda.SendData(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroXaxis = 0;
@@ -469,8 +472,8 @@ namespace Stepper
                     MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    SendDataToLattepanda.SendData(stringValue);
-                    //_XserialPort.Write(stringValue);
+                    //SendDataToLattepanda.SendData(stringValue);
+                    _XserialPort.Write(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
@@ -506,8 +509,8 @@ namespace Stepper
                 {
                     zeroYaxis = 1;
                     stringValue1 = $"{axis},{txtXaxisStepperMove.Text},{txtXaxisMotorSpeed.Text},{zeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    SendDataToLattepanda.SendData(stringValue1);
-                    //_YserialPort.Write(stringValue1);
+                    //SendDataToLattepanda.SendData(stringValue1);
+                    _YserialPort.Write(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroYaxis = 0;
@@ -530,8 +533,8 @@ namespace Stepper
                     MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    SendDataToLattepanda.SendData(stringValue);
-                    //_YserialPort.Write(stringValue);
+                    //SendDataToLattepanda.SendData(stringValue);
+                    _YserialPort.Write(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
@@ -567,8 +570,8 @@ namespace Stepper
                 {
                     zeroZaxis = 1;
                     stringValue1 = $"{axis},{txtXaxisStepperMove.Text},{txtXaxisMotorSpeed.Text},{zeroXaxis},{txtYaxisStepperMove.Text},{txtYaxisMotorSpeed.Text},{zeroYaxis},{Properties.Settings.Default.Value_0_00},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    SendDataToLattepanda.SendData(stringValue1);
-                    //_ZserialPort.Write(stringValue1);
+                    //SendDataToLattepanda.SendData(stringValue1);
+                    _ZserialPort.Write(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroZaxis = 0;
@@ -591,8 +594,8 @@ namespace Stepper
                     MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    SendDataToLattepanda.SendData(stringValue);
-                    //_ZserialPort.Write(stringValue);
+                    //SendDataToLattepanda.SendData(stringValue);
+                    _ZserialPort.Write(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
@@ -628,11 +631,11 @@ namespace Stepper
                     zeroXaxis = 1;
                     zeroYaxis = 1;
                     stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    SendDataToLattepanda.SendData(stringValue1);
+                    //SendDataToLattepanda.SendData(stringValue1);
                     ckbXaxisResetToZero.IsChecked = false;
                     ckbYaxisResetToZero.IsChecked = false;
-                    //_XserialPort.Write(stringValue1);
-                    //_YserialPort.Write(stringValue1);
+                    _XserialPort.Write(stringValue1);
+                    _YserialPort.Write(stringValue1);
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {stringValue1}");
                     stringValue1 = "";
                     zeroXaxis = 0;
@@ -644,10 +647,10 @@ namespace Stepper
                     zeroXaxis = 1;
                     zeroYaxis = 0;
                     stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{(Convert.ToDecimal(txtYaxisStepperCurrent) + Convert.ToDecimal(txtYaxisStepperMove.Text))},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    SendDataToLattepanda.SendData(stringValue1);
+                    //SendDataToLattepanda.SendData(stringValue1);
                     ckbXaxisResetToZero.IsChecked = false;
-                    //_XserialPort.Write(stringValue1);
-                    //_YserialPort.Write(stringValue1);
+                    _XserialPort.Write(stringValue1);
+                    _YserialPort.Write(stringValue1);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset X Axis to zero: {stringValue1}");
                     stringValue1 = "";
@@ -679,9 +682,9 @@ namespace Stepper
                     zeroXaxis = 0;
                     zeroYaxis = 1;
                     stringValue1 = $"{axis},{(Convert.ToDecimal(txtXaxisStepperCurrent) + Convert.ToDecimal(txtXaxisStepperMove.Text))},{txtXaxisMotorSpeed.Text},{zeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    SendDataToLattepanda.SendData(stringValue1);
+                    //SendDataToLattepanda.SendData(stringValue1);
                     ckbYaxisResetToZero.IsChecked = false;
-                    //_YserialPort.Write(stringValue1);
+                    _YserialPort.Write(stringValue1);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event to reset Y Axis to zero: {stringValue1}");
                     stringValue1 = "";
@@ -713,9 +716,9 @@ namespace Stepper
                     zeroXaxis = 0;
                     zeroYaxis = 0;
                     stringValue = $"{axis},{(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text))},{zeroXaxis},{(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text))},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    SendDataToLattepanda.SendData(stringValue);
-                    //_XserialPort.Write(stringValue);
-                    //_YserialPort.Write(stringValue);
+                    //SendDataToLattepanda.SendData(stringValue);
+                    _XserialPort.Write(stringValue);
+                    _YserialPort.Write(stringValue);
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
@@ -1717,7 +1720,7 @@ namespace Stepper
         /// Handles the Click event of the XAxisPort control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void XAxisPort_Click(object sender, RoutedEventArgs e)
         {
             //_XserialPort.Close();
@@ -1746,7 +1749,7 @@ namespace Stepper
         /// Handles the Click event of the YAxisPort control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void YAxisPort_Click(object sender, RoutedEventArgs e)
         {
             //_YserialPort.Close();
@@ -1775,7 +1778,7 @@ namespace Stepper
         /// Handles the Click event of the ZAxisPort control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void ZAxisPort_Click(object sender, RoutedEventArgs e)
         {
             //_ZserialPort.Close();

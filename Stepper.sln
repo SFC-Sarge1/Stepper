@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stepper", "Stepper\Stepper.csproj", "{B93849C3-B4AE-4A92-8611-D2D95937B1A4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArdunioStepper", "..\..\..\OneDrive\Documents\Arduino\ArdunioStepper\ArdunioStepper\ArdunioStepper.vcxproj", "{A4F171D0-D690-406E-8112-B52D4EC0BBEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,36 @@ Global
 		{B93849C3-B4AE-4A92-8611-D2D95937B1A4}.Release|x64.Build.0 = Release|Any CPU
 		{B93849C3-B4AE-4A92-8611-D2D95937B1A4}.Release|x86.ActiveCfg = Release|Any CPU
 		{B93849C3-B4AE-4A92-8611-D2D95937B1A4}.Release|x86.Build.0 = Release|Any CPU
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|Any CPU.ActiveCfg = Debug|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|Any CPU.Build.0 = Debug|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|Any CPU.Deploy.0 = Debug|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|ARM.ActiveCfg = Debug|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|ARM.Build.0 = Debug|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|ARM.Deploy.0 = Debug|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|arm64.ActiveCfg = Debug|ARM64
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|arm64.Build.0 = Debug|ARM64
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|arm64.Deploy.0 = Debug|ARM64
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|x64.ActiveCfg = Debug|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|x64.Build.0 = Debug|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|x64.Deploy.0 = Debug|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|x86.ActiveCfg = Debug|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|x86.Build.0 = Debug|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Debug|x86.Deploy.0 = Debug|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|Any CPU.ActiveCfg = Release|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|Any CPU.Build.0 = Release|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|Any CPU.Deploy.0 = Release|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|ARM.ActiveCfg = Release|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|ARM.Build.0 = Release|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|ARM.Deploy.0 = Release|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|arm64.ActiveCfg = Release|ARM64
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|arm64.Build.0 = Release|ARM64
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|arm64.Deploy.0 = Release|ARM64
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|x64.ActiveCfg = Release|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|x64.Build.0 = Release|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|x64.Deploy.0 = Release|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|x86.ActiveCfg = Release|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|x86.Build.0 = Release|ARM
+		{A4F171D0-D690-406E-8112-B52D4EC0BBEA}.Release|x86.Deploy.0 = Release|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
