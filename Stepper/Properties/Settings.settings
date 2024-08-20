@@ -92,9 +92,6 @@
     <Setting Name="BuildVersion" Type="System.String" Scope="User">
       <Value Profile="(Default)">1.00</Value>
     </Setting>
-    <Setting Name="ProjectFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj</Value>
-    </Setting>
     <Setting Name="CountDownText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Stepper Motor Timer:</Value>
     </Setting>
@@ -110,17 +107,23 @@
     <Setting Name="YComPort" Type="System.String" Scope="User">
       <Value Profile="(Default)">COM8</Value>
     </Setting>
-    <Setting Name="ZComPort" Type="System.String" Scope="User">
-      <Value Profile="(Default)">COM5</Value>
-    </Setting>
-    <Setting Name="ComPort" Type="System.String" Scope="User">
-      <Value Profile="(Default)">COM10</Value>
-    </Setting>
     <Setting Name="YServerIPAddress" Type="System.String" Scope="User">
       <Value Profile="(Default)">192.168.254.38</Value>
     </Setting>
     <Setting Name="XServerIPAddress" Type="System.String" Scope="User">
       <Value Profile="(Default)">192.168.254.39</Value>
+    </Setting>
+    <Setting Name="ProjectFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj</Value>
+    </Setting>
+    <Setting Name="ZComPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM10</Value>
+    </Setting>
+    <Setting Name="ComPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM6</Value>
+    </Setting>
+    <Setting Name="ThreadSleep" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2000</Value>
     </Setting>
   </Settings>
 </SettingsFile>

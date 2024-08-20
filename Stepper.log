@@ -1,0 +1,27 @@
+3/31/2024 5:20:04 PM [Information] Stepper Motor Controller Application Started.
+3/31/2024 5:20:04 PM [Information] Version:2.0.0.22197 (3/31/2024 5:20:04 PM)
+3/31/2024 5:20:04 PM [Information] Opened Serial Port at: COM6, 9600
+3/31/2024 5:20:05 PM [Information] MainWindow loaded
+3/31/2024 5:20:13 PM [Information] Z Axis mouse controlled Keypad returned: 48.00
+3/31/2024 5:20:15 PM [Information] ZAxisRun_Click button clicked:
+3/31/2024 5:20:15 PM [Information] Z Axis Part1 decimal: 48.00 / 4 = 12.00
+3/31/2024 5:20:15 PM [Information] Z Axis Part2 decimal: 60 / 400.00 = 0.15
+3/31/2024 5:20:15 PM [Information] Z Axis myDelay decimal: 12.00 * 0.15 = 1.8000
+3/31/2024 5:20:15 PM [Information] Z Axis delay int: 100 * 1.8000 = 200
+3/31/2024 5:20:15 PM [Information] Z Axis Run Event: Z,0.00,400.00,0,0.00,400.00,0,48.00,400.00,0
+3/31/2024 5:20:17 PM [Information] Milliseconds: 199 left!
+3/31/2024 5:20:17 PM [Information] Milliseconds: 198 left!
+3/31/2024 5:20:17 PM [Information] Milliseconds: 197 left!
+3/31/2024 5:20:17 PM [Information] Milliseconds: 196 left!
+3/31/2024 5:20:17 PM [Information] Milliseconds: 195 left!
+3/31/2024 5:20:17 PM [Information] Milliseconds: 194 left!
+3/31/2024 5:20:17 PM [Information] Milliseconds: 193 left!
+3/31/2024 5:20:17 PM [Information] Milliseconds: 192 left!
+3/31/2024 5:20:17 PM [Information] Milliseconds: 191 left!
+3/31/2024 5:20:17 PM [Information] Milliseconds: 190 left!
+3/31/2024 5:20:17 PM [Information] Milliseconds: 189 left!
+3/31/2024 5:20:17 PM [Information] Milliseconds: 188 left!
+3/31/2024 5:20:17 PM [Information] Milliseconds: 187 left!
+3/31/2024 5:20:17 PM [Information] Milliseconds: 186 left!
+3/31/2024 5:20:29 PM [Information] MainWindow Closing
+3/31/2024 5:20:29 PM [Information] Closed Serial Port at: COM6, 9600

@@ -4,7 +4,7 @@
 // Created          : 04-01-2024
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 08-09-2024
+// Last Modified On : 08-20-2024
 // ***********************************************************************
 // <copyright file="Settings.Designer.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.
@@ -21,7 +21,7 @@ namespace Stepper.Properties {
     /// </summary>
     /// <seealso cref="System.Configuration.ApplicationSettingsBase" />
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.11.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.12.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
 
         /// <summary>
@@ -520,22 +520,6 @@ namespace Stepper.Properties {
         }
 
         /// <summary>
-        /// Gets or sets the project file path.
-        /// </summary>
-        /// <value>The project file path.</value>
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Users\\\\sfcsarge\\\\source\\\\repos\\\\Stepper\\\\Stepper\\\\Stepper.csproj")]
-        public string ProjectFilePath {
-            get {
-                return ((string)(this["ProjectFilePath"]));
-            }
-            set {
-                this["ProjectFilePath"] = value;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the count down text.
         /// </summary>
         /// <value>The count down text.</value>
@@ -616,38 +600,6 @@ namespace Stepper.Properties {
         }
 
         /// <summary>
-        /// Gets or sets the z COM port.
-        /// </summary>
-        /// <value>The z COM port.</value>
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM5")]
-        public string ZComPort {
-            get {
-                return ((string)(this["ZComPort"]));
-            }
-            set {
-                this["ZComPort"] = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the COM port.
-        /// </summary>
-        /// <value>The COM port.</value>
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM10")]
-        public string ComPort {
-            get {
-                return ((string)(this["ComPort"]));
-            }
-            set {
-                this["ComPort"] = value;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the y server ip address.
         /// </summary>
         /// <value>The y server ip address.</value>
@@ -676,6 +628,70 @@ namespace Stepper.Properties {
             }
             set {
                 this["XServerIPAddress"] = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the project file path.
+        /// </summary>
+        /// <value>The project file path.</value>
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Users\\\\sfcsarge\\\\source\\\\repos\\\\Stepper\\\\Stepper\\\\Stepper.csproj")]
+        public string ProjectFilePath {
+            get {
+                return ((string)(this["ProjectFilePath"]));
+            }
+            set {
+                this["ProjectFilePath"] = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the z COM port.
+        /// </summary>
+        /// <value>The z COM port.</value>
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM10")]
+        public string ZComPort {
+            get {
+                return ((string)(this["ZComPort"]));
+            }
+            set {
+                this["ZComPort"] = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the COM port.
+        /// </summary>
+        /// <value>The COM port.</value>
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM6")]
+        public string ComPort {
+            get {
+                return ((string)(this["ComPort"]));
+            }
+            set {
+                this["ComPort"] = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the thread sleep.
+        /// </summary>
+        /// <value>The thread sleep.</value>
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2000")]
+        public int ThreadSleep {
+            get {
+                return ((int)(this["ThreadSleep"]));
+            }
+            set {
+                this["ThreadSleep"] = value;
             }
         }
     }
