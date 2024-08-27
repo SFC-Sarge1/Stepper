@@ -120,7 +120,7 @@
       <Value Profile="(Default)">COM10</Value>
     </Setting>
     <Setting Name="ComPort" Type="System.String" Scope="User">
-      <Value Profile="(Default)">COM6</Value>
+      <Value Profile="(Default)">COM10</Value>
     </Setting>
     <Setting Name="ThreadSleep" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2000</Value>
