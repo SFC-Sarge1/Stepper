@@ -241,7 +241,7 @@ namespace Stepper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("400.00")]
+        [global::System.Configuration.DefaultSettingValueAttribute("400")]
         public decimal YaxisMotorSpeed {
             get {
                 return ((decimal)(this["YaxisMotorSpeed"]));
@@ -289,7 +289,7 @@ namespace Stepper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("400.00")]
+        [global::System.Configuration.DefaultSettingValueAttribute("400")]
         public decimal ZaxisMotorSpeed {
             get {
                 return ((decimal)(this["ZaxisMotorSpeed"]));
@@ -512,6 +512,42 @@ namespace Stepper.Properties {
             }
             set {
                 this["ThreadSleep"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50.00")]
+        public decimal ZaxisAcceleration {
+            get {
+                return ((decimal)(this["ZaxisAcceleration"]));
+            }
+            set {
+                this["ZaxisAcceleration"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50.00")]
+        public decimal XaxisAcceleration {
+            get {
+                return ((decimal)(this["XaxisAcceleration"]));
+            }
+            set {
+                this["XaxisAcceleration"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50.00")]
+        public decimal YaxisAcceleration {
+            get {
+                return ((decimal)(this["YaxisAcceleration"]));
+            }
+            set {
+                this["YaxisAcceleration"] = value;
             }
         }
     }

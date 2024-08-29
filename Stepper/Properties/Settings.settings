@@ -57,7 +57,7 @@
       <Value Profile="(Default)">0.00</Value>
     </Setting>
     <Setting Name="YaxisMotorSpeed" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">400.00</Value>
+      <Value Profile="(Default)">400</Value>
     </Setting>
     <Setting Name="ZaxisChanged" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -69,7 +69,7 @@
       <Value Profile="(Default)">0.00</Value>
     </Setting>
     <Setting Name="ZaxisMotorSpeed" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">400.00</Value>
+      <Value Profile="(Default)">400</Value>
     </Setting>
     <Setting Name="zeroXaxis" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
@@ -124,6 +124,15 @@
     </Setting>
     <Setting Name="ThreadSleep" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2000</Value>
+    </Setting>
+    <Setting Name="ZaxisAcceleration" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">50.00</Value>
+    </Setting>
+    <Setting Name="XaxisAcceleration" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">50.00</Value>
+    </Setting>
+    <Setting Name="YaxisAcceleration" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">50.00</Value>
     </Setting>
   </Settings>
 </SettingsFile>
