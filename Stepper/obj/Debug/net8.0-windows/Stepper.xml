@@ -371,21 +371,21 @@
         </member>
         <member name="M:Stepper.MainWindow.XdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
-            Xdatas the received handler.
+            X data received handler.
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.YdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
-            Ydatas the received handler.
+            Y data received handler.
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.ZdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
-            Zdatas the received handler.
+            Z data received handler.
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>

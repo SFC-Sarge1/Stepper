@@ -13,7 +13,7 @@
 // ***********************************************************************
 #include <MultiStepper.h>
 #include <AccelStepper.h>
-#include <ezButton.h>
+//#include <Toggle.h>
 
 //DEBUG=1 works, DEBUG=0 works now!
 #define DEBUG 0
@@ -22,35 +22,31 @@
 #define DIRECTION_CCW -1
 #define DIRECTION_CW 1
 #define BUFFER_SIZE 64
-#define MAX_POSITION 0x7FFFFFFF  // maximum of position we can set (long type)
-#define XSTATE_CHANGE_DIR   1
-#define XSTATE_MOVE         2
-#define XSTATE_MOVING       3
-#define XSTATE_ZERO         4
-#define YSTATE_CHANGE_DIR   1
-#define YSTATE_MOVE         2
-#define YSTATE_MOVING       3
-#define YSTATE_ZERO         4
-#define ZSTATE_CHANGE_DIR   1
-#define ZSTATE_MOVE         2
-#define ZSTATE_MOVING       3
-#define ZSTATE_ZERO         4
+//#define MAX_POSITION 0x7FFFFFFF  // maximum of position we can set (long type)
+//#define XSTATE_CHANGE_DIR   1
+//#define XSTATE_MOVE         2
+//#define XSTATE_MOVING       3
+//#define XSTATE_ZERO         4
+//#define YSTATE_CHANGE_DIR   1
+//#define YSTATE_MOVE         2
+//#define YSTATE_MOVING       3
+//#define YSTATE_ZERO         4
+//#define ZSTATE_CHANGE_DIR   1
+//#define ZSTATE_MOVE         2
+//#define ZSTATE_MOVING       3
+//#define ZSTATE_ZERO         4
 
 
-ezButton ZaxisStepperMotorLimitSwitchCW(12);
-ezButton ZaxisStepperMotorLimitSwitchCCW(14);
+//Toggle ZaxisStepperMotorLimitSwitchCW(12);
+//Toggle ZaxisStepperMotorLimitSwitchCCW(14);
 
-int XaxisStepperMotorState = XSTATE_MOVE;
-int YaxisStepperMotorState = YSTATE_MOVE;
-int ZaxisStepperMotorState = ZSTATE_MOVE;
+//int XaxisStepperMotorState = XSTATE_MOVE;
+//int YaxisStepperMotorState = YSTATE_MOVE;
+//int ZaxisStepperMotorState = ZSTATE_MOVE;
 //
 int Xdirection = DIRECTION_CW;
 int Ydirection = DIRECTION_CW;
 int Zdirection = DIRECTION_CW;
-
-//long XtargetPos = 0;
-//long YtargetPos = 0;
-//long ZtargetPos = 0;
 
 /// </summary>
 char buffer[BUFFER_SIZE];
@@ -433,32 +429,33 @@ void setup()
 /// </summary>
  void loop()
 {
-    //ZaxisStepperMotorLimitSwitchCW.loop();
-    //ZaxisStepperMotorLimitSwitchCCW.loop();
-    //if (ZaxisStepperMotorLimitSwitchCW.isPressed())
-    //{
-    //    printNonBlocking("The limit switch: TOUCHED");
-    ////    Zdirection *= -1; // change direction
-    ////    ZaxisMoveMM = Zdirection * 4.00;
-    ////    ZaxisStepperMotor.setCurrentPosition(0); // set position
-    ////    ZaxisStepperMotor.setAcceleration(ZaxisAcceleration); // set acceleration
-    ////    ZaxisStepperMotor.moveTo(ZaxisMoveMM);
-    ////    ZaxisStepperMotor.setSpeed(ZaxisMotorSpeed);
-    //    ZaxisStepperMotor.stop();
+ //   ZaxisStepperMotorLimitSwitchCW.poll();
+ //   ZaxisStepperMotorLimitSwitchCCW.poll();
 
-    //}
-    //if (ZaxisStepperMotorLimitSwitchCCW.isPressed()) 
-    //{
-    //    printNonBlocking("The limit switch: TOUCHED");
-    ////    Zdirection *= -1; // change direction
-    ////    ZaxisMoveMM = Zdirection * 4.00;
-    ////    ZaxisStepperMotorState = ZSTATE_MOVE;
-    ////    ZaxisStepperMotor.setCurrentPosition(0); // set position
-    ////    ZaxisStepperMotor.moveTo(ZaxisMoveMM);
-    ////    ZaxisStepperMotor.setAcceleration(ZaxisAcceleration); // set acceleration
-    ////    ZaxisStepperMotor.setSpeed(ZaxisMotorSpeed);
-    //    ZaxisStepperMotor.stop();
-    //}
+ //   if (ZaxisStepperMotorLimitSwitchCW.isPressed())
+ //   {
+ //       //printNonBlocking("The limit switch: TOUCHED");
+ //       Zdirection *= DIRECTION_CCW; // change direction
+ //       ZaxisMoveMM = Zdirection * 4.00;
+ //   }
+	//else if (ZaxisStepperMotorLimitSwitchCW.isReleased())
+ //   {
+ //       //printNonBlocking("The limit switch: RELEASED");
+ //       Zdirection *= DIRECTION_CW; // change direction
+ //       ZaxisMoveMM = Zdirection * 4.00;
+ //   }
+ //   if (ZaxisStepperMotorLimitSwitchCCW.isPressed()) 
+ //   {
+ //       //printNonBlocking("The limit switch: TOUCHED");
+ //       Zdirection *= DIRECTION_CCW; // change direction
+ //       ZaxisMoveMM = Zdirection * 4.00;
+ //   }
+ //   else if (ZaxisStepperMotorLimitSwitchCCW.isReleased())
+ //   {
+ //       //printNonBlocking("The limit switch: RELEASED");
+ //       Zdirection *= DIRECTION_CW; // change direction
+ //       ZaxisMoveMM = Zdirection * 4.00;
+ //   }
 
     if (Serial.available()) 
     {
@@ -647,7 +644,7 @@ static void YMotorRun()
 /// </summary>
 static void ZMotorRun()
 {
-    ZaxisMoveMM = Zdirection * ZaxisMoveMM;
+    //ZaxisMoveMM = Zdirection * ZaxisMoveMM;
     ZaxisStepperMotor.moveTo(ZaxisMoveMM);
     ZaxisStepperMotor.setAcceleration(ZaxisAcceleration);
     ZaxisStepperMotor.setSpeed(ZaxisMotorSpeed);
@@ -666,11 +663,13 @@ static void ZMotorRun()
         ZaxisCurrentPosition = ZaxisStepperMotor.currentPosition();
         printNonBlocking("Z," + (String)ZaxisCurrentPosition);
         ZaxisStepperMotor.runSpeedToPosition();
+
     }
     else if (ZaxisStepperMotor.distanceToGo() == 0 && ZaxisSetToZeroPosition == false)
     {
         ZaxisCurrentPosition = ZaxisStepperMotor.currentPosition();
         printNonBlocking("Z," + (String)ZaxisCurrentPosition);
+
     }
 
     //switch (ZaxisStepperMotorState)

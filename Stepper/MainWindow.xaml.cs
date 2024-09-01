@@ -360,7 +360,7 @@ namespace Stepper
 
         }
         /// <summary>
-        /// Xdatas the received handler.
+        /// X data received handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
@@ -378,7 +378,7 @@ namespace Stepper
             }
         }
         /// <summary>
-        /// Ydatas the received handler.
+        /// Y data received handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
@@ -396,7 +396,7 @@ namespace Stepper
             }
         }
         /// <summary>
-        /// Zdatas the received handler.
+        /// Z data received handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
@@ -1717,26 +1717,26 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void XAxisPort_Click(object sender, RoutedEventArgs e)
         {
-            //_XserialPort.Close();
-            //if (_XserialPort.IsOpen == false)
-            //{
-            //    try
-            //    {
-            //        _XserialPort.PortName = Properties.Settings.Default.XComPort; // Set your port name
-            //        _XserialPort.BaudRate = Properties.Settings.Default.BaudRate; // Set your baud rate
-            //        // Enable RTS and DTR
-            //        _XserialPort.RtsEnable = true;
-            //        _XserialPort.DtrEnable = true;
-            //        _XserialPort.DataReceived += new SerialDataReceivedEventHandler(XdataReceivedHandler);
-            //        _XserialPort.Open();
-            //    }
-            //    catch
-            //    {
-            //        _logger.LogInformation(message: $"X Axis SerialPort {Properties.Settings.Default.XComPort} not connected.");
-            //    }
-            //}
+            _XserialPort.Close();
+            if (_XserialPort.IsOpen == false)
+            {
+                try
+                {
+                    _XserialPort.PortName = Properties.Settings.Default.XComPort; // Set your port name
+                    _XserialPort.BaudRate = Properties.Settings.Default.BaudRate; // Set your baud rate
+                    // Enable RTS and DTR
+                    _XserialPort.RtsEnable = true;
+                    _XserialPort.DtrEnable = true;
+                    _XserialPort.DataReceived += new SerialDataReceivedEventHandler(XdataReceivedHandler);
+                    _XserialPort.Open();
+                }
+                catch
+                {
+                    _logger.LogInformation(message: $"X Axis SerialPort {Properties.Settings.Default.XComPort} not connected.");
+                }
+            }
 
-            //btnXAxisPort.Content = $"X Axis Port {Properties.Settings.Default.XComPort}";
+            btnXAxisPort.Content = $"X Axis Port {Properties.Settings.Default.XComPort}";
         }
 
         /// <summary>
@@ -1746,26 +1746,26 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void YAxisPort_Click(object sender, RoutedEventArgs e)
         {
-            //_YserialPort.Close();
-            //if (_YserialPort.IsOpen == false)
-            //{
-            //    try
-            //    {
-            //        _YserialPort.PortName = Properties.Settings.Default.YComPort; // Set your port name
-            //        _YserialPort.BaudRate = Properties.Settings.Default.BaudRate; // Set your baud rate
-            //        // Enable RTS and DTR
-            //        _YserialPort.RtsEnable = true;
-            //        _YserialPort.DtrEnable = true;
-            //        _YserialPort.DataReceived += new SerialDataReceivedEventHandler(YdataReceivedHandler);
-            //        _YserialPort.Open();
-            //    }
-            //    catch
-            //    {
-            //        _logger.LogInformation(message: $"Y Axis SerialPort {Properties.Settings.Default.YComPort} not connected.");
-            //    }
-            //}
+            _YserialPort.Close();
+            if (_YserialPort.IsOpen == false)
+            {
+                try
+                {
+                    _YserialPort.PortName = Properties.Settings.Default.YComPort; // Set your port name
+                    _YserialPort.BaudRate = Properties.Settings.Default.BaudRate; // Set your baud rate
+                    // Enable RTS and DTR
+                    _YserialPort.RtsEnable = true;
+                    _YserialPort.DtrEnable = true;
+                    _YserialPort.DataReceived += new SerialDataReceivedEventHandler(YdataReceivedHandler);
+                    _YserialPort.Open();
+                }
+                catch
+                {
+                    _logger.LogInformation(message: $"Y Axis SerialPort {Properties.Settings.Default.YComPort} not connected.");
+                }
+            }
 
-            //btnYAxisPort.Content = $"Y Axis Port {Properties.Settings.Default.YComPort}";
+            btnYAxisPort.Content = $"Y Axis Port {Properties.Settings.Default.YComPort}";
         }
 
         /// <summary>
@@ -1775,33 +1775,33 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void ZAxisPort_Click(object sender, RoutedEventArgs e)
         {
-            //_ZserialPort.Close();
-            //if (_ZserialPort.IsOpen == false)
-            //{
-            //    try
-            //    {
-            //        int i = 0;
-            //        _ZserialPort.PortName = Properties.Settings.Default.ZComPort; // Set your port name
-            //        _ZserialPort.BaudRate = Properties.Settings.Default.BaudRate; // Set your baud rate
-            //        // Enable RTS and DTR
-            //        _ZserialPort.RtsEnable = true;
-            //        _ZserialPort.DtrEnable = true;
-            //        _ZserialPort.DataReceived += new SerialDataReceivedEventHandler(ZdataReceivedHandler);
-            //        _ZserialPort.Open();
-            //        if ((i = _ZserialPort.BytesToRead) > 0)
-            //        {
-            //            _ZserialPort.Read(message, 0, i);
-            //            //Console.WriteLine("Read=" + i.ToString());
-            //            _logger.LogInformation(message: $"Z Axis SerialPort Read = " + i.ToString());
-            //            }
-            //    }
-            //    catch
-            //    {
-            //        _logger.LogInformation(message: $"Z Axis SerialPort {Properties.Settings.Default.ZComPort} not connected.");
-            //    }
-            //}
+            _ZserialPort.Close();
+            if (_ZserialPort.IsOpen == false)
+            {
+                try
+                {
+                    int i = 0;
+                    _ZserialPort.PortName = Properties.Settings.Default.ZComPort; // Set your port name
+                    _ZserialPort.BaudRate = Properties.Settings.Default.BaudRate; // Set your baud rate
+                    // Enable RTS and DTR
+                    _ZserialPort.RtsEnable = true;
+                    _ZserialPort.DtrEnable = true;
+                    _ZserialPort.DataReceived += new SerialDataReceivedEventHandler(ZdataReceivedHandler);
+                    _ZserialPort.Open();
+                    if ((i = _ZserialPort.BytesToRead) > 0)
+                    {
+                        _ZserialPort.Read(message, 0, i);
+                        //Console.WriteLine("Read=" + i.ToString());
+                        _logger.LogInformation(message: $"Z Axis SerialPort Read = " + i.ToString());
+                    }
+                }
+                catch
+                {
+                    _logger.LogInformation(message: $"Z Axis SerialPort {Properties.Settings.Default.ZComPort} not connected.");
+                }
+            }
 
-           // btnZAxisPort.Content = $"Z Axis Port {Properties.Settings.Default.ZComPort}";
+            btnZAxisPort.Content = $"Z Axis Port {Properties.Settings.Default.ZComPort}";
         }
     }
 }
