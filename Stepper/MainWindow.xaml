@@ -26,7 +26,7 @@
                 <Label Padding="7,1" Content="(mm)" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 
                 <TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="X axis Motor Speed:"/>
-                <TextBox Text="400.00" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtXaxisMotorSpeed" Padding="7,1" Width="100" TouchUp="txtXaxisMotorSpeed_TouchUp" TextChanged="XaxisMotorSpeed_TextChanged" PreviewMouseUp="txtXaxisMotorSpeed_PreviewMouseUp" PreviewTextInput="TextBox_OnPreviewTextInput"  />
+                <TextBox TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtXaxisMotorSpeed" Padding="7,1" Width="100" TouchUp="txtXaxisMotorSpeed_TouchUp" TextChanged="XaxisMotorSpeed_TextChanged" PreviewMouseUp="txtXaxisMotorSpeed_PreviewMouseUp" PreviewTextInput="TextBox_OnPreviewTextInput"  />
                 <Label Padding="7,1" Content="(RPM)" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
                 <CheckBox HorizontalAlignment="Right" x:Name="ckbXaxisResetToZero" TouchUp="ResetToZero_TouchUp" Content="X axis Zero" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged" mah:CheckBoxHelper.CheckGlyphForegroundChecked="White"/>
@@ -44,7 +44,7 @@
                 <Label Padding="7,1" Content="(mm)" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 
                 <TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="Y axis Motor Speed:"/>
-                <TextBox Text="400.00" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtYaxisMotorSpeed" Padding="7,1" Width="100" TouchUp="txtYaxisMotorSpeed_TouchUp" TextChanged="YaxisMotorSpeed_TextChanged" PreviewMouseUp="txtYaxisMotorSpeed_PreviewMouseUp" PreviewTextInput="TextBox_OnPreviewTextInput"  />
+                <TextBox TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtYaxisMotorSpeed" Padding="7,1" Width="100" TouchUp="txtYaxisMotorSpeed_TouchUp" TextChanged="YaxisMotorSpeed_TextChanged" PreviewMouseUp="txtYaxisMotorSpeed_PreviewMouseUp" PreviewTextInput="TextBox_OnPreviewTextInput"  />
                 <Label Padding="7,1" Content="(RPM)" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
                 <CheckBox HorizontalAlignment="Right" x:Name="ckbYaxisResetToZero" TouchUp="ResetToZero_TouchUp" Content="Y axis Zero" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged" mah:CheckBoxHelper.CheckGlyphForegroundChecked="White"/>
@@ -62,7 +62,7 @@
                 <Label Padding="7,1" Content="(mm)" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 
                 <TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="Z axis Motor Speed:"/>
-                <TextBox Text="400.00" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtZaxisMotorSpeed" Padding="7,1" Width="100" TouchUp="txtZaxisMotorSpeed_TouchUp" TextChanged="ZaxisMotorSpeed_TextChanged" PreviewMouseUp="txtZaxisMotorSpeed_PreviewMouseUp" PreviewTextInput="TextBox_OnPreviewTextInput"  />
+                <TextBox TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtZaxisMotorSpeed" Padding="7,1" Width="100" TouchUp="txtZaxisMotorSpeed_TouchUp" TextChanged="ZaxisMotorSpeed_TextChanged" PreviewMouseUp="txtZaxisMotorSpeed_PreviewMouseUp" PreviewTextInput="TextBox_OnPreviewTextInput"  />
                 <Label Padding="7,1" Content="(RPM)" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
                 <CheckBox HorizontalAlignment="Right" x:Name="ckbZaxisResetToZero" TouchUp="ResetToZero_TouchUp" Content="Z axis Zero" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged" mah:CheckBoxHelper.CheckGlyphForegroundChecked="White"/>

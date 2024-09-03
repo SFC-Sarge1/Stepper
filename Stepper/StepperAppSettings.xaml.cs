@@ -14,10 +14,12 @@
 namespace Stepper
 {
     using System.Configuration;
+    using System.Diagnostics;
     using System.Reflection;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media;
+    using System.Xml;
     using Microsoft.Extensions.Logging;
 
     /// <summary>
@@ -25,19 +27,22 @@ namespace Stepper
     /// </summary>
     public partial class StepperAppSettings : Window
     {
+        //XmlDocument xmlDoc = new XmlDocument();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="StepperAppSettings" /> class.
         /// </summary>
         public StepperAppSettings()
         {
             InitializeComponent();
+            //xmlDoc.LoadXml("C: \\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\bin\\Release\\net8.0-windows\\Stepper.dll.config");
             MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Window Opened.");
             ResizeMode = ResizeMode.NoResize;
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
             VersionTxt.Text = $"Version: {displayableVersion}";
-            Closing += StepperAppSettings_Closing;
+
             // Get the children as a list and sort by Name
             MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings form is rebuilt each and every time it is opened.");
             // Create a label and a textbox for the setting
@@ -548,7 +553,6 @@ namespace Stepper
                     };
                     UserStringValue.LostFocus += (sender, args) =>
                     {
-                        //Properties.Settings.Default[propertyName: currentProperty.Name] = Convert.ToInt32(UserIntAppSettings.Text);
                         Properties.Settings.Default.Save();
                         MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved after control lost focus.");
                         MainWindow._logger.LogInformation($"int: {UserStringValue.Text} {currentProperty.Name} Saved to the Settings.");
@@ -570,7 +574,8 @@ namespace Stepper
         {
             Properties.Settings.Default.Save();
             MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved and Window Closing.");
-        }
+            Hide();
+       }
         /// <summary>
         /// Handles the Click event of the SaveSettings control.
         /// </summary>
@@ -578,13 +583,13 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void SaveSettings_Click(object sender, RoutedEventArgs e)
         {
-            MySettings.Children.Cast<SettingsProperty>().OrderBy(Children => Children.Name);
+            var orderedSettings = MySettings.Children.Cast<SettingsProperty>().OrderBy(Children => Children.Name).ToList();
             //Properties.Settings.Default.Properties.Cast<SettingsProperty>().OrderBy(setting => setting.Name);
-            // Get the children as a list and sort by Name
             Properties.Settings.Default.Save();
+            // Get the children as a list and sort by Name
             MainWindow.timer.Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)); // Set the timer to tick every 1 millisecond
             MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved.");
-            Close();
+            Hide();
         }
     }
 }

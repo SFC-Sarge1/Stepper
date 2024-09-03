@@ -181,7 +181,20 @@ namespace Stepper
         /// </summary>
         public MainWindow()
         {
+
             InitializeComponent();
+            txtXaxisStepperCurrent.Text = Properties.Settings.Default.XaxisStepperCurrent.ToString();
+            txtYaxisStepperCurrent.Text = Properties.Settings.Default.YaxisStepperCurrent.ToString();
+            txtZaxisStepperCurrent.Text = Properties.Settings.Default.ZaxisStepperCurrent.ToString();
+            txtXaxisMotorSpeed.Text = Properties.Settings.Default.XaxisMotorSpeed.ToString();
+            txtYaxisMotorSpeed.Text = Properties.Settings.Default.YaxisMotorSpeed.ToString();
+            txtZaxisMotorSpeed.Text = Properties.Settings.Default.ZaxisMotorSpeed.ToString();
+            txtXaxisStepperMove.Text = Properties.Settings.Default.XaxisStepperMove.ToString();
+            txtYaxisStepperMove.Text = Properties.Settings.Default.YaxisStepperMove.ToString();
+            txtZaxisStepperMove.Text = Properties.Settings.Default.ZaxisStepperMove.ToString();
+            ckbXaxisResetToZero.IsChecked = Properties.Settings.Default.ckbXaxisResetToZeroIsChecked;
+            ckbYaxisResetToZero.IsChecked = Properties.Settings.Default.ckbYaxisResetToZeroIsChecked;
+            ckbZaxisResetToZero.IsChecked = Properties.Settings.Default.ckbZaxisResetToZeroIsChecked;
 
             string LogFileName = "Stepper";
             string FileLogPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), LogFileName + ".log");
@@ -219,6 +232,7 @@ namespace Stepper
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
             _logger.LogInformation(message: $"Version: {displayableVersion}");
+
             _XserialPort = new(Properties.Settings.Default.XComPort, Properties.Settings.Default.BaudRate);
             _XserialPort.Close();
             if (_XserialPort.IsOpen == false)
@@ -342,18 +356,18 @@ namespace Stepper
                 Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)) // Set the timer to tick every 1 millisecond
             };
             timer.Tick += Timer_Tick; // Specify what happens when the timer ticks
-            txtXaxisStepperCurrent.Text = Properties.Settings.Default.XaxisStepperCurrent.ToString();
-            txtYaxisStepperCurrent.Text = Properties.Settings.Default.YaxisStepperCurrent.ToString();
-            txtZaxisStepperCurrent.Text = Properties.Settings.Default.ZaxisStepperCurrent.ToString();
-            txtXaxisMotorSpeed.Text = Properties.Settings.Default.XaxisMotorSpeed.ToString();
-            txtYaxisMotorSpeed.Text = Properties.Settings.Default.YaxisMotorSpeed.ToString();
-            txtZaxisMotorSpeed.Text = Properties.Settings.Default.ZaxisMotorSpeed.ToString();
-            txtXaxisStepperMove.Text = Properties.Settings.Default.XaxisStepperMove.ToString();
-            txtYaxisStepperMove.Text = Properties.Settings.Default.YaxisStepperMove.ToString();
-            txtZaxisStepperMove.Text = Properties.Settings.Default.ZaxisStepperMove.ToString();
-            ckbXaxisResetToZero.IsChecked = Properties.Settings.Default.ckbXaxisResetToZeroIsChecked;
-            ckbYaxisResetToZero.IsChecked = Properties.Settings.Default.ckbYaxisResetToZeroIsChecked;
-            ckbZaxisResetToZero.IsChecked = Properties.Settings.Default.ckbZaxisResetToZeroIsChecked;
+            //txtXaxisStepperCurrent.Text = Properties.Settings.Default.XaxisStepperCurrent.ToString();
+            //txtYaxisStepperCurrent.Text = Properties.Settings.Default.YaxisStepperCurrent.ToString();
+            //txtZaxisStepperCurrent.Text = Properties.Settings.Default.ZaxisStepperCurrent.ToString();
+            //txtXaxisMotorSpeed.Text = Properties.Settings.Default.XaxisMotorSpeed.ToString();
+            //txtYaxisMotorSpeed.Text = Properties.Settings.Default.YaxisMotorSpeed.ToString();
+            //txtZaxisMotorSpeed.Text = Properties.Settings.Default.ZaxisMotorSpeed.ToString();
+            //txtXaxisStepperMove.Text = Properties.Settings.Default.XaxisStepperMove.ToString();
+            //txtYaxisStepperMove.Text = Properties.Settings.Default.YaxisStepperMove.ToString();
+            //txtZaxisStepperMove.Text = Properties.Settings.Default.ZaxisStepperMove.ToString();
+            //ckbXaxisResetToZero.IsChecked = Properties.Settings.Default.ckbXaxisResetToZeroIsChecked;
+            //ckbYaxisResetToZero.IsChecked = Properties.Settings.Default.ckbYaxisResetToZeroIsChecked;
+            //ckbZaxisResetToZero.IsChecked = Properties.Settings.Default.ckbZaxisResetToZeroIsChecked;
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
             newSettingsWindow = new StepperAppSettings();
@@ -1313,7 +1327,9 @@ namespace Stepper
         {
             _logger.LogInformation(message: $"Stepper Motor Controller Loading Application Settings form.");
             // Show the new window
-            newSettingsWindow.Show();
+            newSettingsWindow.Activate();
+            newSettingsWindow.ShowDialog();
+
         }
         /// <summary>
         /// Handles the Tick event of the Timer control.

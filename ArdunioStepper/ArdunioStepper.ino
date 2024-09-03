@@ -663,13 +663,11 @@ static void ZMotorRun()
         ZaxisCurrentPosition = ZaxisStepperMotor.currentPosition();
         printNonBlocking("Z," + (String)ZaxisCurrentPosition);
         ZaxisStepperMotor.runSpeedToPosition();
-
     }
     else if (ZaxisStepperMotor.distanceToGo() == 0 && ZaxisSetToZeroPosition == false)
     {
         ZaxisCurrentPosition = ZaxisStepperMotor.currentPosition();
         printNonBlocking("Z," + (String)ZaxisCurrentPosition);
-
     }
 
     //switch (ZaxisStepperMotorState)
