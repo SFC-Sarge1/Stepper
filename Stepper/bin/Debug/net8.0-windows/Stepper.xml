@@ -731,6 +731,39 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:Stepper.Properties.Settings">
+            <summary>
+            Class Settings. This class cannot be inherited.
+            Implements the <see cref="T:System.Configuration.ApplicationSettingsBase" />
+            </summary>
+            <seealso cref="T:System.Configuration.ApplicationSettingsBase" />
+        </member>
+        <member name="M:Stepper.Properties.Settings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stepper.Properties.Settings"/> class.
+            </summary>
+        </member>
+        <member name="M:Stepper.Properties.Settings.PropertyChangedEventHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Properties the changed event handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.Properties.Settings.SettingChangingEventHandler(System.Object,System.Configuration.SettingChangingEventArgs)">
+            <summary>
+            Settings the changing event handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Configuration.SettingChangingEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.Properties.Settings.SettingsSavingEventHandler(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Settings the saving event handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
+        </member>
         <member name="T:Stepper.SendDataToLattepanda">
             <summary>
             Class SendDataToLattepanda.

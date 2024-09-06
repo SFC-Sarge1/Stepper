@@ -583,8 +583,9 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void SaveSettings_Click(object sender, RoutedEventArgs e)
         {
-            var orderedSettings = MySettings.Children.Cast<SettingsProperty>().OrderBy(Children => Children.Name).ToList();
+            MySettings.Children.Cast<SettingsProperty>().OrderBy(Children => Children.Name);
             //Properties.Settings.Default.Properties.Cast<SettingsProperty>().OrderBy(setting => setting.Name);
+            string appPath2 = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             Properties.Settings.Default.Save();
             // Get the children as a list and sort by Name
             MainWindow.timer.Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)); // Set the timer to tick every 1 millisecond

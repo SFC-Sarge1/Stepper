@@ -38,7 +38,7 @@ namespace Stepper
         /// <summary>
         /// The new settings window
         /// </summary>
-        StepperAppSettings newSettingsWindow;
+        public StepperAppSettings newSettingsWindow;
         /// <summary>
         /// The timer
         /// </summary>
@@ -58,7 +58,7 @@ namespace Stepper
         /// <summary>
         /// The elapsed time
         /// </summary>
-        TimeSpan elapsedTime = new();
+        public TimeSpan elapsedTime = new();
         /// <summary>
         /// The remaining time
         /// </summary>
@@ -147,7 +147,6 @@ namespace Stepper
         /// The X and Y axis stepper move
         /// </summary>
         public decimal xyStepperMove;
-
         /// <summary>
         /// The logger
         /// </summary>
