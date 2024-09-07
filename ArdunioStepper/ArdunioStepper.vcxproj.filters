@@ -13,18 +13,72 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>xml;json;txt;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{df3f10d3-8f55-4837-bcbb-5e5fcfb41784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\_micro-api">
+      <UniqueIdentifier>{6107816f-a040-4c97-a56c-cc1882b39486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\_micro-api\libraries">
+      <UniqueIdentifier>{8ac8dd84-2d55-4687-bf96-ecf505492654}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\_micro-api\libraries\AccelStepper">
+      <UniqueIdentifier>{57e35981-09ff-4bce-bc6f-7a93b9f270be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\arduino folders read me.txt">
       <Filter>Misc Files</Filter>
     </None>
+    <None Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\extras\doc\AccelStepper_8h-source.html">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
+    </None>
+    <None Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\extras\doc\annotated.html">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
+    </None>
+    <None Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\extras\doc\classAccelStepper-members.html">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
+    </None>
+    <None Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\extras\doc\classAccelStepper.html">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
+    </None>
+    <None Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\extras\doc\files.html">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
+    </None>
+    <None Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\extras\doc\functions.html">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
+    </None>
+    <None Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\extras\doc\functions_func.html">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
+    </None>
+    <None Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\extras\doc\index.html">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ArdunioStepper.ino" />
+    <ClCompile Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src\AccelStepper.cpp">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src\MultiStepper.cpp">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\StepperButton\src\StepperButton.cpp">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.ArdunioStepper.vsarduino.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src\AccelStepper.h">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src\MultiStepper.h">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\StepperButton\src\StepperButton.h">
+      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -13,7 +13,7 @@
 // ***********************************************************************
 #include <MultiStepper.h>
 #include <AccelStepper.h>
-#include <ezButton.h>
+#include <StepperButton.h>
 
 //DEBUG=1 works, DEBUG=0 works now!
 #define DEBUG 0
@@ -22,29 +22,12 @@
 #define DIRECTION_CCW -1
 #define DIRECTION_CW 1
 #define BUFFER_SIZE 64
-//#define MAX_POSITION 0x7FFFFFFF  // maximum of position we can set (long type)
-//#define XSTATE_CHANGE_DIR   1
-//#define XSTATE_MOVE         2
-//#define XSTATE_MOVING       3
-//#define XSTATE_ZERO         4
-//#define YSTATE_CHANGE_DIR   1
-//#define YSTATE_MOVE         2
-//#define YSTATE_MOVING       3
-//#define YSTATE_ZERO         4
-//#define ZSTATE_CHANGE_DIR   1
-//#define ZSTATE_MOVE         2
-//#define ZSTATE_MOVING       3
-//#define ZSTATE_ZERO         4
 #define LIMIT_SWITCH1_PIN 12 // Pin for limit switch
 #define LIMIT_SWITCH2_PIN 14 // Pin for limit switch
 
-ezButton ZaxisStepperMotorLimitSwitchCW(LIMIT_SWITCH1_PIN); // Pin for limit switch
-ezButton ZaxisStepperMotorLimitSwitchCCW(LIMIT_SWITCH2_PIN); // Pin for limit switch
+StepperButton ZaxisStepperMotorLimitSwitchCW(LIMIT_SWITCH1_PIN); // Pin for limit switch
+StepperButton ZaxisStepperMotorLimitSwitchCCW(LIMIT_SWITCH2_PIN); // Pin for limit switch
 
-//int XaxisStepperMotorState = XSTATE_MOVE;
-//int YaxisStepperMotorState = YSTATE_MOVE;
-//int ZaxisStepperMotorState = ZSTATE_MOVE;
-//
 int Xdirection = DIRECTION_CW;
 int Ydirection = DIRECTION_CW;
 int Zdirection = DIRECTION_CW;
@@ -681,66 +664,6 @@ static void ZMotorRun()
         printNonBlocking("Z," + (String)ZaxisCurrentPosition);
     }
 
-    //switch (ZaxisStepperMotorState)
-    //{
-    //    case YSTATE_ZERO:
-    //        ZaxisSetToZeroPosition = false;
-    //        ZaxisWasSetToZeroPosition = true;
-    //        ZaxisCurrentPosition = ZaxisStepperMotor.currentPosition();
-    //        ZaxisMoveMM = ZaxisCurrentPosition;
-    //        printNonBlocking("Z," + (String)ZaxisCurrentPosition);
-    //        //NVIC_SystemReset();  //call reset
-    //        ESP.restart();
-    //        break;
-    //    //case ZSTATE_CHANGE_DIR:
-    //    //    if (ZaxisStepperMotorLimitSwitchCCW.isPressed())
-    //    //    {
-    //    //        ZaxisStepperMotorState = ZSTATE_CHANGE_DIR;
-    //    //        printNonBlocking("The limit switch 1: TOUCHED");
-    //    //        Zdirection = DIRECTION_CW;
-    //    //        printNonBlocking("CLOCKWISE");
-    //    //        ZaxisMoveMM = 4.00;
-    //    //    }
-    //    //    if (ZaxisStepperMotorLimitSwitchCW.isPressed())
-    //    //    {
-    //    //        ZaxisStepperMotorState = ZSTATE_CHANGE_DIR;
-    //    //        printNonBlocking("The limit switch 2: TOUCHED");
-    //    //        Zdirection = DIRECTION_CCW;
-    //    //        printNonBlocking("COUNTERCLOCKWISE");
-    //    //        ZaxisMoveMM = 4.00;
-    //    //    }
-
-    //    //    ZaxisStepperMotorState = ZSTATE_MOVE; // after changing direction, go to the next state to move the motor
-    //    //    break;
-    //    case ZSTATE_MOVE:
-    //        ZaxisMoveMM = Zdirection * ZaxisMoveMM;
-    //        ZaxisStepperMotor.setCurrentPosition(0); // set position
-    //        ZaxisStepperMotor.moveTo(ZaxisMoveMM);
-    //        ZaxisStepperMotor.setAcceleration(ZaxisAcceleration); // set acceleration
-    //        ZaxisStepperMotor.setSpeed(ZaxisMotorSpeed);
-    //        ZaxisStepperMotorState = ZSTATE_MOVING; // after moving, go to the next state to keep the motor moving infinity
-    //        break;
-    //    case ZSTATE_MOVING: // without this state, the move will stop after reaching maximum position
-    //        if (ZaxisStepperMotor.distanceToGo() == 0 && ZaxisSetToZeroPosition == false)
-    //        {
-    //            ZaxisStepperMotor.setCurrentPosition(0);   // reset position to 0
-    //            ZaxisCurrentPosition = ZaxisStepperMotor.currentPosition();
-    //            printNonBlocking("Z," + (String)ZaxisCurrentPosition);
-    //            ZaxisStepperMotor.stop();
-    //            break;
-    //        }
-    //        else if (ZaxisStepperMotor.distanceToGo() != 0 && ZaxisSetToZeroPosition == false)
-    //        {
-    //            ZaxisStepperMotorState = ZSTATE_MOVING; // after moving, go to the next state to keep the motor moving infinity
-    //            ZaxisStepperMotor.moveTo(ZaxisMoveMM);
-    //            ZaxisStepperMotor.setAcceleration(ZaxisAcceleration); // set acceleration
-    //            ZaxisStepperMotor.setSpeed(ZaxisMotorSpeed);
-    //            ZaxisStepperMotor.run(); // MUST be called in loop() function
-    //            ZaxisCurrentPosition = ZaxisStepperMotor.currentPosition();
-    //            printNonBlocking("Z," + (String)ZaxisCurrentPosition);
-    //        }
-    //        break;
-    //}
 }
 /// <summary>
 /// Prints the serial message non-blocking.
