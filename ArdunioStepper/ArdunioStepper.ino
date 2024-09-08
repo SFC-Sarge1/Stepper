@@ -13,7 +13,7 @@
 // ***********************************************************************
 #include <MultiStepper.h>
 #include <AccelStepper.h>
-#include <StepperButton.h>
+#include <ezButton.h>
 
 //DEBUG=1 works, DEBUG=0 works now!
 #define DEBUG 0
@@ -25,8 +25,8 @@
 #define LIMIT_SWITCH1_PIN 12 // Pin for limit switch
 #define LIMIT_SWITCH2_PIN 14 // Pin for limit switch
 
-StepperButton ZaxisStepperMotorLimitSwitchCW(LIMIT_SWITCH1_PIN); // Pin for limit switch
-StepperButton ZaxisStepperMotorLimitSwitchCCW(LIMIT_SWITCH2_PIN); // Pin for limit switch
+ezButton ZaxisStepperMotorLimitSwitchCW(LIMIT_SWITCH1_PIN); // Pin for limit switch
+ezButton ZaxisStepperMotorLimitSwitchCCW(LIMIT_SWITCH2_PIN); // Pin for limit switch
 
 int Xdirection = DIRECTION_CW;
 int Ydirection = DIRECTION_CW;

@@ -63,9 +63,6 @@
     <ClCompile Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src\MultiStepper.cpp">
       <Filter>src\_micro-api\libraries\AccelStepper</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\StepperButton\src\StepperButton.cpp">
-      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.ArdunioStepper.vsarduino.h">
@@ -75,9 +72,6 @@
       <Filter>src\_micro-api\libraries\AccelStepper</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src\MultiStepper.h">
-      <Filter>src\_micro-api\libraries\AccelStepper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\OneDrive\Documents\Arduino\libraries\StepperButton\src\StepperButton.h">
       <Filter>src\_micro-api\libraries\AccelStepper</Filter>
     </ClInclude>
   </ItemGroup>
