@@ -11,7 +11,7 @@ This repository contains the code for a simple Stepper Motor Controller. The app
    * Z axis .INO file.
 - Visual Studio 2022 Community Edition
 - 3 each StepperOnline nema 23 stepper motors
-- 3 each StepperOnline Stepper Motor Driver. Note:StepperOnline CL57T was used during development.
+- 3 each StepperOnline Stepper Motor Driver. Note: StepperOnline CL57T was used during development.
 - Arduino for Visual Studio, Visual Micro - VS 2022
 - 6 each Limit Switches, two for each axis. 
    * X Left Axis Limit and X right Axis Limit.
