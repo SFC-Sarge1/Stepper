@@ -44,3 +44,4 @@ This repository contains the code for a simple Stepper Motor Controller. The app
 
 ## Usage
 Enter the the distance in milimeters you want each of the X,Y, and Z axis to move. Click the X, Y, or Z axis button to move to the requested milimeters.
+One Stepper Motor Revolution = 200 steps or 4mm in movement.
