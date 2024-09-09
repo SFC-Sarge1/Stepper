@@ -21,12 +21,12 @@ This repository contains the code for a simple Stepper Motor Controller. The app
 ## Setup
 1. Connect your stepper motor to the DM556T Stepper Motor Driver and your Arduino or ESP32 board.
 2. The example code assumes the motors is connected to pins:
-3. Stepper Motor X axis 3, 4
-4. Stepper Motor Y axis 5, 6
-5. Stepper Motor Z axis 7, 8
-6. Connect each ESP32 DEV Module using USB Cable Serial Connection.
-7. Upload the provided Arduino sketch to your board.
-8. Note the COM port that your Arduino or ESP32 board is connected to. This application will load the COM Ports to the form, so you can choose.
+  * Stepper Motor X axis 3, 4
+  *. Stepper Motor Y axis 5, 6
+  * Stepper Motor Z axis 7, 8
+3. Connect each ESP32 DEV Module using USB Cable Serial Connection.
+4. Upload the provided Arduino sketch to your board.
+5. Note the COM port that your Arduino or ESP32 board is connected to. This application will load the COM Ports to the form, so you can choose.
 
 ## Running the Application
 1. Open the solution in Visual Studio 2022 Community Edition or higher.
