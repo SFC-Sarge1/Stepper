@@ -1,11 +1,11 @@
 # Stepper Motor Controller
 
 ## Overview
-This repository contains the code for a simple Stepper Motor Controller. The application is written in C# and uses WPF for the user interface. It communicates with an Arduino board over serial communication to control a stepper motor.
+This repository contains the code for a simple Stepper Motor Controller. The application is written in C# and uses WPF for the user interface. It communicates with an Arduino or ESP32 board over serial communication to control a stepper motor.
 
 ## Prerequisites
 - .NET 8.0-windows or later
-- 3 each ESP DEV Module.
+- 3 each ESP32 DEV Module.
    * X axis .INO file.
    * Y axis .INO file.
    * Z axis .INO file.
@@ -19,14 +19,14 @@ This repository contains the code for a simple Stepper Motor Controller. The app
    * Z Lower Axis Limit and Z Upper Axis Limit.
 
 ## Setup
-1. Connect your stepper motor to the DM556T Stepper Motor Driver and your Arduino board.
+1. Connect your stepper motor to the DM556T Stepper Motor Driver and your Arduino or ESP32 board.
 2. The example code assumes the motors is connected to pins:
 3. Stepper Motor X axis 3, 4
 4. Stepper Motor Y axis 5, 6
 5. Stepper Motor Z axis 7, 8
-6. Connect each ESP DEV Module using USB Cable Serial Connection.
+6. Connect each ESP32 DEV Module using USB Cable Serial Connection.
 7. Upload the provided Arduino sketch to your board.
-8. Note the COM port that your Arduino is connected to. This application will load the COM Ports to the form show you can choose.
+8. Note the COM port that your Arduino or ESP32 board is connected to. This application will load the COM Ports to the form, so you can choose.
 
 ## Running the Application
 1. Open the solution in Visual Studio 2022 Community Edition or higher.
