@@ -5,12 +5,15 @@ This repository contains the code for a simple Stepper Motor Controller. The app
 
 ## Prerequisites
 - .NET 8.0-windows or later
-- 3 each Arduino Uno R4 WIFI, one for each axis.
+- 3 each ESP DEV Module, one for each axis x,y,z
 - Visual Studio 2022 Community Edition
 - 3 each StepperOnline nema 23 stepper motors
 - 3 each StepperOnline DM556T Stepper Motor Driver
-- Arduino for Visual Studio, Visual Micro - Release 2024.0223.00 - 5th March 2024 - VS 2017, 2019, 2022
-- 6 each Limit Switches, two for each axis.
+- Arduino for Visual Studio, Visual Micro - VS 2022
+- 6 each Limit Switches, two for each axis. 
+   * X Left Axis Limit and X right Axis Limit.
+   * Y Front Axis Limit and Y Rear Axis Limit.
+   * Z Lower Axis Limit and Z Upper Axis Limit.
 
 ## Setup
 1. Connect your stepper motor to the DM556T Stepper Motor Driver and your Arduino board.
