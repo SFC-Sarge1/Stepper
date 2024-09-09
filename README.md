@@ -5,7 +5,7 @@ This repository contains the code for a simple Stepper Motor Controller. The app
 
 ## Prerequisites
 - .NET 8.0-windows or later
-- 3 each ESP32 DEV Module.
+- 3 each Ardunio or ESP32 DEV Module.
    * X axis .INO file.
    * Y axis .INO file.
    * Z axis .INO file.
