@@ -19,11 +19,11 @@ This repository contains the code for a simple Stepper Motor Controller. The app
    * Z Lower Axis Limit and Z Upper Axis Limit.
 
 ## Setup
-1. Connect your stepper motor to the DM556T Stepper Motor Driver and your Arduino or ESP32 board.
+1. Connect your stepper motor to the CL57T Stepper Motor Driver and your Arduino or ESP32 board.
 2. The example code assumes the motors is connected to pins:
-    * Stepper Motor X axis 3, 4
-    * Stepper Motor Y axis 5, 6
-    * Stepper Motor Z axis 7, 8
+    * Stepper Motor X axis 4, 2. X axis ESP32 DEV Module.
+    * Stepper Motor Y axis 4, 2. Y axis ESP32 DEV Module.
+    * Stepper Motor Z axis 4, 2. Z axis ESP32 DEV Module.
 3. Connect each ESP32 DEV Module using USB Cable Serial Connection.
 4. Upload the provided Arduino sketch to your board.
 5. Note the COM port that your Arduino or ESP32 board is connected to. This application will load the COM Ports to the form, so you can choose.
