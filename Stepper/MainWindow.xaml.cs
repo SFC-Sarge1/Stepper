@@ -289,7 +289,6 @@ namespace Stepper
                     if ((i = _ZserialPort.BytesToRead) > 0)
                     {
                         _ZserialPort.Read(message, 0, i);
-                        //Console.WriteLine("Read=" + i.ToString());
                         _logger.LogInformation(message: $"Z Axis SerialPort Read = " + i.ToString());
                     }
                 }
@@ -355,18 +354,6 @@ namespace Stepper
                 Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)) // Set the timer to tick every 1 millisecond
             };
             timer.Tick += Timer_Tick; // Specify what happens when the timer ticks
-            //txtXaxisStepperCurrent.Text = Properties.Settings.Default.XaxisStepperCurrent.ToString();
-            //txtYaxisStepperCurrent.Text = Properties.Settings.Default.YaxisStepperCurrent.ToString();
-            //txtZaxisStepperCurrent.Text = Properties.Settings.Default.ZaxisStepperCurrent.ToString();
-            //txtXaxisMotorSpeed.Text = Properties.Settings.Default.XaxisMotorSpeed.ToString();
-            //txtYaxisMotorSpeed.Text = Properties.Settings.Default.YaxisMotorSpeed.ToString();
-            //txtZaxisMotorSpeed.Text = Properties.Settings.Default.ZaxisMotorSpeed.ToString();
-            //txtXaxisStepperMove.Text = Properties.Settings.Default.XaxisStepperMove.ToString();
-            //txtYaxisStepperMove.Text = Properties.Settings.Default.YaxisStepperMove.ToString();
-            //txtZaxisStepperMove.Text = Properties.Settings.Default.ZaxisStepperMove.ToString();
-            //ckbXaxisResetToZero.IsChecked = Properties.Settings.Default.ckbXaxisResetToZeroIsChecked;
-            //ckbYaxisResetToZero.IsChecked = Properties.Settings.Default.ckbYaxisResetToZeroIsChecked;
-            //ckbZaxisResetToZero.IsChecked = Properties.Settings.Default.ckbZaxisResetToZeroIsChecked;
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
             newSettingsWindow = new StepperAppSettings();
@@ -575,6 +562,7 @@ namespace Stepper
                 string stringValue;
                 string stringValue1;
 
+
                 if (ckbZaxisResetToZero.IsChecked == true)
                 {
                     zeroZaxis = 1;
@@ -638,7 +626,6 @@ namespace Stepper
                     zeroXaxis = 1;
                     zeroYaxis = 1;
                     stringValue1 = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{zeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{zeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{zeroZaxis}";
-                    //SendDataToLattepanda.SendData(stringValue1);
                     ckbXaxisResetToZero.IsChecked = false;
                     ckbYaxisResetToZero.IsChecked = false;
                     _XserialPort.Write(stringValue1);

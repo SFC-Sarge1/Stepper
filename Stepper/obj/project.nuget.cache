@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fCtCK+wmMOQ=",
+  "dgSpecHash": "Xw5XfNoRUDs=",
   "success": true,
   "projectFilePath": "C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj",
   "expectedPackageFiles": [
@@ -50,7 +50,8 @@
     "C:\\Users\\sfcsarge\\.nuget\\packages\\system.text.json\\9.0.0-preview.7.24405.7\\system.text.json.9.0.0-preview.7.24405.7.nupkg.sha512",
     "C:\\Users\\sfcsarge\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
     "C:\\Users\\sfcsarge\\.nuget\\packages\\utilitydelta.gpio\\4.3.0\\utilitydelta.gpio.4.3.0.nupkg.sha512",
-    "C:\\Users\\sfcsarge\\.nuget\\packages\\utilitydelta.stepper\\2.2.0\\utilitydelta.stepper.2.2.0.nupkg.sha512"
+    "C:\\Users\\sfcsarge\\.nuget\\packages\\utilitydelta.stepper\\2.2.0\\utilitydelta.stepper.2.2.0.nupkg.sha512",
+    "C:\\Users\\sfcsarge\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.26100.34\\microsoft.windows.sdk.net.ref.10.0.26100.34.nupkg.sha512"
   ],
   "logs": []
 }

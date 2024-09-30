@@ -23,8 +23,8 @@
 #define DIRECTION_CCW -1
 #define DIRECTION_CW 1
 #define BUFFER_SIZE 64
-#define LIMIT_SWITCH1_PIN 12 // Pin for limit switch
-#define LIMIT_SWITCH2_PIN 14 // Pin for limit switch
+//#define LIMIT_SWITCH1_PIN 12 // Pin for limit switch
+//#define LIMIT_SWITCH2_PIN 14 // Pin for limit switch
 
 /// <summary>
 /// Enum for the current ESP32 Board Axis value X=1, Y=2, Z=3
@@ -40,6 +40,11 @@ enum ESP32BoardAxis
 /// Axis integer value X=1, Y=2, Z=3
 /// </summary>
 int axisNumber = 3; // Axis integer value X=1, Y=2, Z=3
+const int LIMIT_SWITCH1_PIN = 12; // Define the pin for the limit switch
+const int LIMIT_SWITCH2_PIN = 14;
+int LIMIT_SWITCH1_STATE = 0;
+int LIMIT_SWITCH2_STATE = 0;
+
 /// <summary>
 /// The current axis casted from the axis number.
 /// </summary>
@@ -268,6 +273,8 @@ void setup()
     //Common stuff.
     zAxisStepperMotorLimitSwitchCCW.setDebounceTime(50); // set debounce time to 50 milliseconds
     zAxisStepperMotorLimitSwitchCW.setDebounceTime(50); // set debounce time to 50 milliseconds
+    pinMode(LIMIT_SWITCH1_PIN, INPUT);
+    pinMode(LIMIT_SWITCH2_PIN, INPUT);
 
     serialData[0] = "XY";
     Axis = serialData[0];
@@ -332,6 +339,8 @@ void loop()
         break;
     }
 
+    LIMIT_SWITCH1_STATE = digitalRead(LIMIT_SWITCH1_PIN);
+    LIMIT_SWITCH2_STATE = digitalRead(LIMIT_SWITCH2_PIN);
 
     if (Serial.available())
     {
@@ -656,7 +665,8 @@ void printNonBlocking(const String& s)
         serialWrite(s[i]);
     }
     // If there's any data left in the buffer, send it
-    if (bufferIndex > 0) {
+    if (bufferIndex > 0) 
+    {
         Serial1.write(buffer, bufferIndex);
         bufferIndex = 0;
     }
