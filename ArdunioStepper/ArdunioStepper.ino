@@ -283,7 +283,7 @@ void setup()
     xAxisSetToZeroPosition = serialData[3].toInt();
     xAxisStepperMotor.setMaxSpeed(xAxisStepperMotorMaxSpeed);
     xAxisStepperMotor.setCurrentPosition(0.00);
-    
+
     //Y axis stuff.
 
     serialData[4] = "0.00";
@@ -309,54 +309,54 @@ void setup()
     zAxisStepperMotor.setCurrentPosition(0.00);
 
     serialDataIndex = 0;
- }
+}
 
 /// <summary>
 /// Loops this instance.
 /// </summary>
 void loop()
 {
-        switch (currentAxis) 
-        {
-        case X:
-            xAxisStepperMotorLimitSwitchCW.loop();
-            xAxisStepperMotorLimitSwitchCCW.loop();
-            break;
-        case Y:
-            yAxisStepperMotorLimitSwitchCW.loop();
-            yAxisStepperMotorLimitSwitchCCW.loop();
-            break;
-        case Z:
-            zAxisStepperMotorLimitSwitchCW.loop();
-            zAxisStepperMotorLimitSwitchCCW.loop();
-            break;
-        }
+    switch (currentAxis)
+    {
+    case X:
+        xAxisStepperMotorLimitSwitchCW.loop();
+        xAxisStepperMotorLimitSwitchCCW.loop();
+        break;
+    case Y:
+        yAxisStepperMotorLimitSwitchCW.loop();
+        yAxisStepperMotorLimitSwitchCCW.loop();
+        break;
+    case Z:
+        zAxisStepperMotorLimitSwitchCW.loop();
+        zAxisStepperMotorLimitSwitchCCW.loop();
+        break;
+    }
 
 
-    if (Serial.available()) 
+    if (Serial.available())
     {
         serialData[serialDataIndex] = Serial.readStringUntil(',');
         serialDataIndex++;
-        if (serialDataIndex == 10) 
+        if (serialDataIndex == 10)
         {
             serialDataIndex = 0;
             Axis = serialData[0];
-            if (Axis == "X") 
+            if (Axis == "X")
             {
                 //X axis stuff
                 xMotorConfig(serialData[1].toFloat(), serialData[2].toFloat(), serialData[3].toFloat());
             }
-            else if (Axis == "Y") 
+            else if (Axis == "Y")
             {
                 //Y axis stuff
                 yMotorConfig(serialData[4].toFloat(), serialData[5].toFloat(), serialData[6].toFloat());
             }
-            else if (Axis == "Z") 
+            else if (Axis == "Z")
             {
                 //Z axis stuff
                 zMotorConfig(serialData[7].toFloat(), serialData[8].toFloat(), serialData[9].toFloat());
             }
-            else if (Axis == "XY") 
+            else if (Axis == "XY")
             {
                 //X axis stuff
                 xMotorConfig(serialData[1].toFloat(), serialData[2].toFloat(), serialData[3].toFloat());
@@ -365,11 +365,11 @@ void loop()
             }
         }
     }
-    if (Axis == "X") 
+    if (Axis == "X")
     {
         xMotorRun();
     }
-    else if (Axis == "Y") 
+    else if (Axis == "Y")
     {
         yMotorRun();
     }
@@ -377,25 +377,25 @@ void loop()
     {
         zMotorRun();
     }
-    else if (Axis == "XY") 
+    else if (Axis == "XY")
     {
         xMotorRun();
         yMotorRun();
     }
 }
 
- /// <summary>
- /// x axis motor configuration.
- /// </summary>
- /// <param name="data1">The data1.</param>
- /// <param name="data2">The data2.</param>
- /// <param name="data3">The data3.</param>
- static void xMotorConfig(float data1, float data2, float data3)
- {
+/// <summary>
+/// x axis motor configuration.
+/// </summary>
+/// <param name="data1">The data1.</param>
+/// <param name="data2">The data2.</param>
+/// <param name="data3">The data3.</param>
+static void xMotorConfig(float data1, float data2, float data3)
+{
     //X axis stuff
     xAxisNewPosition = data1;
     xAxisMotorSpeed = data2;
-    if (xAxisMotorSpeed > xAxisStepperMotorMaxSpeed) 
+    if (xAxisMotorSpeed > xAxisStepperMotorMaxSpeed)
     {
         xAxisMotorSpeed = xAxisStepperMotorMaxSpeed;
     }
@@ -413,40 +413,40 @@ static void yMotorConfig(float data4, float data5, float data6)
     //Y axis stuff
     yAxisNewPosition = data4;
     yAxisMotorSpeed = data5;
-    if (yAxisMotorSpeed > yAxisStepperMotorMaxSpeed) 
+    if (yAxisMotorSpeed > yAxisStepperMotorMaxSpeed)
     {
         yAxisMotorSpeed = yAxisStepperMotorMaxSpeed;
     }
     yAxisSetToZeroPosition = data6;
     yAxisMoveMM = (yAxisNewPosition / oneFullRotationMovesMM) * stepperMotorStepsPerRev;
 }
- /// <summary>
- /// z axis motor configuration.
- /// </summary>
- /// <param name="data7">The data7.</param>
- /// <param name="data8">The data8.</param>
- /// <param name="data9">The data9.</param>
- static void zMotorConfig(float data7, float data8, float data9)
+/// <summary>
+/// z axis motor configuration.
+/// </summary>
+/// <param name="data7">The data7.</param>
+/// <param name="data8">The data8.</param>
+/// <param name="data9">The data9.</param>
+static void zMotorConfig(float data7, float data8, float data9)
 {
     //Z axis stuff
     zAxisNewPosition = data7;
     zAxisMotorSpeed = data8;
-    if (zAxisMotorSpeed > zAxisStepperMotorMaxSpeed) 
+    if (zAxisMotorSpeed > zAxisStepperMotorMaxSpeed)
     {
         zAxisMotorSpeed = zAxisStepperMotorMaxSpeed;
     }
     zAxisSetToZeroPosition = data9;
     zAxisMoveMM = (zAxisNewPosition / oneFullRotationMovesMM) * stepperMotorStepsPerRev;
 }
- /// <summary>
- /// xes the motor run.
- /// </summary>
- static void xMotorRun()
+/// <summary>
+/// xes the motor run.
+/// </summary>
+static void xMotorRun()
 {
-	xAxisStepperMotor.moveTo(xAxisMoveMM);
-	xAxisStepperMotor.setSpeed(xAxisMotorSpeed);
-	xAxisStepperMotor.setAcceleration(xAxisAcceleration);
-    if (xAxisSetToZeroPosition == true) 
+    xAxisStepperMotor.moveTo(xAxisMoveMM);
+    xAxisStepperMotor.setSpeed(xAxisMotorSpeed);
+    xAxisStepperMotor.setAcceleration(xAxisAcceleration);
+    if (xAxisSetToZeroPosition == true)
     {
         xAxisSetToZeroPosition = false;
         xAxisWasSetToZeroPosition = true;
@@ -456,7 +456,7 @@ static void yMotorConfig(float data4, float data5, float data6)
         //NVIC_SystemReset();  //call reset on Ardunio board
         ESP.restart(); //call reset on ESP32 board
     }
-    else if (xAxisStepperMotor.distanceToGo() != 0 && xAxisSetToZeroPosition == false) 
+    else if (xAxisStepperMotor.distanceToGo() != 0 && xAxisSetToZeroPosition == false)
     {
         xAxisStepperMotor.runSpeedToPosition();
         if (xAxisStepperMotorLimitSwitchCW.isPressed())
@@ -494,7 +494,7 @@ static void yMotorConfig(float data4, float data5, float data6)
             xAxisMoveMM = xDirection * 4.00;
         }
     }
-    else if (xAxisStepperMotor.distanceToGo() == 0 && xAxisSetToZeroPosition == false) 
+    else if (xAxisStepperMotor.distanceToGo() == 0 && xAxisSetToZeroPosition == false)
     {
         xAxisCurrentPosition = xAxisStepperMotor.currentPosition();
         printNonBlocking("X," + (String)xAxisCurrentPosition);
@@ -518,7 +518,7 @@ static void yMotorRun()
         //NVIC_SystemReset();  //call reset on Ardunio board
         ESP.restart(); //call reset on ESP32 board
     }
-    else if (yAxisStepperMotor.distanceToGo() != 0 && yAxisSetToZeroPosition == false) 
+    else if (yAxisStepperMotor.distanceToGo() != 0 && yAxisSetToZeroPosition == false)
     {
         yAxisStepperMotor.runSpeedToPosition();
         if (yAxisStepperMotorLimitSwitchCW.isPressed())
@@ -556,7 +556,7 @@ static void yMotorRun()
             yAxisMoveMM = yDirection * 4.00;
         }
     }
-    else if (yAxisStepperMotor.distanceToGo() == 0 && yAxisSetToZeroPosition == false) 
+    else if (yAxisStepperMotor.distanceToGo() == 0 && yAxisSetToZeroPosition == false)
     {
         yAxisCurrentPosition = yAxisStepperMotor.currentPosition();
         printNonBlocking("Y," + (String)yAxisCurrentPosition);
@@ -578,47 +578,47 @@ static void zMotorRun()
         zAxisMoveMM = zAxisCurrentPosition;
         printNonBlocking("Z," + (String)zAxisCurrentPosition);
         //NVIC_SystemReset();  //call reset on Ardunio board
-		ESP.restart(); //call reset on ESP32 board
+        ESP.restart(); //call reset on ESP32 board
     }
     else if (zAxisStepperMotor.distanceToGo() != 0 && zAxisSetToZeroPosition == false)
     {
         zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
         printNonBlocking("Z," + (String)zAxisCurrentPosition);
         zAxisStepperMotor.runSpeedToPosition();
-           if (zAxisStepperMotorLimitSwitchCW.isPressed())
-           {
-               printNonBlocking("The limit switch: TOUCHED");
-			   zAxisStepperMotor.stop();
-               zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
-               zDirection *= DIRECTION_CCW; // change direction
-               zAxisMoveMM = zDirection * 4.00;
-               zAxisStepperMotor.moveTo(zAxisMoveMM);
-               zAxisStepperMotor.setAcceleration(zAxisAcceleration);
-               zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
-           }
-           else if (zAxisStepperMotorLimitSwitchCW.isReleased())
-           {
-               printNonBlocking("The limit switch: RELEASED");
-               zDirection *= DIRECTION_CW; // change direction
-               zAxisMoveMM = zDirection * 4.00;
-           }
-           if (zAxisStepperMotorLimitSwitchCCW.isPressed()) 
-           {
-               printNonBlocking("The limit switch: TOUCHED");
-               zAxisStepperMotor.stop();
-               zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
-               zDirection *= DIRECTION_CCW; // change direction
-               zAxisMoveMM = zDirection * 4.00;
-               zAxisStepperMotor.moveTo(zAxisMoveMM);
-               zAxisStepperMotor.setAcceleration(zAxisAcceleration);
-               zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
-           }
-           else if (zAxisStepperMotorLimitSwitchCCW.isReleased())
-           {
-               printNonBlocking("The limit switch: RELEASED");
-               zDirection *= DIRECTION_CW; // change direction
-               zAxisMoveMM = zDirection * 4.00;
-           }
+        if (zAxisStepperMotorLimitSwitchCW.isPressed())
+        {
+            printNonBlocking("The limit switch: TOUCHED");
+            zAxisStepperMotor.stop();
+            zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
+            zDirection *= DIRECTION_CCW; // change direction
+            zAxisMoveMM = zDirection * 4.00;
+            zAxisStepperMotor.moveTo(zAxisMoveMM);
+            zAxisStepperMotor.setAcceleration(zAxisAcceleration);
+            zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
+        }
+        else if (zAxisStepperMotorLimitSwitchCW.isReleased())
+        {
+            printNonBlocking("The limit switch: RELEASED");
+            zDirection *= DIRECTION_CW; // change direction
+            zAxisMoveMM = zDirection * 4.00;
+        }
+        if (zAxisStepperMotorLimitSwitchCCW.isPressed())
+        {
+            printNonBlocking("The limit switch: TOUCHED");
+            zAxisStepperMotor.stop();
+            zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
+            zDirection *= DIRECTION_CCW; // change direction
+            zAxisMoveMM = zDirection * 4.00;
+            zAxisStepperMotor.moveTo(zAxisMoveMM);
+            zAxisStepperMotor.setAcceleration(zAxisAcceleration);
+            zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
+        }
+        else if (zAxisStepperMotorLimitSwitchCCW.isReleased())
+        {
+            printNonBlocking("The limit switch: RELEASED");
+            zDirection *= DIRECTION_CW; // change direction
+            zAxisMoveMM = zDirection * 4.00;
+        }
 
     }
     else if (zAxisStepperMotor.distanceToGo() == 0 && zAxisSetToZeroPosition == false)
@@ -638,7 +638,7 @@ void serialWrite(char c)
     buffer[bufferIndex] = c;
     bufferIndex++;
     // If buffer is full, send data
-    if (bufferIndex == BUFFER_SIZE) 
+    if (bufferIndex == BUFFER_SIZE)
     {
         Serial1.write(buffer, BUFFER_SIZE);
         bufferIndex = 0;
@@ -651,7 +651,7 @@ void serialWrite(char c)
 /// <param name="s">The s.</param>
 void printNonBlocking(const String& s)
 {
-    for (unsigned int i = 0; i < s.length(); i++) 
+    for (unsigned int i = 0; i < s.length(); i++)
     {
         serialWrite(s[i]);
     }
