@@ -1,0 +1,1917 @@
+10/5/2024 15:39:27 [Information] X Stepper Motor Controller Application Started.
+10/5/2024 15:39:27 [Information] Version: 3.0.9044.28181 (10/5/2024 15:39:27)
+10/5/2024 15:39:27 [Information] X Axis SerialPort COM7 not connected.
+10/5/2024 15:39:27 [Information] Y Axis SerialPort COM8 not connected.
+10/5/2024 15:39:27 [Information] Version: 3.1.0.28182 (10/5/2024 15:39:27)
+10/5/2024 15:39:27 [Information] Version: 3.1.0.28182 (10/5/2024 15:39:27)
+10/5/2024 15:39:27 [Information] Stepper Motor Controller Application Settings Window Opened.
+10/5/2024 15:39:27 [Information] Stepper Motor Controller Application Settings form is rebuilt each and every time it is opened.
+10/5/2024 15:39:27 [Information] int: 9600 BaudRate added to the Settings Form.
+10/5/2024 15:39:27 [Information] bool: False ckbXaxisResetToZeroIsChecked added to the Settings Form.
+10/5/2024 15:39:27 [Information] bool: False ckbYaxisResetToZeroIsChecked added to the Settings Form.
+10/5/2024 15:39:27 [Information] bool: False ckbZaxisResetToZeroIsChecked added to the Settings Form.
+10/5/2024 15:39:27 [Information] COM1: ComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] COM2: ComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] COM3: ComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] COM4: ComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] COM5: ComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] COM6: ComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] COM7: ComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] COM8: ComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] COM9: ComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] COM10: ComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 4.00 Divider4_00 added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 0.00 MathPart2Initlz added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 1.00 MilisecondTimerInterval added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 1000.00 MillisecondDelay added to the Settings Form.
+10/5/2024 15:39:27 [Information] int: 1000 Milliseconds added to the Settings Form.
+10/5/2024 15:39:27 [Information] int: 4 mmPerRevolution added to the Settings Form.
+10/5/2024 15:39:27 [Information] int: 2000 ThreadSleep added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 0.00 Value_0_00 added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 50.00 XaxisAcceleration added to the Settings Form.
+10/5/2024 15:39:27 [Information] bool: False XaxisChanged added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 400.00 XaxisMotorSpeed added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 0.00 XaxisStepperCurrent added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 0.00 XaxisStepperMove added to the Settings Form.
+10/5/2024 15:39:27 [Information] XCOM1: XComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] XCOM2: XComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] XCOM3: XComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] XCOM4: XComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] XCOM5: XComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] XCOM6: XComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] XCOM7: XComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] XCOM8: XComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] XCOM9: XComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] XCOM10: XComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 50.00 YaxisAcceleration added to the Settings Form.
+10/5/2024 15:39:27 [Information] bool: False YaxisChanged added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 400.00 YaxisMotorSpeed added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 0.00 YaxisStepperCurrent added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 0.00 YaxisStepperMove added to the Settings Form.
+10/5/2024 15:39:27 [Information] YCOM1: YComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] YCOM2: YComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] YCOM3: YComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] YCOM4: YComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] YCOM5: YComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] YCOM6: YComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] YCOM7: YComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] YCOM8: YComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] YCOM9: YComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] YCOM10: YComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 50.00 ZaxisAcceleration added to the Settings Form.
+10/5/2024 15:39:27 [Information] bool: False ZaxisChanged added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 400.00 ZaxisMotorSpeed added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 0.00 ZaxisStepperCurrent added to the Settings Form.
+10/5/2024 15:39:27 [Information] decimal: 0.00 ZaxisStepperMove added to the Settings Form.
+10/5/2024 15:39:27 [Information] ZCOM1: ZComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] ZCOM2: ZComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] ZCOM3: ZComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] ZCOM4: ZComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] ZCOM5: ZComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] ZCOM6: ZComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] ZCOM7: ZComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] ZCOM8: ZComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] ZCOM9: ZComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] ZCOM10: ZComPort added to the Settings Form.
+10/5/2024 15:39:27 [Information] int: 0 zeroXaxis added to the Settings Form.
+10/5/2024 15:39:27 [Information] int: 0 zeroYaxis added to the Settings Form.
+10/5/2024 15:39:27 [Information] int: 0 zeroZaxis added to the Settings Form.
+10/5/2024 15:39:28 [Information] Stepper Motor Controller MainWindow loaded
+10/5/2024 15:39:28 [Information] Set MainWindow Media Brushes to White.
+10/5/2024 15:39:40 [Information] Z Axis mouse controlled Keypad returned: 64.00
+10/5/2024 15:39:41 [Information] ZAxisRun_Click button clicked:
+10/5/2024 15:39:41 [Information] Z Axis MotorMovementSeconds decimal: (64.00 / 4) / 2 = 8.00
+10/5/2024 15:39:41 [Information] Z Axis myMovementTimer int: 1000 * 8.00 = 8000
+10/5/2024 15:39:42 [Information] Z Axis Run Event: Z,0.00,400.00,0,0.00,400.00,0,64.00,400.00,0
+10/5/2024 15:39:42 [Information] Z Axis Current Time: 03:39:42 + 8000 = targetEndTime: 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:42 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:00 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:43 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:01 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:44 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:02 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:45 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:45 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:03 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:46 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:46 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:04 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:47 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:47 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:05 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:48 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:48 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:06 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:49 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:49 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:50 [Information] Time remaining: 00:00:07 targetEndTime = 03:39:50
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Enable Z Axis controls after moving to location.
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Stopwatch Stopped.
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Timer Stopped.
+10/5/2024 15:39:50 [Information] Stepper Motor Controller Stopwatch Reset.
+10/5/2024 15:39:54 [Information] ZAxisRun_Click button clicked:
+10/5/2024 15:39:54 [Information] Z Axis MotorMovementSeconds decimal: (64.00 / 4) / 2 = 8.00
+10/5/2024 15:39:54 [Information] Z Axis myMovementTimer int: 1000 * 8.00 = 8000
+10/5/2024 15:39:55 [Information] Z Axis Run Event: Z,0.00,400.00,0,0.00,400.00,0,128.00,400.00,0
+10/5/2024 15:39:55 [Information] Z Axis Current Time: 03:39:55 + 8000 = targetEndTime: 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:55 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:55 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:00 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:56 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:56 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:01 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:57 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:57 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:02 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:58 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:58 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:03 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:39:59 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:39:59 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:04 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:00 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:00 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:05 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:01 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:01 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:06 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:02 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:03 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:03 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:03 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+10/5/2024 15:40:03 [Information] Time remaining: 00:00:07 targetEndTime = 03:40:03
+10/5/2024 15:40:03 [Information] Stepper Motor Controller Enable Z Axis controls after moving to location.
+10/5/2024 15:40:03 [Information] Stepper Motor Controller Stopwatch Stopped.
+10/5/2024 15:40:03 [Information] Stepper Motor Controller Timer Stopped.
+10/5/2024 15:40:03 [Information] Stepper Motor Controller Stopwatch Reset.
+10/5/2024 15:40:06 [Information] Stepper Motor Controller Serial Ports closed.
+10/5/2024 15:40:06 [Information] Stepper Motor Controller MainWindow Closing.
+10/5/2024 15:40:06 [Information] Properties Settings Saved.
+10/5/2024 15:40:06 [Information] Properties Settings Form Closed.

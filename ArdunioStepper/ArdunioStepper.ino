@@ -576,7 +576,6 @@ static void zMotorRun()
   {
     zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
     printNonBlocking("Z," + (String)zAxisCurrentPosition);
-    zAxisStepperMotor.runSpeedToPosition();
     if (zAxisStepperMotorLimitSwitchCW.isPressed()) 
     {
       printNonBlocking("The limit switch: TOUCHED");
@@ -587,6 +586,7 @@ static void zMotorRun()
       zAxisStepperMotor.moveTo(zAxisMoveMM);
       zAxisStepperMotor.setAcceleration(zAxisAcceleration);
       zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
+      zAxisStepperMotor.run();
     }
     else if (zAxisStepperMotorLimitSwitchCW.isReleased()) 
     {
@@ -604,6 +604,8 @@ static void zMotorRun()
       zAxisStepperMotor.moveTo(zAxisMoveMM);
       zAxisStepperMotor.setAcceleration(zAxisAcceleration);
       zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
+      zAxisStepperMotor.run();
+
     }
     else if (zAxisStepperMotorLimitSwitchCCW.isReleased()) 
     {
@@ -611,6 +613,8 @@ static void zMotorRun()
       zDirection *= DIRECTION_CW;  // change direction
       zAxisMoveMM = zDirection * 4.00;
     }
+    zAxisStepperMotor.runSpeedToPosition();
+
   }
   else if (zAxisStepperMotor.distanceToGo() == 0 && zAxisSetToZeroPosition == false) 
   {
