@@ -45,7 +45,6 @@ int axisNumber = 3;  // Axis integer value X=1, Y=2, Z=3
 /// The current axis casted from the axis number.
 /// </summary>
 ESP32BoardAxis currentAxis = static_cast<ESP32BoardAxis>(axisNumber);
-;
 /// <summary>
 /// The x axis LimitSwitch Clockwise
 /// </summary>
