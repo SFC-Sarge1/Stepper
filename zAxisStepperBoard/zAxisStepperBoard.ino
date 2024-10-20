@@ -26,7 +26,7 @@
 #define DIRECTION_CW 1
 #define BUFFER_SIZE 64
 #define LIMIT_SWITCH1_PIN 12  // Pin for limit switch
-#define LIMIT_SWITCH2_PIN 14  // Pin for limit switch
+#define LIMIT_SWITCH2_PIN 13  // Pin for limit switch
 
 /// <summary>
 /// Enum for the current ESP32 Board Axis value X=1, Y=2, Z=3
@@ -607,6 +607,13 @@ static void zMotorRun()
 			zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
 			zAxisStepperMotor.runToNewPosition(zAxisLimitSwitchMoveMM);
 		}
+		else if (zAxisStepperMotorLimitSwitchCW.isReleased())
+		{
+			printNonBlocking("The limit switch: RELEASED");
+			zDirection *= DIRECTION_CW;  // change direction
+			zAxisMoveMM = zDirection * 4.00;
+			zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
+		}
 		if (zAxisStepperMotorLimitSwitchCCW.isPressed())
 		{
 			printNonBlocking("The Counter-Clockwise limit switch: isPressed.");
@@ -620,6 +627,13 @@ static void zMotorRun()
 			zAxisStepperMotor.setAcceleration(zAxisAcceleration);
 			zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
 			zAxisStepperMotor.runToNewPosition(zAxisLimitSwitchMoveMM);
+		}
+		else if (zAxisStepperMotorLimitSwitchCCW.isReleased())
+		{
+			printNonBlocking("The limit switch: RELEASED");
+			zDirection *= DIRECTION_CCW;  // change direction
+			zAxisMoveMM = zDirection * 4.00;
+			zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
 		}
 		else
 		{
