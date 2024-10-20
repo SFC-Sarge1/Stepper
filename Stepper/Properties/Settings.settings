@@ -117,10 +117,10 @@
       <Value Profile="(Default)">C:\\Users\\sfcsarge\\source\\repos\\Stepper\\Stepper\\Stepper.csproj</Value>
     </Setting>
     <Setting Name="ZComPort" Type="System.String" Scope="User">
-      <Value Profile="(Default)">COM10</Value>
+      <Value Profile="(Default)">COM3</Value>
     </Setting>
     <Setting Name="ComPort" Type="System.String" Scope="User">
-      <Value Profile="(Default)">COM10</Value>
+      <Value Profile="(Default)">COM3</Value>
     </Setting>
     <Setting Name="ThreadSleep" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2000</Value>

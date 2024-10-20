@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Stepper": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

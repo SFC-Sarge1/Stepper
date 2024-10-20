@@ -122,7 +122,7 @@
   <ImportGroup Label="ExtensionTargets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties config.Debug.arduino.upload.port="COM10" config.Debug.customdebug_esp32_esp32_debugger_type="universal" />
+      <UserProperties config.Debug.arduino.upload.port="COM10" config.Debug.customdebug_esp32_esp32_debugger_type="universal" config.Debug.customdebug_unor4wifi_debugger_type="universal" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

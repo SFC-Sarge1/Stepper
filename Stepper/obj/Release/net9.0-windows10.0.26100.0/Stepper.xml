@@ -1,0 +1,821 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Stepper</name>
+    </assembly>
+    <members>
+        <member name="T:Stepper.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Stepper.App.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stepper.App" /> class.
+            </summary>
+        </member>
+        <member name="M:Stepper.App.App_DispatcherUnhandledException(System.Object,System.Windows.Threading.DispatcherUnhandledExceptionEventArgs)">
+            <summary>
+            Handles the DispatcherUnhandledException event of the App control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Threading.DispatcherUnhandledExceptionEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.App.OnExit(System.Windows.ExitEventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Application.Exit" /> event.
+            </summary>
+            <param name="e">An <see cref="T:System.Windows.ExitEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Stepper.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Stepper.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Stepper.FileLoggerProvider">
+            <summary>
+            Class FileLoggerProvider.
+            Implements the <see cref="T:Microsoft.Extensions.Logging.ILoggerProvider" />
+            </summary>
+            <seealso cref="T:Microsoft.Extensions.Logging.ILoggerProvider" />
+        </member>
+        <member name="F:Stepper.FileLoggerProvider._filePath">
+            <summary>
+            The file path
+            </summary>
+        </member>
+        <member name="M:Stepper.FileLoggerProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stepper.FileLoggerProvider" /> class.
+            </summary>
+            <param name="filePath">The file path.</param>
+        </member>
+        <member name="M:Stepper.FileLoggerProvider.CreateLogger(System.String)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Logging.ILogger" /> instance.
+            </summary>
+            <param name="categoryName">The category name for messages produced by the logger.</param>
+            <returns>The instance of <see cref="T:Microsoft.Extensions.Logging.ILogger" /> that was created.</returns>
+        </member>
+        <member name="M:Stepper.FileLoggerProvider.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="T:Stepper.FileLogger">
+            <summary>
+            Class FileLogger.
+            Implements the <see cref="T:Microsoft.Extensions.Logging.ILogger" />
+            </summary>
+            <seealso cref="T:Microsoft.Extensions.Logging.ILogger" />
+        </member>
+        <member name="F:Stepper.FileLogger._filePath">
+            <summary>
+            The file path
+            </summary>
+        </member>
+        <member name="M:Stepper.FileLogger.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stepper.FileLogger" /> class.
+            </summary>
+            <param name="filePath">The file path.</param>
+        </member>
+        <member name="M:Stepper.FileLogger.BeginScope``1(``0)">
+            <summary>
+            Begins a logical operation scope.
+            </summary>
+            <typeparam name="TState">The type of the state to begin scope for.</typeparam>
+            <param name="state">The identifier for the scope.</param>
+            <returns>A disposable object that ends the logical operation scope on dispose.</returns>
+        </member>
+        <member name="M:Stepper.FileLogger.IsEnabled(Microsoft.Extensions.Logging.LogLevel)">
+            <summary>
+            Checks if the given <paramref name="logLevel" /> is enabled.
+            </summary>
+            <param name="logLevel">level to be checked.</param>
+            <returns><see langword="true" /> if enabled; <see langword="false" /> otherwise.</returns>
+        </member>
+        <member name="M:Stepper.FileLogger.Log``1(Microsoft.Extensions.Logging.LogLevel,Microsoft.Extensions.Logging.EventId,``0,System.Exception,System.Func{``0,System.Exception,System.String})">
+            <summary>
+            Writes a log entry.
+            </summary>
+            <typeparam name="TState">The type of the object to be written.</typeparam>
+            <param name="logLevel">Entry will be written on this level.</param>
+            <param name="eventId">Id of the event.</param>
+            <param name="state">The entry to be written. Can also be an object.</param>
+            <param name="exception">The exception related to this entry.</param>
+            <param name="formatter">Function to create a <see cref="T:System.String" /> message of the <paramref name="state" /> and <paramref name="exception" />.</param>
+        </member>
+        <member name="T:Stepper.Keypad">
+            <summary>
+            Class Keypad.
+            Implements the <see cref="T:MahApps.Metro.Controls.MetroWindow" />
+            Implements the <see cref="T:System.ComponentModel.INotifyPropertyChanged" />
+            Implements the <see cref="T:System.Windows.Markup.IComponentConnector" />
+            </summary>
+            <seealso cref="T:MahApps.Metro.Controls.MetroWindow" />
+            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
+            <seealso cref="T:System.Windows.Markup.IComponentConnector" />
+            <summary>
+            Keypad
+            </summary>
+        </member>
+        <member name="F:Stepper.Keypad._result">
+            <summary>
+            The result
+            </summary>
+        </member>
+        <member name="P:Stepper.Keypad.Result">
+            <summary>
+            Gets the result.
+            </summary>
+            <value>The result.</value>
+        </member>
+        <member name="M:Stepper.Keypad.#ctor(System.Windows.Window)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stepper.Keypad" /> class.
+            </summary>
+            <param name="owner">The owner.</param>
+        </member>
+        <member name="M:Stepper.Keypad.button_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the button control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="E:Stepper.Keypad.PropertyChanged">
+            <summary>
+            Occurs when a property value changes.
+            </summary>
+        </member>
+        <member name="M:Stepper.Keypad.OnPropertyChanged(System.String)">
+            <summary>
+            Called when [property changed].
+            </summary>
+            <param name="info">The information.</param>
+        </member>
+        <member name="M:Stepper.Keypad.button_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the button control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.Keypad.HandleButtonTouchClick(System.Object)">
+            <summary>
+            Handles the button touch click.
+            </summary>
+            <param name="sender">The sender.</param>
+        </member>
+        <member name="M:Stepper.Keypad.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Stepper.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.newSettingsWindow">
+            <summary>
+            The new settings window
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.timer">
+            <summary>
+            The timer
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.countdownTime">
+            <summary>
+            The countdown time
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.targetEndTime">
+            <summary>
+            The target end time
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.stopwatch">
+            <summary>
+            The stopwatch
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.elapsedTime">
+            <summary>
+            The elapsed time
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.remainingTime">
+            <summary>
+            The remaining time
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.zeroXaxis">
+            <summary>
+            My port name
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.zeroYaxis">
+            <summary>
+            The zero Y axis
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.zeroZaxis">
+            <summary>
+            The zero Z axis
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.axis">
+            <summary>
+            The axis
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.currentXAxis">
+            <summary>
+            The current X axis
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.currentYAxis">
+            <summary>
+            The current Y axis
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.currentZAxis">
+            <summary>
+            The current Z axis
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.previousXAxis">
+            <summary>
+            The previous X axis
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.previousYAxis">
+            <summary>
+            The previous Y axis
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.previousZAxis">
+            <summary>
+            The previous Z axis
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.XaxisChanged">
+            <summary>
+            The Xaxis changed
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.YaxisChanged">
+            <summary>
+            The Y axis changed
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.ZaxisChanged">
+            <summary>
+            The Z axis changed
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.XaxisStepperMoveTemp">
+            <summary>
+            The X axis stepper move temporary
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.YaxisStepperMoveTemp">
+            <summary>
+            The Y axis stepper move temporary
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.ZaxisStepperMoveTemp">
+            <summary>
+            The Z axis stepper move temporary
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.stepperMove">
+            <summary>
+            The stepper move
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.xStepperMove">
+            <summary>
+            The X axis stepper move
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.yStepperMove">
+            <summary>
+            The Y axis stepper move
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.zStepperMove">
+            <summary>
+            The Z axis stepper move
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.xyStepperMove">
+            <summary>
+            The X and Y axis stepper move
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._logger">
+            <summary>
+            The logger
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.loggerFactory">
+            <summary>
+            The logger factory
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._XserialPort">
+            <summary>
+            The X serial port
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._YserialPort">
+            <summary>
+            The Y serial port
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._ZserialPort">
+            <summary>
+            The Z serial port
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._serialPort">
+            <summary>
+            The serial port
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.message">
+            <summary>
+            The message
+            </summary>
+        </member>
+        <member name="M:Stepper.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stepper.MainWindow" /> class.
+            </summary>
+        </member>
+        <member name="M:Stepper.MainWindow.XdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            X data received handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.YdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            Y data received handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ZdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            Z data received handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.IsNegative(System.Decimal)">
+            <summary>
+            Determines whether the specified number is negative.
+            </summary>
+            <param name="number">The number.</param>
+            <returns><c>true</c> if the specified number is negative; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Stepper.MainWindow.XAxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the X Axis Run event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.YAxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the Y Axis Run event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ZAxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the Z Axis Run event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.XYAxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the X and Y Axis Run event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.XZero(System.Int32,System.String)">
+            <summary>
+            Sets the stepper motor X axis to zero.
+            </summary>
+            <param name="myDelay">The myDelay.</param>
+            <param name="axis">The axis.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.YZero(System.Int32,System.String)">
+            <summary>
+            Sets the stepper motor Y axis to zero.
+            </summary>
+            <param name="myDelay">The myDelay.</param>
+            <param name="axis">The axis.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ZZero(System.Int32,System.String)">
+            <summary>
+            Sets the stepper motor Z axis to zero.
+            </summary>
+            <param name="myDelay">The myDelay.</param>
+            <param name="axis">The axis.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.XYZero(System.Int32,System.String)">
+            <summary>
+            Sets the stepper motor X and Y axis to zero.
+            </summary>
+            <param name="myDelay">The myDelay.</param>
+            <param name="axis">The axis.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.CheckBoxChanged(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            CheckBoxes the changed.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.XaxisStepperMove_GotFocus(System.Object,System.EventArgs)">
+            <summary>
+            Handles the GotFocus event of the XaxisStepperMove control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.YaxisStepperMove_GotFocus(System.Object,System.EventArgs)">
+            <summary>
+            Handles the GotFocus event of the YaxisStepperMove control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ZaxisStepperMove_GotFocus(System.Object,System.EventArgs)">
+            <summary>
+            Handles the GotFocus event of the ZaxisStepperMove control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.XaxisStepperMove_TextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
+            <summary>
+            Handles the TextChanged event of the XaxisStepperMove control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.TextChangedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.XaxisMotorSpeed_TextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
+            <summary>
+            Handles the TextChanged event of the XaxisMotorSpeed control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.TextChangedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.YaxisStepperMove_TextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
+            <summary>
+            Handles the TextChanged event of the YaxisStepperMove control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.TextChangedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.YaxisMotorSpeed_TextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
+            <summary>
+            Handles the TextChanged event of the YaxisMotorSpeed control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.TextChangedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ZaxisStepperMove_TextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
+            <summary>
+            Handles the TextChanged event of the ZaxisStepperMove control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.TextChangedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ZaxisMotorSpeed_TextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
+            <summary>
+            Handles the TextChanged event of the ZaxisMotorSpeed control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.TextChangedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.XaxisStepperMove_PreviewMouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handles the PreviewMouseUp event of the XaxisStepperMove control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.XaxisStepperMove_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the XaxisStepperMove control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.YaxisStepperMove_PreviewMouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handles the PreviewMouseUp event of the YaxisStepperMove control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.YaxisStepperMove_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the YaxisStepperMove control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ZaxisStepperMove_PreviewMouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handles the PreviewMouseUp event of the ZaxisStepperMove control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ZaxisStepperMove_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the ZaxisStepperMove control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.txtXaxisMotorSpeed_PreviewMouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handles the PreviewMouseUp event of the txtXaxisMotorSpeed control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.txtXaxisMotorSpeed_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the txtXaxisMotorSpeed control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.txtYaxisMotorSpeed_PreviewMouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handles the PreviewMouseUp event of the txtYaxisMotorSpeed control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.txtYaxisMotorSpeed_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the txtYaxisMotorSpeed control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.txtZaxisMotorSpeed_PreviewMouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handles the PreviewMouseUp event of the txtZaxisMotorSpeed control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.txtZaxisMotorSpeed_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the txtZaxisMotorSpeed control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.txtXaxisStepperCurrent_PreviewMouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handles the PreviewMouseUp event of the txtXaxisStepperCurrent control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.txtXaxisStepperCurrent_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the txtXaxisStepperCurrent control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.txtYaxisStepperCurrent_PreviewMouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handles the PreviewMouseUp event of the txtYaxisStepperCurrent control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.txtYaxisStepperCurrent_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the txtYaxisStepperCurrent control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.txtZaxisStepperCurrent_PreviewMouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handles the PreviewMouseUp event of the txtZaxisStepperCurrent control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.txtZaxisStepperCurrent_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the txtZaxisStepperCurrent control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.TextBox_OnPreviewTextInput(System.Object,System.Windows.Input.TextCompositionEventArgs)">
+            <summary>
+            Handles the OnPreviewTextInput event of the TextBox control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TextCompositionEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.AppSettings_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the AppSettings control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.Timer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Tick event of the Timer control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.MainWindow_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Loaded event of the MainWindow control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.MainWindow_Closing(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Handles the Closing event of the MainWindow control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ResetToZero_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
+            <summary>
+            Handles the TouchUp event of the ResetToZero control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.UpdateZeroStatus">
+            <summary>
+            Updates the zero status.
+            </summary>
+        </member>
+        <member name="M:Stepper.MainWindow.UpdateMotorTimer(System.String,System.Decimal,System.Decimal)">
+            <summary>
+            Updates the motor timer.
+            </summary>
+            <param name="axis">The axis.</param>
+            <param name="MotorSpeed">The motor speed.</param>
+            <param name="stepperMove">The stepper move.</param>
+            <returns>System.Decimal.</returns>
+        </member>
+        <member name="M:Stepper.MainWindow.XAxisPort_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the XAxisPort control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.YAxisPort_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the YAxisPort control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ZAxisPort_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the ZAxisPort control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Stepper.Properties.Settings">
+            <summary>
+            Class Settings. This class cannot be inherited.
+            Implements the <see cref="T:System.Configuration.ApplicationSettingsBase" />
+            </summary>
+            <seealso cref="T:System.Configuration.ApplicationSettingsBase" />
+        </member>
+        <member name="M:Stepper.Properties.Settings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stepper.Properties.Settings"/> class.
+            </summary>
+        </member>
+        <member name="M:Stepper.Properties.Settings.PropertyChangedEventHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Properties the changed event handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.Properties.Settings.SettingChangingEventHandler(System.Object,System.Configuration.SettingChangingEventArgs)">
+            <summary>
+            Settings the changing event handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Configuration.SettingChangingEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.Properties.Settings.SettingsSavingEventHandler(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Settings the saving event handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="T:Stepper.SendDataToLattepanda">
+            <summary>
+            Class SendDataToLattepanda.
+            </summary>
+        </member>
+        <member name="F:Stepper.SendDataToLattepanda._logger">
+            <summary>
+            The logger
+            </summary>
+        </member>
+        <member name="F:Stepper.SendDataToLattepanda.loggerFactory">
+            <summary>
+            The logger factory
+            </summary>
+        </member>
+        <member name="M:Stepper.SendDataToLattepanda.SendData(System.String)">
+            <summary>
+            Sends the data.
+            </summary>
+            <param name="StepperMotorData">The stepper motor data.</param>
+        </member>
+        <member name="T:Stepper.StepperAppSettings">
+            <summary>
+            Interaction logic for StepperAppSettings.xaml
+            </summary>
+            <summary>
+            StepperAppSettings
+            </summary>
+        </member>
+        <member name="M:Stepper.StepperAppSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stepper.StepperAppSettings" /> class.
+            </summary>
+        </member>
+        <member name="M:Stepper.StepperAppSettings.StepperAppSettings_Closing(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Handles the Closing event of the StepperAppSettings control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.StepperAppSettings.SaveSettings_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Click event of the SaveSettings control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.StepperAppSettings.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

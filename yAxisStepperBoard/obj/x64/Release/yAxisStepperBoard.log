@@ -1,0 +1,1322 @@
+﻿13:54:51.503     0>Property reassignment: $(MSBuildExtensionsPath)="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild" (previous value: "C:\Program Files (x86)\MSBuild") at 
+                   Property reassignment: $(MSBuildExtensionsPath32)="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild" (previous value: "C:\Program Files (x86)\MSBuild") at 
+                   Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+                   Trying to import C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\$(MSBuildToolsVersion)\Microsoft.Common.props using extensions path C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild
+                   Property reassignment: $(MSBuildProjectExtensionsPath)="C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\" (previous value: "obj\") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Microsoft.Common.props (60,5)
+                   C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Microsoft.Common.props(84,119): message : Property 'MSBuildUserExtensionsPath' with value 'C:\Users\sfcsarge\AppData\Local\Microsoft\MSBuild' expanded from the environment.
+                   Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+                   Trying to import C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\$(MSBuildToolsVersion)\Imports\Microsoft.Common.props\ImportBefore\* using extensions path C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild
+                   C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Imports\Microsoft.Common.props\ImportBefore\Microsoft.NuGet.ImportBefore.props(14,5): message : Property 'VisualStudioVersion' with value '17.0' expanded from the environment.
+                   The "Configuration" property is a global property, and cannot be modified.
+                   Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+                   Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+                   Property reassignment: $(_RelativeApplicationTypeFolder)="Application Type\Linux\" (previous value: "") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.Default.props (111,5)
+                   Property reassignment: $(_RelativeApplicationTypeRevisionFolder)="Application Type\Linux\1.0\" (previous value: "") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.Default.props (112,5)
+                   The "Configuration" property is a global property, and cannot be modified.
+                   The "LangID" property is a global property, and cannot be modified.
+                   The "SolutionDir" property is a global property, and cannot be modified.
+                   C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.Default.props(218,5): message : Property 'LOCALAPPDATA' with value 'C:\Users\sfcsarge\AppData\Local' expanded from the environment.
+                   C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.ToolsetLocation.props(73,32): message : Property 'PROCESSOR_ARCHITECTURE' with value 'AMD64' expanded from the environment.
+                   Property reassignment: $(CharacterSet)="Unicode" (previous value: "NotSet") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.props (49,5)
+                   Property reassignment: $(TargetExt)=".out" (previous value: "") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.props (106,5)
+                   C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Platforms\x64\PlatformToolsets\Remote_GCC_1_0\Toolset.props(29,5): message : Property 'Path' with value 'C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Program Files\Microsoft\jdk-11.0.16.101-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\LINQPad7;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\LINQPad8;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Windows Kits\10\Microsoft Application Virtualization\Sequencer\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Git\cmd;C:\Program Files\CMake\bin;C:\Users\sfcsarge\AppData\Local\Microsoft\WindowsApps;C:\Users\sfcsarge\AppData\Local\GitHubDesktop\bin;C:\Users\sfcsarge\.dotnet\tools;C:\Users\sfcsarge\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Users\sfcsarge\AppData\Local\Programs\Microsoft VS Code\bin;' expanded from the environment.
+                   Property reassignment: $(TargetOSAndVersion)="Arduino" (previous value: "Linux") at C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj (80,5)
+                   Property reassignment: $(DebuggerFlavor)="VisualMicroDebugger" (previous value: "LinuxDebugger") at C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj (99,5)
+                   The "SolutionExt" property is a global property, and cannot be modified.
+                   Property reassignment: $(ExtensionsToDeleteOnClean)="*.d;*.tlog;;C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\yAxisStepperBoard.out.manifest;C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\yAxisStepperBoard.tlb;C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\yAxisStepperBoard.pdb;C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\yAxisStepperBoard.out;C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\yAxisStepperBoard.bsc;C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\yAxisStepperBoard.ilk;C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\yAxisStepperBoard.out.intermediate.manifest;C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\yAxisStepperBoard.vcxproj.FileListAbsolute.txt" (previous value: "*.d;*.tlog;") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets (40,5)
+                   Property reassignment: $(DebugType)="none" (previous value: "") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets (32,5)
+                   Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+                   Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+                   Trying to import C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\$(MSBuildToolsVersion)\Microsoft.Common.targets\ImportBefore\* using extensions path C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild
+                   The "Configuration" property is a global property, and cannot be modified.
+                   Property reassignment: $(_DocumentationFileProduced)="false" (previous value: "true") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (185,5)
+                   The "DevEnvDir" property is a global property, and cannot be modified.
+                   The "SolutionName" property is a global property, and cannot be modified.
+                   The "SolutionFileName" property is a global property, and cannot be modified.
+                   The "SolutionPath" property is a global property, and cannot be modified.
+                   The "SolutionDir" property is a global property, and cannot be modified.
+                   The "SolutionExt" property is a global property, and cannot be modified.
+                   Property reassignment: $(AutoUnifyAssemblyReferences)="false" (previous value: "true") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (369,5)
+                   Property reassignment: $(MSBuildCopyMarkerName)="yAxisSte.F4103C85" (previous value: "yAxisStepperBoard.vcxproj") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (392,5)
+                   Property reassignment: $(MSBuildCopyMarkerName)="yAxisSte.F4103C85.Up2Date" (previous value: "yAxisSte.F4103C85") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (393,5)
+                   Property reassignment: $(ProcessorArchitecture)="amd64" (previous value: "x64") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (528,5)
+                   C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(562,42): message : Property 'MSBuildExtensionsPath64' with value 'C:\Program Files\MSBuild' expanded from the environment.
+                   Property reassignment: $(DelaySign)="" (previous value: "false") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (580,5)
+                   Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};" (previous value: "{CandidateAssemblyFiles}") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (649,5)
+                   Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem}" (previous value: "{CandidateAssemblyFiles};") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (650,5)
+                   Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem}") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (651,5)
+                   Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\AssemblyFolders.config,};" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory}") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (652,5)
+                   Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\AssemblyFolders.config,};;{Registry:Software\Microsoft\,,AssemblyFoldersEx}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\AssemblyFolders.config,};") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (653,5)
+                   Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\AssemblyFolders.config,};;{Registry:Software\Microsoft\,,AssemblyFoldersEx};{AssemblyFolders}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\AssemblyFolders.config,};;{Registry:Software\Microsoft\,,AssemblyFoldersEx}") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (654,5)
+                   Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\AssemblyFolders.config,};;{Registry:Software\Microsoft\,,AssemblyFoldersEx};{AssemblyFolders};{GAC}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\AssemblyFolders.config,};;{Registry:Software\Microsoft\,,AssemblyFoldersEx};{AssemblyFolders}") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (655,5)
+                   Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\AssemblyFolders.config,};;{Registry:Software\Microsoft\,,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\AssemblyFolders.config,};;{Registry:Software\Microsoft\,,AssemblyFoldersEx};{AssemblyFolders};{GAC}") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (656,5)
+                   Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\AssemblyFolders.config,};;{Registry:Software\Microsoft\,,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName};C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\AssemblyFolders.config,};;{Registry:Software\Microsoft\,,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName}") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (657,5)
+                   Property reassignment: $(_SGenGenerateSerializationAssembliesConfig)="Auto" (previous value: "") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (3897,5)
+                   Property reassignment: $(_TargetsThatPrepareProjectReferences)="
+                         AssignProjectConfiguration;
+                         _SplitProjectReferencesByFileExistence
+                       " (previous value: "_SplitProjectReferencesByFileExistence") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (5100,5)
+                   Property reassignment: $(_CodeAnalysisTreatWarningsAsErrors)="false" (previous value: "") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\v17.0\CodeAnalysis\Microsoft.CodeAnalysis.targets (125,5)
+                   Property reassignment: $(PrepareForBuildDependsOn)=";GetFrameworkPaths;GetReferenceAssemblyPaths;AssignLinkMetadata;SetCABuildNativeEnvironmentVariables" (previous value: ";GetFrameworkPaths;GetReferenceAssemblyPaths;AssignLinkMetadata") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\v17.0\CodeAnalysis\Microsoft.CodeAnalysis.targets (240,5)
+                   Property reassignment: $(PrepareResourcesDependsOn)="
+                         XamlMarkupCompilePass1;
+                         XamlMarkupCompilePass2;
+                         
+                         ;
+                         PrepareResourceNames;
+                         ResGen;
+                         CompileLicxFiles
+                        
+                       " (previous value: "
+                         ;
+                         PrepareResourceNames;
+                         ResGen;
+                         CompileLicxFiles
+                       ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets (35,5)
+                   Property reassignment: $(ResolveReferencesDependsOn)="
+                         
+                         BeforeResolveReferences;
+                         AssignProjectConfiguration;
+                         ResolveProjectReferences;
+                         FindInvalidProjectReferences;
+                         ResolveNativeReferences;
+                         ResolveAssemblyReferences;
+                         GenerateBindingRedirects;
+                         GenerateBindingRedirectsUpdateAppConfig;
+                         ResolveComReferences;
+                         AfterResolveReferences
+                       ;
+                         ResolveTestReferences
+                       " (previous value: "
+                         BeforeResolveReferences;
+                         AssignProjectConfiguration;
+                         ResolveProjectReferences;
+                         FindInvalidProjectReferences;
+                         ResolveNativeReferences;
+                         ResolveAssemblyReferences;
+                         GenerateBindingRedirects;
+                         GenerateBindingRedirectsUpdateAppConfig;
+                         ResolveComReferences;
+                         AfterResolveReferences
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\v17.0\TeamTest\Microsoft.TeamTest.targets (4,5)
+                   Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+                   Trying to import C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\$(MSBuildToolsVersion)\Microsoft.Common.targets\ImportAfter\* using extensions path C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild
+                   Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+                   Trying to import C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Sdks\Microsoft.Docker.Sdk\build\Microsoft.Docker.targets using extensions path C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild
+                   Property reassignment: $(ProjectLockFile)="obj\project.assets.json" (previous value: "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\project.assets.json") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\NuGet\17.0\Microsoft.NuGet.targets (74,5)
+                   Property reassignment: $(ResolveAssemblyReferencesDependsOn)="
+                         ResolveProjectReferences;
+                         FindInvalidProjectReferences;
+                         GetFrameworkPaths;
+                         GetReferenceAssemblyPaths;
+                         PrepareForBuild;
+                         ResolveSDKReferences;
+                         ExpandSDKReferences;
+                       ;ResolveNuGetPackageAssets" (previous value: "
+                         ResolveProjectReferences;
+                         FindInvalidProjectReferences;
+                         GetFrameworkPaths;
+                         GetReferenceAssemblyPaths;
+                         PrepareForBuild;
+                         ResolveSDKReferences;
+                         ExpandSDKReferences;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\NuGet\17.0\Microsoft.NuGet.targets (185,5)
+                   Property reassignment: $(PrepareResourcesDependsOn)="ResolveNuGetPackageAssets;
+                         XamlMarkupCompilePass1;
+                         XamlMarkupCompilePass2;
+                         
+                         ;
+                         PrepareResourceNames;
+                         ResGen;
+                         CompileLicxFiles
+                        
+                       " (previous value: "
+                         XamlMarkupCompilePass1;
+                         XamlMarkupCompilePass2;
+                         
+                         ;
+                         PrepareResourceNames;
+                         ResGen;
+                         CompileLicxFiles
+                        
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\NuGet\17.0\Microsoft.NuGet.targets (186,5)
+                   Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+                   Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+                   Trying to import C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets using extensions path C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild
+                   Property reassignment: $(JsonSchemaCombinedFilePath)="C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\CombinedComponentSchema.json" (previous value: "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\\CombinedComponentSchema.json") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets (25,5)
+                   Property reassignment: $(AppSettingsJsonSchemaCombinedFilePath)="C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\AppSettingsSchema.json" (previous value: "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\\AppSettingsSchema.json") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets (27,5)
+                   Property reassignment: $(PrepareForRunDependsOn)="
+                               _CalculatePostXamarinTelemetry;
+                               _PostXamarinTelemetry;
+                               
+                         CopyFilesToOutputDirectory
+                       
+                           " (previous value: "
+                         CopyFilesToOutputDirectory
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Xamarin\Xamarin.Sdk.targets (9,9)
+                   Property reassignment: $(DebugType)="" (previous value: "none") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets (39,5)
+                   Property reassignment: $(BuildDependsOn)="
+                         _PrepareForBuild;
+                         
+                         ResolveReferences;
+                         PrepareForBuild;
+                         InitializeBuildStatus;
+                         BuildGenerateSources;
+                         BuildCompile;
+                         BuildLink;
+                       ;
+                         AfterBuild;
+                         IncrementalClean;
+                         TlogCleanup;
+                         FinalizeBuildStatus;
+                       " (previous value: "
+                         BeforeBuild;
+                         CoreBuild;
+                         AfterBuild
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets (122,5)
+                   Property reassignment: $(RebuildDependsOn)="
+                         _PrepareForRebuild;
+                         
+                         BeforeRebuild;
+                         Clean;
+                         Build;
+                         AfterRebuild;
+                       ;
+                       " (previous value: "
+                         BeforeRebuild;
+                         Clean;
+                         Build;
+                         AfterRebuild;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets (131,5)
+                   Property reassignment: $(CleanDependsOn)="
+                         _PrepareForClean;
+                         
+                         BeforeClean;
+                         UnmanagedUnregistration;
+                         CoreClean;
+                         CleanReferencedProjects;
+                         CleanPublishFolder;
+                         AfterClean
+                       ;
+                       " (previous value: "
+                         BeforeClean;
+                         UnmanagedUnregistration;
+                         CoreClean;
+                         CleanReferencedProjects;
+                         CleanPublishFolder;
+                         AfterClean
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets (136,5)
+                   Property reassignment: $(_TLogProjectName)="yAxisSte.72c52ac2" (previous value: "yAxisStepperBoard") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets (218,5)
+                   Property reassignment: $(BeforeBuildGenerateSourcesTargets)="
+                         
+                         ;
+                         BeforeBuildGenerateSources;
+                       ;
+                       " (previous value: "
+                         ;
+                         BeforeBuildGenerateSources;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (60,5)
+                   Property reassignment: $(AfterBuildGenerateSourcesTargets)="
+                         
+                         ;
+                         AfterBuildGenerateSources;
+                       ;
+                         AfterBuildGenerateSourcesEvent;
+                       " (previous value: "
+                         ;
+                         AfterBuildGenerateSources;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (71,5)
+                   Property reassignment: $(BuildGenerateSourcesAction)="_BuildGenerateSourcesAction" (previous value: "Build") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (140,5)
+                   Property reassignment: $(BuildCompileAction)="_BuildCompileAction" (previous value: "Build") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (141,5)
+                   Property reassignment: $(BuildLinkAction)="_BuildLinkAction" (previous value: "Build") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (142,5)
+                   Property reassignment: $(DetermineProjectTypeTargets)="_PrepareForReferenceResolution;
+                         ;
+                         AddExternalIncludDirectoriesToPaths
+                       " (previous value: "
+                         ;
+                         AddExternalIncludDirectoriesToPaths
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (249,5)
+                   Property reassignment: $(ResolveReferencesDependsOn)="_PrepareForReferenceResolution;ComputeCrtSDKReference;
+                         
+                         BeforeResolveReferences;
+                         AssignProjectConfiguration;
+                         ResolveProjectReferences;
+                         FindInvalidProjectReferences;
+                         ResolveNativeReferences;
+                         ResolveAssemblyReferences;
+                         GenerateBindingRedirects;
+                         GenerateBindingRedirectsUpdateAppConfig;
+                         ResolveComReferences;
+                         AfterResolveReferences
+                       ;
+                         ResolveTestReferences
+                       " (previous value: "
+                         
+                         BeforeResolveReferences;
+                         AssignProjectConfiguration;
+                         ResolveProjectReferences;
+                         FindInvalidProjectReferences;
+                         ResolveNativeReferences;
+                         ResolveAssemblyReferences;
+                         GenerateBindingRedirects;
+                         GenerateBindingRedirectsUpdateAppConfig;
+                         ResolveComReferences;
+                         AfterResolveReferences
+                       ;
+                         ResolveTestReferences
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (311,5)
+                   Property reassignment: $(ResolveAssemblyReferencesDependsOn)="_PrepareForReferenceResolution;
+                         ResolveProjectReferences;
+                         FindInvalidProjectReferences;
+                         GetFrameworkPaths;
+                         GetReferenceAssemblyPaths;
+                         PrepareForBuild;
+                         ResolveSDKReferences;
+                         ExpandSDKReferences;
+                       ;ResolveNuGetPackageAssets" (previous value: "
+                         ResolveProjectReferences;
+                         FindInvalidProjectReferences;
+                         GetFrameworkPaths;
+                         GetReferenceAssemblyPaths;
+                         PrepareForBuild;
+                         ResolveSDKReferences;
+                         ExpandSDKReferences;
+                       ;ResolveNuGetPackageAssets") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (312,5)
+                   Property reassignment: $(ResolveSDKReferencesDependsOn)="_PrepareForReferenceResolution;ComputeCrtSDKReference;
+                         GetInstalledSDKLocations
+                       " (previous value: "
+                         GetInstalledSDKLocations
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (313,5)
+                   Property reassignment: $(ComputeCompileInputsTargets)="
+                         
+                         ;
+                         GenerateTargetFrameworkMonikerAttribute;
+                       ;
+                         ComputeMIDLGeneratedCompileInputs;
+                       " (previous value: "
+                         ;
+                         GenerateTargetFrameworkMonikerAttribute;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (639,5)
+                   Property reassignment: $(ComputeLinkInputsTargets)="
+                         
+                         ;
+                         ComputeRCGeneratedLinkInputs;
+                       ;
+                         ComputeManifestGeneratedLinkerInputs;
+                       " (previous value: "
+                         ;
+                         ComputeRCGeneratedLinkInputs;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (952,5)
+                   Property reassignment: $(ComputeCompileInputsTargets)="
+                         
+                         
+                         ;
+                         GenerateTargetFrameworkMonikerAttribute;
+                       ;
+                         ComputeMIDLGeneratedCompileInputs;
+                       ;
+                         ComputeCLInputPDBName;
+                         ComputeReferenceCLInput;
+                         WarnCompileDuplicatedFilename
+                       " (previous value: "
+                         
+                         ;
+                         GenerateTargetFrameworkMonikerAttribute;
+                       ;
+                         ComputeMIDLGeneratedCompileInputs;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1149,5)
+                   Property reassignment: $(ComputeLinkInputsTargets)="
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLinkInputs;
+                       ;
+                         ComputeManifestGeneratedLinkerInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       " (previous value: "
+                         
+                         ;
+                         ComputeRCGeneratedLinkInputs;
+                       ;
+                         ComputeManifestGeneratedLinkerInputs;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1201,5)
+                   Property reassignment: $(ComputeLibInputsTargets)="
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       " (previous value: "
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1208,5)
+                   Property reassignment: $(ComputeImpLibInputsTargets)="
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeRCGeneratedImpLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       " (previous value: "
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeRCGeneratedImpLibInputs;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1215,5)
+                   Property reassignment: $(ComputeLinkInputsTargets)="
+                         
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLinkInputs;
+                       ;
+                         ComputeManifestGeneratedLinkerInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedLinkInputs;
+                       " (previous value: "
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLinkInputs;
+                       ;
+                         ComputeManifestGeneratedLinkerInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1276,5)
+                   Property reassignment: $(ComputeLibInputsTargets)="
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedLibInputs;
+                       " (previous value: "
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1291,5)
+                   Property reassignment: $(ComputeImpLibInputsTargets)="
+                         
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeRCGeneratedImpLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedImpLibInputs;
+                       " (previous value: "
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeRCGeneratedImpLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1306,5)
+                   Property reassignment: $(ComputeLinkInputsTargets)="
+                         
+                         
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLinkInputs;
+                       ;
+                         ComputeManifestGeneratedLinkerInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedLinkInputs;
+                       ;
+                         ComputeLinkInputsFromProject;
+                       " (previous value: "
+                         
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLinkInputs;
+                       ;
+                         ComputeManifestGeneratedLinkerInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedLinkInputs;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1337,5)
+                   Property reassignment: $(ComputeLibInputsTargets)="
+                         
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedLibInputs;
+                       ;
+                         ComputeLibInputsFromProject;
+                       " (previous value: "
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedLibInputs;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1355,5)
+                   Property reassignment: $(ComputeImpLibInputsTargets)="
+                         
+                         
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeRCGeneratedImpLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedImpLibInputs;
+                       ;
+                         ComputeImpLibInputsFromProject;
+                       " (previous value: "
+                         
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeRCGeneratedImpLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedImpLibInputs;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1373,5)
+                   Property reassignment: $(ComputeLinkInputsTargets)="
+                         
+                         
+                         
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLinkInputs;
+                       ;
+                         ComputeManifestGeneratedLinkerInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedLinkInputs;
+                       ;
+                         ComputeLinkInputsFromProject;
+                       ;
+                         ComputeReferenceLinkInputs;
+                       " (previous value: "
+                         
+                         
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLinkInputs;
+                       ;
+                         ComputeManifestGeneratedLinkerInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedLinkInputs;
+                       ;
+                         ComputeLinkInputsFromProject;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1497,5)
+                   Property reassignment: $(ComputeLibInputsTargets)="
+                         
+                         
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedLibInputs;
+                       ;
+                         ComputeLibInputsFromProject;
+                       ;
+                         ComputeReferenceLibInputs;
+                       " (previous value: "
+                         
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedLibInputs;
+                       ;
+                         ComputeLibInputsFromProject;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1535,5)
+                   Property reassignment: $(ComputeLibInputsTargets)="
+                         ComputeLibAdditionalOptions;
+                         
+                         
+                         
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedLibInputs;
+                       ;
+                         ComputeLibInputsFromProject;
+                       ;
+                         ComputeReferenceLibInputs;
+                       
+                       " (previous value: "
+                         
+                         
+                         
+                         
+                         ;
+                         ComputeRCGeneratedLibInputs;
+                       ;
+                         ComputeCustomBuildOutput;
+                       ;
+                         ComputeCLGeneratedLibInputs;
+                       ;
+                         ComputeLibInputsFromProject;
+                       ;
+                         ComputeReferenceLibInputs;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1592,5)
+                   Property reassignment: $(GetProjectInfoForReferenceDependsOn)="
+                         
+                         ;
+                         AddPublicIncludeDirectoriesToProjectsInfoForReference;
+                       ;
+                         AddPublicBMIsToProjectsInfoForReference;
+                         AddDeployRecipeFileToProjectsInfoForReference;
+                         AddLibrariesToProjectsInfoForReference;
+                       " (previous value: "
+                         ;
+                         AddPublicIncludeDirectoriesToProjectsInfoForReference;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (1780,5)
+                   Property reassignment: $(DocumentationProjectOutputGroupDependsOn)="ResolvedXDCMake;ComputeCLCompileGeneratedXDCFiles" (previous value: "") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (2180,5)
+                   Property reassignment: $(ContentFilesProjectOutputGroupDependsOn)="PrepareForBuild;AssignTargetPaths;PrepareForBuild;AssignTargetPaths;MakeDirsForFxc" (previous value: "PrepareForBuild;AssignTargetPaths") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets (2246,5)
+                   Property reassignment: $(ComputeCompileInputsTargets)="
+                         
+                         
+                         
+                         ;
+                         GenerateTargetFrameworkMonikerAttribute;
+                       ;
+                         ComputeMIDLGeneratedCompileInputs;
+                       ;
+                         ComputeCLInputPDBName;
+                         ComputeReferenceCLInput;
+                         WarnCompileDuplicatedFilename
+                       ;
+                         ;
+                         ComputeStdModulesCompileInputs;
+                         FixupCLCompileOptions;
+                         SetModuleDependencies;
+                       " (previous value: "
+                         
+                         
+                         ;
+                         GenerateTargetFrameworkMonikerAttribute;
+                       ;
+                         ComputeMIDLGeneratedCompileInputs;
+                       ;
+                         ComputeCLInputPDBName;
+                         ComputeReferenceCLInput;
+                         WarnCompileDuplicatedFilename
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets (315,5)
+                   Property reassignment: $(BuildingProject)="true" (previous value: "false") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets (2075,5)
+                   Property reassignment: $(ContentFilesProjectOutputGroupDependsOn)="PrepareForBuild;AssignTargetPaths;PrepareForBuild;AssignTargetPaths;MakeDirsForFxc;_CreateCopyFileItems;" (previous value: "PrepareForBuild;AssignTargetPaths;PrepareForBuild;AssignTargetPaths;MakeDirsForFxc") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets (2621,5)
+                   Property reassignment: $(RemoteDebuggerWorkingDirectory)="~/projects/yAxisStepperBoard/bin/x64/Release/" (previous value: "") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets (64,5)
+                   Property reassignment: $(BeforeBuildCompileTargets)="
+                         
+                         ;
+                       ;
+                         _PrepareForClCompile;
+                       " (previous value: "
+                         ;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets (321,5)
+                   Property reassignment: $(BuildLinkTargets)="
+                         
+                         ;
+                         ComputeLegacyManifestEmbedding;
+                         _Link;
+                         _ALink;
+                         _Manifest;
+                         RegisterOutput;
+                         _XdcMake;
+                         _BscMake;
+                       ;
+                       " (previous value: "
+                         ;
+                         ComputeLegacyManifestEmbedding;
+                         _Link;
+                         _ALink;
+                         _Manifest;
+                         RegisterOutput;
+                         _XdcMake;
+                         _BscMake;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets (326,5)
+                   Property reassignment: $(AfterBuildLinkTargets)="
+                         RemotePostBuildEvent
+                         
+                         ;
+                         CreateRecipeFile;
+                         CreateSatelliteAssemblies;
+                         CopyLocalNativeReference;
+                         _Appverifier;
+                         _Deploy;
+                         PrepareForRun;
+                         PostBuildEvent;
+                       ;
+                         _WriteRemoteTarget;
+                       " (previous value: "
+                         ;
+                         CreateRecipeFile;
+                         CreateSatelliteAssemblies;
+                         CopyLocalNativeReference;
+                         _Appverifier;
+                         _Deploy;
+                         PrepareForRun;
+                         PostBuildEvent;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets (330,5)
+                   Property reassignment: $(BuildGenerateSourcesTargets)="
+                         
+                         ;
+                         PreBuildEvent;
+                         _Xsd;
+                         _Midl;
+                       ;
+                         RemotePreBuildEvent;
+                       " (previous value: "
+                         ;
+                         PreBuildEvent;
+                         _Xsd;
+                         _Midl;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets (342,5)
+                   Property reassignment: $(DetermineProjectTypeTargets)="_SetLinuxISenseIdentifier;_PrepareForReferenceResolution;
+                         ;
+                         AddExternalIncludDirectoriesToPaths
+                       " (previous value: "_PrepareForReferenceResolution;
+                         ;
+                         AddExternalIncludDirectoriesToPaths
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets (728,5)
+                   Property reassignment: $(BeforeBuildCompileTargets)="
+                         CreateRecipeFile;
+                         MergeRecipeFiles;
+                         ComputeIncludePathsFromRecipes;
+                         
+                         
+                         ;
+                       ;
+                         _PrepareForClCompile;
+                       ;
+                       " (previous value: "
+                         
+                         ;
+                       ;
+                         _PrepareForClCompile;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.Common.targets (17,5)
+                   Property reassignment: $(DetermineProjectTypeTargets)="
+                         _SetLinuxISenseIdentifier;_PrepareForReferenceResolution;
+                         ;
+                         AddExternalIncludDirectoriesToPaths
+                       ;
+                         ComputeIncludePathsFromRecipes
+                       " (previous value: "_SetLinuxISenseIdentifier;_PrepareForReferenceResolution;
+                         ;
+                         AddExternalIncludDirectoriesToPaths
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.Common.targets (24,5)
+                   Property reassignment: $(CleanDependsOn)="
+                         
+                         _PrepareForClean;
+                         
+                         BeforeClean;
+                         UnmanagedUnregistration;
+                         CoreClean;
+                         CleanReferencedProjects;
+                         CleanPublishFolder;
+                         AfterClean
+                       ;
+                       ;
+                         CppClean
+                       " (previous value: "
+                         _PrepareForClean;
+                         
+                         BeforeClean;
+                         UnmanagedUnregistration;
+                         CoreClean;
+                         CleanReferencedProjects;
+                         CleanPublishFolder;
+                         AfterClean
+                       ;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppClean.targets (22,5)
+                   Property reassignment: $(CppCleanDependsOn)="
+                         BeforeCppClean;
+                         
+                         ;
+                         _RemoteClean;
+                       ;
+                         CoreCppClean;
+                         AfterCppClean;
+                       " (previous value: "
+                         ;
+                         _RemoteClean;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppClean.targets (27,5)
+                   Property reassignment: $(CppCleanDependsOn)="
+                         BeforeCppClean;
+                         
+                         ;
+                         _RemoteClean;
+                       ;
+                         CoreCppClean;
+                         AfterCppClean;
+                       ;PGInstrumentedClean" (previous value: "
+                         BeforeCppClean;
+                         
+                         ;
+                         _RemoteClean;
+                       ;
+                         CoreCppClean;
+                         AfterCppClean;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppClean.targets (92,5)
+                   Property reassignment: $(BuildDependsOn)="SetTelemetryEnvironmentVariables;
+                         _PrepareForBuild;
+                         
+                         ResolveReferences;
+                         PrepareForBuild;
+                         InitializeBuildStatus;
+                         BuildGenerateSources;
+                         BuildCompile;
+                         BuildLink;
+                       ;
+                         AfterBuild;
+                         IncrementalClean;
+                         TlogCleanup;
+                         FinalizeBuildStatus;
+                       " (previous value: "
+                         _PrepareForBuild;
+                         
+                         ResolveReferences;
+                         PrepareForBuild;
+                         InitializeBuildStatus;
+                         BuildGenerateSources;
+                         BuildCompile;
+                         BuildLink;
+                       ;
+                         AfterBuild;
+                         IncrementalClean;
+                         TlogCleanup;
+                         FinalizeBuildStatus;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.DesignTime.targets (539,5)
+                   Property reassignment: $(RebuildDependsOn)="SetTelemetryEnvironmentVariables;
+                         _PrepareForRebuild;
+                         
+                         BeforeRebuild;
+                         Clean;
+                         Build;
+                         AfterRebuild;
+                       ;
+                       " (previous value: "
+                         _PrepareForRebuild;
+                         
+                         BeforeRebuild;
+                         Clean;
+                         Build;
+                         AfterRebuild;
+                       ;
+                       ") at C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.DesignTime.targets (540,5)
+                   Overriding target "GenerateTargetFrameworkMonikerAttribute" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "GenerateTargetFrameworkMonikerAttribute" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets".
+                   Overriding target "Build" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "Build" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets".
+                   Overriding target "Rebuild" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "Rebuild" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets".
+                   Overriding target "AfterBuild" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "AfterBuild" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets".
+                   Overriding target "PrepareForBuild" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "PrepareForBuild" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "GetTargetPath" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "GetTargetPath" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "ComputeIntermediateSatelliteAssemblies" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "ComputeIntermediateSatelliteAssemblies" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "ClCompile" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "ClCompile" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "ResourceCompile" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "ResourceCompile" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "Lib" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "Lib" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "Link" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "Link" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "AllProjectOutputGroups" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "AllProjectOutputGroups" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "BuiltProjectOutputGroup" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "BuiltProjectOutputGroup" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "DebugSymbolsProjectOutputGroup" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "DebugSymbolsProjectOutputGroup" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "DocumentationProjectOutputGroup" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "DocumentationProjectOutputGroup" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "SourceFilesProjectOutputGroup" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "SourceFilesProjectOutputGroup" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "ContentFilesProjectOutputGroup" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "ContentFilesProjectOutputGroup" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "AllProjectOutputGroupsDependencies" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "AllProjectOutputGroupsDependencies" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "BuiltProjectOutputGroupDependencies" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "BuiltProjectOutputGroupDependencies" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "DebugSymbolsProjectOutputGroupDependencies" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "DebugSymbolsProjectOutputGroupDependencies" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "DocumentationProjectOutputGroupDependencies" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "DocumentationProjectOutputGroupDependencies" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets".
+                   Overriding target "PreBuildEvent" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "PreBuildEvent" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "PostBuildEvent" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "PostBuildEvent" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "ClCompile" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "ClCompile" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "Link" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "Link" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "Lib" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "Lib" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "ImpLib" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "ImpLib" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "Midl" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "Midl" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "ResourceCompile" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "ResourceCompile" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "BeforeResGen" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "BeforeResGen" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "ResGen" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "ResGen" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "GenerateSatelliteAssemblies" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "GenerateSatelliteAssemblies" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "Manifest" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "Manifest" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "XdcMake" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "XdcMake" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "BscMake" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "BscMake" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "ComputeMetaGenInputs" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.MetaGen.targets" with target "ComputeMetaGenInputs" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "GetNativeManifest" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "GetNativeManifest" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets".
+                   Overriding target "GetResolvedLinkLibs" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "GetResolvedLinkLibs" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets".
+                   Overriding target "_Link" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "_Link" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets".
+                   Overriding target "DoLinkOutputFilesMatch" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "DoLinkOutputFilesMatch" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets".
+                   Overriding target "FixupCLCompileOptions" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets" with target "FixupCLCompileOptions" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets".
+                   Overriding target "ClCompile" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets" with target "ClCompile" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets".
+                   Overriding target "Link" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets" with target "Link" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets".
+                   Overriding target "Lib" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets" with target "Lib" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets".
+                   Overriding target "PreBuildEvent" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets" with target "PreBuildEvent" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets".
+                   Overriding target "PreLinkEvent" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets" with target "PreLinkEvent" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets".
+                   Overriding target "PostBuildEvent" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets" with target "PostBuildEvent" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets".
+                   Overriding target "CreateRecipeFile" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" with target "CreateRecipeFile" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.Common.targets".
+                   Overriding target "CreateFullDebugSymbols" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets" with target "CreateFullDebugSymbols" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.Common.targets".
+                   Overriding target "GetTargetPathWithTargetPlatformMoniker" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "GetTargetPathWithTargetPlatformMoniker" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.DesignTime.targets".
+                   The target "CompileDesignTime" listed in a BeforeTargets attribute at "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets (44,11)" does not exist in the project, and will be ignored.
+                   The target "CompileDesignTime" listed in a BeforeTargets attribute at "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets (57,11)" does not exist in the project, and will be ignored.
+Build started 10/20/2024 13:54:51.
+Environment at start of build:
+                   MSBuildLoadMicrosoftTargetsReadOnly = true
+
+Logging verbosity is set to: Diagnostic.13:54:51.516     1>Project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" on node 2 (Clean target(s)).
+13:54:51.516     1>Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
+13:54:51.516     1>Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:36)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "_PrepareForClean" depends on it):
+                   Set Property: _InvalidConfigurationMessageText=The BaseOutputPath/OutputPath property is not set for project 'yAxisStepperBoard.vcxproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Release'  Platform='x64'.
+                   Set Property: _InvalidConfigurationMessageText=The BaseOutputPath/OutputPath property is not set for project 'yAxisStepperBoard.vcxproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Release'  Platform='x64'.  This error may also appear if some other project is trying to follow a project-to-project reference to this project, this project has been unloaded or is not included in the solution, and the referencing project does not build using the same or an equivalent Configuration or Platform.
+                   Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
+                   Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
+                   Task "Message" (TaskId:34)
+                     Task Parameter:Importance=Low (TaskId:34)
+                     Task Parameter:Text=Configuration=Release (TaskId:34)
+                     Configuration=Release (TaskId:34)
+                   Done executing task "Message". (TaskId:34)
+                   Task "Message" (TaskId:35)
+                     Task Parameter:Importance=Low (TaskId:35)
+                     Task Parameter:Text=Platform=x64 (TaskId:35)
+                     Platform=x64 (TaskId:35)
+                   Done executing task "Message". (TaskId:35)
+                   Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\' != '' and !HasTrailingSlash('C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\')).
+                   Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\' != '' and !HasTrailingSlash('C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\')).
+                   Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
+                   Task "MSBuildInternalMessage" skipped, due to false condition; ( '$(Prefer32Bit)' == 'true' and '$(PreferNativeArm64)' == 'true' ) was evaluated as ( '' == 'true' and '' == 'true' ).
+                   Task "MSBuildInternalMessage" skipped, due to false condition; ( '$(NoWin32Manifest)' == 'true' and '$(PreferNativeArm64)' == 'true' ) was evaluated as ( '' == 'true' and '' == 'true' ).
+                   Task "MSBuildInternalMessage" skipped, due to false condition; ( '$(PreferNativeArm64)' == 'true' and '$(Platform)' != 'AnyCPU' ) was evaluated as ( '' == 'true' and 'x64' != 'AnyCPU' ).
+                   Task "Error" skipped, due to false condition; ( '$(_InitialMSBuildProjectExtensionsPath)' != '' And '$(MSBuildProjectExtensionsPath)' != '$(_InitialMSBuildProjectExtensionsPath)' ) was evaluated as ( 'C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\' != '' And 'C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\' != 'C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\' ).
+                   Task "Warning" skipped, due to false condition; ( '$(EnableBaseIntermediateOutputPathMismatchWarning)' == 'true' And '$(_InitialBaseIntermediateOutputPath)' != '$(BaseIntermediateOutputPath)' And '$(BaseIntermediateOutputPath)' != '$(MSBuildProjectExtensionsPath)' ) was evaluated as ( '' == 'true' And 'obj\' != 'obj\' And 'obj\' != 'C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\' ).
+13:54:51.517     1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "yAxisStepperBoard.vcxproj".: (TargetId:36)
+13:54:51.517     1>Target "_PrepareForClean: (TargetId:37)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "Clean" depends on it):
+                   Set Property: BuildType=Clean
+                   Set Property: _BuildActionType=Clean
+                   Task "Delete" skipped, due to false condition; (Exists($(LastBuildState))) was evaluated as (Exists(C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\yAxisSte.72c52ac2.tlog\yAxisStepperBoard.lastbuildstate)).
+13:54:51.517     1>Done building target "_PrepareForClean" in project "yAxisStepperBoard.vcxproj".: (TargetId:37)
+                   Target "_WaitForServiceFabricApplicationCleanupBeforeClean" skipped, due to false condition; ('$(IsServiceFabricServiceProject)' == 'true') was evaluated as ('' == 'true').
+13:54:51.517     1>Target "BeforeClean: (TargetId:38)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "Clean" depends on it):
+13:54:51.517     1>Done building target "BeforeClean" in project "yAxisStepperBoard.vcxproj".: (TargetId:38)
+                   Target "UnmanagedUnregistration" skipped, due to false condition; ((('$(_AssemblyTimestampBeforeCompile)' != '$(_AssemblyTimestampAfterCompile)' or '$(RegisterForComInterop)' != 'true' or '$(OutputType)' != 'library') or
+                                       ('$(_AssemblyTimestampBeforeCompile)' == '')) and
+                                      Exists('@(_UnmanagedRegistrationCache)')) was evaluated as ((('' != '' or '' != 'true' or 'exe' != 'library') or
+                                       ('' == '')) and
+                                      Exists('obj\yAxisStepperBoard.vcxproj.UnmanagedRegistration.cache')).
+13:54:51.517     1>Target "CoreClean: (TargetId:39)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "Clean" depends on it):
+                   Task "Delete" (TaskId:36)
+                     Task Parameter:
+                         Files=
+                             C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\\TempCA\yAxisStepperBoard.pdb
+                             C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\\TempCA\yAxisStepperBoard.out (TaskId:36)
+                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:36)
+                     File "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\\TempCA\yAxisStepperBoard.pdb" doesn't exist. Skipping. (TaskId:36)
+                     File "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\\TempCA\yAxisStepperBoard.out" doesn't exist. Skipping. (TaskId:36)
+                   Done executing task "Delete". (TaskId:36)
+                   Task "ReadLinesFromFile" (TaskId:37)
+                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\yAxisStepperBoard.vcxproj.FileListAbsolute.txt (TaskId:37)
+                   Done executing task "ReadLinesFromFile". (TaskId:37)
+                   Task "FindUnderPath" (TaskId:38)
+                     Task Parameter:Path=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\ (TaskId:38)
+                     Comparison path is "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\". (TaskId:38)
+                   Done executing task "FindUnderPath". (TaskId:38)
+                   Task "FindUnderPath" (TaskId:39)
+                     Task Parameter:Path=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\ (TaskId:39)
+                     Comparison path is "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\". (TaskId:39)
+                   Done executing task "FindUnderPath". (TaskId:39)
+                   Task "Delete" (TaskId:40)
+                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:40)
+                   Done executing task "Delete". (TaskId:40)
+                   Task "RemoveDuplicates" (TaskId:41)
+                   Done executing task "RemoveDuplicates". (TaskId:41)
+                   Task "MakeDir" (TaskId:42)
+                     Task Parameter:Directories=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\ (TaskId:42)
+                   Done executing task "MakeDir". (TaskId:42)
+                   Task "WriteLinesToFile" (TaskId:43)
+                     Task Parameter:WriteOnlyWhenDifferent=True (TaskId:43)
+                     Task Parameter:Overwrite=True (TaskId:43)
+                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\yAxisStepperBoard.vcxproj.FileListAbsolute.txt (TaskId:43)
+                     Skipping write to file "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\yAxisStepperBoard.vcxproj.FileListAbsolute.txt" because content would not change. (TaskId:43)
+                   Done executing task "WriteLinesToFile". (TaskId:43)
+13:54:51.518     1>Done building target "CoreClean" in project "yAxisStepperBoard.vcxproj".: (TargetId:39)
+                   Target "_CleanMdbFiles" skipped, due to false condition; (Exists('$(TargetPath).mdb')) was evaluated as (Exists('C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\yAxisStepperBoard.out.mdb')).
+13:54:51.518     1>Target "IgnoreJavaScriptOutputAssembly: (TargetId:40)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "AssignProjectConfiguration" depends on it):
+13:54:51.518     1>Done building target "IgnoreJavaScriptOutputAssembly" in project "yAxisStepperBoard.vcxproj".: (TargetId:40)
+13:54:51.518     1>Target "AssignProjectConfiguration: (TargetId:41)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "PrepareProjectReferences" depends on it):
+                   Set Property: ShouldUnsetParentConfigurationAndPlatform=true
+                   Task "AssignProjectConfiguration" (TaskId:44)
+                     Task Parameter:OutputType=exe (TaskId:44)
+                     Task Parameter:CurrentProjectPlatform=x64 (TaskId:44)
+                     Task Parameter:CurrentProject=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj (TaskId:44)
+                     Task Parameter:ResolveConfigurationPlatformUsingMappings=False (TaskId:44)
+                     Task Parameter:SolutionConfigurationContents=<SolutionConfiguration>
+                     <ProjectConfiguration Project="{b93849c3-b4ae-4a92-8611-d2d95937b1a4}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\Stepper\Stepper.csproj">Release|AnyCPU</ProjectConfiguration>
+                     <ProjectConfiguration Project="{934a2a5d-9de2-45da-ab4a-87931e7145f1}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj">Release|x64</ProjectConfiguration>
+                     <ProjectConfiguration Project="{0c29a58f-2c1d-4b6e-a656-6c09888d091c}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj">Release|x64</ProjectConfiguration>
+                     <ProjectConfiguration Project="{72c52ac2-1667-4cb7-8c64-5f035dead72a}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj">Release|x64</ProjectConfiguration>
+                     <ProjectConfiguration Project="{355f2809-44a2-458f-9852-7cf42032afc3}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\zAxisStepperBoard\zAxisStepperBoard.vcxproj">Release|x64</ProjectConfiguration>
+                     </SolutionConfiguration> (TaskId:44)
+                     Task Parameter:ShouldUnsetParentConfigurationAndPlatform=True (TaskId:44)
+                     Task Parameter:OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration=True (TaskId:44)
+                     Task Parameter:CurrentProjectConfiguration=Release (TaskId:44)
+                   Done executing task "AssignProjectConfiguration". (TaskId:44)
+13:54:51.518     1>Done building target "AssignProjectConfiguration" in project "yAxisStepperBoard.vcxproj".: (TargetId:41)
+13:54:51.518     1>Target "_SplitProjectReferencesByFileExistence: (TargetId:42)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "PrepareProjectReferences" depends on it):
+                   Task "ResolveNonMSBuildProjectOutput" skipped, due to false condition; ('$(BuildingInsideVisualStudio)'=='true' and '@(ProjectReferenceWithConfiguration)'!='') was evaluated as ('true'=='true' and ''!='').
+13:54:51.518     1>Done building target "_SplitProjectReferencesByFileExistence" in project "yAxisStepperBoard.vcxproj".: (TargetId:42)
+13:54:51.518     1>Target "_AddOutputPathToGlobalPropertiesToRemove: (TargetId:43)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "_GetProjectReferenceTargetFrameworkProperties" depends on it):
+13:54:51.518     1>Done building target "_AddOutputPathToGlobalPropertiesToRemove" in project "yAxisStepperBoard.vcxproj".: (TargetId:43)
+13:54:51.518     1>Target "_GetProjectReferenceTargetFrameworkProperties: (TargetId:44)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "PrepareProjectReferences" depends on it):
+                   Set Property: ReferringTargetFrameworkForProjectReferences=
+                   Task "MSBuild" (TaskId:45)
+                     Task Parameter:BuildInParallel=True (TaskId:45)
+                     Task Parameter:SkipNonexistentTargets=True (TaskId:45)
+                     Task Parameter:RemoveProperties=;TargetFramework;RuntimeIdentifier;SelfContained; (TaskId:45)
+                     Task Parameter:Targets=GetTargetFrameworks (TaskId:45)
+                   Done executing task "MSBuild". (TaskId:45)
+                   Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.SkipGetTargetFrameworkProperties)' != 'true' and '$(EnableDynamicPlatformResolution)' == 'true') was evaluated as ('' != 'true' and '' == 'true').
+                   Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities)' != '' and '$(ReferringTargetFrameworkForProjectReferences)' != ''
+                                                                           And '$(GetReferenceNearestTargetFrameworkTaskSupportsTargetPlatformParameter)' == 'true' and '%(_ProjectReferenceTargetFrameworkPossibilities.IsVcxOrNativeProj)' != 'true') was evaluated as ('' != '' and '' != ''
+                                                                           And 'true' == 'true' and '' != 'true').
+                   Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities)' != '' and '$(ReferringTargetFrameworkForProjectReferences)' != ''
+                                                                           And '$(GetReferenceNearestTargetFrameworkTaskSupportsTargetPlatformParameter)' != 'true' and '%(_ProjectReferenceTargetFrameworkPossibilities.IsVcxOrNativeProj)' != 'true') was evaluated as ('' != '' and '' != ''
+                                                                           And 'true' != 'true' and '' != 'true').
+                   Task "SetRidAgnosticValueForProjects" (TaskId:46)
+                   Done executing task "SetRidAgnosticValueForProjects". (TaskId:46)
+13:54:51.519     1>Done building target "_GetProjectReferenceTargetFrameworkProperties" in project "yAxisStepperBoard.vcxproj".: (TargetId:44)
+                   Target "_GetProjectReferencePlatformProperties" skipped, due to false condition; ('$(EnableDynamicPlatformResolution)' == 'true'
+                                        and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true'
+                                        and '' != '').
+13:54:51.519     1>Target "PrepareProjectReferences: (TargetId:45)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "CleanReferencedProjects" depends on it):
+13:54:51.519     1>Done building target "PrepareProjectReferences" in project "yAxisStepperBoard.vcxproj".: (TargetId:45)
+13:54:51.519     1>Target "CleanReferencedProjects: (TargetId:46)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "Clean" depends on it):
+                   Task "MSBuild" skipped, due to false condition; ('$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('true' != 'true' and 'true' == 'true' and '' != '').
+13:54:51.519     1>Done building target "CleanReferencedProjects" in project "yAxisStepperBoard.vcxproj".: (TargetId:46)
+13:54:51.519     1>Target "CleanPublishFolder: (TargetId:47)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "Clean" depends on it):
+                   Task "RemoveDir" skipped, due to false condition; ('$(ClickOncePublishDir)'=='$(OutputPath)app.publish\' and Exists('$(ClickOncePublishDir)')) was evaluated as ('C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\app.publish\'=='C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\app.publish\' and Exists('C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\bin\x64\Release\app.publish\')).
+13:54:51.519     1>Done building target "CleanPublishFolder" in project "yAxisStepperBoard.vcxproj".: (TargetId:47)
+13:54:51.519     1>Target "AfterClean: (TargetId:48)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "Clean" depends on it):
+13:54:51.519     1>Done building target "AfterClean" in project "yAxisStepperBoard.vcxproj".: (TargetId:48)
+13:54:51.519     1>Target "BeforeCppClean: (TargetId:49)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppClean.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "CppClean" depends on it):
+13:54:51.519     1>Done building target "BeforeCppClean" in project "yAxisStepperBoard.vcxproj".: (TargetId:49)
+13:54:51.519     1>Target "_ConsolidateSourcesToCopy: (TargetId:50)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.Common.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "_RequiresRemoteConnection" depends on it):
+                   Using "ConsolidateSourcesToCopy" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Microsoft.Build.Linux.Tasks.dll".
+                   Task "ConsolidateSourcesToCopy" (TaskId:47)
+                     Task Parameter:ProjectDir=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\ (TaskId:47)
+                     Task Parameter:
+                         SourcesOverride=
+                             yAxisStepperBoard.ino
+                             __vm\.yAxisStepperBoard.vsarduino.h
+                             src\arduino folders read me.txt (TaskId:47)
+                     Task Parameter:
+                         Sources=
+                             yAxisStepperBoard.ino
+                                     AdditionalIncludeDirectories=
+                                     CAdditionalWarning=switch;no-deprecated-declarations;empty-body;conversion;return-type;parentheses;no-pointer-sign;no-format;uninitialized;unreachable-code;unused-function;unused-value;unused-variable;
+                                     ClangMode=true
+                                     CLanguageStandard=c11
+                                     CompileAs=Default
+                                     CppAdditionalWarning=switch;no-deprecated-declarations;empty-body;conversion;return-type;parentheses;no-format;uninitialized;unreachable-code;unused-function;unused-value;unused-variable;
+                                     CppLanguageStandard=c++11
+                                     DebugInformationFormat=Minimal
+                                     DeploymentContent=true
+                                     EnableNeonCodegen=false
+                                     EnablePREfast=false
+                                     ExceptionHandling=Enabled
+                                     FileType=CppCode
+                                     HideInlineMethods=false
+                                     ImpLibCompiled=
+                                     LibCompiled=
+                                     LinkCompiled=true
+                                     LinkTimeOptimization=false
+                                     MakeStringsReadOnly=true
+                                     MinimalRebuildFromTracking=true
+                                     NoCommonBlocks=false
+                                     ObjCAutomaticRefCounting=true
+                                     ObjCExceptionHandling=Disabled
+                                     ObjectFileName=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\%(filename).o
+                                     OmitFramePointers=true
+                                     Optimization=Full
+                                     PositionIndependentCode=false
+                                     PrecompiledHeader=NotUsing
+                                     PrecompiledHeaderCompileAs=CompileAsCpp
+                                     PrecompiledHeaderOutputFile=
+                                     PrecompiledHeaderOutputFileDirectory=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\
+                                     PreprocessorDefinitions=NDEBUG;
+                                     ProgramDatabaseFileName=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\
+                                     RelaxIEEE=false
+                                     RuntimeTypeInfo=true
+                                     StrictAliasing=false
+                                     SymbolsHiddenByDefault=false
+                                     ThreadSafeStatics=Yes
+                                     ThumbMode=Disabled
+                                     TreatWarningAsError=false
+                                     UnrollLoops=false
+                                     Verbose=false
+                                     WarningLevel=EnableAllWarnings
+                             __vm\.yAxisStepperBoard.vsarduino.h
+                             src\arduino folders read me.txt
+                                     CopyToOutputDirectory=Never (TaskId:47)
+                     Output Item(s): 
+                         FinalSourcesToCopyRemotely=
+                             yAxisStepperBoard.ino
+                                     AdditionalIncludeDirectories=
+                                     CAdditionalWarning=switch;no-deprecated-declarations;empty-body;conversion;return-type;parentheses;no-pointer-sign;no-format;uninitialized;unreachable-code;unused-function;unused-value;unused-variable;
+                                     ClangMode=true
+                                     CLanguageStandard=c11
+                                     CompileAs=Default
+                                     CppAdditionalWarning=switch;no-deprecated-declarations;empty-body;conversion;return-type;parentheses;no-format;uninitialized;unreachable-code;unused-function;unused-value;unused-variable;
+                                     CppLanguageStandard=c++11
+                                     DebugInformationFormat=Minimal
+                                     DeploymentContent=true
+                                     EnableNeonCodegen=false
+                                     EnablePREfast=false
+                                     ExceptionHandling=Enabled
+                                     FileType=CppCode
+                                     HideInlineMethods=false
+                                     ImpLibCompiled=
+                                     LibCompiled=
+                                     LinkCompiled=true
+                                     LinkTimeOptimization=false
+                                     MakeStringsReadOnly=true
+                                     MinimalRebuildFromTracking=true
+                                     NoCommonBlocks=false
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.ino
+                                     ObjCAutomaticRefCounting=true
+                                     ObjCExceptionHandling=Disabled
+                                     ObjectFileName=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\%(filename).o
+                                     OmitFramePointers=true
+                                     Optimization=Full
+                                     PositionIndependentCode=false
+                                     PrecompiledHeader=NotUsing
+                                     PrecompiledHeaderCompileAs=CompileAsCpp
+                                     PrecompiledHeaderOutputFile=
+                                     PrecompiledHeaderOutputFileDirectory=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\
+                                     PreprocessorDefinitions=NDEBUG;
+                                     ProgramDatabaseFileName=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\
+                                     RelaxIEEE=false
+                                     RuntimeTypeInfo=true
+                                     StrictAliasing=false
+                                     SymbolsHiddenByDefault=false
+                                     ThreadSafeStatics=Yes
+                                     ThumbMode=Disabled
+                                     TreatWarningAsError=false
+                                     UnrollLoops=false
+                                     Verbose=false
+                                     WarningLevel=EnableAllWarnings
+                             __vm\.yAxisStepperBoard.vsarduino.h
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\__vm\.yAxisStepperBoard.vsarduino.h
+                             src\arduino folders read me.txt
+                                     CopyToOutputDirectory=Never
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\src\arduino folders read me.txt (TaskId:47)
+                   Done executing task "ConsolidateSourcesToCopy". (TaskId:47)
+13:54:51.525     1>Done building target "_ConsolidateSourcesToCopy" in project "yAxisStepperBoard.vcxproj".: (TargetId:50)
+13:54:51.525     1>Target "_RequiresRemoteConnection: (TargetId:51)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "_ResolveRemoteTarget" depends on it):
+                   Using "RequiresRemoteConnection" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Microsoft.Build.Linux.Tasks.dll".
+                   Task "RequiresRemoteConnection" (TaskId:48)
+                     Task Parameter:PostBuildEventEnabled=true (TaskId:48)
+                     Task Parameter:
+                         ClCompile=
+                             yAxisStepperBoard.ino
+                                     AdditionalIncludeDirectories=
+                                     CAdditionalWarning=switch;no-deprecated-declarations;empty-body;conversion;return-type;parentheses;no-pointer-sign;no-format;uninitialized;unreachable-code;unused-function;unused-value;unused-variable;
+                                     ClangMode=true
+                                     CLanguageStandard=c11
+                                     CompileAs=Default
+                                     CppAdditionalWarning=switch;no-deprecated-declarations;empty-body;conversion;return-type;parentheses;no-format;uninitialized;unreachable-code;unused-function;unused-value;unused-variable;
+                                     CppLanguageStandard=c++11
+                                     DebugInformationFormat=Minimal
+                                     DeploymentContent=true
+                                     EnableNeonCodegen=false
+                                     EnablePREfast=false
+                                     ExceptionHandling=Enabled
+                                     FileType=CppCode
+                                     HideInlineMethods=false
+                                     ImpLibCompiled=
+                                     LibCompiled=
+                                     LinkCompiled=true
+                                     LinkTimeOptimization=false
+                                     MakeStringsReadOnly=true
+                                     MinimalRebuildFromTracking=true
+                                     NoCommonBlocks=false
+                                     ObjCAutomaticRefCounting=true
+                                     ObjCExceptionHandling=Disabled
+                                     ObjectFileName=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\%(filename).o
+                                     OmitFramePointers=true
+                                     Optimization=Full
+                                     PositionIndependentCode=false
+                                     PrecompiledHeader=NotUsing
+                                     PrecompiledHeaderCompileAs=CompileAsCpp
+                                     PrecompiledHeaderOutputFile=
+                                     PrecompiledHeaderOutputFileDirectory=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\
+                                     PreprocessorDefinitions=NDEBUG;
+                                     ProgramDatabaseFileName=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\
+                                     RelaxIEEE=false
+                                     RuntimeTypeInfo=true
+                                     StrictAliasing=false
+                                     SymbolsHiddenByDefault=false
+                                     ThreadSafeStatics=Yes
+                                     ThumbMode=Disabled
+                                     TreatWarningAsError=false
+                                     UnrollLoops=false
+                                     Verbose=false
+                                     WarningLevel=EnableAllWarnings (TaskId:48)
+                     Task Parameter:RemotePostBuildEventEnabled=true (TaskId:48)
+                     Task Parameter:
+                         Sources=
+                             yAxisStepperBoard.ino
+                                     AdditionalIncludeDirectories=
+                                     CAdditionalWarning=switch;no-deprecated-declarations;empty-body;conversion;return-type;parentheses;no-pointer-sign;no-format;uninitialized;unreachable-code;unused-function;unused-value;unused-variable;
+                                     ClangMode=true
+                                     CLanguageStandard=c11
+                                     CompileAs=Default
+                                     CppAdditionalWarning=switch;no-deprecated-declarations;empty-body;conversion;return-type;parentheses;no-format;uninitialized;unreachable-code;unused-function;unused-value;unused-variable;
+                                     CppLanguageStandard=c++11
+                                     DebugInformationFormat=Minimal
+                                     DeploymentContent=true
+                                     EnableNeonCodegen=false
+                                     EnablePREfast=false
+                                     ExceptionHandling=Enabled
+                                     FileType=CppCode
+                                     HideInlineMethods=false
+                                     ImpLibCompiled=
+                                     LibCompiled=
+                                     LinkCompiled=true
+                                     LinkTimeOptimization=false
+                                     MakeStringsReadOnly=true
+                                     MinimalRebuildFromTracking=true
+                                     NoCommonBlocks=false
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.ino
+                                     ObjCAutomaticRefCounting=true
+                                     ObjCExceptionHandling=Disabled
+                                     ObjectFileName=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\%(filename).o
+                                     OmitFramePointers=true
+                                     Optimization=Full
+                                     PositionIndependentCode=false
+                                     PrecompiledHeader=NotUsing
+                                     PrecompiledHeaderCompileAs=CompileAsCpp
+                                     PrecompiledHeaderOutputFile=
+                                     PrecompiledHeaderOutputFileDirectory=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\
+                                     PreprocessorDefinitions=NDEBUG;
+                                     ProgramDatabaseFileName=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\obj\x64\Release\
+                                     RelaxIEEE=false
+                                     RuntimeTypeInfo=true
+                                     StrictAliasing=false
+                                     SymbolsHiddenByDefault=false
+                                     ThreadSafeStatics=Yes
+                                     ThumbMode=Disabled
+                                     TreatWarningAsError=false
+                                     UnrollLoops=false
+                                     Verbose=false
+                                     WarningLevel=EnableAllWarnings
+                             __vm\.yAxisStepperBoard.vsarduino.h
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\__vm\.yAxisStepperBoard.vsarduino.h
+                             src\arduino folders read me.txt
+                                     CopyToOutputDirectory=Never
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\src\arduino folders read me.txt (TaskId:48)
+                     Task Parameter:CopySourcesEnabled=true (TaskId:48)
+                     Task Parameter:PreBuildEventEnabled=true (TaskId:48)
+                     Task Parameter:RemotePreBuildEventEnabled=true (TaskId:48)
+                     Checking if current project requires a remote connection. (TaskId:48)
+                     Current project requires a remote connection. (TaskId:48)
+                     Output Property: RequireRemoteConnection=True (TaskId:48)
+                   Done executing task "RequiresRemoteConnection". (TaskId:48)
+13:54:51.527     1>Done building target "_RequiresRemoteConnection" in project "yAxisStepperBoard.vcxproj".: (TargetId:51)
+13:54:51.527     1>Target "_ResolveRemoteTarget: (TargetId:52)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (target "_PrepareUpToDateChecks" depends on it):
+                   Using "ResolveRemoteTarget" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Microsoft.Build.Linux.Tasks.dll".
+                   Task "ResolveRemoteTarget" (TaskId:49)
+                     Task Parameter:RequireRemoteConnection=True (TaskId:49)
+13:54:51.529     1>C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets(158,5): error : There are no remote machines configured for remote builds. Please configure a machine using Tools | Options | Cross Platform | Connection Manager.
+                     Output Property: RemoteTargetResolved=False (TaskId:49)
+                   Done executing task "ResolveRemoteTarget" -- FAILED. (TaskId:49)
+13:54:51.529     1>Done building target "_ResolveRemoteTarget" in project "yAxisStepperBoard.vcxproj" -- FAILED.: (TargetId:52)
+13:54:51.529     1>Done Building Project "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (Clean target(s)) -- FAILED.
+
+Project Evaluation Performance Summary:
+       13 ms  C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj   1 calls
+
+Project Performance Summary:
+       13 ms  C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj   1 calls
+                 13 ms  Clean                                      1 calls
+
+Target Performance Summary:
+        0 ms  _PrepareForClean                           1 calls
+        0 ms  BeforeClean                                1 calls
+        0 ms  BeforeCppClean                             1 calls
+        0 ms  IgnoreJavaScriptOutputAssembly             1 calls
+        0 ms  AssignProjectConfiguration                 1 calls
+        0 ms  _SplitProjectReferencesByFileExistence     1 calls
+        0 ms  _AddOutputPathToGlobalPropertiesToRemove   1 calls
+        0 ms  AfterClean                                 1 calls
+        0 ms  PrepareProjectReferences                   1 calls
+        0 ms  CleanReferencedProjects                    1 calls
+        0 ms  CleanPublishFolder                         1 calls
+        1 ms  _GetProjectReferenceTargetFrameworkProperties   1 calls
+        1 ms  _CheckForInvalidConfigurationAndPlatform   1 calls
+        1 ms  CoreClean                                  1 calls
+        2 ms  _RequiresRemoteConnection                  1 calls
+        2 ms  _ResolveRemoteTarget                       1 calls
+        6 ms  _ConsolidateSourcesToCopy                  1 calls
+
+Task Performance Summary:
+        0 ms  Message                                    2 calls
+        0 ms  Delete                                     2 calls
+        0 ms  ReadLinesFromFile                          1 calls
+        0 ms  FindUnderPath                              2 calls
+        0 ms  RemoveDuplicates                           1 calls
+        0 ms  WriteLinesToFile                           1 calls
+        0 ms  AssignProjectConfiguration                 1 calls
+        0 ms  MSBuild                                    1 calls
+        0 ms  SetRidAgnosticValueForProjects             1 calls
+        1 ms  MakeDir                                    1 calls
+        2 ms  RequiresRemoteConnection                   1 calls
+        2 ms  ResolveRemoteTarget                        1 calls
+        6 ms  ConsolidateSourcesToCopy                   1 calls
+
+Build FAILED.
+
+                   "C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj" (Clean target) (1) ->
+                   (_ResolveRemoteTarget target) -> 
+                     C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets(158,5): error : There are no remote machines configured for remote builds. Please configure a machine using Tools | Options | Cross Platform | Connection Manager.
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.01

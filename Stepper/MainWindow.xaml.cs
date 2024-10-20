@@ -226,7 +226,7 @@ namespace Stepper
                 builder.AddProvider(new FileLoggerProvider(FileLogPath)); // Log to a file named "Stepper.log"
             });
             _logger = loggerFactory.CreateLogger<MainWindow>();
-            _logger.LogInformation(message: $"{axis} Stepper Motor Controller Application Started.");
+            _logger.LogInformation(message: $"Stepper Motor Controller Application Started.");
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
@@ -1581,15 +1581,15 @@ namespace Stepper
         {
             try
             {
+                _logger.LogInformation(message: $"Stepper Motor Controller MainWindow Closing.");
                 _XserialPort.Close();
                 _YserialPort.Close();
                 _ZserialPort.Close();
-
                 _logger.LogInformation(message: $"Stepper Motor Controller Serial Ports closed.");
-                _logger.LogInformation(message: $"Stepper Motor Controller MainWindow Closing.");
                 Properties.Settings.Default.Save();
                 _logger.LogInformation(message: $"Properties Settings Saved.");
                 _logger.LogInformation(message: $"Properties Settings Form Closed.");
+                _logger.LogInformation(message: $"Stepper Motor Controller Form Closed.");
                 newSettingsWindow.Close();
             }
             catch (IOException ioex)
