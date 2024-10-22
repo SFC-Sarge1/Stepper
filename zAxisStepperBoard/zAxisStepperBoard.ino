@@ -67,6 +67,8 @@ LimitSwitch yAxisStepperMotorLimitSwitchCCW(LIMIT_SWITCH2_PIN);  // Pin for limi
 /// </summary>
 //LimitSwitch zAxisStepperMotorLimitSwitchCW(LIMIT_SWITCH1_PIN);  // Pin for limit switch
 ezButton zAxisStepperMotorLimitSwitchCW(LIMIT_SWITCH1_PIN); // create ezButton object that attach to pin 12
+bool zAxisStepperLimitSwitchCW = false;
+bool zAxisStepperLimitSwitchCCW = false;
 /// <summary>
 /// The z axis LimitSwitch Counter-Clockwise
 /// </summary>
@@ -337,7 +339,17 @@ void loop()
 		break;
 	case Z:
 		zAxisStepperMotorLimitSwitchCW.loop();
+		if (zAxisStepperMotorLimitSwitchCW.isPressed())
+		{
+			zAxisStepperLimitSwitchCW = true;
+			zAxisStepperLimitSwitchCCW = false;
+		}
 		zAxisStepperMotorLimitSwitchCCW.loop();
+		if (zAxisStepperMotorLimitSwitchCCW.isPressed())
+		{
+			zAxisStepperLimitSwitchCW = false;
+			zAxisStepperLimitSwitchCCW = true;
+		}
 		break;
 	}
 
@@ -593,7 +605,7 @@ static void zMotorRun()
 	else if (zAxisStepperMotor.distanceToGo() != 0 && zAxisSetToZeroPosition == false)
 	{
 		printNonBlocking("Z," + (String)zAxisStepperMotor.currentPosition());
-		if (zAxisStepperMotorLimitSwitchCW.isPressed())
+		if (zAxisStepperLimitSwitchCW = true)
 		{
 			printNonBlocking("The Clockwise limit switch: isPressed.");
 			zAxisStepperMotor.stop();
@@ -614,7 +626,7 @@ static void zMotorRun()
 			zAxisMoveMM = zDirection * 4.00;
 			zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
 		}
-		if (zAxisStepperMotorLimitSwitchCCW.isPressed())
+		if (zAxisStepperLimitSwitchCCW = true)
 		{
 			printNonBlocking("The Counter-Clockwise limit switch: isPressed.");
 			zAxisStepperMotor.stop();
