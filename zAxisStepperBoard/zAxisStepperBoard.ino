@@ -1,12 +1,12 @@
 // ***********************************************************************
-// Assembly         :
+// Assembly         : 
 // Author           : sfcsarge
 // Created          : 03-26-2024
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 09-07-2024
+// Last Modified On : 10-22-2024
 // ***********************************************************************
-// <copyright file="ArdunioStepper.ino" company="">
+// <copyright file="zAxisStepperBoard.ino" company="">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>
@@ -33,13 +33,25 @@
 /// </summary>
 enum ESP32BoardAxis
 {
+	/// <summary>
+	/// The x
+	/// </summary>
 	X,
+	/// <summary>
+	/// The y
+	/// </summary>
 	Y,
+	/// <summary>
+	/// The z
+	/// </summary>
 	Z
 };
 /// <summary>
 /// The axis number of the ESP32 board code in running on.
 /// Axis integer value X=1, Y=2, Z=3
+/// </summary>
+/// <summary>
+/// The axis number
 /// </summary>
 int axisNumber = 3;  // Axis integer value X=1, Y=2, Z=3
 /// <summary>
@@ -67,8 +79,22 @@ LimitSwitch yAxisStepperMotorLimitSwitchCCW(LIMIT_SWITCH2_PIN);  // Pin for limi
 /// </summary>
 //LimitSwitch zAxisStepperMotorLimitSwitchCW(LIMIT_SWITCH1_PIN);  // Pin for limit switch
 ezButton zAxisStepperMotorLimitSwitchCW(LIMIT_SWITCH1_PIN); // create ezButton object that attach to pin 12
-bool zAxisStepperLimitSwitchCW = false;
-bool zAxisStepperLimitSwitchCCW = false;
+/// <summary>
+/// The z axis stepper limit switch cw pressed
+/// </summary>
+bool zAxisStepperLimitSwitchCWPressed = false;
+/// <summary>
+/// The z axis stepper limit switch CCW pressed
+/// </summary>
+bool zAxisStepperLimitSwitchCCWPressed = false;
+/// <summary>
+/// The z axis stepper limit switch cw released
+/// </summary>
+bool zAxisStepperLimitSwitchCWReleased = false;
+/// <summary>
+/// The z axis stepper limit switch CCW released
+/// </summary>
+bool zAxisStepperLimitSwitchCCWReleased = false;
 /// <summary>
 /// The z axis LimitSwitch Counter-Clockwise
 /// </summary>
@@ -91,7 +117,7 @@ int zDirection = DIRECTION_CW;
 /// </summary>
 char buffer[BUFFER_SIZE];
 /// <summary>
-/// The buffer index
+/// The buffer size
 /// </summary>
 int bufferIndex = 0;
 /// <summary>
@@ -263,7 +289,7 @@ String Axis = "X";
 /// </summary>
 String serialData[] = { "XY", "0.00", "400.00", "0", "0.00", "400.00", "0", "0.00", "400.00", "0" };
 /// <summary>
-/// The serial data index
+/// The serial data
 /// </summary>
 int serialDataIndex = 0;
 /// <summary>
@@ -341,14 +367,14 @@ void loop()
 		zAxisStepperMotorLimitSwitchCW.loop();
 		if (zAxisStepperMotorLimitSwitchCW.isPressed())
 		{
-			zAxisStepperLimitSwitchCW = true;
-			zAxisStepperLimitSwitchCCW = false;
+			zAxisStepperLimitSwitchCWPressed = true;
+			zAxisStepperLimitSwitchCCWPressed = false;
 		}
 		zAxisStepperMotorLimitSwitchCCW.loop();
 		if (zAxisStepperMotorLimitSwitchCCW.isPressed())
 		{
-			zAxisStepperLimitSwitchCW = false;
-			zAxisStepperLimitSwitchCCW = true;
+			zAxisStepperLimitSwitchCWPressed = false;
+			zAxisStepperLimitSwitchCCWPressed = true;
 		}
 		break;
 	}
@@ -605,7 +631,7 @@ static void zMotorRun()
 	else if (zAxisStepperMotor.distanceToGo() != 0 && zAxisSetToZeroPosition == false)
 	{
 		printNonBlocking("Z," + (String)zAxisStepperMotor.currentPosition());
-		if (zAxisStepperLimitSwitchCW = true)
+		if (zAxisStepperLimitSwitchCWPressed = true)
 		{
 			printNonBlocking("The Clockwise limit switch: isPressed.");
 			zAxisStepperMotor.stop();
@@ -619,14 +645,15 @@ static void zMotorRun()
 			zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
 			zAxisStepperMotor.runToNewPosition(zAxisLimitSwitchMoveMM);
 		}
-		else if (zAxisStepperMotorLimitSwitchCW.isReleased())
+		else if (zAxisStepperLimitSwitchCWReleased = true)
 		{
 			printNonBlocking("The limit switch: RELEASED");
 			zDirection *= DIRECTION_CW;  // change direction
+			zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
+			zAxisStepperMotor.setCurrentPosition(zAxisCurrentPosition);
 			zAxisMoveMM = zDirection * 4.00;
-			zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
 		}
-		if (zAxisStepperLimitSwitchCCW = true)
+		if (zAxisStepperLimitSwitchCCWPressed = true)
 		{
 			printNonBlocking("The Counter-Clockwise limit switch: isPressed.");
 			zAxisStepperMotor.stop();
@@ -640,12 +667,13 @@ static void zMotorRun()
 			zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
 			zAxisStepperMotor.runToNewPosition(zAxisLimitSwitchMoveMM);
 		}
-		else if (zAxisStepperMotorLimitSwitchCCW.isReleased())
+		else if (zAxisStepperLimitSwitchCCWReleased = true)
 		{
 			printNonBlocking("The limit switch: RELEASED");
 			zDirection *= DIRECTION_CCW;  // change direction
+			zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
+			zAxisStepperMotor.setCurrentPosition(zAxisCurrentPosition);
 			zAxisMoveMM = zDirection * 4.00;
-			zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
 		}
 		else
 		{
