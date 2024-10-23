@@ -630,64 +630,64 @@ static void zMotorRun()
 	}
 	else if (zAxisStepperMotor.distanceToGo() != 0 && zAxisSetToZeroPosition == false)
 	{
-		printNonBlocking("Z," + (String)zAxisStepperMotor.currentPosition());
-		if (zAxisStepperLimitSwitchCWPressed = true)
-		{
-			printNonBlocking("The Clockwise limit switch: isPressed.");
-			zAxisStepperMotor.stop();
-			zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
-			zAxisMoveMM = zAxisCurrentPosition;
-			zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
-			zDirection *= DIRECTION_CCW;  // change direction
-			zAxisLimitSwitchMoveMM = zDirection * 4.00;
-			zAxisStepperMotor.moveTo(zAxisLimitSwitchMoveMM);
-			zAxisStepperMotor.setAcceleration(zAxisAcceleration);
-			zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
-			zAxisStepperMotor.runToNewPosition(zAxisLimitSwitchMoveMM);
-		}
-		else if (zAxisStepperLimitSwitchCWReleased = true)
-		{
-			printNonBlocking("The limit switch: RELEASED");
-			zDirection *= DIRECTION_CW;  // change direction
-			zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
-			zAxisStepperMotor.setCurrentPosition(zAxisCurrentPosition);
-			zAxisMoveMM = zDirection * 4.00;
-		}
-		if (zAxisStepperLimitSwitchCCWPressed = true)
-		{
-			printNonBlocking("The Counter-Clockwise limit switch: isPressed.");
-			zAxisStepperMotor.stop();
-			zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
-			zAxisMoveMM = zAxisCurrentPosition;
-			zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
-			zDirection *= DIRECTION_CW;  // change direction
-			zAxisLimitSwitchMoveMM = zDirection * 4.00;
-			zAxisStepperMotor.moveTo(zAxisLimitSwitchMoveMM);
-			zAxisStepperMotor.setAcceleration(zAxisAcceleration);
-			zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
-			zAxisStepperMotor.runToNewPosition(zAxisLimitSwitchMoveMM);
-		}
-		else if (zAxisStepperLimitSwitchCCWReleased = true)
-		{
-			printNonBlocking("The limit switch: RELEASED");
-			zDirection *= DIRECTION_CCW;  // change direction
-			zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
-			zAxisStepperMotor.setCurrentPosition(zAxisCurrentPosition);
-			zAxisMoveMM = zDirection * 4.00;
-		}
-		else
-		{
+		printNonBlocking("Z Axis Current Position, " + (String)zAxisStepperMotor.currentPosition());
+		//if (zAxisStepperLimitSwitchCWPressed = true)
+		//{
+		//	printNonBlocking("The Clockwise limit switch: isPressed.");
+		//	zAxisStepperMotor.stop();
+		//	zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
+		//	zAxisMoveMM = zAxisCurrentPosition;
+		//	zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
+		//	zDirection *= DIRECTION_CCW;  // change direction
+		//	zAxisLimitSwitchMoveMM = zDirection * 4.00;
+		//	zAxisStepperMotor.moveTo(zAxisLimitSwitchMoveMM);
+		//	zAxisStepperMotor.setAcceleration(zAxisAcceleration);
+		//	zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
+		//	//zAxisStepperMotor.runToNewPosition(zAxisLimitSwitchMoveMM);
+		//	zAxisStepperMotor.runSpeedToPosition();
+		//}
+		//else if (zAxisStepperLimitSwitchCWReleased = true)
+		//{
+		//	printNonBlocking("The limit switch: RELEASED");
+		//	zDirection *= DIRECTION_CW;  // change direction
+		//	zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
+		//	zAxisStepperMotor.setCurrentPosition(zAxisCurrentPosition);
+		//	zAxisMoveMM = zDirection * 4.00;
+		//}
+		//if (zAxisStepperLimitSwitchCCWPressed = true)
+		//{
+		//	printNonBlocking("The Counter-Clockwise limit switch: isPressed.");
+		//	zAxisStepperMotor.stop();
+		//	zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
+		//	zAxisMoveMM = zAxisCurrentPosition;
+		//	zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
+		//	zDirection *= DIRECTION_CW;  // change direction
+		//	zAxisLimitSwitchMoveMM = zDirection * 4.00;
+		//	zAxisStepperMotor.moveTo(zAxisLimitSwitchMoveMM);
+		//	zAxisStepperMotor.setAcceleration(zAxisAcceleration);
+		//	zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
+		//	zAxisStepperMotor.runToNewPosition(zAxisLimitSwitchMoveMM);
+		//}
+		//else if (zAxisStepperLimitSwitchCCWReleased = true)
+		//{
+		//	printNonBlocking("The limit switch: RELEASED");
+		//	zDirection *= DIRECTION_CCW;  // change direction
+		//	zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
+		//	zAxisStepperMotor.setCurrentPosition(zAxisCurrentPosition);
+		//	zAxisMoveMM = zDirection * 4.00;
+		//}
+		//else
+		//{
 			printNonBlocking("The limit switch: Not Touched or used.");
 			zAxisStepperMotor.moveTo(zAxisMoveMM);
 			zAxisStepperMotor.setAcceleration(zAxisAcceleration);
 			zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
 			zAxisStepperMotor.runSpeedToPosition();
-		}
+		//}
 	}
 	else if (zAxisStepperMotor.distanceToGo() == 0 && zAxisSetToZeroPosition == false)
 	{
-		zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
-		printNonBlocking("Z," + (String)zAxisCurrentPosition);
+		printNonBlocking("Z Axis Current Position, " + (String)zAxisStepperMotor.currentPosition());
 	}
 }
 /// <summary>
@@ -704,6 +704,7 @@ void serialWrite(char c)
 	{
 		Serial1.write(buffer, BUFFER_SIZE);
 		bufferIndex = 0;
+		//delay(1000); // Wait for 1 second before sending the next data point
 	}
 }
 
