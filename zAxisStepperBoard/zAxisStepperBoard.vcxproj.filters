@@ -21,9 +21,27 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="zAxisStepperBoard.ino" />
+    <ClCompile Include="MyZAxis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyXAxis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyYAxis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.zAxisStepperBoard.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyZAxis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyXAxis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyYAxis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
