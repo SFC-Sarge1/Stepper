@@ -167,6 +167,8 @@ namespace Stepper
         /// The Z serial port
         /// </summary>
         public SerialPort _ZserialPort = new SerialPort();
+
+
         /// <summary>
         /// The serial port
         /// </summary>

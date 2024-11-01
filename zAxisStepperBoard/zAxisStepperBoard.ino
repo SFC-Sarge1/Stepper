@@ -49,9 +49,9 @@ enum ESP32BoardAxis
 	/// </summary>
 	Z
 };
-XAxis xAxis(0.00);
-YAxis yAxis(0.00);
-ZAxis zAxis(0.00);
+//XAxis xAxis(0.00);
+//YAxis yAxis(0.00);
+//ZAxis zAxis(0.00);
 /// <summary>
 /// The axis number of the ESP32 board code is running on.
 /// Axis integer value X=1, Y=2, Z=3
@@ -120,17 +120,42 @@ float stepperMotorStepsPerRev = 200.00;
 /// </summary>
 float oneFullRotationMovesMM = 4.00;
 /// <summary>
+/// The x axis direction pin
+/// </summary>
+int xAxisDirectionPin = 4;
+/// <summary>
+/// The x axis pulse pin
+/// </summary>
+int xAxisPulsePin = 2;
+/// <summary>
+/// The y axis direction pin
+/// </summary>
+int yAxisDirectionPin = 4;
+/// <summary>
+/// The y axis pulse pin
+/// </summary>
+int yAxisPulsePin = 2;
+/// <summary>
+/// The z axis direction pin
+/// </summary>
+int zAxisDirectionPin = 4;
+/// <summary>
+/// The z axis pulse pin
+/// </summary>
+int zAxisPulsePin = 2;
+
+/// <summary>
 /// The x axis stepper motor
 /// </summary>
-AccelStepper xAxisStepperMotor(stepperMotorInterfaceType, xAxis.xAxisPulsePin, xAxis.xAxisDirectionPin);
+AccelStepper xAxisStepperMotor(stepperMotorInterfaceType, xAxisPulsePin, xAxisDirectionPin);
 /// <summary>AccelStepper
 /// The y axis stepper motor
 /// </summary>
-AccelStepper yAxisStepperMotor(stepperMotorInterfaceType, yAxis.yAxisPulsePin, yAxis.yAxisDirectionPin);
+AccelStepper yAxisStepperMotor(stepperMotorInterfaceType, yAxisPulsePin, yAxisDirectionPin);
 /// <summary>
 /// The z axis stepper motor
 /// </summary>
-AccelStepper zAxisStepperMotor(stepperMotorInterfaceType, zAxis.zAxisPulsePin, zAxis.zAxisDirectionPin);
+AccelStepper zAxisStepperMotor(stepperMotorInterfaceType, zAxisPulsePin, zAxisDirectionPin);
 /// <summary>
 /// The axis
 /// </summary>
@@ -144,9 +169,171 @@ String serialData[] = { "XY", "0.00", "400.00", "0", "0.00", "400.00", "0", "0.0
 /// </summary>
 int serialDataIndex = 0;
 /// <summary>
-/// The z axis
+/// The x axis motor speed
 /// </summary>
-ZAxis zAxisFloat(0.00);
+float xAxisMotorSpeed; // Public variable for motor speed
+/// <summary>
+/// The x axis new position
+/// </summary>
+float xAxisNewPosition; // Public variable for new position
+/// <summary>
+/// The x axis acceleration
+/// </summary>
+float xAxisAcceleration = 50.00;
+/// <summary>
+/// The x axis stepper motor maximum speed
+/// </summary>
+float xAxisStepperMotorMaxSpeed = 1000.00;
+/// <summary>
+/// The x axis current position
+/// </summary>
+float xAxisCurrentPosition = 0.00;
+/// <summary>
+/// The x axis move mm
+/// </summary>
+float xAxisMoveMM = 0.00;
+float xAxisLimitSwitchMoveMM = 0.00;
+/// <summary>
+/// The x axis set to zero position
+/// </summary>
+bool xAxisSetToZeroPosition = false;
+/// <summary>
+/// The x axis was set to zero position
+/// </summary>
+bool xAxisWasSetToZeroPosition = false;
+/// <summary>
+/// The x axis stepper limit switch cw pressed
+/// </summary>
+bool xAxisStepperLimitSwitchCWPressed = false;
+/// <summary>
+/// The x axis stepper limit switch CCW pressed
+/// </summary>
+bool xAxisStepperLimitSwitchCCWPressed = false;
+/// <summary>
+/// The x axis stepper limit switch cw released
+/// </summary>
+bool xAxisStepperLimitSwitchCWReleased = false;
+/// <summary>
+/// The x axis stepper limit switch CCW released
+/// </summary>
+bool xAxisStepperLimitSwitchCCWReleased = false;
+/// <summary>
+/// The x axis distance to go
+/// </summary>
+float xAxisDistanceToGo = 0.00;
+
+/// <summary>
+/// The y axis move mm
+/// </summary>
+float yAxisMoveMM; // Public variable for y-axis movement
+/// <summary>
+/// The y axis current position
+/// </summary>
+float yAxisCurrentPosition; // Public variable for current position
+/// <summary>
+/// The y axis motor speed
+/// </summary>
+float yAxisMotorSpeed; // Public variable for motor speed
+/// <summary>
+/// The y axis new position
+/// </summary>
+float yAxisNewPosition; // Public variable for new position
+/// <summary>
+/// The y axis acceleration
+/// </summary>
+float yAxisAcceleration = 50.00;
+/// <summary>
+/// The y axis stepper motor maximum speed
+/// </summary>
+float yAxisStepperMotorMaxSpeed = 1000.00;
+float yAxisLimitSwitchMoveMM = 0.00;
+
+/// <summary>
+/// The y axis set to zero position
+/// </summary>
+bool yAxisSetToZeroPosition = false;
+/// <summary>
+/// The y axis was set to zero position
+/// </summary>
+bool yAxisWasSetToZeroPosition = false;
+/// <summary>
+/// The y axis stepper limit switch cw pressed
+/// </summary>
+bool yAxisStepperLimitSwitchCWPressed = false;
+/// <summary>
+/// The y axis stepper limit switch CCW pressed
+/// </summary>
+bool yAxisStepperLimitSwitchCCWPressed = false;
+/// <summary>
+/// The y axis stepper limit switch cw released
+/// </summary>
+bool yAxisStepperLimitSwitchCWReleased = false;
+/// <summary>
+/// The y axis stepper limit switch CCW released
+/// </summary>
+bool yAxisStepperLimitSwitchCCWReleased = false;
+/// <summary>
+/// The y axis distance to go
+/// </summary>
+float yAxisDistanceToGo = 0.00;
+
+/// <summary>
+/// The z axis move mm
+/// </summary>
+float zAxisMoveMM; // Public variable for z-axis movement
+/// <summary>
+/// The z axis current position
+/// </summary>
+float zAxisCurrentPosition; // Public variable for current position
+/// <summary>
+/// The z axis motor speed
+/// </summary>
+float zAxisMotorSpeed = 400.00; // Public variable for motor speed
+/// <summary>
+/// The z axis new position
+/// </summary>
+float zAxisNewPosition; // Public variable for new position
+/// <summary>
+/// The z axis acceleration
+/// </summary>
+float zAxisAcceleration = 100.00;
+/// <summary>
+/// The z axis stepper motor maximum speed
+/// </summary>
+float zAxisStepperMotorMaxSpeed = 1000.00;
+/// <summary>
+/// The z axis move mm
+/// </summary>
+float zAxisLimitSwitchMoveMM = 0.00;
+/// <summary>
+/// The z axis set to zero position
+/// </summary>
+bool zAxisSetToZeroPosition = false;
+/// <summary>
+/// The z axis was set to zero position
+/// </summary>
+bool zAxisWasSetToZeroPosition = false;
+/// <summary>
+/// The z axis stepper limit switch cw pressed
+/// </summary>
+bool zAxisStepperLimitSwitchCWPressed = false;
+/// <summary>
+/// The z axis stepper limit switch CCW pressed
+/// </summary>
+bool zAxisStepperLimitSwitchCCWPressed = false;
+/// <summary>
+/// The z axis stepper limit switch cw released
+/// </summary>
+bool zAxisStepperLimitSwitchCWReleased = false;
+/// <summary>
+/// The z axis stepper limit switch CCW released
+/// </summary>
+bool zAxisStepperLimitSwitchCCWReleased = false;
+/// <summary>
+/// The z axis distance to go
+/// </summary>
+float zAxisDistanceToGo = 0.00;
+
 /// <summary>
 /// Setups this instance.
 /// </summary>
@@ -169,11 +356,11 @@ void setup()
 	serialData[1] = "0.00";
 	serialData[2] = "400.00";
 	serialData[3] = "0";
-	xAxis.xAxisCurrentPosition = 0.00;
-	xAxis.xAxisNewPosition = serialData[1].toFloat();
-	xAxis.xAxisMotorSpeed = serialData[2].toFloat();
-	xAxis.xAxisSetToZeroPosition = serialData[3].toInt();
-	xAxisStepperMotor.setMaxSpeed(xAxis.xAxisStepperMotorMaxSpeed);
+	xAxisCurrentPosition = 0.00;
+	xAxisNewPosition = serialData[1].toFloat();
+	xAxisMotorSpeed = serialData[2].toFloat();
+	xAxisSetToZeroPosition = serialData[3].toInt();
+	xAxisStepperMotor.setMaxSpeed(xAxisStepperMotorMaxSpeed);
 	xAxisStepperMotor.setCurrentPosition(0.00);
 
 	//Y axis stuff.
@@ -181,11 +368,11 @@ void setup()
 	serialData[4] = "0.00";
 	serialData[5] = "400.00";
 	serialData[6] = "0";
-	yAxis.yAxisCurrentPosition = 0.00;
-	yAxis.yAxisNewPosition = serialData[4].toFloat();
-	yAxis.yAxisMotorSpeed = serialData[5].toFloat();
-	yAxis.yAxisSetToZeroPosition = serialData[6].toInt();
-	yAxisStepperMotor.setMaxSpeed(yAxis.yAxisStepperMotorMaxSpeed);
+	yAxisCurrentPosition = 0.00;
+	yAxisNewPosition = serialData[4].toFloat();
+	yAxisMotorSpeed = serialData[5].toFloat();
+	yAxisSetToZeroPosition = serialData[6].toInt();
+	yAxisStepperMotor.setMaxSpeed(yAxisStepperMotorMaxSpeed);
 	yAxisStepperMotor.setCurrentPosition(0.00);
 
 	//Z axis stuff.
@@ -193,13 +380,13 @@ void setup()
 	serialData[7] = "0.00";
 	serialData[8] = "400.00";
 	serialData[9] = "0";
-	zAxis.zAxisNewPosition = serialData[7].toFloat();
-	zAxis.zAxisMotorSpeed = serialData[8].toFloat();
-	zAxis.zAxisSetToZeroPosition = serialData[9].toInt();
-	zAxis.zAxisCurrentPosition = 0.00;
-	zAxisStepperMotor.setMaxSpeed(zAxis.zAxisStepperMotorMaxSpeed);
-	zAxisStepperMotor.setCurrentPosition(zAxis.zAxisCurrentPosition);
-	zAxis.zAxisMoveMM = zAxis.zAxisNewPosition;
+	zAxisNewPosition = serialData[7].toFloat();
+	zAxisMotorSpeed = serialData[8].toFloat();
+	zAxisSetToZeroPosition = serialData[9].toInt();
+	zAxisCurrentPosition = 0.00;
+	zAxisStepperMotor.setMaxSpeed(zAxisStepperMotorMaxSpeed);
+	zAxisStepperMotor.setCurrentPosition(zAxisCurrentPosition);
+	zAxisMoveMM = zAxisNewPosition;
 	serialDataIndex = 0;
 
 }
@@ -223,14 +410,14 @@ void loop()
 		zAxisStepperMotorLimitSwitchCW.loop();
 		if (zAxisStepperMotorLimitSwitchCW.isPressed())
 		{
-			zAxis.zAxisStepperLimitSwitchCWPressed = true;
-			zAxis.zAxisStepperLimitSwitchCCWPressed = false;
+			zAxisStepperLimitSwitchCWPressed = true;
+			zAxisStepperLimitSwitchCCWPressed = false;
 		}
 		zAxisStepperMotorLimitSwitchCCW.loop();
 		if (zAxisStepperMotorLimitSwitchCCW.isPressed())
 		{
-			zAxis.zAxisStepperLimitSwitchCWPressed = false;
-			zAxis.zAxisStepperLimitSwitchCCWPressed = true;
+			zAxisStepperLimitSwitchCWPressed = false;
+			zAxisStepperLimitSwitchCCWPressed = true;
 		}
 		break;
 	}
@@ -296,13 +483,13 @@ void loop()
 static void xMotorConfig(float data1, float data2, float data3)
 {
 	//X axis stuff
-	xAxis.xAxisNewPosition = data1;
-	xAxis.xAxisMotorSpeed = data2;
-	if (xAxis.xAxisMotorSpeed > xAxis.xAxisStepperMotorMaxSpeed) {
-		xAxis.xAxisMotorSpeed = xAxis.xAxisStepperMotorMaxSpeed;
+	xAxisNewPosition = data1;
+	xAxisMotorSpeed = data2;
+	if (xAxisMotorSpeed > xAxisStepperMotorMaxSpeed) {
+		xAxisMotorSpeed = xAxisStepperMotorMaxSpeed;
 	}
-	xAxis.xAxisSetToZeroPosition = data3;
-	xAxis.xAxisMoveMM = (xAxis.xAxisNewPosition / oneFullRotationMovesMM) * stepperMotorStepsPerRev;
+	xAxisSetToZeroPosition = data3;
+	xAxisMoveMM = (xAxisNewPosition / oneFullRotationMovesMM) * stepperMotorStepsPerRev;
 }
 /// <summary>
 /// y axis motor configuration.
@@ -313,13 +500,13 @@ static void xMotorConfig(float data1, float data2, float data3)
 static void yMotorConfig(float data4, float data5, float data6)
 {
 	//Y axis stuff
-	yAxis.yAxisNewPosition = data4;
-	yAxis.yAxisMotorSpeed = data5;
-	if (yAxis.yAxisMotorSpeed > yAxis.yAxisStepperMotorMaxSpeed) {
-		yAxis.yAxisMotorSpeed = yAxis.yAxisStepperMotorMaxSpeed;
+	yAxisNewPosition = data4;
+	yAxisMotorSpeed = data5;
+	if (yAxisMotorSpeed > yAxisStepperMotorMaxSpeed) {
+		yAxisMotorSpeed = yAxisStepperMotorMaxSpeed;
 	}
-	yAxis.yAxisSetToZeroPosition = data6;
-	yAxis.yAxisMoveMM = (yAxis.yAxisNewPosition / oneFullRotationMovesMM) * stepperMotorStepsPerRev;
+	yAxisSetToZeroPosition = data6;
+	yAxisMoveMM = (yAxisNewPosition / oneFullRotationMovesMM) * stepperMotorStepsPerRev;
 }
 /// <summary>
 /// z axis motor configuration.
@@ -330,76 +517,76 @@ static void yMotorConfig(float data4, float data5, float data6)
 static void zMotorConfig(float data7, float data8, float data9)
 {
 	//Z axis stuff
-	zAxis.zAxisNewPosition = data7;
-	zAxis.zAxisMotorSpeed = data8;
-	if (zAxis.zAxisMotorSpeed > zAxis.zAxisStepperMotorMaxSpeed)
+	zAxisNewPosition = data7;
+	zAxisMotorSpeed = data8;
+	if (zAxisMotorSpeed > zAxisStepperMotorMaxSpeed)
 	{
-		zAxis.zAxisMotorSpeed = zAxis.zAxisStepperMotorMaxSpeed;
+		zAxisMotorSpeed = zAxisStepperMotorMaxSpeed;
 	}
-	zAxis.zAxisSetToZeroPosition = data9;
-	zAxis.zAxisMoveMM = (zAxis.zAxisNewPosition / oneFullRotationMovesMM) * stepperMotorStepsPerRev;
+	zAxisSetToZeroPosition = data9;
+	zAxisMoveMM = (zAxisNewPosition / oneFullRotationMovesMM) * stepperMotorStepsPerRev;
 }
 /// <summary>
 /// xes the motor run.
 /// </summary>
 static void xMotorRun()
 {
-	xAxisStepperMotor.moveTo(xAxis.xAxisMoveMM);
-	xAxisStepperMotor.setSpeed(xAxis.xAxisMotorSpeed);
-	xAxisStepperMotor.setAcceleration(xAxis.xAxisAcceleration);
-	if (xAxis.xAxisSetToZeroPosition == true)
+	xAxisStepperMotor.moveTo(xAxisMoveMM);
+	xAxisStepperMotor.setSpeed(xAxisMotorSpeed);
+	xAxisStepperMotor.setAcceleration(xAxisAcceleration);
+	if (xAxisSetToZeroPosition == true)
 	{
-		xAxis.xAxisSetToZeroPosition = false;
-		xAxis.xAxisWasSetToZeroPosition = true;
-		xAxis.xAxisCurrentPosition = xAxisStepperMotor.currentPosition();
-		xAxis.xAxisMoveMM = xAxis.xAxisCurrentPosition;
-		xAxisStepperMotor.setCurrentPosition(xAxis.xAxisMoveMM);
-		printNonBlocking("X," + (String)xAxis.xAxisCurrentPosition);
+		xAxisSetToZeroPosition = false;
+		xAxisWasSetToZeroPosition = true;
+		xAxisCurrentPosition = xAxisStepperMotor.currentPosition();
+		xAxisMoveMM = xAxisCurrentPosition;
+		xAxisStepperMotor.setCurrentPosition(xAxisMoveMM);
+		printNonBlocking("X," + (String)xAxisCurrentPosition);
 		NVIC_SystemReset();  //call reset on Arduino board
 		//ESP.restart();  //call reset on ESP32 board
 	}
-	else if (xAxisStepperMotor.distanceToGo() != 0 && xAxis.xAxisSetToZeroPosition == false)
+	else if (xAxisStepperMotor.distanceToGo() != 0 && xAxisSetToZeroPosition == false)
 	{
 		xAxisStepperMotor.runSpeedToPosition();
 		if (xAxisStepperMotorLimitSwitchCW.isPressed())
 		{
 			printNonBlocking("The limit switch: TOUCHED");
 			xAxisStepperMotor.stop();
-			xAxisStepperMotor.setCurrentPosition(xAxis.xAxisMoveMM);
+			xAxisStepperMotor.setCurrentPosition(xAxisMoveMM);
 			xDirection *= DIRECTION_CCW;  // change direction
-			xAxis.xAxisMoveMM = xDirection * 4.00;
-			xAxisStepperMotor.moveTo(xAxis.xAxisMoveMM);
-			xAxisStepperMotor.setAcceleration(xAxis.xAxisAcceleration);
-			xAxisStepperMotor.setSpeed(xAxis.xAxisMotorSpeed);
+			xAxisMoveMM = xDirection * 4.00;
+			xAxisStepperMotor.moveTo(xAxisMoveMM);
+			xAxisStepperMotor.setAcceleration(xAxisAcceleration);
+			xAxisStepperMotor.setSpeed(xAxisMotorSpeed);
 		}
 		else if (xAxisStepperMotorLimitSwitchCW.isReleased())
 		{
 			printNonBlocking("The limit switch: RELEASED");
 			xDirection *= DIRECTION_CW;  // change direction
-			xAxis.xAxisMoveMM = xDirection * 4.00;
+			xAxisMoveMM = xDirection * 4.00;
 		}
 		if (xAxisStepperMotorLimitSwitchCCW.isPressed())
 		{
 			printNonBlocking("The limit switch: TOUCHED");
 			xAxisStepperMotor.stop();
-			xAxisStepperMotor.setCurrentPosition(xAxis.xAxisMoveMM);
+			xAxisStepperMotor.setCurrentPosition(xAxisMoveMM);
 			xDirection *= DIRECTION_CCW;  // change direction
-			xAxis.xAxisMoveMM = xDirection * 4.00;
-			xAxisStepperMotor.moveTo(xAxis.xAxisMoveMM);
-			xAxisStepperMotor.setAcceleration(xAxis.xAxisAcceleration);
-			xAxisStepperMotor.setSpeed(xAxis.xAxisMotorSpeed);
+			xAxisMoveMM = xDirection * 4.00;
+			xAxisStepperMotor.moveTo(xAxisMoveMM);
+			xAxisStepperMotor.setAcceleration(xAxisAcceleration);
+			xAxisStepperMotor.setSpeed(xAxisMotorSpeed);
 		}
 		else if (xAxisStepperMotorLimitSwitchCCW.isReleased())
 		{
 			printNonBlocking("The limit switch: RELEASED");
 			xDirection *= DIRECTION_CW;  // change direction
-			xAxis.xAxisMoveMM = xDirection * 4.00;
+			xAxisMoveMM = xDirection * 4.00;
 		}
 	}
-	else if (xAxisStepperMotor.distanceToGo() == 0 && xAxis.xAxisSetToZeroPosition == false)
+	else if (xAxisStepperMotor.distanceToGo() == 0 && xAxisSetToZeroPosition == false)
 	{
-		xAxis.xAxisCurrentPosition = xAxisStepperMotor.currentPosition();
-		printNonBlocking("X," + (String)xAxis.xAxisCurrentPosition);
+		xAxisCurrentPosition = xAxisStepperMotor.currentPosition();
+		printNonBlocking("X," + (String)xAxisCurrentPosition);
 	}
 }
 /// <summary>
@@ -407,62 +594,62 @@ static void xMotorRun()
 /// </summary>
 static void yMotorRun()
 {
-	yAxisStepperMotor.moveTo(yAxis.yAxisMoveMM);
-	yAxisStepperMotor.setSpeed(yAxis.yAxisMotorSpeed);
-	yAxisStepperMotor.setAcceleration(yAxis.yAxisAcceleration);
-	if (yAxis.yAxisSetToZeroPosition == true)
+	yAxisStepperMotor.moveTo(yAxisMoveMM);
+	yAxisStepperMotor.setSpeed(yAxisMotorSpeed);
+	yAxisStepperMotor.setAcceleration(yAxisAcceleration);
+	if (yAxisSetToZeroPosition == true)
 	{
-		yAxis.yAxisSetToZeroPosition = false;
-		yAxis.yAxisWasSetToZeroPosition = true;
-		yAxis.yAxisCurrentPosition = yAxisStepperMotor.currentPosition();
-		yAxis.yAxisMoveMM = yAxis.yAxisCurrentPosition;
-		yAxisStepperMotor.setCurrentPosition(yAxis.yAxisMoveMM);
-		printNonBlocking("Y," + (String)yAxis.yAxisCurrentPosition);
+		yAxisSetToZeroPosition = false;
+		yAxisWasSetToZeroPosition = true;
+		yAxisCurrentPosition = yAxisStepperMotor.currentPosition();
+		yAxisMoveMM = yAxisCurrentPosition;
+		yAxisStepperMotor.setCurrentPosition(yAxisMoveMM);
+		printNonBlocking("Y," + (String)yAxisCurrentPosition);
 		NVIC_SystemReset();  //call reset on Arduino board
 		//ESP.restart();  //call reset on ESP32 board
 	}
-	else if (yAxisStepperMotor.distanceToGo() != 0 && yAxis.yAxisSetToZeroPosition == false)
+	else if (yAxisStepperMotor.distanceToGo() != 0 && yAxisSetToZeroPosition == false)
 	{
 		yAxisStepperMotor.runSpeedToPosition();
 		if (yAxisStepperMotorLimitSwitchCW.isPressed())
 		{
 			printNonBlocking("The limit switch: TOUCHED");
 			yAxisStepperMotor.stop();
-			yAxisStepperMotor.setCurrentPosition(yAxis.yAxisMoveMM);
+			yAxisStepperMotor.setCurrentPosition(yAxisMoveMM);
 			yDirection *= DIRECTION_CCW;  // change direction
-			yAxis.yAxisMoveMM = yDirection * 4.00;
-			yAxisStepperMotor.moveTo(yAxis.yAxisMoveMM);
-			yAxisStepperMotor.setAcceleration(yAxis.yAxisAcceleration);
-			yAxisStepperMotor.setSpeed(yAxis.yAxisMotorSpeed);
+			yAxisMoveMM = yDirection * 4.00;
+			yAxisStepperMotor.moveTo(yAxisMoveMM);
+			yAxisStepperMotor.setAcceleration(yAxisAcceleration);
+			yAxisStepperMotor.setSpeed(yAxisMotorSpeed);
 		}
 		else if (yAxisStepperMotorLimitSwitchCW.isReleased())
 		{
 			printNonBlocking("The limit switch: RELEASED");
 			yDirection *= DIRECTION_CW;  // change direction
-			yAxis.yAxisMoveMM = yDirection * 4.00;
+			yAxisMoveMM = yDirection * 4.00;
 		}
 		if (yAxisStepperMotorLimitSwitchCCW.isPressed())
 		{
 			printNonBlocking("The limit switch: TOUCHED");
 			yAxisStepperMotor.stop();
-			yAxisStepperMotor.setCurrentPosition(yAxis.yAxisMoveMM);
+			yAxisStepperMotor.setCurrentPosition(yAxisMoveMM);
 			yDirection *= DIRECTION_CCW;  // change direction
-			yAxis.yAxisMoveMM = yDirection * 4.00;
-			yAxisStepperMotor.moveTo(yAxis.yAxisMoveMM);
-			yAxisStepperMotor.setAcceleration(yAxis.yAxisAcceleration);
-			yAxisStepperMotor.setSpeed(yAxis.yAxisMotorSpeed);
+			yAxisMoveMM = yDirection * 4.00;
+			yAxisStepperMotor.moveTo(yAxisMoveMM);
+			yAxisStepperMotor.setAcceleration(yAxisAcceleration);
+			yAxisStepperMotor.setSpeed(yAxisMotorSpeed);
 		}
 		else if (yAxisStepperMotorLimitSwitchCCW.isReleased())
 		{
 			printNonBlocking("The limit switch: RELEASED");
 			yDirection *= DIRECTION_CW;  // change direction
-			yAxis.yAxisMoveMM = yDirection * 4.00;
+			yAxisMoveMM = yDirection * 4.00;
 		}
 	}
-	else if (yAxisStepperMotor.distanceToGo() == 0 && yAxis.yAxisSetToZeroPosition == false)
+	else if (yAxisStepperMotor.distanceToGo() == 0 && yAxisSetToZeroPosition == false)
 	{
-		yAxis.yAxisCurrentPosition = yAxisStepperMotor.currentPosition();
-		printNonBlocking("Y," + (String)yAxis.yAxisCurrentPosition);
+		yAxisCurrentPosition = yAxisStepperMotor.currentPosition();
+		printNonBlocking("Y," + (String)yAxisCurrentPosition);
 	}
 }
 /// <summary>
@@ -470,78 +657,78 @@ static void yMotorRun()
 /// </summary>
 static void zMotorRun()
 {
-	zAxisStepperMotor.moveTo(zAxis.zAxisMoveMM);
-	zAxisStepperMotor.setAcceleration(zAxis.zAxisAcceleration);
-	zAxisStepperMotor.setSpeed(zAxis.zAxisMotorSpeed);
-	zAxis.zAxisCurrentPosition = 0.00;
+	zAxisStepperMotor.moveTo(zAxisMoveMM);
+	zAxisStepperMotor.setAcceleration(zAxisAcceleration);
+	zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
+	zAxisCurrentPosition = 0.00;
 
 
-	if (zAxis.zAxisSetToZeroPosition == true)
+	if (zAxisSetToZeroPosition == true)
 	{
-		zAxis.zAxisSetToZeroPosition = false;
-		zAxis.zAxisWasSetToZeroPosition = true;
-		zAxis.zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
-		zAxis.zAxisMoveMM = 0.00;
-		zAxisStepperMotor.setCurrentPosition(zAxis.zAxisMoveMM);
-		printNonBlocking("Z," + (String)zAxis.zAxisCurrentPosition);
+		zAxisSetToZeroPosition = false;
+		zAxisWasSetToZeroPosition = true;
+		zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
+		zAxisMoveMM = 0.00;
+		zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
+		printNonBlocking("Z," + (String)zAxisCurrentPosition);
 		NVIC_SystemReset();  //call reset on Arduino or clone board
 		//ESP.restart();  //call reset on ESP32 board
 	}
-	else if (zAxisStepperMotor.distanceToGo() != 0 && zAxis.zAxisSetToZeroPosition == false)
+	else if (zAxisStepperMotor.distanceToGo() != 0 && zAxisSetToZeroPosition == false)
 	{
 		printNonBlocking("Z Axis Current Position, " + (String)zAxisStepperMotor.currentPosition());
-		if (zAxis.zAxisStepperLimitSwitchCWPressed = true)
+		if (zAxisStepperLimitSwitchCWPressed = true)
 		{
 			printNonBlocking("The Clockwise limit switch: isPressed.");
 			zAxisStepperMotor.stop();
-			zAxis.zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
-			zAxisStepperMotor.setCurrentPosition(zAxis.zAxisCurrentPosition);
+			zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
+			zAxisStepperMotor.setCurrentPosition(zAxisCurrentPosition);
 			zDirection *= DIRECTION_CCW;  // change direction
-			zAxis.zAxisLimitSwitchMoveMM = zDirection * 4.00;
-			zAxisStepperMotor.moveTo(zAxis.zAxisLimitSwitchMoveMM);
-			zAxisStepperMotor.setAcceleration(zAxis.zAxisAcceleration);
-			zAxisStepperMotor.setSpeed(zAxis.zAxisMotorSpeed);
+			zAxisLimitSwitchMoveMM = zDirection * 4.00;
+			zAxisStepperMotor.moveTo(zAxisLimitSwitchMoveMM);
+			zAxisStepperMotor.setAcceleration(zAxisAcceleration);
+			zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
 			zAxisStepperMotor.run();
 		}
-		else if (zAxis.zAxisStepperLimitSwitchCWReleased = true)
+		else if (zAxisStepperLimitSwitchCWReleased = true)
 		{
 			printNonBlocking("The limit switch: RELEASED");
 			zDirection *= DIRECTION_CW;  // change direction
-			zAxis.zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
-			zAxisStepperMotor.setCurrentPosition(zAxis.zAxisCurrentPosition);
-			zAxis.zAxisMoveMM = zDirection * 4.00;
+			zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
+			zAxisStepperMotor.setCurrentPosition(zAxisCurrentPosition);
+			zAxisMoveMM = zDirection * 4.00;
 		}
-		if (zAxis.zAxisStepperLimitSwitchCCWPressed = true)
+		if (zAxisStepperLimitSwitchCCWPressed = true)
 		{
 			printNonBlocking("The Counter-Clockwise limit switch: isPressed.");
 			zAxisStepperMotor.stop();
-			zAxis.zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
-			zAxisStepperMotor.setCurrentPosition(zAxis.zAxisCurrentPosition);
+			zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
+			zAxisStepperMotor.setCurrentPosition(zAxisCurrentPosition);
 			zDirection *= DIRECTION_CW;  // change direction
-			zAxis.zAxisLimitSwitchMoveMM = zDirection * 4.00;
-			zAxisStepperMotor.moveTo(zAxis.zAxisLimitSwitchMoveMM);
-			zAxisStepperMotor.setAcceleration(zAxis.zAxisAcceleration);
-			zAxisStepperMotor.setSpeed(zAxis.zAxisMotorSpeed);
+			zAxisLimitSwitchMoveMM = zDirection * 4.00;
+			zAxisStepperMotor.moveTo(zAxisLimitSwitchMoveMM);
+			zAxisStepperMotor.setAcceleration(zAxisAcceleration);
+			zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
 			zAxisStepperMotor.run();
 		}
-		else if (zAxis.zAxisStepperLimitSwitchCCWReleased = true)
+		else if (zAxisStepperLimitSwitchCCWReleased = true)
 		{
 			printNonBlocking("The limit switch: RELEASED");
 			zDirection *= DIRECTION_CCW;  // change direction
-			zAxis.zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
-			zAxisStepperMotor.setCurrentPosition(zAxis.zAxisCurrentPosition);
-			zAxis.zAxisMoveMM = zDirection * 4.00;
+			zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
+			zAxisStepperMotor.setCurrentPosition(zAxisCurrentPosition);
+			zAxisMoveMM = zDirection * 4.00;
 		}
 		else
 		{
 			printNonBlocking("The limit switch: Not Touched or used.");
-			zAxisStepperMotor.moveTo(zAxis.zAxisMoveMM);
-			zAxisStepperMotor.setAcceleration(zAxis.zAxisAcceleration);
-			zAxisStepperMotor.setSpeed(zAxis.zAxisMotorSpeed);
+			zAxisStepperMotor.moveTo(zAxisMoveMM);
+			zAxisStepperMotor.setAcceleration(zAxisAcceleration);
+			zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
 			zAxisStepperMotor.runSpeedToPosition();
 		}
 	}
-	else if (zAxisStepperMotor.distanceToGo() == 0 && zAxis.zAxisSetToZeroPosition == false)
+	else if (zAxisStepperMotor.distanceToGo() == 0 && zAxisSetToZeroPosition == false)
 	{
 		printNonBlocking("Z Axis Current Position, " + (String)zAxisStepperMotor.currentPosition());
 	}
