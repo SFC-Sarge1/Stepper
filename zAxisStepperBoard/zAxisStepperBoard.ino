@@ -531,40 +531,6 @@ static void xMotorRun()
 	else if (xAxisStepperMotor.distanceToGo() != 0 && xAxisSetToZeroPosition == false)
 	{
 		xAxisStepperMotor.runSpeedToPosition();
-		if (xAxisStepperMotorLimitSwitchCW.isPressed())
-		{
-			printNonBlocking("The limit switch: TOUCHED");
-			xAxisStepperMotor.stop();
-			xAxisStepperMotor.setCurrentPosition(xAxisMoveMM);
-			xDirection *= DIRECTION_CCW;  // change direction
-			xAxisMoveMM = xDirection * 4.00;
-			xAxisStepperMotor.moveTo(xAxisMoveMM);
-			xAxisStepperMotor.setAcceleration(xAxisAcceleration);
-			xAxisStepperMotor.setSpeed(xAxisMotorSpeed);
-		}
-		else if (xAxisStepperMotorLimitSwitchCW.isReleased())
-		{
-			printNonBlocking("The limit switch: RELEASED");
-			xDirection *= DIRECTION_CW;  // change direction
-			xAxisMoveMM = xDirection * 4.00;
-		}
-		if (xAxisStepperMotorLimitSwitchCCW.isPressed())
-		{
-			printNonBlocking("The limit switch: TOUCHED");
-			xAxisStepperMotor.stop();
-			xAxisStepperMotor.setCurrentPosition(xAxisMoveMM);
-			xDirection *= DIRECTION_CCW;  // change direction
-			xAxisMoveMM = xDirection * 4.00;
-			xAxisStepperMotor.moveTo(xAxisMoveMM);
-			xAxisStepperMotor.setAcceleration(xAxisAcceleration);
-			xAxisStepperMotor.setSpeed(xAxisMotorSpeed);
-		}
-		else if (xAxisStepperMotorLimitSwitchCCW.isReleased())
-		{
-			printNonBlocking("The limit switch: RELEASED");
-			xDirection *= DIRECTION_CW;  // change direction
-			xAxisMoveMM = xDirection * 4.00;
-		}
 	}
 	else if (xAxisStepperMotor.distanceToGo() == 0 && xAxisSetToZeroPosition == false)
 	{
@@ -625,8 +591,7 @@ static void zMotorRun()
 	else if (zAxisStepperMotor.distanceToGo() != 0 && zAxisSetToZeroPosition == false)
 	{
 		printNonBlocking("Z Axis Current Position, " + (String)zAxisStepperMotor.currentPosition());
-		//zAxisStepperMotor.runSpeedToPosition();
-		zAxisStepperMotor.run();
+		zAxisStepperMotor.runSpeedToPosition();
 	}
 	else if (zAxisStepperMotor.distanceToGo() == 0 && zAxisSetToZeroPosition == false) {
 		printNonBlocking("Z Axis Current Position, " + (String)zAxisStepperMotor.currentPosition());
