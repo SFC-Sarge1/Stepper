@@ -300,9 +300,9 @@ namespace Stepper
                 }
             }
             btnZAxisPort.Content = $"Z Axis Port {Properties.Settings.Default.ZComPort}";
-            
-            
-            
+
+
+
             ResizeMode = ResizeMode.NoResize;
 #if DEBUG
             int major = Assembly.GetExecutingAssembly().GetName().Version.Major;
