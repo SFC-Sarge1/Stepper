@@ -56,7 +56,7 @@ enum ESP32BoardAxis
 /// The axis number of the ESP32 board code is running on.
 /// Axis integer value X=1, Y=2, Z=3
 /// </summary>
-int axisNumber = 3;  // Axis integer value X=1, Y=2, Z=3
+int axisNumber = 2;  // Axis integer value X=0, Y=1, Z=2
 /// <summary>
 /// The current axis casted from the axis number.
 /// </summary>
@@ -577,6 +577,21 @@ static void zMotorRun()
 	zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
 	zAxisCurrentPosition = 0.00;
 
+
+	if (zAxisStepperMotorLimitSwitchCW.isPressed())
+	{
+		zAxisStepperMotor.stop();
+		printNonBlocking("Z Axis CW Limit Switch Triggered, Stopping Motor");
+		return;
+	}
+
+	if (zAxisStepperMotorLimitSwitchCCW.isPressed())
+	{
+		zAxisStepperMotor.stop();
+		printNonBlocking("Z Axis CCW Limit Switch Triggered, Stopping Motor");
+		return;
+	}
+
 	if (zAxisSetToZeroPosition == true)
 	{
 		zAxisSetToZeroPosition = false;
@@ -593,10 +608,12 @@ static void zMotorRun()
 		printNonBlocking("Z Axis Current Position, " + (String)zAxisStepperMotor.currentPosition());
 		zAxisStepperMotor.runSpeedToPosition();
 	}
-	else if (zAxisStepperMotor.distanceToGo() == 0 && zAxisSetToZeroPosition == false) {
+	else if (zAxisStepperMotor.distanceToGo() == 0 && zAxisSetToZeroPosition == false)
+	{
 		printNonBlocking("Z Axis Current Position, " + (String)zAxisStepperMotor.currentPosition());
 	}
 }
+
 /// <summary>
 /// Serials the write.
 /// </summary>
