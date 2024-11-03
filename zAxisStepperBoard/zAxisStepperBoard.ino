@@ -389,21 +389,21 @@ void setup()
 /// </summary>
 void loop()
 {
-	switch (currentAxis)
-	{
-	case X:
-		xAxisStepperMotorLimitSwitchCW.loop();
-		xAxisStepperMotorLimitSwitchCCW.loop();
-		break;
-	case Y:
-		yAxisStepperMotorLimitSwitchCW.loop();
-		yAxisStepperMotorLimitSwitchCCW.loop();
-		break;
-	case Z:
+	//switch (currentAxis)
+	//{
+	//case X:
+	//	xAxisStepperMotorLimitSwitchCW.loop();
+	//	xAxisStepperMotorLimitSwitchCCW.loop();
+	//	break;
+	//case Y:
+	//	yAxisStepperMotorLimitSwitchCW.loop();
+	//	yAxisStepperMotorLimitSwitchCCW.loop();
+	//	break;
+	//case Z:
 		zAxisStepperMotorLimitSwitchCW.loop();
 		zAxisStepperMotorLimitSwitchCCW.loop();
-		break;
-	}
+	//	break;
+	//}
 	if (Serial.available())
 	{
 		serialData[serialDataIndex] = Serial.readStringUntil(',');
@@ -577,15 +577,18 @@ static void zMotorRun()
 	zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
 	zAxisCurrentPosition = 0.00;
 
+	// Check limit switches
+	zAxisStepperMotorLimitSwitchCW.loop();
+	zAxisStepperMotorLimitSwitchCCW.loop();
 
-	if (zAxisStepperMotorLimitSwitchCW.isPressed())
+	if (!digitalRead(LIMIT_SWITCH1_PIN))  // NC switch is pressed when the pin reads LOW
 	{
 		zAxisStepperMotor.stop();
 		printNonBlocking("Z Axis CW Limit Switch Triggered, Stopping Motor");
 		return;
 	}
 
-	if (zAxisStepperMotorLimitSwitchCCW.isPressed())
+	if (!digitalRead(LIMIT_SWITCH2_PIN))  // NC switch is pressed when the pin reads LOW
 	{
 		zAxisStepperMotor.stop();
 		printNonBlocking("Z Axis CCW Limit Switch Triggered, Stopping Motor");
@@ -606,7 +609,7 @@ static void zMotorRun()
 	else if (zAxisStepperMotor.distanceToGo() != 0 && zAxisSetToZeroPosition == false)
 	{
 		printNonBlocking("Z Axis Current Position, " + (String)zAxisStepperMotor.currentPosition());
-		zAxisStepperMotor.runSpeedToPosition();
+		zAxisStepperMotor.run();
 	}
 	else if (zAxisStepperMotor.distanceToGo() == 0 && zAxisSetToZeroPosition == false)
 	{
