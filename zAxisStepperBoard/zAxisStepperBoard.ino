@@ -34,7 +34,7 @@
 /// <summary>
 /// Enum for the current ESP32 Board Axis value X=1, Y=2, Z=3
 /// </summary>
-enum ESP32BoardAxis
+enum ArduinoBoardAxis
 {
 	/// <summary>
 	/// The x
@@ -60,7 +60,7 @@ int axisNumber = 2;  // Axis integer value X=0, Y=1, Z=2
 /// <summary>
 /// The current axis casted from the axis number.
 /// </summary>
-ESP32BoardAxis currentAxis = static_cast<ESP32BoardAxis>(axisNumber);
+ArduinoBoardAxis currentAxis = static_cast<ArduinoBoardAxis>(axisNumber);
 /// <summary>
 /// The x axis LimitSwitch Clockwise
 /// </summary>
@@ -327,6 +327,10 @@ bool zAxisStepperLimitSwitchCCWReleased = false;
 /// The z axis distance to go
 /// </summary>
 float zAxisDistanceToGo = 0.00;
+static bool limitSwitchCWTriggered = false;
+static bool limitSwitchCCWTriggered = false;
+static int limitSwitchTriggered;
+
 /// <summary>
 /// Setups this instance.
 /// </summary>
@@ -381,6 +385,7 @@ void setup()
 	zAxisStepperMotor.setMaxSpeed(zAxisStepperMotorMaxSpeed);
 	zAxisStepperMotor.setCurrentPosition(zAxisCurrentPosition);
 	zAxisMoveMM = zAxisNewPosition;
+
 	serialDataIndex = 0;
 }
 
@@ -412,6 +417,8 @@ void loop()
 		{
 			serialDataIndex = 0;
 			Axis = serialData[0];
+			//limitSwitchTriggered = serialData[10].toInt();
+
 			if (Axis == "X")
 			{
 				//X axis stuff
@@ -572,26 +579,31 @@ static void yMotorRun()
 /// </summary>
 static void zMotorRun()
 {
+	// Check limit switches
+	zAxisStepperMotorLimitSwitchCW.loop();
+	zAxisStepperMotorLimitSwitchCCW.loop();
 	zAxisStepperMotor.moveTo(zAxisMoveMM);
 	zAxisStepperMotor.setAcceleration(zAxisAcceleration);
 	zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
 	zAxisCurrentPosition = 0.00;
 
-	// Check limit switches
-	zAxisStepperMotorLimitSwitchCW.loop();
-	zAxisStepperMotorLimitSwitchCCW.loop();
-
 	if (!digitalRead(LIMIT_SWITCH1_PIN))  // NC switch is pressed when the pin reads LOW
 	{
 		zAxisStepperMotor.stop();
+		limitSwitchCWTriggered = true;
+		Serial.println("Z Axis CW STOPPED");
 		printNonBlocking("Z Axis CW Limit Switch Triggered, Stopping Motor");
+		Serial.println("Z Axis Motor Stopped");
 		return;
 	}
 
 	if (!digitalRead(LIMIT_SWITCH2_PIN))  // NC switch is pressed when the pin reads LOW
 	{
 		zAxisStepperMotor.stop();
+		limitSwitchCCWTriggered = true;
+		Serial.println("Z Axis CCW STOPPED");
 		printNonBlocking("Z Axis CCW Limit Switch Triggered, Stopping Motor");
+		Serial.println("Z Axis Motor Stopped");
 		return;
 	}
 
@@ -603,16 +615,38 @@ static void zMotorRun()
 		zAxisMoveMM = 0.00;
 		zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
 		printNonBlocking("Z," + (String)zAxisCurrentPosition);
+		limitSwitchTriggered = 1;
 		NVIC_SystemReset();  //call reset on Arduino or clone board
 		//ESP.restart();  //call reset on ESP32 board
 	}
 	else if (zAxisStepperMotor.distanceToGo() != 0 && zAxisSetToZeroPosition == false)
 	{
 		printNonBlocking("Z Axis Current Position, " + (String)zAxisStepperMotor.currentPosition());
-		zAxisStepperMotor.run();
+		if (!limitSwitchCWTriggered && !limitSwitchCCWTriggered)
+		{
+			zAxisStepperMotor.runSpeedToPosition();
+		}
+		else
+		{
+			return;
+		}
+	}
+	// Reset limit switch flags if moving in the reverse direction
+	else if (zAxisStepperMotor.distanceToGo() < 0 && limitSwitchCWTriggered)
+	{
+		limitSwitchCWTriggered = false;
+		Serial.println("Z Axis CW Limit Switch Reset");
+	}
+	else if (zAxisStepperMotor.distanceToGo() > 0 && limitSwitchCCWTriggered)
+	{
+		limitSwitchCCWTriggered = false;
+		Serial.println("Z Axis CCW Limit Switch Reset");
 	}
 	else if (zAxisStepperMotor.distanceToGo() == 0 && zAxisSetToZeroPosition == false)
 	{
+		limitSwitchCWTriggered = false;
+		limitSwitchCCWTriggered = false;
+		limitSwitchTriggered = 1;
 		printNonBlocking("Z Axis Current Position, " + (String)zAxisStepperMotor.currentPosition());
 	}
 }

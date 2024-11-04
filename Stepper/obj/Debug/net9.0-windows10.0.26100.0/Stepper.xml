@@ -364,6 +364,11 @@
             The message
             </summary>
         </member>
+        <member name="F:Stepper.MainWindow.limitSwitchTriggered">
+            <summary>
+            The Limit Switch Triggered value 0 = false, 1 = true
+            </summary>
+        </member>
         <member name="M:Stepper.MainWindow.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Stepper.MainWindow" /> class.

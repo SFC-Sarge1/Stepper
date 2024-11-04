@@ -167,8 +167,6 @@ namespace Stepper
         /// The Z serial port
         /// </summary>
         public SerialPort _ZserialPort = new SerialPort();
-
-
         /// <summary>
         /// The serial port
         /// </summary>
@@ -177,6 +175,10 @@ namespace Stepper
         /// The message
         /// </summary>
         static byte[] message = new byte[6000];
+        /// <summary>
+        /// The Limit Switch Triggered value 0 = false, 1 = true
+        /// </summary>
+        public int limitSwitchTriggered = 0;
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow" /> class.
         /// </summary>
@@ -409,6 +411,14 @@ namespace Stepper
                 SerialPort Zsp = (SerialPort)sender;
                 string Zindata = Zsp.ReadExisting();
                 _logger.LogInformation(message: $"Z Axis Data Received: {Zindata}");
+                // Check if the message indicates the motor has stopped
+                if (Zindata.Contains("Z Axis Motor Stopped"))
+                {
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        MessageBox.Show("Z Axis Motor has stopped due to limit switch trigger.", "Motor Stopped", MessageBoxButton.OK, MessageBoxImage.Information);
+                    });
+                }
             }
             catch (Exception ex)
             {
