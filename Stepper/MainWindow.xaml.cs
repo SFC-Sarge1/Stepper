@@ -232,6 +232,9 @@ namespace Stepper
         /// The Z Axis Absolute Position
         /// </summary>
         public float zAxisAbsolutePosition = 0.00f;  // Variable to store the absolute position of the motor
+        public bool xAxisClearAbsoultePosition = false;
+        public bool yAxisClearAbsoultePosition = false;
+        public bool zAxisClearAbsoultePosition = false;
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow" /> class.
         /// </summary>
@@ -494,6 +497,7 @@ namespace Stepper
                         CountdownLabel.Content = "";
                         //ZZero(Properties.Settings.Default.Milliseconds, Properties.Settings.Default.RootAxisZ);
                         ckbZaxisResetToZero.IsChecked = true;
+                        zAxisClearAbsoultePosition = false;
                         RoutedEventArgs e = new();
                         ZAxisRun_Click(sender, e);
                         try
@@ -526,7 +530,7 @@ namespace Stepper
                                                     Application.Current.Dispatcher.Invoke(() =>
                                                     {
                                                         ckbZaxisResetToZero.IsChecked = false;
-                                                        txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
+                                                        txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString("F2");
                                                         // Update the UI or log the current position
                                                         txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2"); // Display distance in mm
                                                         Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
@@ -535,6 +539,8 @@ namespace Stepper
                                                         _zAxisRunCompleted = false;
                                                         _logger.LogInformation(message: $"Z Axis CW Motor Current Position: {txtZaxisStepperCurrent.Text}");
                                                         //MessageBox.Show($"Z Axis Motor Current Position: {currentPosition}", "Motor Position", MessageBoxButton.OK, MessageBoxImage.Information);
+                                                        zAxisClearAbsoultePosition = true;
+                                                        //zAxisAbsolutePosition = 0.00f;
                                                     });
                                                 }
                                             }
@@ -611,7 +617,7 @@ namespace Stepper
                                                     float stepsPerRevolution = 200.0f;
                                                     float distancePerRevolution = 4.0f;
                                                     float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
-                                                    zAxisAbsolutePosition = zAxisAbsolutePosition + distanceInMM;
+                                                    zAxisAbsolutePosition = zAxisAbsolutePosition - distanceInMM;
                                                     Application.Current.Dispatcher.Invoke(() =>
                                                     {
                                                         ckbZaxisResetToZero.IsChecked = false;
@@ -624,6 +630,8 @@ namespace Stepper
                                                         _zAxisRunCompleted = false;
                                                         _logger.LogInformation(message: $"Z Axis CCW Motor Current Position: {txtZaxisStepperCurrent.Text}");
                                                         //MessageBox.Show($"Z Axis Motor Current Position: {currentPosition}", "Motor Position", MessageBoxButton.OK, MessageBoxImage.Information);
+                                                        zAxisClearAbsoultePosition = true;
+
                                                     });
                                                 }
                                             }
@@ -1062,6 +1070,11 @@ namespace Stepper
             Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             Properties.Settings.Default.Save();
             _logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
+            if (zAxisClearAbsoultePosition)
+            {
+                zAxisAbsolutePosition = 0.00f;
+            }
+
         }
         /// <summary>
         /// Sets the stepper motor X and Y axis to zero.
