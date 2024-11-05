@@ -588,7 +588,7 @@ namespace Stepper
             string appPath2 = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             Properties.Settings.Default.Save();
             // Get the children as a list and sort by Name
-            MainWindow.timer.Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)); // Set the timer to tick every 1 millisecond
+            MainWindow.zTimer.Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)); // Set the timer to tick every 1 millisecond
             MainWindow._logger.LogInformation("Stepper Motor Controller Application Settings Saved.");
             Hide();
         }

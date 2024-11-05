@@ -189,29 +189,84 @@
             MainWindow
             </summary>
         </member>
+        <member name="F:Stepper.MainWindow._xCancellationTokenSource">
+            <summary>
+            Cancel the X Task Delay
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._yCancellationTokenSource">
+            <summary>
+            Cancel the Y Task Delay
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._zCancellationTokenSource">
+            <summary>
+            Cancel the Z Task Delay
+            </summary>
+        </member>
         <member name="F:Stepper.MainWindow.newSettingsWindow">
             <summary>
             The new settings window
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.timer">
+        <member name="F:Stepper.MainWindow.xTimer">
             <summary>
-            The timer
+            The X Axis Timer
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.countdownTime">
+        <member name="F:Stepper.MainWindow.yTimer">
             <summary>
-            The countdown time
+            The Y Axis Timer
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.targetEndTime">
+        <member name="F:Stepper.MainWindow.zTimer">
             <summary>
-            The target end time
+            The Z AxisTimer
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.stopwatch">
+        <member name="F:Stepper.MainWindow.xCountdownTime">
             <summary>
-            The stopwatch
+            The X Axis Countdown time
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.yCountdownTime">
+            <summary>
+            The Y Axis Countdown time
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.zCountdownTime">
+            <summary>
+            The Z Axis Countdown time
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.xTargetEndTime">
+            <summary>
+            The X Axis Target end time
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.yTargetEndTime">
+            <summary>
+            The Y Axis Target end time
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.zTargetEndTime">
+            <summary>
+            The Z Axis Target end time
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.xStopwatch">
+            <summary>
+            The X Axis Stopwatch
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.yStopwatch">
+            <summary>
+            The Y Axis Stopwatch
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.zStopwatch">
+            <summary>
+            The Z Axis Stopwatch
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.elapsedTime">
@@ -364,9 +419,9 @@
             The message
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.limitSwitchTriggered">
+        <member name="F:Stepper.MainWindow.zCurrentPosition">
             <summary>
-            The Limit Switch Triggered value 0 = false, 1 = true
+            The Z Axis Current Position
             </summary>
         </member>
         <member name="M:Stepper.MainWindow.#ctor">
@@ -703,7 +758,7 @@
         </member>
         <member name="M:Stepper.MainWindow.UpdateMotorTimer(System.String,System.Decimal,System.Decimal)">
             <summary>
-            Updates the motor timer.
+            Updates the motor zTimer.
             </summary>
             <param name="axis">The axis.</param>
             <param name="MotorSpeed">The motor speed.</param>

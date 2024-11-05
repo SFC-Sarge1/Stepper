@@ -394,21 +394,21 @@ void setup()
 /// </summary>
 void loop()
 {
-	//switch (currentAxis)
-	//{
-	//case X:
-	//	xAxisStepperMotorLimitSwitchCW.loop();
-	//	xAxisStepperMotorLimitSwitchCCW.loop();
-	//	break;
-	//case Y:
-	//	yAxisStepperMotorLimitSwitchCW.loop();
-	//	yAxisStepperMotorLimitSwitchCCW.loop();
-	//	break;
-	//case Z:
+	switch (currentAxis)
+	{
+	case X:
+		xAxisStepperMotorLimitSwitchCW.loop();
+		xAxisStepperMotorLimitSwitchCCW.loop();
+		break;
+	case Y:
+		yAxisStepperMotorLimitSwitchCW.loop();
+		yAxisStepperMotorLimitSwitchCCW.loop();
+		break;
+	case Z:
 		zAxisStepperMotorLimitSwitchCW.loop();
 		zAxisStepperMotorLimitSwitchCCW.loop();
-	//	break;
-	//}
+		break;
+	}
 	if (Serial.available())
 	{
 		serialData[serialDataIndex] = Serial.readStringUntil(',');
@@ -591,9 +591,9 @@ static void zMotorRun()
 	{
 		zAxisStepperMotor.stop();
 		limitSwitchCWTriggered = true;
-		Serial.println("Z Axis CW STOPPED");
-		printNonBlocking("Z Axis CW Limit Switch Triggered, Stopping Motor");
+		limitSwitchCCWTriggered = false;
 		Serial.println("Z Axis Motor Stopped");
+		Serial.println("Z Axis Motor Current Position: " + (String)zAxisStepperMotor.currentPosition());
 		return;
 	}
 
@@ -601,9 +601,9 @@ static void zMotorRun()
 	{
 		zAxisStepperMotor.stop();
 		limitSwitchCCWTriggered = true;
-		Serial.println("Z Axis CCW STOPPED");
-		printNonBlocking("Z Axis CCW Limit Switch Triggered, Stopping Motor");
+		limitSwitchCWTriggered = false;
 		Serial.println("Z Axis Motor Stopped");
+		Serial.println("Z Axis Motor Current Position: " + (String)zAxisStepperMotor.currentPosition());
 		return;
 	}
 
@@ -615,7 +615,8 @@ static void zMotorRun()
 		zAxisMoveMM = 0.00;
 		zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
 		printNonBlocking("Z," + (String)zAxisCurrentPosition);
-		limitSwitchTriggered = 1;
+		limitSwitchCWTriggered = false;
+		limitSwitchCCWTriggered = false;
 		NVIC_SystemReset();  //call reset on Arduino or clone board
 		//ESP.restart();  //call reset on ESP32 board
 	}
@@ -636,17 +637,20 @@ static void zMotorRun()
 	{
 		limitSwitchCWTriggered = false;
 		Serial.println("Z Axis CW Limit Switch Reset");
+		zAxisStepperMotor.runSpeedToPosition();
+
 	}
 	else if (zAxisStepperMotor.distanceToGo() > 0 && limitSwitchCCWTriggered)
 	{
 		limitSwitchCCWTriggered = false;
 		Serial.println("Z Axis CCW Limit Switch Reset");
+		zAxisStepperMotor.runSpeedToPosition();
+
 	}
 	else if (zAxisStepperMotor.distanceToGo() == 0 && zAxisSetToZeroPosition == false)
 	{
 		limitSwitchCWTriggered = false;
 		limitSwitchCCWTriggered = false;
-		limitSwitchTriggered = 1;
 		printNonBlocking("Z Axis Current Position, " + (String)zAxisStepperMotor.currentPosition());
 	}
 }

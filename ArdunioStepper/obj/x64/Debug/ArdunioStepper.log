@@ -1,4 +1,4 @@
-﻿12:58:24.493     0>Property reassignment: $(MSBuildExtensionsPath)="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild" (previous value: "C:\Program Files (x86)\MSBuild") at 
+﻿17:23:54.482     0>Property reassignment: $(MSBuildExtensionsPath)="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild" (previous value: "C:\Program Files (x86)\MSBuild") at 
                    Property reassignment: $(MSBuildExtensionsPath32)="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild" (previous value: "C:\Program Files (x86)\MSBuild") at 
                    Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
                    Trying to import C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\$(MSBuildToolsVersion)\Microsoft.Common.props using extensions path C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild
@@ -901,28 +901,27 @@
                    Overriding target "GetTargetPathWithTargetPlatformMoniker" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "GetTargetPathWithTargetPlatformMoniker" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.DesignTime.targets".
                    The target "CompileDesignTime" listed in a BeforeTargets attribute at "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets (44,11)" does not exist in the project, and will be ignored.
                    The target "CompileDesignTime" listed in a BeforeTargets attribute at "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets (57,11)" does not exist in the project, and will be ignored.
-Build started 10/18/2024 12:58:24.
+Build started 11/4/2024 17:23:54.
 Environment at start of build:
                    MSBuildLoadMicrosoftTargetsReadOnly = true
 
-Logging verbosity is set to: Diagnostic.12:58:24.505     1>Project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" on node 2 (Rebuild target(s)).
-12:58:24.505     1>Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
-12:58:24.505     1>Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:2)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "SetTelemetryEnvironmentVariables" depends on it):
+Logging verbosity is set to: Diagnostic.17:23:54.496     1>Project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" on node 2 (Build target(s)).
+17:23:54.496     1>Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
+17:23:54.496     1>Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:78)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "SetTelemetryEnvironmentVariables" depends on it):
                    Set Property: _InvalidConfigurationMessageText=The BaseOutputPath/OutputPath property is not set for project 'ArdunioStepper.vcxproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Debug'  Platform='x64'.
                    Set Property: _InvalidConfigurationMessageText=The BaseOutputPath/OutputPath property is not set for project 'ArdunioStepper.vcxproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Debug'  Platform='x64'.  This error may also appear if some other project is trying to follow a project-to-project reference to this project, this project has been unloaded or is not included in the solution, and the referencing project does not build using the same or an equivalent Configuration or Platform.
                    Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
                    Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
-                   Using "Message" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "Message" (TaskId:2)
-                     Task Parameter:Importance=Low (TaskId:2)
-                     Task Parameter:Text=Configuration=Debug (TaskId:2)
-                     Configuration=Debug (TaskId:2)
-                   Done executing task "Message". (TaskId:2)
-                   Task "Message" (TaskId:3)
-                     Task Parameter:Importance=Low (TaskId:3)
-                     Task Parameter:Text=Platform=x64 (TaskId:3)
-                     Platform=x64 (TaskId:3)
-                   Done executing task "Message". (TaskId:3)
+                   Task "Message" (TaskId:62)
+                     Task Parameter:Importance=Low (TaskId:62)
+                     Task Parameter:Text=Configuration=Debug (TaskId:62)
+                     Configuration=Debug (TaskId:62)
+                   Done executing task "Message". (TaskId:62)
+                   Task "Message" (TaskId:63)
+                     Task Parameter:Importance=Low (TaskId:63)
+                     Task Parameter:Text=Platform=x64 (TaskId:63)
+                     Platform=x64 (TaskId:63)
+                   Done executing task "Message". (TaskId:63)
                    Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\' != '' and !HasTrailingSlash('C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\')).
                    Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\' != '' and !HasTrailingSlash('C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\')).
                    Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
@@ -931,143 +930,96 @@ Logging verbosity is set to: Diagnostic.12:58:24.505     1>Project "C:\Users\sfc
                    Task "MSBuildInternalMessage" skipped, due to false condition; ( '$(PreferNativeArm64)' == 'true' and '$(Platform)' != 'AnyCPU' ) was evaluated as ( '' == 'true' and 'x64' != 'AnyCPU' ).
                    Task "Error" skipped, due to false condition; ( '$(_InitialMSBuildProjectExtensionsPath)' != '' And '$(MSBuildProjectExtensionsPath)' != '$(_InitialMSBuildProjectExtensionsPath)' ) was evaluated as ( 'C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\' != '' And 'C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\' != 'C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\' ).
                    Task "Warning" skipped, due to false condition; ( '$(EnableBaseIntermediateOutputPathMismatchWarning)' == 'true' And '$(_InitialBaseIntermediateOutputPath)' != '$(BaseIntermediateOutputPath)' And '$(BaseIntermediateOutputPath)' != '$(MSBuildProjectExtensionsPath)' ) was evaluated as ( '' == 'true' And 'obj\' != 'obj\' And 'obj\' != 'C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\' ).
-12:58:24.506     1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "ArdunioStepper.vcxproj".: (TargetId:2)
+17:23:54.497     1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "ArdunioStepper.vcxproj".: (TargetId:78)
                    Target "_CheckForInvalidConfigurationAndPlatform" skipped. Previously built successfully.
-12:58:24.506     1>Target "SetTelemetryEnvironmentVariables: (TargetId:3)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.DesignTime.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "Rebuild" depends on it):
+17:23:54.497     1>Target "SetTelemetryEnvironmentVariables: (TargetId:79)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.DesignTime.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "Build" depends on it):
                    Using "SetEnv" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Build.CppTasks.Common.dll".
-                   Task "SetEnv" (TaskId:4)
-                     Task Parameter:Prefix=False (TaskId:4)
-                     Task Parameter:Value={1F510774-72F9-40CD-AED1-7B96CDCB6804} (TaskId:4)
-                     Task Parameter:Name=VSTEL_SolutionSessionID (TaskId:4)
-                     VSTEL_SolutionSessionID={1F510774-72F9-40CD-AED1-7B96CDCB6804} (TaskId:4)
-                   Done executing task "SetEnv". (TaskId:4)
-                   Task "SetEnv" (TaskId:5)
-                     Task Parameter:Prefix=False (TaskId:5)
-                     Task Parameter:Value=94044824 (TaskId:5)
-                     Task Parameter:Name=VSTEL_CurrentSolutionBuildID (TaskId:5)
-                     VSTEL_CurrentSolutionBuildID=94044824 (TaskId:5)
-                   Done executing task "SetEnv". (TaskId:5)
-                   Task "SetEnv" (TaskId:6)
-                     Task Parameter:Prefix=False (TaskId:6)
-                     Task Parameter:Value={934a2a5d-9de2-45da-ab4a-87931e7145f1} (TaskId:6)
-                     Task Parameter:Name=VSTEL_ProjectID (TaskId:6)
-                     VSTEL_ProjectID={934a2a5d-9de2-45da-ab4a-87931e7145f1} (TaskId:6)
-                     Output Property: VSTEL_ProjectID={934a2a5d-9de2-45da-ab4a-87931e7145f1} (TaskId:6)
-                   Done executing task "SetEnv". (TaskId:6)
-                   Task "SetEnv" (TaskId:7)
-                     Task Parameter:Prefix=False (TaskId:7)
-                     Task Parameter:Value=C:\Users\sfcsarge\source\repos\Stepper\Stepper.sln (TaskId:7)
-                     Task Parameter:Name=VSTEL_SolutionPath (TaskId:7)
-                     VSTEL_SolutionPath=C:\Users\sfcsarge\source\repos\Stepper\Stepper.sln (TaskId:7)
-                   Done executing task "SetEnv". (TaskId:7)
-                   Task "SetEnv" (TaskId:8)
-                     Task Parameter:Prefix=False (TaskId:8)
-                     Task Parameter:Value=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj (TaskId:8)
-                     Task Parameter:Name=VSTEL_MSBuildProjectFullPath (TaskId:8)
-                     VSTEL_MSBuildProjectFullPath=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj (TaskId:8)
-                   Done executing task "SetEnv". (TaskId:8)
-12:58:24.507     1>Done building target "SetTelemetryEnvironmentVariables" in project "ArdunioStepper.vcxproj".: (TargetId:3)
-12:58:24.507     1>Target "_PrepareForRebuild: (TargetId:4)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "Rebuild" depends on it):
-                   Set Property: BuildType=Rebuild
-                   Set Property: _BuildActionType=Rebuild
+                   Task "SetEnv" (TaskId:64)
+                     Task Parameter:Prefix=False (TaskId:64)
+                     Task Parameter:Value={19B3E796-0056-49CB-AF12-8ECA8128D7B5} (TaskId:64)
+                     Task Parameter:Name=VSTEL_SolutionSessionID (TaskId:64)
+                     VSTEL_SolutionSessionID={19B3E796-0056-49CB-AF12-8ECA8128D7B5} (TaskId:64)
+                   Done executing task "SetEnv". (TaskId:64)
+                   Task "SetEnv" (TaskId:65)
+                     Task Parameter:Prefix=False (TaskId:65)
+                     Task Parameter:Value=141950627 (TaskId:65)
+                     Task Parameter:Name=VSTEL_CurrentSolutionBuildID (TaskId:65)
+                     VSTEL_CurrentSolutionBuildID=141950627 (TaskId:65)
+                   Done executing task "SetEnv". (TaskId:65)
+                   Task "SetEnv" (TaskId:66)
+                     Task Parameter:Prefix=False (TaskId:66)
+                     Task Parameter:Value={934a2a5d-9de2-45da-ab4a-87931e7145f1} (TaskId:66)
+                     Task Parameter:Name=VSTEL_ProjectID (TaskId:66)
+                     VSTEL_ProjectID={934a2a5d-9de2-45da-ab4a-87931e7145f1} (TaskId:66)
+                     Output Property: VSTEL_ProjectID={934a2a5d-9de2-45da-ab4a-87931e7145f1} (TaskId:66)
+                   Done executing task "SetEnv". (TaskId:66)
+                   Task "SetEnv" (TaskId:67)
+                     Task Parameter:Prefix=False (TaskId:67)
+                     Task Parameter:Value=C:\Users\sfcsarge\source\repos\Stepper\Stepper.sln (TaskId:67)
+                     Task Parameter:Name=VSTEL_SolutionPath (TaskId:67)
+                     VSTEL_SolutionPath=C:\Users\sfcsarge\source\repos\Stepper\Stepper.sln (TaskId:67)
+                   Done executing task "SetEnv". (TaskId:67)
+                   Task "SetEnv" (TaskId:68)
+                     Task Parameter:Prefix=False (TaskId:68)
+                     Task Parameter:Value=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj (TaskId:68)
+                     Task Parameter:Name=VSTEL_MSBuildProjectFullPath (TaskId:68)
+                     VSTEL_MSBuildProjectFullPath=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj (TaskId:68)
+                   Done executing task "SetEnv". (TaskId:68)
+17:23:54.498     1>Done building target "SetTelemetryEnvironmentVariables" in project "ArdunioStepper.vcxproj".: (TargetId:79)
+17:23:54.498     1>Target "_PrepareForBuild: (TargetId:80)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "Build" depends on it):
+                   Set Property: BuildType=Build
+                   Set Property: _BuildActionType=Build
+                   Task "CreateItem" skipped, due to false condition; ('%(CustomBuild.IncludeFileToTool)'!='') was evaluated as (''!='').
                    Removed Item(s): 
                        CustomBuildStep=
                            ArdunioStepper
                                    Message=Performing Custom Build Step
-12:58:24.507     1>Done building target "_PrepareForRebuild" in project "ArdunioStepper.vcxproj".: (TargetId:4)
-12:58:24.507     1>Target "BeforeRebuild: (TargetId:5)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "Rebuild" depends on it):
-12:58:24.507     1>Done building target "BeforeRebuild" in project "ArdunioStepper.vcxproj".: (TargetId:5)
-12:58:24.507     1>Target "_PrepareForClean: (TargetId:6)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "Clean" depends on it):
-                   Set Property: _BuildActionType=Clean
-                   Task "Delete" skipped, due to false condition; (Exists($(LastBuildState))) was evaluated as (Exists(C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ArdunioStepper.tlog\ArdunioStepper.lastbuildstate)).
-12:58:24.507     1>Done building target "_PrepareForClean" in project "ArdunioStepper.vcxproj".: (TargetId:6)
-                   Target "_WaitForServiceFabricApplicationCleanupBeforeClean" skipped, due to false condition; ('$(IsServiceFabricServiceProject)' == 'true') was evaluated as ('' == 'true').
-12:58:24.507     1>Target "BeforeClean: (TargetId:7)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "Clean" depends on it):
-12:58:24.507     1>Done building target "BeforeClean" in project "ArdunioStepper.vcxproj".: (TargetId:7)
-                   Target "UnmanagedUnregistration" skipped, due to false condition; ((('$(_AssemblyTimestampBeforeCompile)' != '$(_AssemblyTimestampAfterCompile)' or '$(RegisterForComInterop)' != 'true' or '$(OutputType)' != 'library') or
-                                       ('$(_AssemblyTimestampBeforeCompile)' == '')) and
-                                      Exists('@(_UnmanagedRegistrationCache)')) was evaluated as ((('' != '' or '' != 'true' or 'exe' != 'library') or
-                                       ('' == '')) and
-                                      Exists('obj\ArdunioStepper.vcxproj.UnmanagedRegistration.cache')).
-12:58:24.507     1>Target "CoreClean: (TargetId:8)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "Clean" depends on it):
-                   Using "Delete" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "Delete" (TaskId:9)
-                     Task Parameter:
-                         Files=
-                             C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\\TempCA\ArdunioStepper.pdb
-                             C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\\TempCA\ArdunioStepper.out (TaskId:9)
-                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:9)
-                     File "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\\TempCA\ArdunioStepper.pdb" doesn't exist. Skipping. (TaskId:9)
-                     File "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\\TempCA\ArdunioStepper.out" doesn't exist. Skipping. (TaskId:9)
-                   Done executing task "Delete". (TaskId:9)
-                   Using "ReadLinesFromFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "ReadLinesFromFile" (TaskId:10)
-                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ArdunioStepper.vcxproj.FileListAbsolute.txt (TaskId:10)
-                   Done executing task "ReadLinesFromFile". (TaskId:10)
-                   Using "FindUnderPath" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "FindUnderPath" (TaskId:11)
-                     Task Parameter:Path=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\ (TaskId:11)
-                     Comparison path is "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\". (TaskId:11)
-                   Done executing task "FindUnderPath". (TaskId:11)
-                   Task "FindUnderPath" (TaskId:12)
-                     Task Parameter:Path=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ (TaskId:12)
-                     Comparison path is "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\". (TaskId:12)
-                   Done executing task "FindUnderPath". (TaskId:12)
-                   Task "Delete" (TaskId:13)
-                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:13)
-                   Done executing task "Delete". (TaskId:13)
-                   Using "RemoveDuplicates" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "RemoveDuplicates" (TaskId:14)
-                   Done executing task "RemoveDuplicates". (TaskId:14)
-                   Using "MakeDir" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "MakeDir" (TaskId:15)
-                     Task Parameter:Directories=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ (TaskId:15)
-                   Done executing task "MakeDir". (TaskId:15)
-                   Using "WriteLinesToFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "WriteLinesToFile" (TaskId:16)
-                     Task Parameter:WriteOnlyWhenDifferent=True (TaskId:16)
-                     Task Parameter:Overwrite=True (TaskId:16)
-                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ArdunioStepper.vcxproj.FileListAbsolute.txt (TaskId:16)
-                     Skipping write to file "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ArdunioStepper.vcxproj.FileListAbsolute.txt" because content would not change. (TaskId:16)
-                   Done executing task "WriteLinesToFile". (TaskId:16)
-12:58:24.510     1>Done building target "CoreClean" in project "ArdunioStepper.vcxproj".: (TargetId:8)
-                   Target "_CleanMdbFiles" skipped, due to false condition; (Exists('$(TargetPath).mdb')) was evaluated as (Exists('C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\ArdunioStepper.out.mdb')).
-12:58:24.510     1>Target "IgnoreJavaScriptOutputAssembly: (TargetId:9)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "AssignProjectConfiguration" depends on it):
-12:58:24.510     1>Done building target "IgnoreJavaScriptOutputAssembly" in project "ArdunioStepper.vcxproj".: (TargetId:9)
-12:58:24.510     1>Target "AssignProjectConfiguration: (TargetId:10)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "PrepareProjectReferences" depends on it):
+17:23:54.498     1>Done building target "_PrepareForBuild" in project "ArdunioStepper.vcxproj".: (TargetId:80)
+17:23:54.498     1>Target "_PrepareForReferenceResolution: (TargetId:81)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "ResolveReferences" depends on it):
+                   Task "VCMessage" skipped, due to false condition; ('$(WarnAboutIndividualManagedFiles)' == 'true') was evaluated as ('' == 'true').
+                   Set Property: TargetFrameworkMoniker=
+                   Set Property: _FindDependencies=false
+                   Set Property: AdditionalExplicitAssemblyReferences=
+                   Task "Message" skipped, due to false condition; ('$(_REFERENCE_DEBUG)'=='true') was evaluated as (''=='true').
+17:23:54.498     1>Done building target "_PrepareForReferenceResolution" in project "ArdunioStepper.vcxproj".: (TargetId:81)
+                   Target "ComputeCrtSDKReference" skipped, due to false condition; ('@(ClCompile)'!='' and '$(WindowsAppContainer)'=='true' and '$(UseCrtSDKReference)' != 'false') was evaluated as ('ArdunioStepper.ino'!='' and 'false'=='true' and '' != 'false').
+17:23:54.498     1>Target "BeforeResolveReferences: (TargetId:82)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "ResolveReferences" depends on it):
+17:23:54.498     1>Done building target "BeforeResolveReferences" in project "ArdunioStepper.vcxproj".: (TargetId:82)
+17:23:54.498     1>Target "IgnoreJavaScriptOutputAssembly: (TargetId:83)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "AssignProjectConfiguration" depends on it):
+17:23:54.498     1>Done building target "IgnoreJavaScriptOutputAssembly" in project "ArdunioStepper.vcxproj".: (TargetId:83)
+17:23:54.498     1>Target "AssignProjectConfiguration: (TargetId:84)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "ResolveReferences" depends on it):
                    Set Property: ShouldUnsetParentConfigurationAndPlatform=true
-                   Using "AssignProjectConfiguration" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "AssignProjectConfiguration" (TaskId:17)
-                     Task Parameter:OutputType=exe (TaskId:17)
-                     Task Parameter:CurrentProjectPlatform=x64 (TaskId:17)
-                     Task Parameter:CurrentProject=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj (TaskId:17)
-                     Task Parameter:ResolveConfigurationPlatformUsingMappings=False (TaskId:17)
+                   Task "AssignProjectConfiguration" (TaskId:69)
+                     Task Parameter:OutputType=exe (TaskId:69)
+                     Task Parameter:CurrentProjectPlatform=x64 (TaskId:69)
+                     Task Parameter:CurrentProject=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj (TaskId:69)
+                     Task Parameter:ResolveConfigurationPlatformUsingMappings=False (TaskId:69)
                      Task Parameter:SolutionConfigurationContents=<SolutionConfiguration>
                      <ProjectConfiguration Project="{b93849c3-b4ae-4a92-8611-d2d95937b1a4}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\Stepper\Stepper.csproj">Debug|AnyCPU</ProjectConfiguration>
                      <ProjectConfiguration Project="{934a2a5d-9de2-45da-ab4a-87931e7145f1}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj">Debug|x64</ProjectConfiguration>
                      <ProjectConfiguration Project="{0c29a58f-2c1d-4b6e-a656-6c09888d091c}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj">Debug|x64</ProjectConfiguration>
                      <ProjectConfiguration Project="{72c52ac2-1667-4cb7-8c64-5f035dead72a}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj">Debug|x64</ProjectConfiguration>
                      <ProjectConfiguration Project="{355f2809-44a2-458f-9852-7cf42032afc3}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\zAxisStepperBoard\zAxisStepperBoard.vcxproj">Debug|x64</ProjectConfiguration>
-                     </SolutionConfiguration> (TaskId:17)
-                     Task Parameter:ShouldUnsetParentConfigurationAndPlatform=True (TaskId:17)
-                     Task Parameter:OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration=True (TaskId:17)
-                     Task Parameter:CurrentProjectConfiguration=Debug (TaskId:17)
-                   Done executing task "AssignProjectConfiguration". (TaskId:17)
-12:58:24.511     1>Done building target "AssignProjectConfiguration" in project "ArdunioStepper.vcxproj".: (TargetId:10)
-12:58:24.511     1>Target "_SplitProjectReferencesByFileExistence: (TargetId:11)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "PrepareProjectReferences" depends on it):
+                     </SolutionConfiguration> (TaskId:69)
+                     Task Parameter:ShouldUnsetParentConfigurationAndPlatform=True (TaskId:69)
+                     Task Parameter:OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration=True (TaskId:69)
+                     Task Parameter:CurrentProjectConfiguration=Debug (TaskId:69)
+                   Done executing task "AssignProjectConfiguration". (TaskId:69)
+17:23:54.498     1>Done building target "AssignProjectConfiguration" in project "ArdunioStepper.vcxproj".: (TargetId:84)
+                   Target "AssignProjectConfiguration" skipped. Previously built successfully.
+17:23:54.498     1>Target "_SplitProjectReferencesByFileExistence: (TargetId:85)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "PrepareProjectReferences" depends on it):
                    Task "ResolveNonMSBuildProjectOutput" skipped, due to false condition; ('$(BuildingInsideVisualStudio)'=='true' and '@(ProjectReferenceWithConfiguration)'!='') was evaluated as ('true'=='true' and ''!='').
-12:58:24.511     1>Done building target "_SplitProjectReferencesByFileExistence" in project "ArdunioStepper.vcxproj".: (TargetId:11)
-12:58:24.511     1>Target "_AddOutputPathToGlobalPropertiesToRemove: (TargetId:12)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "_GetProjectReferenceTargetFrameworkProperties" depends on it):
-12:58:24.511     1>Done building target "_AddOutputPathToGlobalPropertiesToRemove" in project "ArdunioStepper.vcxproj".: (TargetId:12)
-12:58:24.511     1>Target "_GetProjectReferenceTargetFrameworkProperties: (TargetId:13)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "PrepareProjectReferences" depends on it):
+17:23:54.498     1>Done building target "_SplitProjectReferencesByFileExistence" in project "ArdunioStepper.vcxproj".: (TargetId:85)
+17:23:54.498     1>Target "_AddOutputPathToGlobalPropertiesToRemove: (TargetId:86)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "_GetProjectReferenceTargetFrameworkProperties" depends on it):
+17:23:54.498     1>Done building target "_AddOutputPathToGlobalPropertiesToRemove" in project "ArdunioStepper.vcxproj".: (TargetId:86)
+17:23:54.498     1>Target "_GetProjectReferenceTargetFrameworkProperties: (TargetId:87)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "PrepareProjectReferences" depends on it):
                    Set Property: ReferringTargetFrameworkForProjectReferences=
-                   Using "MSBuild" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "MSBuild" (TaskId:18)
-                     Task Parameter:BuildInParallel=True (TaskId:18)
-                     Task Parameter:SkipNonexistentTargets=True (TaskId:18)
-                     Task Parameter:RemoveProperties=;TargetFramework;RuntimeIdentifier;SelfContained; (TaskId:18)
-                     Task Parameter:Targets=GetTargetFrameworks (TaskId:18)
-                   Done executing task "MSBuild". (TaskId:18)
+                   Task "MSBuild" (TaskId:70)
+                     Task Parameter:BuildInParallel=True (TaskId:70)
+                     Task Parameter:SkipNonexistentTargets=True (TaskId:70)
+                     Task Parameter:RemoveProperties=;TargetFramework;RuntimeIdentifier;SelfContained; (TaskId:70)
+                     Task Parameter:Targets=GetTargetFrameworks (TaskId:70)
+                   Done executing task "MSBuild". (TaskId:70)
                    Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.SkipGetTargetFrameworkProperties)' != 'true' and '$(EnableDynamicPlatformResolution)' == 'true') was evaluated as ('' != 'true' and '' == 'true').
                    Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities)' != '' and '$(ReferringTargetFrameworkForProjectReferences)' != ''
                                                                            And '$(GetReferenceNearestTargetFrameworkTaskSupportsTargetPlatformParameter)' == 'true' and '%(_ProjectReferenceTargetFrameworkPossibilities.IsVcxOrNativeProj)' != 'true') was evaluated as ('' != '' and '' != ''
@@ -1075,38 +1027,263 @@ Logging verbosity is set to: Diagnostic.12:58:24.505     1>Project "C:\Users\sfc
                    Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities)' != '' and '$(ReferringTargetFrameworkForProjectReferences)' != ''
                                                                            And '$(GetReferenceNearestTargetFrameworkTaskSupportsTargetPlatformParameter)' != 'true' and '%(_ProjectReferenceTargetFrameworkPossibilities.IsVcxOrNativeProj)' != 'true') was evaluated as ('' != '' and '' != ''
                                                                            And 'true' != 'true' and '' != 'true').
-                   Using "SetRidAgnosticValueForProjects" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "SetRidAgnosticValueForProjects" (TaskId:19)
-                   Done executing task "SetRidAgnosticValueForProjects". (TaskId:19)
-12:58:24.512     1>Done building target "_GetProjectReferenceTargetFrameworkProperties" in project "ArdunioStepper.vcxproj".: (TargetId:13)
+                   Task "SetRidAgnosticValueForProjects" (TaskId:71)
+                   Done executing task "SetRidAgnosticValueForProjects". (TaskId:71)
+17:23:54.499     1>Done building target "_GetProjectReferenceTargetFrameworkProperties" in project "ArdunioStepper.vcxproj".: (TargetId:87)
                    Target "_GetProjectReferencePlatformProperties" skipped, due to false condition; ('$(EnableDynamicPlatformResolution)' == 'true'
                                         and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true'
                                         and '' != '').
-12:58:24.512     1>Target "PrepareProjectReferences: (TargetId:14)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "CleanReferencedProjects" depends on it):
-12:58:24.512     1>Done building target "PrepareProjectReferences" in project "ArdunioStepper.vcxproj".: (TargetId:14)
-12:58:24.512     1>Target "CleanReferencedProjects: (TargetId:15)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "Clean" depends on it):
-                   Task "MSBuild" skipped, due to false condition; ('$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('true' != 'true' and 'true' == 'true' and '' != '').
-12:58:24.512     1>Done building target "CleanReferencedProjects" in project "ArdunioStepper.vcxproj".: (TargetId:15)
-12:58:24.512     1>Target "CleanPublishFolder: (TargetId:16)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "Clean" depends on it):
-                   Task "RemoveDir" skipped, due to false condition; ('$(ClickOncePublishDir)'=='$(OutputPath)app.publish\' and Exists('$(ClickOncePublishDir)')) was evaluated as ('C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\app.publish\'=='C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\app.publish\' and Exists('C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\app.publish\')).
-12:58:24.512     1>Done building target "CleanPublishFolder" in project "ArdunioStepper.vcxproj".: (TargetId:16)
-12:58:24.512     1>Target "AfterClean: (TargetId:17)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "Clean" depends on it):
-12:58:24.512     1>Done building target "AfterClean" in project "ArdunioStepper.vcxproj".: (TargetId:17)
-12:58:24.512     1>Target "BeforeCppClean: (TargetId:18)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppClean.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "CppClean" depends on it):
-12:58:24.512     1>Done building target "BeforeCppClean" in project "ArdunioStepper.vcxproj".: (TargetId:18)
-12:58:24.512     1>Target "_ConsolidateSourcesToCopy: (TargetId:19)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.Common.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "_RequiresRemoteConnection" depends on it):
+17:23:54.499     1>Target "PrepareProjectReferences: (TargetId:88)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "ResolveProjectReferences" depends on it):
+17:23:54.499     1>Done building target "PrepareProjectReferences" in project "ArdunioStepper.vcxproj".: (TargetId:88)
+                   Target "_RemoveNameMetadataFromProjectReferenceItems" skipped, due to false condition; ('@(ProjectReference)'!='') was evaluated as (''!='').
+17:23:54.499     1>Target "ResolveProjectReferences: (TargetId:89)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "ResolveReferences" depends on it):
+                   Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' != '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and ('true' == 'true' or 'true' != 'true') and '17.0' != '10.0' and '' != '').
+                   Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and 'true' != 'true' and 'true' == 'true' and '' != '').
+                   Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingProject)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and 'true' == 'true' and '' != '').
+                   Task "Warning" skipped, due to false condition; ('@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceNonexistent)' != '' and '$(ErrorOnMissingProjectReference)' != 'True') was evaluated as ('' != '' and '' != '' and '' != 'True').
+                   Task "Error" skipped, due to false condition; ('@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceNonexistent)' != '' and '$(ErrorOnMissingProjectReference)' == 'True') was evaluated as ('' != '' and '' != '' and '' == 'True').
+17:23:54.499     1>Done building target "ResolveProjectReferences" in project "ArdunioStepper.vcxproj".: (TargetId:89)
+                   Target "FindInvalidProjectReferences" skipped, due to false condition; ('$(FindInvalidProjectReferences)' == 'true') was evaluated as ('' == 'true').
+                   Target "ResolveNativeReferences" skipped, due to false condition; ('@(NativeReference)'!='') was evaluated as (''!='').
+                   Target "_PrepareForReferenceResolution" skipped. Previously built successfully.
+                   Target "ResolveProjectReferences" skipped. Previously built successfully.
+                   Target "FindInvalidProjectReferences" skipped, due to false condition; ('$(FindInvalidProjectReferences)' == 'true') was evaluated as ('' == 'true').
+17:23:54.499     1>Target "GetFrameworkPaths: (TargetId:90)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+17:23:54.499     1>Done building target "GetFrameworkPaths" in project "ArdunioStepper.vcxproj".: (TargetId:90)
+                   Target "_PrepareForReferenceResolution" skipped. Previously built successfully.
+                   Target "GetFrameworkPaths" skipped. Previously built successfully.
+17:23:54.499     1>Target "GetReferenceAssemblyPaths: (TargetId:91)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+                   Set Property: TargetFrameworkDirectory=
+                   Task "GetReferenceAssemblyPaths" skipped, due to false condition; ('$(TargetFrameworkMoniker)' != '' and ('$(_TargetFrameworkDirectories)' == '' or '$(_FullFrameworkReferenceAssemblyPaths)' == '')) was evaluated as ('' != '' and ('' == '' or '' == '')).
+                   Set Property: TargetFrameworkDirectory=;;
+                   Set Property: RemoveAssemblyFoldersIfNoTargetFramework=true
+                   Set Property: AssemblySearchPaths={CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\AssemblyFolders.config,};;{Registry:Software\Microsoft\,,AssemblyFoldersEx};;{GAC};{RawFileName};C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\
+                   Set Property: TargetFrameworkProfile=
+17:23:54.499     1>Done building target "GetReferenceAssemblyPaths" in project "ArdunioStepper.vcxproj".: (TargetId:91)
+17:23:54.499     1>Target "AddExternalIncludDirectoriesToPaths: (TargetId:92)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.Current.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "SetBuildDefaultEnvironmentVariables" depends on it):
+17:23:54.499     1>Done building target "AddExternalIncludDirectoriesToPaths" in project "ArdunioStepper.vcxproj".: (TargetId:92)
+17:23:54.499     1>Target "SetBuildDefaultEnvironmentVariables: (TargetId:93)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.Current.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "PrepareForBuild" depends on it):
+                   Task "SetEnv" (TaskId:72)
+                     Task Parameter:Prefix=False (TaskId:72)
+                     Task Parameter:Value=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Program Files\Microsoft\jdk-11.0.16.101-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\LINQPad7;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\LINQPad8;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Windows Kits\10\Microsoft Application Virtualization\Sequencer\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Git\cmd;C:\Program Files\CMake\bin;C:\Users\sfcsarge\AppData\Local\Microsoft\WindowsApps;C:\Users\sfcsarge\AppData\Local\GitHubDesktop\bin;C:\Users\sfcsarge\.dotnet\tools;C:\Users\sfcsarge\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Users\sfcsarge\AppData\Local\Programs\Microsoft VS Code\bin; (TaskId:72)
+                     Task Parameter:Name=PATH (TaskId:72)
+                     PATH=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Program Files\Microsoft\jdk-11.0.16.101-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\LINQPad7;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\LINQPad8;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Windows Kits\10\Microsoft Application Virtualization\Sequencer\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Git\cmd;C:\Program Files\CMake\bin;C:\Users\sfcsarge\AppData\Local\Microsoft\WindowsApps;C:\Users\sfcsarge\AppData\Local\GitHubDesktop\bin;C:\Users\sfcsarge\.dotnet\tools;C:\Users\sfcsarge\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Users\sfcsarge\AppData\Local\Programs\Microsoft VS Code\bin; (TaskId:72)
+                     Output Property: Path=C:\Program Files\Common Files\Oracle\Java\javapath%3bC:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin%3bC:\Program Files\Microsoft\jdk-11.0.16.101-hotspot\bin%3bC:\Windows\system32%3bC:\Windows%3bC:\Windows\System32\Wbem%3bC:\Windows\System32\WindowsPowerShell\v1.0\%3bC:\Windows\System32\OpenSSH\%3bC:\Program Files\Microsoft SQL Server\150\Tools\Binn\%3bC:\Program Files\LINQPad7%3bC:\WINDOWS\system32%3bC:\WINDOWS%3bC:\WINDOWS\System32\Wbem%3bC:\WINDOWS\System32\WindowsPowerShell\v1.0\%3bC:\WINDOWS\System32\OpenSSH\%3bC:\Program Files\dotnet\%3bC:\Program Files %28x86%29\Windows Kits\10\Windows Performance Toolkit\%3bC:\Program Files\LINQPad8%3bC:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\%3bC:\Program Files %28x86%29\Windows Kits\10\Microsoft Application Virtualization\Sequencer\%3bC:\Program Files %28x86%29\Microsoft SQL Server\160\Tools\Binn\%3bC:\Program Files\Microsoft SQL Server\160\Tools\Binn\%3bC:\Program Files\Microsoft SQL Server\160\DTS\Binn\%3bC:\Program Files %28x86%29\Microsoft SQL Server\160\DTS\Binn\%3bC:\Program Files\Git\cmd%3bC:\Program Files\CMake\bin%3bC:\Users\sfcsarge\AppData\Local\Microsoft\WindowsApps%3bC:\Users\sfcsarge\AppData\Local\GitHubDesktop\bin%3bC:\Users\sfcsarge\.dotnet\tools%3bC:\Users\sfcsarge\AppData\Local\Programs\Microsoft VS Code Insiders\bin%3bC:\Users\sfcsarge\AppData\Local\Programs\Microsoft VS Code\bin%3b (TaskId:72)
+                   Done executing task "SetEnv". (TaskId:72)
+                   Task "SetEnv" (TaskId:73)
+                     Task Parameter:Prefix=False (TaskId:73)
+                     Task Parameter:Name=LIB (TaskId:73)
+                     LIB= (TaskId:73)
+                     Output Property: LIB= (TaskId:73)
+                   Done executing task "SetEnv". (TaskId:73)
+                   Task "SetEnv" (TaskId:74)
+                     Task Parameter:Prefix=False (TaskId:74)
+                     Task Parameter:Name=LIBPATH (TaskId:74)
+                     LIBPATH= (TaskId:74)
+                     Output Property: LIBPATH= (TaskId:74)
+                   Done executing task "SetEnv". (TaskId:74)
+                   Task "SetEnv" (TaskId:75)
+                     Task Parameter:Prefix=False (TaskId:75)
+                     Task Parameter:Value=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\tinyusb;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated-avr-comp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\api;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\instances;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\arm\CMSIS_5\CMSIS\Core\Include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_gen;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg\bsp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_usb_basic\src\driver\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\private\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\public\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\common;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\arm-none-eabi\thumb\v7e-m\fpv4-sp\hard;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\backward;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include-fixed;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ArduinoSTL\src (TaskId:75)
+                     Task Parameter:Name=INCLUDE (TaskId:75)
+                     INCLUDE=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\tinyusb;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated-avr-comp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\api;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\instances;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\arm\CMSIS_5\CMSIS\Core\Include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_gen;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg\bsp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_usb_basic\src\driver\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\private\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\public\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\common;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\arm-none-eabi\thumb\v7e-m\fpv4-sp\hard;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\backward;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include-fixed;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ArduinoSTL\src (TaskId:75)
+                     Output Property: INCLUDE=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\tinyusb%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated-avr-comp%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\api%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\instances%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\arm\CMSIS_5\CMSIS\Core\Include%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_gen%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg\bsp%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_usb_basic\src\driver\inc%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\private\inc%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\public\inc%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\common%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\arm-none-eabi\thumb\v7e-m\fpv4-sp\hard%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\backward%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include-fixed%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src%3bC:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ArduinoSTL\src (TaskId:75)
+                   Done executing task "SetEnv". (TaskId:75)
+                   Task "SetEnv" (TaskId:76)
+                     Task Parameter:Prefix=False (TaskId:76)
+                     Task Parameter:Name=EXTERNAL_INCLUDE (TaskId:76)
+                     EXTERNAL_INCLUDE= (TaskId:76)
+                     Output Property: EXTERNAL_INCLUDE= (TaskId:76)
+                   Done executing task "SetEnv". (TaskId:76)
+17:23:54.500     1>Done building target "SetBuildDefaultEnvironmentVariables" in project "ArdunioStepper.vcxproj".: (TargetId:93)
+                   Target "SetUserMacroEnvironmentVariables" skipped, due to false condition; ('@(BuildMacro)' != '' and '$(DesignTimeBuild)' != 'true') was evaluated as ('' != '' and '' != 'true').
+                   Target "_PrepareForReferenceResolution" skipped. Previously built successfully.
+17:23:54.500     1>Target "GetResolvedWinMD: (TargetId:94)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "PrepareForBuild" depends on it):
+                   Added Item(s): 
+                       Link=
+                           tmp
+                                   AdditionalDependencies=;
+                                   AdditionalLibraryDirectories=;
+                                   DebuggerSymbolInformation=true
+                                   DeleteSoon=true
+                                   EnableUAC=
+                                   FunctionBinding=true
+                                   IgnoreDefaultLibraries=false
+                                   ImportLibrary=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\ArdunioStepper.out
+                                   IncrementalLink=false
+                                   ManifestFile=
+                                   NoExecStackRequired=true
+                                   OptimizeForMemory=false
+                                   OutputFile=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\ArdunioStepper.out
+                                   PrintMap=false
+                                   Relocation=true
+                                   SharedLibrarySearchPath=
+                                   ShowProgress=false
+                                   Trace=false
+                                   UnresolvedSymbolReferences=true
+                                   VerboseOutput=false
+                                   Version=false
+                                   WholeArchiveBegin=false
+                   Removed Item(s): 
+                       Link=
+                           tmp
+                                   AdditionalDependencies=;
+                                   AdditionalLibraryDirectories=;
+                                   DebuggerSymbolInformation=true
+                                   DeleteSoon=true
+                                   EnableUAC=
+                                   FunctionBinding=true
+                                   IgnoreDefaultLibraries=false
+                                   ImportLibrary=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\ArdunioStepper.out
+                                   IncrementalLink=false
+                                   ManifestFile=
+                                   NoExecStackRequired=true
+                                   OptimizeForMemory=false
+                                   OutputFile=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\ArdunioStepper.out
+                                   PrintMap=false
+                                   Relocation=true
+                                   SharedLibrarySearchPath=
+                                   ShowProgress=false
+                                   Trace=false
+                                   UnresolvedSymbolReferences=true
+                                   VerboseOutput=false
+                                   Version=false
+                                   WholeArchiveBegin=false
+17:23:54.500     1>Done building target "GetResolvedWinMD" in project "ArdunioStepper.vcxproj".: (TargetId:94)
+                   Target "GetFrameworkPaths" skipped. Previously built successfully.
+                   Target "GetReferenceAssemblyPaths" skipped. Previously built successfully.
+                   Target "AssignLinkMetadata" skipped, due to false condition; ( '$(SynthesizeLinkMetadata)' == 'true' ) was evaluated as ( '' == 'true' ).
+17:23:54.500     1>Target "SetCABuildNativeEnvironmentVariables: (TargetId:95)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\v17.0\CodeAnalysis\Microsoft.CodeAnalysis.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "PrepareForBuild" depends on it):
+                   Task "SetEnv" skipped, due to false condition; ('$(CAExcludePath)'!='') was evaluated as (''!='').
+                   Task "SetEnv" skipped, due to false condition; ('$(RunMsvcAnalysis)'=='true' and '$(VCCodeAnalysisUX)'=='true') was evaluated as ('false'=='true' and 'true'=='true').
+17:23:54.500     1>Done building target "SetCABuildNativeEnvironmentVariables" in project "ArdunioStepper.vcxproj".: (TargetId:95)
+17:23:54.500     1>Target "PrepareForBuild: (TargetId:96)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+                   Set Property: TargetDir=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\
+                   Set Property: LocalDebuggerCommand=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\ArdunioStepper.out
+                   Set Property: BuildProjectReferences=false
+                   Set Property: ConfigurationPlatformExists=true
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)' != 'true' and '$(ConfigurationPlatformExists)' != 'true') was evaluated as ('' != 'true' and 'true' != 'true').
+                   Task "VCMessage" skipped, due to false condition; ('$(ApplicationType)' == '' and '$(DesignTimeBuild)' != 'true' and '$(_ToolsetFound)' != 'true') was evaluated as ('Linux' == '' and '' != 'true' and 'true' != 'true').
+                   Task "VCMessage" skipped, due to false condition; ('$(ApplicationType)' != '' and '$(DesignTimeBuild)' != 'true' and '$(_ToolsetFound)' != 'true') was evaluated as ('Linux' != '' and '' != 'true' and 'true' != 'true').
+                   Task "MakeDir" (TaskId:77)
+                     Task Parameter:Directories=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ (TaskId:77)
+                   Done executing task "MakeDir". (TaskId:77)
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(WindowsAppContainer)'=='true' and '$(ConfigurationType)'!='Application' and '$(ConfigurationType)'!='DynamicLibrary' and '$(ConfigurationType)'!='StaticLibrary') was evaluated as (''!='true' and 'false'=='true' and 'Application'!='Application' and 'Application'!='DynamicLibrary' and 'Application'!='StaticLibrary').
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(VCToolsInstallDir)'=='' and '$(UseEnv)' != 'true' and ('$(TargetFrameworkVersion)'=='v3.5' or '$(TargetFrameworkVersion)'=='v3.0' or '$(TargetFrameworkVersion)'=='v2.0' )) was evaluated as (''!='true' and 'VCToolsInstallDir_is_not_defined'=='' and '' != 'true' and (''=='v3.5' or ''=='v3.0' or ''=='v2.0' )).
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(VCToolsInstallDir)'=='' and '$(UseEnv)' != 'true' and '$(PlatformToolset)'=='v90') was evaluated as (''!='true' and 'VCToolsInstallDir_is_not_defined'=='' and '' != 'true' and 'Remote_GCC_1_0'=='v90').
+                   Task "CheckVCToolsetVersion" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(CheckMSVCComponents)'=='true') was evaluated as (''!='true' and ''=='true').
+                   Task "VCMessage" skipped, due to false condition; ('$(CheckMFCInstalled)' == 'true' and !Exists($(MFC_KeyFile)) and '$(SpectreLibs)' == '') was evaluated as ('' == 'true' and !Exists() and '' == '').
+                   Task "VCMessage" skipped, due to false condition; ('$(CheckMFCInstalled)' == 'true' and !Exists($(MFC_KeyFile)) and '$(SpectreLibs)' != '') was evaluated as ('' == 'true' and !Exists() and '' != '').
+                   Task "VCMessage" skipped, due to false condition; ('$(CheckATLInstalled)' == 'true' and !Exists($(ATL_KeyFile)) and '$(SpectreLibs)' == '') was evaluated as ('' == 'true' and !Exists() and '' == '').
+                   Task "VCMessage" skipped, due to false condition; ('$(CheckATLInstalled)' == 'true' and !Exists($(ATL_KeyFile)) and '$(SpectreLibs)' != '') was evaluated as ('' == 'true' and !Exists() and '' != '').
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)' != 'true' and
+                                                                           '$(CheckMSVCComponents)'=='true' and
+                                                                           '$(SpectreMitigation)' != '' and
+                                                                           '$(SpectreMitigation)' != 'false' and
+                                                                           (('$(VC_Target_Library_Platform)' == 'OneCore' and !Exists('$(VC_LibraryPath_VC_OneCore_CurrentPlatform_spectre)')) or
+                                                                            ('$(VC_Target_Library_Platform)' == 'Desktop' and !Exists('$(VC_LibraryPath_VC_Desktop_CurrentPlatform_spectre)')))) was evaluated as ('' != 'true' and
+                                                                           ''=='true' and
+                                                                           'false' != '' and
+                                                                           'false' != 'false' and
+                                                                           (('' == 'OneCore' and !Exists('')) or
+                                                                            ('' == 'Desktop' and !Exists('')))).
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(VCToolsInstallDir)'=='' and '$(UseEnv)' != 'true'  and '$(CheckMSVCComponents)'=='true') was evaluated as (''!='true' and 'VCToolsInstallDir_is_not_defined'=='' and '' != 'true'  and ''=='true').
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(WindowsSDKDir)'=='' and '$(UseEnv)' != 'true') was evaluated as (''!='true' and 'WindowsSdkDir_is_not_defined'=='' and '' != 'true').
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(IntDirTrailingSlashWarning)'=='true') was evaluated as (''!='true' and ''=='true').
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(OutDirTrailingSlashWarning)'=='true') was evaluated as (''!='true' and ''=='true').
+                   Task "VCMessage" skipped, due to false condition; ('%(CompatibilityIssues.Identity)' != '' and '$(DesignTimeBuild)'!='true') was evaluated as ('' != '' and ''!='true').
+                   Task "VCMessage" skipped, due to false condition; ('$(IgnoreWarnIntDirSharingDetected)' != 'true' and '$(IntDirSharingDetected)' == 'true') was evaluated as ('' != 'true' and '' == 'true').
+                   C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(536,7): message : Property 'TMP' with value 'C:\Users\sfcsarge\AppData\Local\Temp' expanded from the environment.
+                   Set Property: _Tmp=C:\Users\sfcsarge\AppData\Local\Temp
+                   C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(537,7): message : Property 'TEMP' with value 'C:\Users\sfcsarge\AppData\Local\Temp' expanded from the environment.
+                   Set Property: _Temp=C:\Users\sfcsarge\AppData\Local\Temp
+                   Set Property: _Tmp=C:\Users\sfcsarge\AppData\Local\Temp\
+                   Set Property: _Temp=C:\Users\sfcsarge\AppData\Local\Temp\
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(IgnoreWarnIntDirInTempDetected)' != 'true' and ('$(IntDirFullPath.StartsWith($(_Tmp), true, null))' == 'true' or '$(IntDirFullPath.StartsWith($(_Temp), true, null))' == 'true' or '$(OutDirFullPath.StartsWith($(_Tmp), true, null))' == 'true' or '$(OutDirFullPath.StartsWith($(_Temp), true, null))' == 'true')) was evaluated as (''!='true' and '' != 'true' and ('False' == 'true' or 'False' == 'true' or 'False' == 'true' or 'False' == 'true')).
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(UseClStructuredOutput)' == 'true' and '$(LogStructuredOutputMessage)' != 'false') was evaluated as (''!='true' and '' == 'true' and '' != 'false').
+                   Task "MakeDir" (TaskId:78)
+                     Task Parameter:
+                         Directories=
+                             C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\
+                             C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\bin\x64\Debug\
+                             C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ArdunioStepper.tlog\ (TaskId:78)
+                   Done executing task "MakeDir". (TaskId:78)
+17:23:54.502     1>Done building target "PrepareForBuild" in project "ArdunioStepper.vcxproj".: (TargetId:96)
+                   Target "_PrepareForReferenceResolution" skipped. Previously built successfully.
+                   Target "ComputeCrtSDKReference" skipped, due to false condition; ('@(ClCompile)'!='' and '$(WindowsAppContainer)'=='true' and '$(UseCrtSDKReference)' != 'false') was evaluated as ('ArdunioStepper.ino'!='' and 'false'=='true' and '' != 'false').
+                   Target "GetInstalledSDKLocations" skipped, due to false condition; ('@(SDKReference)' != '') was evaluated as ('' != '').
+17:23:54.502     1>Target "ResolveSDKReferences: (TargetId:97)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+                   Task "ResolveSDKReference" skipped, due to false condition; ('@(SDKReference)'!='') was evaluated as (''!='').
+17:23:54.502     1>Done building target "ResolveSDKReferences" in project "ArdunioStepper.vcxproj".: (TargetId:97)
+                   Target "ResolveSDKReferences" skipped. Previously built successfully.
+17:23:54.502     1>Target "ExpandSDKReferences: (TargetId:98)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+                   Task "GetSDKReferenceFiles" skipped, due to false condition; ('@(ResolvedSDKReference)'!='') was evaluated as (''!='').
+17:23:54.502     1>Done building target "ExpandSDKReferences" in project "ArdunioStepper.vcxproj".: (TargetId:98)
+                   Target "ResolveNuGetPackageAssets" skipped, due to false condition; ('$(ResolveNuGetPackages)' == 'true' and exists('$(ProjectLockFile)')) was evaluated as ('true' == 'true' and exists('obj\project.assets.json')).
+17:23:54.502     1>Target "ResolveAssemblyReferences: (TargetId:99)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "ResolveReferences" depends on it):
+                   Set Property: ResolveAssemblyReferencesStateFile=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ArdunioStepper.vcxproj.AssemblyReference.cache
+                   Set Property: ResolveAssemblyReferencesSilent=false
+                   Set Property: ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch=Warning
+                   Set Property: ResolveAssemblyReferencesFindRelatedSatellites=true
+                   Set Property: ResolveAssemblyReferencesFindSerializationAssemblies=true
+                   Set Property: ResolveAssemblyReferencesFindRelatedFiles=true
+                   Set Property: ResolveAssemblyReferenceOutputUnresolvedAssemblyConflicts=false
+                   Set Property: FindDependenciesOfExternallyResolvedReferences=false
+                   Task "ResolveAssemblyReference" skipped, due to false condition; ('@(Reference)'!='' or '@(_ResolvedProjectReferencePaths)'!='' or '@(_ExplicitReference)' != '') was evaluated as (''!='' or ''!='' or '' != '').
+17:23:54.502     1>Done building target "ResolveAssemblyReferences" in project "ArdunioStepper.vcxproj".: (TargetId:99)
+                   Target "GenerateBindingRedirects" skipped, due to false condition; ('$(AutoGenerateBindingRedirects)' == 'true' and '$(GenerateBindingRedirectsOutputType)' == 'true' and '@(SuggestedBindingRedirects)' != '' and '$(DesignTimeBuild)' != 'true' and '$(BuildingProject)' == 'true') was evaluated as ('' == 'true' and 'true' == 'true' and '' != '' and '' != 'true' and 'true' == 'true').
+                   Target "GenerateBindingRedirectsUpdateAppConfig" skipped, due to false condition; ('$(AutoGenerateBindingRedirects)' == 'true' and '$(GenerateBindingRedirectsOutputType)' == 'true') was evaluated as ('' == 'true' and 'true' == 'true').
+                   Target "ResolveComReferences" skipped, due to false condition; ('@(COMReference)'!='' or '@(COMFileReference)'!='') was evaluated as (''!='' or ''!='').
+17:23:54.502     1>Target "AfterResolveReferences: (TargetId:100)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "ResolveReferences" depends on it):
+17:23:54.502     1>Done building target "AfterResolveReferences" in project "ArdunioStepper.vcxproj".: (TargetId:100)
+                   Target "ResolveTestReferences" skipped, due to false condition; ('@(Shadow)'!='') was evaluated as (''!='').
+17:23:54.502     1>Target "ResolveReferences: (TargetId:101)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "Build" depends on it):
+17:23:54.502     1>Done building target "ResolveReferences" in project "ArdunioStepper.vcxproj".: (TargetId:101)
+                   Target "PrepareForBuild" skipped. Previously built successfully.
+                   Target "PrepareForBuild" skipped. Previously built successfully.
+17:23:54.502     1>Target "InitializeBuildStatus: (TargetId:102)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "Build" depends on it):
+                   Task "ReadLinesFromFile" (TaskId:79)
+                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ArdunioStepper.tlog\ArdunioStepper.lastbuildstate (TaskId:79)
+                   Done executing task "ReadLinesFromFile". (TaskId:79)
+                   Set Property: ProjectStateLine=TargetPlatformVersion=7.0:
+                   Set Property: ProjectStateLine=PlatformToolSet=Remote_GCC_1_0:VCToolArchitecture=:TargetPlatformVersion=7.0:
+                   Set Property: StateBuildType=Build
+                   Task "WriteLinesToFile" (TaskId:80)
+                     Task Parameter:
+                         Lines=
+                             PlatformToolSet=Remote_GCC_1_0:VCToolArchitecture=:TargetPlatformVersion=7.0:
+                             Debug|x64|C:\Users\sfcsarge\source\repos\Stepper\| (TaskId:80)
+                     Task Parameter:Overwrite=True (TaskId:80)
+                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ArdunioStepper.tlog\ArdunioStepper.lastbuildstate (TaskId:80)
+                   Done executing task "WriteLinesToFile". (TaskId:80)
+                   Task "Touch" (TaskId:81)
+                     Task Parameter:AlwaysCreate=True (TaskId:81)
+                     Task Parameter:Files=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ArdunioStepper.tlog\unsuccessfulbuild (TaskId:81)
+                     Creating "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ArdunioStepper.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified. (TaskId:81)
+                     Touching "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\ArdunioStepper.tlog\unsuccessfulbuild". (TaskId:81)
+                   Done executing task "Touch". (TaskId:81)
+17:23:54.504     1>Done building target "InitializeBuildStatus" in project "ArdunioStepper.vcxproj".: (TargetId:102)
+                   Target "PrepareProjectReferences" skipped. Previously built successfully.
+17:23:54.504     1>Target "BuildGenerateSourcesTraverse: (TargetId:103)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "BuildGenerateSources" depends on it):
+                   Task "MSBuild" skipped, due to false condition; ('$(BuildPassReferences)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != '' and '%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true') was evaluated as ('' == 'true' and '' != '' and '' != '' and '' == 'true').
+17:23:54.504     1>Done building target "BuildGenerateSourcesTraverse" in project "ArdunioStepper.vcxproj".: (TargetId:103)
+                   Target "PrepareForBuild" skipped. Previously built successfully.
+                   Target "ResolveReferences" skipped. Previously built successfully.
+17:23:54.504     1>Target "BeforeBuildGenerateSources: (TargetId:104)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
+17:23:54.504     1>Done building target "BeforeBuildGenerateSources" in project "ArdunioStepper.vcxproj".: (TargetId:104)
+17:23:54.504     1>Target "_ConsolidateSourcesToCopy: (TargetId:105)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.Common.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "_RequiresRemoteConnection" depends on it):
                    Using "ConsolidateSourcesToCopy" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Microsoft.Build.Linux.Tasks.dll".
-                   Task "ConsolidateSourcesToCopy" (TaskId:20)
-                     Task Parameter:ProjectDir=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ (TaskId:20)
+                   Task "ConsolidateSourcesToCopy" (TaskId:82)
+                     Task Parameter:ProjectDir=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ (TaskId:82)
                      Task Parameter:
                          SourcesOverride=
                              ArdunioStepper.ino
                              __vm\.ArdunioStepper.vsarduino.h
-                             src\arduino folders read me.txt (TaskId:20)
+                             src\arduino folders read me.txt (TaskId:82)
                      Task Parameter:
                          Sources=
                              ArdunioStepper.ino
-                                     AdditionalIncludeDirectories=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\ArdunioStepper;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\tinyusb;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated-avr-comp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\api;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\instances;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\arm\CMSIS_5\CMSIS\Core\Include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_gen;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg\bsp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_usb_basic\src\driver\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\private\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\public\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\common;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\arm-none-eabi\thumb\v7e-m\fpv4-sp\hard;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\backward;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include-fixed;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;
+                                     AdditionalIncludeDirectories=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\tinyusb;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated-avr-comp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\api;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\instances;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\arm\CMSIS_5\CMSIS\Core\Include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_gen;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg\bsp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_usb_basic\src\driver\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\private\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\public\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\common;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\arm-none-eabi\thumb\v7e-m\fpv4-sp\hard;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\backward;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include-fixed;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ArduinoSTL\src;
                                      CAdditionalWarning=
                                      ClangMode=true
                                      CLanguageStandard=gnu11
@@ -1130,6 +1307,7 @@ Logging verbosity is set to: Diagnostic.12:58:24.505     1>Project "C:\Users\sfc
                                      MakeStringsReadOnly=true
                                      MinimalRebuildFromTracking=true
                                      NoCommonBlocks=false
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.ino
                                      ObjCAutomaticRefCounting=true
                                      ObjCExceptionHandling=Disabled
                                      ObjectFileName=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\obj\x64\Debug\%(filename).o
@@ -1154,12 +1332,14 @@ Logging verbosity is set to: Diagnostic.12:58:24.505     1>Project "C:\Users\sfc
                                      Verbose=false
                                      WarningLevel=EnableAllWarnings
                              __vm\.ArdunioStepper.vsarduino.h
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\__vm\.ArdunioStepper.vsarduino.h
                              src\arduino folders read me.txt
-                                     CopyToOutputDirectory=Never (TaskId:20)
+                                     CopyToOutputDirectory=Never
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\src\arduino folders read me.txt (TaskId:82)
                      Output Item(s): 
                          FinalSourcesToCopyRemotely=
                              ArdunioStepper.ino
-                                     AdditionalIncludeDirectories=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\ArdunioStepper;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\tinyusb;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated-avr-comp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\api;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\instances;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\arm\CMSIS_5\CMSIS\Core\Include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_gen;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg\bsp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_usb_basic\src\driver\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\private\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\public\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\common;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\arm-none-eabi\thumb\v7e-m\fpv4-sp\hard;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\backward;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include-fixed;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;
+                                     AdditionalIncludeDirectories=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\tinyusb;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated-avr-comp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\api;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\instances;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\arm\CMSIS_5\CMSIS\Core\Include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_gen;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg\bsp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_usb_basic\src\driver\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\private\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\public\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\common;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\arm-none-eabi\thumb\v7e-m\fpv4-sp\hard;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\backward;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include-fixed;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ArduinoSTL\src;
                                      CAdditionalWarning=
                                      ClangMode=true
                                      CLanguageStandard=gnu11
@@ -1211,17 +1391,17 @@ Logging verbosity is set to: Diagnostic.12:58:24.505     1>Project "C:\Users\sfc
                                      NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\__vm\.ArdunioStepper.vsarduino.h
                              src\arduino folders read me.txt
                                      CopyToOutputDirectory=Never
-                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\src\arduino folders read me.txt (TaskId:20)
-                   Done executing task "ConsolidateSourcesToCopy". (TaskId:20)
-12:58:24.519     1>Done building target "_ConsolidateSourcesToCopy" in project "ArdunioStepper.vcxproj".: (TargetId:19)
-12:58:24.519     1>Target "_RequiresRemoteConnection: (TargetId:20)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "_ResolveRemoteTarget" depends on it):
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\src\arduino folders read me.txt (TaskId:82)
+                   Done executing task "ConsolidateSourcesToCopy". (TaskId:82)
+17:23:54.509     1>Done building target "_ConsolidateSourcesToCopy" in project "ArdunioStepper.vcxproj".: (TargetId:105)
+17:23:54.509     1>Target "_RequiresRemoteConnection: (TargetId:106)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "_ResolveRemoteTarget" depends on it):
                    Using "RequiresRemoteConnection" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Microsoft.Build.Linux.Tasks.dll".
-                   Task "RequiresRemoteConnection" (TaskId:21)
-                     Task Parameter:PostBuildEventEnabled=true (TaskId:21)
+                   Task "RequiresRemoteConnection" (TaskId:83)
+                     Task Parameter:PostBuildEventEnabled=true (TaskId:83)
                      Task Parameter:
                          ClCompile=
                              ArdunioStepper.ino
-                                     AdditionalIncludeDirectories=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\ArdunioStepper;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\tinyusb;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated-avr-comp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\api;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\instances;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\arm\CMSIS_5\CMSIS\Core\Include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_gen;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg\bsp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_usb_basic\src\driver\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\private\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\public\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\common;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\arm-none-eabi\thumb\v7e-m\fpv4-sp\hard;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\backward;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include-fixed;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;
+                                     AdditionalIncludeDirectories=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\tinyusb;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated-avr-comp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\api;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\instances;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\arm\CMSIS_5\CMSIS\Core\Include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_gen;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg\bsp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_usb_basic\src\driver\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\private\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\public\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\common;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\arm-none-eabi\thumb\v7e-m\fpv4-sp\hard;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\backward;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include-fixed;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ArduinoSTL\src;
                                      CAdditionalWarning=
                                      ClangMode=true
                                      CLanguageStandard=gnu11
@@ -1267,12 +1447,12 @@ Logging verbosity is set to: Diagnostic.12:58:24.505     1>Project "C:\Users\sfc
                                      UndefineAllPreprocessorDefinitions=true
                                      UnrollLoops=false
                                      Verbose=false
-                                     WarningLevel=EnableAllWarnings (TaskId:21)
-                     Task Parameter:RemotePostBuildEventEnabled=true (TaskId:21)
+                                     WarningLevel=EnableAllWarnings (TaskId:83)
+                     Task Parameter:RemotePostBuildEventEnabled=true (TaskId:83)
                      Task Parameter:
                          Sources=
                              ArdunioStepper.ino
-                                     AdditionalIncludeDirectories=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\ArdunioStepper;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\tinyusb;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated-avr-comp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\api;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\instances;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\arm\CMSIS_5\CMSIS\Core\Include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_gen;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg\bsp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_usb_basic\src\driver\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\private\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\public\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\common;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\arm-none-eabi\thumb\v7e-m\fpv4-sp\hard;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\backward;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include-fixed;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;
+                                     AdditionalIncludeDirectories=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\tinyusb;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino\api\deprecated-avr-comp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\cores\arduino;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\api;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\inc\instances;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\arm\CMSIS_5\CMSIS\Core\Include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_gen;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg\bsp;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra_cfg\fsp_cfg;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_usb_basic\src\driver\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\private\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\crypto_procedures\src\sce5\plainkey\public\inc;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce\common;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\AppData\Local\arduino15\packages\arduino\hardware\renesas_uno\1.2.2\variants\UNOWIFIR4\includes\ra\fsp\src\r_sce;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\arm-none-eabi\thumb\v7e-m\fpv4-sp\hard;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include\c++\7.2.1\backward;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\lib\gcc\arm-none-eabi\7.2.1\include-fixed;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\appdata\local\arduino15\packages\arduino\tools\arm-none-eabi-gcc\7-2017q4\arm-none-eabi\include;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepper\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\AccelStepperWithDistances\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\LimitSwitch\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ezButton\src;C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\..\..\..\..\OneDrive\Documents\Arduino\libraries\ArduinoSTL\src;
                                      CAdditionalWarning=
                                      ClangMode=true
                                      CLanguageStandard=gnu11
@@ -1324,77 +1504,85 @@ Logging verbosity is set to: Diagnostic.12:58:24.505     1>Project "C:\Users\sfc
                                      NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\__vm\.ArdunioStepper.vsarduino.h
                              src\arduino folders read me.txt
                                      CopyToOutputDirectory=Never
-                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\src\arduino folders read me.txt (TaskId:21)
-                     Task Parameter:CopySourcesEnabled=true (TaskId:21)
-                     Task Parameter:PreBuildEventEnabled=true (TaskId:21)
-                     Task Parameter:RemotePreBuildEventEnabled=true (TaskId:21)
-                     Checking if current project requires a remote connection. (TaskId:21)
-                     Current project requires a remote connection. (TaskId:21)
-                     Output Property: RequireRemoteConnection=True (TaskId:21)
-                   Done executing task "RequiresRemoteConnection". (TaskId:21)
-12:58:24.521     1>Done building target "_RequiresRemoteConnection" in project "ArdunioStepper.vcxproj".: (TargetId:20)
-12:58:24.521     1>Target "_ResolveRemoteTarget: (TargetId:21)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "_PrepareUpToDateChecks" depends on it):
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\src\arduino folders read me.txt (TaskId:83)
+                     Task Parameter:CopySourcesEnabled=true (TaskId:83)
+                     Task Parameter:PreBuildEventEnabled=true (TaskId:83)
+                     Task Parameter:RemotePreBuildEventEnabled=true (TaskId:83)
+                     Checking if current project requires a remote connection. (TaskId:83)
+                     Current project requires a remote connection. (TaskId:83)
+                     Output Property: RequireRemoteConnection=True (TaskId:83)
+                   Done executing task "RequiresRemoteConnection". (TaskId:83)
+17:23:54.511     1>Done building target "_RequiresRemoteConnection" in project "ArdunioStepper.vcxproj".: (TargetId:106)
+17:23:54.511     1>Target "_ResolveRemoteTarget: (TargetId:107)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (target "PreBuildEvent" depends on it):
                    Using "ResolveRemoteTarget" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Microsoft.Build.Linux.Tasks.dll".
-                   Task "ResolveRemoteTarget" (TaskId:22)
-                     Task Parameter:RequireRemoteConnection=True (TaskId:22)
-12:58:24.522     1>C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets(158,5): error : There are no remote machines configured for remote builds. Please configure a machine using Tools | Options | Cross Platform | Connection Manager.
-                     Output Property: RemoteTargetResolved=False (TaskId:22)
-                   Done executing task "ResolveRemoteTarget" -- FAILED. (TaskId:22)
-12:58:24.522     1>Done building target "_ResolveRemoteTarget" in project "ArdunioStepper.vcxproj" -- FAILED.: (TargetId:21)
-12:58:24.522     1>Done Building Project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (Rebuild target(s)) -- FAILED.
+                   Task "ResolveRemoteTarget" (TaskId:84)
+                     Task Parameter:RequireRemoteConnection=True (TaskId:84)
+17:23:54.512     1>C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets(158,5): error : There are no remote machines configured for remote builds. Please configure a machine using Tools | Options | Cross Platform | Connection Manager.
+                     Output Property: RemoteTargetResolved=False (TaskId:84)
+                   Done executing task "ResolveRemoteTarget" -- FAILED. (TaskId:84)
+17:23:54.512     1>Done building target "_ResolveRemoteTarget" in project "ArdunioStepper.vcxproj" -- FAILED.: (TargetId:107)
+17:23:54.512     1>Done Building Project "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (Build target(s)) -- FAILED.
 
 Project Evaluation Performance Summary:
-       12 ms  C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj   1 calls
+       14 ms  C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj   1 calls
 
 Project Performance Summary:
-       17 ms  C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj   1 calls
-                 17 ms  Rebuild                                    1 calls
+       16 ms  C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj   1 calls
+                 16 ms  Build                                      1 calls
 
 Target Performance Summary:
-        0 ms  _SplitProjectReferencesByFileExistence     1 calls
-        0 ms  BeforeCppClean                             1 calls
-        0 ms  _PrepareForRebuild                         1 calls
-        0 ms  BeforeRebuild                              1 calls
-        0 ms  _PrepareForClean                           1 calls
-        0 ms  BeforeClean                                1 calls
-        0 ms  AfterClean                                 1 calls
-        0 ms  IgnoreJavaScriptOutputAssembly             1 calls
-        0 ms  CleanPublishFolder                         1 calls
-        0 ms  CleanReferencedProjects                    1 calls
-        0 ms  _AddOutputPathToGlobalPropertiesToRemove   1 calls
+        0 ms  AddExternalIncludDirectoriesToPaths        1 calls
+        0 ms  ResolveAssemblyReferences                  1 calls
+        0 ms  SetCABuildNativeEnvironmentVariables       1 calls
+        0 ms  GetResolvedWinMD                           1 calls
+        0 ms  AfterResolveReferences                     1 calls
+        0 ms  ResolveReferences                          1 calls
+        0 ms  GetReferenceAssemblyPaths                  1 calls
+        0 ms  GetFrameworkPaths                          1 calls
+        0 ms  ResolveProjectReferences                   1 calls
+        0 ms  ResolveSDKReferences                       1 calls
         0 ms  PrepareProjectReferences                   1 calls
-        1 ms  _ResolveRemoteTarget                       1 calls
-        1 ms  _GetProjectReferenceTargetFrameworkProperties   1 calls
-        1 ms  SetTelemetryEnvironmentVariables           1 calls
-        1 ms  AssignProjectConfiguration                 1 calls
+        0 ms  _AddOutputPathToGlobalPropertiesToRemove   1 calls
+        0 ms  _SplitProjectReferencesByFileExistence     1 calls
+        0 ms  AssignProjectConfiguration                 1 calls
+        0 ms  IgnoreJavaScriptOutputAssembly             1 calls
+        0 ms  BeforeResolveReferences                    1 calls
+        0 ms  _PrepareForReferenceResolution             1 calls
+        0 ms  _PrepareForBuild                           1 calls
+        0 ms  BeforeBuildGenerateSources                 1 calls
+        0 ms  BuildGenerateSourcesTraverse               1 calls
+        0 ms  ExpandSDKReferences                        1 calls
         1 ms  _CheckForInvalidConfigurationAndPlatform   1 calls
+        1 ms  _GetProjectReferenceTargetFrameworkProperties   1 calls
+        1 ms  SetBuildDefaultEnvironmentVariables        1 calls
+        1 ms  SetTelemetryEnvironmentVariables           1 calls
+        1 ms  _ResolveRemoteTarget                       1 calls
+        2 ms  PrepareForBuild                            1 calls
         2 ms  _RequiresRemoteConnection                  1 calls
-        3 ms  CoreClean                                  1 calls
-        7 ms  _ConsolidateSourcesToCopy                  1 calls
+        2 ms  InitializeBuildStatus                      1 calls
+        5 ms  _ConsolidateSourcesToCopy                  1 calls
 
 Task Performance Summary:
-        0 ms  Message                                    2 calls
-        0 ms  ReadLinesFromFile                          1 calls
-        0 ms  RemoveDuplicates                           1 calls
-        0 ms  MakeDir                                    1 calls
-        0 ms  WriteLinesToFile                           1 calls
+        0 ms  AssignProjectConfiguration                 1 calls
         0 ms  SetRidAgnosticValueForProjects             1 calls
-        1 ms  ResolveRemoteTarget                        1 calls
+        0 ms  MakeDir                                    2 calls
+        0 ms  ReadLinesFromFile                          1 calls
+        1 ms  Message                                    2 calls
         1 ms  MSBuild                                    1 calls
-        1 ms  Delete                                     2 calls
-        1 ms  SetEnv                                     5 calls
-        1 ms  FindUnderPath                              2 calls
-        1 ms  AssignProjectConfiguration                 1 calls
+        1 ms  Touch                                      1 calls
+        1 ms  ResolveRemoteTarget                        1 calls
+        1 ms  WriteLinesToFile                           1 calls
         2 ms  RequiresRemoteConnection                   1 calls
-        7 ms  ConsolidateSourcesToCopy                   1 calls
+        2 ms  SetEnv                                    10 calls
+        5 ms  ConsolidateSourcesToCopy                   1 calls
 
 Build FAILED.
 
-                   "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (Rebuild target) (1) ->
+                   "C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj" (Build target) (1) ->
                    (_ResolveRemoteTarget target) -> 
                      C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets(158,5): error : There are no remote machines configured for remote builds. Please configure a machine using Tools | Options | Cross Platform | Connection Manager.
 
     0 Warning(s)
     1 Error(s)
 
-Time Elapsed 00:00:00.01
+Time Elapsed 00:00:00.02

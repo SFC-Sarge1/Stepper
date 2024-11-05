@@ -29,6 +29,7 @@ namespace Stepper
     using System.Xml.Linq;
     using UtilityDelta.Stepper;
     using System.Windows.Markup;
+    using System.Threading;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -36,25 +37,69 @@ namespace Stepper
     public partial class MainWindow : MetroWindow
     {
         /// <summary>
+        /// Cancel the X Task Delay
+        /// </summary>
+        private CancellationTokenSource _xCancellationTokenSource = new CancellationTokenSource();
+        /// <summary>
+        /// Cancel the Y Task Delay
+        /// </summary>
+        private CancellationTokenSource _yCancellationTokenSource = new CancellationTokenSource();
+        /// <summary>
+        /// Cancel the Z Task Delay
+        /// </summary>
+        private CancellationTokenSource _zCancellationTokenSource = new CancellationTokenSource();
+        /// <summary>
         /// The new settings window
         /// </summary>
         public StepperAppSettings newSettingsWindow;
         /// <summary>
-        /// The timer
+        /// The X Axis Timer
         /// </summary>
-        public static DispatcherTimer? timer;
+        public static DispatcherTimer? xTimer;
         /// <summary>
-        /// The countdown time
+        /// The Y Axis Timer
         /// </summary>
-        public TimeSpan countdownTime = new();
+        public static DispatcherTimer? yTimer;
         /// <summary>
-        /// The target end time
+        /// The Z AxisTimer
         /// </summary>
-        public DateTime targetEndTime = new();
+        public static DispatcherTimer? zTimer;
         /// <summary>
-        /// The stopwatch
+        /// The X Axis Countdown time
         /// </summary>
-        public Stopwatch stopwatch = new();
+        public TimeSpan xCountdownTime = new();
+        /// <summary>
+        /// The Y Axis Countdown time
+        /// </summary>
+        public TimeSpan yCountdownTime = new();
+        /// <summary>
+        /// The Z Axis Countdown time
+        /// </summary>
+        public TimeSpan zCountdownTime = new();
+        /// <summary>
+        /// The X Axis Target end time
+        /// </summary>
+        public DateTime xTargetEndTime = new();
+        /// <summary>
+        /// The Y Axis Target end time
+        /// </summary>
+        public DateTime yTargetEndTime = new();
+        /// <summary>
+        /// The Z Axis Target end time
+        /// </summary>
+        public DateTime zTargetEndTime = new();
+        /// <summary>
+        /// The X Axis Stopwatch
+        /// </summary>
+        public static Stopwatch xStopwatch = new();
+        /// <summary>
+        /// The Y Axis Stopwatch
+        /// </summary>
+        public static Stopwatch yStopwatch = new();
+        /// <summary>
+        /// The Z Axis Stopwatch
+        /// </summary>
+        public static Stopwatch zStopwatch = new();
         /// <summary>
         /// The elapsed time
         /// </summary>
@@ -176,9 +221,9 @@ namespace Stepper
         /// </summary>
         static byte[] message = new byte[6000];
         /// <summary>
-        /// The Limit Switch Triggered value 0 = false, 1 = true
+        /// The Z Axis Current Position
         /// </summary>
-        public int limitSwitchTriggered = 0;
+        public static float zCurrentPosition;
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow" /> class.
         /// </summary>
@@ -353,11 +398,11 @@ namespace Stepper
             Properties.Settings.Default.BuildVersion = $"Version: {displayableVersion}";
             _logger.LogInformation(message: $"Version: {displayableVersion}");
 #endif
-            timer = new DispatcherTimer
+            zTimer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)) // Set the timer to tick every 1 millisecond
+                Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)) // Set the zTimer to tick every 1 millisecond
             };
-            timer.Tick += Timer_Tick; // Specify what happens when the timer ticks
+            zTimer.Tick += Timer_Tick; // Specify what happens when the zTimer ticks
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
             newSettingsWindow = new StepperAppSettings();
@@ -404,7 +449,7 @@ namespace Stepper
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
-        private static void ZdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        private void ZdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             try
             {
@@ -414,15 +459,67 @@ namespace Stepper
                 // Check if the message indicates the motor has stopped
                 if (Zindata.Contains("Z Axis Motor Stopped"))
                 {
+                    zTimer.Stop();
+                    zStopwatch.Stop();
+                    // Cancel the delay task
+                    _zCancellationTokenSource.Cancel();
+                    //txtXaxisStepperMove.IsEnabled = true;
+                    //txtYaxisStepperMove.IsEnabled = true;
+                    //txtZaxisStepperMove.IsEnabled = true;
+                    //txtXaxisStepperCurrent.IsEnabled = true;
+                    //txtYaxisStepperCurrent.IsEnabled = true;
+                    //txtZaxisStepperCurrent.IsEnabled = true;
+                    //txtXaxisMotorSpeed.IsEnabled = true;
+                    //txtYaxisMotorSpeed.IsEnabled = true;
+                    //txtZaxisMotorSpeed.IsEnabled = true;
+                    //ckbXaxisResetToZero.IsEnabled = true;
+                    //ckbYaxisResetToZero.IsEnabled = true;
+                    //ckbZaxisResetToZero.IsEnabled = true;
+                    //ckbZaxisResetToZero.IsChecked = false;
+                    //btnRunXAxis.IsEnabled = true;
+                    //btnRunYAxis.IsEnabled = true;
+                    //btnRunZAxis.IsEnabled = true;
+                    //btnRunXYAxis.IsEnabled = true;
+                    //ZaxisChanged = true;
+
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         MessageBox.Show("Z Axis Motor has stopped due to limit switch trigger.", "Motor Stopped", MessageBoxButton.OK, MessageBoxImage.Information);
                     });
+
                 }
+                // Check if the message contains the current motor position
+                if (Zindata.Contains("Z Axis Motor Current Position:"))
+                {
+                    string[] lines = Zindata.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string line in lines)
+                    {
+                        if (line.StartsWith("Z Axis Motor Current Position:"))
+                        {
+                            string positionString = line.Replace("Z Axis Motor Current Position:", "").Trim();
+                            if (float.TryParse(positionString, out float currentPosition))
+                            {
+                                //txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
+                                //txtZaxisStepperCurrent.Text = currentPosition.ToString();
+                                //Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
+                                //Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
+                                //Properties.Settings.Default.Save();
+                                Application.Current.Dispatcher.Invoke(() =>
+                                {
+                                    // Update the UI or log the current position
+                                    _logger.LogInformation(message: $"Z Axis Motor Current Position: {currentPosition}");
+                                    MessageBox.Show($"Z Axis Motor Current Position: {currentPosition}", "Motor Position", MessageBoxButton.OK, MessageBoxImage.Information);
+                                });
+                            }
+                        }
+                    }
+                }
+
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error in ZdataReceivedHandler");
+                MessageBox.Show(ex.ToString() + " Error in ZdataReceivedHandler", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
         /// <summary>
@@ -487,11 +584,11 @@ namespace Stepper
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
-                    countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
-                    targetEndTime = DateTime.Now.Add(countdownTime);
-                    timer.Start();
-                    stopwatch.Start();
-                    _logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = targetEndTime: {targetEndTime.ToString(@"hh\:mm\:ss")}");
+                    xCountdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
+                    xTargetEndTime = DateTime.Now.Add(xCountdownTime);
+                    xTimer.Start();
+                    xStopwatch.Start();
+                    _logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = xTargetEndTime: {xTargetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
             }
             catch (Exception ex)
@@ -546,11 +643,11 @@ namespace Stepper
                     await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
-                    countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
-                    targetEndTime = DateTime.Now.Add(countdownTime);
-                    timer.Start();
-                    stopwatch.Start();
-                    _logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = targetEndTime: {targetEndTime.ToString(@"hh\:mm\:ss")}");
+                    yCountdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
+                    yTargetEndTime = DateTime.Now.Add(yCountdownTime);
+                    yTimer.Start();
+                    yStopwatch.Start();
+                    _logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = yTargetEndTime: {yTargetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
             }
             catch (Exception ex)
@@ -603,14 +700,24 @@ namespace Stepper
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
                     _ZserialPort.Write(stringValue);
-                    await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
+                    // Create a new CancellationTokenSource for this operation
+                    _zCancellationTokenSource = new CancellationTokenSource();
+                    try
+                    {
+                        await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay), _zCancellationTokenSource.Token);
+                    }
+                    catch (TaskCanceledException)
+                    {
+                        _logger.LogInformation(message: $"{axis} Axis Run Event: Task was canceled due to limit switch trigger.");
+                        return;
+                    }
                     _logger.LogInformation(message: $"{axis} Axis Run Event: {stringValue}");
                     stringValue = "";
-                    countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
-                    targetEndTime = DateTime.Now.Add(countdownTime);
-                    timer.Start();
-                    stopwatch.Start();
-                    _logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = targetEndTime: {targetEndTime.ToString(@"hh\:mm\:ss")}");
+                    zCountdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
+                    zTargetEndTime = DateTime.Now.Add(zCountdownTime);
+                    zTimer.Start();
+                    zStopwatch.Start();
+                    _logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = zTargetEndTime: {zTargetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
             }
             catch (Exception ex)
@@ -677,11 +784,11 @@ namespace Stepper
                     MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
-                    targetEndTime = DateTime.Now.Add(countdownTime);
-                    timer.Start();
-                    stopwatch.Start();
-                    _logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = targetEndTime: {targetEndTime.ToString(@"hh\:mm\:ss")}");
+                    xCountdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
+                    xTargetEndTime = DateTime.Now.Add(xCountdownTime);
+                    xTimer.Start();
+                    xStopwatch.Start();
+                    _logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = xTargetEndTime: {xTargetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
                 else if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == true)
                 {
@@ -711,11 +818,11 @@ namespace Stepper
                     MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
-                    targetEndTime = DateTime.Now.Add(countdownTime);
-                    timer.Start();
-                    stopwatch.Start();
-                    _logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = targetEndTime: {targetEndTime.ToString(@"hh\:mm\:ss")}");
+                    xCountdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
+                    xTargetEndTime = DateTime.Now.Add(zCountdownTime);
+                    xTimer.Start();
+                    xStopwatch.Start();
+                    _logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = xTargetEndTime: {xTargetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
                 if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == false)
                 {
@@ -761,11 +868,11 @@ namespace Stepper
                     MotorMovementSeconds = UpdateMotorTimer(axis, MotorSpeed, stepperMove);
                     int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
                     _logger.LogInformation(message: $"{axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    countdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
-                    targetEndTime = DateTime.Now.Add(countdownTime);
-                    timer.Start();
-                    stopwatch.Start();
-                    _logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = targetEndTime: {targetEndTime.ToString(@"hh\:mm\:ss")}");
+                    xCountdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
+                    xTargetEndTime = DateTime.Now.Add(xCountdownTime);
+                    xTimer.Start();
+                    xStopwatch.Start();
+                    _logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = xTargetEndTime: {xTargetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
             }
             catch (Exception ex)
@@ -1336,9 +1443,9 @@ namespace Stepper
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void Timer_Tick(object sender, EventArgs e)
         {
-            elapsedTime = stopwatch.Elapsed;
-            remainingTime = targetEndTime - DateTime.Now;
-            if (DateTime.Now < targetEndTime)
+            elapsedTime = zStopwatch.Elapsed;
+            remainingTime = zTargetEndTime - DateTime.Now;
+            if (DateTime.Now < zTargetEndTime)
             {
                 switch (axis)
                 {
@@ -1424,7 +1531,7 @@ namespace Stepper
                 {
                     _logger.LogInformation(message: $"Stepper Motor Controller Disable {axis} Axis controls while moving to location.");
                     CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} {elapsedTime.ToString(@"hh\:mm\:ss\.fffff")}";
-                    _logger.LogInformation(message: $"Time remaining: {elapsedTime.ToString(@"hh\:mm\:ss")} targetEndTime = {targetEndTime.ToString(@"hh\:mm\:ss")}");
+                    _logger.LogInformation(message: $"Time remaining: {elapsedTime.ToString(@"hh\:mm\:ss")} zTargetEndTime = {zTargetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
                 if (ckbXaxisResetToZero.IsChecked == true || ckbYaxisResetToZero.IsChecked == true || ckbZaxisResetToZero.IsChecked == true)
                 {
@@ -1434,7 +1541,7 @@ namespace Stepper
                     CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                 }
             }
-            if (DateTime.Now >= targetEndTime)
+            if (DateTime.Now >= zTargetEndTime)
             {
                 CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                 switch (axis)
@@ -1557,11 +1664,11 @@ namespace Stepper
                         break;
                 }
                 _logger.LogInformation(message: $"Stepper Motor Controller Enable {axis} Axis controls after moving to location.");
-                stopwatch.Stop(); // Stop the timer when the countdown reaches
+                zStopwatch.Stop(); // Stop the zTimer when the countdown reaches
                 _logger.LogInformation(message: $"Stepper Motor Controller Stopwatch Stopped.");
-                timer.Stop();
+                zTimer.Stop();
                 _logger.LogInformation(message: $"Stepper Motor Controller Timer Stopped.");
-                stopwatch.Reset();
+                zStopwatch.Reset();
                 _logger.LogInformation(message: $"Stepper Motor Controller Stopwatch Reset.");
             }
         }
@@ -1662,7 +1769,7 @@ namespace Stepper
             }
         }
         /// <summary>
-        /// Updates the motor timer.
+        /// Updates the motor zTimer.
         /// </summary>
         /// <param name="axis">The axis.</param>
         /// <param name="MotorSpeed">The motor speed.</param>
