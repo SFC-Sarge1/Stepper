@@ -592,8 +592,8 @@ static void zMotorRun()
 		zAxisStepperMotor.stop();
 		limitSwitchCWTriggered = true;
 		limitSwitchCCWTriggered = false;
-		Serial.println("Z Axis Motor Stopped");
-		Serial.println("Z Axis Motor Current Position: " + (String)zAxisStepperMotor.currentPosition());
+		Serial.println("Z Axis CW Motor Stopped");
+		Serial.println("Z Axis CW Motor Current Position: " + (String)zAxisStepperMotor.currentPosition());
 		return;
 	}
 
@@ -602,8 +602,8 @@ static void zMotorRun()
 		zAxisStepperMotor.stop();
 		limitSwitchCCWTriggered = true;
 		limitSwitchCWTriggered = false;
-		Serial.println("Z Axis Motor Stopped");
-		Serial.println("Z Axis Motor Current Position: " + (String)zAxisStepperMotor.currentPosition());
+		Serial.println("Z Axis CCW Motor Stopped");
+		Serial.println("Z Axis CCW Motor Current Position: " + (String)zAxisStepperMotor.currentPosition());
 		return;
 	}
 
@@ -611,10 +611,10 @@ static void zMotorRun()
 	{
 		zAxisSetToZeroPosition = false;
 		zAxisWasSetToZeroPosition = true;
-		zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
-		zAxisMoveMM = 0.00;
-		zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
-		printNonBlocking("Z," + (String)zAxisCurrentPosition);
+		//zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
+		//zAxisMoveMM = 0.00;
+		//zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
+		//printNonBlocking("Z," + (String)zAxisCurrentPosition);
 		limitSwitchCWTriggered = false;
 		limitSwitchCCWTriggered = false;
 		NVIC_SystemReset();  //call reset on Arduino or clone board

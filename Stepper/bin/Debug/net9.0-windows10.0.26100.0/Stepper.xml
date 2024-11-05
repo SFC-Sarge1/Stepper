@@ -424,6 +424,16 @@
             The Z Axis Current Position
             </summary>
         </member>
+        <member name="F:Stepper.MainWindow._zAxisRunCompleted">
+            <summary>
+            Flag to indicate the completion of ZAxisRun_Click
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.zAxisAbsolutePosition">
+            <summary>
+            The Z Axis Absolute Position
+            </summary>
+        </member>
         <member name="M:Stepper.MainWindow.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Stepper.MainWindow" /> class.

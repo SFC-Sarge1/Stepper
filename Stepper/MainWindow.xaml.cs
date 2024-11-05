@@ -225,6 +225,14 @@ namespace Stepper
         /// </summary>
         public static float zCurrentPosition;
         /// <summary>
+        /// Flag to indicate the completion of ZAxisRun_Click
+        /// </summary>
+        private bool _zAxisRunCompleted = false;
+        /// <summary>
+        /// The Z Axis Absolute Position
+        /// </summary>
+        public float zAxisAbsolutePosition = 0.00f;  // Variable to store the absolute position of the motor
+        /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow" /> class.
         /// </summary>
         public MainWindow()
@@ -457,62 +465,183 @@ namespace Stepper
                 string Zindata = Zsp.ReadExisting();
                 _logger.LogInformation(message: $"Z Axis Data Received: {Zindata}");
                 // Check if the message indicates the motor has stopped
-                if (Zindata.Contains("Z Axis Motor Stopped"))
+                if (Zindata.Contains("Z Axis CW Motor Stopped"))
                 {
                     zTimer.Stop();
                     zStopwatch.Stop();
                     // Cancel the delay task
                     _zCancellationTokenSource.Cancel();
-                    //txtXaxisStepperMove.IsEnabled = true;
-                    //txtYaxisStepperMove.IsEnabled = true;
-                    //txtZaxisStepperMove.IsEnabled = true;
-                    //txtXaxisStepperCurrent.IsEnabled = true;
-                    //txtYaxisStepperCurrent.IsEnabled = true;
-                    //txtZaxisStepperCurrent.IsEnabled = true;
-                    //txtXaxisMotorSpeed.IsEnabled = true;
-                    //txtYaxisMotorSpeed.IsEnabled = true;
-                    //txtZaxisMotorSpeed.IsEnabled = true;
-                    //ckbXaxisResetToZero.IsEnabled = true;
-                    //ckbYaxisResetToZero.IsEnabled = true;
-                    //ckbZaxisResetToZero.IsEnabled = true;
-                    //ckbZaxisResetToZero.IsChecked = false;
-                    //btnRunXAxis.IsEnabled = true;
-                    //btnRunYAxis.IsEnabled = true;
-                    //btnRunZAxis.IsEnabled = true;
-                    //btnRunXYAxis.IsEnabled = true;
-                    //ZaxisChanged = true;
 
                     Application.Current.Dispatcher.Invoke(() =>
                     {
-                        MessageBox.Show("Z Axis Motor has stopped due to limit switch trigger.", "Motor Stopped", MessageBoxButton.OK, MessageBoxImage.Information);
+                        txtXaxisStepperMove.IsEnabled = true;
+                        txtYaxisStepperMove.IsEnabled = true;
+                        txtZaxisStepperMove.IsEnabled = true;
+                        txtXaxisStepperCurrent.IsEnabled = true;
+                        txtYaxisStepperCurrent.IsEnabled = true;
+                        txtZaxisStepperCurrent.IsEnabled = true;
+                        txtXaxisMotorSpeed.IsEnabled = true;
+                        txtYaxisMotorSpeed.IsEnabled = true;
+                        txtZaxisMotorSpeed.IsEnabled = true;
+                        ckbXaxisResetToZero.IsEnabled = true;
+                        ckbYaxisResetToZero.IsEnabled = true;
+                        ckbZaxisResetToZero.IsEnabled = true;
+                        btnRunXAxis.IsEnabled = true;
+                        btnRunYAxis.IsEnabled = true;
+                        btnRunZAxis.IsEnabled = true;
+                        btnRunXYAxis.IsEnabled = true;
+                        ZaxisChanged = true;
+                        CountdownLabel.Content = "";
+                        //ZZero(Properties.Settings.Default.Milliseconds, Properties.Settings.Default.RootAxisZ);
+                        ckbZaxisResetToZero.IsChecked = true;
+                        RoutedEventArgs e = new();
+                        ZAxisRun_Click(sender, e);
+                        try
+                        {
+                            // Start a new task for the delay
+                            Task.Run(async () =>
+                            {
+                                await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay) * 2);
+                                Application.Current.Dispatcher.Invoke(() =>
+                                {
+                                    // Perform any UI updates or further actions after the delay
+                                   //MessageBox.Show("Delay completed after motor stop.", "Delay", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    // Check if the message contains the current motor position
+                                    if (_zAxisRunCompleted && Zindata.Contains("Z Axis CW Motor Current Position:"))
+                                    {
+
+                                        string[] lines = Zindata.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                                        foreach (string line in lines)
+                                        {
+                                            if (line.StartsWith("Z Axis CW Motor Current Position:"))
+                                            {
+                                                string positionString = line.Replace("Z Axis CW Motor Current Position:", "").Trim();
+                                                if (float.TryParse(positionString, out float currentPosition))
+                                                {
+                                                    // Convert steps to mm
+                                                    float stepsPerRevolution = 200.0f;
+                                                    float distancePerRevolution = 4.0f;
+                                                    float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
+                                                    zAxisAbsolutePosition = zAxisAbsolutePosition + distanceInMM;
+                                                    Application.Current.Dispatcher.Invoke(() =>
+                                                    {
+                                                        ckbZaxisResetToZero.IsChecked = false;
+                                                        txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
+                                                        // Update the UI or log the current position
+                                                        txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2"); // Display distance in mm
+                                                        Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
+                                                        Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
+                                                        Properties.Settings.Default.Save();
+                                                        _zAxisRunCompleted = false;
+                                                        _logger.LogInformation(message: $"Z Axis CW Motor Current Position: {txtZaxisStepperCurrent.Text}");
+                                                        //MessageBox.Show($"Z Axis Motor Current Position: {currentPosition}", "Motor Position", MessageBoxButton.OK, MessageBoxImage.Information);
+                                                    });
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                });
+                            });
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.LogError(ex, "Error in ZdataReceivedHandler Task.Run(async ()");
+                            MessageBox.Show(ex.ToString() + " Error in ZdataReceivedHandler Task.Run(async ()", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+
+                        //MessageBox.Show("Z Axis Motor has stopped due to limit switch trigger.", "Motor Stopped", MessageBoxButton.OK, MessageBoxImage.Information);
                     });
 
                 }
-                // Check if the message contains the current motor position
-                if (Zindata.Contains("Z Axis Motor Current Position:"))
+                if (Zindata.Contains("Z Axis CCW Motor Stopped"))
                 {
-                    string[] lines = Zindata.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                    foreach (string line in lines)
+                    zTimer.Stop();
+                    zStopwatch.Stop();
+                    // Cancel the delay task
+                    _zCancellationTokenSource.Cancel();
+
+                    Application.Current.Dispatcher.Invoke(() =>
                     {
-                        if (line.StartsWith("Z Axis Motor Current Position:"))
+                        txtXaxisStepperMove.IsEnabled = true;
+                        txtYaxisStepperMove.IsEnabled = true;
+                        txtZaxisStepperMove.IsEnabled = true;
+                        txtXaxisStepperCurrent.IsEnabled = true;
+                        txtYaxisStepperCurrent.IsEnabled = true;
+                        txtZaxisStepperCurrent.IsEnabled = true;
+                        txtXaxisMotorSpeed.IsEnabled = true;
+                        txtYaxisMotorSpeed.IsEnabled = true;
+                        txtZaxisMotorSpeed.IsEnabled = true;
+                        ckbXaxisResetToZero.IsEnabled = true;
+                        ckbYaxisResetToZero.IsEnabled = true;
+                        ckbZaxisResetToZero.IsEnabled = true;
+                        btnRunXAxis.IsEnabled = true;
+                        btnRunYAxis.IsEnabled = true;
+                        btnRunZAxis.IsEnabled = true;
+                        btnRunXYAxis.IsEnabled = true;
+                        ZaxisChanged = true;
+                        CountdownLabel.Content = "";
+                        //ZZero(Properties.Settings.Default.Milliseconds, Properties.Settings.Default.RootAxisZ);
+                        ckbZaxisResetToZero.IsChecked = true;
+                        RoutedEventArgs e = new();
+                        ZAxisRun_Click(sender, e);
+                        try
                         {
-                            string positionString = line.Replace("Z Axis Motor Current Position:", "").Trim();
-                            if (float.TryParse(positionString, out float currentPosition))
+                            // Start a new task for the delay
+                            Task.Run(async () =>
                             {
-                                //txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
-                                //txtZaxisStepperCurrent.Text = currentPosition.ToString();
-                                //Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
-                                //Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
-                                //Properties.Settings.Default.Save();
+                                await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay) * 2);
                                 Application.Current.Dispatcher.Invoke(() =>
                                 {
-                                    // Update the UI or log the current position
-                                    _logger.LogInformation(message: $"Z Axis Motor Current Position: {currentPosition}");
-                                    MessageBox.Show($"Z Axis Motor Current Position: {currentPosition}", "Motor Position", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    // Perform any UI updates or further actions after the delay
+                                    //MessageBox.Show("Delay completed after motor stop.", "Delay", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    // Check if the message contains the current motor position
+                                    if (_zAxisRunCompleted && Zindata.Contains("Z Axis CCW Motor Current Position:"))
+                                    {
+
+                                        string[] lines = Zindata.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                                        foreach (string line in lines)
+                                        {
+                                            if (line.StartsWith("Z Axis CCW Motor Current Position:"))
+                                            {
+                                                string positionString = line.Replace("Z Axis CCW Motor Current Position:", "").Trim();
+                                                if (float.TryParse(positionString, out float currentPosition))
+                                                {
+                                                    // Convert steps to mm
+                                                    float stepsPerRevolution = 200.0f;
+                                                    float distancePerRevolution = 4.0f;
+                                                    float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
+                                                    zAxisAbsolutePosition = zAxisAbsolutePosition + distanceInMM;
+                                                    Application.Current.Dispatcher.Invoke(() =>
+                                                    {
+                                                        ckbZaxisResetToZero.IsChecked = false;
+                                                        txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
+                                                        // Update the UI or log the current position
+                                                        txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2"); // Display distance in mm
+                                                        Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
+                                                        Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
+                                                        Properties.Settings.Default.Save();
+                                                        _zAxisRunCompleted = false;
+                                                        _logger.LogInformation(message: $"Z Axis CCW Motor Current Position: {txtZaxisStepperCurrent.Text}");
+                                                        //MessageBox.Show($"Z Axis Motor Current Position: {currentPosition}", "Motor Position", MessageBoxButton.OK, MessageBoxImage.Information);
+                                                    });
+                                                }
+                                            }
+                                        }
+                                    }
+
                                 });
-                            }
+                            });
                         }
-                    }
+                        catch (Exception ex)
+                        {
+                            _logger.LogError(ex, "Error in ZdataReceivedHandler Task.Run(async ()");
+                            MessageBox.Show(ex.ToString() + " Error in ZdataReceivedHandler Task.Run(async ()", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+
+                        //MessageBox.Show("Z Axis Motor has stopped due to limit switch trigger.", "Motor Stopped", MessageBoxButton.OK, MessageBoxImage.Information);
+                    });
+
                 }
 
             }
@@ -719,6 +848,8 @@ namespace Stepper
                     zStopwatch.Start();
                     _logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = zTargetEndTime: {zTargetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
+                // Set the flag to indicate completion
+                _zAxisRunCompleted = true;
             }
             catch (Exception ex)
             {
