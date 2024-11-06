@@ -178,11 +178,6 @@ namespace Stepper
             Properties.Settings.Default.BuildVersion = $"Version: {displayableVersion}";
             Logger.LogInformation(message: $"Version: {displayableVersion}");
 #endif
-            //zTimer = new DispatcherTimer
-            //{
-            //    Interval = TimeSpan.FromMilliseconds(Convert.ToDouble(Properties.Settings.Default.MilisecondTimerInterval)) // Set the zTimer to tick every 1 millisecond
-            //};
-            //zTimer.Tick += Timer_Tick; // Specify what happens when the zTimer ticks
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
             NewSettingsWindow = new StepperAppSettings();
@@ -845,143 +840,26 @@ namespace Stepper
             {
                 Axis = Properties.Settings.Default.RootAxisXY;
                 Logger.LogInformation(message: $"{Axis}AxisRun_Click button clicked:");
-                string stringValue;
-                string stringValue1;
 
-                if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == true)
+                // Run X Axis
+                XAxisRun_Click(sender, e);
+
+                // Wait for X Axis to complete
+                while (!xAxisRunCompleted)
                 {
-                    ZeroXaxis = 1;
-                    ZeroYaxis = 1;
-                    stringValue1 = $"{Axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{ZeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{ZeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{ZeroZaxis}";
-                    ckbXaxisResetToZero.IsChecked = false;
-                    ckbYaxisResetToZero.IsChecked = false;
-                    ySerialPort.Write(stringValue1);
-                    ySerialPort.Write(stringValue1);
-                    Logger.LogInformation(message: $"{Axis} Axis Run Event to reset Axis to zero: {stringValue1}");
-                    stringValue1 = "";
-                    ZeroXaxis = 0;
-                    ZeroYaxis = 0;
-                    XYZero(Properties.Settings.Default.Milliseconds, Axis);
+                    await Task.Delay(100);
                 }
-                else if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == false)
+
+                // Run Y Axis
+                YAxisRun_Click(sender, e);
+
+                // Wait for Y Axis to complete
+                while (!yAxisRunCompleted)
                 {
-                    ZeroXaxis = 1;
-                    ZeroYaxis = 0;
-                    stringValue1 = $"{Axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text},{ZeroXaxis},{(Convert.ToDecimal(txtYaxisStepperCurrent) + Convert.ToDecimal(txtYaxisStepperMove.Text))},{txtYaxisMotorSpeed.Text},{ZeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{ZeroZaxis}";
-                    //SendDataToLattepanda.SendData(stringValue1);
-                    ckbXaxisResetToZero.IsChecked = false;
-                    ySerialPort.Write(stringValue1);
-                    ySerialPort.Write(stringValue1);
-                    await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
-                    Logger.LogInformation(message: $"{Axis} Axis Run Event to reset X Axis to zero: {stringValue1}");
-                    stringValue1 = "";
-                    ZeroXaxis = 0;
-                    ZeroYaxis = 0;
-                    CurrentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
-                    if (Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()) < 0)
-                    {
-                        yStepperMove = Math.Abs(Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()));
-                        Logger.LogInformation(message: $"{Axis} Axis negative value: {txtYaxisStepperMove.Text} converted to positive decimal: {yStepperMove}");
-                    }
-                    else
-                    {
-                        yStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text.Trim());
-                    }
-                    decimal MotorMovementSeconds = Convert.ToDecimal(0.00);
-                    decimal MotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                    MotorMovementSeconds = UpdateMotorTimer(Axis, MotorSpeed, xStepperMove);
-                    int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
-                    Logger.LogInformation(message: $"{Axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    xCountdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
-                    xTargetEndTime = DateTime.Now.Add(xCountdownTime);
-                    xTimer.Start();
-                    xStopwatch.Start();
-                    Logger.LogInformation(message: $"{Axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = xTargetEndTime: {xTargetEndTime.ToString(@"hh\:mm\:ss")}");
+                    await Task.Delay(100);
                 }
-                else if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == true)
-                {
-                    ZeroXaxis = 0;
-                    ZeroYaxis = 1;
-                    stringValue1 = $"{Axis},{(Convert.ToDecimal(txtXaxisStepperCurrent) + Convert.ToDecimal(txtXaxisStepperMove.Text))},{txtXaxisMotorSpeed.Text},{ZeroXaxis},{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text},{ZeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{ZeroZaxis}";
-                    //SendDataToLattepanda.SendData(stringValue1);
-                    ckbYaxisResetToZero.IsChecked = false;
-                    ySerialPort.Write(stringValue1);
-                    await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
-                    Logger.LogInformation(message: $"{Axis} Axis Run Event to reset Y Axis to zero: {stringValue1}");
-                    stringValue1 = "";
-                    ZeroXaxis = 0;
-                    ZeroYaxis = 0;
-                    CurrentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
-                    if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) < 0)
-                    {
-                        yStepperMove = Math.Abs(Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()));
-                        Logger.LogInformation(message: $"{Axis} Axis negative value: {txtXaxisStepperMove.Text} converted to positive decimal: {yStepperMove}");
-                    }
-                    else
-                    {
-                        yStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
-                    }
-                    decimal MotorMovementSeconds = Convert.ToDecimal(0.00);
-                    decimal MotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                    MotorMovementSeconds = UpdateMotorTimer(Axis, MotorSpeed, xStepperMove);
-                    int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
-                    Logger.LogInformation(message: $"{Axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    xCountdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
-                    xTargetEndTime = DateTime.Now.Add(zCountdownTime);
-                    xTimer.Start();
-                    xStopwatch.Start();
-                    Logger.LogInformation(message: $"{Axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = xTargetEndTime: {xTargetEndTime.ToString(@"hh\:mm\:ss")}");
-                }
-                if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == false)
-                {
-                    ZeroXaxis = 0;
-                    ZeroYaxis = 0;
-                    stringValue = $"{Axis},{(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text))},{ZeroXaxis},{(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text))},{txtYaxisMotorSpeed.Text},{ZeroYaxis},{txtZaxisStepperMove.Text},{txtZaxisMotorSpeed.Text},{ZeroZaxis}";
-                    //SendDataToLattepanda.SendData(stringValue);
-                    xSerialPort.Write(stringValue);
-                    ySerialPort.Write(stringValue);
-                    await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
-                    Logger.LogInformation(message: $"{Axis} Axis Run Event: {stringValue}");
-                    stringValue = "";
-                    CurrentXAxis = Convert.ToString(Convert.ToDecimal(txtXaxisStepperCurrent.Text) + Convert.ToDecimal(txtXaxisStepperMove.Text));
-                    XaxisChanged = false;
-                    txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
-                    CurrentYAxis = Convert.ToString(Convert.ToDecimal(txtYaxisStepperCurrent.Text) + Convert.ToDecimal(txtYaxisStepperMove.Text));
-                    if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) >= Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()))
-                    {
-                        if (Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()) < 0)
-                        {
-                            yStepperMove = Math.Abs(Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()));
-                            Logger.LogInformation(message: $"{Axis} Axis negative value: {txtXaxisStepperMove.Text} converted to positive decimal: {yStepperMove}");
-                        }
-                        else
-                        {
-                            yStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text.Trim());
-                        }
-                    }
-                    else
-                    {
-                        if (Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()) < 0)
-                        {
-                            yStepperMove = Math.Abs(Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()));
-                            Logger.LogInformation(message: $"{Axis} Axis negative value: {txtYaxisStepperMove.Text} converted to positive decimal: {yStepperMove}");
-                        }
-                        else
-                        {
-                            yStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text.Trim());
-                        }
-                    }
-                    decimal MotorMovementSeconds = Convert.ToDecimal(0.00);
-                    decimal MotorSpeed = Convert.ToDecimal(txtXaxisMotorSpeed.Text);
-                    MotorMovementSeconds = UpdateMotorTimer(Axis, MotorSpeed, xStepperMove);
-                    int myMovementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(MotorMovementSeconds);
-                    Logger.LogInformation(message: $"{Axis} Axis myMovementTimer int: {Properties.Settings.Default.Milliseconds} * {MotorMovementSeconds} = {myMovementTimer}");
-                    xCountdownTime = TimeSpan.FromMilliseconds(myMovementTimer);
-                    xTargetEndTime = DateTime.Now.Add(xCountdownTime);
-                    xTimer.Start();
-                    xStopwatch.Start();
-                    Logger.LogInformation(message: $"{Axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = xTargetEndTime: {xTargetEndTime.ToString(@"hh\:mm\:ss")}");
-                }
+
+                Logger.LogInformation(message: $"{Axis} Axis Run Completed.");
             }
             catch (Exception ex)
             {
@@ -1033,21 +911,27 @@ namespace Stepper
         public async void XYZero(int myDelay, string Axis)
         {
             Logger.LogInformation(message: $"Setting {Axis} Axis Current Location Set to Zero on DRO");
-            await Task.Delay(myDelay);
-            ckbXaxisResetToZero.IsChecked = false;
-            txtXaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
-            txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
-            ckbYaxisResetToZero.IsChecked = false;
-            txtYaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
-            txtYaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
-            Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
-            Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
-            Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
-            Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
-            Properties.Settings.Default.Save();
+
+            // Call XZero
+            XZero(myDelay, Properties.Settings.Default.RootAxisX);
+
+            // Wait for XZero to complete
+            while (xAxisClearAbsolutePosition)
+            {
+                await Task.Delay(100);
+            }
+
+            // Call YZero
+            YZero(myDelay, Properties.Settings.Default.RootAxisY);
+
+            // Wait for YZero to complete
+            while (yAxisClearAbsolutePosition)
+            {
+                await Task.Delay(100);
+            }
+
             Logger.LogInformation(message: $"{Axis} Axis Current Location Set to Zero");
         }
-
         private void CheckBoxChanged(object sender, RoutedEventArgs e)
         {
             UpdateZeroStatus();
@@ -1813,19 +1697,22 @@ namespace Stepper
 
                         if (axis == "X")
                         {
-                            xAxisAbsolutePosition += line.Contains("CW") ? distanceInMM : -distanceInMM;
-                            Application.Current.Dispatcher.Invoke(() =>
+                            if (line.Contains("CW"))
                             {
-                                ckbXaxisResetToZero.IsChecked = false;
-                                txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString("F2");
-                                txtXaxisStepperCurrent.Text = xAxisAbsolutePosition.ToString("F2");
-                                Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(xAxisAbsolutePosition.ToString("F2"));
-                                Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
-                                Properties.Settings.Default.Save();
-                                xAxisRunCompleted = false;
-                                Logger.LogInformation($"X Axis Motor Current Position: {txtXaxisStepperCurrent.Text}");
-                                xAxisClearAbsolutePosition = true;
-                            });
+                                xAxisAbsolutePosition += line.Contains("CW") ? distanceInMM : -distanceInMM;
+                                Application.Current.Dispatcher.Invoke(() =>
+                                {
+                                    ckbXaxisResetToZero.IsChecked = false;
+                                    txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString("F2");
+                                    txtXaxisStepperCurrent.Text = xAxisAbsolutePosition.ToString("F2");
+                                    Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(xAxisAbsolutePosition.ToString("F2"));
+                                    Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
+                                    Properties.Settings.Default.Save();
+                                    xAxisRunCompleted = false;
+                                    Logger.LogInformation($"X Axis Motor Current Position: {txtXaxisStepperCurrent.Text}");
+                                    xAxisClearAbsolutePosition = true;
+                                });
+                            }
                         }
                         else if (axis == "Y")
                         {
