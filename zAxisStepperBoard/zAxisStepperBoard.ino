@@ -613,6 +613,7 @@ static void zMotorRun()
 			if (completed)
 			{
 				zAxisCurrentStepPosition = zAxisCurrentStepPosition + 1.00f;
+				completed = false;
 			}
 		}
 		else

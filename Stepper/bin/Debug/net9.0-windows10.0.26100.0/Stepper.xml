@@ -189,329 +189,23 @@
             MainWindow
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow._xCancellationTokenSource">
-            <summary>
-            Cancel the X Task Delay
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._yCancellationTokenSource">
-            <summary>
-            Cancel the Y Task Delay
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._zCancellationTokenSource">
-            <summary>
-            Cancel the Z Task Delay
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.newSettingsWindow">
-            <summary>
-            The new settings window
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.xTimer">
-            <summary>
-            The X Axis Timer
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.yTimer">
-            <summary>
-            The Y Axis Timer
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zTimer">
-            <summary>
-            The Z AxisTimer
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.xCountdownTime">
-            <summary>
-            The X Axis Countdown time
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.yCountdownTime">
-            <summary>
-            The Y Axis Countdown time
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zCountdownTime">
-            <summary>
-            The Z Axis Countdown time
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.xTargetEndTime">
-            <summary>
-            The X Axis Target end time
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.yTargetEndTime">
-            <summary>
-            The Y Axis Target end time
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zTargetEndTime">
-            <summary>
-            The Z Axis Target end time
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.xStopwatch">
-            <summary>
-            The X Axis Stopwatch
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.yStopwatch">
-            <summary>
-            The Y Axis Stopwatch
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zStopwatch">
-            <summary>
-            The Z Axis Stopwatch
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.elapsedTime">
-            <summary>
-            The elapsed time
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.remainingTime">
-            <summary>
-            The remaining time
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zeroXaxis">
-            <summary>
-            My port name
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zeroYaxis">
-            <summary>
-            The zero Y axis
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zeroZaxis">
-            <summary>
-            The zero Z axis
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.axis">
-            <summary>
-            The axis
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.currentXAxis">
-            <summary>
-            The current X axis
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.currentYAxis">
-            <summary>
-            The current Y axis
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.currentZAxis">
-            <summary>
-            The current Z axis
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.previousXAxis">
-            <summary>
-            The previous X axis
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.previousYAxis">
-            <summary>
-            The previous Y axis
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.previousZAxis">
-            <summary>
-            The previous Z axis
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.XaxisChanged">
-            <summary>
-            The Xaxis changed
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.YaxisChanged">
-            <summary>
-            The Y axis changed
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.ZaxisChanged">
-            <summary>
-            The Z axis changed
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.XaxisStepperMoveTemp">
-            <summary>
-            The X axis stepper move temporary
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.YaxisStepperMoveTemp">
-            <summary>
-            The Y axis stepper move temporary
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.ZaxisStepperMoveTemp">
-            <summary>
-            The Z axis stepper move temporary
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.stepperMove">
-            <summary>
-            The stepper move
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.xStepperMove">
-            <summary>
-            The X axis stepper move
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.yStepperMove">
-            <summary>
-            The Y axis stepper move
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zStepperMove">
-            <summary>
-            The Z axis stepper move
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.xyStepperMove">
-            <summary>
-            The X and Y axis stepper move
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._XserialPort">
-            <summary>
-            The X serial port
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._YserialPort">
-            <summary>
-            The Y serial port
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._ZserialPort">
-            <summary>
-            The Z serial port
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._serialPort">
+        <member name="F:Stepper.MainWindow.message">
             <summary>
             The serial port
             </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.message">
             <summary>
             The message
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.zCurrentPosition">
+        <member name="F:Stepper.MainWindow.xAxisAbsolutePosition">
             <summary>
             The Z Axis Current Position
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._zAxisRunCompleted">
-            <summary>
-            Flag to indicate the completion of ZAxisRun_Click
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zAxisAbsolutePosition">
-            <summary>
-            The Z Axis Absolute Position
             </summary>
         </member>
         <member name="M:Stepper.MainWindow.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Stepper.MainWindow" /> class.
             </summary>
-        </member>
-        <member name="M:Stepper.MainWindow.YdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
-            <summary>
-            Y data received handler.
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.ZdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
-            <summary>
-            Z data received handler.
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.IsNegative(System.Decimal)">
-            <summary>
-            Determines whether the specified number is negative.
-            </summary>
-            <param name="number">The number.</param>
-            <returns><c>true</c> if the specified number is negative; otherwise, <c>false</c>.</returns>
-        </member>
-        <member name="M:Stepper.MainWindow.XAxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Handles the Click event of the X Axis Run event.
-            </summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.YAxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Handles the Click event of the Y Axis Run event.
-            </summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.ZAxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Handles the Click event of the Z Axis Run event.
-            </summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.XYAxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Handles the Click event of the X and Y Axis Run event.
-            </summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.XZero(System.Int32,System.String)">
-            <summary>
-            Sets the stepper motor X axis to zero.
-            </summary>
-            <param name="myDelay">The myDelay.</param>
-            <param name="axis">The axis.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.YZero(System.Int32,System.String)">
-            <summary>
-            Sets the stepper motor Y axis to zero.
-            </summary>
-            <param name="myDelay">The myDelay.</param>
-            <param name="axis">The axis.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.ZZero(System.Int32,System.String)">
-            <summary>
-            Sets the stepper motor Z axis to zero.
-            </summary>
-            <param name="myDelay">The myDelay.</param>
-            <param name="axis">The axis.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.XYZero(System.Int32,System.String)">
-            <summary>
-            Sets the stepper motor X and Y axis to zero.
-            </summary>
-            <param name="myDelay">The myDelay.</param>
-            <param name="axis">The axis.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.CheckBoxChanged(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            CheckBoxes the changed.
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.XaxisStepperMove_GotFocus(System.Object,System.EventArgs)">
             <summary>
@@ -716,13 +410,6 @@
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.Timer_Tick(System.Object,System.EventArgs)">
-            <summary>
-            Handles the Tick event of the Timer control.
-            </summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
-        </member>
         <member name="M:Stepper.MainWindow.MainWindow_Loaded(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
             Handles the Loaded event of the MainWindow control.
@@ -753,7 +440,7 @@
             <summary>
             Updates the motor zTimer.
             </summary>
-            <param name="axis">The axis.</param>
+            <param name="Axis">The Axis.</param>
             <param name="MotorSpeed">The motor speed.</param>
             <param name="stepperMove">The stepper move.</param>
             <returns>System.Decimal.</returns>
