@@ -509,7 +509,7 @@ namespace Stepper
                                 Application.Current.Dispatcher.Invoke(() =>
                                 {
                                     // Perform any UI updates or further actions after the delay
-                                   //MessageBox.Show("Delay completed after motor stop.", "Delay", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    //MessageBox.Show("Delay completed after motor stop.", "Delay", MessageBoxButton.OK, MessageBoxImage.Information);
                                     // Check if the message contains the current motor position
                                     if (_zAxisRunCompleted && Zindata.Contains("Z Axis CW Motor Current Position:"))
                                     {
