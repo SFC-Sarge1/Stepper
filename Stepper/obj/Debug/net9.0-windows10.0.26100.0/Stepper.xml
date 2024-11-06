@@ -384,16 +384,6 @@
             The X and Y axis stepper move
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow._logger">
-            <summary>
-            The logger
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.loggerFactory">
-            <summary>
-            The logger factory
-            </summary>
-        </member>
         <member name="F:Stepper.MainWindow._XserialPort">
             <summary>
             The X serial port
@@ -438,13 +428,6 @@
             <summary>
             Initializes a new instance of the <see cref="T:Stepper.MainWindow" /> class.
             </summary>
-        </member>
-        <member name="M:Stepper.MainWindow.XdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
-            <summary>
-            X data received handler.
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.YdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
