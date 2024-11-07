@@ -31,6 +31,7 @@ namespace Stepper
     using System.Windows.Markup;
     using System.Threading;
     using System.Timers;
+    using static System.Runtime.InteropServices.JavaScript.JSType;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -87,9 +88,9 @@ namespace Stepper
         public static float XCurrentPosition { get; private set; }
         public static float YCurrentPosition { get; private set; }
         public static float ZCurrentPosition { get; private set; }
-        public bool xAxisRunCompleted;
-        public bool yAxisRunCompleted;
-        public bool zAxisRunCompleted;
+        public bool xAxisRunCompleted = false;
+        public bool yAxisRunCompleted = false;
+        public bool zAxisRunCompleted = false;
         /// <summary>
         /// The serial port
         /// </summary>
@@ -741,6 +742,20 @@ namespace Stepper
                     DateTime targetEndTime = DateTime.Now.Add(countdownTime);
                     StartTimer(axis, targetEndTime);
                     StartStopwatch(axis);
+                    
+                    switch (axis)
+                    {
+                        case "X":
+                            xAxisRunCompleted = true;
+                            break;
+                        case "Y":
+                            yAxisRunCompleted = true;
+                            break;
+                        case "Z":
+                            zAxisRunCompleted = true;
+                            break;
+                    }
+
                     Logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {myMovementTimer} = {targetEndTime.ToString(@"hh\:mm\:ss")}");
                 }
             }
