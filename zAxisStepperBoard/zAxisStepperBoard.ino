@@ -618,6 +618,8 @@ static void zMotorRun()
 		}
 		else
 		{
+			zAxisCurrentStepPosition = zAxisStepperMotor.currentPosition();
+			zAxisStepperMotor.setCurrentPosition(zAxisCurrentStepPosition);
 			return;
 		}
 	}
