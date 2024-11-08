@@ -446,7 +446,7 @@ namespace Stepper
         /// Handles the Tick event of the Timer control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void Timer_Tick(object sender, EventArgs e)
         {
             if (sender == xTimer)
@@ -572,7 +572,7 @@ namespace Stepper
         /// Xdatas the received handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="SerialDataReceivedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         private void XdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             try
@@ -638,7 +638,7 @@ namespace Stepper
         /// Ydatas the received handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="SerialDataReceivedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         private void YdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             try
@@ -704,7 +704,7 @@ namespace Stepper
         /// Zdatas the received handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="SerialDataReceivedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         private void ZdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             try
@@ -768,7 +768,7 @@ namespace Stepper
         /// Handles the Click event of the AxisRun control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         public async void AxisRun_Click(object sender, RoutedEventArgs e)
         {
             if (sender == btnRunXAxis)
@@ -793,6 +793,22 @@ namespace Stepper
                 await RunAxis("Y", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, ySerialPort);
             }
         }
+        /// <summary>
+        /// Runs the axis.
+        /// </summary>
+        /// <param name="axis">The axis.</param>
+        /// <param name="XstepperMoveTextBox">The xstepper move text box.</param>
+        /// <param name="XmotorSpeedTextBox">The xmotor speed text box.</param>
+        /// <param name="XresetToZeroCheckBox">The xreset to zero CheckBox.</param>
+        /// <param name="YstepperMoveTextBox">The ystepper move text box.</param>
+        /// <param name="YmotorSpeedTextBox">The ymotor speed text box.</param>
+        /// <param name="YresetToZeroCheckBox">The yreset to zero CheckBox.</param>
+        /// <param name="ZstepperMoveTextBox">The zstepper move text box.</param>
+        /// <param name="ZmotorSpeedTextBox">The zmotor speed text box.</param>
+        /// <param name="ZresetToZeroCheckBox">The zreset to zero CheckBox.</param>
+        /// <param name="serialPort">The serial port.</param>
+        /// <exception cref="System.ArgumentException">'{nameof(axis)}' cannot be null or empty. - axis</exception>
+        /// <exception cref="System.ArgumentNullException">serialPort</exception>
         private async Task RunAxis(string axis, TextBox XstepperMoveTextBox, TextBox XmotorSpeedTextBox, CheckBox XresetToZeroCheckBox, TextBox YstepperMoveTextBox, TextBox YmotorSpeedTextBox, CheckBox YresetToZeroCheckBox, TextBox ZstepperMoveTextBox, TextBox ZmotorSpeedTextBox, CheckBox ZresetToZeroCheckBox, SerialPort serialPort)
         {
             if (string.IsNullOrEmpty(axis))
@@ -849,6 +865,11 @@ namespace Stepper
                 MessageBox.Show($"{axis} Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        /// <summary>
+        /// Resets the axis to zero.
+        /// </summary>
+        /// <param name="axis">The axis.</param>
+        /// <param name="serialPort">The serial port.</param>
         private async Task ResetAxisToZero(string axis, SerialPort serialPort)
         {
             string command = string.Empty;
@@ -869,6 +890,11 @@ namespace Stepper
             Logger.LogInformation(message: $"{axis} Axis Run Event to reset Axis to zero: {command}");
             await ZeroAxis(axis);
         }
+        /// <summary>
+        /// Moves the axis.
+        /// </summary>
+        /// <param name="axis">The axis.</param>
+        /// <param name="serialPort">The serial port.</param>
         private async Task MoveAxis(string axis, SerialPort serialPort)
         {
             decimal motorMovementSeconds = 1;
@@ -1028,7 +1054,7 @@ namespace Stepper
         /// CheckBoxes the changed.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void CheckBoxChanged(object sender, RoutedEventArgs e)
         {
             UpdateZeroStatus();
@@ -1037,7 +1063,7 @@ namespace Stepper
         /// Handles the GotFocus event of the AxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void AxisStepperMove_GotFocus(object sender, EventArgs e)
         {
             if (sender == txtXaxisStepperMove)
@@ -1057,7 +1083,7 @@ namespace Stepper
         /// Handles the TextChanged event of the AxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void AxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -1113,7 +1139,7 @@ namespace Stepper
         /// Handles the PreviewMouseUp event of the AxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void AxisStepperMove_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1140,7 +1166,7 @@ namespace Stepper
         /// Handles the TouchUp event of the AxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void AxisStepperMove_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1167,7 +1193,7 @@ namespace Stepper
         /// Handles the TextChanged event of the AxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void AxisMotorSpeed_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -1216,7 +1242,7 @@ namespace Stepper
         /// Handles the PreviewMouseUp event of the AxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void AxisMotorSpeed_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1243,7 +1269,7 @@ namespace Stepper
         /// Handles the TouchUp event of the AxisMotorSpeed control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void AxisMotorSpeed_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1270,7 +1296,7 @@ namespace Stepper
         /// Handles the PreviewMouseUp event of the AxisStepperCurrent control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void AxisStepperCurrent_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1297,7 +1323,7 @@ namespace Stepper
         /// Handles the TouchUp event of the AxisStepperCurrent control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void AxisStepperCurrent_TouchUp(object sender, TouchEventArgs e)
         {
             Keypad mainWindow = new(this);
@@ -1324,7 +1350,7 @@ namespace Stepper
         /// Handles the OnPreviewTextInput event of the TextBox control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TextCompositionEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TextCompositionEventArgs" /> instance containing the event data.</param>
         private void TextBox_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             var textBox = sender as TextBox;
@@ -1343,7 +1369,7 @@ namespace Stepper
         /// Handles the Click event of the AppSettings control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void AppSettings_Click(object sender, RoutedEventArgs e)
         {
             Logger.LogInformation(message: $"Stepper Motor Controller Loading Application Settings form.");
@@ -1356,7 +1382,7 @@ namespace Stepper
         /// Handles the Loaded event of the MainWindow control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Logger.LogInformation(message: $"Stepper Motor Controller MainWindow loaded");
@@ -1375,7 +1401,7 @@ namespace Stepper
         /// Handles the Closing event of the MainWindow control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs" /> instance containing the event data.</param>
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             try
@@ -1401,7 +1427,7 @@ namespace Stepper
         /// Handles the TouchUp event of the ResetToZero control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void ResetToZero_TouchUp(object sender, TouchEventArgs e)
         {
             UpdateZeroStatus();
@@ -1513,7 +1539,7 @@ namespace Stepper
         /// Handles the Click event of the AxisPort control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void AxisPort_Click(object sender, RoutedEventArgs e)
         {
             if (sender == btnXAxisPort)
