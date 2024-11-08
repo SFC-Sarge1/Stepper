@@ -500,7 +500,7 @@
             Handles the Tick event of the Timer control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.HandleTimerTick(System.String,System.Diagnostics.Stopwatch,System.DateTime,System.Boolean@,System.Boolean@,System.Single@,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Boolean@)">
             <summary>
@@ -533,28 +533,60 @@
             Xdatas the received handler.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.YdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
             Ydatas the received handler.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.ZdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
             Zdatas the received handler.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
             Handles the Click event of the AxisRun control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.RunAxis(System.String,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.IO.Ports.SerialPort)">
+            <summary>
+            Runs the axis.
+            </summary>
+            <param name="axis">The axis.</param>
+            <param name="XstepperMoveTextBox">The xstepper move text box.</param>
+            <param name="XmotorSpeedTextBox">The xmotor speed text box.</param>
+            <param name="XresetToZeroCheckBox">The xreset to zero CheckBox.</param>
+            <param name="YstepperMoveTextBox">The ystepper move text box.</param>
+            <param name="YmotorSpeedTextBox">The ymotor speed text box.</param>
+            <param name="YresetToZeroCheckBox">The yreset to zero CheckBox.</param>
+            <param name="ZstepperMoveTextBox">The zstepper move text box.</param>
+            <param name="ZmotorSpeedTextBox">The zmotor speed text box.</param>
+            <param name="ZresetToZeroCheckBox">The zreset to zero CheckBox.</param>
+            <param name="serialPort">The serial port.</param>
+            <exception cref="T:System.ArgumentException">'{nameof(axis)}' cannot be null or empty. - axis</exception>
+            <exception cref="T:System.ArgumentNullException">serialPort</exception>
+        </member>
+        <member name="M:Stepper.MainWindow.ResetAxisToZero(System.String,System.IO.Ports.SerialPort)">
+            <summary>
+            Resets the axis to zero.
+            </summary>
+            <param name="axis">The axis.</param>
+            <param name="serialPort">The serial port.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.MoveAxis(System.String,System.IO.Ports.SerialPort)">
+            <summary>
+            Moves the axis.
+            </summary>
+            <param name="axis">The axis.</param>
+            <param name="serialPort">The serial port.</param>
         </member>
         <member name="M:Stepper.MainWindow.ZeroAxis(System.String)">
             <summary>
@@ -587,105 +619,105 @@
             CheckBoxes the changed.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisStepperMove_GotFocus(System.Object,System.EventArgs)">
             <summary>
             Handles the GotFocus event of the AxisStepperMove control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisStepperMove_TextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
             <summary>
             Handles the TextChanged event of the AxisStepperMove control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Controls.TextChangedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.TextChangedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisStepperMove_PreviewMouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
             <summary>
             Handles the PreviewMouseUp event of the AxisStepperMove control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisStepperMove_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
             <summary>
             Handles the TouchUp event of the AxisStepperMove control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisMotorSpeed_TextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
             <summary>
             Handles the TextChanged event of the AxisMotorSpeed control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Controls.TextChangedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.TextChangedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisMotorSpeed_PreviewMouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
             <summary>
             Handles the PreviewMouseUp event of the AxisMotorSpeed control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisMotorSpeed_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
             <summary>
             Handles the TouchUp event of the AxisMotorSpeed control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisStepperCurrent_PreviewMouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
             <summary>
             Handles the PreviewMouseUp event of the AxisStepperCurrent control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisStepperCurrent_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
             <summary>
             Handles the TouchUp event of the AxisStepperCurrent control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.TextBox_OnPreviewTextInput(System.Object,System.Windows.Input.TextCompositionEventArgs)">
             <summary>
             Handles the OnPreviewTextInput event of the TextBox control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Input.TextCompositionEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TextCompositionEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.AppSettings_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
             Handles the Click event of the AppSettings control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.MainWindow_Loaded(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
             Handles the Loaded event of the MainWindow control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.MainWindow_Closing(System.Object,System.ComponentModel.CancelEventArgs)">
             <summary>
             Handles the Closing event of the MainWindow control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.ResetToZero_TouchUp(System.Object,System.Windows.Input.TouchEventArgs)">
             <summary>
             Handles the TouchUp event of the ResetToZero control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Input.TouchEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.UpdateZeroStatus">
             <summary>
@@ -706,7 +738,7 @@
             Handles the Click event of the AxisPort control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.HandlePortClick(System.IO.Ports.SerialPort@,System.String,System.IO.Ports.SerialDataReceivedEventHandler,System.Windows.Controls.Button,System.String)">
             <summary>
