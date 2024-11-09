@@ -581,12 +581,19 @@
             <param name="axis">The axis.</param>
             <param name="serialPort">The serial port.</param>
         </member>
-        <member name="M:Stepper.MainWindow.MoveAxis(System.String,System.IO.Ports.SerialPort)">
+        <member name="M:Stepper.MainWindow.MoveAxis(System.String,System.IO.Ports.SerialPort,System.Single)">
             <summary>
             Moves the axis.
             </summary>
             <param name="axis">The axis.</param>
             <param name="serialPort">The serial port.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.IsNegative(System.Decimal)">
+            <summary>
+            Determines whether the specified number is negative.
+            </summary>
+            <param name="number">The number.</param>
+            <returns><c>true</c> if the specified number is negative; otherwise, <c>false</c>.</returns>
         </member>
         <member name="M:Stepper.MainWindow.ZeroAxis(System.String)">
             <summary>
@@ -606,13 +613,6 @@
             Starts the stopwatch.
             </summary>
             <param name="axis">The axis.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.XYZero(System.Int32,System.String)">
-            <summary>
-            Xies the zero.
-            </summary>
-            <param name="myDelay">My delay.</param>
-            <param name="Axis">The axis.</param>
         </member>
         <member name="M:Stepper.MainWindow.CheckBoxChanged(System.Object,System.Windows.RoutedEventArgs)">
             <summary>

@@ -27,6 +27,7 @@ namespace Stepper
     using System.Diagnostics;
     using System.Xml.Linq;
     using System.Threading;
+    using System.Windows.Shapes;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -216,15 +217,15 @@ namespace Stepper
         /// <summary>
         /// The Z Axis Current Position
         /// </summary>
-        private static float xAxisAbsolutePosition;
+        private static float xAxisAbsolutePosition = 0.00f;
         /// <summary>
         /// The y axis absolute position
         /// </summary>
-        private static float yAxisAbsolutePosition;
+        private static float yAxisAbsolutePosition = 0.00f;
         /// <summary>
         /// The z axis absolute position
         /// </summary>
-        private static float zAxisAbsolutePosition;
+        private static float zAxisAbsolutePosition = 0.00f;
         /// <summary>
         /// The x axis clear absolute position
         /// </summary>
@@ -387,6 +388,9 @@ namespace Stepper
             ckbXaxisResetToZero.IsChecked = Properties.Settings.Default.ckbXaxisResetToZeroIsChecked;
             ckbYaxisResetToZero.IsChecked = Properties.Settings.Default.ckbYaxisResetToZeroIsChecked;
             ckbZaxisResetToZero.IsChecked = Properties.Settings.Default.ckbZaxisResetToZeroIsChecked;
+            xAxisAbsolutePosition = 0.00f;
+            yAxisAbsolutePosition = 0.00f;
+            zAxisAbsolutePosition = 0.00f;
         }
         /// <summary>
         /// Initializes the logger.
@@ -394,9 +398,9 @@ namespace Stepper
         private void InitializeLogger()
         {
             string logFileName = "Stepper";
-            string fileLogPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), logFileName + ".log");
+            string fileLogPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), logFileName + ".log");
             string dateTimeString = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-            string fileLogPathBackup = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), $"{logFileName}_{dateTimeString}.log");
+            string fileLogPathBackup = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), $"{logFileName}_{dateTimeString}.log");
 
             if (File.Exists(fileLogPath))
             {
@@ -645,7 +649,7 @@ namespace Stepper
             {
                 SerialPort Ysp = (SerialPort)sender;
                 string Yindata = Ysp.ReadExisting();
-                Logger.LogInformation(message: $"Z Axis Data Received: {Yindata}");
+                Logger.LogInformation(message: $"Y Axis Data Received: {Yindata}");
                 // Check if the message indicates the motor has stopped
                 if (Yindata.Contains("Y Axis CW Motor Stopped"))
                 {
@@ -731,6 +735,8 @@ namespace Stepper
                         RoutedEventArgs e = new();
                         AxisRun_Click(sender, e);
                         StartDelayTask("Z", Zindata);
+
+                        //MessageBox.Show("Y Axis Motor has stopped due to limit switch trigger.", "Motor Stopped", MessageBoxButton.OK, MessageBoxImage.Information);
                     });
 
                 }
@@ -752,16 +758,49 @@ namespace Stepper
                         AxisRun_Click(sender, e);
                         StartDelayTask("Z", Zindata);
 
-                        //MessageBox.Show("Z Axis Motor has stopped due to limit switch trigger.", "Motor Stopped", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //MessageBox.Show("Y Axis Motor has stopped due to limit switch trigger.", "Motor Stopped", MessageBoxButton.OK, MessageBoxImage.Information);
                     });
 
                 }
+                if(Zindata.Contains("Z Axis Absolute Position"))
+                {
+                    string[] ZindataArray = Zindata.Split(' ');
+                    zAxisAbsolutePosition = float.Parse(ZindataArray[4], CultureInfo.InvariantCulture);
+                    Logger.LogInformation($"Z Axis Absolute Position: {zAxisAbsolutePosition}");
+                    string[] lines = Zindata.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string line in lines)
+                    {
+                        if (line.Contains($"Z Axis Absolute Position") || line.Contains($"Z Axis Absolute Position"))
+                        {
+                            string positionString = line.Replace($"Z Axis Absolute Position", "").Replace($"Z Axis Absolute Position", "").Trim();
+                            if (float.TryParse(positionString, out float currentPosition))
+                            {
+                                float stepsPerRevolution = 200.0f;
+                                float distancePerRevolution = 4.0f;
+                                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
 
-            }
+                                zAxisAbsolutePosition += line.Contains("CW") ? distanceInMM : -distanceInMM;
+                                    Application.Current.Dispatcher.Invoke(() =>
+                                    {
+                                        txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2");
+                                        Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
+                                        Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
+                                        Properties.Settings.Default.Save();
+                                        zAxisRunCompleted = false;
+                                        Logger.LogInformation($"Z Axis Absolute Position {txtZaxisStepperCurrent.Text}");
+                                        zAxisClearAbsolutePosition = true;
+                                    });
+                                }
+                            }
+                        }
+
+                    }
+
+                }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Error in ZdataReceivedHandler");
-                MessageBox.Show(ex.ToString() + " Error in ZdataReceivedHandler", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                Logger.LogError(ex, "Error in YdataReceivedHandler");
+                MessageBox.Show(ex.ToString() + " Error in YdataReceivedHandler", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
         /// <summary>
@@ -834,7 +873,7 @@ namespace Stepper
                         }
                         else
                         {
-                            await MoveAxis(axis, serialPort);
+                            await MoveAxis(axis, serialPort, xAxisAbsolutePosition);
                         }
                         break;
                     case "Y":
@@ -844,7 +883,7 @@ namespace Stepper
                         }
                         else
                         {
-                            await MoveAxis(axis, serialPort);
+                            await MoveAxis(axis, serialPort, yAxisAbsolutePosition);
                         }
                         break;
                     case "Z":
@@ -854,7 +893,7 @@ namespace Stepper
                         }
                         else
                         {
-                            await MoveAxis(axis, serialPort);
+                            await MoveAxis(axis, serialPort, zAxisAbsolutePosition);
                         }
                         break;
                 }
@@ -877,13 +916,93 @@ namespace Stepper
             {
                 case "X":
                     command = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text.Trim()},1,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
+                    try
+                    {
+                        xAxisAbsolutePosition = float.Parse("0.00", CultureInfo.InvariantCulture);
+                        txtXaxisStepperCurrent.Text = xAxisAbsolutePosition.ToString("F2");
+                    }
+                    catch (FormatException ex)
+                    {
+                        Logger.LogError(ex, "Error converting txtXaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Invalid format for X axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (OverflowException ex)
+                    {
+                        Logger.LogError(ex, "Overflow error converting txtXaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("X axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                     break;
                 case "Y":
                     command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text.Trim()},1,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
+                    try
+                    {
+                        yAxisAbsolutePosition = float.Parse("0.00", CultureInfo.InvariantCulture);
+                        txtYaxisStepperCurrent.Text = yAxisAbsolutePosition.ToString("F2");
+                    }
+                    catch (FormatException ex)
+                    {
+                        Logger.LogError(ex, "Error converting txtYaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Invalid format for Y axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (OverflowException ex)
+                    {
+                        Logger.LogError(ex, "Overflow error converting txtYaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Y axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                     break;
                 case "Z":
                     command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{Properties.Settings.Default.Value_0_00},{txtZaxisMotorSpeed.Text.Trim()},1";
+                    try
+                    {
+                        zAxisAbsolutePosition = float.Parse("0.00", CultureInfo.InvariantCulture);
+                        txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2");
+                    }
+                    catch (FormatException ex)
+                    {
+                        Logger.LogError(ex, "Error converting txtZaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Invalid format for Z axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (OverflowException ex)
+                    {
+                        Logger.LogError(ex, "Overflow error converting txtZaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Z axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                     break;
+                case "XY":
+                    command = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text.Trim()},1,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
+                    try
+                    {
+                        xAxisAbsolutePosition = float.Parse("0.00", CultureInfo.InvariantCulture);
+                        txtXaxisStepperCurrent.Text = xAxisAbsolutePosition.ToString("F2");
+                    }
+                    catch (FormatException ex)
+                    {
+                        Logger.LogError(ex, "Error converting txtXaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Invalid format for X axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (OverflowException ex)
+                    {
+                        Logger.LogError(ex, "Overflow error converting txtXaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("X axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text.Trim()},1,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
+                    try
+                    {
+                        yAxisAbsolutePosition = float.Parse("0.00", CultureInfo.InvariantCulture);
+                        txtYaxisStepperCurrent.Text = yAxisAbsolutePosition.ToString("F2");
+                    }
+                    catch (FormatException ex)
+                    {
+                        Logger.LogError(ex, "Error converting txtYaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Invalid format for Y axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (OverflowException ex)
+                    {
+                        Logger.LogError(ex, "Overflow error converting txtYaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Y axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    break;
+
             }
 
             serialPort.Write(command);
@@ -895,24 +1014,195 @@ namespace Stepper
         /// </summary>
         /// <param name="axis">The axis.</param>
         /// <param name="serialPort">The serial port.</param>
-        private async Task MoveAxis(string axis, SerialPort serialPort)
+        private async Task MoveAxis(string axis, SerialPort serialPort, float currentPosition)
         {
             decimal motorMovementSeconds = 1;
             int movementTimer;
+            // Convert steps to mm
+            float stepsPerRevolution = 200.0f;
+            float distancePerRevolution = 4.0f;
+            float distanceInMM = 0.00f;
 
             string command = string.Empty;
             switch (axis)
             {
                 case "X":
+                    try
+                    {
+                        if (xAxisRunCompleted)
+                        {
+                            distanceInMM = (float.Parse(txtXaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture) / stepsPerRevolution) * distancePerRevolution;
+                            if (IsNegative(Convert.ToDecimal(float.Parse(txtXaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture))))
+                            {
+                                xAxisAbsolutePosition = xAxisAbsolutePosition - float.Parse(txtXaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture);
+                            }
+                            else
+                            {
+                                xAxisAbsolutePosition = xAxisAbsolutePosition + float.Parse(txtXaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture);
+                            }
+                        }
+                        else
+                        {
+                            try
+                            {
+                                xAxisAbsolutePosition += float.Parse(txtXaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture);
+                            }
+                            catch (FormatException ex)
+                            {
+                                Logger.LogError(ex, "Error converting txtXaxisStepperCurrent.Text to float.");
+                                MessageBox.Show("Invalid format for X axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                            catch (OverflowException ex)
+                            {
+                                Logger.LogError(ex, "Overflow error converting txtXaxisStepperCurrent.Text to float.");
+                                MessageBox.Show("X axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        }
+                    }
+                    catch (FormatException ex)
+                    {
+                        Logger.LogError(ex, "Error converting txtXaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Invalid format for X axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (OverflowException ex)
+                    {
+                        Logger.LogError(ex, "Overflow error converting txtXaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("X axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                     motorMovementSeconds = UpdateMotorTimer(axis, Convert.ToDecimal(txtXaxisMotorSpeed.Text.Trim()), Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()));
                     command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
                     break;
                 case "Y":
+                    try
+                    {
+                        if (yAxisRunCompleted)
+                        {
+                            distanceInMM = (float.Parse(txtYaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture) / stepsPerRevolution) * distancePerRevolution;
+                            if (IsNegative(Convert.ToDecimal(float.Parse(txtYaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture))))
+                            {
+                                yAxisAbsolutePosition = yAxisAbsolutePosition - float.Parse(txtYaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture);
+                            }
+                            else
+                            {
+                                yAxisAbsolutePosition = yAxisAbsolutePosition + float.Parse(txtYaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture);
+                            }
+                        }
+                        else
+                        {
+                            try
+                            {
+                                yAxisAbsolutePosition += float.Parse(txtYaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture);
+                            }
+                            catch (FormatException ex)
+                            {
+                                Logger.LogError(ex, "Error converting txtYaxisStepperCurrent.Text to float.");
+                                MessageBox.Show("Invalid format for Y axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                            catch (OverflowException ex)
+                            {
+                                Logger.LogError(ex, "Overflow error converting txtZaxisStepperCurrent.Text to float.");
+                                MessageBox.Show("Y axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        }
+                    }
+                    catch (FormatException ex)
+                    {
+                        Logger.LogError(ex, "Error converting txtYaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Invalid format for Y axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (OverflowException ex)
+                    {
+                        Logger.LogError(ex, "Overflow error converting txtYaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Y axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                     motorMovementSeconds = UpdateMotorTimer(axis, Convert.ToDecimal(txtYaxisMotorSpeed.Text.Trim()), Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()));
                     command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
                     break;
                 case "Z":
+                    try
+                    {
+                        if (zAxisRunCompleted)
+                        {
+                            distanceInMM = (float.Parse(txtZaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture) / stepsPerRevolution) * distancePerRevolution;
+                            if (IsNegative(Convert.ToDecimal(float.Parse(txtZaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture))))
+                            {
+                                zAxisAbsolutePosition = zAxisAbsolutePosition - float.Parse(txtZaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture);
+                            }
+                            else
+                            {
+                                zAxisAbsolutePosition = zAxisAbsolutePosition + float.Parse(txtZaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture);
+                            }
+                        }
+                        else
+                        {
+                            try
+                            {
+                                zAxisAbsolutePosition += float.Parse(txtZaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture);
+                            }
+                            catch (FormatException ex)
+                            {
+                                Logger.LogError(ex, "Error converting txtZaxisStepperCurrent.Text to float.");
+                                MessageBox.Show("Invalid format for Z axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                            catch (OverflowException ex)
+                            {
+                                Logger.LogError(ex, "Overflow error converting txtZaxisStepperCurrent.Text to float.");
+                                MessageBox.Show("Z axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        }
+                    }
+                    catch (FormatException ex)
+                    {
+                        Logger.LogError(ex, "Error converting txtZaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Invalid format for Z axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (OverflowException ex)
+                    {
+                        Logger.LogError(ex, "Overflow error converting txtZaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Z axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                     motorMovementSeconds = UpdateMotorTimer(axis, Convert.ToDecimal(txtZaxisMotorSpeed.Text.Trim()), Convert.ToDecimal(txtZaxisStepperMove.Text.Trim()));
+                    command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
+                    break;
+                case "XY":
+                    try
+                    {
+                        distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
+                        xAxisAbsolutePosition += xAxisAbsolutePosition + distanceInMM;
+                        txtXaxisStepperCurrent.Text = xAxisAbsolutePosition.ToString("F2");
+                    }
+                    catch (FormatException ex)
+                    {
+                        Logger.LogError(ex, "Error converting txtXaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Invalid format for X axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (OverflowException ex)
+                    {
+                        Logger.LogError(ex, "Overflow error converting txtXaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("X axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    motorMovementSeconds = UpdateMotorTimer(axis, Convert.ToDecimal(txtXaxisMotorSpeed.Text.Trim()), Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()));
+                    command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
+                    serialPort.Write(command);
+                    Logger.LogInformation(message: $"{axis} Axis Run Event: {command}");
+
+                    try
+                    {
+                        distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
+                        yAxisAbsolutePosition += yAxisAbsolutePosition + distanceInMM;
+                        txtYaxisStepperCurrent.Text = yAxisAbsolutePosition.ToString("F2");
+                    }
+                    catch (FormatException ex)
+                    {
+                        Logger.LogError(ex, "Error converting txtYaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Invalid format for Y axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (OverflowException ex)
+                    {
+                        Logger.LogError(ex, "Overflow error converting txtYaxisStepperCurrent.Text to float.");
+                        MessageBox.Show("Y axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    motorMovementSeconds += UpdateMotorTimer(axis, Convert.ToDecimal(txtYaxisMotorSpeed.Text.Trim()), Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()));
                     command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
                     break;
             }
@@ -940,6 +1230,22 @@ namespace Stepper
             }
 
             Logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {movementTimer} = {targetEndTime.ToString(@"hh\:mm\:ss")}");
+        }
+        /// <summary>
+        /// Determines whether the specified number is negative.
+        /// </summary>
+        /// <param name="number">The number.</param>
+        /// <returns><c>true</c> if the specified number is negative; otherwise, <c>false</c>.</returns>
+        public bool IsNegative(decimal number)
+        {
+            if (number < 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -973,6 +1279,19 @@ namespace Stepper
                 txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
                 Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtZaxisStepperCurrent.Text);
                 Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
+            }
+            else if (axis == "XY")
+            {
+                txtXaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
+                ckbXaxisResetToZero.IsChecked = false;
+                txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
+                txtYaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
+                ckbYaxisResetToZero.IsChecked = false;
+                txtYaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
+                Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
+                Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
+                Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
+                Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
             }
             Properties.Settings.Default.Save();
             Logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
@@ -1020,35 +1339,6 @@ namespace Stepper
             {
                 zStopwatch.Start();
             }
-        }
-        /// <summary>
-        /// Xies the zero.
-        /// </summary>
-        /// <param name="myDelay">My delay.</param>
-        /// <param name="Axis">The axis.</param>
-        public async void XYZero(int myDelay, string Axis)
-        {
-            Logger.LogInformation(message: $"Setting {Axis} Axis Current Location Set to Zero on DRO");
-
-            // Call XZero
-            await ZeroAxis(Properties.Settings.Default.RootAxisX);
-
-            // Wait for XZero to complete
-            while (xAxisClearAbsolutePosition)
-            {
-                await Task.Delay(100);
-            }
-
-            // Call YZero
-            await ZeroAxis(Properties.Settings.Default.RootAxisY);
-
-            // Wait for YZero to complete
-            while (yAxisClearAbsolutePosition)
-            {
-                await Task.Delay(100);
-            }
-
-            Logger.LogInformation(message: $"{Axis} Axis Current Location Set to Zero");
         }
         /// <summary>
         /// CheckBoxes the changed.
@@ -1681,7 +1971,74 @@ namespace Stepper
                                 Logger.LogInformation($"Z Axis Motor Current Position: {txtZaxisStepperCurrent.Text}");
                                 zAxisClearAbsolutePosition = true;
                             });
+
                         }
+                    }
+                }
+                if (line.Contains($"X Axis Absolute Position") || line.Contains($"X Axis Absolute Position"))
+                {
+                    string positionString = line.Replace($"X Axis Absolute Position", "").Replace($"X Axis Absolute Position", "").Trim();
+                    if (float.TryParse(positionString, out float currentPosition))
+                    {
+                        float stepsPerRevolution = 200.0f;
+                        float distancePerRevolution = 4.0f;
+                        float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
+
+                        xAxisAbsolutePosition += line.Contains("Absolute") ? distanceInMM : -distanceInMM;
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            txtXaxisStepperCurrent.Text = xAxisAbsolutePosition.ToString("F2");
+                            Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(xAxisAbsolutePosition.ToString("F2"));
+                            Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
+                            Properties.Settings.Default.Save();
+                            xAxisRunCompleted = false;
+                            Logger.LogInformation($"X Axis Absolute Position {txtXaxisStepperCurrent.Text}");
+                            xAxisClearAbsolutePosition = true;
+                        });
+                    }
+                }
+                if (line.Contains($"Y Axis Absolute Position") || line.Contains($"Y Axis Absolute Position"))
+                {
+                    string positionString = line.Replace($"Y Axis Absolute Position", "").Replace($"Y Axis Absolute Position", "").Trim();
+                    if (float.TryParse(positionString, out float currentPosition))
+                    {
+                        float stepsPerRevolution = 200.0f;
+                        float distancePerRevolution = 4.0f;
+                        float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
+
+                        yAxisAbsolutePosition += line.Contains("Absolute") ? distanceInMM : -distanceInMM;
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            txtYaxisStepperCurrent.Text = yAxisAbsolutePosition.ToString("F2");
+                            Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(yAxisAbsolutePosition.ToString("F2"));
+                            Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
+                            Properties.Settings.Default.Save();
+                            yAxisRunCompleted = false;
+                            Logger.LogInformation($"Y Axis Absolute Position {txtYaxisStepperCurrent.Text}");
+                            yAxisClearAbsolutePosition = true;
+                        });
+                    }
+                }
+                if (line.Contains($"Z Axis Absolute Position") || line.Contains($"Z Axis Absolute Position"))
+                {
+                    string positionString = line.Replace($"Z Axis Absolute Position", "").Replace($"Z Axis Absolute Position", "").Trim();
+                    if (float.TryParse(positionString, out float currentPosition))
+                    {
+                        float stepsPerRevolution = 200.0f;
+                        float distancePerRevolution = 4.0f;
+                        float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
+
+                        zAxisAbsolutePosition += line.Contains("Absolute") ? distanceInMM : -distanceInMM;
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2");
+                            Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
+                            Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
+                            Properties.Settings.Default.Save();
+                            zAxisRunCompleted = false;
+                            Logger.LogInformation($"Z Axis Absolute Position {txtZaxisStepperCurrent.Text}");
+                            zAxisClearAbsolutePosition = true;
+                        });
                     }
                 }
             }
