@@ -4,7 +4,7 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 11-07-2024
+// Last Modified On : 11-09-2024
 // ***********************************************************************
 // <copyright file="MainWindow.xaml.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.
@@ -1014,6 +1014,7 @@ namespace Stepper
         /// </summary>
         /// <param name="axis">The axis.</param>
         /// <param name="serialPort">The serial port.</param>
+        /// <param name="currentPosition">The current position.</param>
         private async Task MoveAxis(string axis, SerialPort serialPort, float currentPosition)
         {
             decimal motorMovementSeconds = 1;
