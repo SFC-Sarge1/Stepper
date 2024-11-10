@@ -481,7 +481,7 @@ namespace Stepper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM3")]
         public string ZComPort {
             get {
                 return ((string)(this["ZComPort"]));

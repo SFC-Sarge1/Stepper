@@ -25,8 +25,8 @@
 #define DIRECTION_CCW -1
 #define DIRECTION_CW 1
 #define BUFFER_SIZE 64
-#define LIMIT_SWITCH1_PIN 8   // Pin for limit switch
-#define LIMIT_SWITCH2_PIN 10  // Pin for limit switch
+#define LIMIT_SWITCH1_PIN 14   // Pin for limit switch
+#define LIMIT_SWITCH2_PIN 27  // Pin for limit switch
 
 /// <summary>
 /// Enum for the current ESP32 Board Axis value X=1, Y=2, Z=3
@@ -401,6 +401,8 @@ void setup()
 	zAxisStepperMotor.setCurrentPosition(0.00);
 
 	serialDataIndex = 0;
+  // zAxisStepperMotor.setMaxSpeed(1000); // Set the maximum speed in steps per second
+  // zAxisStepperMotor.setAcceleration(1000); // Set the acceleration in steps per second^2
 }
 
 /// <summary>
@@ -408,6 +410,10 @@ void setup()
 /// </summary>
 void loop()
 {
+  //   zAxisStepperMotor.runToNewPosition(1000); // Move 200 steps forward
+  // delay(100); // Wait for one second
+  // zAxisStepperMotor.runToNewPosition(0); // Move 200 steps backward
+  // delay(100); // Wait for one second
 	if (Serial.available())
 	{
 		serialData[serialDataIndex] = Serial.readStringUntil(',');
@@ -420,43 +426,48 @@ void loop()
 			{
 				//X axis stuff
 				xMotorConfig(serialData[1].toFloat(), serialData[2].toFloat(), serialData[3].toFloat());
+        xMotorRun();
 			}
 			else if (Axis == "Y")
 			{
 				//Y axis stuff
 				yMotorConfig(serialData[4].toFloat(), serialData[5].toFloat(), serialData[6].toFloat());
+        yMotorRun();
 			}
 			else if (Axis == "Z")
 			{
 				//Z axis stuff
 				zMotorConfig(serialData[7].toFloat(), serialData[8].toFloat(), serialData[9].toFloat());
+        zMotorRun();
 			}
 			else if (Axis == "XY")
 			{
 				//X axis stuff
 				xMotorConfig(serialData[1].toFloat(), serialData[2].toFloat(), serialData[3].toFloat());
+        xMotorRun();
 				//Y axis stuff
 				yMotorConfig(serialData[4].toFloat(), serialData[5].toFloat(), serialData[6].toFloat());
+        yMotorRun();
 			}
 		}
 	}
-	if (Axis == "X")
-	{
-		xMotorRun();
-	}
-	else if (Axis == "Y")
-	{
-		yMotorRun();
-	}
-	else if (Axis == "Z")
-	{
-		zMotorRun();
-	}
-	else if (Axis == "XY")
-	{
-		xMotorRun();
-		yMotorRun();
-	}
+	// if (Axis == "X")
+	// {
+	// 	xMotorRun();
+	// }
+	// else if (Axis == "Y")
+	// {
+	// 	yMotorRun();
+	// }
+	// else if (Axis == "Z")
+	// {
+	// 	zMotorRun();
+	// }
+	// else if (Axis == "XY")
+	// {
+	// 	xMotorRun();
+	// 	yMotorRun();
+	// }
 }
 
 /// <summary>
@@ -537,8 +548,8 @@ static void xMotorRun()
 		printNonBlocking("X," + (String)xAxisCurrentStepPosition);
 		limitSwitchCWTriggered = false;
 		limitSwitchCCWTriggered = false;
-		NVIC_SystemReset();  //call reset on Arduino or clone board
-		//ESP.restart();  //call reset on ESP32 board
+		//NVIC_SystemReset();  //call reset on Arduino or clone board
+		ESP.restart();  //call reset on ESP32 board
 	}
 	else if (xAxisStepperMotor.distanceToGo() != 0 && xAxisSetToZeroPosition == false)
 	{
@@ -584,8 +595,14 @@ static void xMotorRun()
 	{
 		limitSwitchCWTriggered = false;
 		limitSwitchCCWTriggered = false;
+    Serial.println("Axis: " + serialData[0]);
 		Serial.println("X Axis Absolute Position " + (String)xAxisCurrentStepPosition);
-		NVIC_SystemReset();  //call reset on Arduino or clone board
+    Serial.println("X Axis Move: " + serialData[1]);
+    Serial.println("X Axis Speed: " + serialData[2]);
+    Serial.println("X Axis Zero: " + serialData[3]);
+		//NVIC_SystemReset();  //call reset on Arduino or clone board
+		ESP.restart();  //call reset on ESP32 board
+
 
 	}
 	if (!digitalRead(LIMIT_SWITCH1_PIN))  // NC switch is pressed when the pin reads LOW
@@ -595,7 +612,9 @@ static void xMotorRun()
 		limitSwitchCCWTriggered = false;
 		Serial.println("X Axis CW Motor Stopped");
 		Serial.println("X Axis CW Motor Current Position: " + (String)xAxisCurrentStepPosition);
-		NVIC_SystemReset();  //call reset on Arduino or clone board
+		//NVIC_SystemReset();  //call reset on Arduino or clone board
+		ESP.restart();  //call reset on ESP32 board
+
 		return;
 	}
 
@@ -606,7 +625,9 @@ static void xMotorRun()
 		limitSwitchCWTriggered = false;
 		Serial.println("X Axis CCW Motor Stopped");
 		Serial.println("X Axis CCW Motor Current Position: " + (String)xAxisCurrentStepPosition);
-		NVIC_SystemReset();  //call reset on Arduino or clone board
+		//NVIC_SystemReset();  //call reset on Arduino or clone board
+		ESP.restart();  //call reset on ESP32 board
+
 		return;
 	}
 }
@@ -631,15 +652,15 @@ static void yMotorRun()
 		yAxisCurrentStepPosition = yAxisStepperMotor.currentPosition();
 		yAxisMoveMM = yAxisCurrentStepPosition;
 		yAxisStepperMotor.setCurrentPosition(yAxisMoveMM);
-		printNonBlocking("Z," + (String)yAxisCurrentStepPosition);
+		printNonBlocking("Y," + (String)yAxisCurrentStepPosition);
 		limitSwitchCWTriggered = false;
 		limitSwitchCCWTriggered = false;
-		NVIC_SystemReset();  //call reset on Arduino or clone board
-		//ESP.restart();  //call reset on ESP32 board
+		//NVIC_SystemReset();  //call reset on Arduino or clone board
+		ESP.restart();  //call reset on ESP32 board
 	}
 	else if (yAxisStepperMotor.distanceToGo() != 0 && yAxisSetToZeroPosition == false)
 	{
-		Serial.println("Z Axis Current Position, " + (String)yAxisStepperMotor.currentPosition());
+		Serial.println("Y Axis Current Position, " + (String)yAxisStepperMotor.currentPosition());
 		if (!limitSwitchCWTriggered && !limitSwitchCCWTriggered)
 		{
 			bool completed = yAxisStepperMotor.runSpeedToPosition();
@@ -660,7 +681,7 @@ static void yMotorRun()
 	else if (yAxisStepperMotor.distanceToGo() < 0 && limitSwitchCCWTriggered)
 	{
 		limitSwitchCWTriggered = false;
-		Serial.println("Z Axis CCW Limit Switch Pressed.");
+		Serial.println("Y Axis CCW Limit Switch Pressed.");
 		bool completed = yAxisStepperMotor.runSpeedToPosition();
 		if (completed)
 		{
@@ -670,7 +691,7 @@ static void yMotorRun()
 	else if (yAxisStepperMotor.distanceToGo() > 0 && limitSwitchCWTriggered)
 	{
 		limitSwitchCCWTriggered = false;
-		Serial.println("Z Axis CW Limit Switch Pressed.");
+		Serial.println("Y Axis CW Limit Switch Pressed.");
 		bool completed = yAxisStepperMotor.runSpeedToPosition();
 		if (completed)
 		{
@@ -681,8 +702,14 @@ static void yMotorRun()
 	{
 		limitSwitchCWTriggered = false;
 		limitSwitchCCWTriggered = false;
-		Serial.println("Z Axis Absolute Position " + (String)yAxisCurrentStepPosition);
-		NVIC_SystemReset();  //call reset on Arduino or clone board
+	  Serial.println("Axis: " + serialData[0]);
+		Serial.println("Y Axis Absolute Position " + (String)yAxisCurrentStepPosition);
+    Serial.println("Y Axis Move: " + serialData[1]);
+    Serial.println("Y Axis Speed: " + serialData[2]);
+    Serial.println("Y Axis Zero: " + serialData[3]);
+		//NVIC_SystemReset();  //call reset on Arduino or clone board
+		ESP.restart();  //call reset on ESP32 board
+
 
 	}
 	if (!digitalRead(LIMIT_SWITCH1_PIN))  // NC switch is pressed when the pin reads LOW
@@ -690,9 +717,11 @@ static void yMotorRun()
 		yAxisStepperMotor.stop();
 		limitSwitchCWTriggered = true;
 		limitSwitchCCWTriggered = false;
-		Serial.println("Z Axis CW Motor Stopped");
-		Serial.println("Z Axis CW Motor Current Position: " + (String)yAxisCurrentStepPosition);
-		NVIC_SystemReset();  //call reset on Arduino or clone board
+		Serial.println("Y Axis CW Motor Stopped");
+		Serial.println("Y Axis CW Motor Current Position: " + (String)yAxisCurrentStepPosition);
+		//NVIC_SystemReset();  //call reset on Arduino or clone board
+		ESP.restart();  //call reset on ESP32 board
+
 		return;
 	}
 
@@ -701,9 +730,11 @@ static void yMotorRun()
 		yAxisStepperMotor.stop();
 		limitSwitchCCWTriggered = true;
 		limitSwitchCWTriggered = false;
-		Serial.println("Z Axis CCW Motor Stopped");
-		Serial.println("Z Axis CCW Motor Current Position: " + (String)yAxisCurrentStepPosition);
-		NVIC_SystemReset();  //call reset on Arduino or clone board
+		Serial.println("Y Axis CCW Motor Stopped");
+		Serial.println("Y Axis CCW Motor Current Position: " + (String)yAxisCurrentStepPosition);
+		//NVIC_SystemReset();  //call reset on Arduino or clone board
+		ESP.restart();  //call reset on ESP32 board
+
 		return;
 	}
 }
@@ -731,8 +762,8 @@ static void zMotorRun()
 		printNonBlocking("Z," + (String)zAxisCurrentStepPosition);
 		limitSwitchCWTriggered = false;
 		limitSwitchCCWTriggered = false;
-		NVIC_SystemReset();  //call reset on Arduino or clone board
-		//ESP.restart();  //call reset on ESP32 board
+		//NVIC_SystemReset();  //call reset on Arduino or clone board
+		ESP.restart();  //call reset on ESP32 board
 	}
 	else if (zAxisStepperMotor.distanceToGo() != 0 && zAxisSetToZeroPosition == false)
 	{
@@ -778,8 +809,14 @@ static void zMotorRun()
 	{
 		limitSwitchCWTriggered = false;
 		limitSwitchCCWTriggered = false;
+	  Serial.println("Axis: " + serialData[0]);
 		Serial.println("Z Axis Absolute Position " + (String)zAxisCurrentStepPosition);
-		NVIC_SystemReset();  //call reset on Arduino or clone board
+    Serial.println("Z Axis Move: " + serialData[1]);
+    Serial.println("Z Axis Speed: " + serialData[2]);
+    Serial.println("Z Axis Zero: " + serialData[3]);
+		//NVIC_SystemReset();  //call reset on Arduino or clone board
+		ESP.restart();  //call reset on ESP32 board
+
 
 	}
 	if (!digitalRead(LIMIT_SWITCH1_PIN))  // NC switch is pressed when the pin reads LOW
@@ -789,7 +826,9 @@ static void zMotorRun()
 		limitSwitchCCWTriggered = false;
 		Serial.println("Z Axis CW Motor Stopped");
 		Serial.println("Z Axis CW Motor Current Position: " + (String)zAxisCurrentStepPosition);
-		NVIC_SystemReset();  //call reset on Arduino or clone board
+		//NVIC_SystemReset();  //call reset on Arduino or clone board
+		ESP.restart();  //call reset on ESP32 board
+
 		return;
 	}
 
@@ -800,7 +839,9 @@ static void zMotorRun()
 		limitSwitchCWTriggered = false;
 		Serial.println("Z Axis CCW Motor Stopped");
 		Serial.println("Z Axis CCW Motor Current Position: " + (String)zAxisCurrentStepPosition);
-		NVIC_SystemReset();  //call reset on Arduino or clone board
+		//NVIC_SystemReset();  //call reset on Arduino or clone board
+		ESP.restart();  //call reset on ESP32 board
+
 		return;
 	}
 }
