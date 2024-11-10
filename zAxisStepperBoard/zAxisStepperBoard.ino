@@ -401,8 +401,8 @@ void setup()
 	zAxisStepperMotor.setCurrentPosition(0.00);
 
 	serialDataIndex = 0;
-  // zAxisStepperMotor.setMaxSpeed(1000); // Set the maximum speed in steps per second
-  // zAxisStepperMotor.setAcceleration(1000); // Set the acceleration in steps per second^2
+	// zAxisStepperMotor.setMaxSpeed(1000); // Set the maximum speed in steps per second
+	// zAxisStepperMotor.setAcceleration(1000); // Set the acceleration in steps per second^2
 }
 
 /// <summary>
@@ -410,10 +410,10 @@ void setup()
 /// </summary>
 void loop()
 {
-  //   zAxisStepperMotor.runToNewPosition(1000); // Move 200 steps forward
-  // delay(100); // Wait for one second
-  // zAxisStepperMotor.runToNewPosition(0); // Move 200 steps backward
-  // delay(100); // Wait for one second
+	//   zAxisStepperMotor.runToNewPosition(1000); // Move 200 steps forward
+	// delay(100); // Wait for one second
+	// zAxisStepperMotor.runToNewPosition(0); // Move 200 steps backward
+	// delay(100); // Wait for one second
 	if (Serial.available())
 	{
 		serialData[serialDataIndex] = Serial.readStringUntil(',');
@@ -426,28 +426,28 @@ void loop()
 			{
 				//X axis stuff
 				xMotorConfig(serialData[1].toFloat(), serialData[2].toFloat(), serialData[3].toFloat());
-        xMotorRun();
+				xMotorRun();
 			}
 			else if (Axis == "Y")
 			{
 				//Y axis stuff
 				yMotorConfig(serialData[4].toFloat(), serialData[5].toFloat(), serialData[6].toFloat());
-        yMotorRun();
+				yMotorRun();
 			}
 			else if (Axis == "Z")
 			{
 				//Z axis stuff
 				zMotorConfig(serialData[7].toFloat(), serialData[8].toFloat(), serialData[9].toFloat());
-        zMotorRun();
+				zMotorRun();
 			}
 			else if (Axis == "XY")
 			{
 				//X axis stuff
 				xMotorConfig(serialData[1].toFloat(), serialData[2].toFloat(), serialData[3].toFloat());
-        xMotorRun();
+				xMotorRun();
 				//Y axis stuff
 				yMotorConfig(serialData[4].toFloat(), serialData[5].toFloat(), serialData[6].toFloat());
-        yMotorRun();
+				yMotorRun();
 			}
 		}
 	}
@@ -595,11 +595,11 @@ static void xMotorRun()
 	{
 		limitSwitchCWTriggered = false;
 		limitSwitchCCWTriggered = false;
-    Serial.println("Axis: " + serialData[0]);
+		Serial.println("Axis: " + serialData[0]);
 		Serial.println("X Axis Absolute Position " + (String)xAxisCurrentStepPosition);
-    Serial.println("X Axis Move: " + serialData[1]);
-    Serial.println("X Axis Speed: " + serialData[2]);
-    Serial.println("X Axis Zero: " + serialData[3]);
+		Serial.println("X Axis Move: " + serialData[1]);
+		Serial.println("X Axis Speed: " + serialData[2]);
+		Serial.println("X Axis Zero: " + serialData[3]);
 		//NVIC_SystemReset();  //call reset on Arduino or clone board
 		ESP.restart();  //call reset on ESP32 board
 
@@ -702,11 +702,11 @@ static void yMotorRun()
 	{
 		limitSwitchCWTriggered = false;
 		limitSwitchCCWTriggered = false;
-	  Serial.println("Axis: " + serialData[0]);
+		Serial.println("Axis: " + serialData[0]);
 		Serial.println("Y Axis Absolute Position " + (String)yAxisCurrentStepPosition);
-    Serial.println("Y Axis Move: " + serialData[1]);
-    Serial.println("Y Axis Speed: " + serialData[2]);
-    Serial.println("Y Axis Zero: " + serialData[3]);
+		Serial.println("Y Axis Move: " + serialData[1]);
+		Serial.println("Y Axis Speed: " + serialData[2]);
+		Serial.println("Y Axis Zero: " + serialData[3]);
 		//NVIC_SystemReset();  //call reset on Arduino or clone board
 		ESP.restart();  //call reset on ESP32 board
 
@@ -809,11 +809,11 @@ static void zMotorRun()
 	{
 		limitSwitchCWTriggered = false;
 		limitSwitchCCWTriggered = false;
-	  Serial.println("Axis: " + serialData[0]);
+		Serial.println("Axis: " + serialData[0]);
 		Serial.println("Z Axis Absolute Position " + (String)zAxisCurrentStepPosition);
-    Serial.println("Z Axis Move: " + serialData[1]);
-    Serial.println("Z Axis Speed: " + serialData[2]);
-    Serial.println("Z Axis Zero: " + serialData[3]);
+		Serial.println("Z Axis Move: " + serialData[1]);
+		Serial.println("Z Axis Speed: " + serialData[2]);
+		Serial.println("Z Axis Zero: " + serialData[3]);
 		//NVIC_SystemReset();  //call reset on Arduino or clone board
 		ESP.restart();  //call reset on ESP32 board
 
