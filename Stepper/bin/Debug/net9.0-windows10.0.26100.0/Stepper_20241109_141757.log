@@ -1,0 +1,555 @@
+11/9/2024 13:35:21 [Information] Stepper Motor Controller Application Started.
+11/9/2024 13:35:21 [Information] Version: 3.0.9079.24456 (11/9/2024 13:35:21)
+11/9/2024 13:35:21 [Information] SerialPort COM7 not connected.
+11/9/2024 13:35:21 [Information] SerialPort COM8 not connected.
+11/9/2024 13:35:21 [Information] Stepper Motor Controller Application Started.
+11/9/2024 13:35:21 [Information] Version: 3.0.9079.24456 (11/9/2024 13:35:21)
+11/9/2024 13:35:21 [Information] Version: 3.1.0.24457 (11/9/2024 13:35:21)
+11/9/2024 13:35:21 [Information] Version: 3.1.0.24457 (11/9/2024 13:35:21)
+11/9/2024 13:35:21 [Information] Stepper Motor Controller Application Settings Window Opened.
+11/9/2024 13:35:21 [Information] Stepper Motor Controller Application Settings form is rebuilt each and every time it is opened.
+11/9/2024 13:35:21 [Information] int: 9600 BaudRate added to the Settings Form.
+11/9/2024 13:35:21 [Information] bool: False ckbXaxisResetToZeroIsChecked added to the Settings Form.
+11/9/2024 13:35:21 [Information] bool: False ckbYaxisResetToZeroIsChecked added to the Settings Form.
+11/9/2024 13:35:21 [Information] bool: False ckbZaxisResetToZeroIsChecked added to the Settings Form.
+11/9/2024 13:35:21 [Information] COM1: ComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] COM2: ComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] COM3: ComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] COM4: ComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] COM5: ComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] COM6: ComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] COM7: ComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] COM8: ComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] COM9: ComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] COM10: ComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 4.00 Divider4_00 added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 0.00 MathPart2Initlz added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 1.00 MilisecondTimerInterval added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 1000.00 MillisecondDelay added to the Settings Form.
+11/9/2024 13:35:21 [Information] int: 1000 Milliseconds added to the Settings Form.
+11/9/2024 13:35:21 [Information] int: 4 mmPerRevolution added to the Settings Form.
+11/9/2024 13:35:21 [Information] int: 2000 ThreadSleep added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 0.00 Value_0_00 added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 50.00 XaxisAcceleration added to the Settings Form.
+11/9/2024 13:35:21 [Information] bool: False XaxisChanged added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 400.00 XaxisMotorSpeed added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 0.00 XaxisStepperCurrent added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 0.00 XaxisStepperMove added to the Settings Form.
+11/9/2024 13:35:21 [Information] XCOM1: XComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] XCOM2: XComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] XCOM3: XComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] XCOM4: XComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] XCOM5: XComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] XCOM6: XComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] XCOM7: XComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] XCOM8: XComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] XCOM9: XComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] XCOM10: XComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 50.00 YaxisAcceleration added to the Settings Form.
+11/9/2024 13:35:21 [Information] bool: False YaxisChanged added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 400.00 YaxisMotorSpeed added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 0.00 YaxisStepperCurrent added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 0.00 YaxisStepperMove added to the Settings Form.
+11/9/2024 13:35:21 [Information] YCOM1: YComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] YCOM2: YComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] YCOM3: YComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] YCOM4: YComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] YCOM5: YComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] YCOM6: YComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] YCOM7: YComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] YCOM8: YComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] YCOM9: YComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] YCOM10: YComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 50.00 ZaxisAcceleration added to the Settings Form.
+11/9/2024 13:35:21 [Information] bool: False ZaxisChanged added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 400.00 ZaxisMotorSpeed added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 0.00 ZaxisStepperCurrent added to the Settings Form.
+11/9/2024 13:35:21 [Information] decimal: 0.00 ZaxisStepperMove added to the Settings Form.
+11/9/2024 13:35:21 [Information] ZCOM1: ZComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] ZCOM2: ZComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] ZCOM3: ZComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] ZCOM4: ZComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] ZCOM5: ZComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] ZCOM6: ZComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] ZCOM7: ZComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] ZCOM8: ZComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] ZCOM9: ZComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] ZCOM10: ZComPort added to the Settings Form.
+11/9/2024 13:35:21 [Information] int: 0 zeroXaxis added to the Settings Form.
+11/9/2024 13:35:21 [Information] int: 0 zeroYaxis added to the Settings Form.
+11/9/2024 13:35:21 [Information] int: 0 zeroZaxis added to the Settings Form.
+11/9/2024 13:35:22 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:22 [Information] Stepper Motor Controller MainWindow loaded
+11/9/2024 13:35:22 [Information] Set MainWindow Media Brushes to White.
+11/9/2024 13:35:22 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:23 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:23 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:24 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:24 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:25 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:25 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:26 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:27 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:27 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:28 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:28 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:29 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:29 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:30 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:30 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:31 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:31 [Information] Updated X,Y Zero.IsChecked status to 0 and Z Zero.IsChecked status to 1.
+11/9/2024 13:35:31 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:32 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:33 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:33 [Information] Z Axis Run button clicked:
+11/9/2024 13:35:43 [Information] Z Axis Data Received: X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00
+11/9/2024 13:35:43 [Information] Z Axis Run Event to reset Axis to zero: Z,0.00,400.00,0,0.00,400.00,0,0.00,400.00,1
+11/9/2024 13:35:43 [Information] Setting Z Axis Current Location Set to Zero on DRO
+11/9/2024 13:35:43 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:43 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:47 [Information] Z Axis Data Received: X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00
+11/9/2024 13:35:47 [Information] Z Axis Current Location Set to Zero
+11/9/2024 13:35:48 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:48 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:49 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:49 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:50 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:50 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:51 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:52 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:52 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:53 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:53 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:54 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:54 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:55 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:55 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:56 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:56 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:57 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:58 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:58 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:59 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:35:59 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:00 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:00 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:01 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:01 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:02 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:02 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:03 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:04 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:04 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:05 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:05 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:06 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:06 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:07 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:07 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:08 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:08 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:09 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:10 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:10 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:11 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:11 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:12 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:12 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:13 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:13 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:14 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:14 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:15 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:15 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:16 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:17 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:17 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:18 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:18 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:19 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:19 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:20 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:20 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:21 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:21 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:22 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:23 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:23 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:24 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:24 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:25 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:25 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:26 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:26 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:27 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:27 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:28 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:29 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:29 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:30 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:30 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:31 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:31 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:32 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:32 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:33 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:33 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:34 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:35 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:35 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:36 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:36 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:37 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:37 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:38 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:38 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:39 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:39 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:40 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:41 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:41 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:42 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:42 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:43 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:43 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:44 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:44 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:45 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:45 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:46 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:47 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:47 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:48 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:48 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:49 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:49 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:50 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:50 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:51 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:51 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:52 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:53 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:53 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:54 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:54 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:55 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:55 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:56 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:56 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:57 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:57 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:58 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:58 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:36:59 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:00 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:00 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:01 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:01 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:02 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:02 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:03 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:03 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:04 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:04 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:05 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:06 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:06 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:07 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:07 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:08 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:08 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:09 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:09 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:10 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:10 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:11 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:12 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:12 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:13 [Information] Z Axis mouse controlled Keypad returned: 16.00
+11/9/2024 13:37:13 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:13 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:14 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:14 [Information] Z Axis Run button clicked:
+11/9/2024 13:37:20 [Information] Z Axis Data Received: X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00
+11/9/2024 13:37:27 [Information] Z Axis Data Received: X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00
+11/9/2024 13:37:27 [Information] Z Axis MotorMovementSeconds decimal: (16.00 / 4) / 2 = 2.00
+11/9/2024 13:37:41 [Information] Z Axis Data Received: X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00
+11/9/2024 13:37:41 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:42 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:42 [Information] Z Axis Run Event: Z,0.00,400.00,0,0.00,400.00,0,16.00,400.00,0
+11/9/2024 13:37:42 [Information] Z Axis Current Time: 01:37:42 + 2000 = 01:37:44
+11/9/2024 13:37:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:42 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:42 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:42 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:42 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:42 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:42 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:42 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:42 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:42 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:42 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:00 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:43 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:43 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/9/2024 13:37:44 [Information] Time remaining: 00:00:01 targetEndTime = 01:37:44
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Enable Z Axis controls after moving to location.
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Stopwatch Stopped.
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Timer Stopped.
+11/9/2024 13:37:44 [Information] Stepper Motor Controller Stopwatch Reset.
+11/9/2024 13:37:45 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:45 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:46 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:46 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:47 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:47 [Information] Updated X,Y Zero.IsChecked status to 0 and Z Zero.IsChecked status to 1.
+11/9/2024 13:37:47 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:48 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:49 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:49 [Information] Z Axis Run button clicked:
+11/9/2024 13:37:52 [Information] Z Axis Data Received: X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00
+11/9/2024 13:37:52 [Information] Z Axis Data Received: X Axis Absolute Position 0.00X Axis Absolute Position 0.00
+11/9/2024 13:37:52 [Information] Z Axis Run Event to reset Axis to zero: Z,0.00,400.00,0,0.00,400.00,0,0.00,400.00,1
+11/9/2024 13:37:52 [Information] Setting Z Axis Current Location Set to Zero on DRO
+11/9/2024 13:37:52 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:52 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:54 [Information] Z Axis Data Received: X Axis Absolute Position 0.00X Axis Absolute Position 0.00X Axis Absolute Position 0.00
+11/9/2024 13:37:54 [Information] Z Axis Current Location Set to Zero
+11/9/2024 13:37:55 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:55 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:56 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:56 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:57 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:57 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:58 [Information] Z Axis Data Received: X Axis Absolute Position 0.00
+11/9/2024 13:37:58 [Information] Stepper Motor Controller MainWindow Closing.
+11/9/2024 13:37:58 [Information] Stepper Motor Controller Serial Ports closed.
+11/9/2024 13:37:58 [Information] Properties Settings Saved.
+11/9/2024 13:37:58 [Information] Properties Settings Form Closed.
+11/9/2024 13:37:58 [Information] Stepper Motor Controller Form Closed.

@@ -1,19 +1,16 @@
 // ***********************************************************************
-// Assembly         :
+// Assembly         : 
 // Author           : sfcsarge
 // Created          : 03-26-2024
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 10-26-2024
+// Last Modified On : 11-09-2024
 // ***********************************************************************
 // <copyright file="zAxisStepperBoard.ino" company="">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-// #include "MyXAxis.h"
-// #include "MyYAxis.h"
-// #include "MyZAxis.h"
 #include <AccelStepper.h>
 #include <MultiStepper.h>
 #include <AccelStepperWithDistance.h>
@@ -49,9 +46,6 @@ enum ArduinoBoardAxis
 	/// </summary>
 	Z
 };
-//XAxis xAxis(0.00);
-//YAxis yAxis(0.00);
-//ZAxis zAxis(0.00);
 /// <summary>
 /// The axis number of the ESP32 board code is running on.
 /// Axis integer value X=1, Y=2, Z=3
@@ -185,11 +179,17 @@ float xAxisStepperMotorMaxSpeed = 1000.00;
 /// The x axis current position
 /// </summary>
 float xAxisCurrentPosition = 0.00;
+/// <summary>
+/// The x axis current step position
+/// </summary>
 float xAxisCurrentStepPosition = 0.00;
 /// <summary>
 /// The x axis move mm
 /// </summary>
 float xAxisMoveMM = 0.00;
+/// <summary>
+/// The x axis limit switch move mm
+/// </summary>
 float xAxisLimitSwitchMoveMM = 0.00;
 /// <summary>
 /// The x axis set to zero position
@@ -227,6 +227,9 @@ float yAxisMoveMM;  // Public variable for y-axis movement
 /// The y axis current position
 /// </summary>
 float yAxisCurrentPosition;  // Public variable for current position
+/// <summary>
+/// The y axis current step position
+/// </summary>
 float yAxisCurrentStepPosition = 0.00;
 /// <summary>
 /// The y axis motor speed
@@ -281,7 +284,7 @@ float yAxisDistanceToGo = 0.00;
 /// </summary>
 float zAxisMoveMM;  // Public variable for z-axis movement
 /// <summary>
-/// The z axis current position
+/// The z axis current step position
 /// </summary>
 long zAxisCurrentStepPosition;  // Public variable for current position
 /// <summary>
@@ -332,10 +335,18 @@ bool zAxisStepperLimitSwitchCCWReleased = false;
 /// The z axis distance to go
 /// </summary>
 float zAxisDistanceToGo = 0.00;
+/// <summary>
+/// The limit switch cw triggered
+/// </summary>
 static bool limitSwitchCWTriggered = false;
+/// <summary>
+/// The limit switch CCW triggered
+/// </summary>
 static bool limitSwitchCCWTriggered = false;
+/// <summary>
+/// The limit switch triggered
+/// </summary>
 static int limitSwitchTriggered;
-
 /// <summary>
 /// Setups this instance.
 /// </summary>

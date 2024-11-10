@@ -1138,6 +1138,7 @@ namespace Stepper
                         {
                             try
                             {
+                                //zAxisAbsolutePosition = zAxisAbsolutePosition + float.Parse(txtZaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture);
                                 zAxisAbsolutePosition += float.Parse(txtZaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture);
                             }
                             catch (FormatException ex)

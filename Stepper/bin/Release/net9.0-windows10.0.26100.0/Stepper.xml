@@ -587,6 +587,7 @@
             </summary>
             <param name="axis">The axis.</param>
             <param name="serialPort">The serial port.</param>
+            <param name="currentPosition">The current position.</param>
         </member>
         <member name="M:Stepper.MainWindow.IsNegative(System.Decimal)">
             <summary>
