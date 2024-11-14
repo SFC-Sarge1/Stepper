@@ -17,21 +17,21 @@
           "System.IO.Ports": "9.0.0-preview.7.24405.7",
           "UtilityDelta.Gpio": "4.3.0",
           "UtilityDelta.Stepper": "2.2.0",
-          "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.26100.45"
+          "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.26100.54"
         },
         "runtime": {
           "Stepper.dll": {}
         }
       },
-      "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.26100.45": {
+      "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.26100.54": {
         "runtime": {
           "Microsoft.Windows.SDK.NET.dll": {
             "assemblyVersion": "10.0.26100.38",
-            "fileVersion": "10.0.26100.43"
+            "fileVersion": "10.0.26100.52"
           },
           "WinRT.Runtime.dll": {
             "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.2.47512"
+            "fileVersion": "2.1.6.47881"
           }
         }
       },
@@ -535,7 +535,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.26100.45": {
+    "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.26100.54": {
       "type": "runtimepack",
       "serviceable": false,
       "sha512": ""

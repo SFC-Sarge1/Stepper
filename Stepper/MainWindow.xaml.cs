@@ -238,7 +238,7 @@ namespace Stepper
         /// The z axis clear absolute position
         /// </summary>
         private static bool zAxisClearAbsolutePosition;
-
+        public static int esp32Rebooted = 0;
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow" /> class.
         /// </summary>
@@ -716,6 +716,18 @@ namespace Stepper
                 SerialPort Zsp = (SerialPort)sender;
                 string Zindata = Zsp.ReadExisting();
                 Logger.LogInformation(message: $"Z Axis Data Received: {Zindata}");
+                //if (Zindata.Contains("ESP 32 Board Reset."))
+                //{
+                //    Application.Current.Dispatcher.Invoke(() =>
+                //    {
+                //        esp32Rebooted++;
+                //        if (esp32Rebooted == 1)
+                //        {
+                //            DisableControls();
+                //            StartDelayTask("Z", Zindata);
+                //        }
+                //    });
+                //}
                 // Check if the message indicates the motor has stopped
                 if (Zindata.Contains("Z Axis CW Motor Stopped"))
                 {
@@ -762,11 +774,11 @@ namespace Stepper
                     });
 
                 }
-                if(Zindata.Contains("Z Axis Absolute Position"))
+                if (Zindata.Contains("Z Axis Absolute Position"))
                 {
                     string[] ZindataArray = Zindata.Split(' ');
                     zAxisAbsolutePosition = float.Parse(ZindataArray[4], CultureInfo.InvariantCulture);
-                    Logger.LogInformation($"Z Axis Absolute Position: {zAxisAbsolutePosition}");
+                    Logger.LogInformation($"Z Axis Absolute Position: {zAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture)}");
                     string[] lines = Zindata.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
                     foreach (string line in lines)
                     {
@@ -780,23 +792,22 @@ namespace Stepper
                                 float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
 
                                 zAxisAbsolutePosition += line.Contains("CW") ? distanceInMM : -distanceInMM;
-                                    Application.Current.Dispatcher.Invoke(() =>
-                                    {
-                                        txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2");
-                                        Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
-                                        Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
-                                        Properties.Settings.Default.Save();
-                                        zAxisRunCompleted = false;
-                                        Logger.LogInformation($"Z Axis Absolute Position {txtZaxisStepperCurrent.Text}");
-                                        zAxisClearAbsolutePosition = true;
-                                    });
-                                }
+                                Application.Current.Dispatcher.Invoke(() =>
+                                {
+                                    txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2");
+                                    Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
+                                    Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
+                                    Properties.Settings.Default.Save();
+                                    zAxisRunCompleted = false;
+                                    Logger.LogInformation($"Z Axis Absolute Position {txtZaxisStepperCurrent.Text}");
+                                    zAxisClearAbsolutePosition = true;
+                                });
                             }
                         }
-
                     }
-
                 }
+
+            }
             catch (Exception ex)
             {
                 Logger.LogError(ex, "Error in YdataReceivedHandler");
@@ -864,6 +875,7 @@ namespace Stepper
 
             try
             {
+                esp32Rebooted = 0;
                 switch (axis)
                 {
                     case "X":
@@ -1890,9 +1902,13 @@ namespace Stepper
                 await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay) * 2);
                 Application.Current.Dispatcher.Invoke(() =>
                 {
+                    //if (data.Contains("ESP 32 Board Reset."))
+                    //{
+                    //    EnableControls();
+                    //}
                     if ((axis == "X" && xAxisRunCompleted && (data.Contains("X Axis CW Motor Current Position:") || data.Contains("X Axis CCW Motor Current Position:"))) ||
-                        (axis == "Y" && yAxisRunCompleted && (data.Contains("Y Axis CW Motor Current Position:") || data.Contains("Y Axis CCW Motor Current Position:"))) ||
-                        (axis == "Z" && zAxisRunCompleted && (data.Contains("Z Axis CW Motor Current Position:") || data.Contains("Z Axis CCW Motor Current Position:"))))
+                                                    (axis == "Y" && yAxisRunCompleted && (data.Contains("Y Axis CW Motor Current Position:") || data.Contains("Y Axis CCW Motor Current Position:"))) ||
+                                                    (axis == "Z" && zAxisRunCompleted && (data.Contains("Z Axis CW Motor Current Position:") || data.Contains("Z Axis CCW Motor Current Position:"))))
                     {
                         UpdateMotorPosition(axis, data);
                     }
