@@ -74,8 +74,8 @@ bool zAxisSetToZeroPosition = false;
 // the setup function runs once when you press reset or power the board
 void setup() 
 {
-	zAxisStepperMotor.setMaxSpeed(1000); // Set the maximum speed in steps per second
-	zAxisStepperMotor.setAcceleration(1000); // Set the acceleration in steps per second^2
+	//zAxisStepperMotor.setMaxSpeed(1000); // Set the maximum speed in steps per second
+	//zAxisStepperMotor.setAcceleration(1000); // Set the acceleration in steps per second^2
 	//Z axis stuff.
 
 	serialData[7] = "0.00";
@@ -94,10 +94,14 @@ void loop()
 {
 	if (Serial.available())
 	{
+		//zAxisStepperMotor.setCurrentPosition(0.00);
+		Serial.println("Z Axis Position: 0.00");
+
 		serialData[serialDataIndex] = Serial.readStringUntil(',');
 		serialDataIndex++;
 		if (serialDataIndex == 10)
 		{
+			zAxisStepperMotor.setCurrentPosition(0.00);
 			serialDataIndex = 0;
 			Axis = serialData[0];
 			//Z axis stuff
@@ -114,9 +118,9 @@ void loop()
 			zAxisStepperMotor.moveTo(zAxisMoveMM);
 			zAxisStepperMotor.setAcceleration(1000);
 			zAxisStepperMotor.setSpeed(zAxisMotorSpeed);
-			//zAxisStepperMotor.runSpeedToPosition();
 			Serial.println("Z Axis: " + (String)zAxisMoveMM);
 			zAxisStepperMotor.runToNewPosition(zAxisMoveMM);
+			//zAxisStepperMotor.runSpeedToPosition();
 		}
 	}
 	//zAxisStepperMotor.runToNewPosition(1000); // Move 200 steps forward
