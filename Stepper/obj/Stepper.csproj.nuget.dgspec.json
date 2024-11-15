@@ -53,31 +53,31 @@
           "dependencies": {
             "MahApps.Metro": {
               "target": "Package",
-              "version": "[3.0.0-alpha0492, )"
+              "version": "[3.0.0-alpha0513, )"
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[9.0.0-preview.7.24405.7, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.Extensions.Logging": {
               "target": "Package",
-              "version": "[9.0.0-preview.7.24405.7, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.Extensions.Logging.Abstractions": {
               "target": "Package",
-              "version": "[9.0.0-preview.7.24405.7, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.Extensions.Logging.AzureAppServices": {
               "target": "Package",
-              "version": "[9.0.0-preview.7.24406.2, )"
+              "version": "[9.0.0, )"
             },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
-              "version": "[9.0.0-preview.7.24405.7, )"
+              "version": "[9.0.0, )"
             },
             "System.IO.Ports": {
               "target": "Package",
-              "version": "[9.0.0-preview.7.24405.7, )"
+              "version": "[9.0.0, )"
             },
             "UtilityDelta.Gpio": {
               "target": "Package",
