@@ -1,0 +1,315 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MauiStepperV2</name>
+    </assembly>
+    <members>
+        <member name="F:MauiStepperV2.MainPage.isKeyboardShowing">
+            <summary>The is keyboard showing</summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.timer">
+            <summary>
+            The timer
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.countdownTime">
+            <summary>
+            The countdown time
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.targetEndTime">
+            <summary>
+            The target end time
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.stopwatch">
+            <summary>
+            The stopwatch
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.elapsedTime">
+            <summary>
+            The elapsed time
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.remainingTime">
+            <summary>
+            The remaining time
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.sp">
+            <summary>
+            The sp
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage._YserialPort">
+            <summary>
+            The Y serial port
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage._ZserialPort">
+            <summary>
+            The Z serial port
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.myPortName">
+            <summary>
+            My port name
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.zeroXaxis">
+            <summary>
+            The zero xaxis
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.zeroYaxis">
+            <summary>
+            The zero yaxis
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.zeroZaxis">
+            <summary>
+            The zero zaxis
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.axis">
+            <summary>
+            The axis
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.currentXAxis">
+            <summary>
+            The current x axis
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.currentYAxis">
+            <summary>
+            The current y axis
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.previousXAxis">
+            <summary>
+            The previous X axis
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.previousYAxis">
+            <summary>
+            The previous Y axis
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.previousZAxis">
+            <summary>
+            The previous Z axis
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.XaxisChanged">
+            <summary>
+            The xaxis changed
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.YaxisChanged">
+            <summary>
+            The yaxis changed
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.ZaxisChanged">
+            <summary>
+            The zaxis changed
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.XaxisStepperMoveTemp">
+            <summary>
+            The xaxis stepper move temporary
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.YaxisStepperMoveTemp">
+            <summary>
+            The yaxis stepper move temporary
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.ZaxisStepperMoveTemp">
+            <summary>
+            The zaxis stepper move temporary
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.selectedItem">
+            <summary>
+            The selected item
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.stepperMove">
+            <summary>
+            The stepper move
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage._logger">
+            <summary>
+            The logger
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.loggerFactory">
+            <summary>
+            The logger factory
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.message">
+            <summary>
+            The message
+            </summary>
+        </member>
+        <member name="F:MauiStepperV2.MainPage.path">
+            <summary>
+            The path
+            </summary>
+        </member>
+        <member name="M:MauiStepperV2.MainPage.ZdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            Z data received handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:MauiStepperV2.MainPage.UpdateMotorTimer(System.String,System.Decimal,System.Decimal)">
+            <summary>
+            Updates the motor timer.
+            </summary>
+            <param name="axis">The axis.</param>
+            <param name="MotorSpeed">The motor speed.</param>
+            <param name="stepperMove">The stepper move.</param>
+            <returns>System.Decimal.</returns>
+        </member>
+        <member name="T:MauiStepperV2.SendItemMessage">
+            <summary>
+            Class SendItemMessage.
+            Implements the <see cref="!:CommunityToolkit.Mvvm.Messaging.Messages.ValueChangedMessage&lt;System.String&gt;" />
+            </summary>
+            <seealso cref="!:CommunityToolkit.Mvvm.Messaging.Messages.ValueChangedMessage&lt;System.String&gt;" />
+        </member>
+        <member name="M:MauiStepperV2.SendItemMessage.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MauiStepperV2.SendItemMessage" /> class.
+            </summary>
+            <param name="value">The value that has changed.</param>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <param name = "token"><see cref = "T:System.Threading.CancellationToken"/></param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_DatePicker.TextColorTo(Microsoft.Maui.Controls.DatePicker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <param name = "token"><see cref = "T:System.Threading.CancellationToken"/></param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Editor.TextColorTo(Microsoft.Maui.Controls.Editor,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <param name = "token"><see cref = "T:System.Threading.CancellationToken"/></param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Entry.TextColorTo(Microsoft.Maui.Controls.Entry,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <param name = "token"><see cref = "T:System.Threading.CancellationToken"/></param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_InputView.TextColorTo(Microsoft.Maui.Controls.InputView,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <param name = "token"><see cref = "T:System.Threading.CancellationToken"/></param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Label.TextColorTo(Microsoft.Maui.Controls.Label,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <param name = "token"><see cref = "T:System.Threading.CancellationToken"/></param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Picker.TextColorTo(Microsoft.Maui.Controls.Picker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <param name = "token"><see cref = "T:System.Threading.CancellationToken"/></param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_RadioButton.TextColorTo(Microsoft.Maui.Controls.RadioButton,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <param name = "token"><see cref = "T:System.Threading.CancellationToken"/></param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_SearchBar.TextColorTo(Microsoft.Maui.Controls.SearchBar,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <param name = "token"><see cref = "T:System.Threading.CancellationToken"/></param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_TimePicker.TextColorTo(Microsoft.Maui.Controls.TimePicker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <param name = "token"><see cref = "T:System.Threading.CancellationToken"/></param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+    </members>
+</doc>

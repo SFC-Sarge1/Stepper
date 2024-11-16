@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodels="clr-namespace:MauiStepper.ViewModels"
+             x:Class="MauiStepper.Views.AppSettings"
+             Title="Application Settings"
+             Padding="16" BackgroundColor="Black">
+    <ContentPage.BindingContext>
+        <viewmodels:MainViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Frame WidthRequest="900" BorderColor="Gray" Padding="7,1" Background="Black" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="10">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="BaudRate" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Entry HorizontalTextAlignment="End" VerticalTextAlignment="End" WidthRequest="100" Background="Black" TextColor="White" Text="{Binding BaudRate}" />
+            </StackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

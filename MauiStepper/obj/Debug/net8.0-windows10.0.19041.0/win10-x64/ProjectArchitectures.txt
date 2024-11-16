@@ -1,0 +1,1 @@
+C:\Users\sfcsarge\source\repos\MauiStepperV2\MauiStepperV2\MauiStepperV2.csproj;x64

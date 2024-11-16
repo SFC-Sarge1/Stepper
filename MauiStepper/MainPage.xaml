@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodels="clr-namespace:MauiStepper.ViewModels"
+             x:Class="MauiStepper.MainPage"
+             Title="X,Y,Z Table Stepper Motor Control"
+             Padding="16" BackgroundColor="Black">
+
+    <VerticalStackLayout Spacing="8">
+        <Frame WidthRequest="900" BorderColor="Gray" Padding="7,1" Background="Black" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="10">
+            <StackLayout Orientation="Horizontal">
+                <Label Style="{StaticResource MyLabelStyle}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="X axis Move To:"/>
+                <Entry x:Name="XAxisMove" 
+                       Focused="XAxisMove_Focused"
+                       Unfocused="XAxisMove_Unfocused"
+                       TextChanged="XAxisMove_TextChanged"
+                       Style="{StaticResource MyEntryStyle}" 
+                       HorizontalTextAlignment="End" 
+                       VerticalTextAlignment="End" 
+                       WidthRequest="100" 
+                       Background="Black" 
+                       TextColor="White" 
+                       Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <mct:NumericValidationBehavior 
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                        ValidStyle="{StaticResource ValidEntryStyle}"
+                        Flags="ValidateOnValueChanged"
+                        MinimumValue="0.00"
+                        MaximumValue="1000.00"
+                        MaximumDecimalPlaces="2" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Label Style="{StaticResource MyLabelStyle}" Padding="0,15,0,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="  (mm)"/>
+
+                <Label Style="{StaticResource MyLabelStyle}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="   X axis Current:"/>
+                <Entry x:Name="XAxisCurrent" 
+                       Focused="XAxisCurrent_Focused" 
+                       Unfocused="XAxisCurrent_Unfocused"
+                       TextChanged="XAxisCurrent_TextChanged"
+                       Style="{StaticResource MyEntryStyle}" 
+                       HorizontalTextAlignment="End" 
+                       VerticalTextAlignment="End" 
+                       WidthRequest="100" 
+                       Background="Black" 
+                       TextColor="White" 
+                       Keyboard="Numeric" >
+                    <Entry.Behaviors>
+                        <mct:NumericValidationBehavior 
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                        ValidStyle="{StaticResource ValidEntryStyle}"
+                        Flags="ValidateOnValueChanged"
+                        MinimumValue="0.00"
+                        MaximumValue="1000.00"
+                        MaximumDecimalPlaces="2" />
+                    </Entry.Behaviors>
+                </Entry>
+
+
+                <Label Style="{StaticResource MyLabelStyle}" Padding="0,15,0,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="  (mm)"/>
+
+                <Label Style="{StaticResource MyLabelStyle}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="   X axis Speed:"/>
+                <Entry x:Name="XAxisSpeed" 
+                       Focused="XAxisSpeed_Focused" 
+                       Unfocused="XAxisSpeed_Unfocused"
+                       TextChanged="XAxisSpeed_TextChanged"
+                       Style="{StaticResource MyEntryStyle}" 
+                       HorizontalTextAlignment="End" 
+                       VerticalTextAlignment="End" 
+                       WidthRequest="100" 
+                       Background="Black" 
+                       TextColor="White" 
+                       Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <mct:NumericValidationBehavior 
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                        ValidStyle="{StaticResource ValidEntryStyle}"
+                        Flags="ValidateOnValueChanged"
+                        MinimumValue="0.00"
+                        MaximumValue="1000.00"
+                        MaximumDecimalPlaces="2" />
+                    </Entry.Behaviors>
+                </Entry>
+
+
+                <Label Style="{StaticResource MyLabelStyle}" Padding="0,15,0,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="  (RPM)"/>
+
+                <CheckBox Style="{StaticResource MyCheckBoxStyle}" x:Name="XaxisResetToZero" CheckedChanged="XaxisResetToZeroCheckedChanged"  Color="White"/>
+                <Label Style="{StaticResource MyLabelStyle}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="White" Text="X Axis Zero"/>
+
+            </StackLayout>
+        </Frame>
+        <Frame WidthRequest="900" BorderColor="Gray" Padding="7,1" Background="Black" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="10">
+            <StackLayout Orientation="Horizontal">
+                <Label Style="{StaticResource MyLabelStyle}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="Y axis Move To:"/>
+                <Entry x:Name="YAxisMove" 
+                        Focused="YAxisMove_Focused"
+                        Unfocused="YAxisMove_Unfocused"
+                        TextChanged="YAxisMove_TextChanged"
+                        Style="{StaticResource MyEntryStyle}" HorizontalTextAlignment="End" VerticalTextAlignment="End" WidthRequest="100" Background="Black" TextColor="White" Text="{Binding YaxisStepperMove, StringFormat='{0:F2}'}"
+                        Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <mct:NumericValidationBehavior 
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                        ValidStyle="{StaticResource ValidEntryStyle}"
+                        Flags="ValidateOnValueChanged"
+                        MinimumValue="0.00"
+                        MaximumValue="1000.00"
+                        MaximumDecimalPlaces="2" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Label Style="{StaticResource MyLabelStyle}" Padding="0,15,0,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="  (mm)"/>
+
+                <Label Style="{StaticResource MyLabelStyle}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="   Y axis Current:"/>
+                <Entry x:Name="YAxisCurrent" 
+                       Focused="YAxisCurrent_Focused"  
+                       Unfocused="YAxisCurrent_Unfocused"
+                       TextChanged="YAxisCurrent_TextChanged"
+                       Style="{StaticResource MyEntryStyle}" 
+                       HorizontalTextAlignment="End" 
+                       VerticalTextAlignment="End" 
+                       WidthRequest="100" 
+                       Background="Black" 
+                       TextColor="White" 
+                       Text="{Binding YaxisStepperCurrent, StringFormat='{0:F2}'}"
+                    Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <mct:NumericValidationBehavior 
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                        ValidStyle="{StaticResource ValidEntryStyle}"
+                        Flags="ValidateOnValueChanged"
+                        MinimumValue="0.00"
+                        MaximumValue="1000.00"
+                        MaximumDecimalPlaces="2" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Label Style="{StaticResource MyLabelStyle}" Padding="0,15,0,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="  (mm)"/>
+
+                <Label Style="{StaticResource MyLabelStyle}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="   Y axis Speed:"/>
+                <Entry x:Name="YAxisSpeed" 
+                       Focused="YAxisSpeed_Focused" 
+                       Unfocused="YAxisSpeed_Unfocused"
+                       TextChanged="YAxisSpeed_TextChanged"
+                       Style="{StaticResource MyEntryStyle}" 
+                       HorizontalTextAlignment="End" 
+                       VerticalTextAlignment="End" 
+                       WidthRequest="100" 
+                       Background="Black" 
+                       TextColor="White" 
+                       Text="{Binding YaxisMotorSpeed, StringFormat='{0:F2}'}"
+                    Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <mct:NumericValidationBehavior 
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                        ValidStyle="{StaticResource ValidEntryStyle}"
+                        Flags="ValidateOnValueChanged"
+                        MinimumValue="0.00"
+                        MaximumValue="1000.00"
+                        MaximumDecimalPlaces="2" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Label Style="{StaticResource MyLabelStyle}" Padding="0,15,0,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="  (RPM)"/>
+
+                <CheckBox Style="{StaticResource MyCheckBoxStyle}" x:Name="YaxisResetToZero" CheckedChanged="YaxisResetToZeroCheckedChanged"  Color="White"/>
+                <Label Style="{StaticResource MyLabelStyle}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="White" Text="Y Axis Zero"/>
+
+            </StackLayout>
+        </Frame>
+        <Frame WidthRequest="900" BorderColor="Gray" Padding="7,1" Background="Black" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="10">
+            <StackLayout Orientation="Horizontal">
+                <Label Style="{StaticResource MyLabelStyle}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="Z axis Move To:"/>
+                <Entry x:Name="ZAxisMove" 
+                       Focused="ZAxisMove_Focused"
+                       Unfocused="ZAxisMove_Unfocused"
+                       TextChanged="ZAxisMove_TextChanged"
+                       Style="{StaticResource MyEntryStyle}" 
+                       HorizontalTextAlignment="End" 
+                       VerticalTextAlignment="End" 
+                       WidthRequest="100" 
+                       Background="Black" 
+                       TextColor="White" 
+                    Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <mct:NumericValidationBehavior 
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                        ValidStyle="{StaticResource ValidEntryStyle}"
+                        Flags="ValidateOnValueChanged"
+                        MinimumValue="0.00"
+                        MaximumValue="1000.00"
+                        MaximumDecimalPlaces="2" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Label Style="{StaticResource MyLabelStyle}" Padding="0,15,0,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="  (mm)"/>
+
+                <Label Style="{StaticResource MyLabelStyle}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="   Z axis Current:"/>
+                <Entry x:Name="ZAxisCurrent" 
+                       Focused="ZAxisCurrent_Focused" 
+                       Unfocused="ZAxisCurrent_Unfocused"
+                       TextChanged="ZAxisCurrent_TextChanged"
+                       Style="{StaticResource MyEntryStyle}" 
+                       HorizontalTextAlignment="End" 
+                       VerticalTextAlignment="End" 
+                       WidthRequest="100" 
+                       Background="Black" 
+                       TextColor="White" 
+                    Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <mct:NumericValidationBehavior 
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                        ValidStyle="{StaticResource ValidEntryStyle}"
+                        Flags="ValidateOnValueChanged"
+                        MinimumValue="0.00"
+                        MaximumValue="1000.00"
+                        MaximumDecimalPlaces="2" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Label Style="{StaticResource MyLabelStyle}" Padding="0,15,0,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="  (mm)"/>
+
+                <Label Style="{StaticResource MyLabelStyle}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="   Z axis Speed:"/>
+                <Entry x:Name="ZAxisSpeed" 
+                       Focused="ZAxisSpeed_Focused"
+                       Unfocused="ZAxisSpeed_Unfocused"
+                        TextChanged="ZAxisSpeed_TextChanged"
+                        Style="{StaticResource MyEntryStyle}" 
+                        HorizontalTextAlignment="End" 
+                        VerticalTextAlignment="End" 
+                        WidthRequest="100" 
+                        Background="Black" 
+                        TextColor="White" 
+                        Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <mct:NumericValidationBehavior 
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                        ValidStyle="{StaticResource ValidEntryStyle}"
+                        Flags="ValidateOnValueChanged"
+                        MinimumValue="0.00"
+                        MaximumValue="1000.00"
+                        MaximumDecimalPlaces="2" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Label Style="{StaticResource MyLabelStyle}" Padding="0,15,0,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" Text="  (RPM)"/>
+
+                <CheckBox Style="{StaticResource MyCheckBoxStyle}" x:Name="ZaxisResetToZero" CheckedChanged="ZaxisResetToZeroCheckedChanged" Color="White"/>
+                <Label Style="{StaticResource MyLabelStyle}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="White" Text="Z Axis Zero"/>
+
+            </StackLayout>
+        </Frame>
+        <Frame WidthRequest="900" BorderColor="Gray" Padding="7,1"  Background="Black" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="10" >
+            <StackLayout Orientation="Horizontal">
+
+                <Button Style="{StaticResource MyButtonStyle}" Text="[ Run X Axis ]" TextColor="White" BackgroundColor="Black" Clicked="XAxisRunClicked"/>
+
+                <Button Style="{StaticResource MyButtonStyle}" Text="[ Run Y Axis ]" TextColor="White" BackgroundColor="Black" Clicked="YAxisRunClicked"/>
+
+                <Button Style="{StaticResource MyButtonStyle}" Text="[ Run Z Axis ]" TextColor="White" BackgroundColor="Black" Clicked="ZAxisRunClicked"/>
+
+                <Button Style="{StaticResource MyButtonStyle}" Text="[ Run XY Axis ]" TextColor="White" BackgroundColor="Black" Clicked="XYAxisRunClicked" />
+
+                <Button Style="{StaticResource MyKeyboardButtonStyle}" Text="[ Close Keyboard ]" TextColor="White" BackgroundColor="Black" Clicked="CloseKeyBoardClicked" />
+
+                <Button Style="{StaticResource MySettingsButtonStyle}" WidthRequest="100" HorizontalOptions="EndAndExpand" Padding="0,0,20,0" Text="[ Settings ]" TextColor="White" BackgroundColor="Black" Clicked="NavigateToSettingsClicked" />
+            </StackLayout>
+        </Frame>
+        <Frame WidthRequest="900" BorderColor="Gray" Padding="7,1"  Background="Black" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start" CornerRadius="10" >
+            <StackLayout Orientation="Horizontal" >
+                <StackLayout Orientation="Vertical" >
+                    <Label Style="{StaticResource MyLabelStyle}" Text="Select COM Port:" />
+                    <Picker Style="{StaticResource MyPickerStyle}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="200" SelectedIndex="3" SelectedItem="{Binding ComPort}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>COM1</x:String>
+                                <x:String>COM2</x:String>
+                                <x:String>COM3</x:String>
+                                <x:String>COM4</x:String>
+                                <x:String>COM5</x:String>
+                                <x:String>COM6</x:String>
+                                <x:String>COM7</x:String>
+                                <x:String>COM8</x:String>
+                                <x:String>COM9</x:String>
+                                <x:String>COM10</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </StackLayout>
+                <Label Style="{StaticResource MyLabelStyle}" WidthRequest="100" Background="Black" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="White" Text="File Version:" />
+                <Label Style="{StaticResource MyLabelStyle}" WidthRequest="200" Background="Black" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="White" Text="{Binding FileVersion}" />
+                <Label Style="{StaticResource MyLabelStyle}"  WidthRequest="200" HorizontalOptions="End" VerticalOptions="Center" TextColor="White" Text="{Binding Countdown}" />
+            </StackLayout>
+        </Frame>
+
+    </VerticalStackLayout>
+</ContentPage>

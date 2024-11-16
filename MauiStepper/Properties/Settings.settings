@@ -1,0 +1,141 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MauiStepperV2.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BaudRate" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">9600</Value>
+    </Setting>
+    <Setting Name="ckbXaxisResetToZeroIsChecked" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ckbYaxisResetToZeroIsChecked" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ckbZaxisResetToZeroIsChecked" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="COM1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM1</Value>
+    </Setting>
+    <Setting Name="COM4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM4</Value>
+    </Setting>
+    <Setting Name="COM5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM5</Value>
+    </Setting>
+    <Setting Name="Divider4_00" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">4.00</Value>
+    </Setting>
+    <Setting Name="Milliseconds" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="mmPerRevolution" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="RootAxisX" Type="System.String" Scope="User">
+      <Value Profile="(Default)">X</Value>
+    </Setting>
+    <Setting Name="RootAxisY" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Y</Value>
+    </Setting>
+    <Setting Name="RootAxisZ" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Z</Value>
+    </Setting>
+    <Setting Name="RootAxisXY" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XY</Value>
+    </Setting>
+    <Setting Name="Value_0_00" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="XaxisChanged" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="XaxisStepperCurrent" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="XaxisStepperMove" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="XaxisMotorSpeed" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">400.00</Value>
+    </Setting>
+    <Setting Name="YaxisChanged" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="YaxisStepperCurrent" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="YaxisStepperMove" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="YaxisMotorSpeed" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">400.00</Value>
+    </Setting>
+    <Setting Name="ZaxisChanged" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ZaxisStepperCurrent" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="ZaxisStepperMove" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="ZaxisMotorSpeed" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">400.00</Value>
+    </Setting>
+    <Setting Name="zeroXaxis" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="zeroYaxis" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="zeroZaxis" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="MilisecondTimerInterval" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">1.00</Value>
+    </Setting>
+    <Setting Name="MillisecondDelay" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">1000.00</Value>
+    </Setting>
+    <Setting Name="MathPart2Initlz" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.00</Value>
+    </Setting>
+    <Setting Name="FileVersion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1.0.7.10</Value>
+    </Setting>
+    <Setting Name="COM10" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM10</Value>
+    </Setting>
+    <Setting Name="XaxisResetToZero" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="YaxisResetToZero" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ZaxisResetToZero" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CountDown" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Working Timer</Value>
+    </Setting>
+    <Setting Name="IsDebugMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ProjectFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\\\\Users\\sfcsarge\\source\\repos\\MauiStepper\\MauiStepper\\MauiStepper.csproj</Value>
+    </Setting>
+    <Setting Name="LogFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MauiStepper.log</Value>
+    </Setting>
+    <Setting Name="ZComPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM10</Value>
+    </Setting>
+    <Setting Name="YComPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM8</Value>
+    </Setting>
+    <Setting Name="XComPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM7</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
