@@ -738,20 +738,9 @@ namespace Stepper
                 SerialPort Zsp = (SerialPort)sender;
                 string Zindata = Zsp.ReadExisting();
                 Logger.LogInformation(message: $"Z Axis Data Received: {Zindata}");
-                //if (Zindata.Contains("ESP 32 Board Reset."))
-                //{
-                //    Application.Current.Dispatcher.Invoke(() =>
-                //    {
-                //        esp32Rebooted++;
-                //        if (esp32Rebooted == 1)
-                //        {
-                //            DisableControls();
-                //            StartDelayTask("Z", Zindata);
-                //        }
-                //    });
-                //}
+
                 // Check if the message indicates the motor has stopped
-                if (Zindata.Contains("Z Axis CW Motor Stopped"))
+                if (Zindata.Contains("Z Axis CW STOPPED") || Zindata.Contains("Z Axis CCW STOPPED"))
                 {
                     zTimer.Stop();
                     zStopwatch.Stop();
@@ -761,48 +750,18 @@ namespace Stepper
 
                     Application.Current.Dispatcher.Invoke(() =>
                     {
-
                         EnableControls();
                         ZaxisChanged = true;
                         CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
-                        //ZZero(Properties.Settings.Default.Milliseconds, Properties.Settings.Default.RootAxisZ);
                         ckbZaxisResetToZero.IsChecked = true;
                         zAxisClearAbsolutePosition = false;
                         RoutedEventArgs e = new();
                         AxisRun_Click(sender, e);
                         StartDelayTask("Z", Zindata);
-
-                        //MessageBox.Show("Y Axis Motor has stopped due to limit switch trigger.", "Motor Stopped", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Zindata = "";
                     });
-
                 }
-                if (Zindata.Contains("Z Axis CCW Motor Stopped"))
-                {
-                    zTimer.Stop();
-                    zStopwatch.Stop();
-                    zAxisRunCompleted = true;
-                    // Cancel the delay task
-                    _zCancellationTokenSource.Cancel();
-                    //zTargetEndTime = DateTime.Now;
-                    //HandleTimerTick("Z", zStopwatch, zTargetEndTime, ref zAxisRunCompleted, ref zAxisClearAbsolutePosition, ref zAxisAbsolutePosition, txtZaxisStepperMove, txtZaxisStepperCurrent, txtZaxisMotorSpeed, ckbZaxisResetToZero, ref ZaxisChanged);
-
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        zTargetEndTime = DateTime.Now;
-                        EnableControls();
-                        ZaxisChanged = true;
-                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
-                        //ZZero(Properties.Settings.Default.Milliseconds, Properties.Settings.Default.RootAxisZ);
-                        ckbZaxisResetToZero.IsChecked = true;
-                        RoutedEventArgs e = new();
-                        AxisRun_Click(sender, e);
-                        StartDelayTask("Z", Zindata);
-
-                        //MessageBox.Show("Y Axis Motor has stopped due to limit switch trigger.", "Motor Stopped", MessageBoxButton.OK, MessageBoxImage.Information);
-                    });
-
-                }
-                if (Zindata.Contains("Z Axis Absolute Position"))
+                else if (Zindata.Contains("Z Axis Absolute Position"))
                 {
                     string[] ZindataArray = Zindata.Split(' ');
                     zAxisAbsolutePosition = float.Parse(ZindataArray[4], CultureInfo.InvariantCulture);
@@ -833,13 +792,17 @@ namespace Stepper
                             }
                         }
                     }
+                    Zindata = "";
                 }
-
+                else
+                {
+                    Zindata = "";
+                }
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Error in YdataReceivedHandler");
-                MessageBox.Show(ex.ToString() + " Error in YdataReceivedHandler", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                Logger.LogError(ex, "Error in ZdataReceivedHandler");
+                MessageBox.Show(ex.ToString() + " Error in ZdataReceivedHandler", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
         /// <summary>
@@ -1183,7 +1146,6 @@ namespace Stepper
                         {
                             try
                             {
-                                //zAxisAbsolutePosition = zAxisAbsolutePosition + float.Parse(txtZaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture);
                                 zAxisAbsolutePosition += float.Parse(txtZaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture);
                             }
                             catch (FormatException ex)
