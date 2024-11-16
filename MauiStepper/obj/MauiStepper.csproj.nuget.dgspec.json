@@ -23,7 +23,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net9.0-android",
+          "net9.0-android35.0",
           "net9.0-maccatalyst",
           "net9.0-windows10.0.19041.0"
         ],
@@ -34,7 +34,7 @@
         },
         "frameworks": {
           "net9.0-android35.0": {
-            "targetAlias": "net9.0-android",
+            "targetAlias": "net9.0-android35.0",
             "projectReferences": {
               "C:\\Users\\sfcsarge\\source\\repos\\WindowsInput\\WindowsInput\\WindowsInput.csproj": {
                 "projectPath": "C:\\Users\\sfcsarge\\source\\repos\\WindowsInput\\WindowsInput\\WindowsInput.csproj"
@@ -72,7 +72,7 @@
       },
       "frameworks": {
         "net9.0-android35.0": {
-          "targetAlias": "net9.0-android",
+          "targetAlias": "net9.0-android35.0",
           "dependencies": {
             "CommunityToolkit.Maui": {
               "target": "Package",
@@ -95,6 +95,10 @@
               "version": "[9.0.0, )"
             },
             "Microsoft.Maui.Controls": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.Maui.Controls.Build.Tasks": {
               "target": "Package",
               "version": "[9.0.10, )"
             },
@@ -177,6 +181,10 @@
               "target": "Package",
               "version": "[9.0.10, )"
             },
+            "Microsoft.Maui.Controls.Build.Tasks": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
               "version": "[9.0.10, )"
@@ -254,6 +262,10 @@
               "version": "[9.0.0, )"
             },
             "Microsoft.Maui.Controls": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.Maui.Controls.Build.Tasks": {
               "target": "Package",
               "version": "[9.0.10, )"
             },

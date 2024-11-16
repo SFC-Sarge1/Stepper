@@ -483,46 +483,63 @@ namespace Stepper
         /// <param name="axisChanged">if set to <c>true</c> [axis changed].</param>
         private void HandleTimerTick(string axis, Stopwatch stopwatch, DateTime targetEndTime, ref bool axisRunCompleted, ref bool axisClearAbsolutePosition, ref float axisAbsolutePosition, TextBox stepperMoveTextBox, TextBox stepperCurrentTextBox, TextBox motorSpeedTextBox, CheckBox resetToZeroCheckBox, ref bool axisChanged)
         {
-            ElapsedTime = stopwatch.Elapsed;
-            RemainingTime = targetEndTime - DateTime.Now;
-            if (DateTime.Now < targetEndTime)
+            if (axisRunCompleted)
             {
-                DisableControls();
-                axisChanged = true;
-                if (!resetToZeroCheckBox.IsChecked.GetValueOrDefault())
+
+                ElapsedTime = stopwatch.Elapsed;
+                RemainingTime = targetEndTime - DateTime.Now;
+                if (DateTime.Now < targetEndTime)
                 {
-                    Logger.LogInformation($"Stepper Motor Controller Disable {axis} Axis controls while moving to location.");
-                    CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} {ElapsedTime.ToString(@"hh\:mm\:ss\.fffff")}";
-                    Logger.LogInformation($"Time remaining: {ElapsedTime.ToString(@"hh\:mm\:ss")} targetEndTime = {targetEndTime.ToString(@"hh\:mm\:ss")}");
+                    DisableControls();
+                    axisChanged = true;
+                    if (!resetToZeroCheckBox.IsChecked.GetValueOrDefault())
+                    {
+                        Logger.LogInformation($"Stepper Motor Controller Disable {axis} Axis controls while moving to location.");
+                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} {ElapsedTime.ToString(@"hh\:mm\:ss\.fffff")}";
+                        Logger.LogInformation($"Time remaining: {ElapsedTime.ToString(@"hh\:mm\:ss")} targetEndTime = {targetEndTime.ToString(@"hh\:mm\:ss")}");
+                    }
+                    else
+                    {
+                        resetToZeroCheckBox.IsChecked = false;
+                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
+                    }
                 }
                 else
                 {
-                    resetToZeroCheckBox.IsChecked = false;
                     CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
+                    EnableControls();
+                    string currentAxis = (Convert.ToDecimal(stepperCurrentTextBox.Text) + Convert.ToDecimal(stepperMoveTextBox.Text)).ToString();
+                    stepperCurrentTextBox.Text = currentAxis;
+                    axisChanged = false;
+                    stepperMoveTextBox.BorderBrush = System.Windows.Media.Brushes.White;
+                    motorSpeedTextBox.BorderBrush = System.Windows.Media.Brushes.White;
+                    Properties.Settings.Default[$"{axis}axisMotorSpeed"] = Convert.ToDecimal(motorSpeedTextBox.Text);
+                    Properties.Settings.Default[$"{axis}axisStepperCurrent"] = Convert.ToDecimal(stepperCurrentTextBox.Text);
+                    Properties.Settings.Default[$"{axis}axisStepperMove"] = Convert.ToDecimal(stepperMoveTextBox.Text);
+                    Properties.Settings.Default.Save();
+                    Logger.LogInformation($"Stepper Motor Controller Enable {axis} Axis controls after moving to location.");
+                    stopwatch.Stop();
+                    Logger.LogInformation($"Stepper Motor Controller Stopwatch Stopped.");
+                    // Stop the timer and prevent further updates
+                    if (axis == "X")
+                    {
+                        xTimer.Stop();
+                        xStopwatch.Stop();
+                    }
+                    if (axis == "Y")
+                    {
+                        yTimer.Stop();
+                        yStopwatch.Stop();
+                    }
+                    if (axis == "Z")
+                    {
+                        zTimer.Stop();
+                        zStopwatch.Stop();
+                    }
+                    Logger.LogInformation($"Stepper Motor Controller Timer Stopped.");
+                    stopwatch.Reset();
+                    Logger.LogInformation($"Stepper Motor Controller Stopwatch Reset.");
                 }
-            }
-            else
-            {
-                CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
-                EnableControls();
-                string currentAxis = (Convert.ToDecimal(stepperCurrentTextBox.Text) + Convert.ToDecimal(stepperMoveTextBox.Text)).ToString();
-                stepperCurrentTextBox.Text = currentAxis;
-                axisChanged = false;
-                stepperMoveTextBox.BorderBrush = System.Windows.Media.Brushes.White;
-                motorSpeedTextBox.BorderBrush = System.Windows.Media.Brushes.White;
-                Properties.Settings.Default[$"{axis}axisMotorSpeed"] = Convert.ToDecimal(motorSpeedTextBox.Text);
-                Properties.Settings.Default[$"{axis}axisStepperCurrent"] = Convert.ToDecimal(stepperCurrentTextBox.Text);
-                Properties.Settings.Default[$"{axis}axisStepperMove"] = Convert.ToDecimal(stepperMoveTextBox.Text);
-                Properties.Settings.Default.Save();
-                Logger.LogInformation($"Stepper Motor Controller Enable {axis} Axis controls after moving to location.");
-                stopwatch.Stop();
-                Logger.LogInformation($"Stepper Motor Controller Stopwatch Stopped.");
-                if (axis == "X") xTimer.Stop();
-                if (axis == "Y") yTimer.Stop();
-                if (axis == "Z") zTimer.Stop();
-                Logger.LogInformation($"Stepper Motor Controller Timer Stopped.");
-                stopwatch.Reset();
-                Logger.LogInformation($"Stepper Motor Controller Stopwatch Reset.");
             }
         }
 
@@ -587,8 +604,10 @@ namespace Stepper
                 // Check if the message indicates the motor has stopped
                 if (Xindata.Contains("X Axis CW Motor Stopped"))
                 {
+                    xAxisRunCompleted = true;
                     xTimer.Stop();
                     xStopwatch.Stop();
+                    xAxisRunCompleted = true;
                     // Cancel the delay task
                     _xCancellationTokenSource.Cancel();
 
@@ -596,7 +615,7 @@ namespace Stepper
                     {
                         EnableControls();
                         XaxisChanged = true;
-                        CountdownLabel.Content = "";
+                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                         //XZero(Properties.Settings.Default.Milliseconds, Properties.Settings.Default.RootAxisZ);
                         ckbXaxisResetToZero.IsChecked = true;
                         xAxisClearAbsolutePosition = false;
@@ -612,6 +631,7 @@ namespace Stepper
                 {
                     xTimer.Stop();
                     xStopwatch.Stop();
+                    xAxisRunCompleted = true;
                     // Cancel the delay task
                     _xCancellationTokenSource.Cancel();
 
@@ -619,7 +639,7 @@ namespace Stepper
                     {
                         EnableControls();
                         XaxisChanged = true;
-                        CountdownLabel.Content = "";
+                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                         //XZero(Properties.Settings.Default.Milliseconds, Properties.Settings.Default.RootAxisZ);
                         ckbXaxisResetToZero.IsChecked = true;
                         RoutedEventArgs e = new();
@@ -655,6 +675,7 @@ namespace Stepper
                 {
                     yTimer.Stop();
                     yStopwatch.Stop();
+                    yAxisRunCompleted = true;
                     // Cancel the delay task
                     _yCancellationTokenSource.Cancel();
 
@@ -662,7 +683,7 @@ namespace Stepper
                     {
                         EnableControls();
                         YaxisChanged = true;
-                        CountdownLabel.Content = "";
+                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                         //YZero(Properties.Settings.Default.Milliseconds, Properties.Settings.Default.RootAxisZ);
                         ckbYaxisResetToZero.IsChecked = true;
                         yAxisClearAbsolutePosition = false;
@@ -678,6 +699,7 @@ namespace Stepper
                 {
                     yTimer.Stop();
                     yStopwatch.Stop();
+                    yAxisRunCompleted = true;
                     // Cancel the delay task
                     _yCancellationTokenSource.Cancel();
 
@@ -685,7 +707,7 @@ namespace Stepper
                     {
                         EnableControls();
                         YaxisChanged = true;
-                        CountdownLabel.Content = "";
+                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                         //ZZero(Properties.Settings.Default.Milliseconds, Properties.Settings.Default.RootAxisZ);
                         ckbYaxisResetToZero.IsChecked = true;
                         RoutedEventArgs e = new();
@@ -733,14 +755,16 @@ namespace Stepper
                 {
                     zTimer.Stop();
                     zStopwatch.Stop();
+                    zAxisRunCompleted = true;
                     // Cancel the delay task
                     _zCancellationTokenSource.Cancel();
 
                     Application.Current.Dispatcher.Invoke(() =>
                     {
+
                         EnableControls();
                         ZaxisChanged = true;
-                        CountdownLabel.Content = "";
+                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                         //ZZero(Properties.Settings.Default.Milliseconds, Properties.Settings.Default.RootAxisZ);
                         ckbZaxisResetToZero.IsChecked = true;
                         zAxisClearAbsolutePosition = false;
@@ -756,14 +780,18 @@ namespace Stepper
                 {
                     zTimer.Stop();
                     zStopwatch.Stop();
+                    zAxisRunCompleted = true;
                     // Cancel the delay task
                     _zCancellationTokenSource.Cancel();
+                    //zTargetEndTime = DateTime.Now;
+                    //HandleTimerTick("Z", zStopwatch, zTargetEndTime, ref zAxisRunCompleted, ref zAxisClearAbsolutePosition, ref zAxisAbsolutePosition, txtZaxisStepperMove, txtZaxisStepperCurrent, txtZaxisMotorSpeed, ckbZaxisResetToZero, ref ZaxisChanged);
 
                     Application.Current.Dispatcher.Invoke(() =>
                     {
+                        zTargetEndTime = DateTime.Now;
                         EnableControls();
                         ZaxisChanged = true;
-                        CountdownLabel.Content = "";
+                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                         //ZZero(Properties.Settings.Default.Milliseconds, Properties.Settings.Default.RootAxisZ);
                         ckbZaxisResetToZero.IsChecked = true;
                         RoutedEventArgs e = new();
@@ -823,18 +851,23 @@ namespace Stepper
         {
             if (sender == btnRunXAxis)
             {
+                xAxisRunCompleted = false;
                 await RunAxis("X", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, xSerialPort);
             }
             else if (sender == btnRunYAxis)
             {
+                yAxisRunCompleted = false;
                 await RunAxis("Y", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, ySerialPort);
             }
             else if (sender == btnRunZAxis)
             {
+                zAxisRunCompleted = false;
                 await RunAxis("Z", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, zSerialPort);
             }
             else if (sender == btnRunXYAxis)
             {
+                xAxisRunCompleted = false;
+                yAxisRunCompleted = false;
                 await RunAxis("X", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, xSerialPort);
                 while (!xAxisRunCompleted)
                 {

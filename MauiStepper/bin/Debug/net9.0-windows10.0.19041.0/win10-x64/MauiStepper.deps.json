@@ -15,6 +15,7 @@
           "Microsoft.Extensions.Logging": "9.0.0",
           "Microsoft.Extensions.Logging.Debug": "9.0.0",
           "Microsoft.Maui.Controls": "9.0.10",
+          "Microsoft.Maui.Controls.Build.Tasks": "9.0.10",
           "Microsoft.Maui.Controls.Compatibility": "9.0.10",
           "Microsoft.Maui.Controls.Core": "9.0.10",
           "Microsoft.Maui.Controls.Xaml": "9.0.10",
@@ -22,9 +23,6 @@
           "System.IO": "4.3.0",
           "System.IO.Ports": "9.0.0",
           "WindowsInput": "1.0.0",
-          "Microsoft.Maui.Controls.HotReload.Forms": "17.0.0.0",
-          "Microsoft.VisualStudio.DesignTools.MobileTapContracts": "17.0.0.0",
-          "Microsoft.VisualStudio.DesignTools.TapContract": "17.0.0.0",
           "Microsoft.Web.WebView2.Core.Projection": "1.0.2792.45",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.54"
         },
@@ -659,30 +657,6 @@
           }
         }
       },
-      "Microsoft.Maui.Controls.HotReload.Forms/17.0.0.0": {
-        "runtime": {
-          "Microsoft.Maui.Controls.HotReload.Forms.dll": {
-            "assemblyVersion": "17.0.0.0",
-            "fileVersion": "17.13.38677.33945"
-          }
-        }
-      },
-      "Microsoft.VisualStudio.DesignTools.MobileTapContracts/17.0.0.0": {
-        "runtime": {
-          "Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll": {
-            "assemblyVersion": "17.0.0.0",
-            "fileVersion": "17.13.38677.33945"
-          }
-        }
-      },
-      "Microsoft.VisualStudio.DesignTools.TapContract/17.0.0.0": {
-        "runtime": {
-          "Microsoft.VisualStudio.DesignTools.TapContract.dll": {
-            "assemblyVersion": "17.0.0.0",
-            "fileVersion": "17.13.38677.33945"
-          }
-        }
-      },
       "Microsoft.Web.WebView2.Core.Projection/1.0.2792.45": {
         "runtime": {
           "Microsoft.Web.WebView2.Core.Projection.dll": {
@@ -1140,21 +1114,6 @@
     },
     "WindowsInput/1.0.0": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Maui.Controls.HotReload.Forms/17.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.VisualStudio.DesignTools.MobileTapContracts/17.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.VisualStudio.DesignTools.TapContract/17.0.0.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
