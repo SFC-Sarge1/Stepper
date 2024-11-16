@@ -502,22 +502,7 @@
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.HandleTimerTick(System.String,System.Diagnostics.Stopwatch,System.DateTime,System.Boolean@,System.Boolean@,System.Single@,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Boolean@)">
-            <summary>
-            Handles the timer tick.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="stopwatch">The stopwatch.</param>
-            <param name="targetEndTime">The target end time.</param>
-            <param name="axisRunCompleted">if set to <c>true</c> [axis run completed].</param>
-            <param name="axisClearAbsolutePosition">if set to <c>true</c> [axis clear absolute position].</param>
-            <param name="axisAbsolutePosition">The axis absolute position.</param>
-            <param name="stepperMoveTextBox">The stepper move text box.</param>
-            <param name="stepperCurrentTextBox">The stepper current text box.</param>
-            <param name="motorSpeedTextBox">The motor speed text box.</param>
-            <param name="resetToZeroCheckBox">The reset to zero CheckBox.</param>
-            <param name="axisChanged">if set to <c>true</c> [axis changed].</param>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:Stepper.MainWindow.HandleTimerTick(System.String,System.Diagnostics.Stopwatch,System.DateTime,System.Boolean@,System.Boolean@,System.Single@,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Boolean@,System.Boolean@)" -->
         <member name="M:Stepper.MainWindow.DisableControls">
             <summary>
             Disables the controls.
@@ -556,38 +541,12 @@
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.RunAxis(System.String,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.IO.Ports.SerialPort)">
-            <summary>
-            Runs the axis.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="XstepperMoveTextBox">The xstepper move text box.</param>
-            <param name="XmotorSpeedTextBox">The xmotor speed text box.</param>
-            <param name="XresetToZeroCheckBox">The xreset to zero CheckBox.</param>
-            <param name="YstepperMoveTextBox">The ystepper move text box.</param>
-            <param name="YmotorSpeedTextBox">The ymotor speed text box.</param>
-            <param name="YresetToZeroCheckBox">The yreset to zero CheckBox.</param>
-            <param name="ZstepperMoveTextBox">The zstepper move text box.</param>
-            <param name="ZmotorSpeedTextBox">The zmotor speed text box.</param>
-            <param name="ZresetToZeroCheckBox">The zreset to zero CheckBox.</param>
-            <param name="serialPort">The serial port.</param>
-            <exception cref="T:System.ArgumentException">'{nameof(axis)}' cannot be null or empty. - axis</exception>
-            <exception cref="T:System.ArgumentNullException">serialPort</exception>
-        </member>
         <member name="M:Stepper.MainWindow.ResetAxisToZero(System.String,System.IO.Ports.SerialPort)">
             <summary>
             Resets the axis to zero.
             </summary>
             <param name="axis">The axis.</param>
             <param name="serialPort">The serial port.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.MoveAxis(System.String,System.IO.Ports.SerialPort,System.Single)">
-            <summary>
-            Moves the axis.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="serialPort">The serial port.</param>
-            <param name="currentPosition">The current position.</param>
         </member>
         <member name="M:Stepper.MainWindow.IsNegative(System.Decimal)">
             <summary>
