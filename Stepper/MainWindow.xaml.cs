@@ -685,9 +685,6 @@ namespace Stepper
                         CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                         ckbXaxisResetToZero.IsChecked = false;
                         xAxisClearAbsolutePosition = false;
-                        RoutedEventArgs e = new();
-                        AxisRun_Click(sender, e);
-                        StartDelayTask("Z", Xindata);
                         Xindata = "";
                         txtXaxisStepperCurrent.Text = "0.00";
                         CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
@@ -779,9 +776,6 @@ namespace Stepper
                         CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                         ckbZaxisResetToZero.IsChecked = false;
                         zAxisClearAbsolutePosition = false;
-                        RoutedEventArgs e = new();
-                        AxisRun_Click(sender, e);
-                        StartDelayTask("Y", Yindata);
                         Yindata = "";
                         txtYaxisStepperCurrent.Text = "0.00";
                         CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";

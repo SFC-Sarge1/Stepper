@@ -206,7 +206,7 @@
         </member>
         <member name="P:Stepper.MainWindow.NewSettingsWindow">
             <summary>
-            Creates new settingswindow.
+            Creates new setting swindow.
             </summary>
             <value>The new settings window.</value>
         </member>
@@ -223,6 +223,26 @@
         <member name="F:Stepper.MainWindow._zTimer">
             <summary>
             The z timer
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._xLimitSwitchPress">
+            <summary>
+            The x limit switch press
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._yLimitSwitchPress">
+            <summary>
+            The y limit switch press
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._zLimitSwitchPress">
+            <summary>
+            The z limit switch press
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.LimitSwitchPressed">
+            <summary>
+            The limit switch pressed
             </summary>
         </member>
         <member name="P:Stepper.MainWindow.xTimer">
@@ -389,17 +409,17 @@
             The message
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.xAxisRunCompleted">
+        <member name="F:Stepper.MainWindow.xAxisRunToCompletion">
             <summary>
             The x axis run completed
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.yAxisRunCompleted">
+        <member name="F:Stepper.MainWindow.yAxisRunToCompletion">
             <summary>
             The y axis run completed
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.zAxisRunCompleted">
+        <member name="F:Stepper.MainWindow.zAxisRunToCompletion">
             <summary>
             The z axis run completed
             </summary>
@@ -437,6 +457,11 @@
         <member name="F:Stepper.MainWindow.zAxisClearAbsolutePosition">
             <summary>
             The z axis clear absolute position
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.esp32Rebooted">
+            <summary>
+            The esp32 rebooted
             </summary>
         </member>
         <member name="M:Stepper.MainWindow.#ctor">
@@ -502,22 +527,7 @@
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.HandleTimerTick(System.String,System.Diagnostics.Stopwatch,System.DateTime,System.Boolean@,System.Boolean@,System.Single@,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Boolean@)">
-            <summary>
-            Handles the timer tick.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="stopwatch">The stopwatch.</param>
-            <param name="targetEndTime">The target end time.</param>
-            <param name="axisRunCompleted">if set to <c>true</c> [axis run completed].</param>
-            <param name="axisClearAbsolutePosition">if set to <c>true</c> [axis clear absolute position].</param>
-            <param name="axisAbsolutePosition">The axis absolute position.</param>
-            <param name="stepperMoveTextBox">The stepper move text box.</param>
-            <param name="stepperCurrentTextBox">The stepper current text box.</param>
-            <param name="motorSpeedTextBox">The motor speed text box.</param>
-            <param name="resetToZeroCheckBox">The reset to zero CheckBox.</param>
-            <param name="axisChanged">if set to <c>true</c> [axis changed].</param>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:Stepper.MainWindow.HandleTimerTick(System.String,System.Diagnostics.Stopwatch,System.DateTime,System.Boolean@,System.Boolean@,System.Single@,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Boolean@,System.Boolean@)" -->
         <member name="M:Stepper.MainWindow.DisableControls">
             <summary>
             Disables the controls.
@@ -556,7 +566,7 @@
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.RunAxis(System.String,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.IO.Ports.SerialPort)">
+        <member name="M:Stepper.MainWindow.RunAxis(System.String,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.IO.Ports.SerialPort,System.Threading.CancellationToken)">
             <summary>
             Runs the axis.
             </summary>
@@ -571,6 +581,7 @@
             <param name="ZmotorSpeedTextBox">The zmotor speed text box.</param>
             <param name="ZresetToZeroCheckBox">The zreset to zero CheckBox.</param>
             <param name="serialPort">The serial port.</param>
+            <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
             <exception cref="T:System.ArgumentException">'{nameof(axis)}' cannot be null or empty. - axis</exception>
             <exception cref="T:System.ArgumentNullException">serialPort</exception>
         </member>
@@ -581,13 +592,14 @@
             <param name="axis">The axis.</param>
             <param name="serialPort">The serial port.</param>
         </member>
-        <member name="M:Stepper.MainWindow.MoveAxis(System.String,System.IO.Ports.SerialPort,System.Single)">
+        <member name="M:Stepper.MainWindow.MoveAxis(System.String,System.IO.Ports.SerialPort,System.Single,System.Threading.CancellationToken)">
             <summary>
             Moves the axis.
             </summary>
             <param name="axis">The axis.</param>
             <param name="serialPort">The serial port.</param>
             <param name="currentPosition">The current position.</param>
+            <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         </member>
         <member name="M:Stepper.MainWindow.IsNegative(System.Decimal)">
             <summary>
