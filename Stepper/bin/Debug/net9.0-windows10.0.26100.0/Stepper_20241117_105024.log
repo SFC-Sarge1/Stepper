@@ -1,0 +1,2096 @@
+11/17/2024 10:46:24 [Information] Stepper Motor Controller Application Started.
+11/17/2024 10:46:24 [Information] Version: 3.0.9087.19387 (11/17/2024 10:46:24)
+11/17/2024 10:46:24 [Information] SerialPort COM7 not connected.
+11/17/2024 10:46:24 [Information] SerialPort COM8 not connected.
+11/17/2024 10:46:24 [Information] Stepper Motor Controller Application Started.
+11/17/2024 10:46:24 [Information] Version: 3.0.9087.19387 (11/17/2024 10:46:24)
+11/17/2024 10:46:24 [Information] Version: 3.1.0.19388 (11/17/2024 10:46:24)
+11/17/2024 10:46:24 [Information] Version: 3.1.0.19388 (11/17/2024 10:46:24)
+11/17/2024 10:46:24 [Information] Stepper Motor Controller Application Settings Window Opened.
+11/17/2024 10:46:24 [Information] Stepper Motor Controller Application Settings form is rebuilt each and every time it is opened.
+11/17/2024 10:46:24 [Information] int: 9600 BaudRate added to the Settings Form.
+11/17/2024 10:46:24 [Information] bool: False ckbXaxisResetToZeroIsChecked added to the Settings Form.
+11/17/2024 10:46:24 [Information] bool: False ckbYaxisResetToZeroIsChecked added to the Settings Form.
+11/17/2024 10:46:24 [Information] bool: False ckbZaxisResetToZeroIsChecked added to the Settings Form.
+11/17/2024 10:46:24 [Information] COM1: ComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] COM2: ComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] COM3: ComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] COM4: ComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] COM5: ComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] COM6: ComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] COM7: ComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] COM8: ComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] COM9: ComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] COM10: ComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 4.00 Divider4_00 added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 0.00 MathPart2Initlz added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 1.00 MilisecondTimerInterval added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 1000.00 MillisecondDelay added to the Settings Form.
+11/17/2024 10:46:24 [Information] int: 1000 Milliseconds added to the Settings Form.
+11/17/2024 10:46:24 [Information] int: 4 mmPerRevolution added to the Settings Form.
+11/17/2024 10:46:24 [Information] int: 2000 ThreadSleep added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 0.00 Value_0_00 added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 50.00 XaxisAcceleration added to the Settings Form.
+11/17/2024 10:46:24 [Information] bool: False XaxisChanged added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 400.00 XaxisMotorSpeed added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 0.00 XaxisStepperCurrent added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 0.00 XaxisStepperMove added to the Settings Form.
+11/17/2024 10:46:24 [Information] XCOM1: XComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] XCOM2: XComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] XCOM3: XComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] XCOM4: XComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] XCOM5: XComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] XCOM6: XComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] XCOM7: XComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] XCOM8: XComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] XCOM9: XComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] XCOM10: XComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 50.00 YaxisAcceleration added to the Settings Form.
+11/17/2024 10:46:24 [Information] bool: False YaxisChanged added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 400.00 YaxisMotorSpeed added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 0.00 YaxisStepperCurrent added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 0.00 YaxisStepperMove added to the Settings Form.
+11/17/2024 10:46:24 [Information] YCOM1: YComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] YCOM2: YComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] YCOM3: YComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] YCOM4: YComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] YCOM5: YComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] YCOM6: YComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] YCOM7: YComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] YCOM8: YComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] YCOM9: YComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] YCOM10: YComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 50.00 ZaxisAcceleration added to the Settings Form.
+11/17/2024 10:46:24 [Information] bool: False ZaxisChanged added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 400.00 ZaxisMotorSpeed added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 0.00 ZaxisStepperCurrent added to the Settings Form.
+11/17/2024 10:46:24 [Information] decimal: 0.00 ZaxisStepperMove added to the Settings Form.
+11/17/2024 10:46:24 [Information] ZCOM1: ZComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] ZCOM2: ZComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] ZCOM3: ZComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] ZCOM4: ZComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] ZCOM5: ZComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] ZCOM6: ZComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] ZCOM7: ZComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] ZCOM8: ZComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] ZCOM9: ZComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] ZCOM10: ZComPort added to the Settings Form.
+11/17/2024 10:46:24 [Information] int: 0 zeroXaxis added to the Settings Form.
+11/17/2024 10:46:24 [Information] int: 0 zeroYaxis added to the Settings Form.
+11/17/2024 10:46:24 [Information] int: 0 zeroZaxis added to the Settings Form.
+11/17/2024 10:46:25 [Information] Stepper Motor Controller MainWindow loaded
+11/17/2024 10:46:25 [Information] Set MainWindow Media Brushes to White.
+11/17/2024 10:46:31 [Information] Z Axis mouse controlled Keypad returned: 32.00
+11/17/2024 10:46:32 [Information] Z Axis Run button clicked:
+11/17/2024 10:46:32 [Information] Z Axis MotorMovementSeconds decimal: (32.00 / 4) / 2 = 4.00
+11/17/2024 10:46:33 [Information] Z Axis Run Event: Z,0.00,400.00,0,0.00,400.00,0,32.00,400.00,0
+11/17/2024 10:46:33 [Information] Z Axis Current Time: 10:46:33 + 4000 = 10:46:37
+11/17/2024 10:46:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:33 [Information] Z Axis Data Received: ????????????????????????????????????????????????????????????????er
+11/17/2024 10:46:33 [Information] Z Axis Data Received: ialData: Z,0.00,400.00,0,0.00,400.00,0,32.00,400.00,0
+
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Z Axis Data Received: Z
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Z Axis Data Received:  
+11/17/2024 10:46:34 [Information] Z Axis Data Received: A
+11/17/2024 10:46:34 [Information] Z Axis Data Received: x
+11/17/2024 10:46:34 [Information] Z Axis Data Received: i
+11/17/2024 10:46:34 [Information] Z Axis Data Received: s
+11/17/2024 10:46:34 [Information] Z Axis Data Received:  
+11/17/2024 10:46:34 [Information] Z Axis Data Received: C
+11/17/2024 10:46:34 [Information] Z Axis Data Received: C
+11/17/2024 10:46:34 [Information] Z Axis Data Received: W
+11/17/2024 10:46:34 [Information] Z Axis Data Received:  
+11/17/2024 10:46:34 [Information] Z Axis Data Received: S
+11/17/2024 10:46:34 [Information] Z Axis Data Received: T
+11/17/2024 10:46:34 [Information] Z Axis Data Received: O
+11/17/2024 10:46:34 [Information] Z Axis Data Received: P
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Z Axis Data Received: P
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Z Axis Data Received: E
+11/17/2024 10:46:34 [Information] Z Axis Data Received: D
+11/17/2024 10:46:34 [Information] Z Axis Data Received: 
+11/17/2024 10:46:34 [Information] Z Axis Data Received: 
+
+11/17/2024 10:46:34 [Information] Z Axis Data Received: Z
+11/17/2024 10:46:34 [Information] Z Axis Data Received:  
+11/17/2024 10:46:34 [Information] Z Axis Data Received: A
+11/17/2024 10:46:34 [Information] Z Axis Data Received: x
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Z Axis Data Received: i
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Z Axis Data Received: s
+11/17/2024 10:46:34 [Information] Z Axis Data Received:  
+11/17/2024 10:46:34 [Information] Z Axis Data Received: C
+11/17/2024 10:46:34 [Information] Z Axis Data Received: C
+11/17/2024 10:46:34 [Information] Z Axis Data Received: W
+11/17/2024 10:46:34 [Information] Z Axis Data Received:  
+11/17/2024 10:46:34 [Information] Z Axis Data Received: M
+11/17/2024 10:46:34 [Information] Z Axis Data Received: o
+11/17/2024 10:46:34 [Information] Z Axis Data Received: t
+11/17/2024 10:46:34 [Information] Z Axis Data Received: o
+11/17/2024 10:46:34 [Information] Z Axis Data Received: r
+11/17/2024 10:46:34 [Information] Z Axis Data Received:  
+11/17/2024 10:46:34 [Information] Z Axis Data Received: C
+11/17/2024 10:46:34 [Information] Z Axis Data Received: u
+11/17/2024 10:46:34 [Information] Z Axis Data Received: r
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Z Axis Data Received: r
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Z Axis Data Received: e
+11/17/2024 10:46:34 [Information] Z Axis Data Received: n
+11/17/2024 10:46:34 [Information] Z Axis Data Received: t
+11/17/2024 10:46:34 [Information] Z Axis Data Received:  
+11/17/2024 10:46:34 [Information] Z Axis Data Received: P
+11/17/2024 10:46:34 [Information] Z Axis Data Received: o
+11/17/2024 10:46:34 [Information] Z Axis Data Received: s
+11/17/2024 10:46:34 [Information] Z Axis Data Received: i
+11/17/2024 10:46:34 [Information] Z Axis Data Received: t
+11/17/2024 10:46:34 [Information] Z Axis Data Received: i
+11/17/2024 10:46:34 [Information] Z Axis Data Received: o
+11/17/2024 10:46:34 [Information] Z Axis Data Received: n
+11/17/2024 10:46:34 [Information] Z Axis Data Received: :
+11/17/2024 10:46:34 [Information] Z Axis Data Received:  
+11/17/2024 10:46:34 [Information] Z Axis Data Received:  
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Z Axis Data Received: 14
+Z Axis CCW STOPPED
+Z Axis CCW Motor Current Position:  2
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:46:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:46:37
+11/17/2024 10:46:34 [Information] Limit Switch Pressed
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Timer Stopped.
+11/17/2024 10:46:34 [Information] Stepper Motor Controller Stopwatch Reset.
+11/17/2024 10:46:58 [Information] Z Axis CW Motor Current Position: 32.04
+11/17/2024 10:46:58 [Information] Z Axis CCW Motor Current Position: 32.08
+11/17/2024 10:46:59 [Information] Z Axis Data Received: 14
+Z Axis CCW STOPPED
+Z Axis CCW Motor Current Position:  215
+Z Axis CCW STOPPED
+Z Axis CCW Motor Current Position:  216
+Z Axis CCW STOPPED
+Z Axis CCW Motor Current Position:  216
+Z Axis reached target position
+Current Position: 295
+
+11/17/2024 10:46:59 [Information] Limit Switch Pressed
+11/17/2024 10:46:59 [Information] Stepper Motor Controller Timer Stopped.
+11/17/2024 10:46:59 [Information] Stepper Motor Controller Stopwatch Reset.
+11/17/2024 10:47:10 [Information] Z Axis CW Motor Current Position: 36.38
+11/17/2024 10:47:10 [Information] Z Axis CCW Motor Current Position: 40.68
+11/17/2024 10:47:15 [Information] Z Axis CW Motor Current Position: 45.00
+11/17/2024 10:47:15 [Information] Z Axis CCW Motor Current Position: 49.32
+11/17/2024 10:47:23 [Information] Z Axis CW Motor Current Position: 53.64
+11/17/2024 10:47:23 [Information] Z Axis CCW Motor Current Position: 57.96
+11/17/2024 10:47:32 [Information] Z Axis Run button clicked:
+11/17/2024 10:47:32 [Information] Z Axis MotorMovementSeconds decimal: (32.00 / 4) / 2 = 4.00
+11/17/2024 10:47:33 [Information] Z Axis Run Event: Z,0.00,400.00,0,0.00,400.00,0,32.00,400.00,0
+11/17/2024 10:47:33 [Information] Z Axis Current Time: 10:47:33 + 4000 = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Z Axis Data Received: s
+11/17/2024 10:47:33 [Information] Z Axis Data Received: eri
+11/17/2024 10:47:33 [Information] Z Axis Data Received: a
+11/17/2024 10:47:33 [Information] Z Axis Data Received: l
+11/17/2024 10:47:33 [Information] Z Axis Data Received: D
+11/17/2024 10:47:33 [Information] Z Axis Data Received: a
+11/17/2024 10:47:33 [Information] Z Axis Data Received: t
+11/17/2024 10:47:33 [Information] Z Axis Data Received: a
+11/17/2024 10:47:33 [Information] Z Axis Data Received: :
+11/17/2024 10:47:33 [Information] Z Axis Data Received:  
+11/17/2024 10:47:33 [Information] Z Axis Data Received: Z
+11/17/2024 10:47:33 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: .
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 4
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: .
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: .
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 4
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: .
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 3
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 2
+11/17/2024 10:47:33 [Information] Z Axis Data Received: .
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 4
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: .
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 
+11/17/2024 10:47:33 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:33 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:33 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:34 [Information] Z Axis Data Received: Z
+11/17/2024 10:47:34 [Information] Z Axis Data Received:  
+11/17/2024 10:47:34 [Information] Z Axis Data Received: A
+11/17/2024 10:47:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:34 [Information] Z Axis Data Received: x
+11/17/2024 10:47:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:34 [Information] Z Axis Data Received: i
+11/17/2024 10:47:34 [Information] Z Axis Data Received: s
+11/17/2024 10:47:34 [Information] Z Axis Data Received:  
+11/17/2024 10:47:34 [Information] Z Axis Data Received: C
+11/17/2024 10:47:34 [Information] Z Axis Data Received: C
+11/17/2024 10:47:34 [Information] Z Axis Data Received: W
+11/17/2024 10:47:34 [Information] Z Axis Data Received:  
+11/17/2024 10:47:34 [Information] Z Axis Data Received: S
+11/17/2024 10:47:34 [Information] Z Axis Data Received: T
+11/17/2024 10:47:34 [Information] Z Axis Data Received: O
+11/17/2024 10:47:34 [Information] Z Axis Data Received: P
+11/17/2024 10:47:34 [Information] Z Axis Data Received: P
+11/17/2024 10:47:34 [Information] Z Axis Data Received: E
+11/17/2024 10:47:34 [Information] Z Axis Data Received: D
+11/17/2024 10:47:34 [Information] Z Axis Data Received: 
+11/17/2024 10:47:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:34 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:34 [Information] Z Axis Data Received: Z
+11/17/2024 10:47:34 [Information] Z Axis Data Received:  
+11/17/2024 10:47:34 [Information] Z Axis Data Received: A
+11/17/2024 10:47:34 [Information] Z Axis Data Received: x
+11/17/2024 10:47:34 [Information] Z Axis Data Received: i
+11/17/2024 10:47:34 [Information] Z Axis Data Received: s
+11/17/2024 10:47:34 [Information] Z Axis Data Received:  
+11/17/2024 10:47:34 [Information] Z Axis Data Received: C
+11/17/2024 10:47:34 [Information] Z Axis Data Received: C
+11/17/2024 10:47:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:34 [Information] Z Axis Data Received: W
+11/17/2024 10:47:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:34 [Information] Z Axis Data Received:  
+11/17/2024 10:47:34 [Information] Z Axis Data Received: M
+11/17/2024 10:47:34 [Information] Z Axis Data Received: o
+11/17/2024 10:47:34 [Information] Z Axis Data Received: t
+11/17/2024 10:47:34 [Information] Z Axis Data Received: o
+11/17/2024 10:47:34 [Information] Z Axis Data Received: r
+11/17/2024 10:47:34 [Information] Z Axis Data Received:  
+11/17/2024 10:47:34 [Information] Z Axis Data Received: C
+11/17/2024 10:47:34 [Information] Z Axis Data Received: u
+11/17/2024 10:47:34 [Information] Z Axis Data Received: r
+11/17/2024 10:47:34 [Information] Z Axis Data Received: r
+11/17/2024 10:47:34 [Information] Z Axis Data Received: e
+11/17/2024 10:47:34 [Information] Z Axis Data Received: n
+11/17/2024 10:47:34 [Information] Z Axis Data Received: t
+11/17/2024 10:47:34 [Information] Z Axis Data Received:  
+11/17/2024 10:47:34 [Information] Z Axis Data Received: P
+11/17/2024 10:47:34 [Information] Z Axis Data Received: o
+11/17/2024 10:47:34 [Information] Z Axis Data Received: s
+11/17/2024 10:47:34 [Information] Z Axis Data Received: i
+11/17/2024 10:47:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:34 [Information] Z Axis Data Received: t
+11/17/2024 10:47:34 [Information] Z Axis Data Received: i
+11/17/2024 10:47:34 [Information] Z Axis Data Received: o
+11/17/2024 10:47:34 [Information] Z Axis Data Received: n
+11/17/2024 10:47:34 [Information] Z Axis Data Received: :
+11/17/2024 10:47:34 [Information] Z Axis Data Received:  
+11/17/2024 10:47:34 [Information] Z Axis Data Received:  
+11/17/2024 10:47:34 [Information] Z Axis Data Received: 1
+11/17/2024 10:47:34 [Information] Z Axis Data Received: 7
+11/17/2024 10:47:34 [Information] Z Axis Data Received: 9
+11/17/2024 10:47:34 [Information] Z Axis Data Received: 
+11/17/2024 10:47:34 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:34 [Information] Z Axis Data Received: Z
+11/17/2024 10:47:34 [Information] Z Axis Data Received:  
+11/17/2024 10:47:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:34 [Information] Z Axis Data Received: xis CCW STOPPED
+Z Axis CCW Motor Current Position:  179
+Z Axis CCW STOPPED
+Z Axis C
+11/17/2024 10:47:34 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:34 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:37
+11/17/2024 10:47:34 [Information] Limit Switch Pressed
+11/17/2024 10:47:34 [Information] Stepper Motor Controller Timer Stopped.
+11/17/2024 10:47:34 [Information] Stepper Motor Controller Stopwatch Reset.
+11/17/2024 10:47:34 [Information] Z Axis CW Motor Current Position: 93.54
+11/17/2024 10:47:34 [Information] Z Axis CCW Motor Current Position: 97.12
+11/17/2024 10:47:35 [Information] Z Axis Data Received: CW Motor Current Position:  179
+Z Axis CC
+11/17/2024 10:47:36 [Information] Z Axis Data Received: W STOPPED
+Z Axis CCW Motor Current Position:  180
+Z Axis CCW STOPPED
+Z Axis CCW Motor Current Position:  180
+Z Axis reached target position
+Current Position: 260
+
+11/17/2024 10:47:36 [Information] Limit Switch Pressed
+11/17/2024 10:47:36 [Information] Stepper Motor Controller Timer Stopped.
+11/17/2024 10:47:36 [Information] Stepper Motor Controller Stopwatch Reset.
+11/17/2024 10:47:36 [Information] Z Axis CW Motor Current Position: 100.72
+11/17/2024 10:47:36 [Information] Z Axis CCW Motor Current Position: 104.32
+11/17/2024 10:47:36 [Information] Z Axis CW Motor Current Position: 107.92
+11/17/2024 10:47:36 [Information] Z Axis CCW Motor Current Position: 111.52
+11/17/2024 10:47:37 [Information] Updated X,Y Zero.IsChecked status to 0 and Z Zero.IsChecked status to 1.
+11/17/2024 10:47:38 [Information] Z Axis Run button clicked:
+11/17/2024 10:47:38 [Information] Z Axis Run Event to reset Axis to zero: Z,0.00,400.00,0,0.00,400.00,0,0.00,400.00,1
+11/17/2024 10:47:38 [Information] Setting Z Axis Current Location Set to Zero on DRO
+11/17/2024 10:47:39 [Information] Updated X,Y,Z Zero.IsChecked status to 0.
+11/17/2024 10:47:39 [Information] Z Axis Current Location Set to Zero
+11/17/2024 10:47:39 [Information] Z Axis Data Received: s
+11/17/2024 10:47:39 [Information] Z Axis Data Received: e
+11/17/2024 10:47:39 [Information] Z Axis Data Received: r
+11/17/2024 10:47:39 [Information] Z Axis Data Received: i
+11/17/2024 10:47:39 [Information] Z Axis Data Received: a
+11/17/2024 10:47:39 [Information] Z Axis Data Received: l
+11/17/2024 10:47:39 [Information] Z Axis Data Received: D
+11/17/2024 10:47:39 [Information] Z Axis Data Received: a
+11/17/2024 10:47:39 [Information] Z Axis Data Received: t
+11/17/2024 10:47:39 [Information] Z Axis Data Received: a
+11/17/2024 10:47:39 [Information] Z Axis Data Received: :
+11/17/2024 10:47:39 [Information] Z Axis Data Received:  
+11/17/2024 10:47:39 [Information] Z Axis Data Received: Z
+11/17/2024 10:47:39 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: .
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 4
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: .
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: .
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 4
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: .
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: .
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 4
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: .
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:39 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 1
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:39 [Information] Z Axis Data Received: E
+11/17/2024 10:47:39 [Information] Z Axis Data Received: S
+11/17/2024 10:47:39 [Information] Z Axis Data Received: P
+11/17/2024 10:47:39 [Information] Z Axis Data Received:  
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 3
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 2
+11/17/2024 10:47:39 [Information] Z Axis Data Received:  
+11/17/2024 10:47:39 [Information] Z Axis Data Received: B
+11/17/2024 10:47:39 [Information] Z Axis Data Received: o
+11/17/2024 10:47:39 [Information] Z Axis Data Received: a
+11/17/2024 10:47:39 [Information] Z Axis Data Received: r
+11/17/2024 10:47:39 [Information] Z Axis Data Received: d
+11/17/2024 10:47:39 [Information] Z Axis Data Received:  
+11/17/2024 10:47:39 [Information] Z Axis Data Received: R
+11/17/2024 10:47:39 [Information] Z Axis Data Received: e
+11/17/2024 10:47:39 [Information] Z Axis Data Received: s
+11/17/2024 10:47:39 [Information] Z Axis Data Received: e
+11/17/2024 10:47:39 [Information] Z Axis Data Received: t
+11/17/2024 10:47:39 [Information] Z Axis Data Received: .
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 
+11/17/2024 10:47:39 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:42 [Information] Z Axis Data Received: ?
+11/17/2024 10:47:46 [Information] Z Axis Data Received: V
+11/17/2024 10:47:46 [Information] Z Axis Data Received: M
+11/17/2024 10:47:46 [Information] Z Axis Data Received: D
+11/17/2024 10:47:46 [Information] Z Axis Data Received: P
+11/17/2024 10:47:46 [Information] Z Axis Data Received: V
+11/17/2024 10:47:46 [Information] Z Axis Data Received: _
+11/17/2024 10:47:46 [Information] Z Axis Data Received: 1
+11/17/2024 10:47:46 [Information] Z Axis Data Received: |
+11/17/2024 10:47:46 [Information] Z Axis Data Received: 1
+11/17/2024 10:47:46 [Information] Z Axis Data Received: _
+11/17/2024 10:47:46 [Information] Z Axis Data Received: V
+11/17/2024 10:47:46 [Information] Z Axis Data Received: M
+11/17/2024 10:47:46 [Information] Z Axis Data Received: D
+11/17/2024 10:47:46 [Information] Z Axis Data Received: P
+11/17/2024 10:47:46 [Information] Z Axis Data Received: V
+11/17/2024 10:47:46 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:46 [Information] Z Axis Data Received: V
+11/17/2024 10:47:46 [Information] Z Axis Data Received: M
+11/17/2024 10:47:46 [Information] Z Axis Data Received: D
+11/17/2024 10:47:46 [Information] Z Axis Data Received: P
+11/17/2024 10:47:46 [Information] Z Axis Data Received: R
+11/17/2024 10:47:46 [Information] Z Axis Data Received: _
+11/17/2024 10:47:47 [Information] Z Axis mouse controlled Keypad returned: 32.00
+11/17/2024 10:47:53 [Information] Z Axis Run button clicked:
+11/17/2024 10:47:53 [Information] Z Axis MotorMovementSeconds decimal: (32.00 / 4) / 2 = 4.00
+11/17/2024 10:47:54 [Information] Z Axis Run Event: Z,0.00,400.00,0,0.00,400.00,0,32.00,400.00,0
+11/17/2024 10:47:54 [Information] Z Axis Current Time: 10:47:54 + 4000 = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Z Axis Data Received: s
+11/17/2024 10:47:54 [Information] Z Axis Data Received: e
+11/17/2024 10:47:54 [Information] Z Axis Data Received: r
+11/17/2024 10:47:54 [Information] Z Axis Data Received: i
+11/17/2024 10:47:54 [Information] Z Axis Data Received: a
+11/17/2024 10:47:54 [Information] Z Axis Data Received: l
+11/17/2024 10:47:54 [Information] Z Axis Data Received: D
+11/17/2024 10:47:54 [Information] Z Axis Data Received: a
+11/17/2024 10:47:54 [Information] Z Axis Data Received: t
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Z Axis Data Received: a
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Z Axis Data Received: :
+11/17/2024 10:47:54 [Information] Z Axis Data Received:  
+11/17/2024 10:47:54 [Information] Z Axis Data Received: Z
+11/17/2024 10:47:54 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: .
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 4
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: .
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: .
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 4
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: .
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 3
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 2
+11/17/2024 10:47:54 [Information] Z Axis Data Received: .
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 4
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: .
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: ,
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 0
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Z Axis Data Received: Z
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Z Axis Data Received:  
+11/17/2024 10:47:54 [Information] Z Axis Data Received: A
+11/17/2024 10:47:54 [Information] Z Axis Data Received: x
+11/17/2024 10:47:54 [Information] Z Axis Data Received: i
+11/17/2024 10:47:54 [Information] Z Axis Data Received: s
+11/17/2024 10:47:54 [Information] Z Axis Data Received:  
+11/17/2024 10:47:54 [Information] Z Axis Data Received: C
+11/17/2024 10:47:54 [Information] Z Axis Data Received: C
+11/17/2024 10:47:54 [Information] Z Axis Data Received: W
+11/17/2024 10:47:54 [Information] Z Axis Data Received:  
+11/17/2024 10:47:54 [Information] Z Axis Data Received: S
+11/17/2024 10:47:54 [Information] Z Axis Data Received: T
+11/17/2024 10:47:54 [Information] Z Axis Data Received: O
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Z Axis Data Received: P
+11/17/2024 10:47:54 [Information] Z Axis Data Received: P
+11/17/2024 10:47:54 [Information] Z Axis Data Received: E
+11/17/2024 10:47:54 [Information] Z Axis Data Received: D
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:54 [Information] Z Axis Data Received: Z
+11/17/2024 10:47:54 [Information] Z Axis Data Received:  
+11/17/2024 10:47:54 [Information] Z Axis Data Received: A
+11/17/2024 10:47:54 [Information] Z Axis Data Received: x
+11/17/2024 10:47:54 [Information] Z Axis Data Received: i
+11/17/2024 10:47:54 [Information] Z Axis Data Received: s
+11/17/2024 10:47:54 [Information] Z Axis Data Received:  
+11/17/2024 10:47:54 [Information] Z Axis Data Received: C
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Z Axis Data Received: C
+11/17/2024 10:47:54 [Information] Z Axis Data Received: W
+11/17/2024 10:47:54 [Information] Z Axis Data Received:  
+11/17/2024 10:47:54 [Information] Z Axis Data Received: M
+11/17/2024 10:47:54 [Information] Z Axis Data Received: o
+11/17/2024 10:47:54 [Information] Z Axis Data Received: t
+11/17/2024 10:47:54 [Information] Z Axis Data Received: o
+11/17/2024 10:47:54 [Information] Z Axis Data Received: r
+11/17/2024 10:47:54 [Information] Z Axis Data Received:  
+11/17/2024 10:47:54 [Information] Z Axis Data Received: C
+11/17/2024 10:47:54 [Information] Z Axis Data Received: u
+11/17/2024 10:47:54 [Information] Z Axis Data Received: r
+11/17/2024 10:47:54 [Information] Z Axis Data Received: r
+11/17/2024 10:47:54 [Information] Z Axis Data Received: e
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Z Axis Data Received: n
+11/17/2024 10:47:54 [Information] Z Axis Data Received: t Position:  86
+Z Axis CCW 
+11/17/2024 10:47:54 [Information] Z Axis Data Received: STOPPED
+Z Axis CCW Motor Curr
+11/17/2024 10:47:54 [Information] Z Axis Data Received: e
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:47:54 [Information] Time remaining: 00:00:00 targetEndTime = 10:47:58
+11/17/2024 10:47:54 [Information] Z Axis Data Received: t Position:  86
+Z Axis CCW STOPPED
+Z Axis CCW Motor Cu
+11/17/2024 10:47:54 [Information] Limit Switch Pressed
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Timer Stopped.
+11/17/2024 10:47:54 [Information] Stepper Motor Controller Stopwatch Reset.
+11/17/2024 10:47:54 [Information] Z Axis Data Received: rr
+11/17/2024 10:47:54 [Information] Z Axis Data Received: e
+11/17/2024 10:47:54 [Information] Z Axis Data Received: n
+11/17/2024 10:47:54 [Information] Z Axis Data Received: t
+11/17/2024 10:47:54 [Information] Z Axis Data Received:  
+11/17/2024 10:47:54 [Information] Z Axis Data Received: P
+11/17/2024 10:47:54 [Information] Z Axis Data Received: o
+11/17/2024 10:47:54 [Information] Z Axis Data Received: s
+11/17/2024 10:47:54 [Information] Z Axis Data Received: i
+11/17/2024 10:47:54 [Information] Z Axis Data Received: t
+11/17/2024 10:47:54 [Information] Z Axis Data Received: i
+11/17/2024 10:47:54 [Information] Z Axis Data Received: o
+11/17/2024 10:47:54 [Information] Z Axis Data Received: n
+11/17/2024 10:47:54 [Information] Z Axis Data Received: :
+11/17/2024 10:47:54 [Information] Z Axis Data Received:  
+11/17/2024 10:47:54 [Information] Z Axis Data Received:  
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 8
+11/17/2024 10:47:54 [Information] Z Axis Data Received: 6
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:55 [Information] Z Axis Data Received: Z
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: A
+11/17/2024 10:47:55 [Information] Z Axis Data Received: x
+11/17/2024 10:47:55 [Information] Z Axis Data Received: i
+11/17/2024 10:47:55 [Information] Z Axis Data Received: s
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: C
+11/17/2024 10:47:55 [Information] Z Axis Data Received: C
+11/17/2024 10:47:55 [Information] Z Axis Data Received: W
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: S
+11/17/2024 10:47:55 [Information] Z Axis Data Received: T
+11/17/2024 10:47:55 [Information] Z Axis Data Received: O
+11/17/2024 10:47:55 [Information] Z Axis Data Received: P
+11/17/2024 10:47:55 [Information] Z Axis Data Received: P
+11/17/2024 10:47:55 [Information] Z Axis Data Received: E
+11/17/2024 10:47:55 [Information] Z Axis Data Received: D
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:55 [Information] Z Axis Data Received: Z
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: A
+11/17/2024 10:47:55 [Information] Z Axis Data Received: x
+11/17/2024 10:47:55 [Information] Z Axis Data Received: i
+11/17/2024 10:47:55 [Information] Z Axis Data Received: s
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: C
+11/17/2024 10:47:55 [Information] Z Axis Data Received: C
+11/17/2024 10:47:55 [Information] Z Axis Data Received: W
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: M
+11/17/2024 10:47:55 [Information] Z Axis Data Received: o
+11/17/2024 10:47:55 [Information] Z Axis Data Received: to
+11/17/2024 10:47:55 [Information] Z Axis Data Received: r
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: C
+11/17/2024 10:47:55 [Information] Z Axis Data Received: u
+11/17/2024 10:47:55 [Information] Z Axis Data Received: r
+11/17/2024 10:47:55 [Information] Z Axis Data Received: r
+11/17/2024 10:47:55 [Information] Z Axis Data Received: e
+11/17/2024 10:47:55 [Information] Z Axis Data Received: n
+11/17/2024 10:47:55 [Information] Z Axis Data Received: t
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: P
+11/17/2024 10:47:55 [Information] Z Axis Data Received: o
+11/17/2024 10:47:55 [Information] Z Axis Data Received: s
+11/17/2024 10:47:55 [Information] Z Axis Data Received: i
+11/17/2024 10:47:55 [Information] Z Axis Data Received: t
+11/17/2024 10:47:55 [Information] Z Axis Data Received: i
+11/17/2024 10:47:55 [Information] Z Axis Data Received: o
+11/17/2024 10:47:55 [Information] Z Axis Data Received: n
+11/17/2024 10:47:55 [Information] Z Axis Data Received: :
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 8
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 7
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:55 [Information] Z Axis Data Received: Z
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: A
+11/17/2024 10:47:55 [Information] Z Axis Data Received: x
+11/17/2024 10:47:55 [Information] Z Axis Data Received: i
+11/17/2024 10:47:55 [Information] Z Axis Data Received: s
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: C
+11/17/2024 10:47:55 [Information] Z Axis Data Received: C
+11/17/2024 10:47:55 [Information] Z Axis Data Received: W
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: S
+11/17/2024 10:47:55 [Information] Z Axis Data Received: T
+11/17/2024 10:47:55 [Information] Z Axis Data Received: O
+11/17/2024 10:47:55 [Information] Z Axis Data Received: P
+11/17/2024 10:47:55 [Information] Z Axis Data Received: P
+11/17/2024 10:47:55 [Information] Z Axis Data Received: E
+11/17/2024 10:47:55 [Information] Z Axis Data Received: D
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:55 [Information] Z Axis Data Received: Z
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: A
+11/17/2024 10:47:55 [Information] Z Axis Data Received: x
+11/17/2024 10:47:55 [Information] Z Axis Data Received: i
+11/17/2024 10:47:55 [Information] Z Axis Data Received: s
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: C
+11/17/2024 10:47:55 [Information] Z Axis Data Received: C
+11/17/2024 10:47:55 [Information] Z Axis Data Received: W
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: M
+11/17/2024 10:47:55 [Information] Z Axis Data Received: o
+11/17/2024 10:47:55 [Information] Z Axis Data Received: t
+11/17/2024 10:47:55 [Information] Z Axis Data Received: o
+11/17/2024 10:47:55 [Information] Z Axis Data Received: r
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: C
+11/17/2024 10:47:55 [Information] Z Axis Data Received: u
+11/17/2024 10:47:55 [Information] Z Axis Data Received: r
+11/17/2024 10:47:55 [Information] Z Axis Data Received: r
+11/17/2024 10:47:55 [Information] Z Axis Data Received: e
+11/17/2024 10:47:55 [Information] Z Axis Data Received: n
+11/17/2024 10:47:55 [Information] Z Axis Data Received: t
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: P
+11/17/2024 10:47:55 [Information] Z Axis Data Received: o
+11/17/2024 10:47:55 [Information] Z Axis Data Received: s
+11/17/2024 10:47:55 [Information] Z Axis Data Received: i
+11/17/2024 10:47:55 [Information] Z Axis Data Received: t
+11/17/2024 10:47:55 [Information] Z Axis Data Received: i
+11/17/2024 10:47:55 [Information] Z Axis Data Received: o
+11/17/2024 10:47:55 [Information] Z Axis Data Received: n
+11/17/2024 10:47:55 [Information] Z Axis Data Received: :
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 8
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 7
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:55 [Information] Z Axis Data Received: Z
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: A
+11/17/2024 10:47:55 [Information] Z Axis Data Received: x
+11/17/2024 10:47:55 [Information] Z Axis Data Received: i
+11/17/2024 10:47:55 [Information] Z Axis Data Received: s
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: r
+11/17/2024 10:47:55 [Information] Z Axis Data Received: e
+11/17/2024 10:47:55 [Information] Z Axis Data Received: a
+11/17/2024 10:47:55 [Information] Z Axis Data Received: c
+11/17/2024 10:47:55 [Information] Z Axis Data Received: h
+11/17/2024 10:47:55 [Information] Z Axis Data Received: e
+11/17/2024 10:47:55 [Information] Z Axis Data Received: d
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: t
+11/17/2024 10:47:55 [Information] Z Axis Data Received: a
+11/17/2024 10:47:55 [Information] Z Axis Data Received: r
+11/17/2024 10:47:55 [Information] Z Axis Data Received: g
+11/17/2024 10:47:55 [Information] Z Axis Data Received: e
+11/17/2024 10:47:55 [Information] Z Axis Data Received: t
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: p
+11/17/2024 10:47:55 [Information] Z Axis Data Received: o
+11/17/2024 10:47:55 [Information] Z Axis Data Received: s
+11/17/2024 10:47:55 [Information] Z Axis Data Received: i
+11/17/2024 10:47:55 [Information] Z Axis Data Received: t
+11/17/2024 10:47:55 [Information] Z Axis Data Received: i
+11/17/2024 10:47:55 [Information] Z Axis Data Received: o
+11/17/2024 10:47:55 [Information] Z Axis Data Received: n
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+
+11/17/2024 10:47:55 [Information] Z Axis Data Received: C
+11/17/2024 10:47:55 [Information] Z Axis Data Received: u
+11/17/2024 10:47:55 [Information] Z Axis Data Received: r
+11/17/2024 10:47:55 [Information] Z Axis Data Received: r
+11/17/2024 10:47:55 [Information] Z Axis Data Received: e
+11/17/2024 10:47:55 [Information] Z Axis Data Received: n
+11/17/2024 10:47:55 [Information] Z Axis Data Received: t
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: P
+11/17/2024 10:47:55 [Information] Z Axis Data Received: o
+11/17/2024 10:47:55 [Information] Z Axis Data Received: s
+11/17/2024 10:47:55 [Information] Z Axis Data Received: i
+11/17/2024 10:47:55 [Information] Z Axis Data Received: t
+11/17/2024 10:47:55 [Information] Z Axis Data Received: i
+11/17/2024 10:47:55 [Information] Z Axis Data Received: o
+11/17/2024 10:47:55 [Information] Z Axis Data Received: n
+11/17/2024 10:47:55 [Information] Z Axis Data Received: :
+11/17/2024 10:47:55 [Information] Z Axis Data Received:  
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 1
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 6
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 7
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+11/17/2024 10:47:55 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:01 [Information] Z Axis Run button clicked:
+11/17/2024 10:48:01 [Information] Z Axis MotorMovementSeconds decimal: (32.00 / 4) / 2 = 4.00
+11/17/2024 10:48:02 [Information] Z Axis Run Event: Z,0.00,400.00,0,0.00,400.00,0,32.00,400.00,0
+11/17/2024 10:48:02 [Information] Z Axis Current Time: 10:48:02 + 4000 = 10:48:06
+11/17/2024 10:48:02 [Information] Z Axis Data Received: ????????????????????????????????????????????????????????????????e
+11/17/2024 10:48:02 [Information] Z Axis Data Received: r
+11/17/2024 10:48:02 [Information] Z Axis Data Received: i
+11/17/2024 10:48:02 [Information] Z Axis Data Received: a
+11/17/2024 10:48:02 [Information] Z Axis Data Received: l
+11/17/2024 10:48:02 [Information] Z Axis Data Received: D
+11/17/2024 10:48:02 [Information] Z Axis Data Received: a
+11/17/2024 10:48:02 [Information] Z Axis Data Received: t
+11/17/2024 10:48:02 [Information] Z Axis Data Received: a
+11/17/2024 10:48:02 [Information] Z Axis Data Received: :
+11/17/2024 10:48:02 [Information] Z Axis Data Received:  
+11/17/2024 10:48:02 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:02 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: .
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 4
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: .
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: .
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 4
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: .
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 3
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 2
+11/17/2024 10:48:02 [Information] Z Axis Data Received: .
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 4
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: .
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 
+11/17/2024 10:48:02 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:02 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:02 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: A
+11/17/2024 10:48:03 [Information] Z Axis Data Received: x
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: W
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: S
+11/17/2024 10:48:03 [Information] Z Axis Data Received: T
+11/17/2024 10:48:03 [Information] Z Axis Data Received: O
+11/17/2024 10:48:03 [Information] Z Axis Data Received: P
+11/17/2024 10:48:03 [Information] Z Axis Data Received: P
+11/17/2024 10:48:03 [Information] Z Axis Data Received: E
+11/17/2024 10:48:03 [Information] Z Axis Data Received: D
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:03 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: A
+11/17/2024 10:48:03 [Information] Z Axis Data Received: x
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: W
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: M
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: u
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Z Axis Data Received: e
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Z Axis Data Received: n
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: P
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: n
+11/17/2024 10:48:03 [Information] Z Axis Data Received: :
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 2
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 5
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 8
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:03 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: A
+11/17/2024 10:48:03 [Information] Z Axis Data Received: x
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Z Axis Data Received: W
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: S
+11/17/2024 10:48:03 [Information] Z Axis Data Received: T
+11/17/2024 10:48:03 [Information] Z Axis Data Received: O
+11/17/2024 10:48:03 [Information] Z Axis Data Received: P
+11/17/2024 10:48:03 [Information] Z Axis Data Received: P
+11/17/2024 10:48:03 [Information] Z Axis Data Received: E
+11/17/2024 10:48:03 [Information] Z Axis Data Received: D
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:06
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:03 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: A
+11/17/2024 10:48:03 [Information] Z Axis Data Received: x
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: W
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: M
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  Current Position:  258
+Z Axis CCW STOPPED
+Z Axis CCW Motor
+11/17/2024 10:48:03 [Information] Limit Switch Pressed
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Timer Stopped.
+11/17/2024 10:48:03 [Information] Stepper Motor Controller Stopwatch Reset.
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  Cu
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received: e
+11/17/2024 10:48:03 [Information] Z Axis Data Received: n
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: P
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: n
+11/17/2024 10:48:03 [Information] Z Axis Data Received: :
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 2
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 5
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 8
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:03 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: A
+11/17/2024 10:48:03 [Information] Z Axis Data Received: x
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: W
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: S
+11/17/2024 10:48:03 [Information] Z Axis Data Received: T
+11/17/2024 10:48:03 [Information] Z Axis Data Received: O
+11/17/2024 10:48:03 [Information] Z Axis Data Received: P
+11/17/2024 10:48:03 [Information] Z Axis Data Received: P
+11/17/2024 10:48:03 [Information] Z Axis Data Received: E
+11/17/2024 10:48:03 [Information] Z Axis Data Received: D
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:03 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: A
+11/17/2024 10:48:03 [Information] Z Axis Data Received: x
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: W
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: M
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: u
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received: e
+11/17/2024 10:48:03 [Information] Z Axis Data Received: n
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: P
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: n
+11/17/2024 10:48:03 [Information] Z Axis Data Received: :
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 2
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 5
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 9
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:03 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: A
+11/17/2024 10:48:03 [Information] Z Axis Data Received: x
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: W
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: S
+11/17/2024 10:48:03 [Information] Z Axis Data Received: T
+11/17/2024 10:48:03 [Information] Z Axis Data Received: O
+11/17/2024 10:48:03 [Information] Z Axis Data Received: P
+11/17/2024 10:48:03 [Information] Z Axis Data Received: P
+11/17/2024 10:48:03 [Information] Z Axis Data Received: E
+11/17/2024 10:48:03 [Information] Z Axis Data Received: D
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:03 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: A
+11/17/2024 10:48:03 [Information] Z Axis Data Received: x
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: W
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: M
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: u
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received: e
+11/17/2024 10:48:03 [Information] Z Axis Data Received: n
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: P
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: n
+11/17/2024 10:48:03 [Information] Z Axis Data Received: :
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 2
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 5
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 9
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:03 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  A
+11/17/2024 10:48:03 [Information] Z Axis Data Received: xi
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received: e
+11/17/2024 10:48:03 [Information] Z Axis Data Received: a
+11/17/2024 10:48:03 [Information] Z Axis Data Received: c
+11/17/2024 10:48:03 [Information] Z Axis Data Received: h
+11/17/2024 10:48:03 [Information] Z Axis Data Received: e
+11/17/2024 10:48:03 [Information] Z Axis Data Received: d
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received: a
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received: g
+11/17/2024 10:48:03 [Information] Z Axis Data Received: e
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: p
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: n
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:03 [Information] Z Axis Data Received: C
+11/17/2024 10:48:03 [Information] Z Axis Data Received: u
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received: r
+11/17/2024 10:48:03 [Information] Z Axis Data Received: e
+11/17/2024 10:48:03 [Information] Z Axis Data Received: n
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: P
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: s
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: t
+11/17/2024 10:48:03 [Information] Z Axis Data Received: i
+11/17/2024 10:48:03 [Information] Z Axis Data Received: o
+11/17/2024 10:48:03 [Information] Z Axis Data Received: n
+11/17/2024 10:48:03 [Information] Z Axis Data Received: :
+11/17/2024 10:48:03 [Information] Z Axis Data Received:  
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 3
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 3
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 9
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+11/17/2024 10:48:03 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:11 [Information] Z Axis Run button clicked:
+11/17/2024 10:48:11 [Information] Z Axis MotorMovementSeconds decimal: (32.00 / 4) / 2 = 4.00
+11/17/2024 10:48:12 [Information] Z Axis Run Event: Z,0.00,400.00,0,0.00,400.00,0,32.00,400.00,0
+11/17/2024 10:48:12 [Information] Z Axis Current Time: 10:48:12 + 4000 = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Z Axis Data Received: s
+11/17/2024 10:48:12 [Information] Z Axis Data Received: e
+11/17/2024 10:48:12 [Information] Z Axis Data Received: r
+11/17/2024 10:48:12 [Information] Z Axis Data Received: i
+11/17/2024 10:48:12 [Information] Z Axis Data Received: a
+11/17/2024 10:48:12 [Information] Z Axis Data Received: l
+11/17/2024 10:48:12 [Information] Z Axis Data Received: D
+11/17/2024 10:48:12 [Information] Z Axis Data Received: a
+11/17/2024 10:48:12 [Information] Z Axis Data Received: t
+11/17/2024 10:48:12 [Information] Z Axis Data Received: a
+11/17/2024 10:48:12 [Information] Z Axis Data Received: :
+11/17/2024 10:48:12 [Information] Z Axis Data Received:  
+11/17/2024 10:48:12 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:12 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: .
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 4
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: .
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: .
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 4
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Z Axis Data Received: .
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 3
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 2
+11/17/2024 10:48:12 [Information] Z Axis Data Received: .
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 4
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: .
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 
+11/17/2024 10:48:12 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:12 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:12 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: A
+11/17/2024 10:48:13 [Information] Z Axis Data Received: x
+11/17/2024 10:48:13 [Information] Z Axis Data Received: i
+11/17/2024 10:48:13 [Information] Z Axis Data Received: s
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: C
+11/17/2024 10:48:13 [Information] Z Axis Data Received: C
+11/17/2024 10:48:13 [Information] Z Axis Data Received: W
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: S
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Z Axis Data Received: T
+11/17/2024 10:48:13 [Information] Z Axis Data Received: O
+11/17/2024 10:48:13 [Information] Z Axis Data Received: P
+11/17/2024 10:48:13 [Information] Z Axis Data Received: P
+11/17/2024 10:48:13 [Information] Z Axis Data Received: E
+11/17/2024 10:48:13 [Information] Z Axis Data Received: D
+11/17/2024 10:48:13 [Information] Z Axis Data Received: 
+11/17/2024 10:48:13 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:13 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: A
+11/17/2024 10:48:13 [Information] Z Axis Data Received: x
+11/17/2024 10:48:13 [Information] Z Axis Data Received: i
+11/17/2024 10:48:13 [Information] Z Axis Data Received: s
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Z Axis Data Received: C
+11/17/2024 10:48:13 [Information] Z Axis Data Received: C
+11/17/2024 10:48:13 [Information] Z Axis Data Received: W
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: M
+11/17/2024 10:48:13 [Information] Z Axis Data Received: o
+11/17/2024 10:48:13 [Information] Z Axis Data Received: t
+11/17/2024 10:48:13 [Information] Z Axis Data Received: o
+11/17/2024 10:48:13 [Information] Z Axis Data Received: r
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: C
+11/17/2024 10:48:13 [Information] Z Axis Data Received: u
+11/17/2024 10:48:13 [Information] Z Axis Data Received: r
+11/17/2024 10:48:13 [Information] Z Axis Data Received: r
+11/17/2024 10:48:13 [Information] Z Axis Data Received: e
+11/17/2024 10:48:13 [Information] Z Axis Data Received: n
+11/17/2024 10:48:13 [Information] Z Axis Data Received: t
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: P
+11/17/2024 10:48:13 [Information] Z Axis Data Received: o
+11/17/2024 10:48:13 [Information] Z Axis Data Received: s
+11/17/2024 10:48:13 [Information] Z Axis Data Received: i
+11/17/2024 10:48:13 [Information] Z Axis Data Received: t
+11/17/2024 10:48:13 [Information] Z Axis Data Received: i
+11/17/2024 10:48:13 [Information] Z Axis Data Received: o
+11/17/2024 10:48:13 [Information] Z Axis Data Received: n
+11/17/2024 10:48:13 [Information] Z Axis Data Received: :
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Z Axis Data Received: 2
+11/17/2024 10:48:13 [Information] Z Axis Data Received: 4
+11/17/2024 10:48:13 [Information] Z Axis Data Received: 9
+11/17/2024 10:48:13 [Information] Z Axis Data Received: 
+11/17/2024 10:48:13 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:13 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: A
+11/17/2024 10:48:13 [Information] Z Axis Data Received: x
+11/17/2024 10:48:13 [Information] Z Axis Data Received: i
+11/17/2024 10:48:13 [Information] Z Axis Data Received: s
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: C
+11/17/2024 10:48:13 [Information] Z Axis Data Received: C
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Z Axis Data Received: W
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: S
+11/17/2024 10:48:13 [Information] Z Axis Data Received: T
+11/17/2024 10:48:13 [Information] Z Axis Data Received: O
+11/17/2024 10:48:13 [Information] Z Axis Data Received: P
+11/17/2024 10:48:13 [Information] Z Axis Data Received: P
+11/17/2024 10:48:13 [Information] Z Axis Data Received: E
+11/17/2024 10:48:13 [Information] Z Axis Data Received: D
+11/17/2024 10:48:13 [Information] Z Axis Data Received: 
+11/17/2024 10:48:13 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:13 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: A
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Z Axis Data Received: x
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Z Axis Data Received: i
+11/17/2024 10:48:13 [Information] Z Axis Data Received: s
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: C
+11/17/2024 10:48:13 [Information] Z Axis Data Received: C
+11/17/2024 10:48:13 [Information] Z Axis Data Received: W
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: M
+11/17/2024 10:48:13 [Information] Z Axis Data Received: o
+11/17/2024 10:48:13 [Information] Z Axis Data Received: t
+11/17/2024 10:48:13 [Information] Z Axis Data Received: o
+11/17/2024 10:48:13 [Information] Z Axis Data Received: r
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: C
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Z Axis Data Received: u
+11/17/2024 10:48:13 [Information] Z Axis Data Received: r
+11/17/2024 10:48:13 [Information] Z Axis Data Received: r
+11/17/2024 10:48:13 [Information] Z Axis Data Received: e
+11/17/2024 10:48:13 [Information] Z Axis Data Received: n
+11/17/2024 10:48:13 [Information] Z Axis Data Received: t
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: P
+11/17/2024 10:48:13 [Information] Z Axis Data Received: o
+11/17/2024 10:48:13 [Information] Z Axis Data Received: s
+11/17/2024 10:48:13 [Information] Z Axis Data Received: i
+11/17/2024 10:48:13 [Information] Z Axis Data Received: t
+11/17/2024 10:48:13 [Information] Z Axis Data Received: i
+11/17/2024 10:48:13 [Information] Z Axis Data Received: o
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Z Axis Data Received: n
+11/17/2024 10:48:13 [Information] Z Axis Data Received: :
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received:  
+11/17/2024 10:48:13 [Information] Z Axis Data Received: 2
+11/17/2024 10:48:13 [Information] Z Axis Data Received: 4
+11/17/2024 10:48:13 [Information] Z Axis Data Received: 9
+11/17/2024 10:48:13 [Information] Z Axis Data Received: 
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:13 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:16
+11/17/2024 10:48:13 [Information] Z Axis Data Received: Z Axis CCW STOPPED
+Z Axis CCW Motor Current Position:  249
+Z A
+11/17/2024 10:48:13 [Information] Limit Switch Pressed
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Timer Stopped.
+11/17/2024 10:48:13 [Information] Stepper Motor Controller Stopwatch Reset.
+11/17/2024 10:48:13 [Information] Z Axis CW Motor Current Position: 100.98
+11/17/2024 10:48:13 [Information] Z Axis CCW Motor Current Position: 105.96
+11/17/2024 10:48:14 [Information] Z Axis Data Received: xis CCW STOPPED
+Z Axis CCW Motor Current Position:  250
+Z Axis CCW STOPPED
+Z Axis C
+11/17/2024 10:48:14 [Information] Limit Switch Pressed
+11/17/2024 10:48:14 [Information] Stepper Motor Controller Timer Stopped.
+11/17/2024 10:48:14 [Information] Stepper Motor Controller Stopwatch Reset.
+11/17/2024 10:48:15 [Information] Z Axis CW Motor Current Position: 110.96
+11/17/2024 10:48:15 [Information] Z Axis CCW Motor Current Position: 115.96
+11/17/2024 10:48:16 [Information] Z Axis Data Received: CW Motor Current Position:  250
+Z Axis CCW STOPPED
+Z Axis CCW Motor Current Position:  251
+Z Axis reached target position
+Current Position: 330
+
+11/17/2024 10:48:16 [Information] Limit Switch Pressed
+11/17/2024 10:48:16 [Information] Stepper Motor Controller Timer Stopped.
+11/17/2024 10:48:16 [Information] Stepper Motor Controller Stopwatch Reset.
+11/17/2024 10:48:16 [Information] Z Axis CW Motor Current Position: 120.98
+11/17/2024 10:48:16 [Information] Z Axis CCW Motor Current Position: 126.00
+11/17/2024 10:48:23 [Information] Updated X,Y Zero.IsChecked status to 0 and Z Zero.IsChecked status to 1.
+11/17/2024 10:48:25 [Information] Z Axis Run button clicked:
+11/17/2024 10:48:25 [Information] Z Axis Run Event to reset Axis to zero: Z,0.00,400.00,0,0.00,400.00,0,0.00,400.00,1
+11/17/2024 10:48:25 [Information] Setting Z Axis Current Location Set to Zero on DRO
+11/17/2024 10:48:26 [Information] Updated X,Y,Z Zero.IsChecked status to 0.
+11/17/2024 10:48:26 [Information] Z Axis Current Location Set to Zero
+11/17/2024 10:48:26 [Information] Z Axis Data Received: s
+11/17/2024 10:48:26 [Information] Z Axis Data Received: e
+11/17/2024 10:48:26 [Information] Z Axis Data Received: r
+11/17/2024 10:48:26 [Information] Z Axis Data Received: i
+11/17/2024 10:48:26 [Information] Z Axis Data Received: a
+11/17/2024 10:48:26 [Information] Z Axis Data Received: l
+11/17/2024 10:48:26 [Information] Z Axis Data Received: D
+11/17/2024 10:48:26 [Information] Z Axis Data Received: a
+11/17/2024 10:48:26 [Information] Z Axis Data Received: t
+11/17/2024 10:48:26 [Information] Z Axis Data Received: a
+11/17/2024 10:48:26 [Information] Z Axis Data Received: :
+11/17/2024 10:48:26 [Information] Z Axis Data Received:  
+11/17/2024 10:48:26 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:26 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: .
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 4
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: .
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: .
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 4
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: .
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: .
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 4
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: .
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:26 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 1
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:26 [Information] Z Axis Data Received: E
+11/17/2024 10:48:26 [Information] Z Axis Data Received: S
+11/17/2024 10:48:26 [Information] Z Axis Data Received: P
+11/17/2024 10:48:26 [Information] Z Axis Data Received:  
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 3
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 2
+11/17/2024 10:48:26 [Information] Z Axis Data Received:  
+11/17/2024 10:48:26 [Information] Z Axis Data Received: B
+11/17/2024 10:48:26 [Information] Z Axis Data Received: o
+11/17/2024 10:48:26 [Information] Z Axis Data Received: a
+11/17/2024 10:48:26 [Information] Z Axis Data Received: r
+11/17/2024 10:48:26 [Information] Z Axis Data Received: d
+11/17/2024 10:48:26 [Information] Z Axis Data Received:  
+11/17/2024 10:48:26 [Information] Z Axis Data Received: R
+11/17/2024 10:48:26 [Information] Z Axis Data Received: e
+11/17/2024 10:48:26 [Information] Z Axis Data Received: s
+11/17/2024 10:48:26 [Information] Z Axis Data Received: e
+11/17/2024 10:48:26 [Information] Z Axis Data Received: t
+11/17/2024 10:48:26 [Information] Z Axis Data Received: .
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 
+11/17/2024 10:48:26 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:29 [Information] Z Axis Data Received: ?
+11/17/2024 10:48:32 [Information] Z Axis mouse controlled Keypad returned: 32.00
+11/17/2024 10:48:33 [Information] Z Axis Data Received: V
+11/17/2024 10:48:33 [Information] Z Axis Data Received: M
+11/17/2024 10:48:33 [Information] Z Axis Data Received: D
+11/17/2024 10:48:33 [Information] Z Axis Data Received: P
+11/17/2024 10:48:33 [Information] Z Axis Data Received: V
+11/17/2024 10:48:33 [Information] Z Axis Data Received: _
+11/17/2024 10:48:33 [Information] Z Axis Data Received: 1
+11/17/2024 10:48:33 [Information] Z Axis Data Received: |
+11/17/2024 10:48:33 [Information] Z Axis Data Received: 1
+11/17/2024 10:48:33 [Information] Z Axis Data Received: _
+11/17/2024 10:48:33 [Information] Z Axis Data Received: V
+11/17/2024 10:48:33 [Information] Z Axis Data Received: M
+11/17/2024 10:48:33 [Information] Z Axis Data Received: D
+11/17/2024 10:48:33 [Information] Z Axis Data Received: P
+11/17/2024 10:48:33 [Information] Z Axis Data Received: V
+11/17/2024 10:48:33 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:33 [Information] Z Axis Data Received: V
+11/17/2024 10:48:33 [Information] Z Axis Data Received: M
+11/17/2024 10:48:33 [Information] Z Axis Data Received: D
+11/17/2024 10:48:33 [Information] Z Axis Data Received: P
+11/17/2024 10:48:33 [Information] Z Axis Data Received: R
+11/17/2024 10:48:33 [Information] Z Axis Data Received: _
+11/17/2024 10:48:34 [Information] Z Axis Run button clicked:
+11/17/2024 10:48:34 [Information] Z Axis MotorMovementSeconds decimal: (32.00 / 4) / 2 = 4.00
+11/17/2024 10:48:35 [Information] Z Axis Run Event: Z,0.00,400.00,0,0.00,400.00,0,32.00,400.00,0
+11/17/2024 10:48:35 [Information] Z Axis Current Time: 10:48:35 + 4000 = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Z Axis Data Received: s
+11/17/2024 10:48:35 [Information] Z Axis Data Received: e
+11/17/2024 10:48:35 [Information] Z Axis Data Received: r
+11/17/2024 10:48:35 [Information] Z Axis Data Received: i
+11/17/2024 10:48:35 [Information] Z Axis Data Received: a
+11/17/2024 10:48:35 [Information] Z Axis Data Received: l
+11/17/2024 10:48:35 [Information] Z Axis Data Received: D
+11/17/2024 10:48:35 [Information] Z Axis Data Received: a
+11/17/2024 10:48:35 [Information] Z Axis Data Received: t
+11/17/2024 10:48:35 [Information] Z Axis Data Received: a
+11/17/2024 10:48:35 [Information] Z Axis Data Received: :
+11/17/2024 10:48:35 [Information] Z Axis Data Received:  
+11/17/2024 10:48:35 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:35 [Information] Z Axis Data Received: .
+11/17/2024 10:48:35 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:35 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:35 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:35 [Information] Z Axis Data Received: 4
+11/17/2024 10:48:35 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:35 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:35 [Information] Z Axis Data Received: .
+11/17/2024 10:48:35 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:35 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:35 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:35 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:35 [Information] Z Axis Data Received: ,
+11/17/2024 10:48:35 [Information] Z Axis Data Received: 0
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:35 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:35 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:00 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:36 [Information] Z Axis Data Received:  
+11/17/2024 10:48:36 [Information] Z Axis Data Received: A
+11/17/2024 10:48:36 [Information] Z Axis Data Received: x
+11/17/2024 10:48:36 [Information] Z Axis Data Received: i
+11/17/2024 10:48:36 [Information] Z Axis Data Received: s
+11/17/2024 10:48:36 [Information] Z Axis Data Received:  
+11/17/2024 10:48:36 [Information] Z Axis Data Received: C
+11/17/2024 10:48:36 [Information] Z Axis Data Received: C
+11/17/2024 10:48:36 [Information] Z Axis Data Received: W
+11/17/2024 10:48:36 [Information] Z Axis Data Received:  
+11/17/2024 10:48:36 [Information] Z Axis Data Received: S
+11/17/2024 10:48:36 [Information] Z Axis Data Received: T
+11/17/2024 10:48:36 [Information] Z Axis Data Received: O
+11/17/2024 10:48:36 [Information] Z Axis Data Received: P
+11/17/2024 10:48:36 [Information] Z Axis Data Received: P
+11/17/2024 10:48:36 [Information] Z Axis Data Received: E
+11/17/2024 10:48:36 [Information] Z Axis Data Received: D
+11/17/2024 10:48:36 [Information] Z Axis Data Received: 
+11/17/2024 10:48:36 [Information] Z Axis Data Received: 
+
+11/17/2024 10:48:36 [Information] Z Axis Data Received: Z
+11/17/2024 10:48:36 [Information] Z Axis Data Received:  
+11/17/2024 10:48:36 [Information] Z Axis Data Received: A
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Disable Z Axis controls while moving to location.
+11/17/2024 10:48:36 [Information] Time remaining: 00:00:01 targetEndTime = 10:48:39
+11/17/2024 10:48:36 [Information] Z Axis Data Received: x
+11/17/2024 10:48:36 [Information] Z Axis Data Received: i
+11/17/2024 10:48:36 [Information] Z Axis Data Received: s CCW Motor Current Position:  549
+Z Axis CCW STOPPED
+Z Axi
+11/17/2024 10:48:36 [Information] Limit Switch Pressed
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Timer Stopped.
+11/17/2024 10:48:36 [Information] Stepper Motor Controller Stopwatch Reset.
+11/17/2024 10:48:37 [Information] Z Axis Data Received: s CCW Motor Current Position:  549
+Z Axis CCW STOPPED
+Z Axis CCW Motor Current Position:  549
+Z Axis CCW STOPPED
+Z Axis CCW Motor Current Position:  55
+11/17/2024 10:48:37 [Information] Limit Switch Pressed
+11/17/2024 10:48:37 [Information] Stepper Motor Controller Timer Stopped.
+11/17/2024 10:48:37 [Information] Stepper Motor Controller Stopwatch Reset.
+11/17/2024 10:48:37 [Information] Z Axis CW Motor Current Position: 42.98
+11/17/2024 10:48:38 [Information] Z Axis CCW Motor Current Position: 53.96
+11/17/2024 10:48:38 [Information] Z Axis CW Motor Current Position: 55.06
+11/17/2024 10:48:38 [Information] Z Axis CCW Motor Current Position: 56.16
+11/17/2024 10:48:38 [Information] Z Axis Data Received: 0
+Z Axis CCW STOPPED
+Z Axis CCW Motor Current Position:  550
+Z Axis reached target position
+Current Position: 630
+
+11/17/2024 10:48:38 [Information] Limit Switch Pressed
+11/17/2024 10:48:38 [Information] Stepper Motor Controller Timer Stopped.
+11/17/2024 10:48:38 [Information] Stepper Motor Controller Stopwatch Reset.
+11/17/2024 10:48:38 [Information] Z Axis CW Motor Current Position: 67.16
+11/17/2024 10:48:39 [Information] Z Axis CCW Motor Current Position: 78.16
+11/17/2024 10:48:41 [Information] Stepper Motor Controller MainWindow Closing.
+11/17/2024 10:48:41 [Information] Stepper Motor Controller Serial Ports closed.
+11/17/2024 10:48:41 [Information] Properties Settings Saved.
+11/17/2024 10:48:41 [Information] Properties Settings Form Closed.
+11/17/2024 10:48:41 [Information] Stepper Motor Controller Form Closed.

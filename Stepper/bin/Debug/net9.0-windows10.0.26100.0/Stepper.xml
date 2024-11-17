@@ -189,6 +189,15 @@
             MainWindow
             </summary>
         </member>
+        <member name="F:Stepper.MainWindow.xPositionUpdated">
+            <summary>The x position updated</summary>
+        </member>
+        <member name="F:Stepper.MainWindow.yPositionUpdated">
+            <summary>The y position updated</summary>
+        </member>
+        <member name="F:Stepper.MainWindow.zPositionUpdated">
+            <summary>The z position updated</summary>
+        </member>
         <member name="F:Stepper.MainWindow._xCancellationTokenSource">
             <summary>
             The x cancellation token source
@@ -566,24 +575,17 @@
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.RunAxis(System.String,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.IO.Ports.SerialPort,System.Threading.CancellationToken)">
+        <member name="M:Stepper.MainWindow.RunAxisAsync(System.String,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.IO.Ports.SerialPort,System.Boolean,System.Threading.CancellationTokenSource)">
             <summary>
-            Runs the axis.
+            Runs the specified axis asynchronously.
             </summary>
             <param name="axis">The axis.</param>
-            <param name="XstepperMoveTextBox">The xstepper move text box.</param>
-            <param name="XmotorSpeedTextBox">The xmotor speed text box.</param>
-            <param name="XresetToZeroCheckBox">The xreset to zero CheckBox.</param>
-            <param name="YstepperMoveTextBox">The ystepper move text box.</param>
-            <param name="YmotorSpeedTextBox">The ymotor speed text box.</param>
-            <param name="YresetToZeroCheckBox">The yreset to zero CheckBox.</param>
-            <param name="ZstepperMoveTextBox">The zstepper move text box.</param>
-            <param name="ZmotorSpeedTextBox">The zmotor speed text box.</param>
-            <param name="ZresetToZeroCheckBox">The zreset to zero CheckBox.</param>
+            <param name="stepperMoveTextBox">The stepper move text box.</param>
+            <param name="motorSpeedTextBox">The motor speed text box.</param>
+            <param name="resetToZeroCheckBox">The reset to zero check box.</param>
             <param name="serialPort">The serial port.</param>
-            <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-            <exception cref="T:System.ArgumentException">'{nameof(axis)}' cannot be null or empty. - axis</exception>
-            <exception cref="T:System.ArgumentNullException">serialPort</exception>
+            <param name="axisRunToCompletion">The axis run to completion flag.</param>
+            <param name="cancellationTokenSource">The cancellation token source.</param>
         </member>
         <member name="M:Stepper.MainWindow.ResetAxisToZero(System.String,System.IO.Ports.SerialPort)">
             <summary>
@@ -591,15 +593,6 @@
             </summary>
             <param name="axis">The axis.</param>
             <param name="serialPort">The serial port.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.MoveAxis(System.String,System.IO.Ports.SerialPort,System.Single,System.Threading.CancellationToken)">
-            <summary>
-            Moves the axis.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="serialPort">The serial port.</param>
-            <param name="currentPosition">The current position.</param>
-            <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         </member>
         <member name="M:Stepper.MainWindow.IsNegative(System.Decimal)">
             <summary>
@@ -766,13 +759,6 @@
         <member name="M:Stepper.MainWindow.StartDelayTask(System.String,System.String)">
             <summary>
             Starts the delay task.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="data">The data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateMotorPosition(System.String,System.String)">
-            <summary>
-            Updates the motor position.
             </summary>
             <param name="axis">The axis.</param>
             <param name="data">The data.</param>

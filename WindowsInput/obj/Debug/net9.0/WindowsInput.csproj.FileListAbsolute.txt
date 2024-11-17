@@ -10,3 +10,16 @@ C:\Users\sfcsarge\source\repos\WindowsInput\WindowsInput\obj\Debug\net9.0\Window
 C:\Users\sfcsarge\source\repos\WindowsInput\WindowsInput\obj\Debug\net9.0\refint\WindowsInput.dll
 C:\Users\sfcsarge\source\repos\WindowsInput\WindowsInput\obj\Debug\net9.0\WindowsInput.pdb
 C:\Users\sfcsarge\source\repos\WindowsInput\WindowsInput\obj\Debug\net9.0\ref\WindowsInput.dll
+C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\bin\Debug\net9.0\WindowsInput.deps.json
+C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\bin\Debug\net9.0\WindowsInput.dll
+C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\bin\Debug\net9.0\WindowsInput.pdb
+C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\obj\Debug\net9.0\WindowsInput.csproj.AssemblyReference.cache
+C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\obj\Debug\net9.0\WindowsInput.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\obj\Debug\net9.0\WindowsInput.AssemblyInfoInputs.cache
+C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\obj\Debug\net9.0\WindowsInput.AssemblyInfo.cs
+C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\obj\Debug\net9.0\WindowsInput.csproj.CoreCompileInputs.cache
+C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\obj\Debug\net9.0\WindowsInput.sourcelink.json
+C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\obj\Debug\net9.0\WindowsInput.dll
+C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\obj\Debug\net9.0\refint\WindowsInput.dll
+C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\obj\Debug\net9.0\WindowsInput.pdb
+C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\obj\Debug\net9.0\ref\WindowsInput.dll

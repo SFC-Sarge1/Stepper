@@ -1,4 +1,4 @@
-﻿17:25:00.788     0>Property reassignment: $(MSBuildExtensionsPath)="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild" (previous value: "C:\Program Files (x86)\MSBuild") at 
+﻿13:44:03.248     0>Property reassignment: $(MSBuildExtensionsPath)="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild" (previous value: "C:\Program Files (x86)\MSBuild") at 
                    Property reassignment: $(MSBuildExtensionsPath32)="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild" (previous value: "C:\Program Files (x86)\MSBuild") at 
                    Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
                    Trying to import C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\$(MSBuildToolsVersion)\Microsoft.Common.props using extensions path C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild
@@ -902,27 +902,27 @@
                    Overriding target "GetTargetPathWithTargetPlatformMoniker" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "GetTargetPathWithTargetPlatformMoniker" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.DesignTime.targets".
                    The target "CompileDesignTime" listed in a BeforeTargets attribute at "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets (44,11)" does not exist in the project, and will be ignored.
                    The target "CompileDesignTime" listed in a BeforeTargets attribute at "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets (57,11)" does not exist in the project, and will be ignored.
-Build started 11/15/2024 17:25:00.
+Build started 11/17/2024 13:44:03.
 Environment at start of build:
                    MSBuildLoadMicrosoftTargetsReadOnly = true
 
-Logging verbosity is set to: Diagnostic.17:25:00.799     1>Project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" on node 2 (Rebuild target(s)).
-17:25:00.801     1>Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
-17:25:00.801     1>Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:218)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "SetTelemetryEnvironmentVariables" depends on it):
+Logging verbosity is set to: Diagnostic.13:44:03.270     1>Project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" on node 4 (Rebuild target(s)).
+13:44:03.270     1>Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
+13:44:03.270     1>Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:142)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "SetTelemetryEnvironmentVariables" depends on it):
                    Set Property: _InvalidConfigurationMessageText=The BaseOutputPath/OutputPath property is not set for project 'xAxisStepperBoard.vcxproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Debug'  Platform='x64'.
                    Set Property: _InvalidConfigurationMessageText=The BaseOutputPath/OutputPath property is not set for project 'xAxisStepperBoard.vcxproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Debug'  Platform='x64'.  This error may also appear if some other project is trying to follow a project-to-project reference to this project, this project has been unloaded or is not included in the solution, and the referencing project does not build using the same or an equivalent Configuration or Platform.
                    Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
                    Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
-                   Task "Message" (TaskId:211)
-                     Task Parameter:Importance=Low (TaskId:211)
-                     Task Parameter:Text=Configuration=Debug (TaskId:211)
-                     Configuration=Debug (TaskId:211)
-                   Done executing task "Message". (TaskId:211)
-                   Task "Message" (TaskId:212)
-                     Task Parameter:Importance=Low (TaskId:212)
-                     Task Parameter:Text=Platform=x64 (TaskId:212)
-                     Platform=x64 (TaskId:212)
-                   Done executing task "Message". (TaskId:212)
+                   Task "Message" (TaskId:112)
+                     Task Parameter:Importance=Low (TaskId:112)
+                     Task Parameter:Text=Configuration=Debug (TaskId:112)
+                     Configuration=Debug (TaskId:112)
+                   Done executing task "Message". (TaskId:112)
+                   Task "Message" (TaskId:113)
+                     Task Parameter:Importance=Low (TaskId:113)
+                     Task Parameter:Text=Platform=x64 (TaskId:113)
+                     Platform=x64 (TaskId:113)
+                   Done executing task "Message". (TaskId:113)
                    Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\bin\x64\Debug\' != '' and !HasTrailingSlash('C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\bin\x64\Debug\')).
                    Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\' != '' and !HasTrailingSlash('C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\')).
                    Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
@@ -931,140 +931,137 @@ Logging verbosity is set to: Diagnostic.17:25:00.799     1>Project "C:\Users\sfc
                    Task "MSBuildInternalMessage" skipped, due to false condition; ( '$(PreferNativeArm64)' == 'true' and '$(Platform)' != 'AnyCPU' ) was evaluated as ( '' == 'true' and 'x64' != 'AnyCPU' ).
                    Task "Error" skipped, due to false condition; ( '$(_InitialMSBuildProjectExtensionsPath)' != '' And '$(MSBuildProjectExtensionsPath)' != '$(_InitialMSBuildProjectExtensionsPath)' ) was evaluated as ( 'C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\' != '' And 'C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\' != 'C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\' ).
                    Task "Warning" skipped, due to false condition; ( '$(EnableBaseIntermediateOutputPathMismatchWarning)' == 'true' And '$(_InitialBaseIntermediateOutputPath)' != '$(BaseIntermediateOutputPath)' And '$(BaseIntermediateOutputPath)' != '$(MSBuildProjectExtensionsPath)' ) was evaluated as ( '' == 'true' And 'obj\' != 'obj\' And 'obj\' != 'C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\' ).
-17:25:00.801     1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "xAxisStepperBoard.vcxproj".: (TargetId:218)
+13:44:03.271     1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "xAxisStepperBoard.vcxproj".: (TargetId:142)
                    Target "_CheckForInvalidConfigurationAndPlatform" skipped. Previously built successfully.
-17:25:00.801     1>Target "SetTelemetryEnvironmentVariables: (TargetId:219)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.DesignTime.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Rebuild" depends on it):
+13:44:03.271     1>Target "SetTelemetryEnvironmentVariables: (TargetId:143)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.DesignTime.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Rebuild" depends on it):
                    Using "SetEnv" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Build.CppTasks.Common.dll".
-                   Task "SetEnv" (TaskId:213)
-                     Task Parameter:Prefix=False (TaskId:213)
-                     Task Parameter:Value={8E876998-7096-4B5D-856F-9C183A2E0641} (TaskId:213)
-                     Task Parameter:Name=VSTEL_SolutionSessionID (TaskId:213)
-                     VSTEL_SolutionSessionID={8E876998-7096-4B5D-856F-9C183A2E0641} (TaskId:213)
-                   Done executing task "SetEnv". (TaskId:213)
-                   Task "SetEnv" (TaskId:214)
-                     Task Parameter:Prefix=False (TaskId:214)
-                     Task Parameter:Value=3964414851 (TaskId:214)
-                     Task Parameter:Name=VSTEL_CurrentSolutionBuildID (TaskId:214)
-                     VSTEL_CurrentSolutionBuildID=3964414851 (TaskId:214)
-                   Done executing task "SetEnv". (TaskId:214)
-                   Task "SetEnv" (TaskId:215)
-                     Task Parameter:Prefix=False (TaskId:215)
-                     Task Parameter:Value={0c29a58f-2c1d-4b6e-a656-6c09888d091c} (TaskId:215)
-                     Task Parameter:Name=VSTEL_ProjectID (TaskId:215)
-                     VSTEL_ProjectID={0c29a58f-2c1d-4b6e-a656-6c09888d091c} (TaskId:215)
-                     Output Property: VSTEL_ProjectID={0c29a58f-2c1d-4b6e-a656-6c09888d091c} (TaskId:215)
-                   Done executing task "SetEnv". (TaskId:215)
-                   Task "SetEnv" (TaskId:216)
-                     Task Parameter:Prefix=False (TaskId:216)
-                     Task Parameter:Value=C:\Users\sfcsarge\source\repos\Stepper\Stepper.sln (TaskId:216)
-                     Task Parameter:Name=VSTEL_SolutionPath (TaskId:216)
-                     VSTEL_SolutionPath=C:\Users\sfcsarge\source\repos\Stepper\Stepper.sln (TaskId:216)
-                   Done executing task "SetEnv". (TaskId:216)
-                   Task "SetEnv" (TaskId:217)
-                     Task Parameter:Prefix=False (TaskId:217)
-                     Task Parameter:Value=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj (TaskId:217)
-                     Task Parameter:Name=VSTEL_MSBuildProjectFullPath (TaskId:217)
-                     VSTEL_MSBuildProjectFullPath=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj (TaskId:217)
-                   Done executing task "SetEnv". (TaskId:217)
-17:25:00.801     1>Done building target "SetTelemetryEnvironmentVariables" in project "xAxisStepperBoard.vcxproj".: (TargetId:219)
-17:25:00.801     1>Target "_PrepareForRebuild: (TargetId:220)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Rebuild" depends on it):
+                   Task "SetEnv" (TaskId:114)
+                     Task Parameter:Prefix=False (TaskId:114)
+                     Task Parameter:Value={79BE74D7-2CE8-4AD2-BCD2-BFCBFF21FE51} (TaskId:114)
+                     Task Parameter:Name=VSTEL_SolutionSessionID (TaskId:114)
+                     VSTEL_SolutionSessionID={79BE74D7-2CE8-4AD2-BCD2-BFCBFF21FE51} (TaskId:114)
+                   Done executing task "SetEnv". (TaskId:114)
+                   Task "SetEnv" (TaskId:115)
+                     Task Parameter:Prefix=False (TaskId:115)
+                     Task Parameter:Value=1268129619 (TaskId:115)
+                     Task Parameter:Name=VSTEL_CurrentSolutionBuildID (TaskId:115)
+                     VSTEL_CurrentSolutionBuildID=1268129619 (TaskId:115)
+                   Done executing task "SetEnv". (TaskId:115)
+                   Task "SetEnv" (TaskId:116)
+                     Task Parameter:Prefix=False (TaskId:116)
+                     Task Parameter:Value={0c29a58f-2c1d-4b6e-a656-6c09888d091c} (TaskId:116)
+                     Task Parameter:Name=VSTEL_ProjectID (TaskId:116)
+                     VSTEL_ProjectID={0c29a58f-2c1d-4b6e-a656-6c09888d091c} (TaskId:116)
+                     Output Property: VSTEL_ProjectID={0c29a58f-2c1d-4b6e-a656-6c09888d091c} (TaskId:116)
+                   Done executing task "SetEnv". (TaskId:116)
+                   Task "SetEnv" (TaskId:117)
+                     Task Parameter:Prefix=False (TaskId:117)
+                     Task Parameter:Value=C:\Users\sfcsarge\source\repos\Stepper\Stepper.sln (TaskId:117)
+                     Task Parameter:Name=VSTEL_SolutionPath (TaskId:117)
+                     VSTEL_SolutionPath=C:\Users\sfcsarge\source\repos\Stepper\Stepper.sln (TaskId:117)
+                   Done executing task "SetEnv". (TaskId:117)
+                   Task "SetEnv" (TaskId:118)
+                     Task Parameter:Prefix=False (TaskId:118)
+                     Task Parameter:Value=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj (TaskId:118)
+                     Task Parameter:Name=VSTEL_MSBuildProjectFullPath (TaskId:118)
+                     VSTEL_MSBuildProjectFullPath=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj (TaskId:118)
+                   Done executing task "SetEnv". (TaskId:118)
+13:44:03.272     1>Done building target "SetTelemetryEnvironmentVariables" in project "xAxisStepperBoard.vcxproj".: (TargetId:143)
+13:44:03.272     1>Target "_PrepareForRebuild: (TargetId:144)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Rebuild" depends on it):
                    Set Property: BuildType=Rebuild
                    Set Property: _BuildActionType=Rebuild
                    Removed Item(s): 
                        CustomBuildStep=
                            xAxisStepperBoard
                                    Message=Performing Custom Build Step
-17:25:00.801     1>Done building target "_PrepareForRebuild" in project "xAxisStepperBoard.vcxproj".: (TargetId:220)
-17:25:00.801     1>Target "BeforeRebuild: (TargetId:221)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Rebuild" depends on it):
-17:25:00.801     1>Done building target "BeforeRebuild" in project "xAxisStepperBoard.vcxproj".: (TargetId:221)
-17:25:00.801     1>Target "_PrepareForClean: (TargetId:222)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Clean" depends on it):
+13:44:03.272     1>Done building target "_PrepareForRebuild" in project "xAxisStepperBoard.vcxproj".: (TargetId:144)
+13:44:03.272     1>Target "BeforeRebuild: (TargetId:145)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Rebuild" depends on it):
+13:44:03.272     1>Done building target "BeforeRebuild" in project "xAxisStepperBoard.vcxproj".: (TargetId:145)
+13:44:03.272     1>Target "_PrepareForClean: (TargetId:146)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Clean" depends on it):
                    Set Property: _BuildActionType=Clean
-                   Task "Delete" (TaskId:218)
-                     Task Parameter:Files=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\xAxisSte.0c29a58f.tlog\xAxisStepperBoard.lastbuildstate (TaskId:218)
-                     Deleting file "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\xAxisSte.0c29a58f.tlog\xAxisStepperBoard.lastbuildstate". (TaskId:218)
-                   Done executing task "Delete". (TaskId:218)
-17:25:00.801     1>Done building target "_PrepareForClean" in project "xAxisStepperBoard.vcxproj".: (TargetId:222)
+                   Task "Delete" skipped, due to false condition; (Exists($(LastBuildState))) was evaluated as (Exists(C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\xAxisSte.0c29a58f.tlog\xAxisStepperBoard.lastbuildstate)).
+13:44:03.272     1>Done building target "_PrepareForClean" in project "xAxisStepperBoard.vcxproj".: (TargetId:146)
                    Target "_WaitForServiceFabricApplicationCleanupBeforeClean" skipped, due to false condition; ('$(IsServiceFabricServiceProject)' == 'true') was evaluated as ('' == 'true').
-17:25:00.801     1>Target "BeforeClean: (TargetId:223)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Clean" depends on it):
-17:25:00.801     1>Done building target "BeforeClean" in project "xAxisStepperBoard.vcxproj".: (TargetId:223)
+13:44:03.272     1>Target "BeforeClean: (TargetId:147)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Clean" depends on it):
+13:44:03.272     1>Done building target "BeforeClean" in project "xAxisStepperBoard.vcxproj".: (TargetId:147)
                    Target "UnmanagedUnregistration" skipped, due to false condition; ((('$(_AssemblyTimestampBeforeCompile)' != '$(_AssemblyTimestampAfterCompile)' or '$(RegisterForComInterop)' != 'true' or '$(OutputType)' != 'library') or
                                        ('$(_AssemblyTimestampBeforeCompile)' == '')) and
                                       Exists('@(_UnmanagedRegistrationCache)')) was evaluated as ((('' != '' or '' != 'true' or 'exe' != 'library') or
                                        ('' == '')) and
                                       Exists('obj\xAxisStepperBoard.vcxproj.UnmanagedRegistration.cache')).
-17:25:00.801     1>Target "CoreClean: (TargetId:224)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Clean" depends on it):
-                   Task "Delete" (TaskId:219)
+13:44:03.272     1>Target "CoreClean: (TargetId:148)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Clean" depends on it):
+                   Task "Delete" (TaskId:119)
                      Task Parameter:
                          Files=
                              C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\\TempCA\xAxisStepperBoard.pdb
-                             C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\\TempCA\xAxisStepperBoard.out (TaskId:219)
-                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:219)
-                     File "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\\TempCA\xAxisStepperBoard.pdb" doesn't exist. Skipping. (TaskId:219)
-                     File "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\\TempCA\xAxisStepperBoard.out" doesn't exist. Skipping. (TaskId:219)
-                   Done executing task "Delete". (TaskId:219)
-                   Task "ReadLinesFromFile" (TaskId:220)
-                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\xAxisStepperBoard.vcxproj.FileListAbsolute.txt (TaskId:220)
-                   Done executing task "ReadLinesFromFile". (TaskId:220)
-                   Task "FindUnderPath" (TaskId:221)
-                     Task Parameter:Path=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\bin\x64\Debug\ (TaskId:221)
-                     Comparison path is "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\bin\x64\Debug\". (TaskId:221)
-                   Done executing task "FindUnderPath". (TaskId:221)
-                   Task "FindUnderPath" (TaskId:222)
-                     Task Parameter:Path=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\ (TaskId:222)
-                     Comparison path is "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\". (TaskId:222)
-                   Done executing task "FindUnderPath". (TaskId:222)
-                   Task "Delete" (TaskId:223)
-                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:223)
-                   Done executing task "Delete". (TaskId:223)
-                   Task "RemoveDuplicates" (TaskId:224)
-                   Done executing task "RemoveDuplicates". (TaskId:224)
-                   Task "MakeDir" (TaskId:225)
-                     Task Parameter:Directories=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\ (TaskId:225)
-                   Done executing task "MakeDir". (TaskId:225)
-                   Task "WriteLinesToFile" (TaskId:226)
-                     Task Parameter:WriteOnlyWhenDifferent=True (TaskId:226)
-                     Task Parameter:Overwrite=True (TaskId:226)
-                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\xAxisStepperBoard.vcxproj.FileListAbsolute.txt (TaskId:226)
-                     Skipping write to file "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\xAxisStepperBoard.vcxproj.FileListAbsolute.txt" because content would not change. (TaskId:226)
-                   Done executing task "WriteLinesToFile". (TaskId:226)
-17:25:00.802     1>Done building target "CoreClean" in project "xAxisStepperBoard.vcxproj".: (TargetId:224)
+                             C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\\TempCA\xAxisStepperBoard.out (TaskId:119)
+                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:119)
+                     File "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\\TempCA\xAxisStepperBoard.pdb" doesn't exist. Skipping. (TaskId:119)
+                     File "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\\TempCA\xAxisStepperBoard.out" doesn't exist. Skipping. (TaskId:119)
+                   Done executing task "Delete". (TaskId:119)
+                   Task "ReadLinesFromFile" (TaskId:120)
+                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\xAxisStepperBoard.vcxproj.FileListAbsolute.txt (TaskId:120)
+                   Done executing task "ReadLinesFromFile". (TaskId:120)
+                   Task "FindUnderPath" (TaskId:121)
+                     Task Parameter:Path=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\bin\x64\Debug\ (TaskId:121)
+                     Comparison path is "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\bin\x64\Debug\". (TaskId:121)
+                   Done executing task "FindUnderPath". (TaskId:121)
+                   Task "FindUnderPath" (TaskId:122)
+                     Task Parameter:Path=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\ (TaskId:122)
+                     Comparison path is "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\". (TaskId:122)
+                   Done executing task "FindUnderPath". (TaskId:122)
+                   Task "Delete" (TaskId:123)
+                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:123)
+                   Done executing task "Delete". (TaskId:123)
+                   Task "RemoveDuplicates" (TaskId:124)
+                   Done executing task "RemoveDuplicates". (TaskId:124)
+                   Task "MakeDir" (TaskId:125)
+                     Task Parameter:Directories=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\ (TaskId:125)
+                   Done executing task "MakeDir". (TaskId:125)
+                   Task "WriteLinesToFile" (TaskId:126)
+                     Task Parameter:WriteOnlyWhenDifferent=True (TaskId:126)
+                     Task Parameter:Overwrite=True (TaskId:126)
+                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\xAxisStepperBoard.vcxproj.FileListAbsolute.txt (TaskId:126)
+                     Skipping write to file "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\xAxisStepperBoard.vcxproj.FileListAbsolute.txt" because content would not change. (TaskId:126)
+                   Done executing task "WriteLinesToFile". (TaskId:126)
+13:44:03.274     1>Done building target "CoreClean" in project "xAxisStepperBoard.vcxproj".: (TargetId:148)
                    Target "_CleanMdbFiles" skipped, due to false condition; (Exists('$(TargetPath).mdb')) was evaluated as (Exists('C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\bin\x64\Debug\xAxisStepperBoard.out.mdb')).
-17:25:00.802     1>Target "IgnoreJavaScriptOutputAssembly: (TargetId:225)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "AssignProjectConfiguration" depends on it):
-17:25:00.802     1>Done building target "IgnoreJavaScriptOutputAssembly" in project "xAxisStepperBoard.vcxproj".: (TargetId:225)
-17:25:00.802     1>Target "AssignProjectConfiguration: (TargetId:226)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "PrepareProjectReferences" depends on it):
+13:44:03.274     1>Target "IgnoreJavaScriptOutputAssembly: (TargetId:149)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "AssignProjectConfiguration" depends on it):
+13:44:03.274     1>Done building target "IgnoreJavaScriptOutputAssembly" in project "xAxisStepperBoard.vcxproj".: (TargetId:149)
+13:44:03.274     1>Target "AssignProjectConfiguration: (TargetId:150)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "PrepareProjectReferences" depends on it):
                    Set Property: ShouldUnsetParentConfigurationAndPlatform=true
-                   Task "AssignProjectConfiguration" (TaskId:227)
-                     Task Parameter:OutputType=exe (TaskId:227)
-                     Task Parameter:CurrentProjectPlatform=x64 (TaskId:227)
-                     Task Parameter:CurrentProject=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj (TaskId:227)
-                     Task Parameter:ResolveConfigurationPlatformUsingMappings=False (TaskId:227)
+                   Task "AssignProjectConfiguration" (TaskId:127)
+                     Task Parameter:OutputType=exe (TaskId:127)
+                     Task Parameter:CurrentProjectPlatform=x64 (TaskId:127)
+                     Task Parameter:CurrentProject=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj (TaskId:127)
+                     Task Parameter:ResolveConfigurationPlatformUsingMappings=False (TaskId:127)
                      Task Parameter:SolutionConfigurationContents=<SolutionConfiguration>
                      <ProjectConfiguration Project="{b93849c3-b4ae-4a92-8611-d2d95937b1a4}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\Stepper\Stepper.csproj">Debug|AnyCPU</ProjectConfiguration>
-                     <ProjectConfiguration Project="{934a2a5d-9de2-45da-ab4a-87931e7145f1}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj">Debug|x64</ProjectConfiguration>
                      <ProjectConfiguration Project="{0c29a58f-2c1d-4b6e-a656-6c09888d091c}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj">Debug|x64</ProjectConfiguration>
                      <ProjectConfiguration Project="{72c52ac2-1667-4cb7-8c64-5f035dead72a}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj">Debug|x64</ProjectConfiguration>
                      <ProjectConfiguration Project="{355f2809-44a2-458f-9852-7cf42032afc3}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\zAxisStepperBoard\zAxisStepperBoard.vcxproj">Debug|x64</ProjectConfiguration>
                      <ProjectConfiguration Project="{5d620f81-6584-435a-a8df-96c1204c6073}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj">Debug|x64</ProjectConfiguration>
-                     <ProjectConfiguration Project="{a5894898-943b-f39a-9bdd-6e45acfaa854}" AbsolutePath="C:\Users\sfcsarge\source\repos\WindowsInput\WindowsInput\WindowsInput.csproj">Debug|AnyCPU</ProjectConfiguration>
-                     </SolutionConfiguration> (TaskId:227)
-                     Task Parameter:ShouldUnsetParentConfigurationAndPlatform=True (TaskId:227)
-                     Task Parameter:OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration=True (TaskId:227)
-                     Task Parameter:CurrentProjectConfiguration=Debug (TaskId:227)
-                   Done executing task "AssignProjectConfiguration". (TaskId:227)
-17:25:00.804     1>Done building target "AssignProjectConfiguration" in project "xAxisStepperBoard.vcxproj".: (TargetId:226)
-17:25:00.804     1>Target "_SplitProjectReferencesByFileExistence: (TargetId:227)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "PrepareProjectReferences" depends on it):
+                     <ProjectConfiguration Project="{52d6077e-a8a8-53c8-4435-957fd587c63d}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\MauiStepper\MauiStepper.csproj">Debug|AnyCPU</ProjectConfiguration>
+                     <ProjectConfiguration Project="{23a544c9-3b0c-777f-0479-91f6feff46ba}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\WindowsInput.csproj">Debug|AnyCPU</ProjectConfiguration>
+                     </SolutionConfiguration> (TaskId:127)
+                     Task Parameter:ShouldUnsetParentConfigurationAndPlatform=True (TaskId:127)
+                     Task Parameter:OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration=True (TaskId:127)
+                     Task Parameter:CurrentProjectConfiguration=Debug (TaskId:127)
+                   Done executing task "AssignProjectConfiguration". (TaskId:127)
+13:44:03.274     1>Done building target "AssignProjectConfiguration" in project "xAxisStepperBoard.vcxproj".: (TargetId:150)
+13:44:03.274     1>Target "_SplitProjectReferencesByFileExistence: (TargetId:151)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "PrepareProjectReferences" depends on it):
                    Task "ResolveNonMSBuildProjectOutput" skipped, due to false condition; ('$(BuildingInsideVisualStudio)'=='true' and '@(ProjectReferenceWithConfiguration)'!='') was evaluated as ('true'=='true' and ''!='').
-17:25:00.804     1>Done building target "_SplitProjectReferencesByFileExistence" in project "xAxisStepperBoard.vcxproj".: (TargetId:227)
-17:25:00.804     1>Target "_AddOutputPathToGlobalPropertiesToRemove: (TargetId:228)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "_GetProjectReferenceTargetFrameworkProperties" depends on it):
-17:25:00.804     1>Done building target "_AddOutputPathToGlobalPropertiesToRemove" in project "xAxisStepperBoard.vcxproj".: (TargetId:228)
-17:25:00.804     1>Target "_GetProjectReferenceTargetFrameworkProperties: (TargetId:229)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "PrepareProjectReferences" depends on it):
+13:44:03.275     1>Done building target "_SplitProjectReferencesByFileExistence" in project "xAxisStepperBoard.vcxproj".: (TargetId:151)
+13:44:03.275     1>Target "_AddOutputPathToGlobalPropertiesToRemove: (TargetId:152)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "_GetProjectReferenceTargetFrameworkProperties" depends on it):
+13:44:03.275     1>Done building target "_AddOutputPathToGlobalPropertiesToRemove" in project "xAxisStepperBoard.vcxproj".: (TargetId:152)
+13:44:03.275     1>Target "_GetProjectReferenceTargetFrameworkProperties: (TargetId:153)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "PrepareProjectReferences" depends on it):
                    Set Property: ReferringTargetFrameworkForProjectReferences=
-                   Task "MSBuild" (TaskId:228)
-                     Task Parameter:BuildInParallel=True (TaskId:228)
-                     Task Parameter:SkipNonexistentTargets=True (TaskId:228)
-                     Task Parameter:RemoveProperties=;TargetFramework;RuntimeIdentifier;SelfContained; (TaskId:228)
-                     Task Parameter:Targets=GetTargetFrameworks (TaskId:228)
-                   Done executing task "MSBuild". (TaskId:228)
+                   Task "MSBuild" (TaskId:128)
+                     Task Parameter:BuildInParallel=True (TaskId:128)
+                     Task Parameter:SkipNonexistentTargets=True (TaskId:128)
+                     Task Parameter:RemoveProperties=;TargetFramework;RuntimeIdentifier;SelfContained; (TaskId:128)
+                     Task Parameter:Targets=GetTargetFrameworks (TaskId:128)
+                   Done executing task "MSBuild". (TaskId:128)
                    Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.SkipGetTargetFrameworkProperties)' != 'true' and '$(EnableDynamicPlatformResolution)' == 'true') was evaluated as ('' != 'true' and '' == 'true').
                    Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities)' != '' and '$(ReferringTargetFrameworkForProjectReferences)' != ''
                                                                            And '$(GetReferenceNearestTargetFrameworkTaskSupportsTargetPlatformParameter)' == 'true' and '%(_ProjectReferenceTargetFrameworkPossibilities.IsVcxOrNativeProj)' != 'true') was evaluated as ('' != '' and '' != ''
@@ -1072,33 +1069,33 @@ Logging verbosity is set to: Diagnostic.17:25:00.799     1>Project "C:\Users\sfc
                    Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities)' != '' and '$(ReferringTargetFrameworkForProjectReferences)' != ''
                                                                            And '$(GetReferenceNearestTargetFrameworkTaskSupportsTargetPlatformParameter)' != 'true' and '%(_ProjectReferenceTargetFrameworkPossibilities.IsVcxOrNativeProj)' != 'true') was evaluated as ('' != '' and '' != ''
                                                                            And 'true' != 'true' and '' != 'true').
-                   Task "SetRidAgnosticValueForProjects" (TaskId:229)
-                   Done executing task "SetRidAgnosticValueForProjects". (TaskId:229)
-17:25:00.804     1>Done building target "_GetProjectReferenceTargetFrameworkProperties" in project "xAxisStepperBoard.vcxproj".: (TargetId:229)
+                   Task "SetRidAgnosticValueForProjects" (TaskId:129)
+                   Done executing task "SetRidAgnosticValueForProjects". (TaskId:129)
+13:44:03.276     1>Done building target "_GetProjectReferenceTargetFrameworkProperties" in project "xAxisStepperBoard.vcxproj".: (TargetId:153)
                    Target "_GetProjectReferencePlatformProperties" skipped, due to false condition; ('$(EnableDynamicPlatformResolution)' == 'true'
                                         and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true'
                                         and '' != '').
-17:25:00.804     1>Target "PrepareProjectReferences: (TargetId:230)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "CleanReferencedProjects" depends on it):
-17:25:00.804     1>Done building target "PrepareProjectReferences" in project "xAxisStepperBoard.vcxproj".: (TargetId:230)
-17:25:00.804     1>Target "CleanReferencedProjects: (TargetId:231)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Clean" depends on it):
+13:44:03.276     1>Target "PrepareProjectReferences: (TargetId:154)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "CleanReferencedProjects" depends on it):
+13:44:03.276     1>Done building target "PrepareProjectReferences" in project "xAxisStepperBoard.vcxproj".: (TargetId:154)
+13:44:03.276     1>Target "CleanReferencedProjects: (TargetId:155)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Clean" depends on it):
                    Task "MSBuild" skipped, due to false condition; ('$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('true' != 'true' and 'true' == 'true' and '' != '').
-17:25:00.804     1>Done building target "CleanReferencedProjects" in project "xAxisStepperBoard.vcxproj".: (TargetId:231)
-17:25:00.804     1>Target "CleanPublishFolder: (TargetId:232)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Clean" depends on it):
+13:44:03.276     1>Done building target "CleanReferencedProjects" in project "xAxisStepperBoard.vcxproj".: (TargetId:155)
+13:44:03.276     1>Target "CleanPublishFolder: (TargetId:156)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Clean" depends on it):
                    Task "RemoveDir" skipped, due to false condition; ('$(ClickOncePublishDir)'=='$(OutputPath)app.publish\' and Exists('$(ClickOncePublishDir)')) was evaluated as ('C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\bin\x64\Debug\app.publish\'=='C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\bin\x64\Debug\app.publish\' and Exists('C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\bin\x64\Debug\app.publish\')).
-17:25:00.804     1>Done building target "CleanPublishFolder" in project "xAxisStepperBoard.vcxproj".: (TargetId:232)
-17:25:00.804     1>Target "AfterClean: (TargetId:233)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Clean" depends on it):
-17:25:00.804     1>Done building target "AfterClean" in project "xAxisStepperBoard.vcxproj".: (TargetId:233)
-17:25:00.804     1>Target "BeforeCppClean: (TargetId:234)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppClean.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "CppClean" depends on it):
-17:25:00.804     1>Done building target "BeforeCppClean" in project "xAxisStepperBoard.vcxproj".: (TargetId:234)
-17:25:00.804     1>Target "_ConsolidateSourcesToCopy: (TargetId:235)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.Common.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "_RequiresRemoteConnection" depends on it):
+13:44:03.276     1>Done building target "CleanPublishFolder" in project "xAxisStepperBoard.vcxproj".: (TargetId:156)
+13:44:03.276     1>Target "AfterClean: (TargetId:157)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "Clean" depends on it):
+13:44:03.276     1>Done building target "AfterClean" in project "xAxisStepperBoard.vcxproj".: (TargetId:157)
+13:44:03.276     1>Target "BeforeCppClean: (TargetId:158)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppClean.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "CppClean" depends on it):
+13:44:03.276     1>Done building target "BeforeCppClean" in project "xAxisStepperBoard.vcxproj".: (TargetId:158)
+13:44:03.276     1>Target "_ConsolidateSourcesToCopy: (TargetId:159)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.Common.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "_RequiresRemoteConnection" depends on it):
                    Using "ConsolidateSourcesToCopy" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Microsoft.Build.Linux.Tasks.dll".
-                   Task "ConsolidateSourcesToCopy" (TaskId:230)
-                     Task Parameter:ProjectDir=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\ (TaskId:230)
+                   Task "ConsolidateSourcesToCopy" (TaskId:130)
+                     Task Parameter:ProjectDir=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\ (TaskId:130)
                      Task Parameter:
                          SourcesOverride=
                              xAxisStepperBoard.ino
                              __vm\.xAxisStepperBoard.vsarduino.h
-                             src\arduino folders read me.txt (TaskId:230)
+                             src\arduino folders read me.txt (TaskId:130)
                      Task Parameter:
                          Sources=
                              xAxisStepperBoard.ino
@@ -1126,7 +1123,6 @@ Logging verbosity is set to: Diagnostic.17:25:00.799     1>Project "C:\Users\sfc
                                      MakeStringsReadOnly=true
                                      MinimalRebuildFromTracking=true
                                      NoCommonBlocks=false
-                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.ino
                                      ObjCAutomaticRefCounting=true
                                      ObjCExceptionHandling=Disabled
                                      ObjectFileName=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\obj\x64\Debug\%(filename).o
@@ -1151,10 +1147,8 @@ Logging verbosity is set to: Diagnostic.17:25:00.799     1>Project "C:\Users\sfc
                                      Verbose=false
                                      WarningLevel=EnableAllWarnings
                              __vm\.xAxisStepperBoard.vsarduino.h
-                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\__vm\.xAxisStepperBoard.vsarduino.h
                              src\arduino folders read me.txt
-                                     CopyToOutputDirectory=Never
-                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\src\arduino folders read me.txt (TaskId:230)
+                                     CopyToOutputDirectory=Never (TaskId:130)
                      Output Item(s): 
                          FinalSourcesToCopyRemotely=
                              xAxisStepperBoard.ino
@@ -1210,13 +1204,13 @@ Logging verbosity is set to: Diagnostic.17:25:00.799     1>Project "C:\Users\sfc
                                      NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\__vm\.xAxisStepperBoard.vsarduino.h
                              src\arduino folders read me.txt
                                      CopyToOutputDirectory=Never
-                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\src\arduino folders read me.txt (TaskId:230)
-                   Done executing task "ConsolidateSourcesToCopy". (TaskId:230)
-17:25:00.809     1>Done building target "_ConsolidateSourcesToCopy" in project "xAxisStepperBoard.vcxproj".: (TargetId:235)
-17:25:00.809     1>Target "_RequiresRemoteConnection: (TargetId:236)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "_ResolveRemoteTarget" depends on it):
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\src\arduino folders read me.txt (TaskId:130)
+                   Done executing task "ConsolidateSourcesToCopy". (TaskId:130)
+13:44:03.291     1>Done building target "_ConsolidateSourcesToCopy" in project "xAxisStepperBoard.vcxproj".: (TargetId:159)
+13:44:03.291     1>Target "_RequiresRemoteConnection: (TargetId:160)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "_ResolveRemoteTarget" depends on it):
                    Using "RequiresRemoteConnection" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Microsoft.Build.Linux.Tasks.dll".
-                   Task "RequiresRemoteConnection" (TaskId:231)
-                     Task Parameter:PostBuildEventEnabled=true (TaskId:231)
+                   Task "RequiresRemoteConnection" (TaskId:131)
+                     Task Parameter:PostBuildEventEnabled=true (TaskId:131)
                      Task Parameter:
                          ClCompile=
                              xAxisStepperBoard.ino
@@ -1266,8 +1260,8 @@ Logging verbosity is set to: Diagnostic.17:25:00.799     1>Project "C:\Users\sfc
                                      UndefineAllPreprocessorDefinitions=true
                                      UnrollLoops=false
                                      Verbose=false
-                                     WarningLevel=EnableAllWarnings (TaskId:231)
-                     Task Parameter:RemotePostBuildEventEnabled=true (TaskId:231)
+                                     WarningLevel=EnableAllWarnings (TaskId:131)
+                     Task Parameter:RemotePostBuildEventEnabled=true (TaskId:131)
                      Task Parameter:
                          Sources=
                              xAxisStepperBoard.ino
@@ -1323,69 +1317,69 @@ Logging verbosity is set to: Diagnostic.17:25:00.799     1>Project "C:\Users\sfc
                                      NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\__vm\.xAxisStepperBoard.vsarduino.h
                              src\arduino folders read me.txt
                                      CopyToOutputDirectory=Never
-                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\src\arduino folders read me.txt (TaskId:231)
-                     Task Parameter:CopySourcesEnabled=true (TaskId:231)
-                     Task Parameter:PreBuildEventEnabled=true (TaskId:231)
-                     Task Parameter:RemotePreBuildEventEnabled=true (TaskId:231)
-                     Checking if current project requires a remote connection. (TaskId:231)
-                     Current project requires a remote connection. (TaskId:231)
-                     Output Property: RequireRemoteConnection=True (TaskId:231)
-                   Done executing task "RequiresRemoteConnection". (TaskId:231)
-17:25:00.810     1>Done building target "_RequiresRemoteConnection" in project "xAxisStepperBoard.vcxproj".: (TargetId:236)
-17:25:00.810     1>Target "_ResolveRemoteTarget: (TargetId:237)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "_PrepareUpToDateChecks" depends on it):
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\src\arduino folders read me.txt (TaskId:131)
+                     Task Parameter:CopySourcesEnabled=true (TaskId:131)
+                     Task Parameter:PreBuildEventEnabled=true (TaskId:131)
+                     Task Parameter:RemotePreBuildEventEnabled=true (TaskId:131)
+                     Checking if current project requires a remote connection. (TaskId:131)
+                     Current project requires a remote connection. (TaskId:131)
+                     Output Property: RequireRemoteConnection=True (TaskId:131)
+                   Done executing task "RequiresRemoteConnection". (TaskId:131)
+13:44:03.294     1>Done building target "_RequiresRemoteConnection" in project "xAxisStepperBoard.vcxproj".: (TargetId:160)
+13:44:03.294     1>Target "_ResolveRemoteTarget: (TargetId:161)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (target "_PrepareUpToDateChecks" depends on it):
                    Using "ResolveRemoteTarget" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Microsoft.Build.Linux.Tasks.dll".
-                   Task "ResolveRemoteTarget" (TaskId:232)
-                     Task Parameter:RequireRemoteConnection=True (TaskId:232)
-17:25:00.812     1>C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets(158,5): error : There are no remote machines configured for remote builds. Please configure a machine using Tools | Options | Cross Platform | Connection Manager.
-                     Output Property: RemoteTargetResolved=False (TaskId:232)
-                   Done executing task "ResolveRemoteTarget" -- FAILED. (TaskId:232)
-17:25:00.812     1>Done building target "_ResolveRemoteTarget" in project "xAxisStepperBoard.vcxproj" -- FAILED.: (TargetId:237)
-17:25:00.812     1>Done Building Project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (Rebuild target(s)) -- FAILED.
+                   Task "ResolveRemoteTarget" (TaskId:132)
+                     Task Parameter:RequireRemoteConnection=True (TaskId:132)
+13:44:03.297     1>C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets(158,5): error : There are no remote machines configured for remote builds. Please configure a machine using Tools | Options | Cross Platform | Connection Manager.
+                     Output Property: RemoteTargetResolved=False (TaskId:132)
+                   Done executing task "ResolveRemoteTarget" -- FAILED. (TaskId:132)
+13:44:03.297     1>Done building target "_ResolveRemoteTarget" in project "xAxisStepperBoard.vcxproj" -- FAILED.: (TargetId:161)
+13:44:03.297     1>Done Building Project "C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj" (Rebuild target(s)) -- FAILED.
 
 Project Evaluation Performance Summary:
-       11 ms  C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj   1 calls
+       22 ms  C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj   1 calls
 
 Project Performance Summary:
-       12 ms  C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj   1 calls
-                 12 ms  Rebuild                                    1 calls
+       27 ms  C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj   1 calls
+                 27 ms  Rebuild                                    1 calls
 
 Target Performance Summary:
-        0 ms  _CheckForInvalidConfigurationAndPlatform   1 calls
         0 ms  BeforeCppClean                             1 calls
-        0 ms  AfterClean                                 1 calls
-        0 ms  CleanPublishFolder                         1 calls
-        0 ms  CleanReferencedProjects                    1 calls
-        0 ms  PrepareProjectReferences                   1 calls
-        0 ms  _GetProjectReferenceTargetFrameworkProperties   1 calls
-        0 ms  _AddOutputPathToGlobalPropertiesToRemove   1 calls
-        0 ms  _SplitProjectReferencesByFileExistence     1 calls
-        0 ms  IgnoreJavaScriptOutputAssembly             1 calls
-        0 ms  BeforeClean                                1 calls
-        0 ms  _PrepareForClean                           1 calls
+        0 ms  _PrepareForRebuild                         1 calls
         0 ms  BeforeRebuild                              1 calls
-        0 ms  SetTelemetryEnvironmentVariables           1 calls
-        1 ms  _PrepareForRebuild                         1 calls
-        1 ms  CoreClean                                  1 calls
-        1 ms  _RequiresRemoteConnection                  1 calls
-        1 ms  AssignProjectConfiguration                 1 calls
-        1 ms  _ResolveRemoteTarget                       1 calls
-        6 ms  _ConsolidateSourcesToCopy                  1 calls
+        0 ms  _PrepareForClean                           1 calls
+        0 ms  BeforeClean                                1 calls
+        0 ms  AfterClean                                 1 calls
+        0 ms  IgnoreJavaScriptOutputAssembly             1 calls
+        0 ms  AssignProjectConfiguration                 1 calls
+        0 ms  CleanPublishFolder                         1 calls
+        0 ms  _AddOutputPathToGlobalPropertiesToRemove   1 calls
+        0 ms  PrepareProjectReferences                   1 calls
+        0 ms  CleanReferencedProjects                    1 calls
+        1 ms  _SplitProjectReferencesByFileExistence     1 calls
+        1 ms  _GetProjectReferenceTargetFrameworkProperties   1 calls
+        1 ms  _CheckForInvalidConfigurationAndPlatform   1 calls
+        1 ms  SetTelemetryEnvironmentVariables           1 calls
+        2 ms  CoreClean                                  1 calls
+        3 ms  _ResolveRemoteTarget                       1 calls
+        3 ms  _RequiresRemoteConnection                  1 calls
+       15 ms  _ConsolidateSourcesToCopy                  1 calls
 
 Task Performance Summary:
         0 ms  Message                                    2 calls
-        0 ms  SetEnv                                     5 calls
-        0 ms  Delete                                     3 calls
+        0 ms  Delete                                     2 calls
         0 ms  FindUnderPath                              2 calls
         0 ms  RemoveDuplicates                           1 calls
         0 ms  MakeDir                                    1 calls
-        0 ms  WriteLinesToFile                           1 calls
+        0 ms  AssignProjectConfiguration                 1 calls
         0 ms  MSBuild                                    1 calls
-        0 ms  SetRidAgnosticValueForProjects             1 calls
+        1 ms  SetRidAgnosticValueForProjects             1 calls
+        1 ms  SetEnv                                     5 calls
         1 ms  ReadLinesFromFile                          1 calls
-        1 ms  RequiresRemoteConnection                   1 calls
-        1 ms  AssignProjectConfiguration                 1 calls
-        1 ms  ResolveRemoteTarget                        1 calls
-        5 ms  ConsolidateSourcesToCopy                   1 calls
+        1 ms  WriteLinesToFile                           1 calls
+        2 ms  ResolveRemoteTarget                        1 calls
+        3 ms  RequiresRemoteConnection                   1 calls
+       14 ms  ConsolidateSourcesToCopy                   1 calls
 
 Build FAILED.
 
@@ -1396,4 +1390,4 @@ Build FAILED.
     0 Warning(s)
     1 Error(s)
 
-Time Elapsed 00:00:00.01
+Time Elapsed 00:00:00.02

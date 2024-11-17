@@ -273,6 +273,7 @@ static void zMotorRun()
             zAxisStepperMotor.stop();
             limitSwitchCWTriggered = true;
             Serial.println("Z Axis CW STOPPED");
+			Serial.println("Z Axis CW Motor Current Position: " + String(zAxisStepperMotor.currentPosition()));
            //return;
         }
 
@@ -281,6 +282,7 @@ static void zMotorRun()
             zAxisStepperMotor.stop();
             limitSwitchCCWTriggered = true;
             Serial.println("Z Axis CCW STOPPED");
+			Serial.println("Z Axis CCW Motor Current Position:  " + String(zAxisStepperMotor.currentPosition()));
             //return;
         }
         zAxisStepperMotor.run();
@@ -291,8 +293,9 @@ static void zMotorRun()
         limitSwitchCWTriggered = false;
         limitSwitchCCWTriggered = false;
         limitSwitchTriggered = 1;
-        Serial.println("Z Axis reached target position, Z Axis Current Position: " + String(zAxisCurrentPosition));
-        zAxisStepperMotor.stop();  // Stop the motor
+		zAxisStepperMotor.stop();  // Stop the motor
+		Serial.println("Z Axis reached target position");
+		Serial.println("Current Position: " + String(zAxisStepperMotor.currentPosition()));
         zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
         return;
     }

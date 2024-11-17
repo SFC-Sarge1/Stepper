@@ -1,4 +1,4 @@
-﻿17:24:58.472     0>Property reassignment: $(MSBuildExtensionsPath)="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild" (previous value: "C:\Program Files (x86)\MSBuild") at 
+﻿13:43:59.850     0>Property reassignment: $(MSBuildExtensionsPath)="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild" (previous value: "C:\Program Files (x86)\MSBuild") at 
                    Property reassignment: $(MSBuildExtensionsPath32)="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild" (previous value: "C:\Program Files (x86)\MSBuild") at 
                    Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
                    Trying to import C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\$(MSBuildToolsVersion)\Microsoft.Common.props using extensions path C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild
@@ -900,27 +900,27 @@
                    Overriding target "GetTargetPathWithTargetPlatformMoniker" in project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "GetTargetPathWithTargetPlatformMoniker" from project "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.DesignTime.targets".
                    The target "CompileDesignTime" listed in a BeforeTargets attribute at "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets (44,11)" does not exist in the project, and will be ignored.
                    The target "CompileDesignTime" listed in a BeforeTargets attribute at "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets (57,11)" does not exist in the project, and will be ignored.
-Build started 11/15/2024 17:24:58.
+Build started 11/17/2024 13:43:59.
 Environment at start of build:
                    MSBuildLoadMicrosoftTargetsReadOnly = true
 
-Logging verbosity is set to: Diagnostic.17:24:58.486     1>Project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" on node 2 (Rebuild target(s)).
-17:24:58.486     1>Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
-17:24:58.486     1>Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:158)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "SetTelemetryEnvironmentVariables" depends on it):
+Logging verbosity is set to: Diagnostic.13:43:59.906     1>Project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" on node 4 (Rebuild target(s)).
+13:43:59.906     1>Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
+13:43:59.906     1>Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:67)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "SetTelemetryEnvironmentVariables" depends on it):
                    Set Property: _InvalidConfigurationMessageText=The BaseOutputPath/OutputPath property is not set for project 'Sketch1.vcxproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Debug'  Platform='x64'.
                    Set Property: _InvalidConfigurationMessageText=The BaseOutputPath/OutputPath property is not set for project 'Sketch1.vcxproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Debug'  Platform='x64'.  This error may also appear if some other project is trying to follow a project-to-project reference to this project, this project has been unloaded or is not included in the solution, and the referencing project does not build using the same or an equivalent Configuration or Platform.
                    Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
                    Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
-                   Task "Message" (TaskId:147)
-                     Task Parameter:Importance=Low (TaskId:147)
-                     Task Parameter:Text=Configuration=Debug (TaskId:147)
-                     Configuration=Debug (TaskId:147)
-                   Done executing task "Message". (TaskId:147)
-                   Task "Message" (TaskId:148)
-                     Task Parameter:Importance=Low (TaskId:148)
-                     Task Parameter:Text=Platform=x64 (TaskId:148)
-                     Platform=x64 (TaskId:148)
-                   Done executing task "Message". (TaskId:148)
+                   Task "Message" (TaskId:52)
+                     Task Parameter:Importance=Low (TaskId:52)
+                     Task Parameter:Text=Configuration=Debug (TaskId:52)
+                     Configuration=Debug (TaskId:52)
+                   Done executing task "Message". (TaskId:52)
+                   Task "Message" (TaskId:53)
+                     Task Parameter:Importance=Low (TaskId:53)
+                     Task Parameter:Text=Platform=x64 (TaskId:53)
+                     Platform=x64 (TaskId:53)
+                   Done executing task "Message". (TaskId:53)
                    Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('C:\Users\sfcsarge\source\repos\Stepper\Sketch1\bin\x64\Debug\' != '' and !HasTrailingSlash('C:\Users\sfcsarge\source\repos\Stepper\Sketch1\bin\x64\Debug\')).
                    Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\' != '' and !HasTrailingSlash('C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\')).
                    Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
@@ -929,136 +929,137 @@ Logging verbosity is set to: Diagnostic.17:24:58.486     1>Project "C:\Users\sfc
                    Task "MSBuildInternalMessage" skipped, due to false condition; ( '$(PreferNativeArm64)' == 'true' and '$(Platform)' != 'AnyCPU' ) was evaluated as ( '' == 'true' and 'x64' != 'AnyCPU' ).
                    Task "Error" skipped, due to false condition; ( '$(_InitialMSBuildProjectExtensionsPath)' != '' And '$(MSBuildProjectExtensionsPath)' != '$(_InitialMSBuildProjectExtensionsPath)' ) was evaluated as ( 'C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\' != '' And 'C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\' != 'C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\' ).
                    Task "Warning" skipped, due to false condition; ( '$(EnableBaseIntermediateOutputPathMismatchWarning)' == 'true' And '$(_InitialBaseIntermediateOutputPath)' != '$(BaseIntermediateOutputPath)' And '$(BaseIntermediateOutputPath)' != '$(MSBuildProjectExtensionsPath)' ) was evaluated as ( '' == 'true' And 'obj\' != 'obj\' And 'obj\' != 'C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\' ).
-17:24:58.486     1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "Sketch1.vcxproj".: (TargetId:158)
+13:43:59.907     1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "Sketch1.vcxproj".: (TargetId:67)
                    Target "_CheckForInvalidConfigurationAndPlatform" skipped. Previously built successfully.
-17:24:58.486     1>Target "SetTelemetryEnvironmentVariables: (TargetId:159)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.DesignTime.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Rebuild" depends on it):
+13:43:59.907     1>Target "SetTelemetryEnvironmentVariables: (TargetId:68)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Cpp.DesignTime.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Rebuild" depends on it):
                    Using "SetEnv" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.Build.CppTasks.Common.dll".
-                   Task "SetEnv" (TaskId:149)
-                     Task Parameter:Prefix=False (TaskId:149)
-                     Task Parameter:Value={8E876998-7096-4B5D-856F-9C183A2E0641} (TaskId:149)
-                     Task Parameter:Name=VSTEL_SolutionSessionID (TaskId:149)
-                     VSTEL_SolutionSessionID={8E876998-7096-4B5D-856F-9C183A2E0641} (TaskId:149)
-                   Done executing task "SetEnv". (TaskId:149)
-                   Task "SetEnv" (TaskId:150)
-                     Task Parameter:Prefix=False (TaskId:150)
-                     Task Parameter:Value=3964414851 (TaskId:150)
-                     Task Parameter:Name=VSTEL_CurrentSolutionBuildID (TaskId:150)
-                     VSTEL_CurrentSolutionBuildID=3964414851 (TaskId:150)
-                   Done executing task "SetEnv". (TaskId:150)
-                   Task "SetEnv" (TaskId:151)
-                     Task Parameter:Prefix=False (TaskId:151)
-                     Task Parameter:Value={5d620f81-6584-435a-a8df-96c1204c6073} (TaskId:151)
-                     Task Parameter:Name=VSTEL_ProjectID (TaskId:151)
-                     VSTEL_ProjectID={5d620f81-6584-435a-a8df-96c1204c6073} (TaskId:151)
-                     Output Property: VSTEL_ProjectID={5d620f81-6584-435a-a8df-96c1204c6073} (TaskId:151)
-                   Done executing task "SetEnv". (TaskId:151)
-                   Task "SetEnv" (TaskId:152)
-                     Task Parameter:Prefix=False (TaskId:152)
-                     Task Parameter:Value=C:\Users\sfcsarge\source\repos\Stepper\Stepper.sln (TaskId:152)
-                     Task Parameter:Name=VSTEL_SolutionPath (TaskId:152)
-                     VSTEL_SolutionPath=C:\Users\sfcsarge\source\repos\Stepper\Stepper.sln (TaskId:152)
-                   Done executing task "SetEnv". (TaskId:152)
-                   Task "SetEnv" (TaskId:153)
-                     Task Parameter:Prefix=False (TaskId:153)
-                     Task Parameter:Value=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj (TaskId:153)
-                     Task Parameter:Name=VSTEL_MSBuildProjectFullPath (TaskId:153)
-                     VSTEL_MSBuildProjectFullPath=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj (TaskId:153)
-                   Done executing task "SetEnv". (TaskId:153)
-17:24:58.491     1>Done building target "SetTelemetryEnvironmentVariables" in project "Sketch1.vcxproj".: (TargetId:159)
-17:24:58.491     1>Target "_PrepareForRebuild: (TargetId:160)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Rebuild" depends on it):
+                   Task "SetEnv" (TaskId:54)
+                     Task Parameter:Prefix=False (TaskId:54)
+                     Task Parameter:Value={79BE74D7-2CE8-4AD2-BCD2-BFCBFF21FE51} (TaskId:54)
+                     Task Parameter:Name=VSTEL_SolutionSessionID (TaskId:54)
+                     VSTEL_SolutionSessionID={79BE74D7-2CE8-4AD2-BCD2-BFCBFF21FE51} (TaskId:54)
+                   Done executing task "SetEnv". (TaskId:54)
+                   Task "SetEnv" (TaskId:55)
+                     Task Parameter:Prefix=False (TaskId:55)
+                     Task Parameter:Value=1268129619 (TaskId:55)
+                     Task Parameter:Name=VSTEL_CurrentSolutionBuildID (TaskId:55)
+                     VSTEL_CurrentSolutionBuildID=1268129619 (TaskId:55)
+                   Done executing task "SetEnv". (TaskId:55)
+                   Task "SetEnv" (TaskId:56)
+                     Task Parameter:Prefix=False (TaskId:56)
+                     Task Parameter:Value={5d620f81-6584-435a-a8df-96c1204c6073} (TaskId:56)
+                     Task Parameter:Name=VSTEL_ProjectID (TaskId:56)
+                     VSTEL_ProjectID={5d620f81-6584-435a-a8df-96c1204c6073} (TaskId:56)
+                     Output Property: VSTEL_ProjectID={5d620f81-6584-435a-a8df-96c1204c6073} (TaskId:56)
+                   Done executing task "SetEnv". (TaskId:56)
+                   Task "SetEnv" (TaskId:57)
+                     Task Parameter:Prefix=False (TaskId:57)
+                     Task Parameter:Value=C:\Users\sfcsarge\source\repos\Stepper\Stepper.sln (TaskId:57)
+                     Task Parameter:Name=VSTEL_SolutionPath (TaskId:57)
+                     VSTEL_SolutionPath=C:\Users\sfcsarge\source\repos\Stepper\Stepper.sln (TaskId:57)
+                   Done executing task "SetEnv". (TaskId:57)
+                   Task "SetEnv" (TaskId:58)
+                     Task Parameter:Prefix=False (TaskId:58)
+                     Task Parameter:Value=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj (TaskId:58)
+                     Task Parameter:Name=VSTEL_MSBuildProjectFullPath (TaskId:58)
+                     VSTEL_MSBuildProjectFullPath=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj (TaskId:58)
+                   Done executing task "SetEnv". (TaskId:58)
+13:43:59.913     1>Done building target "SetTelemetryEnvironmentVariables" in project "Sketch1.vcxproj".: (TargetId:68)
+13:43:59.913     1>Target "_PrepareForRebuild: (TargetId:69)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Rebuild" depends on it):
                    Set Property: BuildType=Rebuild
                    Set Property: _BuildActionType=Rebuild
                    Removed Item(s): 
                        CustomBuildStep=
                            Sketch1
                                    Message=Performing Custom Build Step
-17:24:58.491     1>Done building target "_PrepareForRebuild" in project "Sketch1.vcxproj".: (TargetId:160)
-17:24:58.491     1>Target "BeforeRebuild: (TargetId:161)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Rebuild" depends on it):
-17:24:58.491     1>Done building target "BeforeRebuild" in project "Sketch1.vcxproj".: (TargetId:161)
-17:24:58.491     1>Target "_PrepareForClean: (TargetId:162)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Clean" depends on it):
+13:43:59.914     1>Done building target "_PrepareForRebuild" in project "Sketch1.vcxproj".: (TargetId:69)
+13:43:59.914     1>Target "BeforeRebuild: (TargetId:70)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Rebuild" depends on it):
+13:43:59.914     1>Done building target "BeforeRebuild" in project "Sketch1.vcxproj".: (TargetId:70)
+13:43:59.914     1>Target "_PrepareForClean: (TargetId:71)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.BuildSteps.Targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Clean" depends on it):
                    Set Property: _BuildActionType=Clean
                    Task "Delete" skipped, due to false condition; (Exists($(LastBuildState))) was evaluated as (Exists(C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\Sketch1.tlog\Sketch1.lastbuildstate)).
-17:24:58.492     1>Done building target "_PrepareForClean" in project "Sketch1.vcxproj".: (TargetId:162)
+13:43:59.914     1>Done building target "_PrepareForClean" in project "Sketch1.vcxproj".: (TargetId:71)
                    Target "_WaitForServiceFabricApplicationCleanupBeforeClean" skipped, due to false condition; ('$(IsServiceFabricServiceProject)' == 'true') was evaluated as ('' == 'true').
-17:24:58.492     1>Target "BeforeClean: (TargetId:163)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Clean" depends on it):
-17:24:58.492     1>Done building target "BeforeClean" in project "Sketch1.vcxproj".: (TargetId:163)
+13:43:59.914     1>Target "BeforeClean: (TargetId:72)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Clean" depends on it):
+13:43:59.914     1>Done building target "BeforeClean" in project "Sketch1.vcxproj".: (TargetId:72)
                    Target "UnmanagedUnregistration" skipped, due to false condition; ((('$(_AssemblyTimestampBeforeCompile)' != '$(_AssemblyTimestampAfterCompile)' or '$(RegisterForComInterop)' != 'true' or '$(OutputType)' != 'library') or
                                        ('$(_AssemblyTimestampBeforeCompile)' == '')) and
                                       Exists('@(_UnmanagedRegistrationCache)')) was evaluated as ((('' != '' or '' != 'true' or 'exe' != 'library') or
                                        ('' == '')) and
                                       Exists('obj\Sketch1.vcxproj.UnmanagedRegistration.cache')).
-17:24:58.492     1>Target "CoreClean: (TargetId:164)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Clean" depends on it):
-                   Task "Delete" (TaskId:154)
+13:43:59.914     1>Target "CoreClean: (TargetId:73)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Clean" depends on it):
+                   Task "Delete" (TaskId:59)
                      Task Parameter:
                          Files=
                              C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\\TempCA\Sketch1.pdb
-                             C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\\TempCA\Sketch1.out (TaskId:154)
-                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:154)
-                     File "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\\TempCA\Sketch1.pdb" doesn't exist. Skipping. (TaskId:154)
-                     File "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\\TempCA\Sketch1.out" doesn't exist. Skipping. (TaskId:154)
-                   Done executing task "Delete". (TaskId:154)
-                   Task "ReadLinesFromFile" (TaskId:155)
-                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\Sketch1.vcxproj.FileListAbsolute.txt (TaskId:155)
-                   Done executing task "ReadLinesFromFile". (TaskId:155)
-                   Task "FindUnderPath" (TaskId:156)
-                     Task Parameter:Path=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\bin\x64\Debug\ (TaskId:156)
-                     Comparison path is "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\bin\x64\Debug\". (TaskId:156)
-                   Done executing task "FindUnderPath". (TaskId:156)
-                   Task "FindUnderPath" (TaskId:157)
-                     Task Parameter:Path=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\ (TaskId:157)
-                     Comparison path is "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\". (TaskId:157)
-                   Done executing task "FindUnderPath". (TaskId:157)
-                   Task "Delete" (TaskId:158)
-                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:158)
-                   Done executing task "Delete". (TaskId:158)
-                   Task "RemoveDuplicates" (TaskId:159)
-                   Done executing task "RemoveDuplicates". (TaskId:159)
-                   Task "MakeDir" (TaskId:160)
-                     Task Parameter:Directories=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\ (TaskId:160)
-                   Done executing task "MakeDir". (TaskId:160)
-                   Task "WriteLinesToFile" (TaskId:161)
-                     Task Parameter:WriteOnlyWhenDifferent=True (TaskId:161)
-                     Task Parameter:Overwrite=True (TaskId:161)
-                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\Sketch1.vcxproj.FileListAbsolute.txt (TaskId:161)
-                   Done executing task "WriteLinesToFile". (TaskId:161)
-17:24:58.493     1>Done building target "CoreClean" in project "Sketch1.vcxproj".: (TargetId:164)
+                             C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\\TempCA\Sketch1.out (TaskId:59)
+                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:59)
+                     File "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\\TempCA\Sketch1.pdb" doesn't exist. Skipping. (TaskId:59)
+                     File "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\\TempCA\Sketch1.out" doesn't exist. Skipping. (TaskId:59)
+                   Done executing task "Delete". (TaskId:59)
+                   Task "ReadLinesFromFile" (TaskId:60)
+                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\Sketch1.vcxproj.FileListAbsolute.txt (TaskId:60)
+                   Done executing task "ReadLinesFromFile". (TaskId:60)
+                   Task "FindUnderPath" (TaskId:61)
+                     Task Parameter:Path=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\bin\x64\Debug\ (TaskId:61)
+                     Comparison path is "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\bin\x64\Debug\". (TaskId:61)
+                   Done executing task "FindUnderPath". (TaskId:61)
+                   Task "FindUnderPath" (TaskId:62)
+                     Task Parameter:Path=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\ (TaskId:62)
+                     Comparison path is "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\". (TaskId:62)
+                   Done executing task "FindUnderPath". (TaskId:62)
+                   Task "Delete" (TaskId:63)
+                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:63)
+                   Done executing task "Delete". (TaskId:63)
+                   Task "RemoveDuplicates" (TaskId:64)
+                   Done executing task "RemoveDuplicates". (TaskId:64)
+                   Task "MakeDir" (TaskId:65)
+                     Task Parameter:Directories=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\ (TaskId:65)
+                   Done executing task "MakeDir". (TaskId:65)
+                   Task "WriteLinesToFile" (TaskId:66)
+                     Task Parameter:WriteOnlyWhenDifferent=True (TaskId:66)
+                     Task Parameter:Overwrite=True (TaskId:66)
+                     Task Parameter:File=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\Sketch1.vcxproj.FileListAbsolute.txt (TaskId:66)
+                     Skipping write to file "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\obj\x64\Debug\Sketch1.vcxproj.FileListAbsolute.txt" because content would not change. (TaskId:66)
+                   Done executing task "WriteLinesToFile". (TaskId:66)
+13:43:59.916     1>Done building target "CoreClean" in project "Sketch1.vcxproj".: (TargetId:73)
                    Target "_CleanMdbFiles" skipped, due to false condition; (Exists('$(TargetPath).mdb')) was evaluated as (Exists('C:\Users\sfcsarge\source\repos\Stepper\Sketch1\bin\x64\Debug\Sketch1.out.mdb')).
-17:24:58.493     1>Target "IgnoreJavaScriptOutputAssembly: (TargetId:165)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "AssignProjectConfiguration" depends on it):
-17:24:58.493     1>Done building target "IgnoreJavaScriptOutputAssembly" in project "Sketch1.vcxproj".: (TargetId:165)
-17:24:58.493     1>Target "AssignProjectConfiguration: (TargetId:166)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "PrepareProjectReferences" depends on it):
+13:43:59.916     1>Target "IgnoreJavaScriptOutputAssembly: (TargetId:74)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "AssignProjectConfiguration" depends on it):
+13:43:59.916     1>Done building target "IgnoreJavaScriptOutputAssembly" in project "Sketch1.vcxproj".: (TargetId:74)
+13:43:59.916     1>Target "AssignProjectConfiguration: (TargetId:75)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "PrepareProjectReferences" depends on it):
                    Set Property: ShouldUnsetParentConfigurationAndPlatform=true
-                   Task "AssignProjectConfiguration" (TaskId:162)
-                     Task Parameter:OutputType=exe (TaskId:162)
-                     Task Parameter:CurrentProjectPlatform=x64 (TaskId:162)
-                     Task Parameter:CurrentProject=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj (TaskId:162)
-                     Task Parameter:ResolveConfigurationPlatformUsingMappings=False (TaskId:162)
+                   Task "AssignProjectConfiguration" (TaskId:67)
+                     Task Parameter:OutputType=exe (TaskId:67)
+                     Task Parameter:CurrentProjectPlatform=x64 (TaskId:67)
+                     Task Parameter:CurrentProject=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj (TaskId:67)
+                     Task Parameter:ResolveConfigurationPlatformUsingMappings=False (TaskId:67)
                      Task Parameter:SolutionConfigurationContents=<SolutionConfiguration>
                      <ProjectConfiguration Project="{b93849c3-b4ae-4a92-8611-d2d95937b1a4}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\Stepper\Stepper.csproj">Debug|AnyCPU</ProjectConfiguration>
-                     <ProjectConfiguration Project="{934a2a5d-9de2-45da-ab4a-87931e7145f1}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\ArdunioStepper\ArdunioStepper.vcxproj">Debug|x64</ProjectConfiguration>
                      <ProjectConfiguration Project="{0c29a58f-2c1d-4b6e-a656-6c09888d091c}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\xAxisStepperBoard\xAxisStepperBoard.vcxproj">Debug|x64</ProjectConfiguration>
                      <ProjectConfiguration Project="{72c52ac2-1667-4cb7-8c64-5f035dead72a}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\yAxisStepperBoard\yAxisStepperBoard.vcxproj">Debug|x64</ProjectConfiguration>
                      <ProjectConfiguration Project="{355f2809-44a2-458f-9852-7cf42032afc3}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\zAxisStepperBoard\zAxisStepperBoard.vcxproj">Debug|x64</ProjectConfiguration>
                      <ProjectConfiguration Project="{5d620f81-6584-435a-a8df-96c1204c6073}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj">Debug|x64</ProjectConfiguration>
-                     <ProjectConfiguration Project="{a5894898-943b-f39a-9bdd-6e45acfaa854}" AbsolutePath="C:\Users\sfcsarge\source\repos\WindowsInput\WindowsInput\WindowsInput.csproj">Debug|AnyCPU</ProjectConfiguration>
-                     </SolutionConfiguration> (TaskId:162)
-                     Task Parameter:ShouldUnsetParentConfigurationAndPlatform=True (TaskId:162)
-                     Task Parameter:OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration=True (TaskId:162)
-                     Task Parameter:CurrentProjectConfiguration=Debug (TaskId:162)
-                   Done executing task "AssignProjectConfiguration". (TaskId:162)
-17:24:58.493     1>Done building target "AssignProjectConfiguration" in project "Sketch1.vcxproj".: (TargetId:166)
-17:24:58.493     1>Target "_SplitProjectReferencesByFileExistence: (TargetId:167)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "PrepareProjectReferences" depends on it):
+                     <ProjectConfiguration Project="{52d6077e-a8a8-53c8-4435-957fd587c63d}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\MauiStepper\MauiStepper.csproj">Debug|AnyCPU</ProjectConfiguration>
+                     <ProjectConfiguration Project="{23a544c9-3b0c-777f-0479-91f6feff46ba}" AbsolutePath="C:\Users\sfcsarge\source\repos\Stepper\WindowsInput\WindowsInput.csproj">Debug|AnyCPU</ProjectConfiguration>
+                     </SolutionConfiguration> (TaskId:67)
+                     Task Parameter:ShouldUnsetParentConfigurationAndPlatform=True (TaskId:67)
+                     Task Parameter:OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration=True (TaskId:67)
+                     Task Parameter:CurrentProjectConfiguration=Debug (TaskId:67)
+                   Done executing task "AssignProjectConfiguration". (TaskId:67)
+13:43:59.916     1>Done building target "AssignProjectConfiguration" in project "Sketch1.vcxproj".: (TargetId:75)
+13:43:59.916     1>Target "_SplitProjectReferencesByFileExistence: (TargetId:76)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "PrepareProjectReferences" depends on it):
                    Task "ResolveNonMSBuildProjectOutput" skipped, due to false condition; ('$(BuildingInsideVisualStudio)'=='true' and '@(ProjectReferenceWithConfiguration)'!='') was evaluated as ('true'=='true' and ''!='').
-17:24:58.494     1>Done building target "_SplitProjectReferencesByFileExistence" in project "Sketch1.vcxproj".: (TargetId:167)
-17:24:58.494     1>Target "_AddOutputPathToGlobalPropertiesToRemove: (TargetId:168)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "_GetProjectReferenceTargetFrameworkProperties" depends on it):
-17:24:58.494     1>Done building target "_AddOutputPathToGlobalPropertiesToRemove" in project "Sketch1.vcxproj".: (TargetId:168)
-17:24:58.494     1>Target "_GetProjectReferenceTargetFrameworkProperties: (TargetId:169)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "PrepareProjectReferences" depends on it):
+13:43:59.916     1>Done building target "_SplitProjectReferencesByFileExistence" in project "Sketch1.vcxproj".: (TargetId:76)
+13:43:59.916     1>Target "_AddOutputPathToGlobalPropertiesToRemove: (TargetId:77)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "_GetProjectReferenceTargetFrameworkProperties" depends on it):
+13:43:59.916     1>Done building target "_AddOutputPathToGlobalPropertiesToRemove" in project "Sketch1.vcxproj".: (TargetId:77)
+13:43:59.916     1>Target "_GetProjectReferenceTargetFrameworkProperties: (TargetId:78)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "PrepareProjectReferences" depends on it):
                    Set Property: ReferringTargetFrameworkForProjectReferences=
-                   Task "MSBuild" (TaskId:163)
-                     Task Parameter:BuildInParallel=True (TaskId:163)
-                     Task Parameter:SkipNonexistentTargets=True (TaskId:163)
-                     Task Parameter:RemoveProperties=;TargetFramework;RuntimeIdentifier;SelfContained; (TaskId:163)
-                     Task Parameter:Targets=GetTargetFrameworks (TaskId:163)
-                   Done executing task "MSBuild". (TaskId:163)
+                   Task "MSBuild" (TaskId:68)
+                     Task Parameter:BuildInParallel=True (TaskId:68)
+                     Task Parameter:SkipNonexistentTargets=True (TaskId:68)
+                     Task Parameter:RemoveProperties=;TargetFramework;RuntimeIdentifier;SelfContained; (TaskId:68)
+                     Task Parameter:Targets=GetTargetFrameworks (TaskId:68)
+                   Done executing task "MSBuild". (TaskId:68)
                    Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.SkipGetTargetFrameworkProperties)' != 'true' and '$(EnableDynamicPlatformResolution)' == 'true') was evaluated as ('' != 'true' and '' == 'true').
                    Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities)' != '' and '$(ReferringTargetFrameworkForProjectReferences)' != ''
                                                                            And '$(GetReferenceNearestTargetFrameworkTaskSupportsTargetPlatformParameter)' == 'true' and '%(_ProjectReferenceTargetFrameworkPossibilities.IsVcxOrNativeProj)' != 'true') was evaluated as ('' != '' and '' != ''
@@ -1066,33 +1067,33 @@ Logging verbosity is set to: Diagnostic.17:24:58.486     1>Project "C:\Users\sfc
                    Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities)' != '' and '$(ReferringTargetFrameworkForProjectReferences)' != ''
                                                                            And '$(GetReferenceNearestTargetFrameworkTaskSupportsTargetPlatformParameter)' != 'true' and '%(_ProjectReferenceTargetFrameworkPossibilities.IsVcxOrNativeProj)' != 'true') was evaluated as ('' != '' and '' != ''
                                                                            And 'true' != 'true' and '' != 'true').
-                   Task "SetRidAgnosticValueForProjects" (TaskId:164)
-                   Done executing task "SetRidAgnosticValueForProjects". (TaskId:164)
-17:24:58.494     1>Done building target "_GetProjectReferenceTargetFrameworkProperties" in project "Sketch1.vcxproj".: (TargetId:169)
+                   Task "SetRidAgnosticValueForProjects" (TaskId:69)
+                   Done executing task "SetRidAgnosticValueForProjects". (TaskId:69)
+13:43:59.918     1>Done building target "_GetProjectReferenceTargetFrameworkProperties" in project "Sketch1.vcxproj".: (TargetId:78)
                    Target "_GetProjectReferencePlatformProperties" skipped, due to false condition; ('$(EnableDynamicPlatformResolution)' == 'true'
                                         and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true'
                                         and '' != '').
-17:24:58.494     1>Target "PrepareProjectReferences: (TargetId:170)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "CleanReferencedProjects" depends on it):
-17:24:58.494     1>Done building target "PrepareProjectReferences" in project "Sketch1.vcxproj".: (TargetId:170)
-17:24:58.494     1>Target "CleanReferencedProjects: (TargetId:171)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Clean" depends on it):
+13:43:59.918     1>Target "PrepareProjectReferences: (TargetId:79)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "CleanReferencedProjects" depends on it):
+13:43:59.918     1>Done building target "PrepareProjectReferences" in project "Sketch1.vcxproj".: (TargetId:79)
+13:43:59.918     1>Target "CleanReferencedProjects: (TargetId:80)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Clean" depends on it):
                    Task "MSBuild" skipped, due to false condition; ('$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('true' != 'true' and 'true' == 'true' and '' != '').
-17:24:58.494     1>Done building target "CleanReferencedProjects" in project "Sketch1.vcxproj".: (TargetId:171)
-17:24:58.494     1>Target "CleanPublishFolder: (TargetId:172)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Clean" depends on it):
+13:43:59.918     1>Done building target "CleanReferencedProjects" in project "Sketch1.vcxproj".: (TargetId:80)
+13:43:59.918     1>Target "CleanPublishFolder: (TargetId:81)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Clean" depends on it):
                    Task "RemoveDir" skipped, due to false condition; ('$(ClickOncePublishDir)'=='$(OutputPath)app.publish\' and Exists('$(ClickOncePublishDir)')) was evaluated as ('C:\Users\sfcsarge\source\repos\Stepper\Sketch1\bin\x64\Debug\app.publish\'=='C:\Users\sfcsarge\source\repos\Stepper\Sketch1\bin\x64\Debug\app.publish\' and Exists('C:\Users\sfcsarge\source\repos\Stepper\Sketch1\bin\x64\Debug\app.publish\')).
-17:24:58.494     1>Done building target "CleanPublishFolder" in project "Sketch1.vcxproj".: (TargetId:172)
-17:24:58.494     1>Target "AfterClean: (TargetId:173)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Clean" depends on it):
-17:24:58.494     1>Done building target "AfterClean" in project "Sketch1.vcxproj".: (TargetId:173)
-17:24:58.494     1>Target "BeforeCppClean: (TargetId:174)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppClean.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "CppClean" depends on it):
-17:24:58.494     1>Done building target "BeforeCppClean" in project "Sketch1.vcxproj".: (TargetId:174)
-17:24:58.494     1>Target "_ConsolidateSourcesToCopy: (TargetId:175)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.Common.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "_RequiresRemoteConnection" depends on it):
+13:43:59.918     1>Done building target "CleanPublishFolder" in project "Sketch1.vcxproj".: (TargetId:81)
+13:43:59.918     1>Target "AfterClean: (TargetId:82)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "Clean" depends on it):
+13:43:59.918     1>Done building target "AfterClean" in project "Sketch1.vcxproj".: (TargetId:82)
+13:43:59.918     1>Target "BeforeCppClean: (TargetId:83)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppClean.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "CppClean" depends on it):
+13:43:59.918     1>Done building target "BeforeCppClean" in project "Sketch1.vcxproj".: (TargetId:83)
+13:43:59.918     1>Target "_ConsolidateSourcesToCopy: (TargetId:84)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.Common.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "_RequiresRemoteConnection" depends on it):
                    Using "ConsolidateSourcesToCopy" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Microsoft.Build.Linux.Tasks.dll".
-                   Task "ConsolidateSourcesToCopy" (TaskId:165)
-                     Task Parameter:ProjectDir=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\ (TaskId:165)
+                   Task "ConsolidateSourcesToCopy" (TaskId:70)
+                     Task Parameter:ProjectDir=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\ (TaskId:70)
                      Task Parameter:
                          SourcesOverride=
                              Sketch1.ino
                              __vm\.Sketch1.vsarduino.h
-                             src\arduino folders read me.txt (TaskId:165)
+                             src\arduino folders read me.txt (TaskId:70)
                      Task Parameter:
                          Sources=
                              Sketch1.ino
@@ -1145,7 +1146,7 @@ Logging verbosity is set to: Diagnostic.17:24:58.486     1>Project "C:\Users\sfc
                                      WarningLevel=EnableAllWarnings
                              __vm\.Sketch1.vsarduino.h
                              src\arduino folders read me.txt
-                                     CopyToOutputDirectory=Never (TaskId:165)
+                                     CopyToOutputDirectory=Never (TaskId:70)
                      Output Item(s): 
                          FinalSourcesToCopyRemotely=
                              Sketch1.ino
@@ -1201,13 +1202,13 @@ Logging verbosity is set to: Diagnostic.17:24:58.486     1>Project "C:\Users\sfc
                                      NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\__vm\.Sketch1.vsarduino.h
                              src\arduino folders read me.txt
                                      CopyToOutputDirectory=Never
-                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\src\arduino folders read me.txt (TaskId:165)
-                   Done executing task "ConsolidateSourcesToCopy". (TaskId:165)
-17:24:58.506     1>Done building target "_ConsolidateSourcesToCopy" in project "Sketch1.vcxproj".: (TargetId:175)
-17:24:58.506     1>Target "_RequiresRemoteConnection: (TargetId:176)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "_ResolveRemoteTarget" depends on it):
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\src\arduino folders read me.txt (TaskId:70)
+                   Done executing task "ConsolidateSourcesToCopy". (TaskId:70)
+13:43:59.948     1>Done building target "_ConsolidateSourcesToCopy" in project "Sketch1.vcxproj".: (TargetId:84)
+13:43:59.948     1>Target "_RequiresRemoteConnection: (TargetId:85)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "_ResolveRemoteTarget" depends on it):
                    Using "RequiresRemoteConnection" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Microsoft.Build.Linux.Tasks.dll".
-                   Task "RequiresRemoteConnection" (TaskId:166)
-                     Task Parameter:PostBuildEventEnabled=true (TaskId:166)
+                   Task "RequiresRemoteConnection" (TaskId:71)
+                     Task Parameter:PostBuildEventEnabled=true (TaskId:71)
                      Task Parameter:
                          ClCompile=
                              Sketch1.ino
@@ -1257,8 +1258,8 @@ Logging verbosity is set to: Diagnostic.17:24:58.486     1>Project "C:\Users\sfc
                                      UndefineAllPreprocessorDefinitions=true
                                      UnrollLoops=false
                                      Verbose=false
-                                     WarningLevel=EnableAllWarnings (TaskId:166)
-                     Task Parameter:RemotePostBuildEventEnabled=true (TaskId:166)
+                                     WarningLevel=EnableAllWarnings (TaskId:71)
+                     Task Parameter:RemotePostBuildEventEnabled=true (TaskId:71)
                      Task Parameter:
                          Sources=
                              Sketch1.ino
@@ -1314,69 +1315,69 @@ Logging verbosity is set to: Diagnostic.17:24:58.486     1>Project "C:\Users\sfc
                                      NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\__vm\.Sketch1.vsarduino.h
                              src\arduino folders read me.txt
                                      CopyToOutputDirectory=Never
-                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\src\arduino folders read me.txt (TaskId:166)
-                     Task Parameter:CopySourcesEnabled=true (TaskId:166)
-                     Task Parameter:PreBuildEventEnabled=true (TaskId:166)
-                     Task Parameter:RemotePreBuildEventEnabled=true (TaskId:166)
-                     Checking if current project requires a remote connection. (TaskId:166)
-                     Current project requires a remote connection. (TaskId:166)
-                     Output Property: RequireRemoteConnection=True (TaskId:166)
-                   Done executing task "RequiresRemoteConnection". (TaskId:166)
-17:24:58.510     1>Done building target "_RequiresRemoteConnection" in project "Sketch1.vcxproj".: (TargetId:176)
-17:24:58.510     1>Target "_ResolveRemoteTarget: (TargetId:177)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "_PrepareUpToDateChecks" depends on it):
+                                     NormalizedLocalFullPath=C:\Users\sfcsarge\source\repos\Stepper\Sketch1\src\arduino folders read me.txt (TaskId:71)
+                     Task Parameter:CopySourcesEnabled=true (TaskId:71)
+                     Task Parameter:PreBuildEventEnabled=true (TaskId:71)
+                     Task Parameter:RemotePreBuildEventEnabled=true (TaskId:71)
+                     Checking if current project requires a remote connection. (TaskId:71)
+                     Current project requires a remote connection. (TaskId:71)
+                     Output Property: RequireRemoteConnection=True (TaskId:71)
+                   Done executing task "RequiresRemoteConnection". (TaskId:71)
+13:43:59.954     1>Done building target "_RequiresRemoteConnection" in project "Sketch1.vcxproj".: (TargetId:85)
+13:43:59.954     1>Target "_ResolveRemoteTarget: (TargetId:86)" in file "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets" from project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (target "_PrepareUpToDateChecks" depends on it):
                    Using "ResolveRemoteTarget" task from assembly "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Microsoft.Build.Linux.Tasks.dll".
-                   Task "ResolveRemoteTarget" (TaskId:167)
-                     Task Parameter:RequireRemoteConnection=True (TaskId:167)
-17:24:58.515     1>C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets(158,5): error : There are no remote machines configured for remote builds. Please configure a machine using Tools | Options | Cross Platform | Connection Manager.
-                     Output Property: RemoteTargetResolved=False (TaskId:167)
-                   Done executing task "ResolveRemoteTarget" -- FAILED. (TaskId:167)
-17:24:58.516     1>Done building target "_ResolveRemoteTarget" in project "Sketch1.vcxproj" -- FAILED.: (TargetId:177)
-17:24:58.518     1>Done Building Project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (Rebuild target(s)) -- FAILED.
+                   Task "ResolveRemoteTarget" (TaskId:72)
+                     Task Parameter:RequireRemoteConnection=True (TaskId:72)
+13:43:59.960     1>C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets(158,5): error : There are no remote machines configured for remote builds. Please configure a machine using Tools | Options | Cross Platform | Connection Manager.
+                     Output Property: RemoteTargetResolved=False (TaskId:72)
+                   Done executing task "ResolveRemoteTarget" -- FAILED. (TaskId:72)
+13:43:59.960     1>Done building target "_ResolveRemoteTarget" in project "Sketch1.vcxproj" -- FAILED.: (TargetId:86)
+13:43:59.960     1>Done Building Project "C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj" (Rebuild target(s)) -- FAILED.
 
 Project Evaluation Performance Summary:
-       13 ms  C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj   1 calls
+       57 ms  C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj   1 calls
 
 Project Performance Summary:
-       32 ms  C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj   1 calls
-                 32 ms  Rebuild                                    1 calls
+       54 ms  C:\Users\sfcsarge\source\repos\Stepper\Sketch1\Sketch1.vcxproj   1 calls
+                 54 ms  Rebuild                                    1 calls
 
 Target Performance Summary:
-        0 ms  _CheckForInvalidConfigurationAndPlatform   1 calls
+        0 ms  _SplitProjectReferencesByFileExistence     1 calls
         0 ms  BeforeCppClean                             1 calls
-        0 ms  _PrepareForRebuild                         1 calls
-        0 ms  BeforeRebuild                              1 calls
         0 ms  AfterClean                                 1 calls
+        0 ms  BeforeRebuild                              1 calls
+        0 ms  _PrepareForClean                           1 calls
         0 ms  BeforeClean                                1 calls
+        0 ms  CleanPublishFolder                         1 calls
         0 ms  IgnoreJavaScriptOutputAssembly             1 calls
         0 ms  AssignProjectConfiguration                 1 calls
-        0 ms  CleanPublishFolder                         1 calls
-        0 ms  _AddOutputPathToGlobalPropertiesToRemove   1 calls
-        0 ms  _GetProjectReferenceTargetFrameworkProperties   1 calls
-        0 ms  PrepareProjectReferences                   1 calls
         0 ms  CleanReferencedProjects                    1 calls
-        1 ms  CoreClean                                  1 calls
-        1 ms  _SplitProjectReferencesByFileExistence     1 calls
-        1 ms  _PrepareForClean                           1 calls
-        4 ms  _RequiresRemoteConnection                  1 calls
-        5 ms  SetTelemetryEnvironmentVariables           1 calls
+        0 ms  _AddOutputPathToGlobalPropertiesToRemove   1 calls
+        0 ms  PrepareProjectReferences                   1 calls
+        1 ms  _CheckForInvalidConfigurationAndPlatform   1 calls
+        1 ms  _PrepareForRebuild                         1 calls
+        2 ms  _GetProjectReferenceTargetFrameworkProperties   1 calls
+        2 ms  CoreClean                                  1 calls
         6 ms  _ResolveRemoteTarget                       1 calls
-       12 ms  _ConsolidateSourcesToCopy                  1 calls
+        6 ms  SetTelemetryEnvironmentVariables           1 calls
+        6 ms  _RequiresRemoteConnection                  1 calls
+       30 ms  _ConsolidateSourcesToCopy                  1 calls
 
 Task Performance Summary:
-        0 ms  Message                                    2 calls
         0 ms  Delete                                     2 calls
         0 ms  ReadLinesFromFile                          1 calls
-        0 ms  FindUnderPath                              2 calls
         0 ms  RemoveDuplicates                           1 calls
         0 ms  MakeDir                                    1 calls
-        0 ms  WriteLinesToFile                           1 calls
         0 ms  AssignProjectConfiguration                 1 calls
         0 ms  MSBuild                                    1 calls
         0 ms  SetRidAgnosticValueForProjects             1 calls
-        1 ms  SetEnv                                     5 calls
-        4 ms  RequiresRemoteConnection                   1 calls
+        1 ms  FindUnderPath                              2 calls
+        1 ms  Message                                    2 calls
+        1 ms  WriteLinesToFile                           1 calls
+        2 ms  SetEnv                                     5 calls
         6 ms  ResolveRemoteTarget                        1 calls
-       12 ms  ConsolidateSourcesToCopy                   1 calls
+        6 ms  RequiresRemoteConnection                   1 calls
+       16 ms  ConsolidateSourcesToCopy                   1 calls
 
 Build FAILED.
 
@@ -1387,4 +1388,4 @@ Build FAILED.
     0 Warning(s)
     1 Error(s)
 
-Time Elapsed 00:00:00.03
+Time Elapsed 00:00:00.05
