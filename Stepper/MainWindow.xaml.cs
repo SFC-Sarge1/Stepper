@@ -217,15 +217,15 @@ namespace Stepper
         /// <summary>
         /// The x axis run completed
         /// </summary>
-        public bool xAxisRunCompleted = false;
+        public bool xAxisRunToCompletion = false;
         /// <summary>
         /// The y axis run completed
         /// </summary>
-        public bool yAxisRunCompleted = false;
+        public bool yAxisRunToCompletion = false;
         /// <summary>
         /// The z axis run completed
         /// </summary>
-        public bool zAxisRunCompleted = false;
+        public bool zAxisRunToCompletion = false;
         /// <summary>
         /// The serial port
         /// </summary>
@@ -474,15 +474,18 @@ namespace Stepper
         {
             if (sender == xTimer)
             {
-                HandleTimerTick("X", xStopwatch, xTargetEndTime, ref xAxisRunCompleted, ref xAxisClearAbsolutePosition, ref xAxisAbsolutePosition, txtXaxisStepperMove, txtXaxisStepperCurrent, txtXaxisMotorSpeed, ckbXaxisResetToZero, ref XaxisChanged, ref LimitSwitchPressed);
+                xAxisRunToCompletion = true;
+                HandleTimerTick("X", xStopwatch, xTargetEndTime, ref xAxisRunToCompletion, ref xAxisClearAbsolutePosition, ref xAxisAbsolutePosition, txtXaxisStepperMove, txtXaxisStepperCurrent, txtXaxisMotorSpeed, ckbXaxisResetToZero, ref XaxisChanged, ref LimitSwitchPressed);
             }
             else if (sender == yTimer)
             {
-                HandleTimerTick("Y", yStopwatch, yTargetEndTime, ref yAxisRunCompleted, ref yAxisClearAbsolutePosition, ref yAxisAbsolutePosition, txtYaxisStepperMove, txtYaxisStepperCurrent, txtYaxisMotorSpeed, ckbYaxisResetToZero, ref YaxisChanged, ref LimitSwitchPressed);
+                yAxisRunToCompletion = true;
+                HandleTimerTick("Y", yStopwatch, yTargetEndTime, ref yAxisRunToCompletion, ref yAxisClearAbsolutePosition, ref yAxisAbsolutePosition, txtYaxisStepperMove, txtYaxisStepperCurrent, txtYaxisMotorSpeed, ckbYaxisResetToZero, ref YaxisChanged, ref LimitSwitchPressed);
             }
             else if (sender == zTimer)
             {
-                HandleTimerTick("Z", zStopwatch, zTargetEndTime, ref zAxisRunCompleted, ref zAxisClearAbsolutePosition, ref zAxisAbsolutePosition, txtZaxisStepperMove, txtZaxisStepperCurrent, txtZaxisMotorSpeed, ckbZaxisResetToZero, ref ZaxisChanged, ref LimitSwitchPressed);
+                zAxisRunToCompletion = true;
+                HandleTimerTick("Z", zStopwatch, zTargetEndTime, ref zAxisRunToCompletion, ref zAxisClearAbsolutePosition, ref zAxisAbsolutePosition, txtZaxisStepperMove, txtZaxisStepperCurrent, txtZaxisMotorSpeed, ckbZaxisResetToZero, ref ZaxisChanged, ref LimitSwitchPressed);
             }
         }
 
@@ -492,7 +495,7 @@ namespace Stepper
         /// <param name="axis">The axis.</param>
         /// <param name="stopwatch">The stopwatch.</param>
         /// <param name="targetEndTime">The target end time.</param>
-        /// <param name="axisRunCompleted">if set to <c>true</c> [axis run completed].</param>
+        /// <param name="axisRunToCompletion">if set to <c>true</c> [axis run completed].</param>
         /// <param name="axisClearAbsolutePosition">if set to <c>true</c> [axis clear absolute position].</param>
         /// <param name="axisAbsolutePosition">The axis absolute position.</param>
         /// <param name="stepperMoveTextBox">The stepper move text box.</param>
@@ -501,7 +504,7 @@ namespace Stepper
         /// <param name="resetToZeroCheckBox">The reset to zero CheckBox.</param>
         /// <param name="axisChanged">if set to <c>true</c> [axis changed].</param>
         /// <param name="LimitSwitchPressed">if set to <c>true</c> [Limit Switch Pressed].</param></param>
-        private void HandleTimerTick(string axis, Stopwatch stopwatch, DateTime targetEndTime, ref bool axisRunCompleted, ref bool axisClearAbsolutePosition, ref float axisAbsolutePosition, TextBox stepperMoveTextBox, TextBox stepperCurrentTextBox, TextBox motorSpeedTextBox, CheckBox resetToZeroCheckBox, ref bool axisChanged, ref bool LimitSwitchPressed)
+        private void HandleTimerTick(string axis, Stopwatch stopwatch, DateTime targetEndTime, ref bool axisRunToCompletion, ref bool axisClearAbsolutePosition, ref float axisAbsolutePosition, TextBox stepperMoveTextBox, TextBox stepperCurrentTextBox, TextBox motorSpeedTextBox, CheckBox resetToZeroCheckBox, ref bool axisChanged, ref bool LimitSwitchPressed)
         {
             if (LimitSwitchPressed)
             {
@@ -540,7 +543,7 @@ namespace Stepper
 
                 return;
             }
-            else if (axisRunCompleted)
+            else if (axisRunToCompletion)
             {
 
                 ElapsedTime = stopwatch.Elapsed;
@@ -659,15 +662,14 @@ namespace Stepper
                 string Xindata = Xsp.ReadExisting();
                 Logger.LogInformation(message: $"X Axis Data Received: {Xindata}");
                 // Check if the message indicates the motor has stopped
-                if (Xindata.Contains("Z Axis CW STOPPED") || Xindata.Contains("Z Axis CCW STOPPED"))
+                if (Xindata.Contains("X Axis CW STOPPED") || Xindata.Contains("X Axis CCW STOPPED"))
                 {
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         _xLimitSwitchPress = true;
-                        xAxisRunCompleted = true;
+                        xAxisRunToCompletion = true;
                         xTimer.Stop();
                         xStopwatch.Stop();
-                        xAxisRunCompleted = true;
                         // Cancel the delay task
                         _xCancellationTokenSource.Cancel();
                         EnableControls();
@@ -678,6 +680,19 @@ namespace Stepper
                         RoutedEventArgs e = new();
                         AxisRun_Click(sender, e);
                         StartDelayTask("X", Xindata);
+                        XaxisChanged = true;
+                        LimitSwitchPressed = true;
+                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
+                        ckbXaxisResetToZero.IsChecked = false;
+                        xAxisClearAbsolutePosition = false;
+                        RoutedEventArgs e = new();
+                        AxisRun_Click(sender, e);
+                        StartDelayTask("Z", Xindata);
+                        Xindata = "";
+                        txtXaxisStepperCurrent.Text = "0.00";
+                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
+                        _xLimitSwitchPress = false;
+                        LimitSwitchPressed = false;
                     });
 
                 }
@@ -705,7 +720,7 @@ namespace Stepper
                                     Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(xAxisAbsolutePosition.ToString("F2"));
                                     Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
                                     Properties.Settings.Default.Save();
-                                    xAxisRunCompleted = false;
+                                    xAxisRunToCompletion = false;
                                     Logger.LogInformation($"X Axis Absolute Position {txtXaxisStepperCurrent.Text}");
                                     xAxisClearAbsolutePosition = true;
                                 });
@@ -745,10 +760,9 @@ namespace Stepper
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         _yLimitSwitchPress = true;
-                        yAxisRunCompleted = true;
+                        yAxisRunToCompletion = true;
                         yTimer.Stop();
                         yStopwatch.Stop();
-                        yAxisRunCompleted = true;
                         // Cancel the delay task
                         _yCancellationTokenSource.Cancel();
                         EnableControls();
@@ -760,8 +774,19 @@ namespace Stepper
                         RoutedEventArgs e = new();
                         AxisRun_Click(sender, e);
                         StartDelayTask("Y", Yindata);
-
-                        //MessageBox.Show("Y Axis Motor has stopped due to limit switch trigger.", "Motor Stopped", MessageBoxButton.OK, MessageBoxImage.Information);
+                        YaxisChanged = true;
+                        LimitSwitchPressed = true;
+                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
+                        ckbZaxisResetToZero.IsChecked = false;
+                        zAxisClearAbsolutePosition = false;
+                        RoutedEventArgs e = new();
+                        AxisRun_Click(sender, e);
+                        StartDelayTask("Y", Yindata);
+                        Yindata = "";
+                        txtYaxisStepperCurrent.Text = "0.00";
+                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
+                        _yLimitSwitchPress = false;
+                        LimitSwitchPressed = false;
                     });
 
                 }
@@ -789,7 +814,7 @@ namespace Stepper
                                     Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(yAxisAbsolutePosition.ToString("F2"));
                                     Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
                                     Properties.Settings.Default.Save();
-                                    yAxisRunCompleted = false;
+                                    xAxisRunToCompletion = false;
                                     Logger.LogInformation($"Y Axis Absolute Position {txtYaxisStepperCurrent.Text}");
                                     yAxisClearAbsolutePosition = true;
                                 });
@@ -823,30 +848,37 @@ namespace Stepper
                 SerialPort Zsp = (SerialPort)sender;
                 string Zindata = Zsp.ReadExisting();
                 Logger.LogInformation(message: $"Z Axis Data Received: {Zindata}");
-
-                // Check if the message indicates the motor has stopped
+                    // Check if the message indicates the motor has stopped
                 if (Zindata.Contains("Z Axis CW STOPPED") || Zindata.Contains("Z Axis CCW STOPPED"))
                 {
 
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         _zLimitSwitchPress = true;
-                        zAxisRunCompleted = true;
+                        zAxisRunToCompletion = true;
+                        Logger.LogInformation($"Limit Switch Pressed");
                         zTimer.Stop();
                         zStopwatch.Stop();
-                        zAxisRunCompleted = true;
+                        Logger.LogInformation($"Stepper Motor Controller Timer Stopped.");
+                        zStopwatch.Reset();
+                        Logger.LogInformation($"Stepper Motor Controller Stopwatch Reset.");
                         // Cancel the delay task
                         _zCancellationTokenSource.Cancel();
                         EnableControls();
                         ZaxisChanged = true;
                         LimitSwitchPressed = true;
                         CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
-                        ckbZaxisResetToZero.IsChecked = true;
+                        ckbZaxisResetToZero.IsChecked = false;
                         zAxisClearAbsolutePosition = false;
                         RoutedEventArgs e = new();
                         AxisRun_Click(sender, e);
                         StartDelayTask("Z", Zindata);
                         Zindata = "";
+                        txtZaxisStepperCurrent.Text = "0.00";
+                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
+                        _zLimitSwitchPress = false;
+                        LimitSwitchPressed = false;
+                        return;
                     });
                 }
                 else if (Zindata.Contains("Z Axis Absolute Position"))
@@ -874,7 +906,7 @@ namespace Stepper
                                     Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
                                     Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
                                     Properties.Settings.Default.Save();
-                                    zAxisRunCompleted = false;
+                                    xAxisRunToCompletion = false;
                                     Logger.LogInformation($"Z Axis Absolute Position {txtZaxisStepperCurrent.Text}");
                                     zAxisClearAbsolutePosition = true;
                                 });
@@ -903,39 +935,39 @@ namespace Stepper
         {
             if (sender == btnRunXAxis)
             {
-                xAxisRunCompleted = false;
+                xAxisRunToCompletion = true;
                 _xCancellationTokenSource = new CancellationTokenSource();
                 var token = _xCancellationTokenSource.Token;
                 await RunAxis("X", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, xSerialPort, token);
             }
             else if (sender == btnRunYAxis)
             {
-                yAxisRunCompleted = false;
+                yAxisRunToCompletion = true;
                 _yCancellationTokenSource = new CancellationTokenSource();
                 var token = _yCancellationTokenSource.Token;
                 await RunAxis("Y", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, ySerialPort, token);
             }
             else if (sender == btnRunZAxis)
             {
-                zAxisRunCompleted = false;
+                zAxisRunToCompletion = true;
                 _zCancellationTokenSource = new CancellationTokenSource();
                 var token = _zCancellationTokenSource.Token;
                 await RunAxis("Z", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, zSerialPort, token);
             }
             else if (sender == btnRunXYAxis)
             {
-                xAxisRunCompleted = false;
+                xAxisRunToCompletion = true;
                 _xCancellationTokenSource = new CancellationTokenSource();
                 var token = _xCancellationTokenSource.Token;
 
-                yAxisRunCompleted = false;
+                yAxisRunToCompletion = true;
                 _yCancellationTokenSource = new CancellationTokenSource();
                 var token1 = _yCancellationTokenSource.Token;
 
-                xAxisRunCompleted = false;
-                yAxisRunCompleted = false;
+                xAxisRunToCompletion = true;
+                yAxisRunToCompletion = true;
                 await RunAxis("X", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, xSerialPort, token);
-                while (!xAxisRunCompleted)
+                while (!xAxisRunToCompletion)
                 {
                     await Task.Delay(100);
                 }
@@ -1138,12 +1170,13 @@ namespace Stepper
             float distanceInMM = 0.00f;
 
             string command = string.Empty;
+
             switch (axis)
             {
                 case "X":
                     try
                     {
-                        if (xAxisRunCompleted)
+                        if (xAxisRunToCompletion)
                         {
                             distanceInMM = (float.Parse(txtXaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture) / stepsPerRevolution) * distancePerRevolution;
                             if (IsNegative(Convert.ToDecimal(float.Parse(txtXaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture))))
@@ -1189,7 +1222,7 @@ namespace Stepper
                 case "Y":
                     try
                     {
-                        if (yAxisRunCompleted)
+                        if (yAxisRunToCompletion)
                         {
                             distanceInMM = (float.Parse(txtYaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture) / stepsPerRevolution) * distancePerRevolution;
                             if (IsNegative(Convert.ToDecimal(float.Parse(txtYaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture))))
@@ -1235,7 +1268,7 @@ namespace Stepper
                 case "Z":
                     try
                     {
-                        if (zAxisRunCompleted)
+                        if (zAxisRunToCompletion)
                         {
                             distanceInMM = (float.Parse(txtZaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture) / stepsPerRevolution) * distancePerRevolution;
                             if (IsNegative(Convert.ToDecimal(float.Parse(txtZaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture))))
@@ -1990,9 +2023,9 @@ namespace Stepper
                 await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay) * 2);
                 Application.Current.Dispatcher.Invoke(() =>
                 {
-                    if ((axis == "X" && xAxisRunCompleted && (data.Contains("X Axis CW Motor Current Position:") || data.Contains("X Axis CCW Motor Current Position:"))) ||
-                                                    (axis == "Y" && yAxisRunCompleted && (data.Contains("Y Axis CW Motor Current Position:") || data.Contains("Y Axis CCW Motor Current Position:"))) ||
-                                                    (axis == "Z" && zAxisRunCompleted && (data.Contains("Z Axis CW Motor Current Position:") || data.Contains("Z Axis CCW Motor Current Position:"))))
+                    if ((axis == "X" && xAxisRunToCompletion && (data.Contains("X Axis CW Motor Current Position:") || data.Contains("X Axis CCW Motor Current Position:"))) ||
+                                                    (axis == "Y" && yAxisRunToCompletion && (data.Contains("Y Axis CW Motor Current Position:") || data.Contains("Y Axis CCW Motor Current Position:"))) ||
+                                                    (axis == "Z" && zAxisRunToCompletion && (data.Contains("Z Axis CW Motor Current Position:") || data.Contains("Z Axis CCW Motor Current Position:"))))
                     {
                         UpdateMotorPosition(axis, data);
                     }
@@ -2036,7 +2069,7 @@ namespace Stepper
                                     Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(xAxisAbsolutePosition.ToString("F2"));
                                     Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
                                     Properties.Settings.Default.Save();
-                                    xAxisRunCompleted = false;
+                                    xAxisRunToCompletion = false;
                                     Logger.LogInformation($"X Axis Motor Current Position: {txtXaxisStepperCurrent.Text}");
                                     xAxisClearAbsolutePosition = true;
                                 });
@@ -2053,7 +2086,7 @@ namespace Stepper
                                 Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(yAxisAbsolutePosition.ToString("F2"));
                                 Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
                                 Properties.Settings.Default.Save();
-                                yAxisRunCompleted = false;
+                                yAxisRunToCompletion = true;
                                 Logger.LogInformation($"Y Axis Motor Current Position: {txtYaxisStepperCurrent.Text}");
                                 yAxisClearAbsolutePosition = true;
                             });
@@ -2069,7 +2102,7 @@ namespace Stepper
                                 Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
                                 Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
                                 Properties.Settings.Default.Save();
-                                zAxisRunCompleted = false;
+                                zAxisRunToCompletion = false;
                                 Logger.LogInformation($"Z Axis Motor Current Position: {txtZaxisStepperCurrent.Text}");
                                 zAxisClearAbsolutePosition = true;
                             });
@@ -2093,7 +2126,7 @@ namespace Stepper
                             Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(xAxisAbsolutePosition.ToString("F2"));
                             Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
                             Properties.Settings.Default.Save();
-                            xAxisRunCompleted = false;
+                            xAxisRunToCompletion = false;
                             Logger.LogInformation($"X Axis Absolute Position {txtXaxisStepperCurrent.Text}");
                             xAxisClearAbsolutePosition = true;
                         });
@@ -2115,7 +2148,7 @@ namespace Stepper
                             Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(yAxisAbsolutePosition.ToString("F2"));
                             Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
                             Properties.Settings.Default.Save();
-                            yAxisRunCompleted = false;
+                            yAxisRunToCompletion = true;
                             Logger.LogInformation($"Y Axis Absolute Position {txtYaxisStepperCurrent.Text}");
                             yAxisClearAbsolutePosition = true;
                         });
@@ -2137,7 +2170,7 @@ namespace Stepper
                             Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
                             Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
                             Properties.Settings.Default.Save();
-                            zAxisRunCompleted = false;
+                            zAxisRunToCompletion = false;
                             Logger.LogInformation($"Z Axis Absolute Position {txtZaxisStepperCurrent.Text}");
                             zAxisClearAbsolutePosition = true;
                         });

@@ -268,14 +268,12 @@ static void zMotorRun()
 
     while (zAxisStepperMotor.distanceToGo() != 0)
     {
-        zAxisStepperMotor.run();
-
         if (!digitalRead(LIMIT_SWITCH1_PIN))  // NC switch is pressed when the pin reads LOW
         {
             zAxisStepperMotor.stop();
             limitSwitchCWTriggered = true;
             Serial.println("Z Axis CW STOPPED");
-            return;
+           //return;
         }
 
         if (!digitalRead(LIMIT_SWITCH2_PIN))  // NC switch is pressed when the pin reads LOW
@@ -283,8 +281,9 @@ static void zMotorRun()
             zAxisStepperMotor.stop();
             limitSwitchCCWTriggered = true;
             Serial.println("Z Axis CCW STOPPED");
-            return;
+            //return;
         }
+        zAxisStepperMotor.run();
     }
 
     if (zAxisStepperMotor.distanceToGo() == 0)

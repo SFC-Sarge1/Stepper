@@ -1,0 +1,157 @@
+11/16/2024 17:37:06 [Information] Stepper Motor Controller Application Started.
+11/16/2024 17:37:06 [Information] Version: 3.0.9086.31709 (11/16/2024 17:37:06)
+11/16/2024 17:37:06 [Information] SerialPort COM7 not connected.
+11/16/2024 17:37:06 [Information] SerialPort COM8 not connected.
+11/16/2024 17:37:07 [Information] Stepper Motor Controller Application Started.
+11/16/2024 17:37:07 [Information] Version: 3.0.9086.31709 (11/16/2024 17:37:07)
+11/16/2024 17:37:07 [Information] Version: 3.1.0.31710 (11/16/2024 17:37:07)
+11/16/2024 17:37:07 [Information] Version: 3.1.0.31710 (11/16/2024 17:37:07)
+11/16/2024 17:37:07 [Information] Stepper Motor Controller Application Settings Window Opened.
+11/16/2024 17:37:07 [Information] Stepper Motor Controller Application Settings form is rebuilt each and every time it is opened.
+11/16/2024 17:37:07 [Information] int: 9600 BaudRate added to the Settings Form.
+11/16/2024 17:37:07 [Information] bool: False ckbXaxisResetToZeroIsChecked added to the Settings Form.
+11/16/2024 17:37:07 [Information] bool: False ckbYaxisResetToZeroIsChecked added to the Settings Form.
+11/16/2024 17:37:07 [Information] bool: False ckbZaxisResetToZeroIsChecked added to the Settings Form.
+11/16/2024 17:37:07 [Information] COM1: ComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] COM2: ComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] COM3: ComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] COM4: ComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] COM5: ComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] COM6: ComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] COM7: ComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] COM8: ComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] COM9: ComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] COM10: ComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 4.00 Divider4_00 added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 0.00 MathPart2Initlz added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 1.00 MilisecondTimerInterval added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 1000.00 MillisecondDelay added to the Settings Form.
+11/16/2024 17:37:07 [Information] int: 1000 Milliseconds added to the Settings Form.
+11/16/2024 17:37:07 [Information] int: 4 mmPerRevolution added to the Settings Form.
+11/16/2024 17:37:07 [Information] int: 2000 ThreadSleep added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 0.00 Value_0_00 added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 50.00 XaxisAcceleration added to the Settings Form.
+11/16/2024 17:37:07 [Information] bool: False XaxisChanged added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 400.00 XaxisMotorSpeed added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 0.00 XaxisStepperCurrent added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 0.00 XaxisStepperMove added to the Settings Form.
+11/16/2024 17:37:07 [Information] XCOM1: XComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] XCOM2: XComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] XCOM3: XComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] XCOM4: XComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] XCOM5: XComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] XCOM6: XComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] XCOM7: XComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] XCOM8: XComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] XCOM9: XComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] XCOM10: XComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 50.00 YaxisAcceleration added to the Settings Form.
+11/16/2024 17:37:07 [Information] bool: False YaxisChanged added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 400.00 YaxisMotorSpeed added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 0.00 YaxisStepperCurrent added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 0.00 YaxisStepperMove added to the Settings Form.
+11/16/2024 17:37:07 [Information] YCOM1: YComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] YCOM2: YComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] YCOM3: YComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] YCOM4: YComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] YCOM5: YComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] YCOM6: YComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] YCOM7: YComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] YCOM8: YComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] YCOM9: YComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] YCOM10: YComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 50.00 ZaxisAcceleration added to the Settings Form.
+11/16/2024 17:37:07 [Information] bool: False ZaxisChanged added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 400.00 ZaxisMotorSpeed added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 0.00 ZaxisStepperCurrent added to the Settings Form.
+11/16/2024 17:37:07 [Information] decimal: 0.00 ZaxisStepperMove added to the Settings Form.
+11/16/2024 17:37:07 [Information] ZCOM1: ZComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] ZCOM2: ZComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] ZCOM3: ZComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] ZCOM4: ZComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] ZCOM5: ZComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] ZCOM6: ZComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] ZCOM7: ZComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] ZCOM8: ZComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] ZCOM9: ZComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] ZCOM10: ZComPort added to the Settings Form.
+11/16/2024 17:37:07 [Information] int: 0 zeroXaxis added to the Settings Form.
+11/16/2024 17:37:07 [Information] int: 0 zeroYaxis added to the Settings Form.
+11/16/2024 17:37:07 [Information] int: 0 zeroZaxis added to the Settings Form.
+11/16/2024 17:37:07 [Information] Stepper Motor Controller MainWindow loaded
+11/16/2024 17:37:07 [Information] Set MainWindow Media Brushes to White.
+11/16/2024 17:37:13 [Information] Z Axis mouse controlled Keypad returned: 16.00
+11/16/2024 17:37:14 [Information] Z Axis Run button clicked:
+11/16/2024 17:37:14 [Information] Z Axis MotorMovementSeconds decimal: (16.00 / 4) / 2 = 2.00
+11/16/2024 17:37:15 [Information] Z Axis Run Event: Z,0.00,400.00,0,0.00,400.00,0,16.00,400.00,0
+11/16/2024 17:37:15 [Information] Z Axis Current Time: 05:37:15 + 2000 = 05:37:17
+11/16/2024 17:37:15 [Information] Z Axis Data Received: se
+11/16/2024 17:37:16 [Information] Z Axis Data Received: rialData: Z,0.00,400.00,0,0.00,400.00,0,16.00,400.00,0
+
+11/16/2024 17:37:18 [Information] Z Axis Data Received: Z
+11/16/2024 17:37:18 [Information] Z Axis Data Received:  A
+11/16/2024 17:37:18 [Information] Z Axis Data Received: xi
+11/16/2024 17:37:18 [Information] Z Axis Data Received: s
+11/16/2024 17:37:18 [Information] Z Axis Data Received:  
+11/16/2024 17:37:18 [Information] Z Axis Data Received: r
+11/16/2024 17:37:18 [Information] Z Axis Data Received: e
+11/16/2024 17:37:18 [Information] Z Axis Data Received: a
+11/16/2024 17:37:18 [Information] Z Axis Data Received: c
+11/16/2024 17:37:18 [Information] Z Axis Data Received: h
+11/16/2024 17:37:18 [Information] Z Axis Data Received: e
+11/16/2024 17:37:18 [Information] Z Axis Data Received: d
+11/16/2024 17:37:18 [Information] Z Axis Data Received:  
+11/16/2024 17:37:18 [Information] Z Axis Data Received: t
+11/16/2024 17:37:18 [Information] Z Axis Data Received: a
+11/16/2024 17:37:18 [Information] Z Axis Data Received: r
+11/16/2024 17:37:18 [Information] Z Axis Data Received: g
+11/16/2024 17:37:18 [Information] Z Axis Data Received: e
+11/16/2024 17:37:18 [Information] Z Axis Data Received: t
+11/16/2024 17:37:18 [Information] Z Axis Data Received:  
+11/16/2024 17:37:18 [Information] Z Axis Data Received: p
+11/16/2024 17:37:18 [Information] Z Axis Data Received: o
+11/16/2024 17:37:18 [Information] Z Axis Data Received: s
+11/16/2024 17:37:18 [Information] Z Axis Data Received: i
+11/16/2024 17:37:18 [Information] Z Axis Data Received: t
+11/16/2024 17:37:18 [Information] Z Axis Data Received: i
+11/16/2024 17:37:18 [Information] Z Axis Data Received: o
+11/16/2024 17:37:18 [Information] Z Axis Data Received: n
+11/16/2024 17:37:18 [Information] Z Axis Data Received: ,
+11/16/2024 17:37:18 [Information] Z Axis Data Received:  
+11/16/2024 17:37:18 [Information] Z Axis Data Received: Z
+11/16/2024 17:37:18 [Information] Z Axis Data Received:  
+11/16/2024 17:37:18 [Information] Z Axis Data Received: A
+11/16/2024 17:37:18 [Information] Z Axis Data Received: x
+11/16/2024 17:37:18 [Information] Z Axis Data Received: i
+11/16/2024 17:37:18 [Information] Z Axis Data Received: s
+11/16/2024 17:37:18 [Information] Z Axis Data Received:  
+11/16/2024 17:37:18 [Information] Z Axis Data Received: C
+11/16/2024 17:37:18 [Information] Z Axis Data Received: u
+11/16/2024 17:37:18 [Information] Z Axis Data Received: r
+11/16/2024 17:37:18 [Information] Z Axis Data Received: r
+11/16/2024 17:37:18 [Information] Z Axis Data Received: e
+11/16/2024 17:37:18 [Information] Z Axis Data Received: n
+11/16/2024 17:37:18 [Information] Z Axis Data Received: t
+11/16/2024 17:37:18 [Information] Z Axis Data Received:  
+11/16/2024 17:37:18 [Information] Z Axis Data Received: P
+11/16/2024 17:37:18 [Information] Z Axis Data Received: o
+11/16/2024 17:37:18 [Information] Z Axis Data Received: s
+11/16/2024 17:37:18 [Information] Z Axis Data Received: i
+11/16/2024 17:37:18 [Information] Z Axis Data Received: t
+11/16/2024 17:37:18 [Information] Z Axis Data Received: i
+11/16/2024 17:37:18 [Information] Z Axis Data Received: o
+11/16/2024 17:37:18 [Information] Z Axis Data Received: n
+11/16/2024 17:37:18 [Information] Z Axis Data Received: :
+11/16/2024 17:37:18 [Information] Z Axis Data Received:  
+11/16/2024 17:37:18 [Information] Z Axis Data Received: 0
+11/16/2024 17:37:18 [Information] Z Axis Data Received: .
+11/16/2024 17:37:18 [Information] Z Axis Data Received: 0
+11/16/2024 17:37:18 [Information] Z Axis Data Received: 0
+11/16/2024 17:37:18 [Information] Z Axis Data Received: 
+11/16/2024 17:37:18 [Information] Z Axis Data Received: 
+
+11/16/2024 17:37:19 [Information] Stepper Motor Controller MainWindow Closing.
+11/16/2024 17:37:19 [Information] Stepper Motor Controller Serial Ports closed.
+11/16/2024 17:37:19 [Information] Properties Settings Saved.
+11/16/2024 17:37:19 [Information] Properties Settings Form Closed.
+11/16/2024 17:37:19 [Information] Stepper Motor Controller Form Closed.

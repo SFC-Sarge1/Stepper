@@ -409,17 +409,17 @@
             The message
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.xAxisRunCompleted">
+        <member name="F:Stepper.MainWindow.xAxisRunToCompletion">
             <summary>
             The x axis run completed
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.yAxisRunCompleted">
+        <member name="F:Stepper.MainWindow.yAxisRunToCompletion">
             <summary>
             The y axis run completed
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.zAxisRunCompleted">
+        <member name="F:Stepper.MainWindow.zAxisRunToCompletion">
             <summary>
             The z axis run completed
             </summary>
