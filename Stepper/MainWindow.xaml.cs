@@ -9,7 +9,7 @@
 // <copyright file="MainWindow.xaml.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.
 // </copyright>
-// <summary>This allows you to control the X,Y and Z Axis</summary>
+// <summary>This allows you to control the X,Y and Y Axis</summary>
 // ***********************************************************************
 
 namespace Stepper
@@ -155,19 +155,19 @@ namespace Stepper
         /// Gets the zero zaxis.
         /// </summary>
         /// <value>The zero zaxis.</value>
-        public int ZeroZaxis { get; private set; } = Properties.Settings.Default.zeroZaxis;
+        public int ZeroZaxis { get; private set; } = Properties.Settings.Default.zeroYaxis;
         /// <summary>
         /// The xaxis changed
         /// </summary>
-        public bool XaxisChanged = Properties.Settings.Default.ZaxisChanged;
+        public bool XaxisChanged = Properties.Settings.Default.YaxisChanged;
         /// <summary>
         /// The yaxis changed
         /// </summary>
-        public bool YaxisChanged = Properties.Settings.Default.ZaxisChanged;
+        public bool YaxisChanged = Properties.Settings.Default.YaxisChanged;
         /// <summary>
         /// The zaxis changed
         /// </summary>
-        public bool ZaxisChanged = Properties.Settings.Default.ZaxisChanged;
+        public bool ZaxisChanged = Properties.Settings.Default.YaxisChanged;
         /// <summary>
         /// Gets the xaxis stepper move temporary.
         /// </summary>
@@ -238,7 +238,7 @@ namespace Stepper
         /// </summary>
         static byte[] message = new byte[6000];
         /// <summary>
-        /// The Z Axis Current Position
+        /// The Y Axis Current Position
         /// </summary>
         private static float xAxisAbsolutePosition = 0.00f;
         /// <summary>
@@ -270,26 +270,27 @@ namespace Stepper
         /// </summary>
         public MainWindow()
         {
-
             InitializeComponent();
             InitializeSettings();
             InitializeLogger();
             InitializeSerialPorts();
             InitializeTimers();
 
-            // Get current date and time
-            DateTime now = DateTime.Now;
-
-            // Format the date and time in a suitable format for a filename
-            string dateTimeString = now.ToString("yyyyMMdd_HHmmss");
-
-            Logger.LogInformation(message: $"Stepper Motor Controller Application Started.");
+            Logger.LogInformation("Stepper Motor Controller Application Started.");
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             DateTime buildDate = DateTime.Now;
             string displayableVersion = $"{version} ({buildDate})";
-            Logger.LogInformation(message: $"Version: {displayableVersion}");
+            Logger.LogInformation($"Version: {displayableVersion}");
             ResizeMode = ResizeMode.NoResize;
 #if DEBUG
+            UpdateVersionInfo();
+#endif
+            Loaded += MainWindow_Loaded;
+            Closing += MainWindow_Closing;
+            NewSettingsWindow = new StepperAppSettings();
+        }
+        private void UpdateVersionInfo()
+        {
             int major = Assembly.GetExecutingAssembly().GetName().Version.Major;
             int minor = Assembly.GetExecutingAssembly().GetName().Version.Minor;
             int build = Assembly.GetExecutingAssembly().GetName().Version.Build;
@@ -314,37 +315,35 @@ namespace Stepper
             {
                 revision = tempRevision + 1;
             }
-            version = new(major, minor, build, revision);
-            buildDate = DateTime.Now;
-            displayableVersion = $"{major}.{minor}.{build}.{revision} ({buildDate})";
-            Logger.LogInformation(message: $"Version: {displayableVersion}");
+            Version version = new(major, minor, build, revision);
+            DateTime buildDate = DateTime.Now;
+            string displayableVersion = $"{major}.{minor}.{build}.{revision} ({buildDate})";
+            Logger.LogInformation($"Version: {displayableVersion}");
             VersionTxt.Text = $"Version: {displayableVersion}";
             XDocument doc = XDocument.Load(Properties.Settings.Default.ProjectFilePath);
             string versionString = $"{major}.{minor}.{build}.{revision}";
             UpdateVersionElement(doc, "AssemblyVersion", versionString);
             UpdateVersionElement(doc, "FileVersion", versionString);
-            // Save the modified XML file
-            doc.Save(Properties.Settings.Default.ProjectFilePath); Properties.Settings.Default.BuildVersion = $"Version: {displayableVersion}";
-            Logger.LogInformation(message: $"Version: {displayableVersion}");
-#endif
-            Loaded += MainWindow_Loaded;
-            Closing += MainWindow_Closing;
-            NewSettingsWindow = new StepperAppSettings();
-
+            doc.Save(Properties.Settings.Default.ProjectFilePath);
+            Properties.Settings.Default.BuildVersion = $"Version: {displayableVersion}";
+            Logger.LogInformation($"Version: {displayableVersion}");
         }
-        // Update the Version elements
-        /// <summary>
-        /// Updates the version element.
-        /// </summary>
-        /// <param name="doc">The document.</param>
-        /// <param name="elementName">Name of the element.</param>
-        /// <param name="version">The version.</param>
+
         private void UpdateVersionElement(XDocument doc, string elementName, string version)
         {
+            if (doc == null) throw new ArgumentNullException(nameof(doc));
+            if (string.IsNullOrEmpty(elementName)) throw new ArgumentException("Element name cannot be null or empty.", nameof(elementName));
+            if (string.IsNullOrEmpty(version)) throw new ArgumentException("Version cannot be null or empty.", nameof(version));
+
             var element = doc.Descendants(elementName).FirstOrDefault();
             if (element != null)
             {
                 element.Value = version;
+                Logger.LogInformation($"Updated {elementName} to version {version}.");
+            }
+            else
+            {
+                Logger.LogWarning($"Element {elementName} not found in the provided XML document.");
             }
         }
 
@@ -383,18 +382,48 @@ namespace Stepper
         /// <param name="serialPort">The serial port.</param>
         private void OpenSerialPort(SerialPort serialPort)
         {
+            if (serialPort == null)
+            {
+                Logger.LogError("SerialPort is null.");
+                throw new ArgumentNullException(nameof(serialPort));
+            }
+
             try
             {
+                if (serialPort.IsOpen)
+                {
+                    Logger.LogInformation($"SerialPort {serialPort.PortName} is already open.");
+                    return;
+                }
+
                 serialPort.Open();
+                Logger.LogInformation($"SerialPort {serialPort.PortName} opened successfully.");
+
                 if (serialPort.BytesToRead > 0)
                 {
-                    serialPort.Read(message, 0, serialPort.BytesToRead);
-                    Logger.LogInformation($"SerialPort Read = {serialPort.BytesToRead}");
+                    int bytesRead = serialPort.Read(message, 0, serialPort.BytesToRead);
+                    Logger.LogInformation($"SerialPort {serialPort.PortName} read {bytesRead} bytes.");
                 }
             }
-            catch
+            catch (UnauthorizedAccessException ex)
             {
-                Logger.LogInformation($"SerialPort {serialPort.PortName} not connected.");
+                Logger.LogError(ex, $"Access to the port {serialPort.PortName} is denied.");
+                MessageBox.Show($"Access to the port {serialPort.PortName} is denied. Please check your permissions.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (IOException ex)
+            {
+                Logger.LogError(ex, $"I/O error occurred while opening the port {serialPort.PortName}.");
+                MessageBox.Show($"I/O error occurred while opening the port {serialPort.PortName}. Please check the connection.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Logger.LogError(ex, $"The specified port {serialPort.PortName} is already open.");
+                MessageBox.Show($"The specified port {serialPort.PortName} is already open. Please close any other applications using this port.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, $"Unexpected error occurred while opening the port {serialPort.PortName}.");
+                MessageBox.Show($"Unexpected error occurred while opening the port {serialPort.PortName}: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -402,21 +431,45 @@ namespace Stepper
         /// </summary>
         private void InitializeSettings()
         {
-            txtXaxisStepperCurrent.Text = Properties.Settings.Default.XaxisStepperCurrent.ToString();
-            txtYaxisStepperCurrent.Text = Properties.Settings.Default.YaxisStepperCurrent.ToString();
-            txtZaxisStepperCurrent.Text = Properties.Settings.Default.ZaxisStepperCurrent.ToString();
-            txtXaxisMotorSpeed.Text = Properties.Settings.Default.XaxisMotorSpeed.ToString();
-            txtYaxisMotorSpeed.Text = Properties.Settings.Default.YaxisMotorSpeed.ToString();
-            txtZaxisMotorSpeed.Text = Properties.Settings.Default.ZaxisMotorSpeed.ToString();
-            txtXaxisStepperMove.Text = Properties.Settings.Default.XaxisStepperMove.ToString();
-            txtYaxisStepperMove.Text = Properties.Settings.Default.YaxisStepperMove.ToString();
-            txtZaxisStepperMove.Text = Properties.Settings.Default.ZaxisStepperMove.ToString();
-            ckbXaxisResetToZero.IsChecked = Properties.Settings.Default.ckbXaxisResetToZeroIsChecked;
-            ckbYaxisResetToZero.IsChecked = Properties.Settings.Default.ckbYaxisResetToZeroIsChecked;
-            ckbZaxisResetToZero.IsChecked = Properties.Settings.Default.ckbZaxisResetToZeroIsChecked;
+            InitializeTextBox(txtXaxisStepperCurrent, Properties.Settings.Default.XaxisStepperCurrent);
+            InitializeTextBox(txtYaxisStepperCurrent, Properties.Settings.Default.YaxisStepperCurrent);
+            InitializeTextBox(txtZaxisStepperCurrent, Properties.Settings.Default.ZaxisStepperCurrent);
+
+            InitializeTextBox(txtXaxisMotorSpeed, Properties.Settings.Default.XaxisMotorSpeed);
+            InitializeTextBox(txtYaxisMotorSpeed, Properties.Settings.Default.YaxisMotorSpeed);
+            InitializeTextBox(txtZaxisMotorSpeed, Properties.Settings.Default.ZaxisMotorSpeed);
+
+            InitializeTextBox(txtXaxisStepperMove, Properties.Settings.Default.XaxisStepperMove);
+            InitializeTextBox(txtYaxisStepperMove, Properties.Settings.Default.YaxisStepperMove);
+            InitializeTextBox(txtZaxisStepperMove, Properties.Settings.Default.ZaxisStepperMove);
+
+            InitializeCheckBox(ckbXaxisResetToZero, Properties.Settings.Default.ckbXaxisResetToZeroIsChecked);
+            InitializeCheckBox(ckbYaxisResetToZero, Properties.Settings.Default.ckbYaxisResetToZeroIsChecked);
+            InitializeCheckBox(ckbZaxisResetToZero, Properties.Settings.Default.ckbZaxisResetToZeroIsChecked);
+
             xAxisAbsolutePosition = 0.00f;
             yAxisAbsolutePosition = 0.00f;
             zAxisAbsolutePosition = 0.00f;
+        }
+
+        /// <summary>
+        /// Initializes a text box with the specified value.
+        /// </summary>
+        /// <param name="textBox">The text box to initialize.</param>
+        /// <param name="value">The value to set in the text box.</param>
+        private void InitializeTextBox(TextBox textBox, decimal value)
+        {
+            textBox.Text = value.ToString(CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// Initializes a check box with the specified value.
+        /// </summary>
+        /// <param name="checkBox">The check box to initialize.</param>
+        /// <param name="isChecked">The value to set in the check box.</param>
+        private void InitializeCheckBox(CheckBox checkBox, bool isChecked)
+        {
+            checkBox.IsChecked = isChecked;
         }
         /// <summary>
         /// Initializes the logger.
@@ -492,7 +545,7 @@ namespace Stepper
             else if (sender == zTimer)
             {
                 zAxisRunToCompletion = true;
-                HandleTimerTick("Z", zStopwatch, zTargetEndTime, ref zAxisRunToCompletion, ref zAxisClearAbsolutePosition, ref zAxisAbsolutePosition, txtZaxisStepperMove, txtZaxisStepperCurrent, txtZaxisMotorSpeed, ckbZaxisResetToZero, ref ZaxisChanged, ref LimitSwitchPressed);
+                HandleTimerTick("Y", zStopwatch, zTargetEndTime, ref zAxisRunToCompletion, ref zAxisClearAbsolutePosition, ref zAxisAbsolutePosition, txtZaxisStepperMove, txtZaxisStepperCurrent, txtZaxisMotorSpeed, ckbZaxisResetToZero, ref ZaxisChanged, ref LimitSwitchPressed);
             }
         }
 
@@ -577,22 +630,16 @@ namespace Stepper
         /// </summary>
         private void DisableControls()
         {
-            txtXaxisStepperMove.IsEnabled = false;
-            txtYaxisStepperMove.IsEnabled = false;
-            txtZaxisStepperMove.IsEnabled = false;
-            txtXaxisStepperCurrent.IsEnabled = false;
-            txtYaxisStepperCurrent.IsEnabled = false;
-            txtZaxisStepperCurrent.IsEnabled = false;
-            txtXaxisMotorSpeed.IsEnabled = false;
-            txtYaxisMotorSpeed.IsEnabled = false;
-            txtZaxisMotorSpeed.IsEnabled = false;
-            ckbXaxisResetToZero.IsEnabled = false;
-            ckbYaxisResetToZero.IsEnabled = false;
-            ckbZaxisResetToZero.IsEnabled = false;
-            btnRunXAxis.IsEnabled = false;
-            btnRunYAxis.IsEnabled = false;
-            btnRunZAxis.IsEnabled = false;
-            btnRunXYAxis.IsEnabled = false;
+            var controlsToDisable = new Control[]
+            {
+                txtXaxisStepperMove, txtYaxisStepperMove, txtZaxisStepperMove,
+                txtXaxisStepperCurrent, txtYaxisStepperCurrent, txtZaxisStepperCurrent,
+                txtXaxisMotorSpeed, txtYaxisMotorSpeed, txtZaxisMotorSpeed,
+                ckbXaxisResetToZero, ckbYaxisResetToZero, ckbZaxisResetToZero,
+                btnRunXAxis, btnRunYAxis, btnRunZAxis, btnRunXYAxis
+            };
+
+            SetControlsEnabled(controlsToDisable, false);
         }
 
         /// <summary>
@@ -600,433 +647,228 @@ namespace Stepper
         /// </summary>
         private void EnableControls()
         {
-            txtXaxisStepperMove.IsEnabled = true;
-            txtYaxisStepperMove.IsEnabled = true;
-            txtZaxisStepperMove.IsEnabled = true;
-            txtXaxisStepperCurrent.IsEnabled = true;
-            txtYaxisStepperCurrent.IsEnabled = true;
-            txtZaxisStepperCurrent.IsEnabled = true;
-            txtXaxisMotorSpeed.IsEnabled = true;
-            txtYaxisMotorSpeed.IsEnabled = true;
-            txtZaxisMotorSpeed.IsEnabled = true;
-            ckbXaxisResetToZero.IsEnabled = true;
-            ckbYaxisResetToZero.IsEnabled = true;
-            ckbZaxisResetToZero.IsEnabled = true;
-            btnRunXAxis.IsEnabled = true;
-            btnRunYAxis.IsEnabled = true;
-            btnRunZAxis.IsEnabled = true;
-            btnRunXYAxis.IsEnabled = true;
+            var controlsToEnable = new Control[]
+            {
+                txtXaxisStepperMove, txtYaxisStepperMove, txtZaxisStepperMove,
+                txtXaxisStepperCurrent, txtYaxisStepperCurrent, txtZaxisStepperCurrent,
+                txtXaxisMotorSpeed, txtYaxisMotorSpeed, txtZaxisMotorSpeed,
+                ckbXaxisResetToZero, ckbYaxisResetToZero, ckbZaxisResetToZero,
+                btnRunXAxis, btnRunYAxis, btnRunZAxis, btnRunXYAxis
+            };
+
+            SetControlsEnabled(controlsToEnable, true);
         }
 
         /// <summary>
-        /// Xdatas the received handler.
+        /// Sets the enabled state of the specified controls.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+        /// <param name="controls">The controls to set the enabled state for.</param>
+        /// <param name="isEnabled">if set to <c>true</c> the controls will be enabled; otherwise, they will be disabled.</param>
+        private void SetControlsEnabled(Control[] controls, bool isEnabled)
+        {
+            foreach (var control in controls)
+            {
+                control.IsEnabled = isEnabled;
+            }
+        }
+
         private void XdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             try
             {
                 SerialPort Xsp = (SerialPort)sender;
                 string Xindata = Xsp.ReadExisting();
-                Logger.LogInformation(message: $"X Axis Data Received: {Xindata}");
-                // Check if the message indicates the motor has stopped
-                if (Xindata.Contains("X Axis CW STOPPED") || Xindata.Contains("X Axis CCW STOPPED"))
-                {
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        _xLimitSwitchPress = true;
-                        xAxisRunToCompletion = true;
-                        xTimer.Stop();
-                        xStopwatch.Stop();
-                        // Cancel the delay task
-                        _xCancellationTokenSource.Cancel();
-                        EnableControls();
-                        XaxisChanged = true;
-                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
-                        ckbXaxisResetToZero.IsChecked = true;
-                        xAxisClearAbsolutePosition = false;
-                        StartDelayTask("X", Xindata);
-                        XaxisChanged = true;
-                        LimitSwitchPressed = true;
-                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
-                        ckbXaxisResetToZero.IsChecked = false;
-                        xAxisClearAbsolutePosition = false;
-                        Xindata = "";
-                        //txtXaxisStepperCurrent.Text = "0.00";
-                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
-                        _xLimitSwitchPress = false;
-                        LimitSwitchPressed = false;
-                    });
+                Logger.LogInformation($"X Axis Data Received: {Xindata}");
 
-                }
-                else if (Xindata.Contains("X Axis Absolute Position"))
+                Application.Current.Dispatcher.Invoke(() =>
                 {
-                    string[] XindataArray = Xindata.Split(' ');
-                    xAxisAbsolutePosition = float.Parse(XindataArray[4], CultureInfo.InvariantCulture);
-                    Logger.LogInformation($"X Axis Absolute Position: {xAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture)}");
-                    string[] lines = Xindata.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                    foreach (string line in lines)
+                    if (Xindata.Contains("X Axis CW STOPPED") || Xindata.Contains("X Axis CCW STOPPED"))
                     {
-                        if (line.Contains($"X Axis Absolute Position"))
-                        {
-                            string positionString = line.Replace($"X Axis Absolute Position", "").Replace($"X Axis Absolute Position", "").Trim();
-                            if (float.TryParse(positionString, out float currentPosition))
-                            {
-                                float stepsPerRevolution = 200.0f;
-                                float distancePerRevolution = 4.0f;
-                                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
-
-                                xAxisAbsolutePosition += line.Contains("CW") ? distanceInMM : -distanceInMM;
-                                Application.Current.Dispatcher.Invoke(() =>
-                                {
-                                    txtXaxisStepperCurrent.Text = xAxisAbsolutePosition.ToString("F2");
-                                    Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(xAxisAbsolutePosition.ToString("F2"));
-                                    Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
-                                    Properties.Settings.Default.Save();
-                                    xAxisRunToCompletion = false;
-                                    Logger.LogInformation($"X Axis Absolute Position {txtXaxisStepperCurrent.Text}");
-                                    xAxisClearAbsolutePosition = true;
-                                });
-                            }
-                        }
+                        HandleXAxisStop(Xindata);
                     }
-                    Xindata = "";
-                }
-                else
-                {
-                    Xindata = "";
-                }
-
+                    else if (Xindata.Contains("X Axis Absolute Position"))
+                    {
+                        UpdateXAxisAbsolutePosition(Xindata);
+                    }
+                });
             }
             catch (Exception ex)
             {
                 Logger.LogError(ex, "Error in XdataReceivedHandler");
-                MessageBox.Show(ex.ToString() + " Error in XdataReceivedHandler", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"{ex} Error in XdataReceivedHandler", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
-        /// <summary>
-        /// Ydatas the received handler.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+
+        private void HandleXAxisStop(string Xindata)
+        {
+            xTimer.Stop();
+            xStopwatch.Stop();
+            _xCancellationTokenSource.Cancel();
+            _xLimitSwitchPress = true;
+            LimitSwitchPressed = true;
+
+            EnableControls();
+            //XaxisChanged = true;
+            ckbXaxisResetToZero.IsChecked = false;
+            xAxisClearAbsolutePosition = false;
+            CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
+
+            StartDelayTask("X", Xindata);
+            Logger.LogInformation("X Axis Motor Stopped");
+        }
+
+        private void UpdateXAxisAbsolutePosition(string Xindata)
+        {
+            string[] XindataArrax = Xindata.Split(' ');
+            if (XindataArrax.Length > 4 && float.TryParse(XindataArrax[4], NumberStyles.Float, CultureInfo.InvariantCulture, out float currentPosition))
+            {
+                float stepsPerRevolution = 200.0f;
+                float distancePerRevolution = 4.0f;
+                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
+
+                xAxisAbsolutePosition += distanceInMM;
+                txtXaxisStepperCurrent.Text = xAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture);
+                Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(xAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture));
+                Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
+                Properties.Settings.Default.Save();
+
+                xAxisRunToCompletion = false;
+                xAxisClearAbsolutePosition = true;
+                Logger.LogInformation($"X Axis Absolute Position: {txtXaxisStepperCurrent.Text}");
+            }
+        }
+
         private void YdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             try
             {
                 SerialPort Ysp = (SerialPort)sender;
                 string Yindata = Ysp.ReadExisting();
-                Logger.LogInformation(message: $"Y Axis Data Received: {Yindata}");
-                // Check if the message indicates the motor has stopped
-                if (Yindata.Contains("Y Axis CW STOPPED") || Yindata.Contains("Y Axis CCW STOPPED"))
+                Logger.LogInformation($"Y Axis Data Received: {Yindata}");
+
+                Application.Current.Dispatcher.Invoke(() =>
                 {
-
-                    Application.Current.Dispatcher.Invoke(() =>
+                    if (Yindata.Contains("Y Axis CW STOPPED") || Yindata.Contains("Y Axis CCW STOPPED"))
                     {
-                        _yLimitSwitchPress = true;
-                        yAxisRunToCompletion = true;
-                        yTimer.Stop();
-                        yStopwatch.Stop();
-                        // Cancel the delay task
-                        _yCancellationTokenSource.Cancel();
-                        EnableControls();
-                        YaxisChanged = true;
-                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
-                        ckbYaxisResetToZero.IsChecked = true;
-                        yAxisClearAbsolutePosition = false;
-                        StartDelayTask("Y", Yindata);
-                        YaxisChanged = true;
-                        LimitSwitchPressed = true;
-                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
-                        ckbZaxisResetToZero.IsChecked = false;
-                        yAxisClearAbsolutePosition = false;
-                        Yindata = "";
-                        //txtYaxisStepperCurrent.Text = "0.00";
-                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
-                        _yLimitSwitchPress = false;
-                        LimitSwitchPressed = false;
-                    });
-
-                }
-                else if (Yindata.Contains("Y Axis Absolute Position"))
-                {
-                    string[] YindataArray = Yindata.Split(' ');
-                    yAxisAbsolutePosition = float.Parse(YindataArray[4], CultureInfo.InvariantCulture);
-                    Logger.LogInformation($"Y Axis Absolute Position: {yAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture)}");
-                    string[] lines = Yindata.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                    foreach (string line in lines)
-                    {
-                        if (line.Contains($"Y Axis Absolute Position"))
-                        {
-                            string positionString = line.Replace($"Y Axis Absolute Position", "").Replace($"Y Axis Absolute Position", "").Trim();
-                            if (float.TryParse(positionString, out float currentPosition))
-                            {
-                                float stepsPerRevolution = 200.0f;
-                                float distancePerRevolution = 4.0f;
-                                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
-
-                                yAxisAbsolutePosition += line.Contains("CW") ? distanceInMM : -distanceInMM;
-                                Application.Current.Dispatcher.Invoke(() =>
-                                {
-                                    txtYaxisStepperCurrent.Text = yAxisAbsolutePosition.ToString("F2");
-                                    Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(yAxisAbsolutePosition.ToString("F2"));
-                                    Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
-                                    Properties.Settings.Default.Save();
-                                    xAxisRunToCompletion = false;
-                                    Logger.LogInformation($"Y Axis Absolute Position {txtYaxisStepperCurrent.Text}");
-                                    yAxisClearAbsolutePosition = true;
-                                });
-                            }
-                        }
+                        HandleYAxisStop(Yindata);
                     }
-                    Yindata = "";
-                }
-                else
-                {
-                    Yindata = "";
-                }
-
-
+                    else if (Yindata.Contains("Y Axis Absolute Position"))
+                    {
+                        UpdateYAxisAbsolutePosition(Yindata);
+                    }
+                });
             }
             catch (Exception ex)
             {
                 Logger.LogError(ex, "Error in YdataReceivedHandler");
-                MessageBox.Show(ex.ToString() + " Error in YdataReceivedHandler", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"{ex} Error in YdataReceivedHandler", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
-        /// <summary>
-        /// Zdatas the received handler.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+
+        private void HandleYAxisStop(string Yindata)
+        {
+            yTimer.Stop();
+            yStopwatch.Stop();
+            _yCancellationTokenSource.Cancel();
+            _yLimitSwitchPress = true;
+            LimitSwitchPressed = true;
+
+            EnableControls();
+            //YaxisChanged = true;
+            ckbYaxisResetToZero.IsChecked = false;
+            yAxisClearAbsolutePosition = false;
+            CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
+
+            StartDelayTask("Y", Yindata);
+            Logger.LogInformation("Y Axis Motor Stopped");
+        }
+
+        private void UpdateYAxisAbsolutePosition(string Yindata)
+        {
+            string[] YindataArray = Yindata.Split(' ');
+            if (YindataArray.Length > 4 && float.TryParse(YindataArray[4], NumberStyles.Float, CultureInfo.InvariantCulture, out float currentPosition))
+            {
+                float stepsPerRevolution = 200.0f;
+                float distancePerRevolution = 4.0f;
+                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
+
+                yAxisAbsolutePosition += distanceInMM;
+                txtYaxisStepperCurrent.Text = yAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture);
+                Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(yAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture));
+                Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
+                Properties.Settings.Default.Save();
+
+                yAxisRunToCompletion = false;
+                yAxisClearAbsolutePosition = true;
+                Logger.LogInformation($"Y Axis Absolute Position: {txtYaxisStepperCurrent.Text}");
+            }
+        }
+
         private void ZdataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             try
             {
                 SerialPort Zsp = (SerialPort)sender;
                 string Zindata = Zsp.ReadExisting();
-                Logger.LogInformation(message: $"Z Axis Data Received: {Zindata}");
-                // Check if the message indicates the motor has stopped
-                if (Zindata.Contains("Z Axis CW STOPPED") || Zindata.Contains("Z Axis CCW STOPPED") || Zindata.Contains("Z Axis CW Motor Current Position:") || Zindata.Contains("Z Axis CCW Motor Current Position:"))
-                {
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        xAxisRunToCompletion = false;
-                        Logger.LogInformation($"Limit Switch Pressed");
-                        // Cancel the delay task
-                        _zCancellationTokenSource.Cancel();
-                        zTimer.Stop();
-                        zStopwatch.Stop();
-                        Logger.LogInformation($"Stepper Motor Controller Timer Stopped.");
-                        zStopwatch.Reset();
-                        Logger.LogInformation($"Stepper Motor Controller Stopwatch Reset.");
-                        _zLimitSwitchPress = true;
-                        LimitSwitchPressed = true;
-                        StartDelayTask("Z", Zindata);
-                        EnableControls();
-                        ZaxisChanged = true;
-                        ckbZaxisResetToZero.IsChecked = false;
-                        zAxisClearAbsolutePosition = false;
-                        Zindata = "";
-                        CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
-                        return;
-                    });
-                }
-                else if (Zindata.Contains("Z Axis Absolute Position"))
-                {
-                    string[] ZindataArray = Zindata.Split(' ');
-                    //zAxisAbsolutePosition = float.Parse(ZindataArray[4], CultureInfo.InvariantCulture);
-                    Logger.LogInformation($"Z Axis Absolute Position: {zAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture)}");
-                    string[] lines = Zindata.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                    foreach (string line in lines)
-                    {
-                        //if (line.Contains($"Z Axis Absolute Position") || line.Contains($"Z Axis Absolute Position"))
-                        if (line.Contains($"Z Axis Absolute Position"))
-                        {
-                            string positionString = line.Replace($"Z Axis Absolute Position", "").Replace($"Z Axis Absolute Position", "").Trim();
-                            if (float.TryParse(positionString, out float currentPosition))
-                            {
-                                float stepsPerRevolution = 200.0f;
-                                float distancePerRevolution = 4.0f;
-                                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
+                Logger.LogInformation($"Z Axis Data Received: {Zindata}");
 
-                                zAxisAbsolutePosition += line.Contains("Position") ? distanceInMM : -distanceInMM;
-                                Application.Current.Dispatcher.Invoke(() =>
-                                {
-                                    txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2");
-                                    Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
-                                    Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
-                                    Properties.Settings.Default.Save();
-                                    xAxisRunToCompletion = false;
-                                    Logger.LogInformation($"Z Axis Absolute Position {txtZaxisStepperCurrent.Text}");
-                                    zAxisClearAbsolutePosition = true;
-                                });
-                            }
-                        }
-                    }
-                    Zindata = "";
-                }
-                else
+                Application.Current.Dispatcher.Invoke(() =>
                 {
-                    Zindata = "";
-                }
+                    if (Zindata.Contains("Z Axis CW STOPPED") || Zindata.Contains("Z Axis CCW STOPPED"))
+                    {
+                        HandleZAxisStop(Zindata);
+                    }
+                    else if (Zindata.Contains("Z Axis Absolute Position"))
+                    {
+                        UpdateZAxisAbsolutePosition(Zindata);
+                    }
+                });
             }
             catch (Exception ex)
             {
                 Logger.LogError(ex, "Error in ZdataReceivedHandler");
-                MessageBox.Show(ex.ToString() + " Error in ZdataReceivedHandler", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"{ex} Error in ZdataReceivedHandler", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
-        ///// <summary>
-        ///// Handles the Click event of the AxisRun control.
-        ///// </summary>
-        ///// <param name="sender">The source of the event.</param>
-        ///// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
-        //public async void AxisRun_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (sender == btnRunXAxis)
-        //    {
-        //        xAxisRunToCompletion = true;
-        //        _xCancellationTokenSource = new CancellationTokenSource();
-        //        var token = _xCancellationTokenSource.Token;
-        //        await RunAxis("X", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, xSerialPort, token);
-        //    }
-        //    else if (sender == btnRunYAxis)
-        //    {
-        //        yAxisRunToCompletion = true;
-        //        _yCancellationTokenSource = new CancellationTokenSource();
-        //        var token = _yCancellationTokenSource.Token;
-        //        await RunAxis("Y", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, ySerialPort, token);
-        //    }
-        //    else if (sender == btnRunZAxis)
-        //    {
-        //        zAxisRunToCompletion = true;
-        //        _zCancellationTokenSource = new CancellationTokenSource();
-        //        var token = _zCancellationTokenSource.Token;
-        //        await RunAxis("Z", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, zSerialPort, token);
-        //    }
-        //    else if (sender == btnRunXYAxis)
-        //    {
-        //        xAxisRunToCompletion = true;
-        //        _xCancellationTokenSource = new CancellationTokenSource();
-        //        var token = _xCancellationTokenSource.Token;
 
-        //        yAxisRunToCompletion = true;
-        //        _yCancellationTokenSource = new CancellationTokenSource();
-        //        var token1 = _yCancellationTokenSource.Token;
+        private void HandleZAxisStop(string Zindata)
+        {
+            zTimer.Stop();
+            zStopwatch.Stop();
+            _zCancellationTokenSource.Cancel();
+            _zLimitSwitchPress = true;
+            LimitSwitchPressed = true;
 
-        //        xAxisRunToCompletion = true;
-        //        yAxisRunToCompletion = true;
-        //        await RunAxis("X", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, xSerialPort, token);
-        //        while (!xAxisRunToCompletion)
-        //        {
-        //            await Task.Delay(100);
-        //        }
-        //        await RunAxis("Y", txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, ySerialPort, token1);
-        //    }
-        //}
-        ///// <summary>
-        ///// Runs the axis.
-        ///// </summary>
-        ///// <param name="axis">The axis.</param>
-        ///// <param name="XstepperMoveTextBox">The xstepper move text box.</param>
-        ///// <param name="XmotorSpeedTextBox">The xmotor speed text box.</param>
-        ///// <param name="XresetToZeroCheckBox">The xreset to zero CheckBox.</param>
-        ///// <param name="YstepperMoveTextBox">The ystepper move text box.</param>
-        ///// <param name="YmotorSpeedTextBox">The ymotor speed text box.</param>
-        ///// <param name="YresetToZeroCheckBox">The yreset to zero CheckBox.</param>
-        ///// <param name="ZstepperMoveTextBox">The zstepper move text box.</param>
-        ///// <param name="ZmotorSpeedTextBox">The zmotor speed text box.</param>
-        ///// <param name="ZresetToZeroCheckBox">The zreset to zero CheckBox.</param>
-        ///// <param name="serialPort">The serial port.</param>
-        ///// <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        ///// <exception cref="System.ArgumentException">'{nameof(axis)}' cannot be null or empty. - axis</exception>
-        ///// <exception cref="System.ArgumentNullException">serialPort</exception>
-        //private async Task RunAxis(string axis, TextBox XstepperMoveTextBox, TextBox XmotorSpeedTextBox, CheckBox XresetToZeroCheckBox, TextBox YstepperMoveTextBox, TextBox YmotorSpeedTextBox, CheckBox YresetToZeroCheckBox, TextBox ZstepperMoveTextBox, TextBox ZmotorSpeedTextBox, CheckBox ZresetToZeroCheckBox, SerialPort serialPort, CancellationToken token = default)
-        //{
-        //    float stepsPerRevolution = 200.0f;
-        //    float distancePerRevolution = 4.0f;
+            EnableControls();
+            //ZaxisChanged = true;
+            ckbZaxisResetToZero.IsChecked = false;
+            zAxisClearAbsolutePosition = false;
+            CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
 
-        //    if (string.IsNullOrEmpty(axis))
-        //    {
-        //        throw new ArgumentException($"'{nameof(axis)}' cannot be null or empty.", nameof(axis));
-        //    }
+            StartDelayTask("Z", Zindata);
+            Logger.LogInformation("Z Axis Motor Stopped");
+        }
 
-        //    if (serialPort is null)
-        //    {
-        //        throw new ArgumentNullException(nameof(serialPort));
-        //    }
+        private void UpdateZAxisAbsolutePosition(string Zindata)
+        {
+            string[] ZindataArray = Zindata.Split(' ');
+            if (ZindataArray.Length > 4 && float.TryParse(ZindataArray[4], NumberStyles.Float, CultureInfo.InvariantCulture, out float currentPosition))
+            {
+                float stepsPerRevolution = 200.0f;
+                float distancePerRevolution = 4.0f;
+                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
 
-        //    Logger.LogInformation(message: $"{axis} Axis Run button clicked:");
+                zAxisAbsolutePosition += distanceInMM;
+                txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture);
+                Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture));
+                Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
+                Properties.Settings.Default.Save();
 
-        //    try
-        //    {
-        //        esp32Rebooted = 0;
-        //        switch (axis)
-        //        {
-        //            case "X":
-        //                if (XresetToZeroCheckBox.IsChecked == true)
-        //                {
-        //                    if (xPositionUpdated)
-        //                    {
-        //                        xPositionUpdated = false;
-        //                    }
-
-        //                    await ResetAxisToZero(axis, serialPort);
-        //                }
-        //                else
-        //                {
-
-        //                    float currentStepperPosition = float.Parse(txtXaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture) / stepsPerRevolution * distancePerRevolution;
-        //                    float moveDistance = float.Parse(XstepperMoveTextBox.Text, CultureInfo.InvariantCulture) / stepsPerRevolution * distancePerRevolution;
-        //                    float motorSpeed = float.Parse(XmotorSpeedTextBox.Text, CultureInfo.InvariantCulture);
-        //                    await MoveAxis(axis, serialPort, currentStepperPosition, moveDistance, motorSpeed, token);
-        //                }
-        //                break;
-        //            case "Y":
-        //                if (YresetToZeroCheckBox.IsChecked == true)
-        //                {
-        //                    if (yPositionUpdated)
-        //                    {
-        //                        yPositionUpdated = false;
-        //                    }
-
-        //                    await ResetAxisToZero(axis, serialPort);
-        //                }
-        //                else
-        //                {
-        //                    float currentStepperPosition = float.Parse(txtYaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture) / stepsPerRevolution * distancePerRevolution;
-        //                    float moveDistance = float.Parse(YstepperMoveTextBox.Text, CultureInfo.InvariantCulture) / stepsPerRevolution * distancePerRevolution;
-        //                    float motorSpeed = float.Parse(YmotorSpeedTextBox.Text, CultureInfo.InvariantCulture);
-        //                    await MoveAxis(axis, serialPort, currentStepperPosition, moveDistance, motorSpeed, token);
-        //                }
-        //                break;
-        //            case "Z":
-        //                if (ZresetToZeroCheckBox.IsChecked == true)
-        //                {
-        //                    if (zPositionUpdated)
-        //                    {
-        //                        zPositionUpdated = false;
-        //                    }
-
-        //                    await ResetAxisToZero(axis, serialPort);
-        //                }
-        //                else
-        //                {
-        //                    float currentStepperPosition = float.Parse(txtXaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture) / stepsPerRevolution * distancePerRevolution;
-        //                    float moveDistance = float.Parse(ZstepperMoveTextBox.Text, CultureInfo.InvariantCulture) / stepsPerRevolution * distancePerRevolution;
-        //                    float motorSpeed = float.Parse(ZmotorSpeedTextBox.Text, CultureInfo.InvariantCulture);
-        //                    await MoveAxis(axis, serialPort, currentStepperPosition, moveDistance, motorSpeed, token);
-        //                }
-        //                break;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Logger.LogInformation(message: $"{axis} Axis error occurred: {ex.Message}");
-        //        MessageBox.Show($"{axis} Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
-        //    }
-        //}
+                zAxisRunToCompletion = false;
+                zAxisClearAbsolutePosition = true;
+                Logger.LogInformation($"Z Axis Absolute Position: {txtZaxisStepperCurrent.Text}");
+            }
+        }
         /// <summary>
         /// Handles the Click event of the AxisRun control.
         /// </summary>
@@ -1071,7 +913,7 @@ namespace Stepper
         {
             axisRunToCompletion = true;
             var token = cancellationTokenSource.Token;
-            await RunAxis(axis, txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, zSerialPort, token);
+            await RunAxis(axis, txtXaxisStepperMove, txtXaxisMotorSpeed, ckbXaxisResetToZero, txtYaxisStepperMove, txtYaxisMotorSpeed, ckbYaxisResetToZero, txtZaxisStepperMove, txtZaxisMotorSpeed, ckbZaxisResetToZero, serialPort, token);
         }
 
         private async Task RunAxis(string axis, TextBox XstepperMoveTextBox, TextBox XmotorSpeedTextBox, CheckBox XresetToZeroCheckBox, TextBox YstepperMoveTextBox, TextBox YmotorSpeedTextBox, CheckBox YresetToZeroCheckBox, TextBox ZstepperMoveTextBox, TextBox ZmotorSpeedTextBox, CheckBox ZresetToZeroCheckBox, SerialPort serialPort, CancellationToken token = default)
@@ -1148,7 +990,7 @@ namespace Stepper
             switch (axis)
             {
                 case "X":
-                    command = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text.Trim()},1,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
+                    command = $"{axis},{Properties.Settings.Default.Value_0_00},{txtXaxisMotorSpeed.Text.Trim()},1,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0";
                     try
                     {
                         xAxisAbsolutePosition = float.Parse("0.00", CultureInfo.InvariantCulture);
@@ -1166,7 +1008,7 @@ namespace Stepper
                     }
                     break;
                 case "Y":
-                    command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text.Trim()},1,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
+                    command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{Properties.Settings.Default.Value_0_00},{txtYaxisMotorSpeed.Text.Trim()},1,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0";
                     try
                     {
                         yAxisAbsolutePosition = float.Parse("0.00", CultureInfo.InvariantCulture);
@@ -1192,12 +1034,12 @@ namespace Stepper
                     }
                     catch (FormatException ex)
                     {
-                        Logger.LogError(ex, "Error converting txtZaxisStepperCurrent.Text to float.");
+                        Logger.LogError(ex, "Error converting txtYaxisStepperCurrent.Text to float.");
                         MessageBox.Show("Invalid format for Z axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     catch (OverflowException ex)
                     {
-                        Logger.LogError(ex, "Overflow error converting txtZaxisStepperCurrent.Text to float.");
+                        Logger.LogError(ex, "Overflow error converting txtYaxisStepperCurrent.Text to float.");
                         MessageBox.Show("Z axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     break;
@@ -1266,7 +1108,7 @@ namespace Stepper
         //            try
         //            {
         //                motorMovementSeconds = UpdateMotorTimer(axis, Convert.ToDecimal(txtXaxisMotorSpeed.Text.Trim()), Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()));
-        //                command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
+        //                command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0";
         //                serialPort.Write(command);
         //                await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
         //                Logger.LogInformation(message: $"{axis} Axis Run Event: {command}");
@@ -1331,7 +1173,7 @@ namespace Stepper
         //            try
         //            {
         //                motorMovementSeconds = UpdateMotorTimer(axis, Convert.ToDecimal(txtYaxisMotorSpeed.Text.Trim()), Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()));
-        //                command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
+        //                command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0";
         //                serialPort.Write(command);
         //                await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
         //                Logger.LogInformation(message: $"{axis} Axis Run Event: {command}");
@@ -1377,7 +1219,7 @@ namespace Stepper
         //                    }
         //                    catch (OverflowException ex)
         //                    {
-        //                        Logger.LogError(ex, "Overflow error converting txtZaxisStepperCurrent.Text to float.");
+        //                        Logger.LogError(ex, "Overflow error converting txtYaxisStepperCurrent.Text to float.");
         //                        MessageBox.Show("Y axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
         //                    }
         //                }
@@ -1393,11 +1235,11 @@ namespace Stepper
         //                MessageBox.Show("Y axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
         //            }
         //            break;
-        //        case "Z":
+        //        case "Y":
         //            try
         //            {
-        //                motorMovementSeconds = UpdateMotorTimer(axis, Convert.ToDecimal(txtZaxisMotorSpeed.Text.Trim()), Convert.ToDecimal(txtZaxisStepperMove.Text.Trim()));
-        //                command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
+        //                motorMovementSeconds = UpdateMotorTimer(axis, Convert.ToDecimal(txtYaxisMotorSpeed.Text.Trim()), Convert.ToDecimal(txtYaxisStepperMove.Text.Trim()));
+        //                command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0";
         //                serialPort.Write(command);
         //                await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
         //                Logger.LogInformation(message: $"{axis} Axis Run Event: {command}");
@@ -1407,8 +1249,8 @@ namespace Stepper
         //                StartTimer(axis, targetEndTime);
         //                StartStopwatch(axis);
         //                Logger.LogInformation(message: $"{axis} Axis Current Time: {DateTime.Now.ToString(@"hh\:mm\:ss")} + {movementTimer} = {targetEndTime.ToString(@"hh\:mm\:ss")}");
-        //                float currentStepperPosition = float.Parse(txtZaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture) / stepsPerRevolution * distancePerRevolution;
-        //                float moveDistance = float.Parse(txtZaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture) / stepsPerRevolution * distancePerRevolution;
+        //                float currentStepperPosition = float.Parse(txtYaxisStepperCurrent.Text.Trim(), CultureInfo.InvariantCulture) / stepsPerRevolution * distancePerRevolution;
+        //                float moveDistance = float.Parse(txtYaxisStepperMove.Text.Trim(), CultureInfo.InvariantCulture) / stepsPerRevolution * distancePerRevolution;
 
         //                if (zAxisRunToCompletion)
         //                {
@@ -1437,32 +1279,32 @@ namespace Stepper
         //                    }
         //                    catch (FormatException ex)
         //                    {
-        //                        Logger.LogError(ex, "Error converting txtZaxisStepperCurrent.Text to float.");
-        //                        MessageBox.Show("Invalid format for Z axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //                        Logger.LogError(ex, "Error converting txtYaxisStepperCurrent.Text to float.");
+        //                        MessageBox.Show("Invalid format for Y axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
         //                    }
         //                    catch (OverflowException ex)
         //                    {
-        //                        Logger.LogError(ex, "Overflow error converting txtZaxisStepperCurrent.Text to float.");
-        //                        MessageBox.Show("Z axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //                        Logger.LogError(ex, "Overflow error converting txtYaxisStepperCurrent.Text to float.");
+        //                        MessageBox.Show("Y axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
         //                    }
         //                }
         //            }
         //            catch (FormatException ex)
         //            {
-        //                Logger.LogError(ex, "Error converting txtZaxisStepperCurrent.Text to float.");
-        //                MessageBox.Show("Invalid format for Z axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //                Logger.LogError(ex, "Error converting txtYaxisStepperCurrent.Text to float.");
+        //                MessageBox.Show("Invalid format for Y axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
         //            }
         //            catch (OverflowException ex)
         //            {
-        //                Logger.LogError(ex, "Overflow error converting txtZaxisStepperCurrent.Text to float.");
-        //                MessageBox.Show("Z axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //                Logger.LogError(ex, "Overflow error converting txtYaxisStepperCurrent.Text to float.");
+        //                MessageBox.Show("Y axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
         //            }
         //            break;
         //        case "XY":
         //            try
         //            {
         //                motorMovementSeconds = UpdateMotorTimer(axis, Convert.ToDecimal(txtXaxisMotorSpeed.Text.Trim()), Convert.ToDecimal(txtXaxisStepperMove.Text.Trim()));
-        //                command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
+        //                command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0";
         //                serialPort.Write(command);
         //                await Task.Delay(Convert.ToInt32(Properties.Settings.Default.MillisecondDelay));
         //                Logger.LogInformation(message: $"{axis} Axis Run Event: {command}");
@@ -1582,115 +1424,124 @@ namespace Stepper
             }
         }
 
-        /// <summary>
-        /// Determines whether the specified number is negative.
-        /// </summary>
-        /// <param name="number">The number.</param>
-        /// <returns><c>true</c> if the specified number is negative; otherwise, <c>false</c>.</returns>
-        public bool IsNegative(decimal number)
-        {
-            if (number < 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        public bool IsNegative(decimal number) => number < 0;
 
-        /// <summary>
-        /// Zeroes the axis.
-        /// </summary>
-        /// <param name="axis">The axis.</param>
         private async Task ZeroAxis(string axis)
         {
-            Logger.LogInformation(message: $"Setting {axis} Axis Current Location Set to Zero on DRO");
+            Logger.LogInformation($"Setting {axis} Axis Current Location Set to Zero on DRO");
             await Task.Delay(Properties.Settings.Default.Milliseconds);
-            if (axis == "X")
+
+            decimal zeroValue = Properties.Settings.Default.Value_0_00;
+            string zeroValueString = zeroValue.ToString("F2");
+
+            switch (axis)
             {
-                txtXaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
-                ckbXaxisResetToZero.IsChecked = false;
-                txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
-                Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
-                Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
+                case "X":
+                    UpdateAxisToZero(txtXaxisStepperCurrent, txtXaxisStepperMove, ckbXaxisResetToZero, zeroValue, zeroValueString);
+                    Properties.Settings.Default.XaxisStepperCurrent = zeroValue;
+                    Properties.Settings.Default.XaxisStepperMove = zeroValue;
+                    break;
+                case "Y":
+                    UpdateAxisToZero(txtYaxisStepperCurrent, txtYaxisStepperMove, ckbYaxisResetToZero, zeroValue, zeroValueString);
+                    Properties.Settings.Default.YaxisStepperCurrent = zeroValue;
+                    Properties.Settings.Default.YaxisStepperMove = zeroValue;
+                    break;
+                case "Z":
+                    UpdateAxisToZero(txtZaxisStepperCurrent, txtZaxisStepperMove, ckbZaxisResetToZero, zeroValue, zeroValueString);
+                    Properties.Settings.Default.ZaxisStepperCurrent = zeroValue;
+                    Properties.Settings.Default.ZaxisStepperMove = zeroValue;
+                    break;
+                case "XY":
+                    UpdateAxisToZero(txtXaxisStepperCurrent, txtXaxisStepperMove, ckbXaxisResetToZero, zeroValue, zeroValueString);
+                    UpdateAxisToZero(txtYaxisStepperCurrent, txtYaxisStepperMove, ckbYaxisResetToZero, zeroValue, zeroValueString);
+                    Properties.Settings.Default.XaxisStepperCurrent = zeroValue;
+                    Properties.Settings.Default.XaxisStepperMove = zeroValue;
+                    Properties.Settings.Default.YaxisStepperCurrent = zeroValue;
+                    Properties.Settings.Default.YaxisStepperMove = zeroValue;
+                    break;
             }
-            else if (axis == "Y")
-            {
-                txtYaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
-                ckbYaxisResetToZero.IsChecked = false;
-                txtYaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
-                Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
-                Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
-            }
-            else if (axis == "Z")
-            {
-                txtZaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
-                ckbZaxisResetToZero.IsChecked = false;
-                txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
-                Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtZaxisStepperCurrent.Text);
-                Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
-            }
-            else if (axis == "XY")
-            {
-                txtXaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
-                ckbXaxisResetToZero.IsChecked = false;
-                txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
-                txtYaxisStepperCurrent.Text = Properties.Settings.Default.Value_0_00.ToString();
-                ckbYaxisResetToZero.IsChecked = false;
-                txtYaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString();
-                Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
-                Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
-                Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
-                Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
-            }
+
             Properties.Settings.Default.Save();
-            Logger.LogInformation(message: $"{axis} Axis Current Location Set to Zero");
+            Logger.LogInformation($"{axis} Axis Current Location Set to Zero");
+        }
+
+        private void UpdateAxisToZero(TextBox stepperCurrentTextBox, TextBox stepperMoveTextBox, CheckBox resetToZeroCheckBox, decimal zeroValue, string zeroValueString)
+        {
+            stepperCurrentTextBox.Text = zeroValueString;
+            stepperMoveTextBox.Text = zeroValueString;
+            resetToZeroCheckBox.IsChecked = false;
         }
 
         /// <summary>
-        /// Starts the timer.
+        /// Starts the timer for the specified axis.
         /// </summary>
         /// <param name="axis">The axis.</param>
         /// <param name="targetEndTime">The target end time.</param>
         private void StartTimer(string axis, DateTime targetEndTime)
         {
-            if (axis == "X")
+            try
             {
-                xTargetEndTime = targetEndTime;
-                xTimer.Start();
+                DispatcherTimer? timer = axis switch
+                {
+                    "X" => xTimer,
+                    "Y" => yTimer,
+                    "Z" => zTimer,
+                    _ => throw new ArgumentException($"Invalid axis: {axis}", nameof(axis))
+                };
+
+                if (timer == null)
+                {
+                    throw new InvalidOperationException($"Timer for axis {axis} is not initialized.");
+                }
+
+                switch (axis)
+                {
+                    case "X":
+                        xTargetEndTime = targetEndTime;
+                        break;
+                    case "Y":
+                        yTargetEndTime = targetEndTime;
+                        break;
+                    case "Z":
+                        zTargetEndTime = targetEndTime;
+                        break;
+                }
+
+                timer.Start();
+                Logger.LogInformation($"{axis} Axis Timer Started. Target End Time: {targetEndTime:hh\\:mm\\:ss}");
             }
-            else if (axis == "Y")
+            catch (Exception ex)
             {
-                yTargetEndTime = targetEndTime;
-                yTimer.Start();
-            }
-            else if (axis == "Z")
-            {
-                zTargetEndTime = targetEndTime;
-                zTimer.Start();
+                Logger.LogError(ex, $"Error starting timer for {axis} axis.");
+                MessageBox.Show($"Error starting timer for {axis} axis: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         /// <summary>
-        /// Starts the stopwatch.
+        /// Starts the stopwatch for the specified axis.
         /// </summary>
         /// <param name="axis">The axis.</param>
         private void StartStopwatch(string axis)
         {
-            if (axis == "X")
+            try
             {
-                xStopwatch.Start();
+                Stopwatch stopwatch = axis switch
+                {
+                    "X" => xStopwatch,
+                    "Y" => yStopwatch,
+                    "Z" => zStopwatch,
+                    _ => throw new ArgumentException($"Invalid axis: {axis}", nameof(axis))
+                };
+
+                stopwatch.Start();
+                Logger.LogInformation($"{axis} Axis Stopwatch Started.");
             }
-            else if (axis == "Y")
+            catch (Exception ex)
             {
-                yStopwatch.Start();
-            }
-            else if (axis == "Z")
-            {
-                zStopwatch.Start();
+                Logger.LogError(ex, $"Error starting stopwatch for {axis} axis.");
+                MessageBox.Show($"Error starting stopwatch for {axis} axis: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         /// <summary>
         /// CheckBoxes the changed.
         /// </summary>
@@ -1707,17 +1558,20 @@ namespace Stepper
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void AxisStepperMove_GotFocus(object sender, EventArgs e)
         {
-            if (sender == txtXaxisStepperMove)
+            if (sender is TextBox textBox)
             {
-                XaxisStepperMoveTemp = txtXaxisStepperMove.Text.ToString();
-            }
-            else if (sender == txtYaxisStepperMove)
-            {
-                YaxisStepperMoveTemp = txtYaxisStepperMove.Text.ToString();
-            }
-            else if (sender == txtZaxisStepperMove)
-            {
-                ZaxisStepperMoveTemp = txtZaxisStepperMove.Text.ToString();
+                switch (textBox.Name)
+                {
+                    case nameof(txtXaxisStepperMove):
+                        XaxisStepperMoveTemp = textBox.Text;
+                        break;
+                    case nameof(txtYaxisStepperMove):
+                        YaxisStepperMoveTemp = textBox.Text;
+                        break;
+                    case nameof(txtZaxisStepperMove):
+                        ZaxisStepperMoveTemp = textBox.Text;
+                        break;
+                }
             }
         }
         /// <summary>
@@ -1783,26 +1637,9 @@ namespace Stepper
         /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void AxisStepperMove_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Keypad mainWindow = new(this);
-            if (mainWindow.ShowDialog() == true)
-            {
-                if (sender == txtXaxisStepperMove)
-                {
-                    txtXaxisStepperMove.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"X Axis mouse controlled Keypad returned: {mainWindow.Result}");
-                }
-                else if (sender == txtYaxisStepperMove)
-                {
-                    txtYaxisStepperMove.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"Y Axis mouse controlled Keypad returned: {mainWindow.Result}");
-                }
-                else if (sender == txtZaxisStepperMove)
-                {
-                    txtZaxisStepperMove.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"Z Axis mouse controlled Keypad returned: {mainWindow.Result}");
-                }
-            }
+            HandleAxisStepperMove(sender as TextBox, "mouse");
         }
+
         /// <summary>
         /// Handles the TouchUp event of the AxisStepperMove control.
         /// </summary>
@@ -1810,26 +1647,26 @@ namespace Stepper
         /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void AxisStepperMove_TouchUp(object sender, TouchEventArgs e)
         {
+            HandleAxisStepperMove(sender as TextBox, "touch");
+        }
+
+        /// <summary>
+        /// Handles the AxisStepperMove event.
+        /// </summary>
+        /// <param name="textBox">The TextBox control.</param>
+        /// <param name="inputType">The input type (mouse or touch).</param>
+        private void HandleAxisStepperMove(TextBox textBox, string inputType)
+        {
+            if (textBox == null) return;
+
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
             {
-                if (sender == txtXaxisStepperMove)
-                {
-                    txtXaxisStepperMove.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"X Axis touch controlled Keypad returned: {mainWindow.Result}");
-                }
-                else if (sender == txtYaxisStepperMove)
-                {
-                    txtYaxisStepperMove.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"Y Axis touch controlled Keypad returned: {mainWindow.Result}");
-                }
-                else if (sender == txtZaxisStepperMove)
-                {
-                    txtZaxisStepperMove.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"Z Axis touch controlled Keypad returned: {mainWindow.Result}");
-                }
+                textBox.Text = mainWindow.Result.ToString();
+                Logger.LogInformation($"{textBox.Name} Axis {inputType} controlled Keypad returned: {mainWindow.Result}");
             }
         }
+
         /// <summary>
         /// Handles the TextChanged event of the AxisMotorSpeed control.
         /// </summary>
@@ -1837,27 +1674,23 @@ namespace Stepper
         /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void AxisMotorSpeed_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            if (textBox == null) return;
+            if (sender is not TextBox textBox) return;
 
-            string axis = string.Empty;
-            decimal motorSpeedValue = 0;
+            string axis = textBox.Name switch
+            {
+                nameof(txtXaxisMotorSpeed) => "X",
+                nameof(txtYaxisMotorSpeed) => "Y",
+                nameof(txtZaxisMotorSpeed) => "Z",
+                _ => throw new ArgumentException("Invalid TextBox name", nameof(sender))
+            };
 
-            if (textBox == txtXaxisMotorSpeed)
+            decimal motorSpeedValue = axis switch
             {
-                axis = "X";
-                motorSpeedValue = Properties.Settings.Default.XaxisMotorSpeed;
-            }
-            else if (textBox == txtYaxisMotorSpeed)
-            {
-                axis = "Y";
-                motorSpeedValue = Properties.Settings.Default.YaxisMotorSpeed;
-            }
-            else if (textBox == txtZaxisMotorSpeed)
-            {
-                axis = "Z";
-                motorSpeedValue = Properties.Settings.Default.ZaxisMotorSpeed;
-            }
+                "X" => Properties.Settings.Default.XaxisMotorSpeed,
+                "Y" => Properties.Settings.Default.YaxisMotorSpeed,
+                "Z" => Properties.Settings.Default.ZaxisMotorSpeed,
+                _ => throw new ArgumentException("Invalid axis", nameof(axis))
+            };
 
             if (textBox.Text == motorSpeedValue.ToString())
             {
@@ -1868,14 +1701,21 @@ namespace Stepper
                 textBox.BorderBrush = System.Windows.Media.Brushes.Red;
                 try
                 {
-                    decimal newValue = Convert.ToDecimal(textBox.Text);
-                    Properties.Settings.Default[$"{axis}axisMotorSpeed"] = newValue;
-                    Properties.Settings.Default.Save();
+                    if (decimal.TryParse(textBox.Text, out decimal newValue))
+                    {
+                        Properties.Settings.Default[$"{axis}axisMotorSpeed"] = newValue;
+                        Properties.Settings.Default.Save();
+                        Logger.LogInformation($"{axis} Axis motor speed updated to {newValue}");
+                    }
+                    else
+                    {
+                        throw new FormatException("Invalid format for motor speed value.");
+                    }
                 }
                 catch (Exception ex)
                 {
-                    Logger.LogInformation(message: $"{axis} Axis error occurred: {ex.Message}");
-                    MessageBox.Show($"{axis} Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Logger.LogError(ex, $"{axis} Axis error occurred while updating motor speed.");
+                    MessageBox.Show($"{axis} Axis error occurred: {ex.Message}", "Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -1886,26 +1726,9 @@ namespace Stepper
         /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void AxisMotorSpeed_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Keypad mainWindow = new(this);
-            if (mainWindow.ShowDialog() == true)
-            {
-                if (sender == txtXaxisMotorSpeed)
-                {
-                    txtXaxisMotorSpeed.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"X Axis mouse controlled Keypad returned: {mainWindow.Result}");
-                }
-                else if (sender == txtYaxisMotorSpeed)
-                {
-                    txtYaxisMotorSpeed.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"Y Axis mouse controlled Keypad returned: {mainWindow.Result}");
-                }
-                else if (sender == txtZaxisMotorSpeed)
-                {
-                    txtZaxisMotorSpeed.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"Z Axis mouse controlled Keypad returned: {mainWindow.Result}");
-                }
-            }
+            HandleMotorSpeedInput(sender as TextBox, "mouse");
         }
+
         /// <summary>
         /// Handles the TouchUp event of the AxisMotorSpeed control.
         /// </summary>
@@ -1913,24 +1736,23 @@ namespace Stepper
         /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void AxisMotorSpeed_TouchUp(object sender, TouchEventArgs e)
         {
+            HandleMotorSpeedInput(sender as TextBox, "touch");
+        }
+
+        /// <summary>
+        /// Handles the motor speed input.
+        /// </summary>
+        /// <param name="textBox">The TextBox control.</param>
+        /// <param name="inputType">The input type (mouse or touch).</param>
+        private void HandleMotorSpeedInput(TextBox textBox, string inputType)
+        {
+            if (textBox == null) return;
+
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
             {
-                if (sender == txtXaxisMotorSpeed)
-                {
-                    txtXaxisMotorSpeed.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"X Axis touch controlled Keypad returned: {mainWindow.Result}");
-                }
-                else if (sender == txtYaxisMotorSpeed)
-                {
-                    txtYaxisMotorSpeed.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"Y Axis touch controlled Keypad returned: {mainWindow.Result}");
-                }
-                else if (sender == txtZaxisMotorSpeed)
-                {
-                    txtZaxisMotorSpeed.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"Z Axis touch controlled Keypad returned: {mainWindow.Result}");
-                }
+                textBox.Text = mainWindow.Result.ToString();
+                Logger.LogInformation($"{textBox.Name} Axis {inputType} controlled Keypad returned: {mainWindow.Result}");
             }
         }
         /// <summary>
@@ -1940,26 +1762,9 @@ namespace Stepper
         /// <param name="e">The <see cref="MouseButtonEventArgs" /> instance containing the event data.</param>
         private void AxisStepperCurrent_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Keypad mainWindow = new(this);
-            if (mainWindow.ShowDialog() == true)
-            {
-                if (sender == txtXaxisStepperCurrent)
-                {
-                    txtXaxisStepperCurrent.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"X Axis mouse controlled Keypad returned: {mainWindow.Result}");
-                }
-                else if (sender == txtYaxisStepperCurrent)
-                {
-                    txtYaxisStepperCurrent.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"Y Axis mouse controlled Keypad returned: {mainWindow.Result}");
-                }
-                else if (sender == txtZaxisStepperCurrent)
-                {
-                    txtZaxisStepperCurrent.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"Z Axis mouse controlled Keypad returned: {mainWindow.Result}");
-                }
-            }
+            HandleAxisStepperCurrentInput(sender as TextBox, "mouse");
         }
+
         /// <summary>
         /// Handles the TouchUp event of the AxisStepperCurrent control.
         /// </summary>
@@ -1967,24 +1772,23 @@ namespace Stepper
         /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
         private void AxisStepperCurrent_TouchUp(object sender, TouchEventArgs e)
         {
+            HandleAxisStepperCurrentInput(sender as TextBox, "touch");
+        }
+
+        /// <summary>
+        /// Handles the AxisStepperCurrent input.
+        /// </summary>
+        /// <param name="textBox">The TextBox control.</param>
+        /// <param name="inputType">The input type (mouse or touch).</param>
+        private void HandleAxisStepperCurrentInput(TextBox textBox, string inputType)
+        {
+            if (textBox == null) return;
+
             Keypad mainWindow = new(this);
             if (mainWindow.ShowDialog() == true)
             {
-                if (sender == txtXaxisStepperCurrent)
-                {
-                    txtXaxisStepperCurrent.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"X Axis touch controlled Keypad returned: {mainWindow.Result}");
-                }
-                else if (sender == txtYaxisStepperCurrent)
-                {
-                    txtYaxisStepperCurrent.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"Y Axis touch controlled Keypad returned: {mainWindow.Result}");
-                }
-                else if (sender == txtZaxisStepperCurrent)
-                {
-                    txtZaxisStepperCurrent.Text = mainWindow.Result.ToString();
-                    Logger.LogInformation(message: $"Z Axis touch controlled Keypad returned: {mainWindow.Result}");
-                }
+                textBox.Text = mainWindow.Result.ToString();
+                Logger.LogInformation($"{textBox.Name} Axis {inputType} controlled Keypad returned: {mainWindow.Result}");
             }
         }
         /// <summary>
@@ -2017,7 +1821,6 @@ namespace Stepper
             // Show the new window
             NewSettingsWindow.Activate();
             NewSettingsWindow.ShowDialog();
-
         }
         /// <summary>
         /// Handles the Loaded event of the MainWindow control.
@@ -2047,76 +1850,64 @@ namespace Stepper
         {
             try
             {
-                Logger.LogInformation(message: $"Stepper Motor Controller MainWindow Closing.");
-                xSerialPort.Close();
-                ySerialPort.Close();
-                zSerialPort.Close();
-                Logger.LogInformation(message: $"Stepper Motor Controller Serial Ports closed.");
+                Logger.LogInformation("Stepper Motor Controller MainWindow Closing.");
+
+                // Close serial ports
+                CloseSerialPort(xSerialPort, "X");
+                CloseSerialPort(ySerialPort, "Y");
+                CloseSerialPort(zSerialPort, "Z");
+
+                // Save settings
                 Properties.Settings.Default.Save();
-                Logger.LogInformation(message: $"Properties Settings Saved.");
-                Logger.LogInformation(message: $"Properties Settings Form Closed.");
-                Logger.LogInformation(message: $"Stepper Motor Controller Form Closed.");
-                NewSettingsWindow.Close();
+                Logger.LogInformation("Properties Settings Saved.");
+
+                // Close settings window
+                if (NewSettingsWindow != null)
+                {
+                    NewSettingsWindow.Close();
+                    Logger.LogInformation("Properties Settings Form Closed.");
+                }
+
+                Logger.LogInformation("Stepper Motor Controller Form Closed.");
             }
             catch (IOException ioex)
             {
-                Logger.LogInformation(message: $"Stepper Motor Controller error occurred: {ioex.Message}");
-                MessageBox.Show($"Stepper Motor Controller An error occurred: {ioex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Logger.LogError(ioex, "Error occurred while closing the MainWindow.");
+                MessageBox.Show($"An error occurred while closing the application: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Unexpected error occurred while closing the MainWindow.");
+                MessageBox.Show($"An unexpected error occurred while closing the application: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         /// <summary>
-        /// Handles the TouchUp event of the ResetToZero control.
+        /// Closes the specified serial port.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="TouchEventArgs" /> instance containing the event data.</param>
+        /// <param name="serialPort">The serial port to close.</param>
+        /// <param name="axis">The axis associated with the serial port.</param>
+        private void CloseSerialPort(SerialPort serialPort, string axis)
+        {
+            if (serialPort != null && serialPort.IsOpen)
+            {
+                try
+                {
+                    serialPort.Close();
+                    Logger.LogInformation($"SerialPort for {axis} Axis closed.");
+                }
+                catch (IOException ioex)
+                {
+                    Logger.LogError(ioex, $"Error occurred while closing the {axis} Axis SerialPort.");
+                    MessageBox.Show($"An error occurred while closing the {axis} Axis SerialPort: {ioex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
         private void ResetToZero_TouchUp(object sender, TouchEventArgs e)
         {
             UpdateZeroStatus();
         }
-        ///// <summary>
-        ///// Updates the zero status.
-        ///// </summary>
-        //private void UpdateZeroStatus()
-        //{
-        //    if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == true && ckbZaxisResetToZero.IsChecked == true)
-        //    {
-        //        ZeroXaxis = 1;
-        //        ZeroYaxis = 1;
-        //        ZeroZaxis = 1;
-        //        Logger.LogInformation(message: "Updated X,Y,Z Zero.IsChecked status to 1.");
-        //    }
-        //    else if (ckbXaxisResetToZero.IsChecked == true && ckbYaxisResetToZero.IsChecked == false && ckbZaxisResetToZero.IsChecked == false)
-        //    {
-        //        ZeroXaxis = 1;
-        //        ZeroYaxis = 0;
-        //        ZeroZaxis = 0;
-        //        Logger.LogInformation(message: "Updated X Zero.IsChecked status to 1 and Y,Z Zero.IsChecked status to 0.");
-        //    }
-        //    else if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == true && ckbZaxisResetToZero.IsChecked == false)
-        //    {
-        //        ZeroXaxis = 0;
-        //        ZeroYaxis = 1;
-        //        ZeroZaxis = 0;
-        //        Logger.LogInformation(message: "Updated X,Z Zero.IsChecked status to 0 and Y Zero.IsChecked status to 1.");
-        //    }
-        //    if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == false && ckbZaxisResetToZero.IsChecked == true)
-        //    {
-        //        ZeroXaxis = 0;
-        //        ZeroYaxis = 0;
-        //        ZeroZaxis = 1;
-        //        Logger.LogInformation(message: "Updated X,Y Zero.IsChecked status to 0 and Z Zero.IsChecked status to 1.");
-        //    }
-        //    if (ckbXaxisResetToZero.IsChecked == false && ckbYaxisResetToZero.IsChecked == false && ckbZaxisResetToZero.IsChecked == false)
-        //    {
-        //        ZeroXaxis = 0;
-        //        ZeroYaxis = 0;
-        //        ZeroZaxis = 0;
-        //        Logger.LogInformation(message: "Updated X,Y,Z Zero.IsChecked status to 0.");
-        //    }
-        //}
-        /// <summary>
-        /// Updates the zero status.
-        /// </summary>
         private void UpdateZeroStatus()
         {
             ZeroXaxis = ckbXaxisResetToZero.IsChecked == true ? 1 : 0;
@@ -2126,75 +1917,6 @@ namespace Stepper
             Logger.LogInformation($"Updated Zero Status - X: {ZeroXaxis}, Y: {ZeroYaxis}, Z: {ZeroZaxis}");
         }
 
-        ///// <summary>
-        ///// Updates the motor timer.
-        ///// </summary>
-        ///// <param name="Axis">The axis.</param>
-        ///// <param name="MotorSpeed">The motor speed.</param>
-        ///// <param name="stepperMove">The stepper move.</param>
-        ///// <returns>System.Decimal.</returns>
-        //private decimal UpdateMotorTimer(string Axis, decimal MotorSpeed, decimal stepperMove)
-        //{
-        //    decimal MotorMovementSeconds = Convert.ToDecimal(0.00);
-        //    if (MotorSpeed <= Convert.ToDecimal(100.00))
-        //    {
-        //        MotorMovementSeconds = (stepperMove / 2);
-        //        Logger.LogInformation(message: $"{Axis} Axis MotorMovementSeconds decimal: {stepperMove} / 2 = {MotorMovementSeconds}");
-        //    }
-        //    else if (MotorSpeed <= Convert.ToDecimal(200.00))
-        //    {
-        //        MotorMovementSeconds = (stepperMove / 4);
-        //        Logger.LogInformation(message: $"{Axis} Axis MotorMovementSeconds decimal: {stepperMove} / 4 = {MotorMovementSeconds}");
-        //    }
-        //    else if (MotorSpeed <= Convert.ToDecimal(300.00))
-        //    {
-        //        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(1.5);
-        //        Logger.LogInformation(message: $"{Axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 1.5 = {MotorMovementSeconds}");
-        //    }
-        //    else if (MotorSpeed <= Convert.ToDecimal(400.00))
-        //    {
-        //        MotorMovementSeconds = (stepperMove / 4) / 2;
-        //        Logger.LogInformation(message: $"{Axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2 = {MotorMovementSeconds}");
-        //    }
-        //    else if (MotorSpeed <= Convert.ToDecimal(500.00))
-        //    {
-        //        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(2.5);
-        //        Logger.LogInformation(message: $"{Axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 2.5 = {MotorMovementSeconds}");
-        //    }
-        //    else if (MotorSpeed <= Convert.ToDecimal(600.00))
-        //    {
-        //        MotorMovementSeconds = (stepperMove / 4) / 3;
-        //        Logger.LogInformation(message: $"{Axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3 = {MotorMovementSeconds}");
-        //    }
-        //    else if (MotorSpeed <= Convert.ToDecimal(700.00))
-        //    {
-        //        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(3.5);
-        //        Logger.LogInformation(message: $"{Axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 3.5 = {MotorMovementSeconds}");
-        //    }
-        //    else if (MotorSpeed <= Convert.ToDecimal(800.00))
-        //    {
-        //        MotorMovementSeconds = (stepperMove / 4) / 4;
-        //        Logger.LogInformation(message: $"{Axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4 = {MotorMovementSeconds}");
-        //    }
-        //    else if (MotorSpeed <= Convert.ToDecimal(900.00))
-        //    {
-        //        MotorMovementSeconds = (stepperMove / 4) / Convert.ToDecimal(4.5);
-        //        Logger.LogInformation(message: $"{Axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 4.5 = {MotorMovementSeconds}");
-        //    }
-        //    else if (MotorSpeed <= Convert.ToDecimal(1000.00))
-        //    {
-        //        MotorMovementSeconds = (stepperMove / 4) / 5;
-        //        Logger.LogInformation(message: $"{Axis} Axis MotorMovementSeconds decimal: ({stepperMove} / 4) / 5 = {MotorMovementSeconds}");
-        //    }
-        //    return MotorMovementSeconds;
-        //}
-        /// <summary>
-        /// Updates the motor timer.
-        /// </summary>
-        /// <param name="Axis">The axis.</param>
-        /// <param name="MotorSpeed">The motor speed.</param>
-        /// <param name="stepperMove">The stepper move.</param>
-        /// <returns>System.Decimal.</returns>
         private decimal UpdateMotorTimer(string Axis, decimal MotorSpeed, decimal stepperMove)
         {
             decimal MotorMovementSeconds = 0.00m;
@@ -2244,11 +1966,6 @@ namespace Stepper
             return MotorMovementSeconds;
         }
 
-        /// <summary>
-        /// Handles the Click event of the AxisPort control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void AxisPort_Click(object sender, RoutedEventArgs e)
         {
             if (sender == btnXAxisPort)
@@ -2264,14 +1981,6 @@ namespace Stepper
                 HandlePortClick(ref zSerialPort, Properties.Settings.Default.ZComPort, ZdataReceivedHandler, btnZAxisPort, "Z Axis Port");
             }
         }
-        /// <summary>
-        /// Handles the port click.
-        /// </summary>
-        /// <param name="serialPort">The serial port.</param>
-        /// <param name="portName">Name of the port.</param>
-        /// <param name="dataReceivedHandler">The data received handler.</param>
-        /// <param name="portButton">The port button.</param>
-        /// <param name="buttonText">The button text.</param>
         private void HandlePortClick(ref SerialPort serialPort, string portName, SerialDataReceivedEventHandler dataReceivedHandler, Button portButton, string buttonText)
         {
             serialPort.Close();
@@ -2295,11 +2004,6 @@ namespace Stepper
 
             portButton.Content = $"{buttonText} {portName}";
         }
-        /// <summary>
-        /// Starts the delay task.
-        /// </summary>
-        /// <param name="axis">The axis.</param>
-        /// <param name="data">The data.</param>
         private async void StartDelayTask(string axis, string data)
         {
             try
@@ -2321,224 +2025,14 @@ namespace Stepper
                 MessageBox.Show($"{ex} Error in StartDelayTask", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
-        ///// <summary>
-        ///// Updates the motor position.
-        ///// </summary>
-        ///// <param name="axis">The axis.</param>
-        ///// <param name="data">The data.</param>
-        //private void UpdateMotorPosition(string axis, string data)
-        //{
-        //    string[] lines = data.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-        //    foreach (string line in lines)
-        //    {
-        //        if (line.Contains($"{axis} Axis CW Motor Current Position:") || line.Contains($"{axis} Axis CCW Motor Current Position:"))
-        //        {
-        //            string positionString = line.Replace($"{axis} Axis CW Motor Current Position:", "").Replace($"{axis} Axis CCW Motor Current Position:", "").Trim();
-        //            if (float.TryParse(positionString, out float currentPosition))
-        //            {
-        //                float stepsPerRevolution = 200.0f;
-        //                float distancePerRevolution = 4.0f;
-        //                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
-
-        //                if (axis == "X")
-        //                {
-        //                    if (xPositionUpdated)
-        //                    {
-        //                        return;
-        //                    }
-
-        //                    if (line.Contains("CW"))
-        //                    {
-        //                        xAxisAbsolutePosition += line.Contains("CW") ? distanceInMM : -distanceInMM;
-        //                        Application.Current.Dispatcher.Invoke(() =>
-        //                        {
-        //                            ckbXaxisResetToZero.IsChecked = false;
-        //                            //txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString("F2");
-        //                            txtXaxisStepperCurrent.Text = xAxisAbsolutePosition.ToString("F2");
-        //                            Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(xAxisAbsolutePosition.ToString("F2"));
-        //                            Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
-        //                            Properties.Settings.Default.Save();
-        //                            xAxisRunToCompletion = false;
-        //                            Logger.LogInformation($"X Axis CW Motor Current Position: {txtXaxisStepperCurrent.Text}");
-        //                            xAxisClearAbsolutePosition = true;
-        //                        });
-        //                    }
-        //                    if (line.Contains("CCW"))
-        //                    {
-        //                        xAxisAbsolutePosition += line.Contains("CCW") ? distanceInMM : -distanceInMM;
-        //                        Application.Current.Dispatcher.Invoke(() =>
-        //                        {
-        //                            ckbXaxisResetToZero.IsChecked = false;
-        //                            //txtXaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString("F2");
-        //                            txtXaxisStepperCurrent.Text = xAxisAbsolutePosition.ToString("F2");
-        //                            Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(xAxisAbsolutePosition.ToString("F2"));
-        //                            Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
-        //                            Properties.Settings.Default.Save();
-        //                            xAxisRunToCompletion = false;
-        //                            Logger.LogInformation($"X Axis CCW Motor Current Position: {txtXaxisStepperCurrent.Text}");
-        //                            xAxisClearAbsolutePosition = true;
-        //                        });
-        //                    }
-        //                }
-        //                else if (axis == "Y")
-        //                {
-        //                    if (yPositionUpdated)
-        //                    {
-        //                        return;
-        //                    }
-
-        //                    if (line.Contains("CW"))
-        //                    {
-        //                        yAxisAbsolutePosition += line.Contains("CW") ? distanceInMM : -distanceInMM;
-        //                        Application.Current.Dispatcher.Invoke(() =>
-        //                        {
-        //                            ckbYaxisResetToZero.IsChecked = false;
-        //                            //txtYaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString("F2");
-        //                            txtYaxisStepperCurrent.Text = yAxisAbsolutePosition.ToString("F2");
-        //                            Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(yAxisAbsolutePosition.ToString("F2"));
-        //                            Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
-        //                            Properties.Settings.Default.Save();
-        //                            yAxisRunToCompletion = true;
-        //                            Logger.LogInformation($"Y Axis CW Motor Current Position: {txtYaxisStepperCurrent.Text}");
-        //                            yAxisClearAbsolutePosition = true;
-        //                        });
-        //                    }
-        //                    if (line.Contains("CCW"))
-        //                    {
-        //                        yAxisAbsolutePosition += line.Contains("CCW") ? distanceInMM : -distanceInMM;
-        //                        Application.Current.Dispatcher.Invoke(() =>
-        //                        {
-        //                            ckbYaxisResetToZero.IsChecked = false;
-        //                            //txtYaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString("F2");
-        //                            txtYaxisStepperCurrent.Text = yAxisAbsolutePosition.ToString("F2");
-        //                            Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(yAxisAbsolutePosition.ToString("F2"));
-        //                            Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
-        //                            Properties.Settings.Default.Save();
-        //                            yAxisRunToCompletion = true;
-        //                            Logger.LogInformation($"Y Axis CCW Motor Current Position: {txtYaxisStepperCurrent.Text}");
-        //                            yAxisClearAbsolutePosition = true;
-        //                        });
-        //                    }
-        //                }
-        //                else if (axis == "Z")
-        //                {
-        //                    if (zPositionUpdated)
-        //                    {
-        //                        return;
-        //                    }
-        //                    if (line.Contains("Z Axis CW Motor Current Position:"))
-        //                    {
-        //                        zAxisAbsolutePosition += line.Contains("CW") ? distanceInMM : -distanceInMM;
-        //                        Application.Current.Dispatcher.Invoke(() =>
-        //                        {
-        //                            ckbZaxisResetToZero.IsChecked = false;
-        //                            //txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString("F2");
-        //                            txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2");
-        //                            Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
-        //                            Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
-        //                            Properties.Settings.Default.Save();
-        //                            zAxisRunToCompletion = false;
-        //                            Logger.LogInformation($"Z Axis CW Motor Current Position: {txtZaxisStepperCurrent.Text}");
-        //                            zAxisClearAbsolutePosition = true;
-        //                            zPositionUpdated = true;
-        //                            return;
-        //                        });
-        //                    }
-        //                    if (line.Contains("Z Axis CCW Motor Current Position:"))
-        //                    {
-        //                        zAxisAbsolutePosition += line.Contains("CCW") ? distanceInMM : -distanceInMM;
-        //                        Application.Current.Dispatcher.Invoke(() =>
-        //                        {
-        //                            ckbZaxisResetToZero.IsChecked = false;
-        //                            //txtZaxisStepperMove.Text = Properties.Settings.Default.Value_0_00.ToString("F2");
-        //                            txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2");
-        //                            Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
-        //                            Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
-        //                            Properties.Settings.Default.Save();
-        //                            zAxisRunToCompletion = false;
-        //                            Logger.LogInformation($"Z Axis CCW Motor Current Position: {txtZaxisStepperCurrent.Text}");
-        //                            zAxisClearAbsolutePosition = true;
-        //                            zPositionUpdated = true;
-        //                            return;
-        //                        });
-        //                    }
-
-        //                }
-        //            }
-        //        }
-        //        if (line.Contains($"X Axis Absolute Position") || line.Contains($"X Axis Absolute Position"))
-        //        {
-        //            string positionString = line.Replace($"X Axis Absolute Position", "").Replace($"X Axis Absolute Position", "").Trim();
-        //            if (float.TryParse(positionString, out float currentPosition))
-        //            {
-        //                float stepsPerRevolution = 200.0f;
-        //                float distancePerRevolution = 4.0f;
-        //                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
-
-        //                xAxisAbsolutePosition += line.Contains("Absolute") ? distanceInMM : -distanceInMM;
-        //                Application.Current.Dispatcher.Invoke(() =>
-        //                {
-        //                    //txtXaxisStepperCurrent.Text = xAxisAbsolutePosition.ToString("F2");
-        //                    Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(xAxisAbsolutePosition.ToString("F2"));
-        //                    Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
-        //                    Properties.Settings.Default.Save();
-        //                    xAxisRunToCompletion = false;
-        //                    Logger.LogInformation($"X Axis Absolute Position {txtXaxisStepperCurrent.Text}");
-        //                    xAxisClearAbsolutePosition = true;
-        //                });
-        //            }
-        //        }
-        //        if (line.Contains($"Y Axis Absolute Position") || line.Contains($"Y Axis Absolute Position"))
-        //        {
-        //            string positionString = line.Replace($"Y Axis Absolute Position", "").Replace($"Y Axis Absolute Position", "").Trim();
-        //            if (float.TryParse(positionString, out float currentPosition))
-        //            {
-        //                float stepsPerRevolution = 200.0f;
-        //                float distancePerRevolution = 4.0f;
-        //                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
-
-        //                yAxisAbsolutePosition += line.Contains("Absolute") ? distanceInMM : -distanceInMM;
-        //                Application.Current.Dispatcher.Invoke(() =>
-        //                {
-        //                    //txtYaxisStepperCurrent.Text = yAxisAbsolutePosition.ToString("F2");
-        //                    Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(yAxisAbsolutePosition.ToString("F2"));
-        //                    Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
-        //                    Properties.Settings.Default.Save();
-        //                    yAxisRunToCompletion = true;
-        //                    Logger.LogInformation($"Y Axis Absolute Position {txtYaxisStepperCurrent.Text}");
-        //                    yAxisClearAbsolutePosition = true;
-        //                });
-        //            }
-        //        }
-        //        if (line.Contains($"Z Axis Absolute Position") || line.Contains($"Z Axis Absolute Position"))
-        //        {
-        //            string positionString = line.Replace($"Z Axis Absolute Position", "").Replace($"Z Axis Absolute Position", "").Trim();
-        //            if (float.TryParse(positionString, out float currentPosition))
-        //            {
-        //                float stepsPerRevolution = 200.0f;
-        //                float distancePerRevolution = 4.0f;
-        //                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
-
-        //                zAxisAbsolutePosition += line.Contains("Position") ? distanceInMM : -distanceInMM;
-        //                Application.Current.Dispatcher.Invoke(() =>
-        //                {
-        //                    //txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2");
-        //                    Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2"));
-        //                    Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
-        //                    Properties.Settings.Default.Save();
-        //                    zAxisRunToCompletion = false;
-        //                    Logger.LogInformation($"Z Axis Absolute Position {txtZaxisStepperCurrent.Text}");
-        //                    zAxisClearAbsolutePosition = true;
-        //                });
-        //            }
-        //        }
-        //    }
-        //}
         private void UpdateMotorPosition(string axis, string data)
         {
             string[] lines = data.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (string line in lines)
             {
+                float stepsPerRevolution = 200.0f;
+                float distancePerRevolution = 4.0f;
+                float distanceInMM = 0.00f;
                 if (line.Contains($"{axis} Axis CW Motor Current Position:") || line.Contains($"{axis} Axis CCW Motor Current Position:"))
                 {
                     string positionString = line.Replace($"{axis} Axis CW Motor Current Position:", "")
@@ -2546,9 +2040,7 @@ namespace Stepper
                                                 .Trim();
                     if (float.TryParse(positionString, out float currentPosition))
                     {
-                        float stepsPerRevolution = 200.0f;
-                        float distancePerRevolution = 4.0f;
-                        float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
+                        distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
 
                         UpdateAxisPosition(axis, distanceInMM, line.Contains("CW"));
                     }
@@ -2558,9 +2050,7 @@ namespace Stepper
                     string positionString = line.Replace($"{axis} Axis Absolute Position", "").Trim();
                     if (float.TryParse(positionString, out float currentPosition))
                     {
-                        float stepsPerRevolution = 200.0f;
-                        float distancePerRevolution = 4.0f;
-                        float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
+                        distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
 
                         UpdateAxisAbsolutePosition(axis, distanceInMM);
                     }
