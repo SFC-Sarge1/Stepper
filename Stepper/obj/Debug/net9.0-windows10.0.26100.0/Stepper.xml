@@ -610,20 +610,6 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.HandleXAxisStop(System.String,System.Boolean)">
-            <summary>
-            Handles the x axis stop.
-            </summary>
-            <param name="Xindata">The xindata.</param>
-            <param name="AxisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateXAxisAbsolutePosition(System.String,System.Boolean)">
-            <summary>
-            Updates the x axis absolute position.
-            </summary>
-            <param name="Xindata">The xindata.</param>
-            <param name="AxisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        </member>
         <member name="M:Stepper.MainWindow.YdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
             Ydatas the received handler.
@@ -631,7 +617,7 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.HandleYAxisStop(System.String,System.Boolean)">
+        <member name="M:Stepper.MainWindow.HandleYAxisStop(System.String,System.Boolean,System.Boolean)">
             <summary>
             Handles the y axis stop.
             </summary>
@@ -652,16 +638,9 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.HandleZAxisStop(System.String,System.Boolean)">
+        <member name="M:Stepper.MainWindow.HandleZAxisStop(System.String,System.Boolean,System.Boolean)">
             <summary>
             Handles the z axis stop.
-            </summary>
-            <param name="Zindata">The zindata.</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateZAxisAbsolutePosition(System.String,System.Boolean)">
-            <summary>
-            Updates the z axis absolute position.
             </summary>
             <param name="Zindata">The zindata.</param>
             <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
@@ -778,22 +757,6 @@
             <param name="dataReceivedHandler">The data received handler.</param>
             <param name="portButton">The port button.</param>
             <param name="buttonText">The button text.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.StartDelayTask(System.String,System.String,System.Boolean)">
-            <summary>
-            Starts the delay task.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="data">The data.</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateMotorPosition(System.String,System.String,System.Boolean)">
-            <summary>
-            Updates the motor position.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="data">The data.</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
         </member>
         <member name="M:Stepper.MainWindow.UpdateAxisPosition(System.String,System.Single,System.Boolean,System.Boolean)">
             <summary>
