@@ -855,10 +855,10 @@ namespace Stepper
         /// Updates the y axis absolute position.
         /// </summary>
         /// <param name="Yindata">The yindata.</param>
-        /// <param name="AxisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        private void UpdateYAxisAbsolutePosition(string Yindata, bool AxisTargetReached)
+        /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
+        private void UpdateYAxisAbsolutePosition(string Yindata, bool axisTargetReached)
         {
-            if (AxisTargetReached) return; // Do not update if the target is reached
+            if (axisTargetReached) return; // Do not update if the target is reached
             string[] YindataArray = Yindata.Split(' ');
             if (YindataArray.Length > 4 && float.TryParse(YindataArray[4], NumberStyles.Float, CultureInfo.InvariantCulture, out float currentPosition))
             {
@@ -921,8 +921,8 @@ namespace Stepper
         /// Handles the z axis stop.
         /// </summary>
         /// <param name="Zindata">The zindata.</param>
-        /// <param name="AxisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        private void HandleZAxisStop(string Zindata, bool AxisTargetReached)
+        /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
+        private void HandleZAxisStop(string Zindata, bool axisTargetReached)
         {
             zTimer.Stop();
             zStopwatch.Stop();
@@ -934,10 +934,10 @@ namespace Stepper
             ckbZaxisResetToZero.IsChecked = false;
             zAxisClearAbsolutePosition = false;
             _zLimitSwitchPress = true;
-            zAxisTargetReached = AxisTargetReached; // Set the flag to indicate the target is reached
+            zAxisTargetReached = axisTargetReached; // Set the flag to indicate the target is reached
             CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
 
-            StartDelayTask("Z", Zindata, AxisTargetReached);
+            StartDelayTask("Z", Zindata, axisTargetReached);
             Logger.LogInformation("Z Axis Motor Stopped");
         }
 
@@ -945,10 +945,10 @@ namespace Stepper
         /// Updates the z axis absolute position.
         /// </summary>
         /// <param name="Zindata">The zindata.</param>
-        /// <param name="AxisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        private void UpdateZAxisAbsolutePosition(string Zindata, bool AxisTargetReached)
+        /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
+        private void UpdateZAxisAbsolutePosition(string Zindata, bool axisTargetReached)
         {
-            if (AxisTargetReached) return; // Do not update if the target is reached
+            if (axisTargetReached) return; // Do not update if the target is reached
 
             string[] ZindataArray = Zindata.Split(' ');
             if (ZindataArray.Length > 4 && float.TryParse(ZindataArray[4], NumberStyles.Float, CultureInfo.InvariantCulture, out float currentPosition))

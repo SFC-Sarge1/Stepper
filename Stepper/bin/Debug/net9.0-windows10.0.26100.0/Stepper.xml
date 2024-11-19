@@ -643,7 +643,7 @@
             Updates the y axis absolute position.
             </summary>
             <param name="Yindata">The yindata.</param>
-            <param name="AxisTargetReached">if set to <c>true</c> [axis target reached].</param>
+            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
         </member>
         <member name="M:Stepper.MainWindow.ZdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
@@ -657,14 +657,14 @@
             Handles the z axis stop.
             </summary>
             <param name="Zindata">The zindata.</param>
-            <param name="AxisTargetReached">if set to <c>true</c> [axis target reached].</param>
+            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
         </member>
         <member name="M:Stepper.MainWindow.UpdateZAxisAbsolutePosition(System.String,System.Boolean)">
             <summary>
             Updates the z axis absolute position.
             </summary>
             <param name="Zindata">The zindata.</param>
-            <param name="AxisTargetReached">if set to <c>true</c> [axis target reached].</param>
+            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
@@ -803,13 +803,6 @@
             <param name="distanceInMM">The distance in mm.</param>
             <param name="isClockwise">if set to <c>true</c> [is clockwise].</param>
             <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateAxisAbsolutePosition(System.String,System.Single)">
-            <summary>
-            Updates the axis absolute position.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="distanceInMM">The distance in mm.</param>
         </member>
         <member name="M:Stepper.MainWindow.IsNegative(System.Decimal)">
             <summary>
