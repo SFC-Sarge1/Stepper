@@ -8,13 +8,14 @@
     ".NETCoreApp,Version=v9.0": {
       "Stepper/1.0.0": {
         "dependencies": {
-          "MahApps.Metro": "3.0.0-alpha0513",
+          "MahApps.Metro": "2.4.10",
           "Microsoft.Extensions.DependencyInjection": "9.0.0",
           "Microsoft.Extensions.Logging": "9.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "9.0.0",
           "Microsoft.Extensions.Logging.AzureAppServices": "9.0.0",
           "Microsoft.Extensions.Logging.Console": "9.0.0",
           "System.IO.Ports": "9.0.0",
+          "System.Text.Json": "9.0.0",
           "UtilityDelta.Gpio": "4.3.0",
           "UtilityDelta.Stepper": "2.2.0",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.26100.54"
@@ -35,32 +36,30 @@
           }
         }
       },
-      "ControlzEx/7.0.0-rc0118": {
+      "ControlzEx/4.4.0": {
         "dependencies": {
-          "Microsoft.Xaml.Behaviors.Wpf": "1.1.77",
-          "System.Text.Json": "8.0.4"
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.19",
+          "System.Text.Json": "9.0.0"
         },
         "runtime": {
-          "lib/net8.0-windows7.0/ControlzEx.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.0.118"
+          "lib/netcoreapp3.1/ControlzEx.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.4.0.50"
           }
         }
       },
-      "MahApps.Metro/3.0.0-alpha0513": {
+      "MahApps.Metro/2.4.10": {
         "dependencies": {
-          "ControlzEx": "7.0.0-rc0118",
-          "Microsoft.Xaml.Behaviors.Wpf": "1.1.77",
-          "System.Memory": "4.5.5"
+          "ControlzEx": "4.4.0"
         },
         "runtime": {
-          "lib/net8.0-windows7.0/MahApps.Metro.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.0.513"
+          "lib/netcoreapp3.1/MahApps.Metro.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.4.10.1"
           }
         },
         "resources": {
-          "lib/net8.0-windows7.0/de/MahApps.Metro.resources.dll": {
+          "lib/netcoreapp3.1/de/MahApps.Metro.resources.dll": {
             "locale": "de"
           }
         }
@@ -299,11 +298,11 @@
           }
         }
       },
-      "Microsoft.Xaml.Behaviors.Wpf/1.1.77": {
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.19": {
         "runtime": {
-          "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
+          "lib/netcoreapp3.0/Microsoft.Xaml.Behaviors.dll": {
             "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.77.27830"
+            "fileVersion": "1.1.19.35512"
           }
         }
       },
@@ -496,13 +495,7 @@
           }
         }
       },
-      "System.Memory/4.5.5": {},
-      "System.Text.Encodings.Web/8.0.0": {},
-      "System.Text.Json/8.0.4": {
-        "dependencies": {
-          "System.Text.Encodings.Web": "8.0.0"
-        }
-      },
+      "System.Text.Json/9.0.0": {},
       "System.ValueTuple/4.5.0": {},
       "UtilityDelta.Gpio/4.3.0": {
         "runtime": {
@@ -536,19 +529,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "ControlzEx/7.0.0-rc0118": {
+    "ControlzEx/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Mv3m4Z4371qZYrV4Wtu0ha5H55hg5Kv6twTXLz+uOr0hI39V2ecM1To19P5sicq5jfWTyoZGqmXIk2vONjFGrg==",
-      "path": "controlzex/7.0.0-rc0118",
-      "hashPath": "controlzex.7.0.0-rc0118.nupkg.sha512"
+      "sha512": "sha512-pZ5z4hYWwE4R13UMCVs6vII//nL7hz+Nwn4oJlnsZJRGqJNy6Z9KnJiTZfly6lKFu0pMc1aWBZpx+VqFTQKP1Q==",
+      "path": "controlzex/4.4.0",
+      "hashPath": "controlzex.4.4.0.nupkg.sha512"
     },
-    "MahApps.Metro/3.0.0-alpha0513": {
+    "MahApps.Metro/2.4.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/N8xoarlsTVIXEF90+Ff6gG5g+Xq55nVd9/dXJ5GX5ZDHAtKhj0yB3Q0EhGsDEHthdnMBCGELrr6Jtg1T9gXoQ==",
-      "path": "mahapps.metro/3.0.0-alpha0513",
-      "hashPath": "mahapps.metro.3.0.0-alpha0513.nupkg.sha512"
+      "sha512": "sha512-45exHKJCVYaD1/rNr3ekZPECEBM4uHOt6aYp6yNaJbliFMUo+d3z8Gi1xG+qEkbiHKITX+dlz+BW1FOsjAbl/w==",
+      "path": "mahapps.metro/2.4.10",
+      "hashPath": "mahapps.metro.2.4.10.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/9.0.0": {
       "type": "package",
@@ -683,12 +676,12 @@
       "path": "microsoft.extensions.primitives/9.0.0",
       "hashPath": "microsoft.extensions.primitives.9.0.0.nupkg.sha512"
     },
-    "Microsoft.Xaml.Behaviors.Wpf/1.1.77": {
+    "Microsoft.Xaml.Behaviors.Wpf/1.1.19": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MCu674ZETgU18EbxfwIlRpUPJ02YbZenLsMCXTkpeA7KUBpXfFaOUDlEO+7UWu5AFnUoydg+aQENJkuaZPheMQ==",
-      "path": "microsoft.xaml.behaviors.wpf/1.1.77",
-      "hashPath": "microsoft.xaml.behaviors.wpf.1.1.77.nupkg.sha512"
+      "sha512": "sha512-5sPWkbqImc2t1aQwIfJcKsUo7tOg1Tr8+6xVzZJB56Nzt4u9NlpcLofgdX/aRYpPKdWDA3U23Akw1KQzU5e82g==",
+      "path": "microsoft.xaml.behaviors.wpf/1.1.19",
+      "hashPath": "microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512"
     },
     "runtime.android-arm.runtime.native.System.IO.Ports/9.0.0": {
       "type": "package",
@@ -816,26 +809,12 @@
       "path": "system.io.ports/9.0.0",
       "hashPath": "system.io.ports.9.0.0.nupkg.sha512"
     },
-    "System.Memory/4.5.5": {
+    "System.Text.Json/9.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
-      "path": "system.memory/4.5.5",
-      "hashPath": "system.memory.4.5.5.nupkg.sha512"
-    },
-    "System.Text.Encodings.Web/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-yev/k9GHAEGx2Rg3/tU6MQh4HGBXJs70y7j1LaM1i/ER9po+6nnQ6RRqTJn1E7Xu0fbIFK80Nh5EoODxrbxwBQ==",
-      "path": "system.text.encodings.web/8.0.0",
-      "hashPath": "system.text.encodings.web.8.0.0.nupkg.sha512"
-    },
-    "System.Text.Json/8.0.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-bAkhgDJ88XTsqczoxEMliSrpijKZHhbJQldhAmObj/RbrN3sU5dcokuXmWJWsdQAhiMJ9bTayWsL1C9fbbCRhw==",
-      "path": "system.text.json/8.0.4",
-      "hashPath": "system.text.json.8.0.4.nupkg.sha512"
+      "sha512": "sha512-js7+qAu/9mQvnhA4EfGMZNEzXtJCDxgkgj8ohuxq/Qxv+R56G+ljefhiJHOxTNiw54q8vmABCWUwkMulNdlZ4A==",
+      "path": "system.text.json/9.0.0",
+      "hashPath": "system.text.json.9.0.0.nupkg.sha512"
     },
     "System.ValueTuple/4.5.0": {
       "type": "package",

@@ -53,7 +53,7 @@
           "dependencies": {
             "MahApps.Metro": {
               "target": "Package",
-              "version": "[3.0.0-alpha0513, )"
+              "version": "[2.4.10, )"
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
@@ -76,6 +76,10 @@
               "version": "[9.0.0, )"
             },
             "System.IO.Ports": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Text.Json": {
               "target": "Package",
               "version": "[9.0.0, )"
             },
