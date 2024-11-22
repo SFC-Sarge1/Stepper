@@ -212,7 +212,7 @@ void loop()
 		if (serialDataIndex == 10)
 		{
 			zAxisStepperMotor.setCurrentPosition(0.00);
-			Serial.println("serialData: " + (String)serialData[0] + "," + (String)serialData[1] + "," + (String)serialData[2] + "," + (String)serialData[3] + "," + (String)serialData[4] + "," + (String)serialData[5] + "," + (String)serialData[6] + "," + (String)serialData[7] + "," + (String)serialData[8] + "," + (String)serialData[9]);
+			Serial.println(" serialData: " + (String)serialData[0] + "," + (String)serialData[1] + "," + (String)serialData[2] + "," + (String)serialData[3] + "," + (String)serialData[4] + "," + (String)serialData[5] + "," + (String)serialData[6] + "," + (String)serialData[7] + "," + (String)serialData[8] + "," + (String)serialData[9]);
 			serialDataIndex = 0;
 			Axis = serialData[0];
 
@@ -261,7 +261,7 @@ static void zMotorRun()
         zAxisMoveMM = 0.00;
         zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
         limitSwitchTriggered = 1;
-        Serial.println("ESP 32 Board Reset.");
+        Serial.println(" ESP 32 Board Reset.");
         delay(3000);
         ESP.restart();  // Reset the ESP32 board
     }
@@ -272,8 +272,8 @@ static void zMotorRun()
         {
             zAxisStepperMotor.stop();
             limitSwitchCWTriggered = true;
-            Serial.println("Z Axis CW STOPPED");
-			Serial.println("Z Axis CW Motor Current Position: " + String(zAxisStepperMotor.currentPosition()));
+            Serial.println(" Z Axis CW STOPPED");
+			Serial.println(" Z Axis CW Motor Current Position: " + String(zAxisStepperMotor.currentPosition()));
            //return;
         }
 
@@ -281,8 +281,8 @@ static void zMotorRun()
         {
             zAxisStepperMotor.stop();
             limitSwitchCCWTriggered = true;
-            Serial.println("Z Axis CCW STOPPED");
-			Serial.println("Z Axis CCW Motor Current Position:  " + String(zAxisStepperMotor.currentPosition()));
+            Serial.println(" Z Axis CCW STOPPED");
+			Serial.println(" Z Axis CCW Motor Current Position:  " + String(zAxisStepperMotor.currentPosition()));
             //return;
         }
         zAxisStepperMotor.run();
@@ -294,8 +294,8 @@ static void zMotorRun()
         limitSwitchCCWTriggered = false;
         limitSwitchTriggered = 1;
 		zAxisStepperMotor.stop();  // Stop the motor
-		Serial.println("Z Axis reached target position");
-		Serial.println("Current Position: " + String(zAxisStepperMotor.currentPosition()));
+		Serial.println(" Z Axis reached target position");
+		Serial.println(" Current Position: " + String(zAxisStepperMotor.currentPosition()));
         zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
         return;
     }
