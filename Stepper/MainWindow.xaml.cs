@@ -330,9 +330,17 @@ namespace Stepper
         /// </summary>
         public string CurrentAxis = "Z";
         /// <summary>
-        /// The completed current position
+        /// The completed X axis current position
         /// </summary>
-        public float CompletedCurrentPosition;
+        private static float CompletedXAxisCurrentPosition = 0.00f;
+        /// <summary>
+        /// The completed Y axis current position
+        /// </summary>
+        private static float CompletedYAxisCurrentPosition = 0.00f;
+        /// <summary>
+        /// The completed Z axis current position
+        /// </summary>
+        private static float CompletedZAxisCurrentPosition = 0.00f;
         // Method to raise the event
         /// <summary>
         /// Handles the <see cref="E:ZAxisTargetReachedChanged" /> event.
@@ -725,8 +733,6 @@ namespace Stepper
         {
             targetEndTime = endTime;
             countdownTimer.Start();
-            //stepperMoveTextBox.BorderBrush = System.Windows.Media.Brushes.White;
-            //motorSpeedTextBox.BorderBrush = System.Windows.Media.Brushes.White;
         }
         /// <summary>
         /// Handles the Tick event of the CountdownTimer control.
@@ -743,7 +749,18 @@ namespace Stepper
                 CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                 EnableControls();
                 LogInformation($"{Properties.Settings.Default.CountDownText} Completed");
-                UpdateCurrentPosition(CurrentAxis, CompletedCurrentPosition);
+                switch (CurrentAxis)
+                {
+                    case ("X"):
+                        UpdateCurrentPosition(CurrentAxis, CompletedXAxisCurrentPosition);
+                        break;
+                    case ("Y"):
+                        UpdateCurrentPosition(CurrentAxis, CompletedYAxisCurrentPosition);
+                        break;
+                    case ("Z"):
+                        UpdateCurrentPosition(CurrentAxis, CompletedZAxisCurrentPosition);
+                        break;
+                }
                 return;
             }
             // Update the UI with the remaining time
@@ -757,19 +774,24 @@ namespace Stepper
         /// <param name="currentPosition">The current position.</param>
         private void UpdateCurrentPosition(string axis, float currentPosition)
         {
-            if (axis == "X")
+            switch (axis)
             {
-                txtXaxisStepperCurrent.Text = currentPosition.ToString("F2");
+                case ("X"):
+                    txtXaxisStepperCurrent.Text = currentPosition.ToString("F2");
+                    txtXaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
+                    txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                    break;
+                case ("Y"):
+                    txtYaxisStepperCurrent.Text = currentPosition.ToString("F2");
+                    txtYaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
+                    txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                    break;
+                case ("Z"):
+                    txtZaxisStepperCurrent.Text = currentPosition.ToString("F2");
+                    txtZaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
+                    txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                    break;
             }
-            else if (axis == "Y")
-            {
-                txtYaxisStepperCurrent.Text = currentPosition.ToString("F2");
-            }
-            else if (axis == "Z")
-            {
-                txtZaxisStepperCurrent.Text = currentPosition.ToString("F2");
-            }
-
         }
         /// <summary>
         /// Disables the controls.
@@ -825,93 +847,27 @@ namespace Stepper
             try
             {
                 SerialPort Xsp = (SerialPort)sender;
-                string Xindata = Xsp.ReadExisting();
+                string indata = Xsp.ReadExisting();
                 string axis = "X";
-                LogInformation($"{axis} Axis Data Received: {Xindata}");
+                LogInformation($"{axis} Axis Data Received: {indata}");
 
                 XAxisTargetReached = true;
                 xAxisRunToCompletion = true;
 
-                if (Xindata.Contains($" {axis} Axis CW STOPPED") || Xindata.Contains($" {axis} Axis CCW STOPPED"))
+                if (indata.Contains($" {axis} Axis CW STOPPED") || indata.Contains($" {axis} Axis CCW STOPPED"))
                 {
-                    LogInformation($" Xindata Contains: {axis} Axis CW STOPPED or {axis} Axis CCW STOPPED");
-                    if ((axis == "X" && !xAxisRunToCompletion && (Xindata.Contains($" {axis} Axis CW Motor Current Position:") || Xindata.Contains($" {axis} Axis CCW Motor Current Position:"))))
+                    LogInformation($" Zindata Contains: {axis} Axis CW STOPPED or {axis} Axis CCW STOPPED");
+                    if (indata.Contains($" {axis} Axis CW Motor Current Position:") || indata.Contains($" {axis} Axis CCW Motor Current Position:"))
                     {
-                        LogInformation($" Xindata Contains: {axis} Axis CW Motor Current Position: or {axis} Axis CCW Motor Current Position:");
-
-                        LogInformation($"HandleXAxisStop(Xindata, _xAxisTargetReached, xAxisRunToCompletion), {Xindata}, Target Reached: {axis} {_xAxisTargetReached}:, Ran To Completion: {axis} {xAxisRunToCompletion}");
-                        HandleXAxisStop(Xindata, _xAxisTargetReached, xAxisRunToCompletion);
-                        LogInformation($"UpdateXAxisAbsolutePosition(Xindata, _xAxisTargetReached, xAxisRunToCompletion), {Xindata}, Target Reached: {axis} {_xAxisTargetReached}:, Ran To Completion: {axis} {xAxisRunToCompletion}");
-                        UpdateXAxisAbsolutePosition(Xindata, _xAxisTargetReached, xAxisRunToCompletion);
+                        UpdateCurrentPosition(axis, CompletedZAxisCurrentPosition);
+                        UpdateLimitSwitchMotorPosition(axis, indata);
                     }
-                }
-                else if (Xindata.Contains($"{axis} Axis Absolute Position"))
-                {
-                    LogInformation($" Xindata Contains: {axis} Axis Absolute Position");
-                    LogInformation($"UpdateXAxisAbsolutePosition(Xindata, _xAxisTargetReached, xAxisRunToCompletion), {Xindata}, Target Reached: {axis} {_xAxisTargetReached}:, Ran To Completion: {axis} {xAxisRunToCompletion}");
-                    UpdateZAxisAbsolutePosition(Xindata, _xAxisTargetReached, xAxisRunToCompletion);
                 }
             }
             catch (Exception ex)
             {
                 LogError(ex, "Error in XdataReceivedHandler");
                 MessageBox.Show($"{ex} Error in XdataReceivedHandler", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-        /// <summary>
-        /// Handles the x axis stop.
-        /// </summary>
-        /// <param name="Xindata">The xindata.</param>
-        /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        /// <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        private void HandleXAxisStop(string Xindata, bool axisTargetReached, bool axisRunToCompletion)
-        {
-            String axis = "X";
-            countdownTimer.Stop();
-            _xCancellationTokenSource.Cancel();
-            _xLimitSwitchPress = true;
-            LimitSwitchPressed = true;
-            EnableControls();
-            XaxisChanged = true;
-            ckbXaxisResetToZero.IsChecked = false;
-            xAxisClearAbsolutePosition = false;
-            _xLimitSwitchPress = true;
-            XAxisTargetReached = axisTargetReached; // Set the flag to indicate the target is reached
-            xAxisRunToCompletion = axisRunToCompletion;
-            CountdownLabel.Content = $"{axis} axis {Properties.Settings.Default.CountDownText} Completed";
-            LogInformation($"{axis} Axis Motor Stopped");
-        }
-        /// <summary>
-        /// Updates the x axis absolute position.
-        /// </summary>
-        /// <param name="Xindata">The xindata.</param>
-        /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        /// <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        private void UpdateXAxisAbsolutePosition(string Xindata, bool axisTargetReached, bool axisRunToCompletion)
-        {
-            String axis = "X";
-            if (axisTargetReached)
-            {
-                LogInformation($"{axis} Axis Target Reached: true");
-                return; // Do not update if the target is reached.
-            }
-            string[] XindataArrax = Xindata.Split(' ');
-
-            if (XindataArrax.Length > 4 && float.TryParse(XindataArrax[4], NumberStyles.Float, CultureInfo.InvariantCulture, out float currentPosition))
-            {
-                float stepsPerRevolution = 200.0f;
-                float distancePerRevolution = 4.0f;
-                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
-
-                xAxisAbsolutePosition += distanceInMM;
-                txtXaxisStepperCurrent.Text = xAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture);
-                Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(xAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture));
-                Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
-                Properties.Settings.Default.Save();
-
-                xAxisRunToCompletion = false;
-                xAxisClearAbsolutePosition = true;
-                LogInformation($"{axis} Axis Absolute Position: {txtXaxisStepperCurrent.Text}");
             }
         }
         /// <summary>
@@ -924,94 +880,27 @@ namespace Stepper
             try
             {
                 SerialPort Ysp = (SerialPort)sender;
-                string Yindata = Ysp.ReadExisting();
+                string indata = Ysp.ReadExisting();
                 string axis = "Y";
-                LogInformation($"{axis} Axis Data Received: {Yindata}");
+                //LogInformation($"{axis} Axis Data Received: {indata}");
 
                 YAxisTargetReached = true; // Set the flag to indicate the target is reached
                 yAxisRunToCompletion = true;
 
-                if (Yindata.Contains($"{axis} Axis CW STOPPED") || Yindata.Contains($"{axis} Axis CCW STOPPED"))
+                if (indata.Contains($" {axis} Axis CW STOPPED") || indata.Contains($" {axis} Axis CCW STOPPED"))
                 {
-                    LogInformation($" Yindata Contains: {axis} Axis CW STOPPED or {axis} Axis CCW STOPPED");
-                    if ((axis == "Y" && !xAxisRunToCompletion && (Yindata.Contains($" {axis} Axis CW Motor Current Position:") || Yindata.Contains($" {axis} Axis CCW Motor Current Position:"))))
+                    LogInformation($" Zindata Contains: {axis} Axis CW STOPPED or {axis} Axis CCW STOPPED");
+                    if (indata.Contains($" {axis} Axis CW Motor Current Position:") || indata.Contains($" {axis} Axis CCW Motor Current Position:"))
                     {
-                        LogInformation($" Yindata Contains: {axis} Axis CW Motor Current Position: or {axis} Axis CCW Motor Current Position:");
-
-                        LogInformation($"HandleYAxisStop(Zindata, _yAxisTargetReached, yAxisRunToCompletion), {Yindata}, Target Reached: {axis} {_yAxisTargetReached}:, Ran To Completion: {axis} {yAxisRunToCompletion}");
-                        HandleYAxisStop(Yindata, _yAxisTargetReached, yAxisRunToCompletion);
-                        LogInformation($"UpdateYAxisAbsolutePosition(Yindata, _yAxisTargetReached, yAxisRunToCompletion), {Yindata}, Target Reached: {axis} {_yAxisTargetReached}:, Ran To Completion: {axis} {yAxisRunToCompletion}");
-                        UpdateYAxisAbsolutePosition(Yindata, _yAxisTargetReached, yAxisRunToCompletion);
+                        UpdateCurrentPosition(axis, CompletedZAxisCurrentPosition);
+                        UpdateLimitSwitchMotorPosition(axis, indata);
                     }
-                    HandleYAxisStop(Yindata, _yAxisTargetReached, yAxisRunToCompletion);
-                }
-                else if (Yindata.Contains($"{axis} Axis Absolute Position"))
-                {
-                    LogInformation($" Yindata Contains: {axis} Axis Absolute Position");
-                    LogInformation($"UpdateYAxisAbsolutePosition(Yindata, _yAxisTargetReached, yAxisRunToCompletion), {Yindata}, Target Reached: {axis} {_yAxisTargetReached}:, Ran To Completion: {axis} {yAxisRunToCompletion}");
-                    UpdateYAxisAbsolutePosition(Yindata, _yAxisTargetReached, yAxisRunToCompletion);
                 }
             }
             catch (Exception ex)
             {
                 LogError(ex, "Error in YdataReceivedHandler");
                 MessageBox.Show($"{ex} Error in YdataReceivedHandler", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-        /// <summary>
-        /// Handles the y axis stop.
-        /// </summary>
-        /// <param name="Yindata">The yindata.</param>
-        /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        /// <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        private void HandleYAxisStop(string Yindata, bool axisTargetReached, bool axisRunToCompletion)
-        {
-            String axis = "Y";
-            countdownTimer.Stop();
-            _yCancellationTokenSource.Cancel();
-            _yLimitSwitchPress = true;
-            LimitSwitchPressed = true;
-            EnableControls();
-            YaxisChanged = true;
-            ckbYaxisResetToZero.IsChecked = false;
-            yAxisClearAbsolutePosition = false;
-            _yLimitSwitchPress = true;
-            YAxisTargetReached = axisTargetReached; // Set the flag to indicate the target is reached
-            yAxisRunToCompletion = axisRunToCompletion;
-            CountdownLabel.Content = $"{axis} axis {Properties.Settings.Default.CountDownText} Completed";
-            LogInformation($"{axis} Axis Motor Stopped");
-        }
-        /// <summary>
-        /// Updates the y axis absolute position.
-        /// </summary>
-        /// <param name="Yindata">The yindata.</param>
-        /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        /// <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        private void UpdateYAxisAbsolutePosition(string Yindata, bool axisTargetReached, bool axisRunToCompletion)
-        {
-            String axis = "Y";
-            if (axisTargetReached)
-            {
-                LogInformation($"{axis} Axis Target Reached: true");
-                return; // Do not update if the target is reached.
-            }
-            string[] YindataArray = Yindata.Split(' ');
-
-            if (YindataArray.Length > 4 && float.TryParse(YindataArray[4], NumberStyles.Float, CultureInfo.InvariantCulture, out float currentPosition))
-            {
-                float stepsPerRevolution = 200.0f;
-                float distancePerRevolution = 4.0f;
-                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
-
-                yAxisAbsolutePosition += distanceInMM;
-                txtYaxisStepperCurrent.Text = yAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture);
-                Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(yAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture));
-                Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
-                Properties.Settings.Default.Save();
-
-                yAxisRunToCompletion = false;
-                yAxisClearAbsolutePosition = true;
-                LogInformation($"{axis} Axis Absolute Position: {txtYaxisStepperCurrent.Text}");
             }
         }
         /// <summary>
@@ -1024,20 +913,16 @@ namespace Stepper
             try
             {
                 SerialPort Zsp = (SerialPort)sender;
-                string Zindata = Zsp.ReadExisting();
+                string indata = Zsp.ReadExisting();
                 String axis = "Z";
-                if (Zindata.Contains($" {axis} Axis CW STOPPED") || Zindata.Contains($" {axis} Axis CCW STOPPED"))
+                if (indata.Contains($" {axis} Axis CW STOPPED") || indata.Contains($" {axis} Axis CCW STOPPED"))
                 {
                     LogInformation($" Zindata Contains: {axis} Axis CW STOPPED or {axis} Axis CCW STOPPED");
-                    if (Zindata.Contains($" {axis} Axis CW Motor Current Position:") || Zindata.Contains($" {axis} Axis CCW Motor Current Position:"))
+                    if (indata.Contains($" {axis} Axis CW Motor Current Position:") || indata.Contains($" {axis} Axis CCW Motor Current Position:"))
                     {
-                        UpdateZAxisAbsolutePosition(axis, CompletedCurrentPosition);
+                        UpdateCurrentPosition(axis, CompletedZAxisCurrentPosition);
+                        UpdateLimitSwitchMotorPosition(axis, indata);
                     }
-                }
-                else if (Zindata.Contains($"{axis} Axis Absolute Position"))
-                {
-                    LogInformation($" Zindata Contains: {axis} Axis Absolute Position");
-                    UpdateZAxisAbsolutePosition(axis, CompletedCurrentPosition);
                 }
             }
             catch (Exception ex)
@@ -1048,16 +933,56 @@ namespace Stepper
 #endif
             }
         }
-        /// <summary>Updates the z axis absolute position.</summary>
-        /// <param name="axis">The current axis.</param>
-        /// <param name="currentPosition">The current position.</param>
-        private void UpdateZAxisAbsolutePosition(string axis, float currentPosition)
+        private void UpdateLimitSwitchMotorPosition(string axis, string data)
         {
-                zAxisAbsolutePosition = currentPosition;
-                Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture));
-                Properties.Settings.Default.Save();
-                LogInformation($"{axis} Axis Absolute Position: {zAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture)}");
+            string[] lines = data.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string line in lines)
+            {
+                float stepsPerRevolution = 200.0f;
+                float distancePerRevolution = 4.0f;
+                float distanceInMM = 0.00f;
+                if (line.Contains($"{axis} Axis CW Motor Current Position:") || line.Contains($"{axis} Axis CCW Motor Current Position:"))
+                {
+                    string positionString = line.Replace($"{axis} Axis CW Motor Current Position:", "")
+                                                .Replace($"{axis} Axis CCW Motor Current Position:", "")
+                                                .Trim();
+                    if (float.TryParse(positionString, out float currentPosition))
+                    {
+                        distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
+                        if (line.Contains("CW"))
+                        {
+                            UpdateAxisPosition(axis, distanceInMM, line.Contains("CW"));
+                        }
+                        if (line.Contains("CCW"))
+                        {
+                            UpdateAxisPosition(axis, -distanceInMM, line.Contains("CCW"));
+                        }
+                    }
+                }
+            }
         }
+        private void UpdateAxisPosition(string axis, float distanceInMM, bool isClockwise)
+        {
+            float newPosition = isClockwise ? distanceInMM : -distanceInMM;
+            switch (axis)
+            {
+                case "X":
+                    xAxisAbsolutePosition += newPosition;
+                    txtXaxisStepperCurrent.Text = xAxisAbsolutePosition.ToString("F2");
+                    break;
+                case "Y":
+                    yAxisAbsolutePosition += newPosition;
+                    txtYaxisStepperCurrent.Text = yAxisAbsolutePosition.ToString("F2");
+                    break;
+                case "Z":
+                    zAxisAbsolutePosition += newPosition;
+                    txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2");
+                    break;
+            }
+            Properties.Settings.Default.Save();
+            Logger.LogInformation($"{axis} Axis Motor Current Position: {newPosition}");
+        }
+
         /// <summary>
         /// Handles the Click event of the AxisRun control.
         /// </summary>
@@ -1065,61 +990,34 @@ namespace Stepper
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         public async void AxisRun_Click(object sender, RoutedEventArgs e)
         {
-            if (sender == btnRunXAxis)
+            switch (sender)
             {
-                String axis = "X";
-                LogInformation($"{axis} Axis Run button clicked:");
-                _xLimitSwitchPress = false;
-                xAxisRunToCompletion = false;
-                LogInformation($"{axis} Axis Target Reached: false");
-                _xAxisTargetReached = false;
-                LogInformation($"RunAxis({axis}, {txtXaxisStepperMove.Text}, {txtXaxisMotorSpeed.Text}, {ckbXaxisResetToZero.IsChecked}, {xSerialPort.PortName}, {xAxisRunToCompletion}, {_xAxisTargetReached}");
-                await RunAxis(axis, txtXaxisStepperMove, txtXaxisStepperCurrent, txtXaxisMotorSpeed, ckbXaxisResetToZero, xSerialPort, xAxisRunToCompletion, _xAxisTargetReached);
-            }
-            else if (sender == btnRunYAxis)
-            {
-                String axis = "Y";
-                LogInformation($"{axis} Axis Run button clicked:");
-                _yLimitSwitchPress = false;
-                yAxisRunToCompletion = false;
-                LogInformation($"{axis} Axis Target Reached: false");
-                _yAxisTargetReached = false;
-                LogInformation($"RunAxis({axis}, {txtYaxisStepperMove.Text}, {txtYaxisMotorSpeed.Text}, {ckbYaxisResetToZero.IsChecked}, {ySerialPort.PortName}, {yAxisRunToCompletion}, {_yAxisTargetReached}");
-                await RunAxis(axis, txtYaxisStepperMove, txtYaxisStepperCurrent, txtYaxisMotorSpeed, ckbYaxisResetToZero, ySerialPort, yAxisRunToCompletion, _yAxisTargetReached);
-            }
-            else if (sender == btnRunZAxis)
-            {
-                String axis = "Z";
-                LogInformation($"{axis} Axis Run button clicked:");
-                _zLimitSwitchPress = false;
-                zAxisRunToCompletion = false;
-                LogInformation($"{axis} Axis Target Reached: false");
-                _zAxisTargetReached = false;
-                LogInformation($"RunAxis({axis}, {txtZaxisStepperMove.Text}, {txtZaxisMotorSpeed.Text}, {ckbZaxisResetToZero.IsChecked}, {zSerialPort.PortName}, {zAxisRunToCompletion}, {_zAxisTargetReached}");
-                await RunAxis(axis, txtZaxisStepperMove, txtZaxisStepperCurrent, txtZaxisMotorSpeed, ckbZaxisResetToZero, zSerialPort, zAxisRunToCompletion, _zAxisTargetReached);
-            }
-            else if (sender == btnRunXYAxis)
-            {
-                String axis = "X";
-                LogInformation($"{axis} Axis Run button clicked:");
-                _xLimitSwitchPress = false;
-                xAxisRunToCompletion = false;
-                LogInformation($"{axis} Axis Target Reached: false");
-                _xAxisTargetReached = false;
-                LogInformation($"RunAxis({axis}, {txtXaxisStepperMove.Text}, {txtXaxisMotorSpeed.Text}, {ckbXaxisResetToZero.IsChecked}, {xSerialPort.PortName}, {xAxisRunToCompletion}, {_xAxisTargetReached}");
-                await RunAxis(axis, txtXaxisStepperMove, txtXaxisStepperCurrent, txtXaxisMotorSpeed, ckbXaxisResetToZero, xSerialPort, xAxisRunToCompletion, _xAxisTargetReached);
-                while (!xAxisRunToCompletion)
-                {
-                    await Task.Delay(100);
-                }
-                axis = "Y";
-                LogInformation($"{axis} Axis Run button clicked:");
-                _yLimitSwitchPress = false;
-                yAxisRunToCompletion = false;
-                LogInformation($"{axis} Axis Target Reached: false");
-                _yAxisTargetReached = false;
-                LogInformation($"RunAxis({axis}, {txtYaxisStepperMove.Text}, {txtYaxisMotorSpeed.Text}, {ckbYaxisResetToZero.IsChecked}, {ySerialPort.PortName}, {yAxisRunToCompletion}, {_yAxisTargetReached}");
-                await RunAxis(axis, txtYaxisStepperMove, txtYaxisStepperCurrent, txtYaxisMotorSpeed, ckbYaxisResetToZero, ySerialPort, yAxisRunToCompletion, _yAxisTargetReached);
+                case Button button when button == btnRunXAxis:
+                    {
+                        String axis = "X";
+                        await RunAxis(axis, txtXaxisStepperMove, txtXaxisStepperCurrent, txtXaxisMotorSpeed, ckbXaxisResetToZero, xSerialPort);
+                        break;
+                    }
+                case Button button when button == btnRunYAxis:
+                    {
+                        String axis = "Y";
+                        await RunAxis(axis, txtYaxisStepperMove, txtYaxisStepperCurrent, txtYaxisMotorSpeed, ckbYaxisResetToZero, ySerialPort);
+                        break;
+                    }
+                case Button button when button == btnRunZAxis:
+                    {
+                        String axis = "Z";
+                        await RunAxis(axis, txtZaxisStepperMove, txtZaxisStepperCurrent, txtZaxisMotorSpeed, ckbZaxisResetToZero, zSerialPort);
+                        break;
+                    }
+                case Button button when button == btnRunXYAxis:
+                    {
+                        String axis = "X";
+                        await RunAxis(axis, txtXaxisStepperMove, txtXaxisStepperCurrent, txtXaxisMotorSpeed, ckbXaxisResetToZero, xSerialPort);
+                        axis = "Y";
+                        await RunAxis(axis, txtYaxisStepperMove, txtYaxisStepperCurrent, txtYaxisMotorSpeed, ckbYaxisResetToZero, ySerialPort);
+                        break;
+                    }
             }
         }
         /// <summary>
@@ -1135,20 +1033,12 @@ namespace Stepper
         /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
         /// <exception cref="System.ArgumentException">'{nameof(axis)}' cannot be null or empty. - axis</exception>
         /// <exception cref="System.ArgumentNullException">serialPort</exception>
-        private async Task RunAxis(string axis, TextBox stepperMoveTextBox, TextBox StepperCurrent, TextBox motorSpeedTextBox, CheckBox resetToZeroCheckBox, SerialPort serialPort, bool axisRunToCompletion, bool axisTargetReached)
+        private async Task RunAxis(string axis, TextBox stepperMoveTextBox, TextBox StepperCurrent, TextBox motorSpeedTextBox, CheckBox resetToZeroCheckBox, SerialPort serialPort)
         {
-            if (axisTargetReached || axisRunToCompletion)
-            {
-                LogInformation($"{axis} Axis Target Reached: true or {axis} Axis Ran To completion: true");
-                return; // Do not update if the target is reached or Axis ran to completion.
-            }
             LogInformation($"{axis} Axis Run button clicked:");
 
             try
             {
-                //float stepsPerRevolution = 200.0f;
-                //float distancePerRevolution = 4.0f;
-
                 if (resetToZeroCheckBox.IsChecked == true)
                 {
                     await ResetAxisToZero(axis, serialPort);
@@ -1158,7 +1048,7 @@ namespace Stepper
                     float currentStepperPosition = float.Parse(StepperCurrent.Text.Trim(), CultureInfo.InvariantCulture);
                     float moveDistance = float.Parse(stepperMoveTextBox.Text, CultureInfo.InvariantCulture);
                     float motorSpeed = float.Parse(motorSpeedTextBox.Text, CultureInfo.InvariantCulture);
-                    MoveAxis(axis, serialPort, axisRunToCompletion, axisTargetReached, currentStepperPosition, moveDistance, motorSpeed);
+                    MoveAxis(axis, serialPort, currentStepperPosition, moveDistance, motorSpeed);
                 }
             }
             catch (Exception ex)
@@ -1282,68 +1172,44 @@ namespace Stepper
         /// <param name="currentPosition">The current position.</param>
         /// <param name="stepperMove">The stepper move.</param>
         /// <param name="stepperSpeed">The stepper speed.</param>
-        private void MoveAxis(string axis, SerialPort serialPort, bool axisRunToCompletion, bool axisTargetReached, float currentPosition, float stepperMove, float stepperSpeed)
+        private void MoveAxis(string axis, SerialPort serialPort, float currentPosition, float stepperMove, float stepperSpeed)
         {
             try
             {
-                string command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
-                // Send command to the serial port
-                serialPort.Write(command);
-                // Calculate movement timer
                 decimal motorMovementSeconds = UpdateMotorTimer(axis, Convert.ToDecimal(stepperSpeed), Convert.ToDecimal(stepperMove));
                 int movementTimer = Properties.Settings.Default.Milliseconds * Convert.ToInt32(motorMovementSeconds);
                 TimeSpan countdownTime = TimeSpan.FromMilliseconds(movementTimer);
                 DateTime targetEndTime = DateTime.Now.Add(countdownTime);
-
+                CurrentAxis = axis;
+                currentPosition += stepperMove;
+                string command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
+                serialPort.Write(command);
+                StartCountdown(targetEndTime, axis, stepperMove, currentPosition, stepperSpeed);
+                switch (axis)
+                {
+                    case ("X"):
+                        CompletedXAxisCurrentPosition = currentPosition;
+                        break;
+                    case ("Y"):
+                        CompletedYAxisCurrentPosition = currentPosition;
+                        break;
+                    case ("Z"):
+                        CompletedZAxisCurrentPosition = currentPosition;
+                        break;
+                }
                 LogInformation($"{axis} Axis Run Event: {command}");
-
-                if (axis == "X")
-                {
-                    currentPosition += stepperMove;
-                    CompletedCurrentPosition = currentPosition;
-                    CurrentAxis = axis;
-                    StartCountdown(targetEndTime, axis, stepperMove, currentPosition, stepperSpeed);
-                    //txtXaxisStepperCurrent.Text = currentPosition.ToString("F2");
-                    Properties.Settings.Default.XaxisStepperCurrent = Convert.ToDecimal(txtXaxisStepperCurrent.Text);
-                    Properties.Settings.Default.XaxisStepperMove = Convert.ToDecimal(txtXaxisStepperMove.Text);
-                }
-                else if (axis == "Y")
-                {
-                    currentPosition += stepperMove;
-                    CompletedCurrentPosition = currentPosition;
-                    CurrentAxis = axis;
-                    StartCountdown(targetEndTime, axis, stepperMove, currentPosition, stepperSpeed);
-                    //txtYaxisStepperCurrent.Text = currentPosition.ToString("F2");
-                    Properties.Settings.Default.YaxisStepperCurrent = Convert.ToDecimal(txtYaxisStepperCurrent.Text);
-                    Properties.Settings.Default.YaxisStepperMove = Convert.ToDecimal(txtYaxisStepperMove.Text);
-                }
-                else if (axis == "Z")
-                {
-                    currentPosition += stepperMove;
-                    CompletedCurrentPosition = currentPosition;
-                    CurrentAxis = axis;
-                    StartCountdown(targetEndTime, axis, stepperMove, currentPosition, stepperSpeed);
-                    //txtZaxisStepperCurrent.Text = currentPosition.ToString("F2");
-                    Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(txtZaxisStepperCurrent.Text);
-                    Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
-                }
-                Properties.Settings.Default.Save();
-
             }
             catch (FormatException ex)
             {
                 LogError(ex, $"Error converting stepper current text to float for {axis} axis.");
-                MessageBox.Show($"Invalid format for {axis} axis stepper current value.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (OverflowException ex)
             {
                 LogError(ex, $"Overflow error converting stepper current text to float for {axis} axis.");
-                MessageBox.Show($"{axis} axis stepper current value is too large or too small.", "Conversion Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (Exception ex)
             {
                 LogError(ex, $"Unexpected error in MoveAxis for {axis} axis.");
-                MessageBox.Show($"Unexpected error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -1380,7 +1246,7 @@ namespace Stepper
 
             if (MotorSpeed <= 100.00m)
             {
-                MotorMovementSeconds = stepperMove / 2;
+                MotorMovementSeconds = stepperMove / 1;
             }
             else if (MotorSpeed <= 200.00m)
             {

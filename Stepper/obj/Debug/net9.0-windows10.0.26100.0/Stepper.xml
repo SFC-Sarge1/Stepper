@@ -485,9 +485,19 @@
             The current axis
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.CompletedCurrentPosition">
+        <member name="F:Stepper.MainWindow.CompletedXAxisCurrentPosition">
             <summary>
-            The completed current position
+            The completed X axis current position
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.CompletedYAxisCurrentPosition">
+            <summary>
+            The completed Y axis current position
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow.CompletedZAxisCurrentPosition">
+            <summary>
+            The completed Z axis current position
             </summary>
         </member>
         <member name="M:Stepper.MainWindow.OnZAxisTargetReachedChanged(System.EventArgs)">
@@ -652,44 +662,12 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.HandleXAxisStop(System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Handles the x axis stop.
-            </summary>
-            <param name="Xindata">The xindata.</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateXAxisAbsolutePosition(System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Updates the x axis absolute position.
-            </summary>
-            <param name="Xindata">The xindata.</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        </member>
         <member name="M:Stepper.MainWindow.YdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
             Y in data received handler.
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.HandleYAxisStop(System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Handles the y axis stop.
-            </summary>
-            <param name="Yindata">The yindata.</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateYAxisAbsolutePosition(System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Updates the y axis absolute position.
-            </summary>
-            <param name="Yindata">The yindata.</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
         </member>
         <member name="M:Stepper.MainWindow.ZdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
@@ -698,22 +676,6 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.HandleZAxisStop(System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Handles the x axis stop.
-            </summary>
-            <param name="Zindata">The xindata.</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateZAxisAbsolutePosition(System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Updates the x axis absolute position.
-            </summary>
-            <param name="Zindata">The xindata.</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        </member>
         <member name="M:Stepper.MainWindow.AxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
             Handles the Click event of the AxisRun control.
@@ -721,7 +683,7 @@
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.RunAxis(System.String,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.IO.Ports.SerialPort,System.Boolean,System.Boolean)">
+        <member name="M:Stepper.MainWindow.RunAxis(System.String,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.IO.Ports.SerialPort)">
             <summary>
             Runs the axis.
             </summary>
@@ -743,7 +705,7 @@
             <param name="axis">The axis.</param>
             <param name="serialPort">The serial port.</param>
         </member>
-        <member name="M:Stepper.MainWindow.MoveAxis(System.String,System.IO.Ports.SerialPort,System.Boolean,System.Boolean,System.Single,System.Single,System.Single)">
+        <member name="M:Stepper.MainWindow.MoveAxis(System.String,System.IO.Ports.SerialPort,System.Single,System.Single,System.Single)">
             <summary>
             Moves the axis to new position.
             </summary>
