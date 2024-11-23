@@ -1,7 +1,0 @@
-11/22/2024 21:54:21 [Information] Stepper Motor Controller Application Started. (Line: 691)
-11/22/2024 21:54:21 [Information] Version: 3.0.9092.39425 (11/22/2024 21:54:21) (Line: 695)
-11/22/2024 21:54:21 [Information] Initializing Serial Ports. (Line: 526)
-11/22/2024 21:54:21 [Error] I/O error occurred while opening the port COM7. (Line: 587)
-11/22/2024 21:54:25 [Error] I/O error occurred while opening the port COM8. (Line: 587)
-11/22/2024 21:54:26 [Information] SerialPort COM10 opened successfully. (Line: 572)
-11/22/2024 21:54:26 [Information]  Zindata Contains: Z Axis Data Received: ? (Line: 992)

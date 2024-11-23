@@ -4,7 +4,7 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 11-19-2024
+// Last Modified On : 11-23-2024
 // ***********************************************************************
 // <copyright file="MainWindow.xaml.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.
@@ -71,7 +71,9 @@ namespace Stepper
         /// </summary>
         /// <value>The new settings window.</value>
         public StepperAppSettings NewSettingsWindow { get; private set; }
-        /// <summary>The countdown timer</summary>
+        /// <summary>
+        /// The countdown timer
+        /// </summary>
         private DispatcherTimer countdownTimer;
         /// <summary>
         /// The x limit switch press
@@ -89,7 +91,9 @@ namespace Stepper
         /// The limit switch pressed
         /// </summary>
         public static bool LimitSwitchPressed = false;
-        /// <summary>The target end time</summary>
+        /// <summary>
+        /// The target end time
+        /// </summary>
         DateTime targetEndTime;
         /// <summary>
         /// Gets the xero xaxis.
@@ -246,7 +250,7 @@ namespace Stepper
         /// <summary>
         /// Handles the <see cref="E:XAxisTargetReachedChanged" /> event.
         /// </summary>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         protected virtual void OnXAxisTargetReachedChanged(EventArgs e)
         {
             XAxisTargetReachedChanged?.Invoke(this, e);
@@ -282,7 +286,7 @@ namespace Stepper
         /// <summary>
         /// Handles the <see cref="E:YAxisTargetReachedChanged" /> event.
         /// </summary>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         protected virtual void OnYAxisTargetReachedChanged(EventArgs e)
         {
             YAxisTargetReachedChanged?.Invoke(this, e);
@@ -292,7 +296,7 @@ namespace Stepper
         /// Delegate AxisTargetReachedEventHandler
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         public delegate void AxisTargetReachedEventHandler(object sender, EventArgs e);
         // Define the event using the delegate
         /// <summary>
@@ -321,13 +325,19 @@ namespace Stepper
                 }
             }
         }
+        /// <summary>
+        /// The current axis
+        /// </summary>
         public string CurrentAxis = "Z";
+        /// <summary>
+        /// The completed current position
+        /// </summary>
         public float CompletedCurrentPosition;
         // Method to raise the event
         /// <summary>
         /// Handles the <see cref="E:ZAxisTargetReachedChanged" /> event.
         /// </summary>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         protected virtual void OnZAxisTargetReachedChanged(EventArgs e)
         {
             ZAxisTargetReachedChanged?.Invoke(this, e);
@@ -359,6 +369,9 @@ namespace Stepper
             ZAxisTargetReachedChanged += MainWindow_ZAxisTargetReachedChanged;
             NewSettingsWindow = new StepperAppSettings();
         }
+        /// <summary>
+        /// Initializes the countdown timer.
+        /// </summary>
         private void InitializeCountdownTimer()
         {
             countdownTimer = new DispatcherTimer
@@ -368,14 +381,18 @@ namespace Stepper
             countdownTimer.Tick += CountdownTimer_Tick;
         }
         // Helper method for logging with line number
-        /// <summary>Logs the information.</summary>
+        /// <summary>
+        /// Logs the information.
+        /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="lineNumber">The line number.</param>
         public static void LogInformation(string message, [CallerLineNumber] int lineNumber = 0)
         {
             Logger?.LogInformation($"{message} (Line: {lineNumber})");
         }
-        /// <summary>Logs the error.</summary>
+        /// <summary>
+        /// Logs the error.
+        /// </summary>
         /// <param name="ex">The ex.</param>
         /// <param name="message">The message.</param>
         /// <param name="lineNumber">The line number.</param>
@@ -462,7 +479,7 @@ namespace Stepper
         /// Handles the XAxisTargetReachedChanged event of the MainWindow control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void MainWindow_XAxisTargetReachedChanged(object sender, EventArgs e)
         {
             LogInformation("Z Axis Target Reached changed.");
@@ -474,7 +491,7 @@ namespace Stepper
         /// Handles the YAxisTargetReachedChanged event of the MainWindow control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void MainWindow_YAxisTargetReachedChanged(object sender, EventArgs e)
         {
             LogInformation("Z Axis Target Reached changed.");
@@ -486,7 +503,7 @@ namespace Stepper
         /// Handles the ZAxisTargetReachedChanged event of the MainWindow control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void MainWindow_ZAxisTargetReachedChanged(object sender, EventArgs e)
         {
             LogInformation("Z Axis Target Reached changed.");
@@ -696,6 +713,14 @@ namespace Stepper
             string displayableVersion = $"{version} ({buildDate})";
             LogInformation($"Version: {displayableVersion}");
         }
+        /// <summary>
+        /// Starts the countdown.
+        /// </summary>
+        /// <param name="endTime">The end time.</param>
+        /// <param name="axis">The axis.</param>
+        /// <param name="currentStepperPosition">The current stepper position.</param>
+        /// <param name="stepperMove">The stepper move.</param>
+        /// <param name="stepperSpeed">The stepper speed.</param>
         private void StartCountdown(DateTime endTime, string axis, float currentStepperPosition, float stepperMove, float stepperSpeed)
         {
             targetEndTime = endTime;
@@ -703,6 +728,11 @@ namespace Stepper
             //stepperMoveTextBox.BorderBrush = System.Windows.Media.Brushes.White;
             //motorSpeedTextBox.BorderBrush = System.Windows.Media.Brushes.White;
         }
+        /// <summary>
+        /// Handles the Tick event of the CountdownTimer control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void CountdownTimer_Tick(object sender, EventArgs e)
         {
             TimeSpan remainingTime = targetEndTime - DateTime.Now;
@@ -720,6 +750,11 @@ namespace Stepper
             DisableControls();
             CountdownLabel.Content = $"{Properties.Settings.Default.CountdownTimer} {remainingTime.ToString(@"hh\:mm\:ss")}";
         }
+        /// <summary>
+        /// Updates the current position.
+        /// </summary>
+        /// <param name="axis">The axis.</param>
+        /// <param name="currentPosition">The current position.</param>
         private void UpdateCurrentPosition(string axis, float currentPosition)
         {
             if (axis == "X")
@@ -946,7 +981,9 @@ namespace Stepper
             CountdownLabel.Content = $"{axis} axis {Properties.Settings.Default.CountDownText} Completed";
             LogInformation($"{axis} Axis Motor Stopped");
         }
-        /// <summary>Updates the y axis absolute position.</summary>
+        /// <summary>
+        /// Updates the y axis absolute position.
+        /// </summary>
         /// <param name="Yindata">The yindata.</param>
         /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
         /// <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
@@ -989,7 +1026,7 @@ namespace Stepper
                 SerialPort Zsp = (SerialPort)sender;
                 string Zindata = Zsp.ReadExisting();
                 String axis = "Z";
-                LogInformation($" Zindata Contains: {axis} Axis Data Received: {Zindata}");
+                //LogInformation($" Zindata Contains: {axis} Axis Data Received: {Zindata}");
 
                 ZAxisTargetReached = true; // Set the flag to indicate the target is reached
                 zAxisRunToCompletion = true;
@@ -1139,7 +1176,9 @@ namespace Stepper
                 await RunAxis(axis, txtYaxisStepperMove, txtYaxisStepperCurrent, txtYaxisMotorSpeed, ckbYaxisResetToZero, ySerialPort, yAxisRunToCompletion, _yAxisTargetReached);
             }
         }
-        /// <summary>Runs the axis.</summary>
+        /// <summary>
+        /// Runs the axis.
+        /// </summary>
         /// <param name="axis">The axis.</param>
         /// <param name="stepperMoveTextBox">The stepper move text box.</param>
         /// <param name="StepperCurrent">The stepper current.</param>
@@ -1148,7 +1187,6 @@ namespace Stepper
         /// <param name="serialPort">The serial port.</param>
         /// <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
         /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        /// <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="System.ArgumentException">'{nameof(axis)}' cannot be null or empty. - axis</exception>
         /// <exception cref="System.ArgumentNullException">serialPort</exception>
         private async Task RunAxis(string axis, TextBox stepperMoveTextBox, TextBox StepperCurrent, TextBox motorSpeedTextBox, CheckBox resetToZeroCheckBox, SerialPort serialPort, bool axisRunToCompletion, bool axisTargetReached)
@@ -1298,7 +1336,6 @@ namespace Stepper
         /// <param name="currentPosition">The current position.</param>
         /// <param name="stepperMove">The stepper move.</param>
         /// <param name="stepperSpeed">The stepper speed.</param>
-        /// <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         private void MoveAxis(string axis, SerialPort serialPort, bool axisRunToCompletion, bool axisTargetReached, float currentPosition, float stepperMove, float stepperSpeed)
         {
             try
@@ -1374,6 +1411,11 @@ namespace Stepper
 
             LogInformation($"Updated Zero Status - X: {ZeroXaxis}, Y: {ZeroYaxis}, Z: {ZeroZaxis}");
         }
+        /// <summary>
+        /// Determines whether the specified number is negative.
+        /// </summary>
+        /// <param name="number">The number.</param>
+        /// <returns><c>true</c> if the specified number is negative; otherwise, <c>false</c>.</returns>
         public bool IsNegative(decimal number) => number < 0;
         /// <summary>
         /// Updates the motor timer.
@@ -1485,6 +1527,10 @@ namespace Stepper
 
             portButton.Content = $"{buttonText} {portName}";
         }
+        /// <summary>
+        /// Zeroes the axis.
+        /// </summary>
+        /// <param name="axis">The axis.</param>
         private async Task ZeroAxis(string axis)
         {
             LogInformation($"Setting {axis} Axis Current Location Set to Zero on DRO");
