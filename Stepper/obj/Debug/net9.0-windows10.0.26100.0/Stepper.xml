@@ -230,20 +230,8 @@
             </summary>
             <value>The new settings window.</value>
         </member>
-        <member name="F:Stepper.MainWindow._xTimer">
-            <summary>
-            The x timer
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._yTimer">
-            <summary>
-            The y timer
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._zTimer">
-            <summary>
-            The x timer
-            </summary>
+        <member name="F:Stepper.MainWindow.countdownTimer">
+            <summary>The countdown timer</summary>
         </member>
         <member name="F:Stepper.MainWindow._xLimitSwitchPress">
             <summary>
@@ -265,71 +253,8 @@
             The limit switch pressed
             </summary>
         </member>
-        <member name="P:Stepper.MainWindow.xTimer">
-            <summary>
-            Gets the x timer.
-            </summary>
-            <value>The x timer.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.yTimer">
-            <summary>
-            Gets the y timer.
-            </summary>
-            <value>The y timer.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.zTimer">
-            <summary>
-            Gets the x timer.
-            </summary>
-            <value>The x timer.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.xTargetEndTime">
-            <summary>
-            Gets the x target end time.
-            </summary>
-            <value>The x target end time.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.yTargetEndTime">
-            <summary>
-            Gets the y target end time.
-            </summary>
-            <value>The y target end time.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.zTargetEndTime">
-            <summary>
-            Gets the x target end time.
-            </summary>
-            <value>The x target end time.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.xStopwatch">
-            <summary>
-            Gets the x stopwatch.
-            </summary>
-            <value>The x stopwatch.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.yStopwatch">
-            <summary>
-            Gets the y stopwatch.
-            </summary>
-            <value>The y stopwatch.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.zStopwatch">
-            <summary>
-            Gets the x stopwatch.
-            </summary>
-            <value>The x stopwatch.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.ElapsedTime">
-            <summary>
-            Gets the elapsed time.
-            </summary>
-            <value>The elapsed time.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.RemainingTime">
-            <summary>
-            Gets the remaining time.
-            </summary>
-            <value>The remaining time.</value>
+        <member name="F:Stepper.MainWindow.targetEndTime">
+            <summary>The target end time</summary>
         </member>
         <member name="P:Stepper.MainWindow.ZeroXaxis">
             <summary>
@@ -557,82 +482,9 @@
             </summary>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="T:Stepper.MainWindow.PositionUpdatedEventHandler">
-            <summary>
-            Delegate PositionUpdatedEventHandler
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="E:Stepper.MainWindow.XPositionUpdatedChanged">
-            <summary>
-            Occurs when [x position updated changed].
-            </summary>
-        </member>
-        <member name="E:Stepper.MainWindow.YPositionUpdatedChanged">
-            <summary>
-            Occurs when [y position updated changed].
-            </summary>
-        </member>
-        <member name="E:Stepper.MainWindow.ZPositionUpdatedChanged">
-            <summary>
-            Occurs when [x position updated changed].
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._xPositionUpdated">
-            <summary>
-            The x position updated
-            </summary>
-        </member>
-        <member name="P:Stepper.MainWindow.XPositionUpdated">
-            <summary>
-            Gets or sets a value indicating whether [x position updated].
-            </summary>
-            <value><c>true</c> if [x position updated]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="M:Stepper.MainWindow.OnXPositionUpdatedChanged(System.EventArgs)">
-            <summary>
-            Handles the <see cref="E:XPositionUpdatedChanged" /> event.
-            </summary>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="F:Stepper.MainWindow._yPositionUpdated">
-            <summary>
-            The y position updated
-            </summary>
-        </member>
-        <member name="P:Stepper.MainWindow.YPositionUpdated">
-            <summary>
-            Gets or sets a value indicating whether [y position updated].
-            </summary>
-            <value><c>true</c> if [y position updated]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="M:Stepper.MainWindow.OnYPositionUpdatedChanged(System.EventArgs)">
-            <summary>
-            Handles the <see cref="E:YPositionUpdatedChanged" /> event.
-            </summary>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="F:Stepper.MainWindow._zPositionUpdated">
-            <summary>
-            The x position updated
-            </summary>
-        </member>
-        <member name="P:Stepper.MainWindow.ZPositionUpdated">
-            <summary>
-            Gets or sets a value indicating whether [x position updated].
-            </summary>
-            <value><c>true</c> if [x position updated]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="M:Stepper.MainWindow.OnZPositionUpdatedChanged(System.EventArgs)">
-            <summary>
-            Handles the <see cref="E:ZPositionUpdatedChanged" /> event.
-            </summary>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
         <member name="M:Stepper.MainWindow.#ctor">
             <summary>
-            Initialixes a new instance of the <see cref="T:Stepper.MainWindow" /> class.
+            Initializes a new instance of the <see cref="T:Stepper.MainWindow" /> class.
             </summary>
         </member>
         <member name="M:Stepper.MainWindow.LogInformation(System.String,System.Int32)">
@@ -650,27 +502,6 @@
             <summary>
             Updates the version information.
             </summary>
-        </member>
-        <member name="M:Stepper.MainWindow.MainWindow_XPositionUpdatedChanged(System.Object,System.EventArgs)">
-            <summary>
-            Handles the XPositionUpdatedChanged event of the MainWindow control.
-            </summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.MainWindow_YPositionUpdatedChanged(System.Object,System.EventArgs)">
-            <summary>
-            Handles the YPositionUpdatedChanged event of the MainWindow control.
-            </summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.MainWindow_ZPositionUpdatedChanged(System.Object,System.EventArgs)">
-            <summary>
-            Handles the ZPositionUpdatedChanged event of the MainWindow control.
-            </summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.MainWindow_XAxisTargetReachedChanged(System.Object,System.EventArgs)">
             <summary>
@@ -711,7 +542,7 @@
         </member>
         <member name="M:Stepper.MainWindow.InitializeSerialPort(System.IO.Ports.SerialPort@,System.String,System.IO.Ports.SerialDataReceivedEventHandler,System.Windows.Controls.Button,System.String)">
             <summary>
-            Initialixes the serial port.
+            Initializes the serial port.
             </summary>
             <param name="serialPort">The serial port.</param>
             <param name="portName">Name of the port.</param>
@@ -733,7 +564,7 @@
         </member>
         <member name="M:Stepper.MainWindow.InitializeTextBox(System.Windows.Controls.TextBox,System.Decimal)">
             <summary>
-            Initialixes a text box with the specified value.
+            Initializes a text box with the specified value.
             </summary>
             <param name="textBox">The text box to initialixe.</param>
             <param name="value">The value to set in the text box.</param>
@@ -747,29 +578,9 @@
         </member>
         <member name="M:Stepper.MainWindow.InitializeLogger">
             <summary>
-            Initialixes the logger.
+            Initializes the logger.
             </summary>
         </member>
-        <member name="M:Stepper.MainWindow.InitializeTimers">
-            <summary>
-            Initializes the timers.
-            </summary>
-        </member>
-        <member name="M:Stepper.MainWindow.InitializeTimer(System.Windows.Threading.DispatcherTimer@,System.EventHandler)">
-            <summary>
-            Initialixes the timer.
-            </summary>
-            <param name="timer">The timer.</param>
-            <param name="tickHandler">The tick handler.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.Timer_Tick(System.Object,System.EventArgs)">
-            <summary>
-            Handles the Tick event of the Timer control.
-            </summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:Stepper.MainWindow.HandleTimerTick(System.String,System.Diagnostics.Stopwatch,System.DateTime,System.Boolean@,System.Boolean@,System.Boolean@,System.Single@,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Boolean@,System.Boolean@)" -->
         <member name="M:Stepper.MainWindow.DisableControls">
             <summary>
             Disables the controls.
@@ -799,7 +610,7 @@
             Handles the x axis stop.
             </summary>
             <param name="Xindata">The xindata.</param>
-            <param name="AxisTargetReached">if set to <c>true</c> [axis target reached].</param>
+            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
             <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
         </member>
         <member name="M:Stepper.MainWindow.UpdateXAxisAbsolutePosition(System.String,System.Boolean,System.Boolean)">
@@ -807,7 +618,7 @@
             Updates the x axis absolute position.
             </summary>
             <param name="Xindata">The xindata.</param>
-            <param name="AxisTargetReached">if set to <c>true</c> [axis target reached].</param>
+            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
             <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
         </member>
         <member name="M:Stepper.MainWindow.YdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
@@ -826,11 +637,10 @@
             <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
         </member>
         <member name="M:Stepper.MainWindow.UpdateYAxisAbsolutePosition(System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Updates the y axis absolute position.
-            </summary>
+            <summary>Updates the y axis absolute position.</summary>
             <param name="Yindata">The yindata.</param>
             <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
+            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
         </member>
         <member name="M:Stepper.MainWindow.ZdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
@@ -862,49 +672,19 @@
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.RunAxisAsync(System.String,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.IO.Ports.SerialPort,System.Boolean,System.Boolean,System.Threading.CancellationTokenSource)">
-            <summary>
-            Runs the specified axis asynchronously.
-            </summary>
+        <member name="M:Stepper.MainWindow.RunAxis(System.String,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.IO.Ports.SerialPort,System.Boolean,System.Boolean)">
+            <summary>Runs the axis.</summary>
             <param name="axis">The axis.</param>
             <param name="stepperMoveTextBox">The stepper move text box.</param>
+            <param name="StepperCurrent">The stepper current.</param>
             <param name="motorSpeedTextBox">The motor speed text box.</param>
-            <param name="resetToZeroCheckBox">The reset to xero check box.</param>
-            <param name="serialPort">The serial port.</param>
-            <param name="axisRunToCompletion">The axis run to completion flag.</param>
-            <param name="axisTargetReached">The axis target reached flag.</param>
-            <param name="cancellationTokenSource">The cancellation token source.</param>
-            <returns>A Task representing the asynchronous operation.</returns>
-        </member>
-        <member name="M:Stepper.MainWindow.RunAxis(System.String,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.IO.Ports.SerialPort,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
-            <summary>
-            Runs the either X, Y, or z axis.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="stepperMoveTextBox">The stepper move text box.</param>
-            <param name="motorSpeedTextBox">The motor speed text box.</param>
-            <param name="resetToZeroCheckBox">The reset to xero CheckBox.</param>
+            <param name="resetToZeroCheckBox">The reset to zero CheckBox.</param>
             <param name="serialPort">The serial port.</param>
             <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
             <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
             <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
             <exception cref="T:System.ArgumentException">'{nameof(axis)}' cannot be null or empty. - axis</exception>
             <exception cref="T:System.ArgumentNullException">serialPort</exception>
-        </member>
-        <member name="M:Stepper.MainWindow.HandleAxisRun(System.String,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.IO.Ports.SerialPort,System.Boolean,System.Boolean,System.Single,System.Single,System.Threading.CancellationToken)">
-            <summary>
-            Handles the axis run.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="stepperMoveTextBox">The stepper move text box.</param>
-            <param name="motorSpeedTextBox">The motor speed text box.</param>
-            <param name="resetToZeroCheckBox">The reset to xero CheckBox.</param>
-            <param name="serialPort">The serial port.</param>
-            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-            <param name="stepsPerRevolution">The steps per revolution.</param>
-            <param name="distancePerRevolution">The distance per revolution.</param>
-            <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         </member>
         <member name="M:Stepper.MainWindow.ResetAxisToZero(System.String,System.IO.Ports.SerialPort)">
             <summary>
@@ -913,7 +693,7 @@
             <param name="axis">The axis.</param>
             <param name="serialPort">The serial port.</param>
         </member>
-        <member name="M:Stepper.MainWindow.MoveAxis(System.String,System.IO.Ports.SerialPort,System.Boolean,System.Boolean,System.Single,System.Single,System.Single,System.Threading.CancellationToken)">
+        <member name="M:Stepper.MainWindow.MoveAxis(System.String,System.IO.Ports.SerialPort,System.Boolean,System.Boolean,System.Single,System.Single,System.Single)">
             <summary>
             Moves the axis to new position.
             </summary>
@@ -925,35 +705,6 @@
             <param name="stepperMove">The stepper move.</param>
             <param name="stepperSpeed">The stepper speed.</param>
             <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateAxisPosition(System.String,System.Single@,System.Single,System.Single,System.Boolean,System.Boolean)">
-            <summary>
-            Updates the axis position.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="axisAbsolutePosition">The axis absolute position.</param>
-            <param name="currentStepperPosition">The current stepper position.</param>
-            <param name="stepperMove">The stepper move.</param>
-            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateAxisPosition(System.String,System.Single,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            Updates the axis position.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="distanceInMM">The distance in mm.</param>
-            <param name="isClockwise">if set to <c>true</c> [is clockwise].</param>
-            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateAxisAbsolutePosition(System.String,System.Single,System.Boolean)">
-            <summary>
-            Updates the axis absolute position.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="distanceInMM">The distance in mm.</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
         </member>
         <member name="M:Stepper.MainWindow.UpdateZeroStatus">
             <summary>
@@ -986,30 +737,6 @@
             <param name="portButton">The port button.</param>
             <param name="buttonText">The button text.</param>
         </member>
-        <member name="M:Stepper.MainWindow.StartDelayTask(System.String,System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Starts the delay task.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="data">The data.</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateMotorPosition(System.String,System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Updates the motor position.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="data">The data.</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        </member>
-        <member name="M:Stepper.MainWindow.ZeroAxis(System.String)">
-            <summary>
-            Zeroes the axis.
-            </summary>
-            <param name="axis">The axis.</param>
-        </member>
         <member name="M:Stepper.MainWindow.UpdateAxisToZero(System.Windows.Controls.TextBox,System.Windows.Controls.TextBox,System.Windows.Controls.CheckBox,System.Decimal,System.String)">
             <summary>
             Updates the axis to xero.
@@ -1017,22 +744,8 @@
             <param name="stepperCurrentTextBox">The stepper current text box.</param>
             <param name="stepperMoveTextBox">The stepper move text box.</param>
             <param name="resetToZeroCheckBox">The reset to xero CheckBox.</param>
-            <param name="xeroValue">The xero value.</param>
-            <param name="xeroValueString">The xero value string.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.StartTimer(System.String,System.DateTime)">
-            <summary>
-            Starts the timer for the specified axis.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="targetEndTime">The target end time.</param>
-            <exception cref="T:System.InvalidOperationException">Timer for axis {axis} is not initialixed.</exception>
-        </member>
-        <member name="M:Stepper.MainWindow.StartStopwatch(System.String)">
-            <summary>
-            Starts the stopwatch for the specified axis.
-            </summary>
-            <param name="axis">The axis.</param>
+            <param name="ZeroValue">The Zero value.</param>
+            <param name="ZeroValueString">The Zero value string.</param>
         </member>
         <member name="M:Stepper.MainWindow.CheckBoxChanged(System.Object,System.Windows.RoutedEventArgs)">
             <summary>

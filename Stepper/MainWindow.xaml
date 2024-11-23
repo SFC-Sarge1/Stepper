@@ -101,7 +101,7 @@
                 <!--<TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="BaudRate: " Width="62"/>
                 <TextBox Padding="7,1" x:Name="txtBaudRate" TouchUp="txtBaudRate_TouchUp" TextChanged="txtBaudRate_TextChanged" PreviewMouseUp="txtBaudRate_PreviewMouseUp" HorizontalAlignment="Left" PreviewTextInput="TextBox_OnPreviewTextInput" TextWrapping="Wrap" VerticalAlignment="Center" Width="60" TextAlignment="Right" Height="26"/>-->
 
-                <Label Padding="7,1" Name="CountdownLabel" Width="500" FontSize="22" Content="" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Label Padding="7,1" Name="CountdownLabel" Width="600" FontSize="22" Content="" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </StackPanel>
         </Border>
     </StackPanel>

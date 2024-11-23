@@ -93,7 +93,7 @@
       <Value Profile="(Default)">1.00</Value>
     </Setting>
     <Setting Name="CountDownText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Stepper Motor Timer:</Value>
+      <Value Profile="(Default)">Stepper Motor Countdown:</Value>
     </Setting>
     <Setting Name="ZServerIPAddress" Type="System.String" Scope="User">
       <Value Profile="(Default)">192.168.254.37</Value>
@@ -133,6 +133,9 @@
     </Setting>
     <Setting Name="YaxisAcceleration" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">50.00</Value>
+    </Setting>
+    <Setting Name="CountdownTimer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Axis Stepper Motor Countdown:</Value>
     </Setting>
   </Settings>
 </SettingsFile>

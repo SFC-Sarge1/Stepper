@@ -385,7 +385,7 @@ namespace Stepper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Stepper Motor Timer:")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Stepper Motor Countdown:")]
         public string CountDownText {
             get {
                 return ((string)(this["CountDownText"]));
@@ -548,6 +548,18 @@ namespace Stepper.Properties {
             }
             set {
                 this["YaxisAcceleration"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Axis Stepper Motor Countdown:")]
+        public string CountdownTimer {
+            get {
+                return ((string)(this["CountdownTimer"]));
+            }
+            set {
+                this["CountdownTimer"] = value;
             }
         }
     }
