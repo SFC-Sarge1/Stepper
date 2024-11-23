@@ -1026,28 +1026,18 @@ namespace Stepper
                 SerialPort Zsp = (SerialPort)sender;
                 string Zindata = Zsp.ReadExisting();
                 String axis = "Z";
-                //LogInformation($" Zindata Contains: {axis} Axis Data Received: {Zindata}");
-
-                ZAxisTargetReached = true; // Set the flag to indicate the target is reached
-                zAxisRunToCompletion = true;
                 if (Zindata.Contains($" {axis} Axis CW STOPPED") || Zindata.Contains($" {axis} Axis CCW STOPPED"))
                 {
                     LogInformation($" Zindata Contains: {axis} Axis CW STOPPED or {axis} Axis CCW STOPPED");
-                    if ((axis == "Z" && !zAxisRunToCompletion && (Zindata.Contains($" {axis} Axis CW Motor Current Position:") || Zindata.Contains($" {axis} Axis CCW Motor Current Position:"))))
+                    if (Zindata.Contains($" {axis} Axis CW Motor Current Position:") || Zindata.Contains($" {axis} Axis CCW Motor Current Position:"))
                     {
-                        LogInformation($" Zindata Contains: {axis} Axis CW Motor Current Position: or {axis} Axis CCW Motor Current Position:");
-
-                        LogInformation($"HandleZAxisStop(Zindata, _zAxisTargetReached, zAxisRunToCompletion), {Zindata}, Target Reached: {axis} {_zAxisTargetReached}:, Ran To Completion: {axis} {zAxisRunToCompletion}");
-                        HandleZAxisStop(Zindata, _zAxisTargetReached, zAxisRunToCompletion);
-                        LogInformation($"UpdateZAxisAbsolutePosition(Zindata, _zAxisTargetReached, zAxisRunToCompletion), {Zindata}, Target Reached: {axis} {_zAxisTargetReached}:, Ran To Completion: {axis} {zAxisRunToCompletion}");
-                        UpdateZAxisAbsolutePosition(Zindata, _zAxisTargetReached, zAxisRunToCompletion);
+                        UpdateZAxisAbsolutePosition(axis, CompletedCurrentPosition);
                     }
                 }
                 else if (Zindata.Contains($"{axis} Axis Absolute Position"))
                 {
                     LogInformation($" Zindata Contains: {axis} Axis Absolute Position");
-                    LogInformation($"UpdateZAxisAbsolutePosition(Zindata, _zAxisTargetReached, zAxisRunToCompletion), {Zindata}, Target Reached: {axis} {_zAxisTargetReached}:, Ran To Completion: {axis} {zAxisRunToCompletion}");
-                    UpdateZAxisAbsolutePosition(Zindata, _zAxisTargetReached, zAxisRunToCompletion);
+                    UpdateZAxisAbsolutePosition(axis, CompletedCurrentPosition);
                 }
             }
             catch (Exception ex)
@@ -1058,59 +1048,15 @@ namespace Stepper
 #endif
             }
         }
-        /// <summary>
-        /// Handles the x axis stop.
-        /// </summary>
-        /// <param name="Zindata">The xindata.</param>
-        /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        /// <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        private void HandleZAxisStop(string Zindata, bool axisTargetReached, bool axisRunToCompletion)
+        /// <summary>Updates the z axis absolute position.</summary>
+        /// <param name="axis">The current axis.</param>
+        /// <param name="currentPosition">The current position.</param>
+        private void UpdateZAxisAbsolutePosition(string axis, float currentPosition)
         {
-            String axis = "Z";
-            countdownTimer.Stop();
-            _zCancellationTokenSource.Cancel();
-            LimitSwitchPressed = true;
-            EnableControls();
-            ZaxisChanged = true;
-            ckbZaxisResetToZero.IsChecked = false;
-            zAxisClearAbsolutePosition = false;
-            _zLimitSwitchPress = true;
-            ZAxisTargetReached = axisTargetReached; // Set the flag to indicate the target is reached
-            zAxisRunToCompletion = axisRunToCompletion;
-            CountdownLabel.Content = $"{axis} axis {Properties.Settings.Default.CountDownText} Completed.";
-            LogInformation($"{axis} Axis Motor Stopped.");
-        }
-        /// <summary>
-        /// Updates the x axis absolute position.
-        /// </summary>
-        /// <param name="Zindata">The xindata.</param>
-        /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
-        /// <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        private void UpdateZAxisAbsolutePosition(string Zindata, bool axisTargetReached, bool axisRunToCompletion)
-        {
-            String axis = "Z";
-
-            if (axisTargetReached)
-            {
-                LogInformation($"{axis} Axis Target Reached: true");
-                return; // Do not update if the target is reached
-            }
-            string[] ZindataArray = Zindata.Split(' ');
-            if (ZindataArray.Length > 4 && float.TryParse(ZindataArray[4], NumberStyles.Float, CultureInfo.InvariantCulture, out float currentPosition))
-            {
-                float stepsPerRevolution = 200.0f;
-                float distancePerRevolution = 4.0f;
-                float distanceInMM = (currentPosition / stepsPerRevolution) * distancePerRevolution;
-
-                zAxisAbsolutePosition += distanceInMM;
-                txtZaxisStepperCurrent.Text = zAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture);
+                zAxisAbsolutePosition = currentPosition;
                 Properties.Settings.Default.ZaxisStepperCurrent = Convert.ToDecimal(zAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture));
-                Properties.Settings.Default.ZaxisStepperMove = Convert.ToDecimal(txtZaxisStepperMove.Text);
                 Properties.Settings.Default.Save();
-                zAxisRunToCompletion = axisRunToCompletion;
-                zAxisClearAbsolutePosition = true;
                 LogInformation($"{axis} Axis Absolute Position: {zAxisAbsolutePosition.ToString("F2", CultureInfo.InvariantCulture)}");
-            }
         }
         /// <summary>
         /// Handles the Click event of the AxisRun control.
