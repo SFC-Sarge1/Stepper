@@ -261,7 +261,6 @@ static void zMotorRun()
         zAxisMoveMM = 0.00;
         zAxisStepperMotor.setCurrentPosition(zAxisMoveMM);
         limitSwitchTriggered = 1;
-        Serial.println(" ESP 32 Board Reset.");
         delay(3000);
         ESP.restart();  // Reset the ESP32 board
     }
@@ -272,18 +271,14 @@ static void zMotorRun()
         {
             zAxisStepperMotor.stop();
             limitSwitchCWTriggered = true;
-            Serial.println(" Z Axis CW STOPPED");
-			Serial.println(" Z Axis CW Motor Current Position: " + String(zAxisStepperMotor.currentPosition()));
-           //return;
+            Serial.println("Z Axis CW STOPPED Z Axis CW Motor Current Position: " + String(zAxisStepperMotor.currentPosition()));
         }
 
         if (!digitalRead(LIMIT_SWITCH2_PIN))  // NC switch is pressed when the pin reads LOW
         {
             zAxisStepperMotor.stop();
             limitSwitchCCWTriggered = true;
-            Serial.println(" Z Axis CCW STOPPED");
-			Serial.println(" Z Axis CCW Motor Current Position:  " + String(zAxisStepperMotor.currentPosition()));
-            //return;
+			Serial.println("Z Axis CCW STOPPED Z Axis CCW Motor Current Position: " + String(zAxisStepperMotor.currentPosition()));
         }
         zAxisStepperMotor.run();
     }
@@ -294,8 +289,7 @@ static void zMotorRun()
         limitSwitchCCWTriggered = false;
         limitSwitchTriggered = 1;
 		zAxisStepperMotor.stop();  // Stop the motor
-		Serial.println(" Z Axis reached target position");
-		Serial.println(" Current Position: " + String(zAxisStepperMotor.currentPosition()));
+		Serial.println("Z Axis reached target position Current Position: " + String(zAxisStepperMotor.currentPosition()));
         zAxisCurrentPosition = zAxisStepperMotor.currentPosition();
         return;
     }

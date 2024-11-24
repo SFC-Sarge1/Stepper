@@ -425,6 +425,9 @@
             The completed Z axis current position
             </summary>
         </member>
+        <member name="F:Stepper.MainWindow.LimitSwitchUpdateCompleted">
+            <summary>The limit switch update completed</summary>
+        </member>
         <member name="M:Stepper.MainWindow.OnZAxisTargetReachedChanged(System.EventArgs)">
             <summary>
             Handles the <see cref="E:ZAxisTargetReachedChanged" /> event.
@@ -679,6 +682,11 @@
             <param name="dataReceivedHandler">The data received handler.</param>
             <param name="portButton">The port button.</param>
             <param name="buttonText">The button text.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ckbAxisResetToZero_Checked(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>Handles the Checked event of the ckbAxisResetToZero control.</summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.ZeroAxis(System.String)">
             <summary>
