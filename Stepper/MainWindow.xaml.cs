@@ -39,34 +39,6 @@ namespace Stepper
     public partial class MainWindow : MetroWindow
     {
         /// <summary>
-        /// The x position updated
-        /// </summary>
-        bool xPositionUpdated = false;
-        /// <summary>
-        /// The y position updated
-        /// </summary>
-        bool yPositionUpdated = false;
-        /// <summary>
-        /// The x position updated
-        /// </summary>
-        bool zPositionUpdated = false;
-        /// <summary>
-        /// The x cancellation token source
-        /// </summary>
-        private CancellationTokenSource _xCancellationTokenSource = new();
-        /// <summary>
-        /// The y cancellation token source
-        /// </summary>
-        private CancellationTokenSource _yCancellationTokenSource = new();
-        /// <summary>
-        /// The x cancellation token source
-        /// </summary>
-        private CancellationTokenSource _zCancellationTokenSource = new();
-        /// <summary>
-        /// The cancellation token source
-        /// </summary>
-        public CancellationTokenSource cancellationTokenSource = new();
-        /// <summary>
         /// Creates new setting swindow.
         /// </summary>
         /// <value>The new settings window.</value>
@@ -75,18 +47,6 @@ namespace Stepper
         /// The countdown timer
         /// </summary>
         private DispatcherTimer countdownTimer;
-        /// <summary>
-        /// The x limit switch press
-        /// </summary>
-        private static bool _xLimitSwitchPress = false;
-        /// <summary>
-        /// The y limit switch press
-        /// </summary>
-        private static bool _yLimitSwitchPress = false;
-        /// <summary>
-        /// The x limit switch press
-        /// </summary>
-        private static bool _zLimitSwitchPress = false;
         /// <summary>
         /// The limit switch pressed
         /// </summary>
@@ -172,10 +132,6 @@ namespace Stepper
         /// </summary>
         public SerialPort? zSerialPort;
         /// <summary>
-        /// The message
-        /// </summary>
-        private static byte[] _message = new byte[6000];
-        /// <summary>
         /// The x axis run completed
         /// </summary>
         public bool xAxisRunToCompletion = false;
@@ -203,22 +159,6 @@ namespace Stepper
         /// The x axis absolute position
         /// </summary>
         private static float zAxisAbsolutePosition = 0.00f;
-        /// <summary>
-        /// The x axis clear absolute position
-        /// </summary>
-        private static bool xAxisClearAbsolutePosition;
-        /// <summary>
-        /// The y axis clear absolute position
-        /// </summary>
-        private static bool yAxisClearAbsolutePosition;
-        /// <summary>
-        /// The x axis clear absolute position
-        /// </summary>
-        private static bool zAxisClearAbsolutePosition;
-        /// <summary>
-        /// The esp32 rebooted
-        /// </summary>
-        public static int esp32Rebooted = 0;
         // Define the event using the delegate
         /// <summary>
         /// Occurs when X axis target reached changed].
@@ -450,39 +390,6 @@ namespace Stepper
             Properties.Settings.Default.BuildVersion = $"Version: {displayableVersion}";
             LogInformation($"Version: {displayableVersion}");
         }
-        // Event handler method
-        ///// <summary>
-        ///// Handles the XPositionUpdatedChanged event of the MainWindow control.
-        ///// </summary>
-        ///// <param name="sender">The source of the event.</param>
-        ///// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        //private void MainWindow_XPositionUpdatedChanged(object sender, EventArgs e)
-        //{
-        //    LogInformation("X Position Updated changed.");
-        //    // Add your custom logic here
-        //}
-        //// Event handler method
-        ///// <summary>
-        ///// Handles the YPositionUpdatedChanged event of the MainWindow control.
-        ///// </summary>
-        ///// <param name="sender">The source of the event.</param>
-        ///// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        //private void MainWindow_YPositionUpdatedChanged(object sender, EventArgs e)
-        //{
-        //    LogInformation("Y Position Updated changed.");
-        //    // Add your custom logic here
-        //}
-        ///// <summary>
-        ///// Handles the ZPositionUpdatedChanged event of the MainWindow control.
-        ///// </summary>
-        ///// <param name="sender">The source of the event.</param>
-        ///// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        //private void MainWindow_ZPositionUpdatedChanged(object sender, EventArgs e)
-        //{
-        //    LogInformation("Z Position Updated changed.");
-        //    // Add your custom logic here
-        //}
-        // Event handler method
         /// <summary>
         /// Handles the XAxisTargetReachedChanged event of the MainWindow control.
         /// </summary>
@@ -490,9 +397,23 @@ namespace Stepper
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void MainWindow_XAxisTargetReachedChanged(object sender, EventArgs e)
         {
-            LogInformation("Z Axis Target Reached changed.");
+            LogInformation("X Axis Target Reached changed.");
             if (XAxisTargetReached)
             {
+                try
+                {
+                    if (float.TryParse(txtXaxisStepperMove.Text, out float stepperMove))
+                    {
+                        CompletedXAxisCurrentPosition += stepperMove;
+                        txtXaxisStepperCurrent.Text = CompletedXAxisCurrentPosition.ToString("F2");
+                        txtXaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
+                        txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogError(ex, "Error updating Z Axis Current Position.");
+                }
             }
         }
         /// <summary>
@@ -502,9 +423,23 @@ namespace Stepper
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void MainWindow_YAxisTargetReachedChanged(object sender, EventArgs e)
         {
-            LogInformation("Z Axis Target Reached changed.");
+            LogInformation("Y Axis Target Reached changed.");
             if (YAxisTargetReached)
             {
+                try
+                {
+                    if (float.TryParse(txtYaxisStepperMove.Text, out float stepperMove))
+                    {
+                        CompletedYAxisCurrentPosition += stepperMove;
+                        txtYaxisStepperCurrent.Text = CompletedYAxisCurrentPosition.ToString("F2");
+                        txtYaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
+                        txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogError(ex, "Error updating Z Axis Current Position.");
+                }
             }
         }
         /// <summary>
@@ -517,6 +452,20 @@ namespace Stepper
             LogInformation("Z Axis Target Reached changed.");
             if (ZAxisTargetReached)
             {
+                try
+                {
+                    if (float.TryParse(txtZaxisStepperMove.Text, out float stepperMove))
+                    {
+                        CompletedZAxisCurrentPosition += stepperMove;
+                        txtZaxisStepperCurrent.Text = CompletedZAxisCurrentPosition.ToString("F2");
+                        txtZaxisStepperCurrent.BorderBrush = System.Windows.Media.Brushes.White;
+                        txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogError(ex, "Error updating Z Axis Current Position.");
+                }
             }
         }
         /// <summary>
@@ -752,13 +701,13 @@ namespace Stepper
                 switch (CurrentAxis)
                 {
                     case ("X"):
-                        UpdateCurrentPosition(CurrentAxis, CompletedXAxisCurrentPosition);
+                        XAxisTargetReached = true;
                         break;
                     case ("Y"):
-                        UpdateCurrentPosition(CurrentAxis, CompletedYAxisCurrentPosition);
+                        YAxisTargetReached = true;
                         break;
                     case ("Z"):
-                        UpdateCurrentPosition(CurrentAxis, CompletedZAxisCurrentPosition);
+                        ZAxisTargetReached = true;
                         break;
                 }
                 return;
@@ -982,7 +931,6 @@ namespace Stepper
             Properties.Settings.Default.Save();
             Logger.LogInformation($"{axis} Axis Motor Current Position: {newPosition}");
         }
-
         /// <summary>
         /// Handles the Click event of the AxisRun control.
         /// </summary>
@@ -995,26 +943,31 @@ namespace Stepper
                 case Button button when button == btnRunXAxis:
                     {
                         String axis = "X";
+                        XAxisTargetReached = false;
                         await RunAxis(axis, txtXaxisStepperMove, txtXaxisStepperCurrent, txtXaxisMotorSpeed, ckbXaxisResetToZero, xSerialPort);
                         break;
                     }
                 case Button button when button == btnRunYAxis:
                     {
                         String axis = "Y";
+                        YAxisTargetReached = false;
                         await RunAxis(axis, txtYaxisStepperMove, txtYaxisStepperCurrent, txtYaxisMotorSpeed, ckbYaxisResetToZero, ySerialPort);
                         break;
                     }
                 case Button button when button == btnRunZAxis:
                     {
                         String axis = "Z";
+                        ZAxisTargetReached = false;
                         await RunAxis(axis, txtZaxisStepperMove, txtZaxisStepperCurrent, txtZaxisMotorSpeed, ckbZaxisResetToZero, zSerialPort);
                         break;
                     }
                 case Button button when button == btnRunXYAxis:
                     {
                         String axis = "X";
+                        XAxisTargetReached = false;
                         await RunAxis(axis, txtXaxisStepperMove, txtXaxisStepperCurrent, txtXaxisMotorSpeed, ckbXaxisResetToZero, xSerialPort);
                         axis = "Y";
+                        YAxisTargetReached = false;
                         await RunAxis(axis, txtYaxisStepperMove, txtYaxisStepperCurrent, txtYaxisMotorSpeed, ckbYaxisResetToZero, ySerialPort);
                         break;
                     }
@@ -1181,7 +1134,7 @@ namespace Stepper
                 TimeSpan countdownTime = TimeSpan.FromMilliseconds(movementTimer);
                 DateTime targetEndTime = DateTime.Now.Add(countdownTime);
                 CurrentAxis = axis;
-                currentPosition += stepperMove;
+                //currentPosition += stepperMove;
                 string command = $"{axis},{txtXaxisStepperMove.Text.Trim()},{txtXaxisMotorSpeed.Text.Trim()},0,{txtYaxisStepperMove.Text.Trim()},{txtYaxisMotorSpeed.Text.Trim()},0,{txtZaxisStepperMove.Text.Trim()},{txtZaxisMotorSpeed.Text.Trim()},0";
                 serialPort.Write(command);
                 StartCountdown(targetEndTime, axis, stepperMove, currentPosition, stepperSpeed);
@@ -1339,6 +1292,31 @@ namespace Stepper
 
             portButton.Content = $"{buttonText} {portName}";
         }
+        // Event handler for the Checked event
+        /// <summary>Handles the Checked event of the ckbAxisResetToZero control.</summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
+        private async void ckbAxisResetToZero_Checked(object sender, RoutedEventArgs e)
+        {
+            if (sender is CheckBox checkBox)
+            {
+                switch (checkBox.Name)
+                {
+                    case nameof(ckbXaxisResetToZero):
+                        await ZeroAxis("X");
+                        txtXaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                        break;
+                    case nameof(ckbYaxisResetToZero):
+                        await ZeroAxis("Y");
+                        txtYaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                        break;
+                    case nameof(ckbZaxisResetToZero):
+                        await ZeroAxis("Z");
+                        txtZaxisStepperMove.BorderBrush = System.Windows.Media.Brushes.White;
+                       break;
+                }
+            }
+        }
         /// <summary>
         /// Zeroes the axis.
         /// </summary>
@@ -1396,15 +1374,6 @@ namespace Stepper
             resetToZeroCheckBox.IsChecked = false;
         }
         /// <summary>
-        /// CheckBoxes the changed.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
-        private void CheckBoxChanged(object sender, RoutedEventArgs e)
-        {
-            UpdateZeroStatus();
-        }
-        /// <summary>
         /// Handles the GotFocus event of the AxisStepperMove control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
@@ -1434,52 +1403,41 @@ namespace Stepper
         /// <param name="e">The <see cref="TextChangedEventArgs" /> instance containing the event data.</param>
         private void AxisStepperMove_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            if (textBox == null) return;
+            if (sender is not TextBox textBox) return;
 
-            bool axisChanged = false;
-            string axis = string.Empty;
-            decimal stepperMoveValue = 0;
+            string axis = textBox.Name switch
+            {
+                nameof(txtXaxisStepperMove) => "X",
+                nameof(txtYaxisStepperMove) => "Y",
+                nameof(txtZaxisStepperMove) => "Z",
+                _ => throw new ArgumentException("Invalid TextBox name", nameof(sender))
+            };
 
-            if (textBox == txtXaxisStepperMove)
+            decimal stepperMoveValue = axis switch
             {
-                axisChanged = true;
-                axis = "X";
-                stepperMoveValue = Properties.Settings.Default.XaxisStepperMove;
-            }
-            else if (textBox == txtYaxisStepperMove)
-            {
-                axisChanged = true;
-                axis = "Y";
-                stepperMoveValue = Properties.Settings.Default.YaxisStepperMove;
-            }
-            else if (textBox == txtZaxisStepperMove)
-            {
-                axisChanged = true;
-                axis = "Z";
-                stepperMoveValue = Properties.Settings.Default.ZaxisStepperMove;
-            }
+                "X" => Properties.Settings.Default.XaxisStepperMove,
+                "Y" => Properties.Settings.Default.YaxisStepperMove,
+                "Z" => Properties.Settings.Default.ZaxisStepperMove,
+                _ => throw new ArgumentException("Invalid axis", nameof(axis))
+            };
 
-            if (axisChanged)
+            if (textBox.Text == stepperMoveValue.ToString(CultureInfo.InvariantCulture))
             {
-                if (textBox.Text == stepperMoveValue.ToString())
+                textBox.BorderBrush = System.Windows.Media.Brushes.White;
+            }
+            else
+            {
+                textBox.BorderBrush = System.Windows.Media.Brushes.Red;
+                if (decimal.TryParse(textBox.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal newValue))
                 {
-                    textBox.BorderBrush = System.Windows.Media.Brushes.White;
+                    Properties.Settings.Default[$"{axis}axisStepperMove"] = newValue;
+                    Properties.Settings.Default.Save();
+                    LogInformation($"{axis} Axis stepper move updated to {newValue}");
                 }
                 else
                 {
-                    textBox.BorderBrush = System.Windows.Media.Brushes.Red;
-                    try
-                    {
-                        decimal newValue = Convert.ToDecimal(textBox.Text);
-                        Properties.Settings.Default[$"{axis}axisStepperMove"] = newValue;
-                        Properties.Settings.Default.Save();
-                    }
-                    catch (Exception ex)
-                    {
-                        LogInformation(message: $"{axis} Axis error occurred: {ex.Message}");
-                        MessageBox.Show($"{axis} Axis error occurred: {ex.Message}", $"Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
+                    LogError(new FormatException("Invalid format for stepper move value"), $"{axis} Axis error occurred while updating stepper move.");
+                    MessageBox.Show($"{axis} Axis error occurred: Invalid format for stepper move value.", "Stepper Motor Controller Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -1492,7 +1450,6 @@ namespace Stepper
         {
             HandleAxisStepperMove(sender as TextBox, "mouse");
         }
-
         /// <summary>
         /// Handles the TouchUp event of the AxisStepperMove control.
         /// </summary>
@@ -1502,7 +1459,6 @@ namespace Stepper
         {
             HandleAxisStepperMove(sender as TextBox, "touch");
         }
-
         /// <summary>
         /// Handles the AxisStepperMove event.
         /// </summary>
@@ -1519,7 +1475,6 @@ namespace Stepper
                 LogInformation($"{textBox.Name} Axis {inputType} controlled Keypad returned: {mainWindow.Result}");
             }
         }
-
         /// <summary>
         /// Handles the TextChanged event of the AxisMotorSpeed control.
         /// </summary>
@@ -1582,7 +1537,6 @@ namespace Stepper
         {
             HandleMotorSpeedInput(sender as TextBox, "mouse");
         }
-
         /// <summary>
         /// Handles the TouchUp event of the AxisMotorSpeed control.
         /// </summary>
@@ -1592,7 +1546,6 @@ namespace Stepper
         {
             HandleMotorSpeedInput(sender as TextBox, "touch");
         }
-
         /// <summary>
         /// Handles the motor speed input.
         /// </summary>
@@ -1618,7 +1571,6 @@ namespace Stepper
         {
             HandleAxisStepperCurrentInput(sender as TextBox, "mouse");
         }
-
         /// <summary>
         /// Handles the TouchUp event of the AxisStepperCurrent control.
         /// </summary>
@@ -1628,7 +1580,6 @@ namespace Stepper
         {
             HandleAxisStepperCurrentInput(sender as TextBox, "touch");
         }
-
         /// <summary>
         /// Handles the AxisStepperCurrent input.
         /// </summary>
@@ -1735,7 +1686,6 @@ namespace Stepper
                 MessageBox.Show($"An unexpected error occurred while closing the application: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         /// <summary>
         /// Closes the specified serial port.
         /// </summary>
@@ -1757,7 +1707,6 @@ namespace Stepper
                 }
             }
         }
-
         /// <summary>
         /// Handles the TouchUp event of the ResetToZero control.
         /// </summary>
@@ -1767,6 +1716,5 @@ namespace Stepper
         {
             UpdateZeroStatus();
         }
-
     }
 }

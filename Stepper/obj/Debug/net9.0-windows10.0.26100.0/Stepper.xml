@@ -189,41 +189,6 @@
             MainWindow
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.xPositionUpdated">
-            <summary>
-            The x position updated
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.yPositionUpdated">
-            <summary>
-            The y position updated
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zPositionUpdated">
-            <summary>
-            The x position updated
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._xCancellationTokenSource">
-            <summary>
-            The x cancellation token source
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._yCancellationTokenSource">
-            <summary>
-            The y cancellation token source
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._zCancellationTokenSource">
-            <summary>
-            The x cancellation token source
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.cancellationTokenSource">
-            <summary>
-            The cancellation token source
-            </summary>
-        </member>
         <member name="P:Stepper.MainWindow.NewSettingsWindow">
             <summary>
             Creates new setting swindow.
@@ -233,21 +198,6 @@
         <member name="F:Stepper.MainWindow.countdownTimer">
             <summary>
             The countdown timer
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._xLimitSwitchPress">
-            <summary>
-            The x limit switch press
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._yLimitSwitchPress">
-            <summary>
-            The y limit switch press
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow._zLimitSwitchPress">
-            <summary>
-            The x limit switch press
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.LimitSwitchPressed">
@@ -353,11 +303,6 @@
             The x serial port
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow._message">
-            <summary>
-            The message
-            </summary>
-        </member>
         <member name="F:Stepper.MainWindow.xAxisRunToCompletion">
             <summary>
             The x axis run completed
@@ -391,26 +336,6 @@
         <member name="F:Stepper.MainWindow.zAxisAbsolutePosition">
             <summary>
             The x axis absolute position
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.xAxisClearAbsolutePosition">
-            <summary>
-            The x axis clear absolute position
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.yAxisClearAbsolutePosition">
-            <summary>
-            The y axis clear absolute position
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zAxisClearAbsolutePosition">
-            <summary>
-            The x axis clear absolute position
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.esp32Rebooted">
-            <summary>
-            The esp32 rebooted
             </summary>
         </member>
         <member name="E:Stepper.MainWindow.XAxisTargetReachedChanged">
@@ -770,13 +695,6 @@
             <param name="resetToZeroCheckBox">The reset to xero CheckBox.</param>
             <param name="ZeroValue">The Zero value.</param>
             <param name="ZeroValueString">The Zero value string.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.CheckBoxChanged(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            CheckBoxes the changed.
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisStepperMove_GotFocus(System.Object,System.EventArgs)">
             <summary>

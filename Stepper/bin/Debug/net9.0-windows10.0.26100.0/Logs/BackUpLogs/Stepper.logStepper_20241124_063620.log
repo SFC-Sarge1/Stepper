@@ -1,0 +1,6 @@
+11/24/2024 06:36:04 [Information] Stepper Motor Controller Application Started. (Line: 667)
+11/24/2024 06:36:04 [Information] Version: 3.0.9094.11877 (11/24/2024 06:36:04) (Line: 671)
+11/24/2024 06:36:04 [Information] Initializing Serial Ports. (Line: 502)
+11/24/2024 06:36:04 [Error] I/O error occurred while opening the port COM7. (Line: 563)
+11/24/2024 06:36:06 [Error] I/O error occurred while opening the port COM8. (Line: 563)
+11/24/2024 06:36:07 [Information] SerialPort COM10 opened successfully. (Line: 548)

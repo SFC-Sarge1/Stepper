@@ -29,7 +29,7 @@
                 <TextBox TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtXaxisMotorSpeed" Padding="7,1" Width="100" TouchUp="AxisMotorSpeed_TouchUp" TextChanged="AxisMotorSpeed_TextChanged" PreviewMouseUp="AxisMotorSpeed_PreviewMouseUp" PreviewTextInput="TextBox_OnPreviewTextInput"  />
                 <Label Padding="7,1" Content="(RPM)" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
-                <CheckBox HorizontalAlignment="Right" x:Name="ckbXaxisResetToZero" TouchUp="ResetToZero_TouchUp" Content="X axis Zero" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged" mah:CheckBoxHelper.CheckGlyphForegroundChecked="White"/>
+                <CheckBox HorizontalAlignment="Right" x:Name="ckbXaxisResetToZero" TouchUp="ResetToZero_TouchUp" Content="X axis Zero" Checked="ckbAxisResetToZero_Checked" mah:CheckBoxHelper.CheckGlyphForegroundChecked="White"/>
             </StackPanel>
         </Border>
 
@@ -47,7 +47,7 @@
                 <TextBox TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtYaxisMotorSpeed" Padding="7,1" Width="100" TouchUp="AxisMotorSpeed_TouchUp" TextChanged="AxisMotorSpeed_TextChanged" PreviewMouseUp="AxisMotorSpeed_PreviewMouseUp" PreviewTextInput="TextBox_OnPreviewTextInput"  />
                 <Label Padding="7,1" Content="(RPM)" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
-                <CheckBox HorizontalAlignment="Right" x:Name="ckbYaxisResetToZero" TouchUp="ResetToZero_TouchUp" Content="Y axis Zero" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged" mah:CheckBoxHelper.CheckGlyphForegroundChecked="White"/>
+                <CheckBox HorizontalAlignment="Right" x:Name="ckbYaxisResetToZero" TouchUp="ResetToZero_TouchUp" Content="Y axis Zero" Checked="ckbAxisResetToZero_Checked" mah:CheckBoxHelper.CheckGlyphForegroundChecked="White"/>
             </StackPanel>
         </Border>
 
@@ -65,7 +65,7 @@
                 <TextBox TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtZaxisMotorSpeed" Padding="7,1" Width="100" TouchUp="AxisMotorSpeed_TouchUp" TextChanged="AxisMotorSpeed_TextChanged" PreviewMouseUp="AxisMotorSpeed_PreviewMouseUp" PreviewTextInput="TextBox_OnPreviewTextInput"  />
                 <Label Padding="7,1" Content="(RPM)" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
-                <CheckBox HorizontalAlignment="Right" x:Name="ckbZaxisResetToZero" TouchUp="ResetToZero_TouchUp" Content="Z axis Zero" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged" mah:CheckBoxHelper.CheckGlyphForegroundChecked="White"/>
+                <CheckBox HorizontalAlignment="Right" x:Name="ckbZaxisResetToZero" TouchUp="ResetToZero_TouchUp" Content="Z axis Zero" Checked="ckbAxisResetToZero_Checked" mah:CheckBoxHelper.CheckGlyphForegroundChecked="White"/>
             </StackPanel>
         </Border>
 
