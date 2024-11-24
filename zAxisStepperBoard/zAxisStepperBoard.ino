@@ -1,10 +1,10 @@
 // ***********************************************************************
 // Assembly         : 
 // Author           : sfcsarge
-// Created          : 03-26-2024
+// Created          : 09-08-2024
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 11-14-2024
+// Last Modified On : 11-24-2024
 // ***********************************************************************
 // <copyright file="zAxisStepperBoard.ino" company="">
 //     Copyright (c) . All rights reserved.
@@ -88,7 +88,13 @@ int serialDataIndex = 0;
 /// <summary>
 /// The z axis move mm
 /// </summary>
+/// <summary>
+/// The z axis move mm
+/// </summary>
 float zAxisMoveMM;  // Public variable for z-axis movement
+/// <summary>
+/// The z axis current position
+/// </summary>
 /// <summary>
 /// The z axis current position
 /// </summary>
@@ -102,7 +108,13 @@ float zAxisCurrentPosition;  // Public variable for current position
 /// <summary>
 /// The z axis motor speed
 /// </summary>
+/// <summary>
+/// The z axis motor speed
+/// </summary>
 float zAxisMotorSpeed = 400.00;  // Public variable for motor speed
+/// <summary>
+/// The z axis new position
+/// </summary>
 /// <summary>
 /// The z axis new position
 /// </summary>
@@ -162,6 +174,9 @@ static bool limitSwitchCCWTriggered = false;
 /// The limit switch triggered
 /// </summary>
 static int limitSwitchTriggered;
+/// <summary>
+/// The reset flag
+/// </summary>
 /// <summary>
 /// The reset flag
 /// </summary>
@@ -244,6 +259,9 @@ static void zMotorConfig(float data7, float data8, float data9)
 	zAxisMoveMM = static_cast<long>((zAxisNewPosition / oneFullRotationMovesMM) * stepperMotorStepsPerRev);
 
 }
+/// <summary>
+/// zs the motor run.
+/// </summary>
 static void zMotorRun()
 {
     // Check limit switches

@@ -4,7 +4,7 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 11-23-2024
+// Last Modified On : 11-24-2024
 // ***********************************************************************
 // <copyright file="MainWindow.xaml.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.
@@ -45,136 +45,136 @@ namespace Stepper
         /// <value>The new settings window.</value>
         public StepperAppSettings NewSettingsWindow { get; private set; }
         /// <summary>
-        /// The countdown timer
+        /// The X, Y, or Z axis countdown timer
         /// </summary>
         private DispatcherTimer countdownTimer;
         /// <summary>
-        /// The limit switch pressed
+        /// The X, Y, or Z axis limit switch pressed
         /// </summary>
         public static bool LimitSwitchPressed = false;
         /// <summary>
-        /// The target end time
+        /// The X, Y or Z axis target end time
         /// </summary>
         DateTime targetEndTime;
         /// <summary>
-        /// Gets the xero xaxis.
+        /// Gets the zero X axis property.
         /// </summary>
         /// <value>The xero xaxis.</value>
         public int ZeroXaxis { get; private set; } = Properties.Settings.Default.zeroXaxis;
         /// <summary>
-        /// Gets the xero yaxis.
+        /// Gets the zero Y axis property.
         /// </summary>
         /// <value>The xero yaxis.</value>
         public int ZeroYaxis { get; private set; } = Properties.Settings.Default.zeroYaxis;
         /// <summary>
-        /// Gets the xero xaxis.
+        /// Gets the zero X axis property.
         /// </summary>
         /// <value>The xero xaxis.</value>
         public int ZeroZaxis { get; private set; } = Properties.Settings.Default.zeroZaxis;
         /// <summary>
-        /// The xaxis changed
+        /// The X axis property changed.
         /// </summary>
         public bool XaxisChanged = Properties.Settings.Default.YaxisChanged;
         /// <summary>
-        /// The yaxis changed
+        /// The Y axis property changed.
         /// </summary>
         public bool YaxisChanged = Properties.Settings.Default.YaxisChanged;
         /// <summary>
-        /// The xaxis changed
+        /// The Z axis property changed.
         /// </summary>
         public bool ZaxisChanged = Properties.Settings.Default.ZaxisChanged;
         /// <summary>
-        /// Gets the xaxis stepper move temporary.
+        /// Gets the X axis stepper move value temporary property before it is changed.
         /// </summary>
-        /// <value>The xaxis stepper move temporary.</value>
+        /// <value>The x
+        /// Xaxis stepper move temporary.</value>
         public string XaxisStepperMoveTemp { get; private set; } = Properties.Settings.Default.Value_0_00.ToString();
         /// <summary>
-        /// Gets the yaxis stepper move temporary.
+        /// Gets the Y axis stepper move value temporary property before it is changed.
         /// </summary>
-        /// <value>The yaxis stepper move temporary.</value>
+        /// <value>The Y axis stepper move temporary.</value>
         public string YaxisStepperMoveTemp { get; private set; } = Properties.Settings.Default.Value_0_00.ToString();
         /// <summary>
-        /// Gets the xaxis stepper move temporary.
+        /// Gets the Z axis stepper move value temporary property before it is changed.
         /// </summary>
-        /// <value>The xaxis stepper move temporary.</value>
+        /// <value>The Z axis stepper move temporary.</value>
         public string ZaxisStepperMoveTemp { get; private set; } = Properties.Settings.Default.Value_0_00.ToString();
         /// <summary>
-        /// The x stepper move
+        /// The X stepper move value.
         /// </summary>
         public decimal xStepperMove;
         /// <summary>
-        /// The y stepper move
+        /// The Y stepper move value.
         /// </summary>
         public decimal yStepperMove;
         /// <summary>
-        /// The x stepper move
+        /// The Z stepper move value.
         /// </summary>
         public decimal zStepperMove;
         /// <summary>
-        /// Gets the logger.
+        /// Creates the Ilogger property.
         /// </summary>
         /// <value>The logger.</value>
         public static ILogger? Logger { get; private set; }
         /// <summary>
-        /// Gets the logger factory.
+        /// Creates the Ilogger factory property.
         /// </summary>
         /// <value>The logger factory.</value>
         public static ILoggerFactory? LoggerFactory { get; private set; }
         /// <summary>
-        /// The x serial port
+        /// The X serial port variable.
         /// </summary>
         public SerialPort? xSerialPort;
         /// <summary>
-        /// The y serial port
+        /// The Y serial port variable.
         /// </summary>
         public SerialPort? ySerialPort;
         /// <summary>
-        /// The x serial port
+        /// The Z serial port variable.
         /// </summary>
         public SerialPort? zSerialPort;
         /// <summary>
-        /// The x axis run completed
+        /// The X axis ran to completion.
         /// </summary>
         public bool xAxisRunToCompletion = false;
         /// <summary>
-        /// The y axis run completed
+        /// The Y axis ran to completion.
         /// </summary>
         public bool yAxisRunToCompletion = false;
         /// <summary>
-        /// The x axis run completed
+        /// The Z axis ran to completion.
         /// </summary>
         public bool zAxisRunToCompletion = false;
         /// <summary>
-        /// The serial port
+        /// The message sent to the serial port. 
         /// </summary>
         static byte[] message = new byte[6000];
         /// <summary>
-        /// The Y Axis Current Position
+        /// The X Axis Current Position.
         /// </summary>
         private static float xAxisAbsolutePosition = 0.00f;
         /// <summary>
-        /// The y axis absolute position
+        /// The Y axis absolute position.
         /// </summary>
         private static float yAxisAbsolutePosition = 0.00f;
         /// <summary>
-        /// The x axis absolute position
+        /// The Z axis absolute position.
         /// </summary>
         private static float zAxisAbsolutePosition = 0.00f;
-        // Define the event using the delegate
         /// <summary>
-        /// Occurs when X axis target reached changed].
+        /// Occurs when X axis target reached property is changed.
+        /// Define the event using the delegate.
         /// </summary>
         public event AxisTargetReachedEventHandler? XAxisTargetReachedChanged;
-        // Backing field for the _xAxisTargetReached property
         /// <summary>
-        /// The x axis target reached
+        /// X axis Backing field for the _xAxisTargetReached property.
         /// </summary>
         private bool _xAxisTargetReached;
-        // Property for _xAxisTargetReached with event raising
         /// <summary>
-        /// Gets or sets a value indicating whether X axis target reached].
+        /// Gets or sets a value indicating whether X axis target reached.
+        /// Property for _xAxisTargetReached with event raising.
         /// </summary>
-        /// <value><c>true</c> if X axis target reached]; otherwise, <c>false</c>.</value>
+        /// <value><c>true</c> if X axis target reached; otherwise, <c>false</c>.</value>
         public bool XAxisTargetReached
         {
             get => _xAxisTargetReached;
@@ -187,8 +187,8 @@ namespace Stepper
                 }
             }
         }
-        // Method to raise the event
         /// <summary>
+        /// Method to raise the X axis target reached event.
         /// Handles the <see cref="E:XAxisTargetReachedChanged" /> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
@@ -196,19 +196,18 @@ namespace Stepper
         {
             XAxisTargetReachedChanged?.Invoke(this, e);
         }
-        // Define the event using the delegate
         /// <summary>
-        /// Occurs when Y axis target reached changed].
+        /// Occurs when Y axis target reached changed.
+        /// Define the event using the delegate.
         /// </summary>
         public event AxisTargetReachedEventHandler? YAxisTargetReachedChanged;
-        // Backing field for the _xAxisTargetReached property
         /// <summary>
-        /// The y axis target reached
+        /// Y axis target reached Backing field for the _xAxisTargetReached property.
         /// </summary>
         private bool _yAxisTargetReached;
-        // Property for _xAxisTargetReached with event raising
         /// <summary>
-        /// Gets or sets a value indicating whether Y axis target reached].
+        /// Gets or sets a value indicating whether Y axis target reached.
+        /// Property for _xAxisTargetReached with event raising.
         /// </summary>
         /// <value><c>true</c> if Y axis target reached]; otherwise, <c>false</c>.</value>
         public bool YAxisTargetReached
@@ -223,35 +222,33 @@ namespace Stepper
                 }
             }
         }
-        // Method to raise the event
         /// <summary>
         /// Handles the <see cref="E:YAxisTargetReachedChanged" /> event.
+        /// Method to raise the event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         protected virtual void OnYAxisTargetReachedChanged(EventArgs e)
         {
             YAxisTargetReachedChanged?.Invoke(this, e);
         }
-        // Define a delegate for the event
         /// <summary>
-        /// Delegate AxisTargetReachedEventHandler
+        /// Define a delegate for the event; AxisTargetReachedEventHandler.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         public delegate void AxisTargetReachedEventHandler(object sender, EventArgs e);
-        // Define the event using the delegate
         /// <summary>
-        /// Occurs when Z axis target reached changed].
+        /// Occurs when Z axis target reached changed.
+        /// Define the event using the delegate.
         /// </summary>
         public event AxisTargetReachedEventHandler? ZAxisTargetReachedChanged;
-        // Backing field for the _xAxisTargetReached property
         /// <summary>
-        /// The x axis target reached
+        /// The x axis target reached Backing field for the _xAxisTargetReached property.
         /// </summary>
         private bool _zAxisTargetReached;
-        // Property for _xAxisTargetReached with event raising
         /// <summary>
-        /// Gets or sets a value indicating whether Z axis target reached].
+        /// Gets or sets a value indicating whether Z axis target reached.
+        /// Property for _xAxisTargetReached with event raising.
         /// </summary>
         /// <value><c>true</c> if Z axis target reached]; otherwise, <c>false</c>.</value>
         public bool ZAxisTargetReached
@@ -267,28 +264,24 @@ namespace Stepper
             }
         }
         /// <summary>
-        /// The current axis
+        /// The current X, Y, or Z axis being worked with.
         /// </summary>
         public string CurrentAxis = "Z";
         /// <summary>
-        /// The completed X axis current position
+        /// The completed X axis current position.
         /// </summary>
         private static float CompletedXAxisCurrentPosition = 0.00f;
         /// <summary>
-        /// The completed Y axis current position
+        /// The completed Y axis current position.
         /// </summary>
         private static float CompletedYAxisCurrentPosition = 0.00f;
         /// <summary>
-        /// The completed Z axis current position
+        /// The completed Z axis current position.
         /// </summary>
         private static float CompletedZAxisCurrentPosition = 0.00f;
-        /// <summary>The limit switch update completed</summary>
+        /// <summary>The limit switch flag to determine if update completed</summary>
         public bool LimitSwitchUpdateCompleted = false;
-        // Method to raise the event
-        /// <summary>
-        /// Handles the <see cref="E:ZAxisTargetReachedChanged" /> event.
-        /// </summary>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+        /// <include file="Stepper.xml" path="doc/members/member[@name='M:Stepper.MainWindow.OnZAxisTargetReachedChanged(EventArgs)']" />
         protected virtual void OnZAxisTargetReachedChanged(EventArgs e)
         {
             ZAxisTargetReachedChanged?.Invoke(this, e);
@@ -696,7 +689,7 @@ namespace Stepper
         /// Handles the Tick event of the CountdownTimer control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         private void CountdownTimer_Tick(object sender, EventArgs e)
         {
             TimeSpan remainingTime = targetEndTime - DateTime.Now;
@@ -796,7 +789,7 @@ namespace Stepper
             }
         }
         /// <summary>
-        /// X in data received handler.
+        /// Handle the Serial Port X axis received.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
@@ -821,7 +814,10 @@ namespace Stepper
                             countdownTimer.Stop();
                             CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                             EnableControls();
-                            LogInformation($"{Properties.Settings.Default.CountDownText} Completed");
+                            if (!LimitSwitchUpdateCompleted)
+                            {
+                                LogInformation($"{Properties.Settings.Default.CountDownText} Completed");
+                            }
                             string positionString = line.Replace($"{axis} Axis CW STOPPED {axis} Axis CW Motor Current Position:", "")
                                                         .Replace($"{axis} Axis CCW STOPPED {axis} Axis CCW Motor Current Position:", "")
                                                         .Trim();
@@ -855,7 +851,7 @@ namespace Stepper
             }
         }
         /// <summary>
-        /// Y in data received handler.
+        /// Handle the Serial Port Y axis received.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
@@ -880,7 +876,10 @@ namespace Stepper
                             countdownTimer.Stop();
                             CountdownLabel.Content = $"{Properties.Settings.Default.CountDownText} Completed";
                             EnableControls();
-                            LogInformation($"{Properties.Settings.Default.CountDownText} Completed");
+                            if (!LimitSwitchUpdateCompleted)
+                            {
+                                LogInformation($"{Properties.Settings.Default.CountDownText} Completed");
+                            }
                             string positionString = line.Replace($"{axis} Axis CW STOPPED {axis} Axis CW Motor Current Position:", "")
                                                         .Replace($"{axis} Axis CCW STOPPED {axis} Axis CCW Motor Current Position:", "")
                                                         .Trim();
@@ -914,7 +913,7 @@ namespace Stepper
             }
         }
         /// <summary>
-        /// Z in data received handler.
+        /// Handle the Serial Port Z axis received.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="SerialDataReceivedEventArgs" /> instance containing the event data.</param>
@@ -976,6 +975,12 @@ namespace Stepper
 #endif
             }
         }
+        /// <summary>
+        /// Updates the axis position.
+        /// </summary>
+        /// <param name="axis">The axis.</param>
+        /// <param name="distanceInMM">The distance in mm.</param>
+        /// <param name="isClockwise">if set to <c>true</c> [is clockwise].</param>
         private void UpdateAxisPosition(string axis, float distanceInMM, bool isClockwise)
         {
             float newPosition = isClockwise ? distanceInMM : -distanceInMM;
@@ -1056,8 +1061,6 @@ namespace Stepper
         /// <param name="motorSpeedTextBox">The motor speed text box.</param>
         /// <param name="resetToZeroCheckBox">The reset to zero CheckBox.</param>
         /// <param name="serialPort">The serial port.</param>
-        /// <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
         /// <exception cref="System.ArgumentException">'{nameof(axis)}' cannot be null or empty. - axis</exception>
         /// <exception cref="System.ArgumentNullException">serialPort</exception>
         private async Task RunAxis(string axis, TextBox stepperMoveTextBox, TextBox StepperCurrent, TextBox motorSpeedTextBox, CheckBox resetToZeroCheckBox, SerialPort serialPort)
@@ -1196,8 +1199,6 @@ namespace Stepper
         /// </summary>
         /// <param name="axis">The axis.</param>
         /// <param name="serialPort">The serial port.</param>
-        /// <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-        /// <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
         /// <param name="currentPosition">The current position.</param>
         /// <param name="stepperMove">The stepper move.</param>
         /// <param name="stepperSpeed">The stepper speed.</param>
@@ -1369,7 +1370,9 @@ namespace Stepper
             portButton.Content = $"{buttonText} {portName}";
         }
         // Event handler for the Checked event
-        /// <summary>Handles the Checked event of the ckbAxisResetToZero control.</summary>
+        /// <summary>
+        /// Handles the Checked event of the ckbAxisResetToZero control.
+        /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private async void ckbAxisResetToZero_Checked(object sender, RoutedEventArgs e)

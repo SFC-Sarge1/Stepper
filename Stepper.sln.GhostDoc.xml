@@ -25,13 +25,13 @@
       <MSHelpViewer>false</MSHelpViewer>
       <MSHelp2>false</MSHelp2>
       <Website>false</Website>
-      <VSIntelliSenseFile>false</VSIntelliSenseFile>
+      <VSIntelliSenseFile>true</VSIntelliSenseFile>
     </HtmlFormats>
     <IncludeScopes>
       <Public>true</Public>
-      <Internal>false</Internal>
-      <Protected>false</Protected>
-      <Private>false</Private>
+      <Internal>true</Internal>
+      <Protected>true</Protected>
+      <Private>true</Private>
       <Inherited>true</Inherited>
       <InheritedFromReferences>true</InheritedFromReferences>
       <EnableTags>false</EnableTags>
@@ -41,11 +41,11 @@
     </IncludeScopes>
     <SyntaxLanguages>
       <CSharp>true</CSharp>
-      <VisualBasic>true</VisualBasic>
+      <VisualBasic>false</VisualBasic>
       <CPlusPlus>true</CPlusPlus>
     </SyntaxLanguages>
     <ResolveCrefLinks>true</ResolveCrefLinks>
-    <HeaderText />
+    <HeaderText>[SolutionName]</HeaderText>
     <FooterText />
     <ConceptualContent>
       <ContentLayout />

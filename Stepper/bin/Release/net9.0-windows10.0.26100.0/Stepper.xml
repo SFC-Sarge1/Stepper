@@ -197,239 +197,252 @@
         </member>
         <member name="F:Stepper.MainWindow.countdownTimer">
             <summary>
-            The countdown timer
+            The X, Y, or Z axis countdown timer
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.LimitSwitchPressed">
             <summary>
-            The limit switch pressed
+            The X, Y, or Z axis limit switch pressed
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.targetEndTime">
             <summary>
-            The target end time
+            The X, Y or Z axis target end time
             </summary>
         </member>
         <member name="P:Stepper.MainWindow.ZeroXaxis">
             <summary>
-            Gets the xero xaxis.
+            Gets the zero X axis property.
             </summary>
             <value>The xero xaxis.</value>
         </member>
         <member name="P:Stepper.MainWindow.ZeroYaxis">
             <summary>
-            Gets the xero yaxis.
+            Gets the zero Y axis property.
             </summary>
             <value>The xero yaxis.</value>
         </member>
         <member name="P:Stepper.MainWindow.ZeroZaxis">
             <summary>
-            Gets the xero xaxis.
+            Gets the zero X axis property.
             </summary>
             <value>The xero xaxis.</value>
         </member>
         <member name="F:Stepper.MainWindow.XaxisChanged">
             <summary>
-            The xaxis changed
+            The X axis property changed.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.YaxisChanged">
             <summary>
-            The yaxis changed
+            The Y axis property changed.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.ZaxisChanged">
             <summary>
-            The xaxis changed
+            The Z axis property changed.
             </summary>
         </member>
         <member name="P:Stepper.MainWindow.XaxisStepperMoveTemp">
             <summary>
-            Gets the xaxis stepper move temporary.
+            Gets the X axis stepper move value temporary property before it is changed.
             </summary>
-            <value>The xaxis stepper move temporary.</value>
+            <value>The x
+            Xaxis stepper move temporary.</value>
         </member>
         <member name="P:Stepper.MainWindow.YaxisStepperMoveTemp">
             <summary>
-            Gets the yaxis stepper move temporary.
+            Gets the Y axis stepper move value temporary property before it is changed.
             </summary>
-            <value>The yaxis stepper move temporary.</value>
+            <value>The Y axis stepper move temporary.</value>
         </member>
         <member name="P:Stepper.MainWindow.ZaxisStepperMoveTemp">
             <summary>
-            Gets the xaxis stepper move temporary.
+            Gets the Z axis stepper move value temporary property before it is changed.
             </summary>
-            <value>The xaxis stepper move temporary.</value>
+            <value>The Z axis stepper move temporary.</value>
         </member>
         <member name="F:Stepper.MainWindow.xStepperMove">
             <summary>
-            The x stepper move
+            The X stepper move value.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.yStepperMove">
             <summary>
-            The y stepper move
+            The Y stepper move value.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.zStepperMove">
             <summary>
-            The x stepper move
+            The Z stepper move value.
             </summary>
         </member>
         <member name="P:Stepper.MainWindow.Logger">
             <summary>
-            Gets the logger.
+            Creates the Ilogger property.
             </summary>
             <value>The logger.</value>
         </member>
         <member name="P:Stepper.MainWindow.LoggerFactory">
             <summary>
-            Gets the logger factory.
+            Creates the Ilogger factory property.
             </summary>
             <value>The logger factory.</value>
         </member>
         <member name="F:Stepper.MainWindow.xSerialPort">
             <summary>
-            The x serial port
+            The X serial port variable.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.ySerialPort">
             <summary>
-            The y serial port
+            The Y serial port variable.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.zSerialPort">
             <summary>
-            The x serial port
+            The Z serial port variable.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.xAxisRunToCompletion">
             <summary>
-            The x axis run completed
+            The X axis ran to completion.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.yAxisRunToCompletion">
             <summary>
-            The y axis run completed
+            The Y axis ran to completion.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.zAxisRunToCompletion">
             <summary>
-            The x axis run completed
+            The Z axis ran to completion.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.message">
             <summary>
-            The serial port
+            The message sent to the serial port. 
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.xAxisAbsolutePosition">
             <summary>
-            The Y Axis Current Position
+            The X Axis Current Position.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.yAxisAbsolutePosition">
             <summary>
-            The y axis absolute position
+            The Y axis absolute position.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.zAxisAbsolutePosition">
             <summary>
-            The x axis absolute position
+            The Z axis absolute position.
             </summary>
         </member>
         <member name="E:Stepper.MainWindow.XAxisTargetReachedChanged">
             <summary>
-            Occurs when X axis target reached changed].
+            Occurs when X axis target reached property is changed.
+            Define the event using the delegate.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow._xAxisTargetReached">
             <summary>
-            The x axis target reached
+            X axis Backing field for the _xAxisTargetReached property.
             </summary>
         </member>
         <member name="P:Stepper.MainWindow.XAxisTargetReached">
             <summary>
-            Gets or sets a value indicating whether X axis target reached].
+            Gets or sets a value indicating whether X axis target reached.
+            Property for _xAxisTargetReached with event raising.
             </summary>
-            <value><c>true</c> if X axis target reached]; otherwise, <c>false</c>.</value>
+            <value><c>true</c> if X axis target reached; otherwise, <c>false</c>.</value>
         </member>
         <member name="M:Stepper.MainWindow.OnXAxisTargetReachedChanged(System.EventArgs)">
             <summary>
+            Method to raise the X axis target reached event.
             Handles the <see cref="E:XAxisTargetReachedChanged" /> event.
             </summary>
             <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
         </member>
         <member name="E:Stepper.MainWindow.YAxisTargetReachedChanged">
             <summary>
-            Occurs when Y axis target reached changed].
+            Occurs when Y axis target reached changed.
+            Define the event using the delegate.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow._yAxisTargetReached">
             <summary>
-            The y axis target reached
+            Y axis target reached Backing field for the _xAxisTargetReached property.
             </summary>
         </member>
         <member name="P:Stepper.MainWindow.YAxisTargetReached">
             <summary>
-            Gets or sets a value indicating whether Y axis target reached].
+            Gets or sets a value indicating whether Y axis target reached.
+            Property for _xAxisTargetReached with event raising.
             </summary>
             <value><c>true</c> if Y axis target reached]; otherwise, <c>false</c>.</value>
         </member>
         <member name="M:Stepper.MainWindow.OnYAxisTargetReachedChanged(System.EventArgs)">
             <summary>
             Handles the <see cref="E:YAxisTargetReachedChanged" /> event.
+            Method to raise the event.
             </summary>
             <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
         </member>
         <member name="T:Stepper.MainWindow.AxisTargetReachedEventHandler">
             <summary>
-            Delegate AxisTargetReachedEventHandler
+            Define a delegate for the event; AxisTargetReachedEventHandler.
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
         </member>
         <member name="E:Stepper.MainWindow.ZAxisTargetReachedChanged">
             <summary>
-            Occurs when Z axis target reached changed].
+            Occurs when Z axis target reached changed.
+            Define the event using the delegate.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow._zAxisTargetReached">
             <summary>
-            The x axis target reached
+            The x axis target reached Backing field for the _xAxisTargetReached property.
             </summary>
         </member>
         <member name="P:Stepper.MainWindow.ZAxisTargetReached">
             <summary>
-            Gets or sets a value indicating whether Z axis target reached].
+            Gets or sets a value indicating whether Z axis target reached.
+            Property for _xAxisTargetReached with event raising.
             </summary>
             <value><c>true</c> if Z axis target reached]; otherwise, <c>false</c>.</value>
         </member>
         <member name="F:Stepper.MainWindow.CurrentAxis">
             <summary>
-            The current axis
+            The current X, Y, or Z axis being worked with.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.CompletedXAxisCurrentPosition">
             <summary>
-            The completed X axis current position
+            The completed X axis current position.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.CompletedYAxisCurrentPosition">
             <summary>
-            The completed Y axis current position
+            The completed Y axis current position.
             </summary>
         </member>
         <member name="F:Stepper.MainWindow.CompletedZAxisCurrentPosition">
             <summary>
-            The completed Z axis current position
+            The completed Z axis current position.
             </summary>
         </member>
+        <member name="F:Stepper.MainWindow.LimitSwitchUpdateCompleted">
+            <summary>The limit switch update completed</summary>
+        </member>
         <member name="M:Stepper.MainWindow.OnZAxisTargetReachedChanged(System.EventArgs)">
-            <summary>
-            Handles the <see cref="E:ZAxisTargetReachedChanged" /> event.
-            </summary>
-            <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
+            <member name="M:Stepper.MainWindow.OnZAxisTargetReachedChanged(EventArgs)">
+    <summary>
+    Interaction logic for MainWindow.xaml
+    </summary>
+</member>
         </member>
         <member name="M:Stepper.MainWindow.#ctor">
             <summary>
@@ -554,7 +567,7 @@
             Handles the Tick event of the CountdownTimer control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.UpdateCurrentPosition(System.String,System.Single)">
             <summary>
@@ -582,24 +595,32 @@
         </member>
         <member name="M:Stepper.MainWindow.XdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
-            X in data received handler.
+            Handle the Serial Port X axis received.
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.YdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
-            Y in data received handler.
+            Handle the Serial Port Y axis received.
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.ZdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
-            Z in data received handler.
+            Handle the Serial Port Z axis received.
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.UpdateAxisPosition(System.String,System.Single,System.Boolean)">
+            <summary>
+            Updates the axis position.
+            </summary>
+            <param name="axis">The axis.</param>
+            <param name="distanceInMM">The distance in mm.</param>
+            <param name="isClockwise">if set to <c>true</c> [is clockwise].</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
@@ -618,8 +639,6 @@
             <param name="motorSpeedTextBox">The motor speed text box.</param>
             <param name="resetToZeroCheckBox">The reset to zero CheckBox.</param>
             <param name="serialPort">The serial port.</param>
-            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
             <exception cref="T:System.ArgumentException">'{nameof(axis)}' cannot be null or empty. - axis</exception>
             <exception cref="T:System.ArgumentNullException">serialPort</exception>
         </member>
@@ -636,8 +655,6 @@
             </summary>
             <param name="axis">The axis.</param>
             <param name="serialPort">The serial port.</param>
-            <param name="axisRunToCompletion">if set to <c>true</c> [axis run to completion].</param>
-            <param name="axisTargetReached">if set to <c>true</c> [axis target reached].</param>
             <param name="currentPosition">The current position.</param>
             <param name="stepperMove">The stepper move.</param>
             <param name="stepperSpeed">The stepper speed.</param>
@@ -681,7 +698,9 @@
             <param name="buttonText">The button text.</param>
         </member>
         <member name="M:Stepper.MainWindow.ckbAxisResetToZero_Checked(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>Handles the Checked event of the ckbAxisResetToZero control.</summary>
+            <summary>
+            Handles the Checked event of the ckbAxisResetToZero control.
+            </summary>
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
@@ -842,7 +861,7 @@
         </member>
         <member name="M:Stepper.Properties.Settings.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Stepper.Properties.Settings"/> class.
+            Initializes a new instance of the <see cref="T:Stepper.Properties.Settings" /> class.
             </summary>
         </member>
         <member name="M:Stepper.Properties.Settings.PropertyChangedEventHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
@@ -850,21 +869,21 @@
             Properties the changed event handler.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.Properties.Settings.SettingChangingEventHandler(System.Object,System.Configuration.SettingChangingEventArgs)">
             <summary>
             Settings the changing event handler.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Configuration.SettingChangingEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Configuration.SettingChangingEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.Properties.Settings.SettingsSavingEventHandler(System.Object,System.ComponentModel.CancelEventArgs)">
             <summary>
             Settings the saving event handler.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="T:Stepper.SendDataToLattepanda">
             <summary>

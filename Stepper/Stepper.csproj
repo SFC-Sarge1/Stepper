@@ -17,6 +17,7 @@
     <None Remove="Properties\Settings.settings" />
     <None Remove="Stepper.dll.config" />
     <None Remove="Stepper.png" />
+    <None Remove="StepperHelp.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Stepper.ico" />
