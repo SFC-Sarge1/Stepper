@@ -437,10 +437,10 @@
       <summary>The limit switch update completed</summary>
     </member>
     <member name="M:Stepper.MainWindow.OnZAxisTargetReachedChanged(EventArgs)">
-      <summary>
-Interaction logic for MainWindow.xaml
-</summary>
-    </member>
+    <summary>
+    Interaction logic for MainWindow.xaml
+    </summary>
+</member>
     <member name="M:Stepper.MainWindow.#ctor">
       <summary>
    Initializes a new instance of the <see cref="T:Stepper.MainWindow" /> class.

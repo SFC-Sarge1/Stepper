@@ -189,155 +189,24 @@
             MainWindow
             </summary>
         </member>
-        <member name="P:Stepper.MainWindow.NewSettingsWindow">
-            <summary>
-            Creates new setting swindow.
-            </summary>
-            <value>The new settings window.</value>
-        </member>
-        <member name="F:Stepper.MainWindow.countdownTimer">
-            <summary>
-            The X, Y, or Z axis countdown timer
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.LimitSwitchPressed">
-            <summary>
-            The X, Y, or Z axis limit switch pressed
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.targetEndTime">
-            <summary>
-            The X, Y or Z axis target end time
-            </summary>
-        </member>
-        <member name="P:Stepper.MainWindow.ZeroXaxis">
-            <summary>
-            Gets the zero X axis property.
-            </summary>
-            <value>The xero xaxis.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.ZeroYaxis">
-            <summary>
-            Gets the zero Y axis property.
-            </summary>
-            <value>The xero yaxis.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.ZeroZaxis">
-            <summary>
-            Gets the zero X axis property.
-            </summary>
-            <value>The xero xaxis.</value>
-        </member>
-        <member name="F:Stepper.MainWindow.XaxisChanged">
-            <summary>
-            The X axis property changed.
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.YaxisChanged">
-            <summary>
-            The Y axis property changed.
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.ZaxisChanged">
-            <summary>
-            The Z axis property changed.
-            </summary>
-        </member>
-        <member name="P:Stepper.MainWindow.XaxisStepperMoveTemp">
-            <summary>
-            Gets the X axis stepper move value temporary property before it is changed.
-            </summary>
-            <value>The x
-            Xaxis stepper move temporary.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.YaxisStepperMoveTemp">
-            <summary>
-            Gets the Y axis stepper move value temporary property before it is changed.
-            </summary>
-            <value>The Y axis stepper move temporary.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.ZaxisStepperMoveTemp">
-            <summary>
-            Gets the Z axis stepper move value temporary property before it is changed.
-            </summary>
-            <value>The Z axis stepper move temporary.</value>
-        </member>
-        <member name="F:Stepper.MainWindow.xStepperMove">
-            <summary>
-            The X stepper move value.
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.yStepperMove">
-            <summary>
-            The Y stepper move value.
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zStepperMove">
-            <summary>
-            The Z stepper move value.
-            </summary>
-        </member>
-        <member name="P:Stepper.MainWindow.Logger">
-            <summary>
-            Creates the Ilogger property.
-            </summary>
-            <value>The logger.</value>
-        </member>
-        <member name="P:Stepper.MainWindow.LoggerFactory">
-            <summary>
-            Creates the Ilogger factory property.
-            </summary>
-            <value>The logger factory.</value>
-        </member>
-        <member name="F:Stepper.MainWindow.xSerialPort">
-            <summary>
-            The X serial port variable.
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.ySerialPort">
-            <summary>
-            The Y serial port variable.
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zSerialPort">
-            <summary>
-            The Z serial port variable.
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.xAxisRunToCompletion">
-            <summary>
-            The X axis ran to completion.
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.yAxisRunToCompletion">
-            <summary>
-            The Y axis ran to completion.
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.zAxisRunToCompletion">
-            <summary>
-            The Z axis ran to completion.
-            </summary>
-        </member>
         <member name="F:Stepper.MainWindow.message">
             <summary>
             The message sent to the serial port. 
             </summary>
         </member>
-        <member name="F:Stepper.MainWindow.xAxisAbsolutePosition">
-            <summary>
-            The X Axis Current Position.
-            </summary>
+        <member name="F:Stepper.MainWindow._xAxisAbsolutePosition">
+            <summary>The x axis absolute position</summary>
         </member>
-        <member name="F:Stepper.MainWindow.yAxisAbsolutePosition">
-            <summary>
-            The Y axis absolute position.
-            </summary>
+        <member name="P:Stepper.MainWindow.XAxisAbsolutePosition">
+            <summary>Gets the x axis absolute position.</summary>
+            <value>The x axis absolute position.</value>
         </member>
-        <member name="F:Stepper.MainWindow.zAxisAbsolutePosition">
-            <summary>
-            The Z axis absolute position.
-            </summary>
+        <member name="F:Stepper.MainWindow._yAxisAbsolutePosition">
+            <summary>The y axis absolute position</summary>
+        </member>
+        <member name="P:Stepper.MainWindow.YAxisAbsolutePosition">
+            <summary>Gets the y axis absolute position.</summary>
+            <value>The y axis absolute position.</value>
         </member>
         <member name="E:Stepper.MainWindow.XAxisTargetReachedChanged">
             <summary>
@@ -414,28 +283,10 @@
             </summary>
             <value><c>true</c> if Z axis target reached]; otherwise, <c>false</c>.</value>
         </member>
-        <member name="F:Stepper.MainWindow.CurrentAxis">
+        <member name="F:Stepper.MainWindow._currentAxis">
             <summary>
             The current X, Y, or Z axis being worked with.
             </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.CompletedXAxisCurrentPosition">
-            <summary>
-            The completed X axis current position.
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.CompletedYAxisCurrentPosition">
-            <summary>
-            The completed Y axis current position.
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.CompletedZAxisCurrentPosition">
-            <summary>
-            The completed Z axis current position.
-            </summary>
-        </member>
-        <member name="F:Stepper.MainWindow.LimitSwitchUpdateCompleted">
-            <summary>The limit switch update completed</summary>
         </member>
         <member name="M:Stepper.MainWindow.OnZAxisTargetReachedChanged(System.EventArgs)">
             <member name="M:Stepper.MainWindow.OnZAxisTargetReachedChanged(EventArgs)">
@@ -569,13 +420,6 @@
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:Stepper.MainWindow.UpdateCurrentPosition(System.String,System.Single)">
-            <summary>
-            Updates the current position.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="currentPosition">The current position.</param>
-        </member>
         <member name="M:Stepper.MainWindow.DisableControls">
             <summary>
             Disables the controls.
@@ -602,17 +446,24 @@
         </member>
         <member name="M:Stepper.MainWindow.YdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
-            Handle the Serial Port Y axis received.
+            Ydatas the received handler.
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Stepper.MainWindow.ZdataReceivedHandler(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
             <summary>
-            Handle the Serial Port Z axis received.
+            Zdatas the received handler.
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Stepper.MainWindow.ProcessReceivedData(System.String,System.String)">
+            <summary>
+            Processes the received data.
+            </summary>
+            <param name="axis">The axis.</param>
+            <param name="indata">The indata.</param>
         </member>
         <member name="M:Stepper.MainWindow.UpdateAxisPosition(System.String,System.Single,System.Boolean)">
             <summary>
