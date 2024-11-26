@@ -80,7 +80,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\WindowsInput\WindowsInput\WindowsInput.csproj" />
+	  <ProjectReference Include="..\WindowsInput\WindowsInput.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -4,7 +4,7 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 11-24-2024
+// Last Modified On : 11-25-2024
 // ***********************************************************************
 // <copyright file="MainWindow.xaml.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.
@@ -29,6 +29,7 @@ namespace Stepper
     using System.Threading;
     using System.Runtime.CompilerServices;
     using System;
+    using Windows.Devices.Geolocation;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -319,19 +320,6 @@ namespace Stepper
                 }
             }
         }
-        private float _zAxisAbsolutePosition = 0.00f;
-        public float ZAxisAbsolutePosition
-        {
-            get => _zAxisAbsolutePosition;
-            private set
-            {
-                if (_zAxisAbsolutePosition != value)
-                {
-                    _zAxisAbsolutePosition = value;
-                    LogInformation($"ZAxisAbsolutePosition updated to {value}");
-                }
-            }
-        }
         private float _completedXAxisCurrentPosition = 0.00f;
         public float CompletedXAxisCurrentPosition
         {
@@ -399,20 +387,6 @@ namespace Stepper
             }
         }
         /// <summary>
-        /// Method to raise the X axis target reached event.
-        /// Handles the <see cref="E:XAxisTargetReachedChanged" /> event.
-        /// </summary>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
-        protected virtual void OnXAxisTargetReachedChanged(EventArgs e)
-        {
-            XAxisTargetReachedChanged?.Invoke(this, e);
-        }
-        /// <summary>
-        /// Occurs when Y axis target reached changed.
-        /// Define the event using the delegate.
-        /// </summary>
-        public event AxisTargetReachedEventHandler? YAxisTargetReachedChanged;
-        /// <summary>
         /// Y axis target reached Backing field for the _xAxisTargetReached property.
         /// </summary>
         private bool _yAxisTargetReached = false;
@@ -433,6 +407,20 @@ namespace Stepper
                     OnYAxisTargetReachedChanged(EventArgs.Empty);
                 }
             }
+        }
+        /// <summary>
+        /// Occurs when Y axis target reached changed.
+        /// Define the event using the delegate.
+        /// </summary>
+        public event AxisTargetReachedEventHandler? YAxisTargetReachedChanged;
+        /// <summary>
+        /// Method to raise the X axis target reached event.
+        /// Handles the <see cref="E:XAxisTargetReachedChanged" /> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+        protected virtual void OnXAxisTargetReachedChanged(EventArgs e)
+        {
+            XAxisTargetReachedChanged?.Invoke(this, e);
         }
         /// <summary>
         /// Handles the <see cref="E:YAxisTargetReachedChanged" /> event.
@@ -476,6 +464,43 @@ namespace Stepper
                 }
             }
         }
+        /// <include file="Stepper.xml" path="doc/members/member[@name='M:Stepper.MainWindow.OnZAxisTargetReachedChanged(EventArgs)']" />
+        protected virtual void OnZAxisTargetReachedChanged(EventArgs e)
+        {
+            ZAxisTargetReachedChanged?.Invoke(this, e);
+        }
+
+        /// <summary>Delegate AxisAbsolutePositionEventHandler</summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+        public delegate void AxisAbsolutePositionEventHandler(object sender, EventArgs e);
+        /// <summary>Occurs when [z axis absolute position changed].</summary>
+        public event AxisAbsolutePositionEventHandler? ZAxisAbsolutePositionChanged;
+        /// <summary>Handles the <see cref="E:ZAxisAbsolutePositionChanged" /> event.</summary>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+        protected virtual void OnZAxisAbsolutePositionChanged(EventArgs e)
+        {
+            ZAxisAbsolutePositionChanged?.Invoke(this, e);
+        }
+
+        /// <summary>The z axis absolute position</summary>
+        private float _zAxisAbsolutePosition = 0.00f;
+        /// <summary>Gets the z axis absolute position.</summary>
+        /// <value>The z axis absolute position.</value>
+        public float ZAxisAbsolutePosition
+        {
+            get => _zAxisAbsolutePosition;
+            private set
+            {
+                //if (_zAxisAbsolutePosition != value)
+                //{
+                _zAxisAbsolutePosition = value;
+                LogInformation($"ZAxisAbsolutePosition updated to {value}");
+                OnZAxisAbsolutePositionChanged(EventArgs.Empty);
+                //}
+            }
+        }
+
         /// <summary>
         /// The current X, Y, or Z axis being worked with.
         /// </summary>
@@ -506,11 +531,6 @@ namespace Stepper
                 }
             }
         }
-        /// <include file="Stepper.xml" path="doc/members/member[@name='M:Stepper.MainWindow.OnZAxisTargetReachedChanged(EventArgs)']" />
-        protected virtual void OnZAxisTargetReachedChanged(EventArgs e)
-        {
-            ZAxisTargetReachedChanged?.Invoke(this, e);
-        }
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow" /> class.
         /// </summary>
@@ -536,6 +556,7 @@ namespace Stepper
             XAxisTargetReachedChanged += MainWindow_XAxisTargetReachedChanged;
             YAxisTargetReachedChanged += MainWindow_YAxisTargetReachedChanged;
             ZAxisTargetReachedChanged += MainWindow_ZAxisTargetReachedChanged;
+            ZAxisAbsolutePositionChanged += MainWindow_ZAxisAbsolutePositionChanged; // Subscribe to the event
             NewSettingsWindow = new StepperAppSettings();
         }
         /// <summary>
@@ -688,6 +709,12 @@ namespace Stepper
                     LogError(ex, "Error updating Z Axis Current Position.");
                 }
             }
+        }
+        // Event handler for ZAxisAbsolutePositionChanged
+        private void MainWindow_ZAxisAbsolutePositionChanged(object sender, EventArgs e)
+        {
+            LogInformation("Z Axis Absolute Position changed.");
+            // Add your logic here to handle the event
         }
         /// <summary>
         /// Updates the version element.
@@ -1068,6 +1095,7 @@ namespace Stepper
             {
                 if (line.Contains($"{axis} Axis CW STOPPED {axis} Axis CW Motor Current Position:") || line.Contains($"{axis} Axis CCW STOPPED {axis} Axis CCW Motor Current Position:"))
                 {
+                    LimitSwitchPressed = true;
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         CountdownTimer.Stop();
@@ -1126,6 +1154,7 @@ namespace Stepper
                     ZAxisAbsolutePosition += newPosition;
                     txtZaxisStepperCurrent.Text = ZAxisAbsolutePosition.ToString("F2");
                     LimitSwitchUpdateCompleted = true;
+                    LimitSwitchPressed = false;
                     break;
             }
             Properties.Settings.Default.Save();
@@ -1351,6 +1380,10 @@ namespace Stepper
                         break;
                     case ("Z"):
                         CompletedZAxisCurrentPosition = currentPosition;
+                        if (!LimitSwitchPressed)
+                        {
+                            ZAxisAbsolutePosition += currentPosition;
+                        }
                         break;
                 }
                 LogInformation($"{axis} Axis Run Event: {command}");
@@ -1405,53 +1438,63 @@ namespace Stepper
                 decimal RevPerSecond = MotorSpeed / 60m;
                 decimal OneRev = 1m / RevPerSecond;
                 MotorMovementSeconds = stepperMove * OneRev;
+                LogInformation($"{Axis} Axis MotorMovementSeconds for <= 100.00 RPM: {MotorMovementSeconds}");
+
             }
             else if (MotorSpeed <= 200.00m)
             {
                 decimal RevPerSecond = MotorSpeed / 60m;
                 decimal OneRev = 1m / RevPerSecond;
                 MotorMovementSeconds = stepperMove * OneRev;
+                LogInformation($"{Axis} Axis MotorMovementSeconds for <= 200.00 RPM: {MotorMovementSeconds}");
             }
             else if (MotorSpeed <= 300.00m)
             {
                 decimal RevPerSecond = MotorSpeed / 60m;
                 decimal OneRev = 1m / RevPerSecond;
                 MotorMovementSeconds = stepperMove * OneRev;
+                LogInformation($"{Axis} Axis MotorMovementSeconds for <= 300.00 RPM: {MotorMovementSeconds}");
             }
             else if (MotorSpeed <= 400.00m)
             {
                 decimal RevPerSecond = MotorSpeed / 60m;
                 decimal OneRev = 1m / RevPerSecond;
                 MotorMovementSeconds = stepperMove * OneRev;
+                LogInformation($"{Axis} Axis MotorMovementSeconds for <= 400.00 RPM: {MotorMovementSeconds}");
             }
             else if (MotorSpeed <= 500.00m)
             {
                 decimal RevPerSecond = MotorSpeed / 60m;
                 decimal OneRev = 1m / RevPerSecond;
                 MotorMovementSeconds = stepperMove * OneRev;
+                LogInformation($"{Axis} Axis MotorMovementSeconds for <= 500.00 RPM: {MotorMovementSeconds}");
             }
             else if (MotorSpeed <= 600.00m)
             {
                 decimal RevPerSecond = MotorSpeed / 60m;
                 decimal OneRev = 1m / RevPerSecond;
                 MotorMovementSeconds = stepperMove * OneRev;
+                LogInformation($"{Axis} Axis MotorMovementSeconds for <= 600.00 RPM: {MotorMovementSeconds}");
             }
             else if (MotorSpeed <= 700.00m)
             {
                 decimal RevPerSecond = MotorSpeed / 60m;
                 decimal OneRev = 1m / RevPerSecond;
                 MotorMovementSeconds = stepperMove * OneRev;
+                LogInformation($"{Axis} Axis MotorMovementSeconds for <= 700.00 RPM: {MotorMovementSeconds}");
             }
             else if (MotorSpeed <= 800.00m)
             {
                 decimal RevPerSecond = MotorSpeed / 60m;
                 decimal OneRev = 1m / RevPerSecond;
                 MotorMovementSeconds = stepperMove * OneRev;
+                LogInformation($"{Axis} Axis MotorMovementSeconds for <= 800.00 RPM: {MotorMovementSeconds}");
             }
             else if (MotorSpeed <= 900.00m)
             {
                 decimal RevPerSecond = MotorSpeed / 60m;
                 decimal OneRev = 1m / RevPerSecond;
+                LogInformation($"{Axis} Axis MotorMovementSeconds for <= 900.00 RPM: {MotorMovementSeconds}");
                 MotorMovementSeconds = stepperMove * OneRev;
             }
             else if (MotorSpeed <= 1000.00m)
@@ -1459,9 +1502,9 @@ namespace Stepper
                 decimal RevPerSecond = MotorSpeed / 60m;
                 decimal OneRev = 1m / RevPerSecond;
                 MotorMovementSeconds = stepperMove * OneRev;
+                LogInformation($"{Axis} Axis MotorMovementSeconds for <= 1000.00 RPM: {MotorMovementSeconds}");
             }
 
-            LogInformation($"{Axis} Axis MotorMovementSeconds: {MotorMovementSeconds}");
             return MotorMovementSeconds;
         }
         /// <summary>
