@@ -18,7 +18,7 @@
         <Border Width="900" Height="50" HorizontalAlignment="Left" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Background="Black" Padding="7,1">
             <StackPanel Width="900" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="X axis Move To:" Width="102"/>
-                <TextBox Text="0.00" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtXaxisStepperMove" Padding="7,1" Width="100" TouchUp="AxisStepperMove_TouchUp" PreviewMouseUp="AxisStepperMove_PreviewMouseUp" TextChanged="AxisStepperMove_TextChanged" GotFocus="AxisStepperMove_GotFocus" PreviewTextInput="TextBox_OnPreviewTextInput" />
+                <TextBox Text="0.00" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtXaxisStepperMove" Padding="7,1" Width="100" TouchUp="AxisStepperMove_TouchUp" PreviewMouseUp="AxisStepperMove_PreviewMouseUp" GotFocus="AxisStepperMove_GotFocus" PreviewTextInput="TextBox_OnPreviewTextInput" />
                 <Label Padding="7,1" Content="(mm)" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 
                 <TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="X axis Current:"/>
@@ -36,7 +36,7 @@
         <Border Width="900" Height="50" HorizontalAlignment="Left" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Background="Black" Padding="7,1">
             <StackPanel Width="900" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="Y axis Move To:" Width="102"/>
-                <TextBox Text="0.00" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtYaxisStepperMove" Padding="7,1" Width="100" TouchUp="AxisStepperMove_TouchUp" PreviewMouseUp="AxisStepperMove_PreviewMouseUp" TextChanged="AxisStepperMove_TextChanged" GotFocus="AxisStepperMove_GotFocus" PreviewTextInput="TextBox_OnPreviewTextInput" />
+                <TextBox Text="0.00" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtYaxisStepperMove" Padding="7,1" Width="100" TouchUp="AxisStepperMove_TouchUp" PreviewMouseUp="AxisStepperMove_PreviewMouseUp" GotFocus="AxisStepperMove_GotFocus" PreviewTextInput="TextBox_OnPreviewTextInput" />
                 <Label Padding="7,1" Content="(mm)" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 
                 <TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="Y axis Current:"/>
@@ -54,7 +54,7 @@
         <Border Width="900" Height="50" HorizontalAlignment="Left" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Background="Black" Padding="7,1">
             <StackPanel Width="900" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="Z axis Move To:" Width="102"/>
-                <TextBox Text="0.00" TextAlignment="Right"  HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtZaxisStepperMove" Padding="7,1" Width="100" TouchUp="AxisStepperMove_TouchUp" PreviewMouseUp="AxisStepperMove_PreviewMouseUp" TextChanged="AxisStepperMove_TextChanged" GotFocus="AxisStepperMove_GotFocus" PreviewTextInput="TextBox_OnPreviewTextInput" />
+                <TextBox Text="0.00" TextAlignment="Right"  HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="txtZaxisStepperMove" Padding="7,1" Width="100" TouchUp="AxisStepperMove_TouchUp" PreviewMouseUp="AxisStepperMove_PreviewMouseUp" GotFocus="AxisStepperMove_GotFocus" PreviewTextInput="TextBox_OnPreviewTextInput" />
                 <Label Padding="7,1" Content="(mm)" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 
                 <TextBlock Padding="7,1" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" Text="Z axis Current:"/>

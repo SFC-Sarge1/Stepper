@@ -314,6 +314,11 @@
             The current X, Y, or Z axis being worked with.
             </summary>
         </member>
+        <member name="F:Stepper.MainWindow._isCountdownTimerRunning">
+            <summary>
+            Flag to indicate if the CountdownTimer_Tick method is running.
+            </summary>
+        </member>
         <member name="M:Stepper.MainWindow.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Stepper.MainWindow" /> class.
@@ -476,21 +481,6 @@
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.ProcessReceivedData(System.String,System.String)">
-            <summary>
-            Processes the received data.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="indata">The indata.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateAxisPosition(System.String,System.Single,System.Boolean)">
-            <summary>
-            Updates the axis position.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="distanceInMM">The distance in mm.</param>
-            <param name="isClockwise">if set to <c>true</c> [is clockwise].</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>

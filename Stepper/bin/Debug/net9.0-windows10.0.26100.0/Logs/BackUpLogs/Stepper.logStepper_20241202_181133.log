@@ -1,0 +1,4 @@
+12/2/2024 18:10:27 [Information] Logger updated to Microsoft.Extensions.Logging.Logger`1[Stepper.MainWindow] (Line: 226)
+12/2/2024 18:10:27 [Information] Stepper Motor Controller Application Started. (Line: 957)
+12/2/2024 18:10:27 [Information] Version: 3.0.9102.32709 (12/2/2024 18:10:27) (Line: 961)
+12/2/2024 18:10:28 [Information] Initializing Serial Ports. (Line: 786)

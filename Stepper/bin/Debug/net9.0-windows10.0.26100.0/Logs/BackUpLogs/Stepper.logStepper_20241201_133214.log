@@ -1,0 +1,7 @@
+12/1/2024 13:31:26 [Information] Logger updated to Microsoft.Extensions.Logging.Logger`1[Stepper.MainWindow] (Line: 225)
+12/1/2024 13:31:26 [Information] Stepper Motor Controller Application Started. (Line: 938)
+12/1/2024 13:31:26 [Information] Version: 3.0.9101.24339 (12/1/2024 13:31:26) (Line: 942)
+12/1/2024 13:31:26 [Information] Initializing Serial Ports. (Line: 767)
+12/1/2024 13:31:27 [Error] I/O error occurred while opening the port COM7. (Line: 830)
+12/1/2024 13:31:27 [Error] I/O error occurred while opening the port COM8. (Line: 830)
+12/1/2024 13:31:27 [Information] SerialPort COM10 opened successfully. (Line: 813)

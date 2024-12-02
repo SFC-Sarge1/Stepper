@@ -86,9 +86,9 @@ namespace Stepper.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("4")]
-        public int mmPerRevolution {
+        public float mmPerRevolution {
             get {
-                return ((int)(this["mmPerRevolution"]));
+                return ((float)(this["mmPerRevolution"]));
             }
             set {
                 this["mmPerRevolution"] = value;
@@ -560,6 +560,30 @@ namespace Stepper.Properties {
             }
             set {
                 this["CountdownTimer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        public float stepsPerRevolution {
+            get {
+                return ((float)(this["stepsPerRevolution"]));
+            }
+            set {
+                this["stepsPerRevolution"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float AxisAbsolutePosition {
+            get {
+                return ((float)(this["AxisAbsolutePosition"]));
+            }
+            set {
+                this["AxisAbsolutePosition"] = value;
             }
         }
     }

@@ -41,7 +41,7 @@
               }
             }
           },
-          "net9.0-maccatalyst18.0": {
+          "net9.0-maccatalyst18.1": {
             "targetAlias": "net9.0-maccatalyst",
             "projectReferences": {
               "C:\\Users\\sfcsarge\\source\\repos\\Stepper\\WindowsInput\\WindowsInput.csproj": {
@@ -154,7 +154,7 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         },
-        "net9.0-maccatalyst18.0": {
+        "net9.0-maccatalyst18.1": {
           "targetAlias": "net9.0-maccatalyst",
           "dependencies": {
             "CommunityToolkit.Maui": {

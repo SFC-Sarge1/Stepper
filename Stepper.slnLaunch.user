@@ -1,0 +1,12 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "Stepper\\Stepper.csproj",
+        "Action": "Start",
+        "DebugTarget": "Stepper"
+      }
+    ]
+  }
+]

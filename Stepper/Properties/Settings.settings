@@ -17,7 +17,7 @@
     <Setting Name="Milliseconds" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1000</Value>
     </Setting>
-    <Setting Name="mmPerRevolution" Type="System.Int32" Scope="User">
+    <Setting Name="mmPerRevolution" Type="System.Single" Scope="User">
       <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="RootAxisX" Type="System.String" Scope="User">
@@ -136,6 +136,12 @@
     </Setting>
     <Setting Name="CountdownTimer" Type="System.String" Scope="User">
       <Value Profile="(Default)">Axis Stepper Motor Countdown:</Value>
+    </Setting>
+    <Setting Name="stepsPerRevolution" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
+    <Setting Name="AxisAbsolutePosition" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>
