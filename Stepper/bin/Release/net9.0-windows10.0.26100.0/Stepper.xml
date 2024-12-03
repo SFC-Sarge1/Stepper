@@ -208,6 +208,10 @@
             <summary>Gets the y axis absolute position.</summary>
             <value>The y axis absolute position.</value>
         </member>
+        <member name="P:Stepper.MainWindow.ZAxisAbsolutePosition">
+            <summary>Gets the z axis absolute position.</summary>
+            <value>The z axis absolute position.</value>
+        </member>
         <member name="E:Stepper.MainWindow.XAxisTargetReachedChanged">
             <summary>
             Occurs when X axis target reached property is changed.
@@ -302,16 +306,15 @@
             <summary>Handles the <see cref="E:ZAxisAbsolutePositionChanged" /> event.</summary>
             <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="F:Stepper.MainWindow._zAxisAbsolutePosition">
-            <summary>The z axis absolute position</summary>
-        </member>
-        <member name="P:Stepper.MainWindow.ZAxisAbsolutePosition">
-            <summary>Gets the z axis absolute position.</summary>
-            <value>The z axis absolute position.</value>
-        </member>
         <member name="F:Stepper.MainWindow._currentAxis">
+            <summary>The z axis absolute position</summary>
             <summary>
             The current X, Y, or Z axis being worked with.
+            </summary>
+        </member>
+        <member name="F:Stepper.MainWindow._isCountdownTimerRunning">
+            <summary>
+            Flag to indicate if the CountdownTimer_Tick method is running.
             </summary>
         </member>
         <member name="M:Stepper.MainWindow.#ctor">
@@ -476,21 +479,6 @@
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.IO.Ports.SerialDataReceivedEventArgs" /> instance containing the event data.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.ProcessReceivedData(System.String,System.String)">
-            <summary>
-            Processes the received data.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="indata">The indata.</param>
-        </member>
-        <member name="M:Stepper.MainWindow.UpdateAxisPosition(System.String,System.Single,System.Boolean)">
-            <summary>
-            Updates the axis position.
-            </summary>
-            <param name="axis">The axis.</param>
-            <param name="distanceInMM">The distance in mm.</param>
-            <param name="isClockwise">if set to <c>true</c> [is clockwise].</param>
         </member>
         <member name="M:Stepper.MainWindow.AxisRun_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>

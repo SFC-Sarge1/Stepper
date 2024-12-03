@@ -208,6 +208,10 @@
             <summary>Gets the y axis absolute position.</summary>
             <value>The y axis absolute position.</value>
         </member>
+        <member name="P:Stepper.MainWindow.ZAxisAbsolutePosition">
+            <summary>Gets the z axis absolute position.</summary>
+            <value>The z axis absolute position.</value>
+        </member>
         <member name="E:Stepper.MainWindow.XAxisTargetReachedChanged">
             <summary>
             Occurs when X axis target reached property is changed.
@@ -302,14 +306,8 @@
             <summary>Handles the <see cref="E:ZAxisAbsolutePositionChanged" /> event.</summary>
             <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="F:Stepper.MainWindow._zAxisAbsolutePosition">
-            <summary>The z axis absolute position</summary>
-        </member>
-        <member name="P:Stepper.MainWindow.ZAxisAbsolutePosition">
-            <summary>Gets the z axis absolute position.</summary>
-            <value>The z axis absolute position.</value>
-        </member>
         <member name="F:Stepper.MainWindow._currentAxis">
+            <summary>The z axis absolute position</summary>
             <summary>
             The current X, Y, or Z axis being worked with.
             </summary>
