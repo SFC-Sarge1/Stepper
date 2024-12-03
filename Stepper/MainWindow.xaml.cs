@@ -4,7 +4,7 @@
 // Created          : 12-19-2023
 //
 // Last Modified By : sfcsarge
-// Last Modified On : 11-25-2024
+// Last Modified On : 12-03-2024
 // ***********************************************************************
 // <copyright file="MainWindow.xaml.cs" company="Stepper">
 //     Copyright (c) . All rights reserved.
@@ -303,12 +303,11 @@ namespace Stepper
                 if (_zAxisAbsolutePosition != value)
                 {
                     _zAxisAbsolutePosition = value;
-                LogInformation($"ZAxisAbsolutePosition updated to {value}");
-                OnZAxisAbsolutePositionChanged(EventArgs.Empty);
+                    LogInformation($"ZAxisAbsolutePosition updated to {value}");
+                    OnZAxisAbsolutePositionChanged(EventArgs.Empty);
                 }
             }
         }
-
         /// <summary>
         /// Occurs when X axis target reached property is changed.
         /// Define the event using the delegate.
@@ -419,26 +418,32 @@ namespace Stepper
         {
             ZAxisTargetReachedChanged?.Invoke(this, e);
         }
-
-        /// <summary>Delegate AxisAbsolutePositionEventHandler</summary>
+        /// <summary>
+        /// Delegate AxisAbsolutePositionEventHandler
+        /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         public delegate void AxisAbsolutePositionEventHandler(object sender, EventArgs e);
-        /// <summary>Occurs when [z axis absolute position changed].</summary>
+        /// <summary>
+        /// Occurs when [z axis absolute position changed].
+        /// </summary>
         public event AxisAbsolutePositionEventHandler? ZAxisAbsolutePositionChanged;
-        /// <summary>Handles the <see cref="E:ZAxisAbsolutePositionChanged" /> event.</summary>
+        /// <summary>
+        /// Handles the <see cref="E:ZAxisAbsolutePositionChanged" /> event.
+        /// </summary>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         protected virtual void OnZAxisAbsolutePositionChanged(EventArgs e)
         {
             ZAxisAbsolutePositionChanged?.Invoke(this, e);
         }
-
-        /// <summary>The z axis absolute position</summary>
-
         /// <summary>
         /// The current X, Y, or Z axis being worked with.
         /// </summary>
         private string _currentAxis = "Z";
+        /// <summary>
+        /// Gets the current axis.
+        /// </summary>
+        /// <value>The current axis.</value>
         public string CurrentAxis
         {
             get => _currentAxis;
@@ -451,18 +456,30 @@ namespace Stepper
                 }
             }
         }
-        private bool _limitSwitchUpdateCompleted = false;
+        /// <summary>
+        /// The is clockwise
+        /// </summary>
         public bool isClockwise = true;
+        /// <summary>
+        /// The new position
+        /// </summary>
         public float newPosition = 0.00f;
+        /// <summary>
+        /// The distance in mm
+        /// </summary>
         public float distanceInMM = 0.00f;
+        /// <summary>
+        /// The steps per revolution
+        /// </summary>
         public float stepsPerRevolution = 200.0f;
+        /// <summary>
+        /// The distance per revolution
+        /// </summary>
         public float distancePerRevolution = 4.0f;
         /// <summary>
         /// Flag to indicate if the CountdownTimer_Tick method is running.
         /// </summary>
         private bool _isCountdownTimerRunning = false;
-
-
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow" /> class.
         /// </summary>
@@ -685,6 +702,11 @@ namespace Stepper
             }
         }
         // Event handler for ZAxisAbsolutePositionChanged
+        /// <summary>
+        /// Handles the ZAxisAbsolutePositionChanged event of the MainWindow control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void MainWindow_ZAxisAbsolutePositionChanged(object sender, EventArgs e)
         {
             LogInformation("Z Axis Absolute Position changed.");
@@ -1510,6 +1532,11 @@ namespace Stepper
         /// <param name="number">The number.</param>
         /// <returns><c>true</c> if the specified number is negative; otherwise, <c>false</c>.</returns>
         public bool IsNegative(decimal number) => number < 0;
+        /// <summary>
+        /// Determines whether the specified number is negative.
+        /// </summary>
+        /// <param name="number">The number.</param>
+        /// <returns><c>true</c> if the specified number is negative; otherwise, <c>false</c>.</returns>
         public bool IsNegative(float number) => number < 0;
         /// <summary>
         /// Updates the motor timer.
